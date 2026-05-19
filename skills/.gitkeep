@@ -1,0 +1,9 @@
+# Skills directory
+
+This directory is populated at build time by the migration step in
+`HANDOFF_team_readiness_7_steps.md` §5.4 — Claude Code copies the 17
+team-shared skills from the runtime plugin location into here, then
+the manifest at `.claude-plugin/plugin.json` references them by folder name.
+
+Personal skills (TecAlianza, Diálogos, DPS, Davivienda, etc.) are
+EXPLICITLY excluded — see CHANGELOG.md `[1.2.0] · Removed`.

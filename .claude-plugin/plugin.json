@@ -1,0 +1,118 @@
+{
+  "$schema": "https://anthropic.com/schemas/claude-plugin/v1.json",
+  "name": "cleantechhub",
+  "displayName": "CleantechHUB",
+  "version": "1.2.0",
+  "description": "CleantechHUB team plugin — bundles all CTH-internal skills (brand, programs, ops) + MCP servers (files-mcp, doctor-bot) so any team member's Cowork can collaborate inside the CTH workspace. Spanish-default. Aligned to the CTH Pod 6-pillar implementation layer.",
+  "author": {
+    "name": "CleantechHUB Foundation",
+    "email": "team@cleantechhub.net",
+    "url": "https://cleantechhub.net"
+  },
+  "homepage": "https://github.com/cleantechhub-foundation/cth-plugin",
+  "license": "Proprietary — CleantechHUB Foundation internal use only",
+  "keywords": [
+    "cleantechhub",
+    "cth",
+    "clp26",
+    "climate",
+    "sustainability",
+    "latam"
+  ],
+  "engines": {
+    "claude-desktop": ">=1.0.0",
+    "cowork": ">=1.0.0"
+  },
+
+  "skills": [
+    "cleantechhub-brand",
+    "clp26-brand",
+    "sustenttia-brand",
+    "social-media-campaign",
+    "cth-grant",
+    "cth-proposal-build",
+    "cth-seo",
+    "buffer",
+    "canva",
+    "monday",
+    "gmail",
+    "google-drive",
+    "bookstack",
+    "doctor-bot",
+    "secrets",
+    "dual-desktop-macos"
+  ],
+
+  "commands": [
+    "cth-status",
+    "cth-handoff",
+    "cth-newsletter-prep"
+  ],
+
+  "mcpServers": {
+    "files-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://files-mcp.cleantechhub.net/mcp",
+        "--header",
+        "Authorization: Bearer ${USER_FILES_MCP_TOKEN}"
+      ],
+      "description": "CTH file SSOT — read/write /opt/claude-files on the VPS. Each team member replaces ${USER_FILES_MCP_TOKEN} with their personal token (issued by Gideon via Infisical, see README). Uses mcp-remote stdio bridge because Claude Desktop's current version doesn't load native streamable-http transport from claude_desktop_config.json."
+    },
+    "doctor-bot": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://doctor-mcp.apps.cleantechhub.net/mcp",
+        "--header",
+        "Authorization: Bearer ${USER_DOCTOR_BOT_TOKEN}"
+      ],
+      "description": "CTH infrastructure health — read-only access to the nightly VPS audit run + Pod state. Same mcp-remote pattern; each user replaces ${USER_DOCTOR_BOT_TOKEN} with their personal token."
+    }
+  },
+
+  "brand": {
+    "name": "CleantechHUB",
+    "tagline": "Inspira · Actúa · Transforma",
+    "primary": "#0C498A",
+    "palette": {
+      "deep_blue":   "#0C498A",
+      "light_cyan":  "#B2EEFA",
+      "light_green": "#9DC384",
+      "forest_green":"#669348",
+      "sky_blue":    "#69B5FA"
+    },
+    "fonts": {
+      "primary":   "Open Sans",
+      "secondary": "PT Sans",
+      "wordmark":  "Titilium Bold"
+    },
+    "default_language": "es"
+  },
+
+  "workspace_defaults": {
+    "language": "es",
+    "system_prompt_file": "system-prompts/cth-workspace.md",
+    "preferred_projects": [
+      "CleantechHUB Identity",
+      "CLP26 — Campaña 2026",
+      "CTH Operaciones",
+      "CTH Apps & Agentes"
+    ]
+  },
+
+  "documentation": {
+    "install_guide": "README.md",
+    "changelog": "CHANGELOG.md",
+    "identity_doc_reference": "https://files-mcp.cleantechhub.net/mcp::Projects/Claude Infrastructure/CTH_Identity.md",
+    "pod_handoff_reference":  "https://files-mcp.cleantechhub.net/mcp::Projects/Claude Infrastructure/CTH_Pod_Handoff_ClaudeCode.md"
+  },
+
+  "auto_update": {
+    "check_interval_hours": 24,
+    "channel": "stable"
+  }
+}

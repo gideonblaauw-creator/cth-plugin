@@ -1,0 +1,17 @@
+# Build / cache
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets — NEVER commit
+.env
+.env.*
+secrets/
+*.pem
+*.key
+
+# Local-only dev artifacts
+dist/
+*.tgz

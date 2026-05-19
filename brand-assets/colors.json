@@ -1,0 +1,112 @@
+{
+  "$schema": "https://anthropic.com/schemas/claude-plugin/brand-assets/v1.json",
+  "brand": "CleantechHUB",
+  "tagline": "Inspira · Actúa · Transforma",
+  "version": "2024.01",
+  "source": "CleantechHUB Manual de Marca, January 2024",
+
+  "palette": {
+    "primary": {
+      "deep_blue": {
+        "hex": "#0C498A",
+        "rgb": [12, 73, 138],
+        "role": "Primary — official documents, formal comms, logo default",
+        "meaning": "water as a vital element / human drive for change",
+        "css_var": "--cth-deep-blue"
+      },
+      "light_cyan": {
+        "hex": "#B2EEFA",
+        "rgb": [178, 238, 250],
+        "role": "Primary — backgrounds, light fills, 'water' element",
+        "css_var": "--cth-light-cyan"
+      },
+      "light_green": {
+        "hex": "#9DC384",
+        "rgb": [157, 195, 132],
+        "role": "Primary — 'earth' element, creative pieces, secondary emphasis",
+        "meaning": "earth we belong to and must care for",
+        "css_var": "--cth-light-green"
+      }
+    },
+    "secondary": {
+      "forest_green": {
+        "hex": "#669348",
+        "rgb": [102, 147, 72],
+        "role": "Secondary — supporting earth tones",
+        "css_var": "--cth-forest-green"
+      },
+      "sky_blue": {
+        "hex": "#69B5FA",
+        "rgb": [105, 181, 250],
+        "role": "Secondary — supporting water tones",
+        "css_var": "--cth-sky-blue"
+      }
+    }
+  },
+
+  "forbidden": [
+    "Black backgrounds with dark blue logo (legibility conflict)",
+    "Purple or magenta backgrounds",
+    "Any color outside this palette"
+  ],
+
+  "typography": {
+    "wordmark": {
+      "font": "Titilium Bold",
+      "use": "CleantechHUB wordmark only"
+    },
+    "primary": {
+      "font": "Open Sans",
+      "weights": ["Regular", "SemiBold", "Bold"],
+      "use": "Body text, headings, main copy in all documents"
+    },
+    "secondary": {
+      "font": "PT Sans",
+      "use": "Accompanying brand copy, supporting text"
+    },
+    "tertiary": {
+      "font": "Hind Bold",
+      "use": "Extra artwork, modern variations"
+    },
+    "web_fallback": "'Open Sans', 'PT Sans', sans-serif"
+  },
+
+  "logo_versions": {
+    "default": "LOGO_AZUL_OSCURO_VERTICAL_CON_TAG_LINE.png",
+    "creative": "LOGO_AZUL_CLARO_*.png",
+    "earth": "LOGO_VERDE_OSCURO_*.png",
+    "creative_friendly": "LOGO_VERDE_CLARO_*.png",
+    "anniversary_5y": "5_AN_OS_5.png"
+  },
+
+  "logo_rules": {
+    "min_size_print_cm": 4,
+    "clear_space_cm": 3,
+    "never_distort": true,
+    "never_recolor": true,
+    "never_rotate": true,
+    "never_apply_effects": true
+  },
+
+  "tone": {
+    "personality": ["inspiring", "action-oriented", "inclusive", "optimistic"],
+    "register": "Warm but credible — professional without being cold",
+    "primary_language": "es",
+    "international_language": "en",
+    "verbs_to_use": ["inspirar", "actuar", "transformar", "fortalecer", "construir", "innovar"],
+    "verbs_to_avoid": ["technical jargon", "exclusionary terms", "overly corporate", "pessimistic"]
+  },
+
+  "mantras": {
+    "es_primary": "Inspira · Actúa · Transforma",
+    "es_alt": "La teoría del cambio es nuestra razón de ser",
+    "es_belief": "Creemos en las personas que creen en sus propias ideas",
+    "en": "We believe in people who believe in their ideas"
+  },
+
+  "usage_in_artifacts": {
+    "css_block": ":root {\n  --cth-deep-blue: #0C498A;\n  --cth-light-cyan: #B2EEFA;\n  --cth-light-green: #9DC384;\n  --cth-forest-green: #669348;\n  --cth-sky-blue: #69B5FA;\n  color-scheme: light;\n}",
+    "html_font_stack": "<link href=\"https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap\" rel=\"stylesheet\">",
+    "svg_safe_palette": ["#0C498A", "#B2EEFA", "#9DC384", "#669348", "#69B5FA"]
+  }
+}
