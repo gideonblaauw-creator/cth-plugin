@@ -16,10 +16,8 @@ Convención de commits: `vX.Y.Z · <título>` para releases.
 - **Workspace defaults**: idioma español, system prompt pre-cargado, lista de Projects preferidos
 
 ### Changed
-- **`cth-grant` skill description**: removido `Triple Jump, Expertise France` de los triggers de funder (no son donantes activos)
-- **`cth-grant` §5d**: removida fila de `Expertise France` budget rules; `DGGF / Triple Jump` → solo `DGGF`
-- **`cth-grant` §3a**: Sustenttia reframed de "CTH platform" a "client engagement we delivered" (refleja que Sustenttia es cliente, no marca propia)
-- **`cth-grant` §10**: tabla strengths/gaps · Sustenttia row aclarado como engagement de cliente
+- **`cth-grant` skill description**: removidos funders inactivos de los triggers
+- **`cth-grant`**: Sustenttia reframed de "CTH platform" a "client engagement we delivered"
 
 ### Removed
 - `notion` skill **NO incluida** en el plugin del equipo (CTH no usa Notion · usa Confluence + BookStack). Skill sigue existiendo en personal-only para Gideon
@@ -29,7 +27,7 @@ Convención de commits: `vX.Y.Z · <título>` para releases.
 - `composio`, `mac-storage-hygiene`, `ollama`, `google-workspace-cli` **NO incluidas** (experimental / Gideon machine-specific)
 
 ### Security
-- Tokens migrados de `tokens.json` plaintext en VPS → Infisical project `086e5791-f415-41c2-ad5d-9ec0026792ed` path `/cth/files-mcp/tokens/`
+- Tokens migrados de `tokens.json` plaintext en VPS → Infisical (project ID gestionado internamente)
 - `auth.py` cache TTL 60 seg en prod (era 300 seg en dev) para que revocación de token propague rápido
 - Caddy `rate_limit` agregado: 60 req/min/IP + 600 req/h/token
 

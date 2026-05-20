@@ -1,25 +1,17 @@
 {
   "$schema": "https://anthropic.com/schemas/claude-plugin/marketplace/v1.json",
-  "name": "cleantechhub-foundation",
-  "displayName": "CleantechHUB Foundation",
-  "description": "Private marketplace for CleantechHUB team plugins. CTH Foundation members only.",
+  "name": "cleantechhub",
+  "displayName": "CleantechHUB",
+  "description": "CleantechHUB team plugin — brand, program, and ops skills + MCP connectors for the CTH Team Plan.",
   "owner": {
     "name": "CleantechHUB Foundation",
-    "email": "team@cleantechhub.net",
     "url": "https://cleantechhub.net"
   },
   "plugins": [
     {
       "name": "cleantechhub",
       "source": "./",
-      "version": "1.2.0",
-      "description": "Core CTH plugin — skills + MCPs + commands for the team"
+      "description": "Core CTH plugin — team-safe skills + files-mcp + doctor-bot MCPs + commands"
     }
-  ],
-  "access": "private",
-  "support": {
-    "issues": "https://github.com/cleantechhub-foundation/cth-plugin/issues",
-    "telegram": "CTH · Ops group",
-    "contact": "gideon.blaauw@cleantechhub.net"
-  }
+  ]
 }

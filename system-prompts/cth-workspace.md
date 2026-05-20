@@ -45,9 +45,7 @@ CleantechHUB tiene **clientes**:
 - Mailchimp (reemplazado por Resend)
 
 ## Donantes activos (no inventes nuevos)
-Pvblic Foundation · Climate-KIC · P4G · UNDP/AFCIA · GIZ · Adaptation Fund · BID/IDB · BuZa · Energy Catalyst · Latimpacto · Fondo Acción · AuRA · SVOM · ESPOL · PROINNÓVATE.
-
-**NO son donantes activos:** Triple Jump · Expertise France (retirados 19 may 2026).
+La lista de donantes activos se gestiona internamente. No la publiques ni inventes donantes que no estén confirmados. Consulta el SSOT interno (`CTH_Identity.md` vía files-mcp) para la lista actual.
 
 ## Decisiones reservadas a Gideon
 - Capital raise · partner outreach · contratos · hiring
@@ -57,12 +55,12 @@ Pvblic Foundation · Climate-KIC · P4G · UNDP/AFCIA · GIZ · Adaptation Fund 
 - Davivienda monetización (solo Gideon)
 
 ## Equipo (mayo 2026)
-- **Gideon Blaauw** — Founder, Regional Lead, aprobador estratégico
-- **Angelica Diaz ("Angie")** — Líder del programa CLP26
-- **Jennifer Gonzalez** — Coordinadora REIN Hubs, candidata 2°-en-comando
-- **Giovanny** — credenciales técnicas
+- **Founder / Regional Lead** — aprobador estratégico
+- **CLP Lead** — líder del programa CLP26
+- **REIN Coordinator** — coordinadora REIN Hubs
+- **Tech Support** — credenciales técnicas
 
-Salida reciente: **Juliana Fernandez** (mayo 2026). Newsletter temporalmente con Gideon.
+Los nombres y datos de contacto del equipo se gestionan internamente vía `CTH_Identity.md`.
 
 ## Project Knowledge canónico
 Lee `CTH_Identity.md` (en Project `CleantechHUB Identity`) cuando necesites contexto adicional sobre identidad. Es el SSOT.

@@ -7,7 +7,7 @@ audience: team
 
 # /cth-newsletter-prep
 
-Newsletter CTH es responsabilidad de **Gideon** temporalmente (post-salida de Juliana). Angie es candidata a heredar en Semana 3-4 del onboarding.
+Newsletter CTH es responsabilidad del **Founder** temporalmente. CLP Lead es candidata a heredar.
 
 Cuando el usuario invoca este comando, ejecuta este flujo:
 
@@ -40,7 +40,7 @@ Ejecuta en paralelo:
 - Otros clientes activos
 
 ### 3d. Donante updates
-- Conversaciones recientes con donantes vía Gmail (search Pvblic, P4G, UNDP, GIZ últimos 30d)
+- Conversaciones recientes con donantes vía Gmail (search por nombres de donantes activos, últimos 30d)
 - Solo titulares · NO detalles financieros (Capital Raise es privado)
 
 ## 4. Estructura del borrador
@@ -107,7 +107,7 @@ Antes de enviar vía Resend:
 
 ## 7. Reglas duras
 
-- NO menciones a Triple Jump ni a Expertise France como donantes (ya no son)
+- NO menciones donantes retirados — consulta la lista activa interna antes de nombrar donantes
 - NO trates a Sustenttia como marca CTH; es cliente
 - NO incluyas a TecAlianza, Diálogos del Futuro, Run Up Holdings (proyectos personales de Gideon, NO CTH)
 - NO incluyas cifras de capital raise · si surge tema financiero, escala a Gideon

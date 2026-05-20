@@ -2,8 +2,7 @@
 
 Plugin oficial para el equipo CleantechHUB en Claude Team Plan. Reúne todas las skills internas de CTH (marcas, programas, operaciones) y los conectores MCP que el equipo usa para colaborar desde Cowork.
 
-**Audiencia:** miembros del equipo CleantechHUB (Gideon, Angelica, Jennifer, futuros hires).
-**No público.** Si llegaste acá sin invitación, regresa.
+**Audiencia:** miembros del equipo CleantechHUB.
 
 ---
 
@@ -14,17 +13,14 @@ Plugin oficial para el equipo CleantechHUB en Claude Team Plan. Reúne todas las
 - `clp26-brand` — overlay ClimateLaunchpad 2026 · colores · plantillas · idioma por país
 - `sustenttia-brand` — marca del cliente Sustenttia (CTH presta servicios)
 
-### 🚀 Skills de programa (4)
+### 🚀 Skills de programa (1)
 - `social-media-campaign` — pipeline contenido → Buffer → publicación
-- `cth-grant` — ciclo de grants · evaluación · scoping · drafting · budget · TOC · BID/IDB bids
-- `cth-proposal-build` — propuestas de servicios cliente
-- `cth-seo` — centro de comando SEO
 
 ### 🛠️ Skills operativas (9)
 - `monday` · `gmail` · `google-drive` · `bookstack` · `buffer` · `canva`
 - `doctor-bot` · `secrets` · `dual-desktop-macos`
 
-> **Nota:** algunas workflow skills (`social-media-campaign`, `cth-grant`, `cth-seo`, `cth-proposal-build`) pendientes de Pod schema retrofit — ver Pod W2.
+> **Nota:** `social-media-campaign` pendiente de Pod schema retrofit — ver Pod W2.
 
 ### 🤖 MCP servers (2)
 - `files-mcp` — SSOT de archivos Claude en el VPS (`/opt/claude-files/`)
@@ -51,18 +47,20 @@ Antes de instalar:
    
    Estos tokens son tuyos y solo tuyos. Si los pierdes o sospechas que se filtraron, escribe a Gideon en Telegram DM inmediato — rotamos en 5 min.
 
-### Paso 1 · Agregar este marketplace
+### Paso 1 · Agregar el marketplace desde GitHub
 
-En Claude Desktop CTH:
-1. Settings → Plugins → "Add marketplace"
-2. Pega la URL del marketplace: `https://plugins.cleantechhub.net/marketplace.json`
-3. Confirma. El marketplace `cleantechhub-foundation` aparece en la lista.
+En Claude Desktop CTH (o Claude Code):
+```
+/plugin marketplace add gideonblaauw-creator/cth-plugin
+```
 
 ### Paso 2 · Instalar el plugin
 
-1. Settings → Plugins → Browse → busca "CleantechHUB"
-2. Click "Install" en el plugin `cleantechhub` v1.2.0
-3. Espera a que descarguen las 16 skills + 3 commands (≤30 seg)
+```
+/plugin install cleantechhub@cleantechhub
+```
+
+Espera a que descarguen las 13 skills + 3 commands (≤30 seg).
 
 ### Paso 3 · Pegar tus tokens MCP en el config
 
@@ -120,13 +118,13 @@ Si responde con la estructura de `/opt/claude-files/`, todo está conectado.
 
 ## Uso del día a día
 
-### Para CLP26 (Angelica · líder del programa)
+### Para CLP26 (CLP Lead)
 1. Abre el Project **CLP26 — Campaña 2026** en tu sidebar
 2. Las skills `clp26-brand` y `social-media-campaign` se activan automáticamente
 3. Escribe handoffs como: `delega: <outcome>` para que Gideon apruebe
 4. Lee/escribe archivos del programa directamente vía Claude (van al VPS, no a tu Mac)
 
-### Para Hub Owners (Jennifer · selección REIN)
+### Para Hub Owners (REIN Coordinator)
 1. Abre el Project **CTH Operaciones**
 2. Activa `clp26-brand` cuando coordines países
 3. `delega:` también funciona para ti cuando necesitas que Gideon apruebe algo
@@ -155,8 +153,8 @@ Una vez instalado el plugin, estas referencias se cargan en tus Projects automá
 
 - **`CTH_Identity.md`** — quiénes somos, marcas, clientes, stack, equipo
 - **`CTH_Pod_Handoff_ClaudeCode.md`** — la arquitectura de implementación (6 pilares)
-- **`Plan_Onboarding_Angie_Semana1.md`** — onboarding de equipo
-- **`Protocolo_CLP26_Dos_Pilotos.md`** — protocolo Angie ↔ Gideon
+- **`Plan_Onboarding_Semana1.md`** — onboarding de equipo
+- **`Protocolo_CLP26_Dos_Pilotos.md`** — protocolo CLP Lead ↔ Founder
 - **`Guia_Delegacion_CTH.md`** — sistema operativo de delegación (Gideon)
 
 ---
@@ -176,7 +174,7 @@ Ver `CHANGELOG.md` para historial de versiones. PRs solo desde miembros del equi
 
 Para correr en local antes de publicar:
 ```bash
-git clone git@github.com:cleantechhub-foundation/cth-plugin.git
+git clone git@github.com:gideonblaauw-creator/cth-plugin.git
 cd cth-plugin
 # Instalar localmente (modo dev) en lugar de marketplace
 claude plugin install ./
@@ -184,4 +182,9 @@ claude plugin install ./
 
 ---
 
-*v1.2.0 · 19 mayo 2026 · CleantechHUB Foundation*
+## Skills NOT in this public plugin (private to Founder)
+`cth-grant` · `cth-proposal-build` · `cth-seo` — strategic playbooks, installed manually on Founder's machine only.
+
+---
+
+*v1.2.0 · 20 mayo 2026 · CleantechHUB Foundation · GitHub marketplace (migrated from VPS)*

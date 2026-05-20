@@ -33,7 +33,7 @@ mcp__416f7430-0abf-417b-8b28-4afaa209d6a7__get_board_items_page
 
 Cuenta:
 - Items en "Esperando aprobación" (necesitan atención de Gideon hoy)
-- Items en "Borrador" (en curso por Angelica/equipo)
+- Items en "Borrador" (en curso por el equipo)
 - Items por marca: CLP26 / CleantechHUB / Sustenttia (cliente) / Interno
 - Próximos hitos de cronograma (next 14 días)
 
@@ -56,7 +56,7 @@ mcp__files-mcp__list_recent_changes
 
 Reporta:
 - Quién editó qué en las últimas 24h (vía audit log)
-- Si Angie/Jenn están activas (writes recientes)
+- Si el equipo está activo (writes recientes)
 
 ### 2d. Próximos hitos CLP26
 Lee desde `files-mcp`:
@@ -86,8 +86,8 @@ Construye una salida estructurada en este formato (markdown):
 - {Item 2 ...}
 
 ## 💼 Trabajo en curso (equipo)
-- **Angelica:** {N items en Borrador} · último write hace {X}
-- **Jennifer:** {N items en Borrador} · último write hace {X}
+- **CLP Lead:** {N items en Borrador} · último write hace {X}
+- **REIN Coordinator:** {N items en Borrador} · último write hace {X}
 
 ## 🏥 Salud infra
 - Doctor_Bot last run: {ts} · {RED count} RED · {AMBER count} AMBER
@@ -107,7 +107,7 @@ Después del dashboard, identifica 2-3 acciones específicas que el usuario podr
 
 - Si hay >3 items "Esperando aprobación" → "Bloquea 20 min para tu ventana de aprobación de las 10:30. Aquí están los 5 items."
 - Si Doctor_Bot tiene RED → "files-mcp en RED por X. Investiga primero antes de cualquier handoff nuevo."
-- Si Angie no ha escrito en 24h+ → "Angie sin actividad hoy. ¿Necesita un check-in?"
+- Si CLP Lead no ha escrito en 24h+ → "CLP Lead sin actividad hoy. ¿Necesita un check-in?"
 
 ## 5. No
 

@@ -9,7 +9,7 @@
     "email": "team@cleantechhub.net",
     "url": "https://cleantechhub.net"
   },
-  "homepage": "https://github.com/cleantechhub-foundation/cth-plugin",
+  "homepage": "https://github.com/gideonblaauw-creator/cth-plugin",
   "license": "Proprietary — CleantechHUB Foundation internal use only",
   "keywords": [
     "cleantechhub",
@@ -29,9 +29,6 @@
     "clp26-brand",
     "sustenttia-brand",
     "social-media-campaign",
-    "cth-grant",
-    "cth-proposal-build",
-    "cth-seo",
     "buffer",
     "canva",
     "monday",
