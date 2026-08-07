@@ -1,0 +1,12 @@
+{
+  "name": "cth-plugin",
+  "version": "2.0.0",
+  "description": "CleantechHUB operational plugin — brand guidelines, program management, tool integrations, and infrastructure monitoring for CTH collaborators. Harness-agnostic: works in Claude Cowork, Cursor, Claude Code, and any MCP-compatible environment.",
+  "author": {
+    "name": "CleantechHUB Foundation",
+    "url": "https://cleantechhub.net"
+  },
+  "repository": "https://github.com/gideonblaauw-creator/cth-plugin",
+  "license": "MIT",
+  "keywords": ["cleantech", "climate", "brand", "social-media", "grants", "infrastructure", "colombia"]
+}

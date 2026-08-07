@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "slack": {
+      "type": "http",
+      "url": "https://slack.mcp.claude.com/mcp"
+    },
+    "google-drive": {
+      "type": "http",
+      "url": "https://drive.mcp.claude.com/mcp"
+    },
+    "gmail": {
+      "type": "http",
+      "url": "https://gmail.mcp.claude.com/mcp"
+    },
+    "google-calendar": {
+      "type": "http",
+      "url": "https://calendar.mcp.claude.com/mcp"
+    },
+    "canva": {
+      "type": "http",
+      "url": "https://canva.mcp.claude.com/mcp"
+    },
+    "buffer": {
+      "type": "http",
+      "url": "https://buffer.mcp.claude.com/mcp"
+    },
+    "monday": {
+      "type": "http",
+      "url": "https://monday.mcp.claude.com/mcp"
+    },
+    "miro": {
+      "type": "http",
+      "url": "https://miro.mcp.claude.com/mcp"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://notion.mcp.claude.com/mcp"
+    }
+  }
+}

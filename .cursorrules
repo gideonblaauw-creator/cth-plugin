@@ -1,0 +1,42 @@
+# CleantechHUB — Cursor Rules
+
+You are working on a CleantechHUB project. Follow these guidelines:
+
+## Brand Identity
+- Primary color: #2D6A4F (CTH Green)
+- Secondary: #1B4332 (CTH Dark)
+- Accent: #95D5B2 (CTH Lime)
+- Font: Inter (system sans-serif fallback)
+- Tone: Expert but accessible, action-oriented, bilingual-ready (EN/ES)
+- Always capitalize "CleantechHUB" as one word with capital H-U-B
+
+## Infrastructure Rule
+Every long-running service for CleantechHUB deploys to the existing OVH VPS alongside BookStack. Never spin up a new host.
+
+## Key Domains
+- cleantechhub.net — Main site (WordPress)
+- wiki.cleantechhub.net — Knowledge base (BookStack)
+- nexus.cleantechhub.net — Startup portfolio (Static HTML)
+
+## Code Standards
+- Use semantic HTML5
+- CSS custom properties for brand tokens
+- Mobile-first responsive design
+- Bilingual support (EN/ES) with language toggle where applicable
+- Self-contained HTML files for artifacts (inline CSS/JS)
+
+## Content Standards
+- Lead with benefit/impact, not process
+- Active voice, short sentences (max 25 words)
+- Oxford comma
+- Metric units
+- Spell out acronyms on first use
+
+## Related Brands
+Skills for these brands are in the `skills/` directory:
+- CLP26 (ClimateLaunchpad 2026) — green business competition
+- Sustenttia — sustainability consulting client
+- Diálogos del Futuro — education transformation program
+- TecAlianza — technical education initiative
+
+For detailed guidelines, read the SKILL.md files in `skills/*/`.
