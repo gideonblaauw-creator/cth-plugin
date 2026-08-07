@@ -2,7 +2,7 @@
 
 Operational plugin for CleantechHUB collaborators — brand guidelines, program management, tool integrations, and infrastructure monitoring. Harness-agnostic: works in Claude Cowork, Claude Code CLI, Cursor, and any MCP-compatible environment.
 
-**Version:** 2.0.0  
+**Version:** 2.0.1  
 **Author:** [CleantechHUB Foundation](https://cleantechhub.net)  
 **License:** MIT
 
@@ -10,7 +10,7 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **24 skills** organized across **5 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **21 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -60,9 +60,6 @@ For detailed multi-harness setup instructions, see [HARNESS.md](HARNESS.md).
 |-------|-------------|
 | `cleantechhub-brand` | Apply CleantechHUB brand guidelines — colors, typography, tone, and visual identity — to any external-facing content |
 | `clp26-brand` | Apply ClimateLaunchpad 2026 campaign brand for the CleantechHUB social media campaign across Colombia, Peru, El Salvador, Guatemala, and Costa Rica |
-| `sustenttia-brand` | Apply Sustenttia brand guidelines for this CleantechHUB client — PYMES, ASG diagnostics, and sustainability consulting content |
-| `dialogos-del-futuro-brand` | Apply Dialogos del Futuro brand guidelines for the higher education transformation program in Colombia |
-| `tec-alianza-brand` | Apply TecAlianza brand guidelines for the Uniandes + Colsubsidio technical education initiative |
 
 ### Programs
 
@@ -140,7 +137,7 @@ cth-plugin/
 │   ├── cleantechhub-brand/  # Brand identity skills
 │   ├── buffer/              # Operations skills
 │   ├── doctor-bot/          # Infrastructure skills
-│   └── ...                  # 24 skill directories total
+│   └── ...                  # 21 skill directories total
 ├── .cursorrules             # Cursor IDE context rules
 ├── .mcp.json                # MCP server configurations
 ├── CLAUDE.md                # AI assistant context
