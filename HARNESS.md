@@ -28,17 +28,15 @@ Skills are available as slash commands. MCP servers from `.mcp.json` load automa
 
 ## Cursor
 
-Cursor reads `.cursorrules` files and MCP server configs. To use this plugin:
+Open this repository folder in Cursor. Do not copy skills, VPS files, or MCP tokens into another project.
 
-1. Copy `.cursorrules` from this repo to your project root (or merge with existing)
-2. Copy or merge `.mcp.json` into your project's `.cursor/mcp.json`
-3. Skills content is embedded in `.cursorrules` as context rules
+1. **File → Open Folder** on this repo.
+2. `AGENTS.md` and `.cursor/rules/` load as always-on project policy.
+3. `.cursor/skills/` contains discovery stubs. When a stub matches, the agent reads the canonical `skills/<name>/SKILL.md`.
+4. VPS files at `/opt/claude-files` stay on the OVH VPS. Access them via Remote SSH or OpenCode, not by copying.
+5. Leave `.claude-plugin/` unchanged so the Claude Desktop plugin keeps working.
 
-```bash
-# Quick setup for a project
-cp /path/to/cth-plugin/.cursorrules ./
-cp /path/to/cth-plugin/.mcp.json .cursor/mcp.json
-```
+See the README section **Using this repo in Cursor**.
 
 ## Other MCP-Compatible Environments
 
@@ -51,4 +49,5 @@ The plugin's skills are plain markdown files that work in any system that can lo
 
 ### What's harness-specific
 - **`.claude-plugin/plugin.json`:** Claude-specific manifest (ignored by other harnesses)
+- **`AGENTS.md` and `.cursor/`:** Cursor project rules and skill discovery stubs (canonical playbooks stay in `skills/`)
 - **Slash commands:** Claude Cowork/Code specific (adapt to your harness's command system)

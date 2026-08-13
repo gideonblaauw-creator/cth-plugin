@@ -2,6 +2,15 @@
 
 All notable changes to the CleantechHUB Cowork Plugin are documented in this file.
 
+## [Unreleased]
+
+### Cursor-native project config (Claude plugin unchanged)
+
+- Added `AGENTS.md` as a thin Cursor pointer; `CLAUDE.md` is unchanged
+- Added `.cursor/rules/cleantechhub.mdc` for always-on CTH policy
+- Added `.cursor/skills/` discovery stubs that point at canonical `skills/<name>/SKILL.md` (no playbook forks; `secrets` omitted)
+- Documented opening this folder in Cursor and keeping VPS files on `/opt/claude-files`
+
 ## [2.0.1] — 2026-08-07
 
 ### Removed client brand skills — plugin now contains only CTH-owned brands.
