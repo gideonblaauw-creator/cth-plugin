@@ -1,0 +1,16 @@
+---
+name: gmail
+description: >
+  Search emails, read threads, draft replies, create new emails, or compile
+  email correspondence. Trigger on Gmail, "my emails", "email thread", "check
+  my inbox", "draft an email to…", or finding past email exchanges.
+---
+
+# gmail
+
+This file is a Cursor discovery stub. The playbook source of truth is `skills/gmail/SKILL.md`.
+
+1. Read `skills/gmail/SKILL.md` and any `skills/gmail/references/` files it points to before doing the work.
+2. Follow that playbook. Do not invent a parallel workflow in this stub.
+3. Do not copy VPS files from `/opt/claude-files` into this repo.
+

@@ -39,16 +39,21 @@ Skills are available as slash commands. MCP servers from `.mcp.json` load automa
 
 ### Cursor
 
-1. Copy `.cursorrules` from this repo to your project root (or merge with existing)
-2. Copy or merge `.mcp.json` into your project's `.cursor/mcp.json`
-3. Skills content is embedded in `.cursorrules` as context rules
-
-```bash
-cp /path/to/cth-plugin/.cursorrules ./
-cp /path/to/cth-plugin/.mcp.json .cursor/mcp.json
-```
+Open this folder in Cursor. Project rules and skill stubs apply automatically. See [Using this repo in Cursor](#using-this-repo-in-cursor).
 
 For detailed multi-harness setup instructions, see [HARNESS.md](HARNESS.md).
+
+---
+
+## Using this repo in Cursor
+
+This repo is the skill source of truth. Open the folder itself in Cursor rather than copying files into another project.
+
+1. **File → Open Folder** on this repository.
+2. Always-on policy loads from `.cursor/rules/` and `AGENTS.md`.
+3. Skills apply from `.cursor/skills/` stubs. Each stub tells the agent to read the canonical `skills/<name>/SKILL.md`. Edit playbooks only under `skills/`.
+4. VPS operational files stay on the OVH VPS at `/opt/claude-files`. Reach them with Remote SSH or OpenCode. Do not copy them into this git repo.
+5. Do not add MCP tokens or invent files-mcp credentials in this repo. Leave `.claude-plugin/` intact for Claude Desktop.
 
 ---
 
@@ -133,14 +138,18 @@ Installing this plugin does **NOT** share any credentials or grant access to Cle
 cth-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Claude plugin manifest
+├── .cursor/
+│   ├── rules/               # Always-on Cursor project rules
+│   └── skills/              # Discovery stubs → skills/<name>/SKILL.md
 ├── skills/
 │   ├── cleantechhub-brand/  # Brand identity skills
 │   ├── buffer/              # Operations skills
 │   ├── doctor-bot/          # Infrastructure skills
 │   └── ...                  # 21 skill directories total
-├── .cursorrules             # Cursor IDE context rules
-├── .mcp.json                # MCP server configurations
-├── CLAUDE.md                # AI assistant context
+├── AGENTS.md                # Cursor agent pointer (keep CLAUDE.md as-is)
+├── .cursorrules             # Legacy Cursor context (still present)
+├── .mcp.json                # MCP server configurations (no tokens)
+├── CLAUDE.md                # Claude assistant context
 ├── CONNECTORS.md            # Tool mapping and alternatives
 ├── HARNESS.md               # Multi-harness setup guide
 ├── CHANGELOG.md             # Version history

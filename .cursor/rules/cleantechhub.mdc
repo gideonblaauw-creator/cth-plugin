@@ -1,0 +1,40 @@
+---
+description: Always-on CleantechHUB policy for Cursor agents
+alwaysApply: true
+---
+
+# CleantechHUB policy
+
+You are working in the CleantechHUB plugin repo. Follow these rules on every turn.
+
+## Brand palette
+
+Use these exact values for CleantechHUB materials. Read `skills/cleantechhub-brand/SKILL.md` for the full brand playbook.
+
+- Primary: `#2D6A4F` (CTH Green)
+- Secondary: `#1B4332` (CTH Dark)
+- Accent: `#95D5B2` (CTH Lime)
+- Font: Inter (system sans-serif fallback)
+- Always capitalize "CleantechHUB" as one word with capital H-U-B
+
+Never apply CleantechHUB visual identity to client brand materials unless explicitly co-branding.
+
+## Grant vs proposal
+
+- Grant, donor, and competitive-bid work: `skills/cth-grant/SKILL.md`
+- Commercial client service proposals: `skills/cth-proposal-build/SKILL.md`
+- Never mix those playbooks.
+- Never cite REIN Hubs dollar amounts.
+
+## Secrets
+
+- Do not leak, commit, echo, or embed secrets, API keys, tokens, or credentials.
+- Do not copy `skills/secrets` into Cursor config.
+- Do not add MCP server configs that contain tokens.
+- Do not invent files-mcp credentials.
+
+## VPS files are source of truth
+
+Operational files live on the OVH VPS at `/opt/claude-files`. That path is the source of truth. Do not clone those files into this git repo. Access them via Remote SSH or OpenCode, not by copying.
+
+Every long-running CleantechHUB service deploys to the existing OVH VPS alongside BookStack. Never spin up a new host.
