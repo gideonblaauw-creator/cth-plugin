@@ -22,6 +22,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - Never mix those two playbooks.
 - CleantechHUB brand work uses `cleantechhub-brand`.
 - Never cite REIN Hubs dollar amounts.
+- **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`.
 
 ## VPS files
 

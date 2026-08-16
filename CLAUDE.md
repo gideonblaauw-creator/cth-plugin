@@ -49,3 +49,7 @@ Mark any public-voice CleantechHUB content (social media posts, newsletter copy,
 - `HARNESS.md` — Setup instructions for Claude Cowork, Claude Code CLI, Cursor, and other harnesses
 
 For detailed operational knowledge on any topic, read the relevant `skills/<name>/SKILL.md` file.
+
+## Blaauw Harness
+
+Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the v3 rulebook: five terms (Orchestrator, Desks, Workbench, Cloud Hands, Tools), ticket lanes, store hierarchy, and gates. Ticket contracts live in `tickets/TEMPLATE.md`.
