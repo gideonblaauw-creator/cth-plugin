@@ -10,7 +10,7 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **21 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **22 skills** organized across **5 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -100,6 +100,12 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `html-to-pdf` | Convert self-contained HTML documents to high-quality PDF using Playwright — proposals, reports, one-pagers, and invoices |
 | `live-artifact-build` | Create and maintain persistent live artifacts in the Cowork sidebar — dashboards, trackers, status pages, and build monitors |
 
+### Orchestration
+
+| Skill | What It Does |
+|-------|-------------|
+| `agent-routing` | Decide whether a task stays on the Grok Bot fleet (Chief-of-Staff orchestrator) or mirrors to a Cursor background agent running Sonnet — keeps Grok Bot's weekly quota for judgment calls only |
+
 ---
 
 ## Connectors
@@ -145,7 +151,8 @@ cth-plugin/
 │   ├── cleantechhub-brand/  # Brand identity skills
 │   ├── buffer/              # Operations skills
 │   ├── doctor-bot/          # Infrastructure skills
-│   └── ...                  # 21 skill directories total
+│   ├── agent-routing/       # Orchestration skills
+│   └── ...                  # 22 skill directories total
 ├── AGENTS.md                # Cursor agent pointer (keep CLAUDE.md as-is)
 ├── .cursorrules             # Legacy Cursor context (still present)
 ├── .mcp.json                # MCP server configurations (no tokens)

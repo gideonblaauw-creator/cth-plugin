@@ -22,6 +22,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - Never mix those two playbooks.
 - CleantechHUB brand work uses `cleantechhub-brand`.
 - Never cite REIN Hubs dollar amounts.
+- Deciding whether a task runs on the Grok Bot fleet or mirrors to a Cursor background agent uses `agent-routing`.
 
 ## VPS files
 

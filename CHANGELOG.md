@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Added `agent-routing` skill — Grok Bot fleet ⇄ Cursor/Sonnet handoff
+
+- New skill: `skills/agent-routing/SKILL.md` (+ `.cursor/skills/agent-routing/SKILL.md` stub) defines the two-axis rule (judgment vs. tool access) for routing tasks between the Grok Bot fleet's Chief-of-Staff orchestrator and Cursor background agents running Sonnet
+- Adds `skills/agent-routing/references/wire-diagram.md` with before/after Mermaid architecture diagrams and a full 21-skill scoring table
+- Updated skill count from 21 to 22; added an "Orchestration" category to the skill inventory
+- Hard boundary carried forward unchanged: `skills/secrets` is never mirrored to Cursor
+
 ### Cursor-native project config (Claude plugin unchanged)
 
 - Added `AGENTS.md` as a thin Cursor pointer; `CLAUDE.md` is unchanged
