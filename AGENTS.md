@@ -23,6 +23,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - CleantechHUB brand work uses `cleantechhub-brand`.
 - Never cite REIN Hubs dollar amounts.
 - **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`.
+- **Before promoting a tree, creating a repo, or opening a branch on any app/service/pipeline**, read `skills/app-build/SKILL.md`. Do not create a GitHub repo until Gideon marks the row.
 
 ## VPS files
 

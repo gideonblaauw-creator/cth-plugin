@@ -53,3 +53,7 @@ For detailed operational knowledge on any topic, read the relevant `skills/<name
 ## Blaauw Harness
 
 Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the Blaauw Harness v3 rulebook: five terms (Workbench, Tools, Tickets, Cloud Hands, Desks), ticket lanes, store hierarchy, org, and gates. Ticket contracts live in `tickets/TEMPLATE.md`. Note: `HARNESS.md` in this repo is Cowork/CLI/Cursor setup docs — it is not the v3 rulebook.
+
+## App-build protocol
+
+Before promoting a tree to GitHub, creating a repo, or opening a branch on any service/app/pipeline, Cloud Hands must read `skills/app-build/SKILL.md`. That file is the app-build protocol: classify (Archive vs existing repo vs new repo), the three-condition gate for new repos, the path (Desk tickets → Infrastructure classifies → Gideon locks → Hands writes → Gideon merges and deploys), and Hands rules (no secrets, no UUIDs, no Mac as SoT, no deploy by Hands).
