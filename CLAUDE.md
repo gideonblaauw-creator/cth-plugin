@@ -42,7 +42,7 @@ Mark any public-voice CleantechHUB content (social media posts, newsletter copy,
 
 ## Plugin Structure
 
-- `skills/` — 24 skill directories, each with a `SKILL.md` and optional `references/` for detailed knowledge
+- `skills/` — 22 skill directories, each with a `SKILL.md` and optional `references/` for detailed knowledge
 - `.cursorrules` — Cursor IDE context (brand colors, infrastructure rule, code standards)
 - `.mcp.json` — MCP server configurations for connectors
 - `CONNECTORS.md` — Tool category mapping with CTH standards and alternatives
