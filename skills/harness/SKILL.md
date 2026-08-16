@@ -164,7 +164,25 @@ About 70% of 13–15 Aug work is Hands/script.
 9. **Do not fan out** profile rules to every bot. Put the rule in the profile once.
 10. **Do not hide** Isolated grant draft chats. Do hide Socials Workbench from Gideon's daily sidebar so he talks to Socials.
 
-## 9. First tickets Cloud Hands should accept
+## 9. War stories
+
+Facts from the first week. Do not repeat these mistakes.
+
+1. **Desks ticket; Desks do not grind file packs.** Grant Desks were writing docx and xlsx themselves instead of writing a Ticket for Hands. Isolated grant agents review; Hands writes. First-draft grind on the expensive model was the miss.
+
+2. **Grant outputs may be Drive-only. Drive is a Tool.** A donor pack that lives in Google Drive is not a reason to open a GitHub repo. Do not create a repo for a grant output unless Gideon marks a repo row.
+
+3. **Mac Hands: worker must be running AND visible in Cursor Agents (My Machines) before ticketing.** `agent login` is not `agent worker start`. Do not paste both commands on one line. Leave the worker window open. If Gideon cannot see the machine in My Machines, the ticket will fail silently.
+
+4. **In Orchestrator chat, Desk names are tap-links, not bare names.** Bare names do not route. Link the Desk.
+
+5. **Tools are not Workbenches or chats.** Drive, GitHub, Buffer, Monday, Airtable, Notion stay Tools. OpenCode is a Hands lane, not a Desk or Workbench. No extra chats for any of them.
+
+6. **The default Cursor cloud VM cannot see the Air or write Archive.** Archive writes need a VPS Cursor worker. Do not clone `/opt/claude-files`. Cloud Hands can only PR to GitHub until that worker exists.
+
+7. **When planting this rulebook: do not invent Desk enums, do not rewrite gates.** Fan-out, REIN HOLD, and the five terms must stay verbatim. If a Hands agent is updating this skill, plant the text — do not compress it.
+
+## 10. First tickets Cloud Hands should accept
 
 - Add this file as `skills/harness/SKILL.md` (or the repo's existing skill layout)
 - Add `tickets/TEMPLATE.md`
