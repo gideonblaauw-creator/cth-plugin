@@ -170,7 +170,7 @@ Facts from the first week. Do not repeat these mistakes.
 
 1. **Desks ticket; Desks do not grind file packs.** Grant Desks were writing docx and xlsx themselves instead of writing a Ticket for Hands. Isolated grant agents review; Hands writes. First-draft grind on the expensive model was the miss.
 
-2. **Grant outputs may be Drive-only. Drive is a Tool.** A donor pack that lives in Google Drive is not a reason to open a GitHub repo. Do not create a repo for a grant output unless Gideon marks a repo row.
+2. **Grant outputs may be Drive-only. Drive is a Tool.** A donor pack that lives in Google Drive is not a reason to open a GitHub repo. Do not create a repo for a grant output unless Gideon marks a repo row. Drive packs (docx/xlsx on Google Drive) are a Tool job — Composio or GDrive connector — not a Cloud Hands run. Hands writes GitHub PRs. A Desk that needs a donor pack on Drive does not ask for a repo and does not launch Hands.
 
 3. **Mac Hands: worker must be running AND visible in Cursor Agents (My Machines) before ticketing.** `agent login` is not `agent worker start`. Do not paste both commands on one line. Leave the worker window open. If Gideon cannot see the machine in My Machines, the ticket will fail silently.
 

@@ -43,7 +43,7 @@ If a GitHub repo already exists: existing repo. Do not open a second one. Uncomm
 
 Mac copies are never a reason to create a repo. No cloud VM for Mac-only trees. No Air commit as SoT.
 
-Grant application outputs that live in Google Drive are Archive/Tool work. Drive is a Tool. Do not open a GitHub repo for a donor pack unless Gideon marks a repo row.
+Grant application outputs that live in Google Drive are Archive/Tool work. Drive is a Tool (Composio / GDrive connector). Do not open a GitHub repo for a donor pack unless Gideon marks a repo row. A Desk that needs a donor pack on Drive does not launch Hands.
 
 ## 3. Path
 
