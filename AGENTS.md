@@ -32,3 +32,18 @@ Operational files on the OVH VPS (`/opt/claude-files`, reached via files-mcp the
 ## Claude plugin
 
 Leave `.claude-plugin/plugin.json` intact. This Cursor config must not break the existing Claude Desktop plugin.
+
+## Cursor Cloud specific instructions
+
+This repo is content-only: Markdown skill playbooks (`skills/<name>/SKILL.md`), Cursor stubs (`.cursor/skills/<name>/SKILL.md`), and two JSON manifests (`.claude-plugin/plugin.json`, `.mcp.json`). There is **no** application, dev server, build system, test framework, lint config, or dependency manifest (no `package.json`, lockfile, or `requirements.txt`). Do not add a build toolchain to "make it runnable" — nothing compiles or serves here.
+
+The base image already provides everything needed: `node`, `npm`, `python3` (with `pyyaml`), `jq`, `git`, and `google-chrome-stable`. The startup update script is intentionally a no-op because there are no dependencies to refresh.
+
+The closest thing to lint/test/build is validating that the content is well-formed and consistent — a harness parses these files, so "valid" means "loads":
+
+- JSON manifests: `jq empty .claude-plugin/plugin.json .mcp.json`
+- Skill frontmatter + stub/canonical parity: parse every `SKILL.md` frontmatter with `python3` + `pyyaml`, assert `name` matches its directory, and assert every canonical skill has a matching `.cursor/skills/` stub. Note: `skills/secrets` intentionally has **no** Cursor stub (see the Skip list above), so exclude it from the stub-parity check.
+
+To preview an HTML artifact produced by a skill (e.g. `cleantechhub-brand`, `nexus-onepager`, `cth-proposal-build`), render it headlessly:
+`google-chrome-stable --headless --no-sandbox --disable-gpu --screenshot=out.png --window-size=820,860 file:///abs/path.html`
+(harmless `dbus`/`NameHasOwner` errors are expected in headless mode). The `html-to-pdf` skill uses Playwright, which is not preinstalled — install it on demand only if that skill is exercised.
