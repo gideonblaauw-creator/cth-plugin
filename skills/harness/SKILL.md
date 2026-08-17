@@ -137,15 +137,29 @@ OpenCode is a Hands lane, not a Desk.
 
 Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not first-draft file packs, inventory-grind, or write code. Researcher/Scraper file writes are Hands tickets. Drive packs use Drive MCP/Tool, not a GitHub repo unless Gideon marked a repo row.
 
-### Drive pack writes — Gideon lock 2026-08-17 (hard gate)
+### Hands-shift lock — Gideon 2026-08-17 (hard gate)
 
-**All Drive pack writes go through Cursor Cloud Hands and must return a bc-id.** Desks do not write Drive themselves via Composio, official Drive MCP, or VPS `gws`. Empty bc-id = desk grind. Infrastructure reviews; it does not push files to Drive.
+**1. Any first-draft file pack (md, html, docx, png, csv, svg, xlsx) = a seven-field ticket to Cursor Cloud Hands.** No bc-id = miss. Desk reviews only. Desks do not write file packs themselves.
 
-Hands use three fallback lanes, in order:
+**2. Two stores, three lanes.**
+- Lane A — GitHub PR: code, skills, harness, repo-tracked assets.
+- Lane B — Drive folder: grant packs, client packs (official Drive MCP → Composio Drive → VPS `gws`, in that order; all via Hands, all must return a bc-id).
+- Box: scratch only.
+- Archive (`/opt/claude-files`): only via a VPS Cursor worker. mac-scan is not a jump host.
+- All Drive writes (official MCP, Composio, VPS `gws`) go through Hands and must return a bc-id. Desks do not write Drive.
 
-1. **Official Google Drive MCP (Path 1).** Still often needsAuth / cursor:// OAuth bug — attempt first, fall back if unavailable.
-2. **Composio Drive**, only if that connector is available on the Hands worker.
-3. **`gws` on the VPS** (`/home/debian/.local/bin/gws`, account `gideon.blaauw@cleantechhub.net`, Drive write). Only if a Cursor worker exists **on the VPS**. mac-scan is not a jump host. The default cloud VM must not SSH-grind the VPS.
+Drive MCP fallback order (Hands only):
+1. **Official Google Drive MCP** — attempt first; still often needsAuth / cursor:// OAuth bug.
+2. **Composio Drive** — only if connector available on the Hands worker.
+3. **`gws` on the VPS** (`/home/debian/.local/bin/gws`, account `gideon.blaauw@cleantechhub.net`) — only if a Cursor worker exists on the VPS. mac-scan is not a jump host. Default cloud VM must not SSH-grind the VPS.
+
+**3. Mechanical jobs** (session dump, 2am VPS push, Friday Mac hygiene, SECOP scrape) = Hands ticket or a Cloud Agent Automation. Not a Desk task.
+
+**4. Researcher / Scraper / Infra inventories = Hands tickets (Haiku/Flash lane).** Desk tickets and reviews. Desk does not run the scrape or inventory itself.
+
+**5. Stay on desks (never below ~30% of work):** Orchestrator routing, go/no-go, HITL send/post/pay, channel I/O, PR review, merge, credentials, two-draft cap, REIN HOLD. Desks own these; Hands does not touch them.
+
+**Do not:** launch a second Sustenttia instance; use mac-scan as a jump host; move HITL off desks; invent new nodes or repos; open Grant Graph or TNS packs until gates A–C clear (Drive MCP auth, VPS Archive worker, Cloud Agent healthy).
 
 ## 6. File structure
 
