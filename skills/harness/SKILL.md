@@ -133,6 +133,10 @@ Shared by every Desk: WhatsApp, Gmail, Calendar. Drive is a Tool.
 
 OpenCode is a Hands lane, not a Desk.
 
+### Operating protocol — Desk / Hands boundary (hard gate)
+
+Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not first-draft file packs, inventory-grind, or write code. Researcher/Scraper file writes are Hands tickets. Drive packs use Drive MCP/Tool, not a GitHub repo unless Gideon marked a repo row.
+
 ## 6. File structure
 
 Do not invent a new tree.
