@@ -52,7 +52,7 @@ For detailed operational knowledge on any topic, read the relevant `skills/<name
 
 ## CTH Harness
 
-Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the CTH Harness rulebook: five terms (Workbench, Tools, Tickets, Cloud Hands, Desks), ticket lanes, store hierarchy, org, and gates. Ticket contracts live in `tickets/TEMPLATE.md`. Note: `HARNESS.md` in this repo is Cowork/CLI/Cursor setup docs — it is not the CTH Harness rulebook. The Desk/Hands boundary hard gate is in §5 "Operating protocol" of the skill: Desks ticket Hands; they do not first-draft, inventory-grind, or write files.
+Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the CTH Harness rulebook: five terms (Workbench, Tools, Tickets, Cloud Hands, Desks), ticket lanes, store hierarchy, org, and gates. Ticket contracts live in `tickets/TEMPLATE.md`. Note: `HARNESS.md` in this repo is Cowork/CLI/Cursor setup docs — it is not the CTH Harness rulebook. The Desk/Hands boundary hard gate is in §5 "Operating protocol" of the skill: Desks ticket Hands; they do not first-draft, inventory-grind, or write files. The Drive pack lock (2026-08-17) is also in §5: all Drive writes go through Hands and must return a bc-id; three fallback lanes in order (Drive MCP → Composio Drive → VPS `gws`).
 
 ## App-build protocol
 

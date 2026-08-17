@@ -22,7 +22,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - Never mix those two playbooks.
 - CleantechHUB brand work uses `cleantechhub-brand`.
 - Never cite REIN Hubs dollar amounts.
-- **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`. The Desk/Hands boundary hard gate is in §5 "Operating protocol": Desks ticket Hands; they do not first-draft or write files.
+- **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`. The Desk/Hands boundary hard gate is in §5 "Operating protocol": Desks ticket Hands; they do not first-draft or write files. Drive pack lock (2026-08-17): all Drive writes go through Hands (bc-id required); fallback order: Drive MCP → Composio Drive → VPS `gws` (VPS worker only).
 - **Before promoting a tree, creating a repo, or opening a branch on any app/service/pipeline**, read `skills/app-build/SKILL.md`. Do not create a GitHub repo until Gideon marks the row.
 
 ## VPS files

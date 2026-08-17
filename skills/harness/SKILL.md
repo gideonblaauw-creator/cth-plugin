@@ -137,6 +137,16 @@ OpenCode is a Hands lane, not a Desk.
 
 Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not first-draft file packs, inventory-grind, or write code. Researcher/Scraper file writes are Hands tickets. Drive packs use Drive MCP/Tool, not a GitHub repo unless Gideon marked a repo row.
 
+### Drive pack writes — Gideon lock 2026-08-17 (hard gate)
+
+**All Drive pack writes go through Cursor Cloud Hands and must return a bc-id.** Desks do not write Drive themselves via Composio, official Drive MCP, or VPS `gws`. Empty bc-id = desk grind. Infrastructure reviews; it does not push files to Drive.
+
+Hands use three fallback lanes, in order:
+
+1. **Official Google Drive MCP (Path 1).** Still often needsAuth / cursor:// OAuth bug — attempt first, fall back if unavailable.
+2. **Composio Drive**, only if that connector is available on the Hands worker.
+3. **`gws` on the VPS** (`/home/debian/.local/bin/gws`, account `gideon.blaauw@cleantechhub.net`, Drive write). Only if a Cursor worker exists **on the VPS**. mac-scan is not a jump host. The default cloud VM must not SSH-grind the VPS.
+
 ## 6. File structure
 
 Do not invent a new tree.
