@@ -72,6 +72,65 @@ Do not launch Grant Graph live or TNS packs until all three clear:
 
 ---
 
+---
+
+## DATA FLOW band — TNS VerdeXcelerate (CANOA) example
+
+**Input example:** Juan Pablo Diaz RFP / joint-work points for TNS VerdeXcelerate (CANOA).
+**PNG:** `docs/grant-graph/grant-dataflow.png`
+
+This band is a detailed data-flow wire. It does not add N-nodes to the spine. It maps what happens between raw notes and Drive outputs, using existing stages (ingest-before-N4). Analog ≠ live. Do not claim live grant facts in Falkor today.
+
+### Stage 1 — INPUT (raw)
+
+| Source | What lands | Where it goes first |
+|--------|-----------|---------------------|
+| JP Diaz notes / joint-work points | Raw text, bullet points, verbal commitments | TNS grant Drive folder |
+| Gmail Call (N1) | RFP email, deadline, funder contact | TNS grant Drive folder |
+| Supporting docs already in Drive | Prior CTH work, partner CVs, budgets | TNS Drive folder already present |
+| Drive folder | `https://drive.google.com/drive/folders/1saTASGx9VPyG7auRjNu5SkzAP3e34vEA` | Source of truth for this grant |
+
+All raw input lands in Drive first. Hands writes to Drive (Lane B). Desks do not write Drive.
+
+### Stage 2 — ORGANIZE (graph layer, maps onto ingest-before-N4)
+
+| Component | Role | Status today |
+|-----------|------|-------------|
+| FalkorDB + Graphiti | Fact store — "what JP said / what the RFP requires". Entities: funder, requirement, deliverable, partner, deadline, budget-line. Relations: requires, supports, blocks. | **EMPTY — 0 nodes.** Path is drawn; do not claim live grant facts. |
+| Graphiti temporal layer | Tracks when facts were stated / updated (JP call date, RFP version). | **EMPTY** — coded, not populated. |
+| Neo4j | NOT running. Graphify can emit Cypher but no Neo4j container. | **ABSENT** — Falkor is the graph DB. Do not draw Neo4j as the store. |
+
+Hands receives an "organize" ticket (Haiku/Flash lane). Input = raw Drive docs. Output = Falkor write + bc-id.
+
+### Stage 3 — RETRIEVE / ANALYZE
+
+Query only sources that are currently up. Isolated bot tickets Hands; Grants Desk reviews. Maker ≠ checker.
+
+| Source | Query type | Status | Constraint |
+|--------|-----------|--------|------------|
+| Nexus / idea-browser (Chroma RAG) | Startup matches for the call | **live analog** | For startup context only — not a grant SoT. |
+| Drive / Archive (prior CTH packs) | UNDP, P4G/MubOn, other funded proposals | **live** | Hands reads; path: Drive MCP → Composio Drive → VPS `gws`. |
+| Cognee (Sustenttia analog) | 9-dataset graph query pattern | **live analog** | Sustenttia datasets only. NOT a grant SoT. Pattern reference. |
+| R2R | Retrieval hits | **ABSENT (crash-loop)** | Do not claim hits. Do not draw as a live path. |
+| FalkorDB (Stage 2 output) | Structured grant facts | **EMPTY today** | Query path ready; no facts until Stage 2 populates. |
+
+"What CTH can do" = this analysis context. It feeds N3/N4. It is not a new Gideon stage.
+
+### Stage 4 — OUTPUT (Hands → Drive, Lane B)
+
+All outputs written by Cloud Hands. Must return a bc-id. Include Drive URL in the report. Verify (N7) reads Drive only. HITL (N8) before any send.
+
+| Output | Format | Spine node | Drive destination |
+|--------|--------|------------|------------------|
+| Draft narrative | Unformatted `.docx` | N3 SOI / N4 Full Proposal | TNS grant folder |
+| Structured proposal | Donor/template format `.docx` | N4 | TNS grant folder |
+| Budget | `.xlsx` | N5 | TNS grant folder |
+| Annexes / CVs / supporting docs | Various | N6 | TNS grant folder |
+
+Verify reads Drive. HITL. Nothing sent to TechnoServe without Gideon's yes.
+
+---
+
 ## Wire summary (for PNG)
 
 ```
