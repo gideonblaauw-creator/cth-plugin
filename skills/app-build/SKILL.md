@@ -81,3 +81,4 @@ No files only in chat. The ticket and the output live in the repo or Archive.
 - Archive writes stay BLOCKED until a Cursor worker exists on the VPS.
 - Sustenttia trees stay Sustenttia. Bravo Bridge / AIC stay isolated. Do not mix CTH lime into Sustenttia.
 - Do not create repos until Gideon marks the row.
+- Desks ticket Hands. They do not first-draft or write files.

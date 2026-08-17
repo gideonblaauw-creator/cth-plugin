@@ -164,12 +164,13 @@ About 70% of 13–15 Aug work is Hands/script.
 8. **REIN HOLD** — no outbound to REIN/Pvblic until after Monday 17 Aug Lucio.
 9. **Do not fan out** profile rules to every bot. Put the rule in the profile once.
 10. **Do not hide** Isolated grant draft chats. Do hide Socials Workbench from Gideon's daily sidebar so he talks to Socials.
+11. **Desks send tickets to Hands. They do not first-draft, inventory-grind, or write files.** Isolated grant agents review; Hands writes. Infrastructure tickets Hands; it does not SSH-inventory or grind maps itself.
 
 ## 9. War stories
 
 Facts from the first week. Do not repeat these mistakes.
 
-1. **Desks ticket; Desks do not grind file packs.** Grant Desks were writing docx and xlsx themselves instead of writing a Ticket for Hands. Isolated grant agents review; Hands writes. First-draft grind on the expensive model was the miss.
+1. **Desks ticket; Desks do not grind file packs.** Grant Desks were writing docx and xlsx themselves instead of writing a Ticket for Hands. Infrastructure was SSH-inventorying and grinding maps instead of ticketing Hands. Isolated grant agents review; Hands writes. First-draft grind on the expensive model was the miss.
 
 2. **Grant outputs may be Drive-only. Drive is a Tool.** A donor pack that lives in Google Drive is not a reason to open a GitHub repo. Do not create a repo for a grant output unless Gideon marks a repo row. Drive packs (docx/xlsx on Google Drive) are a Tool job — Composio or GDrive connector — not a Cloud Hands run. Hands writes GitHub PRs. A Desk that needs a donor pack on Drive does not ask for a repo and does not launch Hands.
 
