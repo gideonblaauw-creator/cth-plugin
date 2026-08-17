@@ -46,13 +46,13 @@ Mark any public-voice CleantechHUB content (social media posts, newsletter copy,
 - `.cursorrules` — Cursor IDE context (brand colors, infrastructure rule, code standards)
 - `.mcp.json` — MCP server configurations for connectors
 - `CONNECTORS.md` — Tool category mapping with CTH standards and alternatives
-- `HARNESS.md` — Setup instructions for Claude Cowork, Claude Code CLI, Cursor, and other harnesses (this is setup docs, not the Blaauw Harness v3 rulebook)
+- `HARNESS.md` — Setup instructions for Claude Cowork, Claude Code CLI, Cursor, and other harnesses (this is setup docs, not the CTH Harness rulebook)
 
 For detailed operational knowledge on any topic, read the relevant `skills/<name>/SKILL.md` file.
 
-## Blaauw Harness
+## CTH Harness
 
-Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the Blaauw Harness v3 rulebook: five terms (Workbench, Tools, Tickets, Cloud Hands, Desks), ticket lanes, store hierarchy, org, and gates. Ticket contracts live in `tickets/TEMPLATE.md`. Note: `HARNESS.md` in this repo is Cowork/CLI/Cursor setup docs — it is not the v3 rulebook.
+Cloud Hands agents (Cursor cloud agents executing tickets) must read `skills/harness/SKILL.md` before starting any task. That file is the CTH Harness rulebook: five terms (Workbench, Tools, Tickets, Cloud Hands, Desks), ticket lanes, store hierarchy, org, and gates. Ticket contracts live in `tickets/TEMPLATE.md`. Note: `HARNESS.md` in this repo is Cowork/CLI/Cursor setup docs — it is not the CTH Harness rulebook. The Desk/Hands boundary and Hands-shift lock (2026-08-17) are in §5 "Operating protocol": any first-draft file pack is a Hands ticket (bc-id required); two stores (GitHub PR / Drive folder); mechanical jobs and Researcher/Scraper/Infra inventories are Hands tickets; desks stay at ~30%+ (HITL, routing, credentials, REIN HOLD). All Drive writes go through Hands; three fallback lanes in order (Drive MCP → Composio Drive → VPS `gws`).
 
 ## App-build protocol
 

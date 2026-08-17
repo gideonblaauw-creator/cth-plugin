@@ -1,18 +1,19 @@
 ---
 name: harness
 description: >
-  Blaauw Harness v3 rulebook — five-term operating model (Workbench, Tools,
+  CTH Harness rulebook — five-term operating model (Workbench, Tools,
   Tickets, Cloud Hands, Desks) for Gideon Blaauw's AI stack. Trigger on
-  "harness", "ticket", "Cloud Hands", "Workbench", "Desk", "take a ticket",
-  "lane", or any Blaauw Harness reference. Also trigger at the start of any
-  Cloud Hands task so the agent reads these rules before executing.
+  "CTH Harness", "harness", "ticket", "Cloud Hands", "Workbench", "Desk",
+  "take a ticket", "lane", or any CTH Harness reference. Also trigger at
+  the start of any Cloud Hands task so the agent reads these rules before
+  executing.
 metadata:
   version: "3.0.0"
   category: operations
   adopted: "2026-08-16"
 ---
 
-# Blaauw Harness v3
+# CTH Harness
 
 **Owner:** Gideon Blaauw
 **Date:** 2026-08-16
@@ -132,6 +133,34 @@ Shared by every Desk: WhatsApp, Gmail, Calendar. Drive is a Tool.
 
 OpenCode is a Hands lane, not a Desk.
 
+### Operating protocol — Desk / Hands boundary (hard gate)
+
+Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not first-draft file packs, inventory-grind, or write code. Researcher/Scraper file writes are Hands tickets. Drive packs use Drive MCP/Tool, not a GitHub repo unless Gideon marked a repo row.
+
+### Hands-shift lock — Gideon 2026-08-17 (hard gate)
+
+**1. Any first-draft file pack (md, html, docx, png, csv, svg, xlsx) = a seven-field ticket to Cursor Cloud Hands.** No bc-id = miss. Desk reviews only. Desks do not write file packs themselves.
+
+**2. Two stores, three lanes.**
+- Lane A — GitHub PR: code, skills, harness, repo-tracked assets.
+- Lane B — Drive folder: grant packs, client packs (official Drive MCP → Composio Drive → VPS `gws`, in that order; all via Hands, all must return a bc-id).
+- Box: scratch only.
+- Archive (`/opt/claude-files`): only via a VPS Cursor worker. mac-scan is not a jump host.
+- All Drive writes (official MCP, Composio, VPS `gws`) go through Hands and must return a bc-id. Desks do not write Drive.
+
+Drive MCP fallback order (Hands only):
+1. **Official Google Drive MCP** — attempt first; still often needsAuth / cursor:// OAuth bug.
+2. **Composio Drive** — only if connector available on the Hands worker.
+3. **`gws` on the VPS** (`/home/debian/.local/bin/gws`, account `gideon.blaauw@cleantechhub.net`) — only if a Cursor worker exists on the VPS. mac-scan is not a jump host. Default cloud VM must not SSH-grind the VPS.
+
+**3. Mechanical jobs** (session dump, 2am VPS push, Friday Mac hygiene, SECOP scrape) = Hands ticket or a Cloud Agent Automation. Not a Desk task.
+
+**4. Researcher / Scraper / Infra inventories = Hands tickets (Haiku/Flash lane).** Desk tickets and reviews. Desk does not run the scrape or inventory itself.
+
+**5. Stay on desks (never below ~30% of work):** Orchestrator routing, go/no-go, HITL send/post/pay, channel I/O, PR review, merge, credentials, two-draft cap, REIN HOLD. Desks own these; Hands does not touch them.
+
+**Do not:** launch a second Sustenttia instance; use mac-scan as a jump host; move HITL off desks; invent new nodes or repos; open Grant Graph or TNS packs until gates A–C clear (Drive MCP auth, VPS Archive worker, Cloud Agent healthy).
+
 ## 6. File structure
 
 Do not invent a new tree.
@@ -163,8 +192,27 @@ About 70% of 13–15 Aug work is Hands/script.
 8. **REIN HOLD** — no outbound to REIN/Pvblic until after Monday 17 Aug Lucio.
 9. **Do not fan out** profile rules to every bot. Put the rule in the profile once.
 10. **Do not hide** Isolated grant draft chats. Do hide Socials Workbench from Gideon's daily sidebar so he talks to Socials.
+11. **Desks send tickets to Hands. They do not first-draft, inventory-grind, or write files.** Isolated grant agents review; Hands writes. Infrastructure tickets Hands; it does not SSH-inventory or grind maps itself.
 
-## 9. First tickets Cloud Hands should accept
+## 9. War stories
+
+Facts from the first week. Do not repeat these mistakes.
+
+1. **Desks ticket; Desks do not grind file packs.** Grant Desks were writing docx and xlsx themselves instead of writing a Ticket for Hands. Infrastructure was SSH-inventorying and grinding maps instead of ticketing Hands. Isolated grant agents review; Hands writes. First-draft grind on the expensive model was the miss.
+
+2. **Grant outputs may be Drive-only. Drive is a Tool.** A donor pack that lives in Google Drive is not a reason to open a GitHub repo. Do not create a repo for a grant output unless Gideon marks a repo row. Drive packs (docx/xlsx on Google Drive) are a Tool job — Composio or GDrive connector — not a Cloud Hands run. Hands writes GitHub PRs. A Desk that needs a donor pack on Drive does not ask for a repo and does not launch Hands.
+
+3. **Mac Hands: worker must be running AND visible in Cursor Agents (My Machines) before ticketing.** `agent login` is not `agent worker start`. Do not paste both commands on one line. Leave the worker window open. If Gideon cannot see the machine in My Machines, the ticket will fail silently.
+
+4. **In Orchestrator chat, Desk names are tap-links, not bare names.** Bare names do not route. Link the Desk.
+
+5. **Tools are not Workbenches or chats.** Drive, GitHub, Buffer, Monday, Airtable, Notion stay Tools. OpenCode is a Hands lane, not a Desk or Workbench. No extra chats for any of them.
+
+6. **The default Cursor cloud VM cannot see the Air or write Archive.** Archive writes need a VPS Cursor worker. Do not clone `/opt/claude-files`. Cloud Hands can only PR to GitHub until that worker exists.
+
+7. **When planting this rulebook: do not invent Desk enums, do not rewrite gates.** Fan-out, REIN HOLD, and the five terms must stay verbatim. If a Hands agent is updating this skill, plant the text — do not compress it.
+
+## 10. First tickets Cloud Hands should accept
 
 - Add this file as `skills/harness/SKILL.md` (or the repo's existing skill layout)
 - Add `tickets/TEMPLATE.md`
