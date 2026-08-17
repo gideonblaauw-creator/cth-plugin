@@ -1,4 +1,4 @@
-# Ticket Template — Blaauw Harness v3
+# Ticket Template — CTH Harness
 
 Copy this block into a new file (e.g. `tickets/YYYY-MM-DD-short-name.md`) and fill in every field.
 `desk:` is free-form — write the Desk name as it exists or will exist.
