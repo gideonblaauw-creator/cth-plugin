@@ -3,10 +3,11 @@
 You are working on a CleantechHUB project. Follow these guidelines:
 
 ## Brand Identity
-- Primary color: #2D6A4F (CTH Green)
-- Secondary: #1B4332 (CTH Dark)
-- Accent: #95D5B2 (CTH Lime)
-- Font: Inter (system sans-serif fallback)
+- Primary color: #0C498A (Deep Blue)
+- Secondary: #669348 (Forest Green)
+- Accent: #B2EEFA (Light Cyan)
+- Full five-color Manual de Marca palette (Jan 2024): see skills/cleantechhub-brand/SKILL.md
+- Font: Open Sans / PT Sans (system sans-serif fallback)
 - Tone: Expert but accessible, action-oriented, bilingual-ready (EN/ES)
 - Always capitalize "CleantechHUB" as one word with capital H-U-B
 

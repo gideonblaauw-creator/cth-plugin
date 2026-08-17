@@ -32,7 +32,7 @@ ClimateLaunchpad (CLP) is the world's largest green business idea competition. C
 | Background | CLP Light | #E8F5E9 | Section backgrounds |
 | Text | CLP Black | #1A1A1A | Body copy |
 
-These are the ClimateLaunchpad brand colors, distinct from CleantechHUB's palette. Use CLP colors for all CLP26 campaign content. Do not mix in CleantechHUB green (#2D6A4F) as a primary element — it may appear only in the CleantechHUB attribution line.
+These are the ClimateLaunchpad brand colors, distinct from CleantechHUB's palette. Use CLP colors for all CLP26 campaign content. Do not mix in CleantechHUB Deep Blue (#0C498A) as a primary element — it may appear only in the CleantechHUB attribution line.
 
 ### Typography
 

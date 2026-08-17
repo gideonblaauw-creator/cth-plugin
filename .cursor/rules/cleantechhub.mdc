@@ -11,10 +11,10 @@ You are working in the CleantechHUB plugin repo. Follow these rules on every tur
 
 Use these exact values for CleantechHUB materials. Read `skills/cleantechhub-brand/SKILL.md` for the full brand playbook.
 
-- Primary: `#2D6A4F` (CTH Green)
-- Secondary: `#1B4332` (CTH Dark)
-- Accent: `#95D5B2` (CTH Lime)
-- Font: Inter (system sans-serif fallback)
+- Primary: `#0C498A` (Deep Blue)
+- Secondary: `#669348` (Forest Green)
+- Accent: `#B2EEFA` (Light Cyan)
+- Font: Open Sans / PT Sans (system sans-serif fallback)
 - Always capitalize "CleantechHUB" as one word with capital H-U-B
 
 Never apply CleantechHUB visual identity to client brand materials unless explicitly co-branding.
