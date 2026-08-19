@@ -180,6 +180,23 @@ If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, n
 
 Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
 
+### Model routing — Gideon 2026-08-19 (hard gate)
+
+Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = miss. One complete Hands ticket, no second pass for the same artifact.
+
+Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file jobs are Haiku 4.5 or Gemini Flash. Ultra may use Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code, or Auto. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent — OSS stays OpenCode.
+
+| Job type | Model | Notes |
+|---|---|---|
+| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | Haiku 4.5 or Gemini Flash | Not Sonnet. Not Opus. |
+| Review / eval / brand / Grant Graph spec | Sonnet 4.6 | Default Hands |
+| Code in the owning repo | Sonnet 4.6 default | OSS only if Gideon says OpenCode Kimi. Do not launch a second Kimi as a cloud agent. |
+| Ultra-optional cheap | Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code (OpenCode lane), Auto | Never as a second cloud Kimi |
+| Forbidden on pack writes | Opus, Grok 4.6, GPT 5.6 Sol | Miss if used |
+| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry |
+
+One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
+
 ## 6. File structure
 
 Do not invent a new tree.
