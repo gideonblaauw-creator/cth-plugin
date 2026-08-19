@@ -182,7 +182,7 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 ### Model routing — Gideon 2026-08-19 (hard gate)
 
-Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = miss. One complete Hands ticket, no second pass for the same artifact.
+Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = `gemini-3.7-flash`. One complete Hands ticket, no second pass for the same artifact.
 
 Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file jobs are Haiku 4.5 or Gemini Flash. Ultra may use Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code, or Auto. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent — OSS stays OpenCode.
 
@@ -190,7 +190,7 @@ Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file job
 - **Cursor Models** = Grok 4.6 / Grok 4.5 / Composer 2.5 (generous included)
 - **Other Models** = $400/mo at API rate (Ultra included Other Models usage)
 
-Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. Do not invent prices. Empty model on a mechanical ticket = miss.
+Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. Do not invent prices. Empty model on a mechanical job = `gemini-3.7-flash`.
 
 | Job type | Model id | $ in / $ out | Notes |
 |---|---|---|---|
@@ -213,7 +213,15 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Forbidden on pack writes | `claude-fable-5` | $10 / $50 | Miss if used. |
 | Forbidden on pack writes | `gpt-5.6-sol` | $5 / $30 | Miss if used. |
 | Forbidden unless the ticket says so | thinking=high / 1M context | — | Miss unless the ticket says so. |
-| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | — | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry |
+| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | — | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry. Not a model slot. |
+
+**MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
+
+- Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
+- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
+- Review / eval / brand with no model → keep `claude-sonnet-4-6`.
+- Repo / code with no model → `composer-2.5` (`fast=false`).
+- Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel) still do not launch until the session exists. That is not a model slot.
 
 One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
 
@@ -252,7 +260,7 @@ Feature: no UI group. Cloud Agent column = 228,601,182 raw; rest 1,414,608,998 u
 Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `composer-2.5-fast` and `default` appear in the chart legend but have zero export rows.
 
 **Lock from that fact:**
-- `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical ticket = miss. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes.
+- `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
 - Mechanical Hands = `claude-haiku-4-5` or `gemini-3.7-flash` (Flash fallbacks / Luna / Nano in the table).
 - Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
 - Repo / code Hands = `composer-2.5` (`fast=false`) unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
