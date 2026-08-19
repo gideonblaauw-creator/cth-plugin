@@ -197,6 +197,22 @@ Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file job
 
 One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
 
+**Sourced fact — Cursor dashboard, 19 Aug 2026, last 7 days (grouped by Model).** Do not invent per-model splits. Orchestrator is still pulling those.
+
+- Total tokens: 221.2M
+- Included: 221.2M
+- On-demand: 0
+- Spike: 13–16 Aug near zero; 17–18 small; 19 Aug (today) almost the whole 221.2M
+- Models in legend: `cursor-grok-4.6-high-fast` (dominant area), `claude-4.6-sonnet-medium-thinking`, `composer-2.5-fast`, `claude-sonnet-5-thinking-high`, `default`
+
+**Lock from that fact:**
+- `cursor-grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Still never Opus / Grok 4.6 / GPT 5.6 Sol on pack writes.
+- Mechanical Hands = Haiku 4.5 or Gemini Flash.
+- Review/eval/brand = Sonnet 4.6.
+- Code in owning repo = Sonnet default unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
+- Empty model on a mechanical job = miss. One Hands ticket per artifact.
+- Auth-gated jobs do not launch without a session.
+
 ## 6. File structure
 
 Do not invent a new tree.
