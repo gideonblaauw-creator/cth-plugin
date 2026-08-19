@@ -213,7 +213,7 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Forbidden on pack writes | `claude-fable-5` | $10 / $50 | Miss if used. |
 | Forbidden on pack writes | `gpt-5.6-sol` | $5 / $30 | Miss if used. |
 | Forbidden unless the ticket says so | thinking=high / 1M context | — | Miss unless the ticket says so. |
-| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | — | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry. Not a model slot. |
+| Tools (Lovable, HeyGen, WhatsApp, Vercel) | session Tool (not a model slot) | — | Launch allowed when the session exists. No-access / NEED_LOGIN / blocked auth → escalate to the Desk (HITL login), then the same Hands run (same bc-id) continues. Not a Flash fill-in. |
 
 **MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
 
@@ -221,7 +221,13 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 - Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
 - Review / eval / brand with no model → keep `claude-sonnet-4-6`.
 - Repo / code with no model → `composer-2.5` (`fast=false`).
-- Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel) still do not launch until the session exists. That is not a model slot.
+
+**Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
+
+- Hands may use Lovable, HeyGen, WhatsApp, Vercel when the session exists.
+- If no access / NEED_LOGIN / blocked auth: do not retry in a loop. Escalate back to the Desk that wrote the ticket. Desk owns getting the session (HITL login). Then the same Hands run (same bc-id) continues.
+- Do not rewrite this as “do not launch.” Launch is allowed. No-access is an escalate-to-Desk, not a miss-and-stop and not a second Hands.
+- Still not a model slot. Do not fill `gemini-3.7-flash` for a missing session.
 
 One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
 
@@ -265,7 +271,7 @@ Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `compos
 - Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
 - Repo / code Hands = `composer-2.5` (`fast=false`) unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
 - One Hands ticket per artifact.
-- Auth-gated jobs do not launch without a session.
+- Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot.
 
 Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
 
