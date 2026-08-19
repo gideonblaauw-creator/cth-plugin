@@ -182,36 +182,98 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 ### Model routing — Gideon 2026-08-19 (hard gate)
 
-Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = miss. One complete Hands ticket, no second pass for the same artifact.
+Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = `gemini-3.7-flash`. One complete Hands ticket, no second pass for the same artifact.
 
 Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file jobs are Haiku 4.5 or Gemini Flash. Ultra may use Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code, or Auto. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent — OSS stays OpenCode.
 
-| Job type | Model | Notes |
-|---|---|---|
-| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | Haiku 4.5 or Gemini Flash | Not Sonnet. Not Opus. |
-| Review / eval / brand / Grant Graph spec | Sonnet 4.6 | Default Hands |
-| Code in the owning repo | Sonnet 4.6 default | OSS only if Gideon says OpenCode Kimi. Do not launch a second Kimi as a cloud agent. |
-| Ultra-optional cheap | Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code (OpenCode lane), Auto | Never as a second cloud Kimi |
-| Forbidden on pack writes | Opus, Grok 4.6, GPT 5.6 Sol | Miss if used |
-| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry |
+**Sourced — two Ultra pools** (`https://cursor.com/docs/models-and-pricing`, 19 Aug 2026):
+- **Cursor Models** = Grok 4.6 / Grok 4.5 / Composer 2.5 (generous included)
+- **Other Models** = $400/mo at API rate (Ultra included Other Models usage)
+
+Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. Do not invent prices. Empty model on a mechanical job = `gemini-3.7-flash`.
+
+| Job type | Model id | $ in / $ out | Notes |
+|---|---|---|---|
+| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | `claude-haiku-4-5` | $1 / $5 | Other Models. Not Sonnet. Not Opus. |
+| Mechanical (same jobs) | `gemini-3.7-flash` | $0.75 / $3.50 | Other Models |
+| Cheapest Flash fallback | `gemini-2.5-flash` | $0.30 / $2.50 | Other Models |
+| Cheapest Flash fallback | `gemini-3-flash` | $0.50 / $3 | Other Models |
+| Tiny transforms | `gpt-5.6-luna` | $0.20 / $1.20 | Other Models |
+| Tiny transforms | `gpt-5.4-nano` | $0.20 / $1.25 | Other Models |
+| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | Cursor Models pool. Never Fast. |
+| Review / eval / brand / Grant Graph spec | `claude-sonnet-4-6` | $3 / $15 | Other Models. Keep as review default. |
+| Review note only | `claude-sonnet-5` | $2 / $10 | Cheaper. Do not lock unless Gideon says. |
+| Mixed / unspecified | `default` (Auto) | — | Do not invent an Auto Cost $. Official models-and-pricing does not publish one. |
+| OSS | OpenCode Kimi only | — | Do not launch `kimi-k2.7-code` / `kimi-k3` as a cloud agent. |
+| Forbidden on pack writes | `grok-4.6` | $2 / $6 | Orchestrator chat only. Not pack Hands. |
+| Forbidden on pack writes | `grok-4.6` Fast | $4 / $12 | Especially never Fast on packs. Miss if used. |
+| Forbidden on pack writes | `grok-4.5` Fast | $4 / $12 | Official table $4/$12 (not the help-page $18 out). Miss if used. |
+| Forbidden on pack writes | `composer-2.5` Fast | $3 / $15 | Product default is Fast — Hands must set `fast=false`. Miss if used. |
+| Forbidden on pack writes | any Opus | $5 / $25 | Opus 5 official rate. Miss if used. |
+| Forbidden on pack writes | `claude-fable-5` | $10 / $50 | Miss if used. |
+| Forbidden on pack writes | `gpt-5.6-sol` | $5 / $30 | Miss if used. |
+| Forbidden unless the ticket says so | thinking=high / 1M context | — | Miss unless the ticket says so. |
+| Tools (Lovable, HeyGen, WhatsApp, Vercel) | session Tool (not a model slot) | — | Launch allowed when the session exists. No-access / NEED_LOGIN / blocked auth → escalate to the Desk (HITL login), then the same Hands run (same bc-id) continues. Not a Flash fill-in. |
+
+**MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
+
+- Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
+- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
+- Review / eval / brand with no model → keep `claude-sonnet-4-6`.
+- Repo / code with no model → `composer-2.5` (`fast=false`).
+
+**Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
+
+- Hands may use Lovable, HeyGen, WhatsApp, Vercel when the session exists.
+- If no access / NEED_LOGIN / blocked auth: do not retry in a loop. Escalate back to the Desk that wrote the ticket. Desk owns getting the session (HITL login). Then the same Hands run (same bc-id) continues.
+- Do not rewrite this as “do not launch.” Launch is allowed. No-access is an escalate-to-Desk, not a miss-and-stop and not a second Hands.
+- Still not a model slot. Do not fill `gemini-3.7-flash` for a missing session.
 
 One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
 
-**Sourced fact — Cursor dashboard, 19 Aug 2026, last 7 days (grouped by Model).** Do not invent per-model splits. Orchestrator is still pulling those.
+**Sourced fact — billed headline.** Source: `cursor.com/dashboard/usage`, Gideon Blaauw / Ultra, 13–19 Aug 2026. Do not mix billed headline with raw event tokens.
 
-- Total tokens: 221.2M
-- Included: 221.2M
-- On-demand: 0
-- Spike: 13–16 Aug near zero; 17–18 small; 19 Aug (today) almost the whole 221.2M
-- Models in legend: `cursor-grok-4.6-high-fast` (dominant area), `claude-4.6-sonnet-medium-thinking`, `composer-2.5-fast`, `claude-sonnet-5-thinking-high`, `default`
+- Total 221.2M
+- Included 221.2M
+- On-demand 0
+- 221.2M is the dashboard weighted figure, not the sum of the log.
+
+**Sourced fact — raw event tokens (export, different scale).** Same source. Do not add billed 221.2M to these totals. Do not invent extra numbers.
+
+- Raw event tokens: 1,643,210,180
+- Kind=Included 1,299,295,852 + Kind=Free 343,914,328
+
+Per-model raw (7d):
+
+| Model | Raw tokens | Share (sourced) |
+|---|---|---|
+| `grok-4.6-high-fast` | 1,519,836,465 | 92.5% |
+| `grok-4.6-high` | 35,470,135 | 2.16% |
+| `opus-5-low` | 35,085,697 | 2.14% |
+| `gemini-2.5-flash` | 24,431,762 | 1.49% |
+| `sonnet-4.6-medium-thinking` | 11,906,809 | 0.72% |
+| `opus-5-thinking-low` | 7,250,763 | — |
+| `opus-4-8-thinking-high` | 6,764,598 | — |
+| `sonnet-5-thinking-high` | 993,195 | — |
+| `grok-4.5-high` | 824,720 | — |
+| `gpt-5.6-sol-medium` | 471,672 | — |
+| `auto` | 174,364 | — |
+
+By day UTC raw: 13=457.3M, 14=382.0M, 15=27.8M, 16=162.0M, 17=252.1M, 18=59.0M, 19=303.0M (partial, latest 20:15 UTC).
+
+Feature: no UI group. Cloud Agent column = 228,601,182 raw; rest 1,414,608,998 undifferentiated. Chat/Tab/Composer split [PENDIENTE].
+
+Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `composer-2.5-fast` and `default` appear in the chart legend but have zero export rows.
 
 **Lock from that fact:**
-- `cursor-grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Still never Opus / Grok 4.6 / GPT 5.6 Sol on pack writes.
-- Mechanical Hands = Haiku 4.5 or Gemini Flash.
-- Review/eval/brand = Sonnet 4.6.
-- Code in owning repo = Sonnet default unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
-- Empty model on a mechanical job = miss. One Hands ticket per artifact.
-- Auth-gated jobs do not launch without a session.
+- `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
+- Mechanical Hands = `claude-haiku-4-5` or `gemini-3.7-flash` (Flash fallbacks / Luna / Nano in the table).
+- Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
+- Repo / code Hands = `composer-2.5` (`fast=false`) unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
+- One Hands ticket per artifact.
+- Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot.
+
+Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
 
 ## 6. File structure
 
