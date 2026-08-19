@@ -161,6 +161,58 @@ Drive MCP fallback order (Hands only):
 
 **Do not:** launch a second Sustenttia instance; use mac-scan as a jump host; move HITL off desks; invent new nodes or repos; open Grant Graph or TNS packs until gates A–C clear (Drive MCP auth, VPS Archive worker, Cloud Agent healthy).
 
+### Lane A repo lock — Gideon 2026-08-19 (hard gate)
+
+Desks cannot ticket Cloud Hands on the wrong GitHub repo. Lane A = GitHub PR on the **owning** repo. Match `repo_url` to the subject before launch. Wrong repo = miss. Do not launch.
+
+| Subject | Lane A `repo_url` |
+|---|---|
+| Teclogi / dataroom scanner **ONLY** | `https://github.com/gideonblaauw-creator/cth-data-room-scanner` |
+| AIC / Bravo Bridge / Americas Innovation Council | `https://github.com/gideonblaauw-creator/americas-innovation-hub` (private, already exists) |
+| Almendra / Run Up coffee / house of brands | `https://github.com/gideonblaauw-creator/almendra` (private, just created) |
+| CTH harness / Grant Graph / plugin rulebook | `https://github.com/gideonblaauw-creator/cth-plugin` |
+
+**`cth-data-room-scanner` is Teclogi-only.** Never launch AIC splash/Lovable work on it. Never launch Almendra QBO / file-pack work on it.
+
+In-flight Teclogi remirror `bc-ddf632e2` stays on `cth-data-room-scanner`. Do not move it.
+
+If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, name: vps}`.
+
+Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
+
+### Model routing — Gideon 2026-08-19 (hard gate)
+
+Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = miss. One complete Hands ticket, no second pass for the same artifact.
+
+Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file jobs are Haiku 4.5 or Gemini Flash. Ultra may use Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code, or Auto. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent — OSS stays OpenCode.
+
+| Job type | Model | Notes |
+|---|---|---|
+| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | Haiku 4.5 or Gemini Flash | Not Sonnet. Not Opus. |
+| Review / eval / brand / Grant Graph spec | Sonnet 4.6 | Default Hands |
+| Code in the owning repo | Sonnet 4.6 default | OSS only if Gideon says OpenCode Kimi. Do not launch a second Kimi as a cloud agent. |
+| Ultra-optional cheap | Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code (OpenCode lane), Auto | Never as a second cloud Kimi |
+| Forbidden on pack writes | Opus, Grok 4.6, GPT 5.6 Sol | Miss if used |
+| Auth-gated (Lovable, HeyGen, WhatsApp QR, Vercel token) | Do not launch | Gate: session must exist first. NEED_LOGIN / blocked auth = desk miss, not a Hands retry |
+
+One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
+
+**Sourced fact — Cursor dashboard, 19 Aug 2026, last 7 days (grouped by Model).** Do not invent per-model splits. Orchestrator is still pulling those.
+
+- Total tokens: 221.2M
+- Included: 221.2M
+- On-demand: 0
+- Spike: 13–16 Aug near zero; 17–18 small; 19 Aug (today) almost the whole 221.2M
+- Models in legend: `cursor-grok-4.6-high-fast` (dominant area), `claude-4.6-sonnet-medium-thinking`, `composer-2.5-fast`, `claude-sonnet-5-thinking-high`, `default`
+
+**Lock from that fact:**
+- `cursor-grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Still never Opus / Grok 4.6 / GPT 5.6 Sol on pack writes.
+- Mechanical Hands = Haiku 4.5 or Gemini Flash.
+- Review/eval/brand = Sonnet 4.6.
+- Code in owning repo = Sonnet default unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
+- Empty model on a mechanical job = miss. One Hands ticket per artifact.
+- Auth-gated jobs do not launch without a session.
+
 ## 6. File structure
 
 Do not invent a new tree.
