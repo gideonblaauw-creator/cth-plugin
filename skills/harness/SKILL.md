@@ -161,6 +161,25 @@ Drive MCP fallback order (Hands only):
 
 **Do not:** launch a second Sustenttia instance; use mac-scan as a jump host; move HITL off desks; invent new nodes or repos; open Grant Graph or TNS packs until gates A–C clear (Drive MCP auth, VPS Archive worker, Cloud Agent healthy).
 
+### Lane A repo lock — Gideon 2026-08-19 (hard gate)
+
+Desks cannot ticket Cloud Hands on the wrong GitHub repo. Lane A = GitHub PR on the **owning** repo. Match `repo_url` to the subject before launch. Wrong repo = miss. Do not launch.
+
+| Subject | Lane A `repo_url` |
+|---|---|
+| Teclogi / dataroom scanner **ONLY** | `https://github.com/gideonblaauw-creator/cth-data-room-scanner` |
+| AIC / Bravo Bridge / Americas Innovation Council | `https://github.com/gideonblaauw-creator/americas-innovation-hub` (private, already exists) |
+| Almendra / Run Up coffee / house of brands | `https://github.com/gideonblaauw-creator/almendra` (private, just created) |
+| CTH harness / Grant Graph / plugin rulebook | `https://github.com/gideonblaauw-creator/cth-plugin` |
+
+**`cth-data-room-scanner` is Teclogi-only.** Never launch AIC splash/Lovable work on it. Never launch Almendra QBO / file-pack work on it.
+
+In-flight Teclogi remirror `bc-ddf632e2` stays on `cth-data-room-scanner`. Do not move it.
+
+If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, name: vps}`.
+
+Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
+
 ## 6. File structure
 
 Do not invent a new tree.
