@@ -217,20 +217,46 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 
 One complete Hands ticket per artifact. Two Teclogi Hands for one job (eval then remirror) is a miss unless Gideon asked for a second. Desk ping-pong / second Sketch-fix passes = miss.
 
-**Sourced fact — Cursor dashboard, 19 Aug 2026, last 7 days (grouped by Model).** Do not invent per-model splits. Orchestrator is still pulling those.
+**Sourced fact — billed headline.** Source: `cursor.com/dashboard/usage`, Gideon Blaauw / Ultra, 13–19 Aug 2026. Do not mix billed headline with raw event tokens.
 
-- Total tokens: 221.2M
-- Included: 221.2M
-- On-demand: 0
-- Spike: 13–16 Aug near zero; 17–18 small; 19 Aug (today) almost the whole 221.2M
-- Models in legend: `cursor-grok-4.6-high-fast` (dominant area), `claude-4.6-sonnet-medium-thinking`, `composer-2.5-fast`, `claude-sonnet-5-thinking-high`, `default`
+- Total 221.2M
+- Included 221.2M
+- On-demand 0
+- 221.2M is the dashboard weighted figure, not the sum of the log.
+
+**Sourced fact — raw event tokens (export, different scale).** Same source. Do not add billed 221.2M to these totals. Do not invent extra numbers.
+
+- Raw event tokens: 1,643,210,180
+- Kind=Included 1,299,295,852 + Kind=Free 343,914,328
+
+Per-model raw (7d):
+
+| Model | Raw tokens | Share (sourced) |
+|---|---|---|
+| `grok-4.6-high-fast` | 1,519,836,465 | 92.5% |
+| `grok-4.6-high` | 35,470,135 | 2.16% |
+| `opus-5-low` | 35,085,697 | 2.14% |
+| `gemini-2.5-flash` | 24,431,762 | 1.49% |
+| `sonnet-4.6-medium-thinking` | 11,906,809 | 0.72% |
+| `opus-5-thinking-low` | 7,250,763 | — |
+| `opus-4-8-thinking-high` | 6,764,598 | — |
+| `sonnet-5-thinking-high` | 993,195 | — |
+| `grok-4.5-high` | 824,720 | — |
+| `gpt-5.6-sol-medium` | 471,672 | — |
+| `auto` | 174,364 | — |
+
+By day UTC raw: 13=457.3M, 14=382.0M, 15=27.8M, 16=162.0M, 17=252.1M, 18=59.0M, 19=303.0M (partial, latest 20:15 UTC).
+
+Feature: no UI group. Cloud Agent column = 228,601,182 raw; rest 1,414,608,998 undifferentiated. Chat/Tab/Composer split [PENDIENTE].
+
+Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `composer-2.5-fast` and `default` appear in the chart legend but have zero export rows.
 
 **Lock from that fact:**
-- `cursor-grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Still never Opus / Grok 4.6 / GPT 5.6 Sol on pack writes.
+- `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical ticket = miss. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes.
 - Mechanical Hands = `claude-haiku-4-5` or `gemini-3.7-flash` (Flash fallbacks / Luna / Nano in the table).
 - Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
 - Repo / code Hands = `composer-2.5` (`fast=false`) unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
-- Empty model on a mechanical job = miss. One Hands ticket per artifact.
+- One Hands ticket per artifact.
 - Auth-gated jobs do not launch without a session.
 
 Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
