@@ -200,11 +200,15 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Cheapest Flash fallback | `gemini-3-flash` | $0.50 / $3 | Other Models |
 | Tiny transforms | `gpt-5.6-luna` | $0.20 / $1.20 | Other Models |
 | Tiny transforms | `gpt-5.4-nano` | $0.20 / $1.25 | Other Models |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | Cursor Models pool. Never Fast. |
+| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | Cursor Models pool. Never Fast. Cursor Hands fallback when Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands. |
 | Review / eval / brand / Grant Graph spec | `claude-sonnet-4-6` | $3 / $15 | Other Models. Keep as review default. |
 | Review note only | `claude-sonnet-5` | $2 / $10 | Cheaper. Do not lock unless Gideon says. |
 | Mixed / unspecified | `default` (Auto) | — | Do not invent an Auto Cost $. Official models-and-pricing does not publish one. |
-| OSS | OpenCode Kimi only | — | Do not launch `kimi-k2.7-code` / `kimi-k3` as a cloud agent. |
+| OSS | `opencode-go/kimi-k2.7-code` | — | Coding default (20 Aug). Do not launch `kimi-k2.7-code` / `kimi-k3` as a cloud agent. Never a second Kimi cloud agent. |
+| Tiny (not private) | `gemini-3.7-flash` or local 3B | $0.75 / $3.50 for Flash | Job-size axis. One artifact, mechanical, no architecture, no grant/eval/brand. Empty mechanical still Flash. |
+| Private (residency) | local Ollama `LFM2.5-VL-3B` | — | Must stay on 127.0.0.1. Client raw, unsigned, QBO staging, credentials, unpublished packs. If it does not fit 3B, hold for Gideon. No Cursor $. |
+| Tiny + private | local Ollama `LFM2.5-VL-3B` | — | Both axes. Local 3B only. |
+| Forbidden | `muse-spark-1.2-contributor` | — | Trains on prompts. Official Go privacy: model training = Yes (`https://opencode.ai/docs/go/`). Miss if used. |
 | Forbidden on pack writes | `grok-4.6` | $2 / $6 | Orchestrator chat only. Not pack Hands. |
 | Forbidden on pack writes | `grok-4.6` Fast | $4 / $12 | Especially never Fast on packs. Miss if used. |
 | Forbidden on pack writes | `grok-4.5` Fast | $4 / $12 | Official table $4/$12 (not the help-page $18 out). Miss if used. |
@@ -218,9 +222,10 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 **MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
 
 - Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
-- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
+- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
 - Review / eval / brand with no model → keep `claude-sonnet-4-6`.
-- Repo / code with no model → `composer-2.5` (`fast=false`).
+- Repo / code with no model → OpenCode Go `opencode-go/kimi-k2.7-code`. If Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands → `composer-2.5` (`fast=false`). Never Fast. Never a second Kimi cloud agent.
+- Private residency (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. Do not fill Flash. If it does not fit 3B, hold for Gideon.
 
 **Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
 
@@ -269,11 +274,26 @@ Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `compos
 - `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
 - Mechanical Hands = `claude-haiku-4-5` or `gemini-3.7-flash` (Flash fallbacks / Luna / Nano in the table).
 - Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
-- Repo / code Hands = `composer-2.5` (`fast=false`) unless Gideon says OpenCode Kimi. No second Kimi cloud agent.
+- Repo / code Hands = OpenCode Go `opencode-go/kimi-k2.7-code` first. `composer-2.5` (`fast=false`) only when Go is blocked, over quota, hung, or Gideon says Hands. No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
 - One Hands ticket per artifact.
-- Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot.
+- Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot. Presenter video stays HeyGen primary. Do not invert HeyGen to fallback.
 
 Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
+
+### OSS-first + tiny/private — Gideon 2026-08-20 (Orchestrator) (hard gate)
+
+Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, the Flash fill-in (empty mechanical = `gemini-3.7-flash`), or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
+
+**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=false`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. Never Composer Fast. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
+
+**2. Go has no image/video/voice generation weights.** Official list is coding-only (verified 20 Aug 2026, `https://opencode.ai/docs/go/`). Do not invent models. Current official list: Grok 4.5, GLM-5.3, GLM-5.2, GLM-5.1, GPT 5.6 Luna, Kimi K3, Kimi K2.7 Code, Kimi K2.6, MiMo-V2.5, MiMo-V2.5-Pro, MiniMax M3, MiniMax M2.7, Muse Spark 1.2 Contributor (limited regions — forbidden), Qwen3.8 Max, Qwen3.7 Max, Qwen3.7 Plus, Qwen3.6 Plus, DeepSeek V4 Pro, DeepSeek V4 Flash, Hy3. MiniMax M3 / MiMo / Kimi may read image/video (text out). Presenter video stays HeyGen primary. Image generate stays Images desk. Do not invert HeyGen to fallback.
+
+**3. tiny vs private are two axes.** They are not the same gate.
+- **Tiny** = job size: one artifact, mechanical, no architecture, no grant/eval/brand → `gemini-3.7-flash` or local 3B.
+- **Private** = residency: must not leave 127.0.0.1 (client raw, unsigned, QBO staging, credentials, unpublished packs) → local Ollama `LFM2.5-VL-3B` only. If private does not fit 3B, hold for Gideon.
+- **Tiny + private** = local 3B.
+
+Empty model on a mechanical job still = `gemini-3.7-flash` (19 Aug fill-in). Private residency overrides Flash — private does not leave 127.0.0.1.
 
 ## 6. File structure
 
