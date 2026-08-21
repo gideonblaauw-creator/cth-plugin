@@ -170,7 +170,8 @@ Desks cannot ticket Cloud Hands on the wrong GitHub repo. Lane A = GitHub PR on 
 | Teclogi / dataroom scanner **ONLY** | `https://github.com/gideonblaauw-creator/cth-data-room-scanner` |
 | AIC / Bravo Bridge / Americas Innovation Council | `https://github.com/gideonblaauw-creator/americas-innovation-hub` (private, already exists) |
 | Almendra / Run Up coffee / house of brands | `https://github.com/gideonblaauw-creator/almendra` (private, just created) |
-| CTH harness / Grant Graph / plugin rulebook | `https://github.com/gideonblaauw-creator/cth-plugin` |
+| Sustenttia / sustainability consulting | `https://github.com/gideonblaauw-creator/sustenttia-v2` (private, already exists) |
+| CTH harness / Grant Graph / plugin rulebook | `https://github.com/gideonblaauw-creator/cth-plugin` only |
 
 **`cth-data-room-scanner` is Teclogi-only.** Never launch AIC splash/Lovable work on it. Never launch Almendra QBO / file-pack work on it.
 
@@ -179,6 +180,32 @@ In-flight Teclogi remirror `bc-ddf632e2` stays on `cth-data-room-scanner`. Do no
 If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, name: vps}`.
 
 Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
+
+### Hard repo allowlist + Lane B parking repo lock — Gideon 2026-08-20 (hard gate)
+
+Desks cannot ticket Cloud Hands on the wrong GitHub repo. Match `repo_url` to the subject before launch.
+
+**1. Hard repo allowlist (Hands `repo_url` must match the subject):**
+- **Teclogi code:** `https://github.com/gideonblaauw-creator/cth-data-room-scanner` (**Teclogi-only**; never launch AIC or Almendra work on the scanner)
+- **AIC / Bravo Bridge / Americas Innovation Council:** `https://github.com/gideonblaauw-creator/americas-innovation-hub` (private, already exists)
+- **Almendra / Run Up coffee / house of brands:** `https://github.com/gideonblaauw-creator/almendra` (private, just created)
+- **Sustenttia / sustainability consulting:** `https://github.com/gideonblaauw-creator/sustenttia-v2` (private, already exists)
+- **CTH harness / Grant Graph / plugin rulebook:** `https://github.com/gideonblaauw-creator/cth-plugin` only
+
+**2. Lane A (repo/code):**
+- MUST pass `repo_url` on that product allowlist.
+- Empty repo on a code job = miss.
+- `cth-matters` on a code job = miss.
+
+**3. Lane B (Drive / HTML / PDF / Archive / Docs):**
+- CloudAgent cannot launch Lane B with no `repo_url`.
+- Lane B MUST use parking `repo_url` `https://github.com/gideonblaauw-creator/cth-matters` (private, README only) AND environment `{type: machine, name: vps}`.
+- Product repos (`cth-data-room-scanner`, `americas-innovation-hub`, `almendra`, `sustenttia-v2`, `cth-plugin`) are a miss for pack jobs. A product repo on a pack job = miss.
+
+**4. Execution locks:**
+- **One live Hands per workstream.** Same `bc-id` continues.
+- **BeCaps stays template-only.** Do not mix Teclogi files into BeCaps.
+- **Scanner is Teclogi-only.** Do not put AIC or Almendra work on the scanner.
 
 ### Model routing — Gideon 2026-08-19 (hard gate)
 
