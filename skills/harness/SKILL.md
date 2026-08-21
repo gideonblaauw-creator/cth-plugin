@@ -303,6 +303,15 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 - **VIDEO primary:** HeyGen presenter (avatar + ES translate). Auth the existing plugin first (needsAuth). Prefer Composio HeyGen only if plugin session fails. Do not add a second HeyGen plugin. B-roll: hold. Later HITL: MiniMax hosted Hailuo 2.3 / H3 API (NOT Go M3, NOT local H3 weights). GPU later (not on VPS-4): Wan-Animate-2 Apache or LTX-2.5 (community license under $10M ARR, official min 16GB VRAM). Never download video weights onto VPS-4. Never local H3 for US-facing AIC/Frank (US/EU/UK/KR excluded).
 - **VOICE primary:** HeyGen Starfish inside presenter. Standalone TTS/clone/STT: hold. ElevenLabs Composio exists, not Active — do not connect until Gideon says. No Voice desk.
 
+**OpenRouter media generate bus — Gideon GO 2026-08-20 7:10pm COT (one-key bus):**
+- OpenRouter is the media-generate bus (Hands HTTP). Do not add a Cursor OpenRouter plugin (none in catalog). Prefer Composio later only if a toolkit exists. Do not connect fal.ai, `FAL_KEY`, or ElevenLabs.
+- **IMAGE generate:** OpenRouter `POST /api/v1/images` (`FLUX` / `Qwen-Image`). Images desk stays throwaway mocks. Canva stays brand layouts.
+- **VIDEO B-roll:** OpenRouter `POST /api/v1/videos` (`minimax/hailuo-3`, `hailuo-2.3`, `alibaba/wan-2.7`, `google/veo-3.1-lite`). Not ZDR.
+- **VIDEO presenter:** HeyGen stays presenter (`avatar` + `ES translate` + `Starfish`). Auth existing plugin first (`needsAuth`).
+- **VOICE / STT:** OpenRouter `POST /api/v1/audio/speech` and `/audio/transcriptions` (`minimax/speech-2.8-hd` ES, `fish-audio/s2.1-pro` clone, `hexgrad/kokoro-82m` cheap EN).
+- **Coding default UNCHANGED:** OpenCode Go `opencode-go/kimi-k2.7-code`. Do not point OpenCode coding at OpenRouter.
+- **Private payloads:** Still `127.0.0.1` only (`LFM2.5-VL-3B` local Ollama). Never video weights on VPS-4. Never local H3 for US-facing AIC/Frank.
+
 ## 6. File structure
 
 Do not invent a new tree.
