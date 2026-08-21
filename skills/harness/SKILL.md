@@ -312,6 +312,22 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 - **Coding default UNCHANGED:** OpenCode Go `opencode-go/kimi-k2.7-code`. Do not point OpenCode coding at OpenRouter.
 - **Private payloads:** Still `127.0.0.1` only (`LFM2.5-VL-3B` local Ollama). Never video weights on VPS-4. Never local H3 for US-facing AIC/Frank.
 
+### Test bench — Gideon 2026-08-20 7:16pm COT
+
+A repeatable test bench script lives at `skills/harness/test-bench.py`. Run `python3 skills/harness/test-bench.py` to print a structured PASS / FAIL / SKIP table with evidence across all 10 lanes:
+1. OpenRouter IMAGE: POST `/api/v1/images` (cites 20 Aug `flux.2-klein-4b` birthday still `/workspace/openrouter-test/birthday_still.png` as PASS; optional tiny live rerun if `OPENROUTER_API_KEY` present).
+2. OpenRouter VIDEO: POST `/api/v1/videos` (hailuo-2.3 job `mZFcslv1fhP2DhXahDXT` recorded; requires duration 6s/10s, resolution 768p/1080p; SKIP live query if no key in worker env).
+3. OpenRouter TTS: POST `/api/v1/audio/speech` (`hexgrad/kokoro-82m` / `minimax/speech-2.8-turbo`; public line only; SKIP if no key).
+4. OpenRouter STT: POST `/api/v1/audio/transcriptions` (on generated TTS file; SKIP if no key/file).
+5. Local private 3B: SKIP with instruction that worker `vps` must run `curl 127.0.0.1:11434` and verify public `51.195.45.77` refused. No SSH from cloud VM.
+6. OpenCode Go coding: Documented expected FAIL (CF 1010 block from VPS). Do not loop. Cloud VM: SKIP/record last known 1010.
+7. Composer 2.5 fallback: Dry check only (`fast=false`). Ready for Hands fallback when Go is blocked, over quota, or hung.
+8. HeyGen presenter: Reports `needsAuth` / SKIP until Gideon session. Do not open a second Hands. Do not add a second HeyGen plugin.
+9. Canva brand layouts: Session status check (brand layouts, not diffusion).
+10. Routing lock dry: Validates coding default (`opencode-go/kimi-k2.7-code`), tiny vs private, HeyGen presenter, and OpenRouter B-roll.
+
+Rules: No client send/post/pay. No private payloads. No video weights download. No Muse Spark. OpenRouter key lives on Orchestrator connector-secrets, not automatically in cloud VMs; missing key produces clean SKIPs without inventing tokens.
+
 ## 6. File structure
 
 Do not invent a new tree.
