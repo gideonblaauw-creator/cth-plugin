@@ -6,8 +6,8 @@ Runs dry/smoke status checks across all harness execution and media routing lane
 1. OpenRouter IMAGE: POST /api/v1/images (flux.2-klein-4b birthday still smoke citation or live rerun if key present)
 2. OpenRouter VIDEO: POST /api/v1/videos (hailuo-2.3 job mZFcslv1fhP2DhXahDXT query or record)
 3. OpenRouter TTS: POST /api/v1/audio/speech (kokoro-82m / minimax speech-2.8-turbo)
-4. OpenRouter STT: POST /api/v1/audio/transcriptions
-5. Local Private 3B: VPS loopback curl 127.0.0.1:11434 check instruction (no cloud SSH)
+4. OpenRouter STT: POST /api/v1/audio/transcriptions (actual multipart POST if key and audio present)
+5. Local Private 3B: Probes 127.0.0.1:11434 live; if answers, checks public 51.195.45.77 refused. If fails, SKIP with VPS instruction (no SSH)
 6. OpenCode Go coding: Documented expected CF 1010 from VPS (do not loop)
 7. Composer 2.5 fallback: Dry check for repo/code hands fallback (fast=false)
 8. HeyGen presenter: Plugin needsAuth / session check (no second plugin/hands)
@@ -20,6 +20,8 @@ Outputs PASS / FAIL / SKIP with concrete evidence for each lane.
 import os
 import sys
 import json
+import socket
+import uuid
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -157,33 +159,105 @@ def run_bench():
     # -------------------------------------------------------------
     if api_key and tts_file and Path(tts_file).exists():
         try:
-            # Simple STT multipart POST test would go here if key and file were present
-            results.append((
-                "4. OpenRouter STT",
-                "PASS",
-                "POST /api/v1/audio/transcriptions available on generated TTS file"
-            ))
+            audio_data = Path(tts_file).read_bytes()
+            boundary = f"----WebKitFormBoundary{uuid.uuid4().hex}"
+            lines = []
+            
+            # model field
+            lines.append(f"--{boundary}".encode())
+            lines.append(b'Content-Disposition: form-data; name="model"')
+            lines.append(b'')
+            lines.append(b"openai/whisper-large-v3")
+            
+            # file field
+            lines.append(f"--{boundary}".encode())
+            lines.append(b'Content-Disposition: form-data; name="file"; filename="test_tts.mp3"')
+            lines.append(b'Content-Type: audio/mpeg')
+            lines.append(b'')
+            lines.append(audio_data)
+            
+            lines.append(f"--{boundary}--".encode())
+            lines.append(b'')
+            
+            multipart_body = b"\r\n".join(lines)
+            
+            req = urllib.request.Request(
+                "https://openrouter.ai/api/v1/audio/transcriptions",
+                data=multipart_body,
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": f"multipart/form-data; boundary={boundary}",
+                    "Content-Length": str(len(multipart_body)),
+                    "HTTP-Referer": "https://cleantechhub.net",
+                    "X-Title": "CTH Test Bench"
+                }
+            )
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                stt_data = json.loads(resp.read().decode("utf-8"))
+                transcript = stt_data.get("text", "")
+                results.append((
+                    "4. OpenRouter STT",
+                    "PASS",
+                    f"POST /api/v1/audio/transcriptions succeeded (model: whisper-large-v3, text: {transcript[:50]!r})"
+                ))
         except Exception as e:
             results.append((
                 "4. OpenRouter STT",
                 "FAIL",
-                f"Live STT failed: {e}"
+                f"Live POST /api/v1/audio/transcriptions failed: {e}"
             ))
     else:
         results.append((
             "4. OpenRouter STT",
             "SKIP",
-            "SKIP: No audio file / no OPENROUTER_API_KEY in cloud worker env to run live STT."
+            "SKIP: No audio file / no OPENROUTER_API_KEY in cloud worker env to run live STT POST."
         ))
 
     # -------------------------------------------------------------
     # Lane 5: Local Private 3B (127.0.0.1 Ollama LFM2.5-VL-3B)
     # -------------------------------------------------------------
-    results.append((
-        "5. Local Private 3B",
-        "SKIP",
-        "Cloud VM cannot prove VPS loopback. Worker 'vps' must run 'curl -s http://127.0.0.1:11434/api/tags' and confirm public 51.195.45.77:11434 is refused. Do not SSH from cloud VM."
-    ))
+    loopback_ok = False
+    loopback_detail = ""
+    try:
+        req = urllib.request.Request("http://127.0.0.1:11434/api/tags")
+        with urllib.request.urlopen(req, timeout=1.5) as resp:
+            if resp.status == 200:
+                loopback_ok = True
+                loopback_detail = "127.0.0.1:11434 responded HTTP 200"
+    except Exception as e:
+        loopback_detail = f"127.0.0.1:11434 unreachable ({e})"
+
+    if loopback_ok:
+        # Actually confirm public 51.195.45.77:11434 is refused
+        public_refused = False
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(1.5)
+            conn_result = s.connect_ex(("51.195.45.77", 11434))
+            s.close()
+            if conn_result != 0:
+                public_refused = True
+        except Exception:
+            public_refused = True
+
+        if public_refused:
+            results.append((
+                "5. Local Private 3B",
+                "PASS",
+                f"Probed 127.0.0.1:11434 successfully ({loopback_detail}); verified public 51.195.45.77:11434 is refused (residency intact)."
+            ))
+        else:
+            results.append((
+                "5. Local Private 3B",
+                "FAIL",
+                "127.0.0.1:11434 answered but public 51.195.45.77:11434 port is reachable (residency leak)."
+            ))
+    else:
+        results.append((
+            "5. Local Private 3B",
+            "SKIP",
+            f"Loopback probe failed ({loopback_detail} on cloud VM). Worker 'vps' must run 'curl -s http://127.0.0.1:11434/api/tags' and confirm public 51.195.45.77:11434 is refused. Do not SSH from cloud VM."
+        ))
 
     # -------------------------------------------------------------
     # Lane 6: OpenCode Go coding (kimi-k2.7-code)
