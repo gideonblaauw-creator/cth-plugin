@@ -10,8 +10,11 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 desk:
 folder:
 done-when:
-lane: sonnet | haiku | flash | opencode
+model: gemini-3.7-flash | composer-2.5 (fast=false)
+lane: github-pr | drive-folder
 hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+`model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical) or `composer-2.5` with `fast=false` (repo/code). Review/eval/brand with no model → HOLD and flag Gideon. See Token lock 2026-08-26 in `skills/harness/SKILL.md` §5.
