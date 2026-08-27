@@ -2,7 +2,7 @@
 
 Copy this block into a new file (e.g. `tickets/YYYY-MM-DD-short-name.md`) and fill in every field.
 `desk:` is free-form — write the Desk name as it exists or will exist.
-See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Desk list.
+See `skills/harness/SKILL.md` for lane definitions, gate rules, token lock, and the full Desk list.
 
 ---
 
@@ -10,7 +10,7 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 desk:
 folder:
 done-when:
-lane: sonnet | haiku | flash | opencode
+model: gemini-3.7-flash | composer-2.5 (fast=false) | HOLD-flag-Gideon
 hitl: nothing sent/posted/paid
 reviewer:
 context:
