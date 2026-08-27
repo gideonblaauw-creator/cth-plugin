@@ -60,7 +60,8 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `lane:` `sonnet` | `haiku` | `flash` | `opencode`
+- `model:` `gemini-3.7-flash` | `composer-2.5` (`fast=false`) — Cloud Hands only (Token lock 2026-08-26)
+- `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
 
