@@ -1,12 +1,12 @@
 ---
 name: slack
 description: >
-  Search messages, read channels or threads, send or draft messages, find users,
-  create or read Canvases, or schedule posts in Slack. Trigger on Slack, "DM
-  someone", "post in #channel", "check Slack for…", or composing Slack messages.
+  Searches, reads, drafts, and posts Slack messages and Canvases. Use when:
+  Slack, post in channel, DM, check Slack.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Slack Operations

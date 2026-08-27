@@ -1,9 +1,7 @@
 ---
 name: monday
 description: >
-  Build, manage, and automate Monday.com workspaces, boards, dashboards, items,
-  columns, workdocs, and widgets. Trigger on Monday, Monday.com, a Monday board,
-  workspace, dashboard, widget, workdoc, or any Monday.com concept.
+  Manages Monday.com workspaces, boards, dashboards, automations.
 ---
 
 # monday

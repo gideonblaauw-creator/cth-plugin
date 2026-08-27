@@ -1,12 +1,7 @@
 ---
 name: harness
 description: >
-  CTH Harness rulebook — five-term operating model (Workbench, Tools,
-  Tickets, Cloud Hands, Desks) for Gideon Blaauw's AI stack. Trigger on
-  "CTH Harness", "harness", "ticket", "Cloud Hands", "Workbench", "Desk",
-  "take a ticket", "lane", or any CTH Harness reference. Also trigger at
-  the start of any Cloud Hands task so the agent reads these rules before
-  executing.
+  CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks.
 ---
 
 # harness

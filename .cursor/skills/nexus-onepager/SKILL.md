@@ -1,11 +1,7 @@
 ---
 name: nexus-onepager
 description: >
-  Build and deploy CleantechHUB startup one-pagers — bilingual (EN/ES) HTML
-  profile pages served at nexus.cleantechhub.net/s/{slug}. Trigger on "make a
-  one-pager", "build a startup page", "create a profile for [startup]", "deploy
-  to /s/", "update the one-pager template", or mentions of startup profiles on
-  Nexus.
+  Builds bilingual Nexus startup one-pagers at nexus.cleantechhub.net/s/{slug}.
 ---
 
 # nexus-onepager

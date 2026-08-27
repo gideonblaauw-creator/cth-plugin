@@ -1,9 +1,7 @@
 ---
 name: notion
 description: >
-  Search, create, move, or reorganize pages in Notion. Trigger on Notion, a
-  Notion page, "restructure our Notion", "organise our pages", "move this to
-  Notion", "scan our Notion", or "clean up Notion".
+  Searches, creates, moves, and reorganizes Notion pages.
 ---
 
 # notion

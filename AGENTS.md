@@ -24,6 +24,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - Never cite REIN Hubs dollar amounts.
 - **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`. Token lock **2026-08-26** in §5: Grok Bot coordination only; allowed Cloud Hands models are `gemini-3.7-flash` (mechanical) and `composer-2.5` (`fast=false`) (repo/code); review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Skill inventory: `skills/harness/references/skill-toolkit.json`. Hands-shift lock (2026-08-17), Lane A repo lock (2026-08-19), OSS-first tiny/private (2026-08-20) remain in the same §5.
 - **Before promoting a tree, creating a repo, or opening a branch on any app/service/pipeline**, read `skills/app-build/SKILL.md`. Do not create a GitHub repo until Gideon marks the row.
+- **Authoring or reviewing skills**, read `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 
 ## VPS files
 

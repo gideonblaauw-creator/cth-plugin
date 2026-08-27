@@ -1,15 +1,13 @@
 ---
 name: clp26-brand
 description: >
-  Apply ClimateLaunchpad 2026 (CLP26) brand guidelines to any content for the
-  CleantechHUB social media campaign in Colombia, Peru, El Salvador, Guatemala,
-  and Costa Rica. Use when writing social media posts, captions, copy, hashtag
-  sets, campaign content, or visual design briefs for CLP26. Trigger on mentions
-  of ClimateLaunchpad, CLP26, convocatoria, call for applications, climate
-  startup competition, or campaign content for LinkedIn, Instagram, Facebook.
+  Applies ClimateLaunchpad 2026 campaign brand for CTH social in CO, PE, SV, GT,
+  CR. Use when: CLP26, ClimateLaunchpad, convocatoria, campaign captions or
+  visual briefs. Do not use when: general CTH brand (cleantechhub-brand).
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: brand
+  version: "2.1.0"
+  category: "brand"
 ---
 
 # ClimateLaunchpad 2026 Campaign Brand
@@ -138,3 +136,9 @@ Before delivering any CLP26 content, verify:
 6. Supporter organizations are correctly named and tagged.
 7. Image dimensions match the target platform.
 8. CTA includes a clear action verb and link placeholder.
+## Related skills
+
+| Skill | When instead |
+|---|---|
+| `cleantechhub-brand` | General CleantechHUB (non-CLP) brand |
+| `social-media-campaign` | Full campaign pipeline beyond brand rules |

@@ -1,6 +1,9 @@
 {
-  "inventory_date": "2026-08-26",
+  "inventory_date": "2026-08-27",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
+  "skill_template": "skills/skill-template/SKILL.md",
+  "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
+  "spec": "https://agentskills.io/specification",
   "canonical_root": "skills/<name>/SKILL.md",
   "cursor_stub_root": ".cursor/skills/<name>/SKILL.md",
   "rulebook": "skills/harness/SKILL.md",
@@ -12,7 +15,9 @@
       "canonical": "skills/app-build/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Blaauw app-build protocol \u2014 rulebook for building, promoting, or putting a live tree on GitHub. Trigger on \"app-build\", \"promote to GitHub\", \"create a repo\", \"new repo\", \"build an app\", \"Infrastructure classifies\", or any request to create or push a service, app, or pipeline to GitHub. Cloud Hands must read this before opening a branch, creating a repo, or promoting a VPS/Archive tree."
+      "license": "MIT",
+      "version": "1.1.0",
+      "description": "Blaauw app-build protocol for promoting trees to GitHub. Use when: app-build, promote to GitHub, create a repo, new repo, Infrastructure classifies, or pushing a service/app/pipeline to GitHub. Do not use when: grant packs (Drive) or skill-only edits."
     },
     {
       "name": "bookstack",
@@ -20,7 +25,9 @@
       "canonical": "skills/bookstack/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Deploy, configure, and manage BookStack wiki instances via Docker and REST API. Trigger on BookStack, wiki deployment, wiki migration, BookStack API, BookStack shelves/books/chapters/pages, knowledge base, documentation wiki, or any mention of wiki.cleantechhub.net."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Deploys and manages BookStack wiki via Docker and REST API. Use when: BookStack, wiki deployment, wiki.cleantechhub.net, knowledge base, shelves/books/chapters/pages."
     },
     {
       "name": "buffer",
@@ -28,7 +35,9 @@
       "canonical": "skills/buffer/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Schedule, draft, or publish social media posts via Buffer to LinkedIn, Instagram, Facebook, TikTok, X/Twitter, Threads, Pinterest, or YouTube. Trigger on Buffer, \"schedule a post\", \"post to [platform]\", \"bulk schedule\", \"post the Canva design to\u2026\", \"repush failed posts\", or programmatic publishing. Also trigger for the Notion \u2192 Buffer pipeline."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Schedules and publishes social posts via Buffer. Use when: Buffer, schedule a post, bulk schedule, repush failed posts, Notion\u2192Buffer pipeline, posting Canva designs."
     },
     {
       "name": "canva",
@@ -36,7 +45,9 @@
       "canonical": "skills/canva/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Export designs, get thumbnails, prepare images for other tools (Buffer, social media, email, Notion), or work with Canva designs in any way. Trigger on Canva, design export, social media visuals from Canva, or posting Canva images anywhere. Critical sequencing and URL-handling rules apply."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Exports Canva designs and prepares images for downstream tools. Use when: Canva, design export, social visuals from Canva, posting Canva images. Sequencing and URL rules apply."
     },
     {
       "name": "cleantechhub-brand",
@@ -44,7 +55,9 @@
       "canonical": "skills/cleantechhub-brand/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Apply CleantechHUB brand guidelines to any communication piece, artifact, or template. Use this skill when creating or editing anything that will be seen externally or represents CleantechHUB \u2014 presentations, documents, social media posts, HTML artifacts, reports, proposals, flyers, email templates, or any visual/written content. Also trigger when the user asks to \"make it on brand\", \"brand this\", \"apply our brand\", \"use our colors/fonts/style\", or mentions CleantechHUB branding. If in doubt \u2014 use this skill."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Applies CleantechHUB brand \u2014 colors, typography, tone, HTML/CSS tokens. Use when: external CTH content, on-brand artifacts, proposals, social, reports. Do not use when: CLP26 campaign (clp26-brand) or client-only brands."
     },
     {
       "name": "clp26-brand",
@@ -52,7 +65,9 @@
       "canonical": "skills/clp26-brand/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Apply ClimateLaunchpad 2026 (CLP26) brand guidelines to any content for the CleantechHUB social media campaign in Colombia, Peru, El Salvador, Guatemala, and Costa Rica. Use when writing social media posts, captions, copy, hashtag sets, campaign content, or visual design briefs for CLP26. Trigger on mentions of ClimateLaunchpad, CLP26, convocatoria, call for applications, climate startup competition, or campaign content for LinkedIn, Instagram, Facebook."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Applies ClimateLaunchpad 2026 campaign brand for CTH social in CO, PE, SV, GT, CR. Use when: CLP26, ClimateLaunchpad, convocatoria, campaign captions or visual briefs. Do not use when: general CTH brand (cleantechhub-brand)."
     },
     {
       "name": "composio",
@@ -60,7 +75,9 @@
       "canonical": "skills/composio/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Discover and connect to hundreds of third-party services through Composio's integration gateway. Trigger on Composio, \"connect to a new tool\", \"find a tool for X\", \"integrate with [service]\", or when a SaaS integration is needed that Claude doesn't have a dedicated connector for."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Connects third-party services through Composio. Use when: Composio, integrate with a SaaS, connect a new tool, or no dedicated MCP exists."
     },
     {
       "name": "cth-grant",
@@ -68,7 +85,9 @@
       "canonical": "skills/cth-grant/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "CleantechHUB grant lifecycle and competitive bids \u2014 evaluation, scoping, drafting, budgeting, theory of change, deliverables, and submission. Trigger on grants, funding opportunities, donor proposals, grant budgets, theory of change, logframes, concept notes, calls for proposals, competitive bids, procurements, tenders. Also trigger on CTH funders: P4G, UNDP, AFCIA, Adaptation Fund, GIZ, Climate KIC, CLP, DGGF, Triple Jump, Expertise France, Pvblic, REIN Hubs, Energy Catalyst, BuZa, Fondo Acci\u00f3n, Latimpacto, AuRA, SVOM, BID/IDB, ESPOL, PROINN\u00d3VATE."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Runs CTH grant and competitive-bid lifecycle \u2014 go/no-go, scoping, budget, theory of change, submission. Use when: grants, donor proposals, logframes, tenders, competitive bids. Do not use when: commercial client proposals (cth-proposal-build)."
     },
     {
       "name": "cth-proposal-build",
@@ -76,7 +95,9 @@
       "canonical": "skills/cth-proposal-build/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Build, iterate, and deploy polished client-facing service proposals for CleantechHUB. Trigger on \"build a proposal\", \"respond to an RFP\", \"write up a services doc\", \"create a pitch for [client]\", \"redo the HTML\", or \"update the proposal\". Governs the full pipeline: research \u2192 alignment gate \u2192 HTML build \u2192 PDF export \u2192 deploy."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Builds client-facing CTH service proposals \u2014 research, alignment gate, HTML, PDF, deploy. Use when: build a proposal, RFP response, services doc, pitch for a client. Do not use when: grants or donor bids (cth-grant)."
     },
     {
       "name": "cth-seo",
@@ -84,7 +105,9 @@
       "canonical": "skills/cth-seo/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "CleantechHUB SEO Command Center \u2014 operational skill for all SEO, AEO, and content strategy across cleantechhub.net subdomains. Trigger on SEO, keywords, rankings, Google Search Console, Google Ads, Ad Grant, meta tags, schema markup, JSON-LD, sitemap, robots.txt, Core Web Vitals, keyword clustering, content decay, E-E-A-T, AI Overviews, AEO, llms.txt, blog strategy, competitor analysis, or technical SEO audit."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "SEO/AEO command center for cleantechhub.net subdomains. Use when: SEO, keywords, Search Console, schema, sitemap, Ad Grant, technical SEO audit."
     },
     {
       "name": "doctor-bot",
@@ -92,7 +115,9 @@
       "canonical": "skills/doctor-bot/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Invoke, interpret, or extend Doctor_Bot \u2014 CleantechHUB's infrastructure health agent that monitors MCP connectors, the OVH VPS (BookStack, Sustenttia Chroma, Caddy, MariaDB, TLS certs, disk, memory), and Pipedream workflows. Trigger on \"run doctor_bot\", \"check infra health\", \"what's broken in my stack\", \"is BookStack up\", \"are my MCPs healthy\", \"check the VPS\", or referencing the doctor-bot dashboard."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Invokes Doctor_Bot for MCP, VPS, and Pipedream health checks. Use when: doctor_bot, infra health, BookStack up, MCP health, VPS check."
     },
     {
       "name": "gmail",
@@ -100,7 +125,9 @@
       "canonical": "skills/gmail/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Search emails, read threads, draft replies, create new emails, or compile email correspondence. Trigger on Gmail, \"my emails\", \"email thread\", \"check my inbox\", \"draft an email to\u2026\", or finding past email exchanges."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Searches, reads, drafts, and compiles Gmail correspondence. Use when: Gmail, inbox, email thread, draft an email, find past exchanges."
     },
     {
       "name": "google-drive",
@@ -108,7 +135,9 @@
       "canonical": "skills/google-drive/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Search, read, upload, and manage files in Google Drive. Trigger on Drive, Google Drive, \"my docs\", \"check Drive for\u2026\", \"find the file about\u2026\", Google Sheet, or Google Doc references."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Searches, reads, uploads, and manages Google Drive files. Use when: Drive, Google Docs/Sheets, find a file, upload to Drive."
     },
     {
       "name": "harness",
@@ -116,7 +145,9 @@
       "canonical": "skills/harness/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "CTH Harness rulebook \u2014 five-term operating model (Workbench, Tools, Tickets, Cloud Hands, Desks) for Gideon Blaauw's AI stack. Trigger on \"CTH Harness\", \"harness\", \"ticket\", \"Cloud Hands\", \"Workbench\", \"Desk\", \"take a ticket\", \"lane\", or any CTH Harness reference. Also trigger at the start of any Cloud Hands task so the agent reads these rules before executing."
+      "license": "MIT",
+      "version": "3.1.0",
+      "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary. Read before any Cloud Hands ticket."
     },
     {
       "name": "html-to-pdf",
@@ -124,7 +155,9 @@
       "canonical": "skills/html-to-pdf/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Convert single-file HTML proposals, reports, or documents to high-quality PDF. Trigger on \"generate a PDF\", \"export to PDF\", \"convert the HTML to PDF\", \"create a PDF from the proposal\", or any variation. Also trigger proactively after building HTML files that the user will likely want as PDF."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Converts self-contained HTML to print-quality PDF via Playwright. Use when: export to PDF, convert proposal HTML, PDF from artifact."
     },
     {
       "name": "live-artifact-build",
@@ -132,7 +165,9 @@
       "canonical": "skills/live-artifact-build/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Create and maintain persistent live artifacts in the Cowork sidebar \u2014 tabbed dashboards, status trackers, build monitors, pipeline diagrams, QA logs, and any view the user will re-open across sessions. Trigger on \"dashboard\", \"tracker\", \"live view\", \"status page\", \"project overview\", \"keep this updated\", \"show me the state of the build\", or \"make a live artifact\"."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Builds persistent live Cowork sidebar artifacts \u2014 dashboards, trackers, status pages. Use when: dashboard, live view, status page, keep this updated."
     },
     {
       "name": "miro",
@@ -140,7 +175,9 @@
       "canonical": "skills/miro/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Read or create content on Miro boards \u2014 diagrams, structured docs, tables, or image/text extraction. Trigger on Miro, \"check the Miro board\", \"create a diagram\", \"map this on Miro\", or turning workflows into visuals."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Reads and creates Miro board content \u2014 diagrams, docs, tables. Use when: Miro, create a diagram, map a workflow on Miro."
     },
     {
       "name": "monday",
@@ -148,7 +185,9 @@
       "canonical": "skills/monday/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Build, manage, and automate Monday.com workspaces, boards, dashboards, items, columns, workdocs, and widgets. Trigger on Monday, Monday.com, a Monday board, workspace, dashboard, widget, workdoc, or any Monday.com concept."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Manages Monday.com workspaces, boards, dashboards, automations. Use when: Monday.com, boards, workdocs, widgets."
     },
     {
       "name": "nexus-onepager",
@@ -156,7 +195,9 @@
       "canonical": "skills/nexus-onepager/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Build and deploy CleantechHUB startup one-pagers \u2014 bilingual (EN/ES) HTML profile pages served at nexus.cleantechhub.net/s/{slug}. Trigger on \"make a one-pager\", \"build a startup page\", \"create a profile for [startup]\", \"deploy to /s/\", \"update the one-pager template\", or mentions of startup profiles on Nexus."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Builds bilingual Nexus startup one-pagers at nexus.cleantechhub.net/s/{slug}. Use when: startup one-pager, Nexus profile, deploy to /s/."
     },
     {
       "name": "notion",
@@ -164,7 +205,9 @@
       "canonical": "skills/notion/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Search, create, move, or reorganize pages in Notion. Trigger on Notion, a Notion page, \"restructure our Notion\", \"organise our pages\", \"move this to Notion\", \"scan our Notion\", or \"clean up Notion\"."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Searches, creates, moves, and reorganizes Notion pages. Use when: Notion, restructure pages, move to Notion, clean up Notion."
     },
     {
       "name": "secrets",
@@ -172,8 +215,20 @@
       "canonical": "skills/secrets/SKILL.md",
       "claude_desktop": true,
       "cursor": "skip",
-      "description": "Secrets management protocol for all CTH projects. Trigger on secrets, API keys, credentials, environment variables, .env files, tokens, or any sensitive credentials \u2014 whether creating, storing, rotating, scanning, sharing, or recovering them. Also trigger on \"add API key\", \"store secret\", \"rotate key\", \".env setup\", \"leak recovery\", or \"credential\".",
-      "cursor_skip_reason": "Do not load in Cursor; Claude Desktop only via skills/secrets"
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Secrets protocol \u2014 store, rotate, scan, recover API keys and credentials. Use when: secrets, API keys, .env, tokens, credential rotation. Claude Desktop only.",
+      "cursor_skip_reason": "Do not load in Cursor; Claude Desktop only"
+    },
+    {
+      "name": "skill-template",
+      "category": "infrastructure",
+      "canonical": "skills/skill-template/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Author, review, and normalize CTH Agent Skills in cth-plugin. Defines the canonical SKILL.md template, frontmatter spec, Cursor stub pattern, and progressive-disclosure rules. Use when: creating a new skill, rewriting a skill description, reviewing skill quality, aligning frontmatter with the Agent Skills spec, or adding a Cursor stub. Do not use when: executing a domain workflow (use that domain's skill instead)."
     },
     {
       "name": "slack",
@@ -181,7 +236,9 @@
       "canonical": "skills/slack/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Search messages, read channels or threads, send or draft messages, find users, create or read Canvases, or schedule posts in Slack. Trigger on Slack, \"DM someone\", \"post in #channel\", \"check Slack for\u2026\", or composing Slack messages."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "Searches, reads, drafts, and posts Slack messages and Canvases. Use when: Slack, post in channel, DM, check Slack."
     },
     {
       "name": "social-media-campaign",
@@ -189,28 +246,30 @@
       "canonical": "skills/social-media-campaign/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
-      "description": "Reusable playbook for building, running, and monitoring automated social media campaigns for CleantechHUB and partner brands. Covers the full pipeline: Claude generates captions, Canva/Ideogram generates images, Notion stores content, Pipedream orchestrates, Buffer publishes to LinkedIn, Instagram, Facebook. Trigger on \"new social campaign\", \"social media campaign\", \"post to buffer\", \"schedule posts\", \"CleantechHUB campaign\", \"CLP campaign\", \"bulk re-push posts\", or \"campaign metrics\"."
+      "license": "MIT",
+      "version": "2.1.0",
+      "description": "End-to-end social campaign \u2014 captions, Canva images, Notion, Pipedream, Buffer. Use when: social campaign, schedule posts, CLP campaign, campaign metrics."
     }
   ],
   "skipped": [
     {
       "name": "secrets",
       "canonical": "skills/secrets/SKILL.md",
-      "reason": "Claude Desktop playbook exists; intentionally no Cursor stub (AGENTS.md Skip list)",
+      "reason": "Claude Desktop only; no Cursor stub",
       "claude_desktop": true,
       "cursor": "skip"
     },
     {
       "name": "dual-desktop-macos",
-      "reason": "Claude Desktop only; not on main; do not invent",
+      "reason": "Claude Desktop only; not on main",
       "claude_desktop": true,
       "cursor": "skip",
       "canonical": null
     }
   ],
   "counts": {
-    "canonical_on_main": 23,
-    "cursor_stubs": 22,
+    "canonical_on_main": 24,
+    "cursor_stubs": 23,
     "cursor_skip": 1
   }
 }

@@ -1,14 +1,13 @@
 ---
 name: secrets
 description: >
-  Secrets management protocol for all CTH projects. Trigger on secrets, API keys,
-  credentials, environment variables, .env files, tokens, or any sensitive
-  credentials — whether creating, storing, rotating, scanning, sharing, or
-  recovering them. Also trigger on "add API key", "store secret", "rotate key",
-  ".env setup", "leak recovery", or "credential".
+  Secrets protocol — store, rotate, scan, recover API keys and credentials. Use
+  when: secrets, API keys, .env, tokens, credential rotation. Claude Desktop
+  only.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: infrastructure
+  version: "2.1.0"
+  category: "infrastructure"
 ---
 
 # Secrets Management Protocol

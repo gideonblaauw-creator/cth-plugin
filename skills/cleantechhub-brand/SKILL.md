@@ -1,16 +1,13 @@
 ---
 name: cleantechhub-brand
 description: >
-  Apply CleantechHUB brand guidelines to any communication piece, artifact, or
-  template. Use this skill when creating or editing anything that will be seen
-  externally or represents CleantechHUB — presentations, documents, social media
-  posts, HTML artifacts, reports, proposals, flyers, email templates, or any
-  visual/written content. Also trigger when the user asks to "make it on brand",
-  "brand this", "apply our brand", "use our colors/fonts/style", or mentions
-  CleantechHUB branding. If in doubt — use this skill.
+  Applies CleantechHUB brand — colors, typography, tone, HTML/CSS tokens. Use
+  when: external CTH content, on-brand artifacts, proposals, social, reports. Do
+  not use when: CLP26 campaign (clp26-brand) or client-only brands.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: brand
+  version: "2.1.0"
+  category: "brand"
 ---
 
 # CleantechHUB Brand Guidelines
@@ -128,3 +125,10 @@ Before delivering any CleantechHUB-branded content, verify:
 6. "CleantechHUB" is spelled correctly everywhere (one word, capital H-U-B).
 7. For HTML artifacts: CSS custom properties are defined and used for all brand colors.
 8. For bilingual content: Spanish is Latin American neutral.
+## Related skills
+
+| Skill | When instead |
+|---|---|
+| `clp26-brand` | CLP26 / ClimateLaunchpad campaign content |
+| `cth-proposal-build` | Proposal HTML structure (still apply CTH brand here first) |
+| `nexus-onepager` | Startup profile pages on Nexus |

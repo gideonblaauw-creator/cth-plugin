@@ -1,11 +1,7 @@
 ---
 name: cth-proposal-build
 description: >
-  Build, iterate, and deploy polished client-facing service proposals for
-  CleantechHUB. Trigger on "build a proposal", "respond to an RFP", "write up
-  a services doc", "create a pitch for [client]", "redo the HTML", or "update
-  the proposal". Governs the full pipeline: research → alignment gate → HTML
-  build → PDF export → deploy.
+  Builds client-facing CTH service proposals — research, alignment gate, HTML, PDF, deploy.
 ---
 
 # cth-proposal-build

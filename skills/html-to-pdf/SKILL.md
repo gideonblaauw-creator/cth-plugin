@@ -1,13 +1,12 @@
 ---
 name: html-to-pdf
 description: >
-  Convert single-file HTML proposals, reports, or documents to high-quality PDF.
-  Trigger on "generate a PDF", "export to PDF", "convert the HTML to PDF",
-  "create a PDF from the proposal", or any variation. Also trigger proactively
-  after building HTML files that the user will likely want as PDF.
+  Converts self-contained HTML to print-quality PDF via Playwright. Use when:
+  export to PDF, convert proposal HTML, PDF from artifact.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: infrastructure
+  version: "2.1.0"
+  category: "infrastructure"
 ---
 
 # HTML to PDF Conversion

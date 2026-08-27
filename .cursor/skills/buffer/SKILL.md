@@ -1,11 +1,7 @@
 ---
 name: buffer
 description: >
-  Schedule, draft, or publish social media posts via Buffer to LinkedIn,
-  Instagram, Facebook, TikTok, X/Twitter, Threads, Pinterest, or YouTube.
-  Trigger on Buffer, "schedule a post", "post to [platform]", "bulk schedule",
-  "post the Canva design to…", "repush failed posts", or programmatic publishing.
-  Also trigger for the Notion → Buffer pipeline.
+  Schedules and publishes social posts via Buffer.
 ---
 
 # buffer

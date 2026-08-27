@@ -1,13 +1,7 @@
 ---
 name: social-media-campaign
 description: >
-  Reusable playbook for building, running, and monitoring automated social media
-  campaigns for CleantechHUB and partner brands. Covers the full pipeline: Claude
-  generates captions, Canva/Ideogram generates images, Notion stores content,
-  Pipedream orchestrates, Buffer publishes to LinkedIn, Instagram, Facebook.
-  Trigger on "new social campaign", "social media campaign", "post to buffer",
-  "schedule posts", "CleantechHUB campaign", "CLP campaign", "bulk re-push posts",
-  or "campaign metrics".
+  End-to-end social campaign — captions, Canva images, Notion, Pipedream, Buffer.
 ---
 
 # social-media-campaign

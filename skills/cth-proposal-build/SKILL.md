@@ -1,14 +1,13 @@
 ---
 name: cth-proposal-build
 description: >
-  Build, iterate, and deploy polished client-facing service proposals for
-  CleantechHUB. Trigger on "build a proposal", "respond to an RFP", "write up
-  a services doc", "create a pitch for [client]", "redo the HTML", or "update
-  the proposal". Governs the full pipeline: research → alignment gate → HTML
-  build → PDF export → deploy.
+  Builds client-facing CTH service proposals — research, alignment gate, HTML,
+  PDF, deploy. Use when: build a proposal, RFP response, services doc, pitch for
+  a client. Do not use when: grants or donor bids (cth-grant).
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: program
+  version: "2.1.0"
+  category: "programs"
 ---
 
 # CTH Proposal Build Pipeline
@@ -67,3 +66,10 @@ If the proposal needs a web-accessible version, deploy to VPS or Vercel.
 - Font rendering inconsistency: include font-display: swap and system fallbacks.
 
 For past proposal templates, see references/.
+## Related skills
+
+| Skill | When instead |
+|---|---|
+| `cth-grant` | Grants, donors, competitive bids |
+| `cleantechhub-brand` | Brand tokens and tone (read during HTML build) |
+| `html-to-pdf` | PDF export step |
