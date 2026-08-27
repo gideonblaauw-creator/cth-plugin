@@ -63,7 +63,7 @@ Nothing sent, posted, paid, merged, published, or deployed without Gideon in the
 desk:
 folder:
 done-when:
-lane: sonnet | haiku | flash | opencode
+lane: gemini-3.7-flash | composer-2.5 (fast=false) | HOLD-flag-Gideon
 hitl: no merge, no publish, no deploy, no new repo unless Gideon marked the row
 reviewer:
 context:

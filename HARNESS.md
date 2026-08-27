@@ -38,6 +38,15 @@ Open this repository folder in Cursor. Do not copy skills, VPS files, or MCP tok
 
 See the README section **Using this repo in Cursor**.
 
+## CTH Harness rulebook vs this file
+
+`HARNESS.md` is Cowork/CLI/Cursor **setup** docs. The CTH Harness **rulebook** is `skills/harness/SKILL.md` (tickets: `tickets/TEMPLATE.md`).
+
+Machine-readable routing planted there includes:
+- Desk/Hands boundary and Lane A repo lock
+- **Token lock (2026-08-26):** Grok Bot coordinates only; allowed Cloud Hands models = `gemini-3.7-flash` and `composer-2.5` (`fast=false`); Sonnet/Opus/Haiku/Auto/Grok/Kimi cloud → HOLD flag Gideon
+- **Toolkit inventory (§6):** full Claude Desktop vs Cursor skill registry and MCP connector list
+
 ## Other MCP-Compatible Environments
 
 The plugin's skills are plain markdown files that work in any system that can load instruction documents. The `.mcp.json` defines standard MCP server connections that work with any MCP client.

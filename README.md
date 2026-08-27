@@ -10,7 +10,9 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **21 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **23 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+
+The full machine-readable registry (Claude Desktop vs Cursor stubs, skipped skills, MCP connectors) lives in `skills/harness/SKILL.md` §6 Toolkit inventory.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -80,6 +82,8 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 
 | Skill | What It Does |
 |-------|-------------|
+| `harness` | CTH Harness rulebook — five-term operating model, ticket lanes, token lock, toolkit inventory, Desk/Hands boundary |
+| `app-build` | Blaauw app-build protocol — classify Archive vs repo, three-condition gate for new repos, Hands branch rules |
 | `bookstack` | Deploy, configure, and manage the BookStack wiki instance at wiki.cleantechhub.net via Docker and REST API |
 | `buffer` | Schedule, draft, and publish social media posts via Buffer — includes image URL requirements and silent-failure traps |
 | `canva` | Export designs, prepare images for downstream tools — includes critical export-before-use sequencing rules |
@@ -145,7 +149,7 @@ cth-plugin/
 │   ├── cleantechhub-brand/  # Brand identity skills
 │   ├── buffer/              # Operations skills
 │   ├── doctor-bot/          # Infrastructure skills
-│   └── ...                  # 21 skill directories total
+│   └── ...                  # 23 skill directories (22 Cursor stubs; secrets skipped)
 ├── AGENTS.md                # Cursor agent pointer (keep CLAUDE.md as-is)
 ├── .cursorrules             # Legacy Cursor context (still present)
 ├── .mcp.json                # MCP server configurations (no tokens)

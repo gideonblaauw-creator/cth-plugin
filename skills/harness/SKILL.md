@@ -8,9 +8,10 @@ description: >
   the start of any Cloud Hands task so the agent reads these rules before
   executing.
 metadata:
-  version: "3.0.0"
+  version: "3.1.0"
   category: operations
   adopted: "2026-08-16"
+  token_lock: "2026-08-26"
 ---
 
 # CTH Harness
@@ -60,7 +61,7 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `lane:` `sonnet` | `haiku` | `flash` | `opencode`
+- `model:` `gemini-3.7-flash` | `composer-2.5` (`fast=false`) | `HOLD-flag-Gideon` (Sonnet / Opus / Haiku / Auto / Grok / Kimi cloud — Desk must name or flag)
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
 
@@ -69,12 +70,13 @@ See `tickets/TEMPLATE.md`.
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
 
-Lanes:
-- Cursor Sonnet 4.6 — default file work
-- Cursor Haiku 4.5 or Gemini Flash — mechanical maps, dumps, lists
-- OpenCode Kimi (`opencode-go/kimi-k2.7-code`) — when Gideon says OSS
+Lanes (26 Aug 2026 token lock — allowed Cloud Hands models only):
+- `gemini-3.7-flash` — mechanical maps, dumps, lists, copy, file packs
+- `composer-2.5` (`fast=false`) — repo / code
 
-OpenCode is a Hands lane, not a Workbench, not a Desk, not a chat.
+Grok Bot coordinates. It does not craft, first-draft, long research, or file grind. File / research / code / copy → Cloud Hands. Desk tickets; desk reviews (maker ≠ checker).
+
+OpenCode is a Tool context (not a Workbench, not a Desk, not a chat). It is not a Cloud Hands fill-in default after 26 Aug 2026. See §5 OSS-first for historical context only.
 
 Cursor cloud agents on a GitHub repo (PRs). Archive writes need a Cursor worker on the VPS. Do not clone the Claude tree onto the Grok Bot computer or treat the Air as source of truth.
 
@@ -155,7 +157,7 @@ Drive MCP fallback order (Hands only):
 
 **3. Mechanical jobs** (session dump, 2am VPS push, Friday Mac hygiene, SECOP scrape) = Hands ticket or a Cloud Agent Automation. Not a Desk task.
 
-**4. Researcher / Scraper / Infra inventories = Hands tickets (Haiku/Flash lane).** Desk tickets and reviews. Desk does not run the scrape or inventory itself.
+**4. Researcher / Scraper / Infra inventories = Hands tickets (`gemini-3.7-flash`).** Desk tickets and reviews. Desk does not run the scrape or inventory itself.
 
 **5. Stay on desks (never below ~30% of work):** Orchestrator routing, go/no-go, HITL send/post/pay, channel I/O, PR review, merge, credentials, two-draft cap, REIN HOLD. Desks own these; Hands does not touch them.
 
@@ -184,7 +186,32 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = `gemini-3.7-flash`. One complete Hands ticket, no second pass for the same artifact.
 
-Already locked (do not weaken): Hands default is Sonnet 4.6. Mechanical file jobs are Haiku 4.5 or Gemini Flash. Ultra may use Composer 2.5, GPT Mini/Nano, Kimi K2.7 Code, or Auto. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent — OSS stays OpenCode.
+**26 Aug 2026 token lock supersedes conflicting fill-in defaults below** (Sonnet-default, Haiku-default, review-auto-Sonnet, repo-default OpenCode Go). See token lock subsection.
+
+Historical note (19 Aug, superseded for fill-in): Hands default was Sonnet 4.6. Mechanical file jobs were Haiku 4.5 or Gemini Flash. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent.
+
+### Token lock — Gideon 2026-08-26 (hard gate)
+
+Supersedes Sonnet-default, Haiku-default, review-auto-Sonnet, and silent fill-in to Sonnet / Haiku / Auto / Grok / Kimi cloud where this section conflicts with 19 Aug routing.
+
+**Grok Bot — coordination only.** No craft, first-draft, long research, or file grind in Grok chats.
+
+**File / research / code / copy → Cloud Hands.** Desk tickets; desk reviews (maker ≠ checker).
+
+**Allowed Hands models (complete list):**
+- `gemini-3.7-flash` — mechanical / copy / file Hands jobs
+- `composer-2.5` (`fast=false`) — repo / code Hands jobs
+
+**Anything more advanced** (Sonnet, Opus, Haiku, Auto, Grok, Kimi cloud agent, etc.) → **HOLD and flag Gideon.** Do not silently fill.
+
+**Forbidden on pack writes:** Grok, Grok Fast, Composer Fast, Opus, Fable, Sol, second cloud Kimi.
+
+**Empty-model fill-in (after 26 Aug):**
+- Mechanical / unspecified mechanical → `gemini-3.7-flash`
+- Repo / code with no model → `composer-2.5` (`fast=false`)
+- Review / eval / brand with no model → **HOLD for Gideon.** Do not auto-fill Sonnet.
+
+Do not expand OSS / OpenCode Go routing in this lock. Existing mentions elsewhere in this file remain context only; they are not fill-in defaults after 26 Aug 2026.
 
 **Sourced — two Ultra pools** (`https://cursor.com/docs/models-and-pricing`, 19 Aug 2026):
 - **Cursor Models** = Grok 4.6 / Grok 4.5 / Composer 2.5 (generous included)
@@ -194,17 +221,18 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 
 | Job type | Model id | $ in / $ out | Notes |
 |---|---|---|---|
-| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | `claude-haiku-4-5` | $1 / $5 | Other Models. Not Sonnet. Not Opus. |
-| Mechanical (same jobs) | `gemini-3.7-flash` | $0.75 / $3.50 | Other Models |
+| Mechanical Drive/Docs/Sheets/HTML copy, MD→Doc sweep, indexes, trackers, receipts lists | `gemini-3.7-flash` | $0.75 / $3.50 | **Allowed (26 Aug).** Empty mechanical = this. |
+| Mechanical (historical — not fill-in after 26 Aug) | `claude-haiku-4-5` | $1 / $5 | Historical $ only. HOLD unless Gideon names it. |
 | Cheapest Flash fallback | `gemini-2.5-flash` | $0.30 / $2.50 | Other Models |
 | Cheapest Flash fallback | `gemini-3-flash` | $0.50 / $3 | Other Models |
 | Tiny transforms | `gpt-5.6-luna` | $0.20 / $1.20 | Other Models |
 | Tiny transforms | `gpt-5.4-nano` | $0.20 / $1.25 | Other Models |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | Cursor Models pool. Never Fast. Cursor Hands fallback when Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands. |
-| Review / eval / brand / Grant Graph spec | `claude-sonnet-4-6` | $3 / $15 | Other Models. Keep as review default. |
-| Review note only | `claude-sonnet-5` | $2 / $10 | Cheaper. Do not lock unless Gideon says. |
+| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | **Allowed (26 Aug).** Empty repo/code = this. Never Fast. |
+| Review / eval / brand / Grant Graph spec | `HOLD-flag-Gideon` | — | **26 Aug lock.** Do not auto-fill Sonnet. Flag Gideon for Sonnet / Opus / etc. |
+| Review (historical — not fill-in after 26 Aug) | `claude-sonnet-4-6` | $3 / $15 | Historical $ only. |
+| Review note (historical) | `claude-sonnet-5` | $2 / $10 | Historical $ only. Do not auto-fill. |
 | Mixed / unspecified | `default` (Auto) | — | Do not invent an Auto Cost $. Official models-and-pricing does not publish one. |
-| OSS | `opencode-go/kimi-k2.7-code` | — | Coding default (20 Aug). Do not launch `kimi-k2.7-code` / `kimi-k3` as a cloud agent. Never a second Kimi cloud agent. |
+| OSS (historical context — not Cloud Hands fill-in after 26 Aug) | `opencode-go/kimi-k2.7-code` | — | OpenCode Tool context. Do not launch as cloud agent. |
 | Tiny (not private) | `gemini-3.7-flash` or local 3B | $0.75 / $3.50 for Flash | Job-size axis. One artifact, mechanical, no architecture, no grant/eval/brand. Empty mechanical still Flash. |
 | Private (residency) | local Ollama `LFM2.5-VL-3B` | — | Must stay on 127.0.0.1. Client raw, unsigned, QBO staging, credentials, unpublished packs. If it does not fit 3B, hold for Gideon. No Cursor $. |
 | Tiny + private | local Ollama `LFM2.5-VL-3B` | — | Both axes. Local 3B only. |
@@ -219,12 +247,12 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Forbidden unless the ticket says so | thinking=high / 1M context | — | Miss unless the ticket says so. |
 | Tools (Lovable, HeyGen, WhatsApp, Vercel) | session Tool (not a model slot) | — | Launch allowed when the session exists. No-access / NEED_LOGIN / blocked auth → escalate to the Desk (HITL login), then the same Hands run (same bc-id) continues. Not a Flash fill-in. |
 
-**MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
+**MISS node — Gideon 2026-08-19 (fill-in, not a stop). Updated 26 Aug 2026.** The MISS node must have a model. Desk should still name the model; Flash is the safety net for mechanical jobs, not an excuse to omit it.
 
-- Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
-- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
-- Review / eval / brand with no model → keep `claude-sonnet-4-6`.
-- Repo / code with no model → OpenCode Go `opencode-go/kimi-k2.7-code`. If Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands → `composer-2.5` (`fast=false`). Never Fast. Never a second Kimi cloud agent.
+- Empty model on a mechanical / unspecified mechanical Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet, Haiku, Auto, or Grok.
+- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`, second cloud Kimi) → remap to the job’s allowed model (`gemini-3.7-flash` or `composer-2.5` `fast=false`). If job type is missing, remap to `gemini-3.7-flash`.
+- Review / eval / brand with no model → **HOLD for Gideon.** Do not auto-fill Sonnet (26 Aug lock).
+- Repo / code with no model → `composer-2.5` (`fast=false`). Never Fast. Never a second Kimi cloud agent (26 Aug lock).
 - Private residency (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. Do not fill Flash. If it does not fit 3B, hold for Gideon.
 
 **Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
@@ -270,11 +298,11 @@ Feature: no UI group. Cloud Agent column = 228,601,182 raw; rest 1,414,608,998 u
 
 Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `composer-2.5-fast` and `default` appear in the chart legend but have zero export rows.
 
-**Lock from that fact:**
-- `grok-4.6-high-fast` is this Orchestrator chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
-- Mechanical Hands = `claude-haiku-4-5` or `gemini-3.7-flash` (Flash fallbacks / Luna / Nano in the table).
-- Review/eval/brand = `claude-sonnet-4-6`. `claude-sonnet-5` is cheaper — do not lock it unless Gideon says.
-- Repo / code Hands = OpenCode Go `opencode-go/kimi-k2.7-code` first. `composer-2.5` (`fast=false`) only when Go is blocked, over quota, hung, or Gideon says Hands. No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
+**Lock from that fact (26 Aug 2026 token lock applies to fill-in):**
+- `grok-4.6-high-fast` is Orchestrator coordination chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
+- Mechanical Hands = `gemini-3.7-flash` only (26 Aug lock). Historical Haiku / Luna / Nano rows in the table below are not fill-in defaults.
+- Review/eval/brand → HOLD for Gideon. Do not auto-fill Sonnet (26 Aug lock).
+- Repo / code Hands = `composer-2.5` (`fast=false`). No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
 - One Hands ticket per artifact.
 - Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot. Presenter video stays HeyGen primary. Do not invert HeyGen to fallback.
 
@@ -284,7 +312,7 @@ Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for 
 
 Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, the Flash fill-in (empty mechanical = `gemini-3.7-flash`), or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
 
-**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=false`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. Never Composer Fast. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
+**1. Coding is OSS-first (historical — fill-in superseded 26 Aug 2026).** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=false`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. Never Composer Fast. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`). **After 26 Aug 2026:** Cloud Hands empty repo/code fill-in = `composer-2.5` (`fast=false`) per token lock; do not auto-fill OpenCode Go.
 
 **2. Go has no image/video/voice generation weights.** Official list is coding-only (verified 20 Aug 2026, `https://opencode.ai/docs/go/`). Do not invent models. Current official list: Grok 4.5, GLM-5.3, GLM-5.2, GLM-5.1, GPT 5.6 Luna, Kimi K3, Kimi K2.7 Code, Kimi K2.6, MiMo-V2.5, MiMo-V2.5-Pro, MiniMax M3, MiniMax M2.7, Muse Spark 1.2 Contributor (limited regions — forbidden), Qwen3.8 Max, Qwen3.7 Max, Qwen3.7 Plus, Qwen3.6 Plus, DeepSeek V4 Pro, DeepSeek V4 Flash, Hy3. MiniMax M3 / MiMo / Kimi may read image/video (text out). Presenter video stays HeyGen primary. Image generate stays Images desk. Do not invert HeyGen to fallback.
 
@@ -312,7 +340,71 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 - **Coding default UNCHANGED:** OpenCode Go `opencode-go/kimi-k2.7-code`. Do not point OpenCode coding at OpenRouter.
 - **Private payloads:** Still `127.0.0.1` only (`LFM2.5-VL-3B` local Ollama). Never video weights on VPS-4. Never local H3 for US-facing AIC/Frank.
 
-## 6. File structure
+**26 Aug 2026 note:** OSS-first fill-in defaults in this subsection are superseded by the token lock. OpenCode remains Tool context; Cloud Hands fill-in for repo/code is `composer-2.5` (`fast=false`).
+
+## 6. Toolkit inventory — planted 2026-08-26
+
+Machine-readable registry for Cloud Hands and Desktop agents. Canonical playbooks: `skills/<name>/SKILL.md` in this repo. Cursor stubs: `.cursor/skills/<name>/SKILL.md` (thin pointers). Do not invent skills not listed here.
+
+### Skills — Claude Desktop vs Cursor
+
+Claude Cowork / Claude Code discovers skills from the `skills/` directory automatically. Cursor discovers via `.cursor/skills/` stubs (reads canonical on match).
+
+| Skill | Path | Claude Desktop | Cursor stub | Category |
+|---|---|---|---|---|
+| `app-build` | `skills/app-build/SKILL.md` | yes | yes | operations |
+| `bookstack` | `skills/bookstack/SKILL.md` | yes | yes | operations |
+| `buffer` | `skills/buffer/SKILL.md` | yes | yes | operations |
+| `canva` | `skills/canva/SKILL.md` | yes | yes | operations |
+| `cleantechhub-brand` | `skills/cleantechhub-brand/SKILL.md` | yes | yes | brand |
+| `clp26-brand` | `skills/clp26-brand/SKILL.md` | yes | yes | brand |
+| `composio` | `skills/composio/SKILL.md` | yes | yes | operations |
+| `cth-grant` | `skills/cth-grant/SKILL.md` | yes | yes | programs |
+| `cth-proposal-build` | `skills/cth-proposal-build/SKILL.md` | yes | yes | programs |
+| `cth-seo` | `skills/cth-seo/SKILL.md` | yes | yes | programs |
+| `doctor-bot` | `skills/doctor-bot/SKILL.md` | yes | yes | infrastructure |
+| `gmail` | `skills/gmail/SKILL.md` | yes | yes | operations |
+| `google-drive` | `skills/google-drive/SKILL.md` | yes | yes | operations |
+| `harness` | `skills/harness/SKILL.md` | yes | yes | operations |
+| `html-to-pdf` | `skills/html-to-pdf/SKILL.md` | yes | yes | infrastructure |
+| `live-artifact-build` | `skills/live-artifact-build/SKILL.md` | yes | yes | infrastructure |
+| `miro` | `skills/miro/SKILL.md` | yes | yes | operations |
+| `monday` | `skills/monday/SKILL.md` | yes | yes | operations |
+| `nexus-onepager` | `skills/nexus-onepager/SKILL.md` | yes | yes | programs |
+| `notion` | `skills/notion/SKILL.md` | yes | yes | operations |
+| `slack` | `skills/slack/SKILL.md` | yes | yes | operations |
+| `social-media-campaign` | `skills/social-media-campaign/SKILL.md` | yes | yes | programs |
+
+### Skipped (not planted in Cursor)
+
+| Skill | Path | Reason |
+|---|---|---|
+| `secrets` | `skills/secrets/SKILL.md` | Claude Desktop only for credentials protocol. No Cursor stub — `AGENTS.md` Skip: do not auto-load in Cursor. |
+| `dual-desktop-macos` | not on `main` | Claude Desktop only skill; not in this repo tree. Do not invent. |
+
+### MCP connectors — `.mcp.json` (reference, no tokens in repo)
+
+| Server key | Harness |
+|---|---|
+| `slack` | Claude MCP HTTP |
+| `google-drive` | Claude MCP HTTP |
+| `gmail` | Claude MCP HTTP |
+| `google-calendar` | Claude MCP HTTP |
+| `canva` | Claude MCP HTTP |
+| `buffer` | Claude MCP HTTP |
+| `monday` | Claude MCP HTTP |
+| `miro` | Claude MCP HTTP |
+| `notion` | Claude MCP HTTP |
+
+Cursor Cloud agents may also see session MCP namespaces (Gmail, Google Drive, Notion, Canva, Composio, Lovable, etc.) when authenticated in the run environment. Those are not duplicated in `.mcp.json` here.
+
+### VPS / Archive paths (source of truth, not cloned into repo)
+
+- Archive projects: `/opt/claude-files/Projects/<Claude project name>/`
+- Sessions: `/opt/claude-files/sessions/YYYY-MM-DD/`
+- Mac `~/Documents/Claude/` — optional mirror only, not source of truth
+
+## 7. File structure
 
 Do not invent a new tree.
 
@@ -323,7 +415,7 @@ Do not invent a new tree.
 - Plugin rulebook: this harness as `skills/harness` in `cth-plugin`, plus `tickets/TEMPLATE.md`
 - Repo `HARNESS.md` is Cowork/CLI/Cursor setup docs, not this rulebook
 
-## 7. What stays expensive vs cheap
+## 8. What stays expensive vs cheap
 
 Stay on Orchestrator / Box: route, HITL, QR, logged-in browser, GO/NO-GO, tone, REIN HOLD, send.
 
@@ -331,7 +423,7 @@ Cloud Hands or script: inventories, folder maps, docx/HTML/SVG drafts, Lucio-sty
 
 About 70% of 13–15 Aug work is Hands/script.
 
-## 8. Gates and blockers
+## 9. Gates and blockers
 
 1. **VPS Cursor worker** — not installed. Hands can PR to GitHub today. Hands cannot write Archive in place until a worker runs on the VPS.
 2. **`gh` on Grok Bot computer** — not logged in. Cloud Hands launch uses Gideon's Cursor GitHub connection instead.
@@ -345,7 +437,7 @@ About 70% of 13–15 Aug work is Hands/script.
 10. **Do not hide** Isolated grant draft chats. Do hide Socials Workbench from Gideon's daily sidebar so he talks to Socials.
 11. **Desks send tickets to Hands. They do not first-draft, inventory-grind, or write files.** Isolated grant agents review; Hands writes. Infrastructure tickets Hands; it does not SSH-inventory or grind maps itself.
 
-## 9. War stories
+## 10. War stories
 
 Facts from the first week. Do not repeat these mistakes.
 
@@ -363,7 +455,7 @@ Facts from the first week. Do not repeat these mistakes.
 
 7. **When planting this rulebook: do not invent Desk enums, do not rewrite gates.** Fan-out, REIN HOLD, and the five terms must stay verbatim. If a Hands agent is updating this skill, plant the text — do not compress it.
 
-## 10. First tickets Cloud Hands should accept
+## 11. First tickets Cloud Hands should accept
 
 - Add this file as `skills/harness/SKILL.md` (or the repo's existing skill layout)
 - Add `tickets/TEMPLATE.md`
@@ -371,13 +463,13 @@ Facts from the first week. Do not repeat these mistakes.
 - Do not embed Grok Bot UUIDs
 - Do not clone Archive onto a cloud VM
 
-## 10. Ticket template (copy)
+## 12. Ticket template (copy)
 
 ```
 desk:
 folder:
 done-when:
-lane: sonnet | haiku | flash | opencode
+model: gemini-3.7-flash | composer-2.5 (fast=false) | HOLD-flag-Gideon
 hitl: nothing sent/posted/paid
 reviewer:
 context:
