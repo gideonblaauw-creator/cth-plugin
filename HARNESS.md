@@ -38,6 +38,22 @@ Open this repository folder in Cursor. Do not copy skills, VPS files, or MCP tok
 
 See the README section **Using this repo in Cursor**.
 
+## Machine-readable routing (Cloud Hands + Desktop)
+
+This section points at paths that exist on `main`. It is not the CTH Harness rulebook — that lives in `skills/harness/SKILL.md`.
+
+| Path | Role |
+|---|---|
+| `skills/harness/SKILL.md` | CTH Harness rulebook — five terms, Desk/Hands boundary, Lane A repo lock, **Token lock 2026-08-26**, media routing |
+| `skills/harness/references/skill-toolkit.json` | Skill inventory — canonical `skills/<name>/SKILL.md`, Cursor stubs, skip list |
+| `tickets/TEMPLATE.md` | Seven-field ticket contract |
+| `AGENTS.md` | Cursor pointer, Skip list, Cursor Cloud validation |
+| `CLAUDE.md` | Claude Desktop plugin pointer |
+
+**Token lock 2026-08-26 (Cloud Hands):** Grok Bot = coordination only. File/research/code/copy → Cloud Hands. Allowed models: `gemini-3.7-flash` (mechanical) and `composer-2.5` (`fast=false`) (repo/code). Review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Full lock in `skills/harness/SKILL.md` §5.
+
+**Skill toolkit:** 23 canonical skills under `skills/`; 22 Cursor stubs under `.cursor/skills/`; `secrets` skipped in Cursor; `dual-desktop-macos` not on `main`. See `skill-toolkit.json` for paths.
+
 ## Other MCP-Compatible Environments
 
 The plugin's skills are plain markdown files that work in any system that can load instruction documents. The `.mcp.json` defines standard MCP server connections that work with any MCP client.
