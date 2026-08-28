@@ -4,6 +4,8 @@ These folders exist so Cursor can discover CTH skills. Each `SKILL.md` is a poin
 
 Canonical playbooks live in `skills/<name>/SKILL.md`. Read those files. Do not duplicate them here.
 
+Authoring new skills: read `skills/skill-template/SKILL.md` first.
+
 Intentionally omitted:
 
 - `secrets` — do not load in Cursor

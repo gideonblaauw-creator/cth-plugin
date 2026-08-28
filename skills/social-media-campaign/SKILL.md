@@ -1,16 +1,12 @@
 ---
 name: social-media-campaign
 description: >
-  Reusable playbook for building, running, and monitoring automated social media
-  campaigns for CleantechHUB and partner brands. Covers the full pipeline: Claude
-  generates captions, Canva/Ideogram generates images, Notion stores content,
-  Pipedream orchestrates, Buffer publishes to LinkedIn, Instagram, Facebook.
-  Trigger on "new social campaign", "social media campaign", "post to buffer",
-  "schedule posts", "CleantechHUB campaign", "CLP campaign", "bulk re-push posts",
-  or "campaign metrics".
+  End-to-end social campaign — captions, Canva images, Notion, Pipedream, Buffer.
+  Use when: social campaign, schedule posts, CLP campaign, campaign metrics.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: program
+  version: "2.1.0"
+  category: "programs"
 ---
 
 # Social Media Campaign Playbook
@@ -88,3 +84,10 @@ For each post in the content calendar:
 - Pipedream webhook timeout: check the workflow run logs at pipedream.com.
 
 For content calendar templates and Notion database schema, see references/.
+## Related skills
+
+| Skill | When instead |
+|---|---|
+| `buffer` | Buffer-only scheduling or repush |
+| `clp26-brand` | CLP26 visual/copy rules |
+| `canva` | Canva export sequencing |

@@ -45,6 +45,8 @@ This section points at paths that exist on `main`. It is not the CTH Harness rul
 | Path | Role |
 |---|---|
 | `skills/harness/SKILL.md` | CTH Harness rulebook — five terms, Desk/Hands boundary, Lane A repo lock, **Token lock 2026-08-26**, media routing |
+| `skills/skill-template/SKILL.md` | Skill authoring template — Agent Skills spec + CTH routing |
+| `skills/skill-template/references/SKILL-TEMPLATE.md` | Copy-paste skeleton for new skills |
 | `skills/harness/references/skill-toolkit.json` | Skill inventory — canonical `skills/<name>/SKILL.md`, Cursor stubs, skip list |
 | `tickets/TEMPLATE.md` | Seven-field ticket contract |
 | `AGENTS.md` | Cursor pointer, Skip list, Cursor Cloud validation |
@@ -52,7 +54,7 @@ This section points at paths that exist on `main`. It is not the CTH Harness rul
 
 **Token lock 2026-08-26 (Cloud Hands):** Grok Bot = coordination only. File/research/code/copy → Cloud Hands. Allowed models: `gemini-3.7-flash` (mechanical) and `composer-2.5` (`fast=false`) (repo/code). Review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Full lock in `skills/harness/SKILL.md` §5.
 
-**Skill toolkit:** 23 canonical skills under `skills/`; 22 Cursor stubs under `.cursor/skills/`; `secrets` skipped in Cursor; `dual-desktop-macos` not on `main`. See `skill-toolkit.json` for paths.
+**Skill toolkit:** 52 canonical skills under `skills/` (25 core + 27 desk comms); 51 Cursor stubs; `secrets` skipped in Cursor. Author new skills with `skills/skill-template/SKILL.md`. See `skill-toolkit.json` for paths.
 
 ## Other MCP-Compatible Environments
 

@@ -1,9 +1,7 @@
 ---
 name: slack
 description: >
-  Search messages, read channels or threads, send or draft messages, find users,
-  create or read Canvases, or schedule posts in Slack. Trigger on Slack, "DM
-  someone", "post in #channel", "check Slack for…", or composing Slack messages.
+  Searches, reads, drafts, and posts Slack messages and Canvases.
 ---
 
 # slack

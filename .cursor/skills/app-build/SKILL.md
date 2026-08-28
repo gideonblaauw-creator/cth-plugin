@@ -1,11 +1,7 @@
 ---
 name: app-build
 description: >
-  Blaauw app-build protocol — rulebook for building, promoting, or putting a
-  live tree on GitHub. Trigger on "app-build", "promote to GitHub", "create a
-  repo", "new repo", "build an app", "Infrastructure classifies", or any request
-  to create or push a service, app, or pipeline to GitHub. Cloud Hands must read
-  this before opening a branch, creating a repo, or promoting a VPS/Archive tree.
+  Blaauw app-build protocol for promoting trees to GitHub.
 ---
 
 # app-build

@@ -1,9 +1,7 @@
 ---
 name: miro
 description: >
-  Read or create content on Miro boards — diagrams, structured docs, tables,
-  or image/text extraction. Trigger on Miro, "check the Miro board", "create
-  a diagram", "map this on Miro", or turning workflows into visuals.
+  Reads and creates Miro board content — diagrams, docs, tables.
 ---
 
 # miro

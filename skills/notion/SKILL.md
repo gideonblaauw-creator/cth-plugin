@@ -1,12 +1,12 @@
 ---
 name: notion
 description: >
-  Search, create, move, or reorganize pages in Notion. Trigger on Notion, a
-  Notion page, "restructure our Notion", "organise our pages", "move this to
-  Notion", "scan our Notion", or "clean up Notion".
+  Searches, creates, moves, and reorganizes Notion pages. Use when: Notion,
+  restructure pages, move to Notion, clean up Notion.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Notion Operations

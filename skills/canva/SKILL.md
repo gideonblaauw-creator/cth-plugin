@@ -1,13 +1,13 @@
 ---
 name: canva
 description: >
-  Export designs, get thumbnails, prepare images for other tools (Buffer, social
-  media, email, Notion), or work with Canva designs in any way. Trigger on Canva,
-  design export, social media visuals from Canva, or posting Canva images
-  anywhere. Critical sequencing and URL-handling rules apply.
+  Exports Canva designs and prepares images for downstream tools. Use when:
+  Canva, design export, social visuals from Canva, posting Canva images.
+  Sequencing and URL rules apply.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Canva Operations

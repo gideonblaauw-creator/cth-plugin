@@ -1,14 +1,12 @@
 ---
 name: live-artifact-build
 description: >
-  Create and maintain persistent live artifacts in the Cowork sidebar — tabbed
-  dashboards, status trackers, build monitors, pipeline diagrams, QA logs, and
-  any view the user will re-open across sessions. Trigger on "dashboard",
-  "tracker", "live view", "status page", "project overview", "keep this updated",
-  "show me the state of the build", or "make a live artifact".
+  Builds persistent live Cowork sidebar artifacts — dashboards, trackers, status
+  pages. Use when: dashboard, live view, status page, keep this updated.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: infrastructure
+  version: "2.1.0"
+  category: "infrastructure"
 ---
 
 # Live Artifact Build

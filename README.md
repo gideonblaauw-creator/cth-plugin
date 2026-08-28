@@ -10,7 +10,7 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **21 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **24 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -96,9 +96,12 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | Skill | What It Does |
 |-------|-------------|
 | `doctor-bot` | Invoke and interpret Doctor_Bot — infrastructure health agent monitoring MCP connectors, OVH VPS services, and Pipedream workflows |
+| `harness` | CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks; token lock and Lane A repo lock |
 | `secrets` | Secrets management protocol for all CTH projects — storing, rotating, scanning, and recovering API keys, tokens, and credentials |
 | `html-to-pdf` | Convert self-contained HTML documents to high-quality PDF using Playwright — proposals, reports, one-pagers, and invoices |
 | `live-artifact-build` | Create and maintain persistent live artifacts in the Cowork sidebar — dashboards, trackers, status pages, and build monitors |
+| `skill-template` | Author and review Agent Skills — frontmatter spec, Cursor stub pattern, progressive disclosure (Agent Skills spec aligned) |
+| `app-build` | Blaauw app-build protocol — classify, gate, and promote trees to GitHub without inventing repos |
 
 ---
 
@@ -145,7 +148,7 @@ cth-plugin/
 │   ├── cleantechhub-brand/  # Brand identity skills
 │   ├── buffer/              # Operations skills
 │   ├── doctor-bot/          # Infrastructure skills
-│   └── ...                  # 21 skill directories total
+│   └── ...                  # 24 skill directories total
 ├── AGENTS.md                # Cursor agent pointer (keep CLAUDE.md as-is)
 ├── .cursorrules             # Legacy Cursor context (still present)
 ├── .mcp.json                # MCP server configurations (no tokens)

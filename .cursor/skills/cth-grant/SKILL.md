@@ -1,14 +1,7 @@
 ---
 name: cth-grant
 description: >
-  CleantechHUB grant lifecycle and competitive bids — evaluation, scoping,
-  drafting, budgeting, theory of change, deliverables, and submission. Trigger on
-  grants, funding opportunities, donor proposals, grant budgets, theory of change,
-  logframes, concept notes, calls for proposals, competitive bids, procurements,
-  tenders. Also trigger on CTH funders: P4G, UNDP, AFCIA, Adaptation Fund, GIZ,
-  Climate KIC, CLP, DGGF, Triple Jump, Expertise France, Pvblic, REIN Hubs,
-  Energy Catalyst, BuZa, Fondo Acción, Latimpacto, AuRA, SVOM, BID/IDB, ESPOL,
-  PROINNÓVATE.
+  Runs CTH grant and competitive-bid lifecycle — go/no-go, scoping, budget, theory of change, submission.
 ---
 
 # cth-grant

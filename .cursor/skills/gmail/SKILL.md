@@ -1,9 +1,7 @@
 ---
 name: gmail
 description: >
-  Search emails, read threads, draft replies, create new emails, or compile
-  email correspondence. Trigger on Gmail, "my emails", "email thread", "check
-  my inbox", "draft an email to…", or finding past email exchanges.
+  Searches, reads, drafts, and compiles Gmail correspondence.
 ---
 
 # gmail

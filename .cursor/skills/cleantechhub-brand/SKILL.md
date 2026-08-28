@@ -1,13 +1,7 @@
 ---
 name: cleantechhub-brand
 description: >
-  Apply CleantechHUB brand guidelines to any communication piece, artifact, or
-  template. Use this skill when creating or editing anything that will be seen
-  externally or represents CleantechHUB — presentations, documents, social media
-  posts, HTML artifacts, reports, proposals, flyers, email templates, or any
-  visual/written content. Also trigger when the user asks to "make it on brand",
-  "brand this", "apply our brand", "use our colors/fonts/style", or mentions
-  CleantechHUB branding. If in doubt — use this skill.
+  Applies CleantechHUB brand — colors, typography, tone, HTML/CSS tokens.
 ---
 
 # cleantechhub-brand

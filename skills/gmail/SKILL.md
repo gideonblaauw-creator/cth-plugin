@@ -1,12 +1,12 @@
 ---
 name: gmail
 description: >
-  Search emails, read threads, draft replies, create new emails, or compile
-  email correspondence. Trigger on Gmail, "my emails", "email thread", "check
-  my inbox", "draft an email to…", or finding past email exchanges.
+  Searches, reads, drafts, and compiles Gmail correspondence. Use when: Gmail,
+  inbox, email thread, draft an email, find past exchanges.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Gmail Operations

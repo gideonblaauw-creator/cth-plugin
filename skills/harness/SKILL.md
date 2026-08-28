@@ -1,15 +1,13 @@
 ---
 name: harness
 description: >
-  CTH Harness rulebook — five-term operating model (Workbench, Tools,
-  Tickets, Cloud Hands, Desks) for Gideon Blaauw's AI stack. Trigger on
-  "CTH Harness", "harness", "ticket", "Cloud Hands", "Workbench", "Desk",
-  "take a ticket", "lane", or any CTH Harness reference. Also trigger at
-  the start of any Cloud Hands task so the agent reads these rules before
-  executing.
+  CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks. Use when:
+  harness, ticket, Cloud Hands, lane, Desk/Hands boundary. Read before any Cloud
+  Hands ticket.
+license: MIT
 metadata:
-  version: "3.0.0"
-  category: operations
+  version: "3.1.0"
+  category: infrastructure
   adopted: "2026-08-16"
 ---
 
@@ -353,13 +351,17 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `skills/<name>/SKILL.md` | Canonical playbook (Claude Desktop + read-through for Cursor) |
 | `.cursor/skills/<name>/SKILL.md` | Cursor discovery stub → canonical |
 | `skills/harness/references/skill-toolkit.json` | Full inventory: names, categories, canonical paths, Cursor stub parity, skip list |
+| `skills/skill-template/SKILL.md` | Skill authoring template and quality rules |
+| `skills/skill-template/references/SKILL-TEMPLATE.md` | Copy-paste skeleton for new skills |
 | `HARNESS.md` | Cowork/CLI/Cursor **setup** docs (not this rulebook) |
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (23 canonical skills):** `app-build`, `bookstack`, `buffer`, `canva`, `cleantechhub-brand`, `clp26-brand`, `composio`, `cth-grant`, `cth-proposal-build`, `cth-seo`, `doctor-bot`, `gmail`, `google-drive`, `harness`, `html-to-pdf`, `live-artifact-build`, `miro`, `monday`, `nexus-onepager`, `notion`, `secrets`, `slack`, `social-media-campaign`.
+**Planted on main (52 canonical skills):** 25 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (22):** all canonical except `secrets`.
+**Cursor stubs (51):** all canonical except `secrets`.
+
+**Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 
 **Skipped (intentional):**
 - `secrets` — playbook at `skills/secrets/SKILL.md`; Claude Desktop only; no Cursor stub (`AGENTS.md` Skip list).

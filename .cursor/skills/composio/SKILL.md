@@ -1,10 +1,7 @@
 ---
 name: composio
 description: >
-  Discover and connect to hundreds of third-party services through Composio's
-  integration gateway. Trigger on Composio, "connect to a new tool", "find a
-  tool for X", "integrate with [service]", or when a SaaS integration is needed
-  that Claude doesn't have a dedicated connector for.
+  Connects third-party services through Composio.
 ---
 
 # composio

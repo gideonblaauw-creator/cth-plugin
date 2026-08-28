@@ -1,12 +1,12 @@
 ---
 name: google-drive
 description: >
-  Search, read, upload, and manage files in Google Drive. Trigger on Drive,
-  Google Drive, "my docs", "check Drive for…", "find the file about…", Google
-  Sheet, or Google Doc references.
+  Searches, reads, uploads, and manages Google Drive files. Use when: Drive,
+  Google Docs/Sheets, find a file, upload to Drive.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Google Drive Operations

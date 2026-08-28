@@ -1,12 +1,12 @@
 ---
 name: monday
 description: >
-  Build, manage, and automate Monday.com workspaces, boards, dashboards, items,
-  columns, workdocs, and widgets. Trigger on Monday, Monday.com, a Monday board,
-  workspace, dashboard, widget, workdoc, or any Monday.com concept.
+  Manages Monday.com workspaces, boards, dashboards, automations. Use when:
+  Monday.com, boards, workdocs, widgets.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # Monday.com Operations

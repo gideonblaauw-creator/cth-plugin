@@ -1,17 +1,14 @@
 ---
 name: cth-grant
 description: >
-  CleantechHUB grant lifecycle and competitive bids — evaluation, scoping,
-  drafting, budgeting, theory of change, deliverables, and submission. Trigger on
-  grants, funding opportunities, donor proposals, grant budgets, theory of change,
-  logframes, concept notes, calls for proposals, competitive bids, procurements,
-  tenders. Also trigger on CTH funders: P4G, UNDP, AFCIA, Adaptation Fund, GIZ,
-  Climate KIC, CLP, DGGF, Triple Jump, Expertise France, Pvblic, REIN Hubs,
-  Energy Catalyst, BuZa, Fondo Acción, Latimpacto, AuRA, SVOM, BID/IDB, ESPOL,
-  PROINNÓVATE.
+  Runs CTH grant and competitive-bid lifecycle — go/no-go, scoping, budget,
+  theory of change, submission. Use when: grants, donor proposals, logframes,
+  tenders, competitive bids. Do not use when: commercial client proposals
+  (cth-proposal-build).
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: program
+  version: "2.1.0"
+  category: "programs"
 ---
 
 # CTH Grant Lifecycle
@@ -91,3 +88,9 @@ CTH allocates a maximum of 40% of any grant budget to salaries and personnel cos
 - Submitted at least 24 hours before deadline.
 
 For funder-specific templates, see references/.
+## Related skills
+
+| Skill | When instead |
+|---|---|
+| `cth-proposal-build` | Commercial client service proposals |
+| `cleantechhub-brand` | Branded donor-facing layout and copy tone |

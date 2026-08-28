@@ -1,12 +1,7 @@
 ---
 name: cth-seo
 description: >
-  CleantechHUB SEO Command Center — operational skill for all SEO, AEO, and
-  content strategy across cleantechhub.net subdomains. Trigger on SEO, keywords,
-  rankings, Google Search Console, Google Ads, Ad Grant, meta tags, schema markup,
-  JSON-LD, sitemap, robots.txt, Core Web Vitals, keyword clustering, content
-  decay, E-E-A-T, AI Overviews, AEO, llms.txt, blog strategy, competitor
-  analysis, or technical SEO audit.
+  SEO/AEO command center for cleantechhub.net subdomains.
 ---
 
 # cth-seo

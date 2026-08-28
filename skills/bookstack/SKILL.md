@@ -1,13 +1,13 @@
 ---
 name: bookstack
 description: >
-  Deploy, configure, and manage BookStack wiki instances via Docker and REST API.
-  Trigger on BookStack, wiki deployment, wiki migration, BookStack API, BookStack
-  shelves/books/chapters/pages, knowledge base, documentation wiki, or any
-  mention of wiki.cleantechhub.net.
+  Deploys and manages BookStack wiki via Docker and REST API. Use when:
+  BookStack, wiki deployment, wiki.cleantechhub.net, knowledge base,
+  shelves/books/chapters/pages.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: operations
+  version: "2.1.0"
+  category: "operations"
 ---
 
 # BookStack Operations

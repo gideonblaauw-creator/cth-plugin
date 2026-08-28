@@ -1,15 +1,12 @@
 ---
 name: doctor-bot
 description: >
-  Invoke, interpret, or extend Doctor_Bot — CleantechHUB's infrastructure health
-  agent that monitors MCP connectors, the OVH VPS (BookStack, Sustenttia Chroma,
-  Caddy, MariaDB, TLS certs, disk, memory), and Pipedream workflows. Trigger on
-  "run doctor_bot", "check infra health", "what's broken in my stack", "is
-  BookStack up", "are my MCPs healthy", "check the VPS", or referencing the
-  doctor-bot dashboard.
+  Invokes Doctor_Bot for MCP, VPS, and Pipedream health checks. Use when:
+  doctor_bot, infra health, BookStack up, MCP health, VPS check.
+license: MIT
 metadata:
-  version: "2.0.0"
-  category: infrastructure
+  version: "2.1.0"
+  category: "infrastructure"
 ---
 
 # Doctor_Bot Infrastructure Monitor
