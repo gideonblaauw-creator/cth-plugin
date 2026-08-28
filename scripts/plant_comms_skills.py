@@ -29,15 +29,18 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - Ticket template: `tickets/TEMPLATE.md`
 - Read `skills/harness/SKILL.md` before launching Hands.
 
-## 5. Lowest-tier model
+## 5. Cloud Hands model routing
+
+Token lock **2026-08-28** (supersedes 2026-08-26 Flash-default for fill-in). See `skills/harness/SKILL.md` and `skills/hands-model-routing/SKILL.md`.
 
 | Job | Model | Notes |
 |-----|-------|-------|
-| Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | Empty mechanical model → Flash |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | Never Fast |
+| Empty / unspecified / file / Drive / inventory / copy / research compile / repo | `composer-2.5` (`fast=false`) | Hands default. Never Fast |
+| Tiny only (one artifact, mechanical transform: rename, format, JSON fix, short classify) | `gemini-3.7-flash` | Ticket must **name** Flash. Empty ticket must NOT fill Flash |
 | Review / eval / brand with no model | **HOLD** | Flag Gideon. No auto-Sonnet/Opus/Grok |
+| Private residency (must not leave 127.0.0.1) | local Ollama `LFM2.5-VL-3B` | If it does not fit 3B, HOLD Gideon. Do not fill Flash |
 
-Never silently use Sonnet, Haiku, Opus, Grok, or Composer Fast on Cloud Hands.
+Never silently use Sonnet, Haiku, Opus, Grok, Composer Fast, or second cloud Kimi on Cloud Hands.
 
 ## 6. Workbench exception
 

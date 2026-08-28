@@ -10,11 +10,11 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 desk:
 folder:
 done-when:
-model: gemini-3.7-flash | composer-2.5 (fast=false)
+model: composer-2.5 (fast=false) | gemini-3.7-flash (tiny only, must be named)
 lane: github-pr | drive-folder
 hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
 
-`model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical) or `composer-2.5` with `fast=false` (repo/code). Review/eval/brand with no model → HOLD and flag Gideon. See Token lock 2026-08-26 in `skills/harness/SKILL.md` §5.
+`model` — Cloud Hands only. Default: `composer-2.5` with `fast=false`. `gemini-3.7-flash` only for tiny jobs and only when the ticket names Flash. Review/eval/brand with no model → HOLD and flag Gideon. See Token lock 2026-08-28 in `skills/harness/SKILL.md` §5.

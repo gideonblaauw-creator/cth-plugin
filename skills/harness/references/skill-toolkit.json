@@ -316,6 +316,16 @@
       "description": "Searches, reads, uploads, and manages Google Drive files. Use when: Drive, Google Docs/Sheets, find a file, upload to Drive."
     },
     {
+      "name": "hands-model-routing",
+      "category": "infrastructure",
+      "canonical": "skills/hands-model-routing/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Cloud Hands model routing lock for Cursor agents. Use when: ticketing Cloud Hands, choosing a Hands model, empty model fill-in, or desk comms section 5. Do not use when: Orchestrator/Grok coordination (not a Hands model slot)."
+    },
+    {
       "name": "harness",
       "category": "infrastructure",
       "canonical": "skills/harness/SKILL.md",
@@ -568,7 +578,7 @@
     }
   ],
   "groups": {
-    "core": 25,
+    "core": 26,
     "comms_desk": 27,
     "comms_skill_names": [
       "academy-comms",
@@ -617,8 +627,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 52,
-    "cursor_stubs": 51,
+    "canonical_on_main": 53,
+    "cursor_stubs": 52,
     "cursor_skip": 1
   }
 }
