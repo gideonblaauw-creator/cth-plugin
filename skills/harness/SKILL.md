@@ -357,9 +357,9 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (51 canonical skills):** 24 core/plugin skills (brand, programs, operations, infrastructure — see `skill-toolkit.json`) + 27 desk comms skills (`*-comms`, category `comms`, planted PR #16) + `skill-template`.
+**Planted on main (52 canonical skills):** 25 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (50):** all canonical except `secrets`.
+**Cursor stubs (51):** all canonical except `secrets`.
 
 **Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 

@@ -526,6 +526,17 @@
       "desk": "Socials"
     },
     {
+      "name": "socials-loop",
+      "category": "operations",
+      "canonical": "skills/socials-loop/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Socials Desk weekly content loop \u2014 ingest \u2192 Hands research \u2192 Hands copy \u2192 Hands stills \u2192 Desk review \u2192 Gideon HITL \u2192 Workbench post (only if Hands cannot). Trigger on \"socials loop\", \"weekly social\", \"social post pack\", \"LI/IG/FB pack\", \"social stills\", or Socials Desk content production.",
+      "desk": "Socials"
+    },
+    {
       "name": "sustenttia-comms",
       "category": "comms",
       "canonical": "skills/sustenttia-comms/SKILL.md",
@@ -549,7 +560,7 @@
     }
   ],
   "groups": {
-    "core": 24,
+    "core": 25,
     "comms_desk": 27,
     "comms_skill_names": [
       "academy-comms",
@@ -598,8 +609,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 51,
-    "cursor_stubs": 50,
+    "canonical_on_main": 52,
+    "cursor_stubs": 51,
     "cursor_skip": 1
   }
 }
