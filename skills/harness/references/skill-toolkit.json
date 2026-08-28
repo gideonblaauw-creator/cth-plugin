@@ -400,6 +400,14 @@
       "description": "Communications protocol for the Mac Scan Desk. Trigger on Mac Scan Desk comms or Mac hygiene coordination. Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26)."
     },
     {
+      "name": "mac-scan-worker",
+      "category": "infrastructure",
+      "canonical": "skills/mac-scan-worker/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "description": "Recreate and operate the mac-scan private Cursor worker on Gideon's MacBook Air. Trigger on mac-scan worker setup, My Machines mac-scan, or Mac Scan Hands environment {type: machine, name: mac-scan}."
+    },
+    {
       "name": "rein-hubs-comms",
       "category": "comms",
       "canonical": "skills/rein-hubs-comms/SKILL.md",
