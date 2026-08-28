@@ -463,6 +463,14 @@
       "description": "Searches, creates, moves, and reorganizes Notion pages. Use when: Notion, restructure pages, move to Notion, clean up Notion."
     },
     {
+      "name": "mac-scan-worker",
+      "category": "infrastructure",
+      "canonical": "skills/mac-scan-worker/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "description": "Recreate and operate the mac-scan private Cursor worker on Gideon's MacBook Air. Trigger on mac-scan worker setup, My Machines mac-scan, or Mac Scan Hands environment {type: machine, name: mac-scan}."
+    },
+    {
       "name": "rein-hubs-comms",
       "category": "comms",
       "canonical": "skills/rein-hubs-comms/SKILL.md",
