@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-08-27",
+  "inventory_date": "2026-08-28",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
   "skill_template": "skills/skill-template/SKILL.md",
   "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
@@ -10,8 +10,41 @@
   "setup_docs": "HARNESS.md",
   "skills": [
     {
+      "name": "academy-comms",
+      "category": "comms",
+      "canonical": "skills/academy-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Academy Desk. Trigger on CTH Academy or CLP 2026 program comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Academy"
+    },
+    {
+      "name": "aic-comms",
+      "category": "comms",
+      "canonical": "skills/aic-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the AIC Desk. Trigger on AIC, Bravo Bridge, or Americas Innovation Council comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "AIC"
+    },
+    {
+      "name": "almendra-comms",
+      "category": "comms",
+      "canonical": "skills/almendra-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Almendra Desk. Trigger on Almendra, Run Up coffee, or house-of-brands comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Almendra"
+    },
+    {
       "name": "app-build",
-      "category": "infrastructure",
+      "category": "operations",
       "canonical": "skills/app-build/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
@@ -20,14 +53,36 @@
       "description": "Blaauw app-build protocol for promoting trees to GitHub. Use when: app-build, promote to GitHub, create a repo, new repo, Infrastructure classifies, or pushing a service/app/pipeline to GitHub. Do not use when: grant packs (Drive) or skill-only edits."
     },
     {
+      "name": "aura-comms",
+      "category": "comms",
+      "canonical": "skills/aura-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the AURA Desk. Trigger on AuRA funder or AURA Desk comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "AURA"
+    },
+    {
       "name": "bookstack",
-      "category": "infrastructure",
+      "category": "operations",
       "canonical": "skills/bookstack/SKILL.md",
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
       "version": "2.1.0",
       "description": "Deploys and manages BookStack wiki via Docker and REST API. Use when: BookStack, wiki deployment, wiki.cleantechhub.net, knowledge base, shelves/books/chapters/pages."
+    },
+    {
+      "name": "budget-comms",
+      "category": "comms",
+      "canonical": "skills/budget-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Budget Desk. Trigger on CTH 2026 Budget Desk comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Budget"
     },
     {
       "name": "buffer",
@@ -48,6 +103,17 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "Exports Canva designs and prepares images for downstream tools. Use when: Canva, design export, social visuals from Canva, posting Canva images. Sequencing and URL rules apply."
+    },
+    {
+      "name": "chamber-bucaramanga-comms",
+      "category": "comms",
+      "canonical": "skills/chamber-bucaramanga-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Chamber \u00b7 Bucaramanga Desk. Trigger on C\u00e1mara de Comercio Bucaramanga comms (single Desk \u2014 not split). Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Chamber \u00b7 Bucaramanga"
     },
     {
       "name": "cleantechhub-brand",
@@ -90,6 +156,72 @@
       "description": "Runs CTH grant and competitive-bid lifecycle \u2014 go/no-go, scoping, budget, theory of change, submission. Use when: grants, donor proposals, logframes, tenders, competitive bids. Do not use when: commercial client proposals (cth-proposal-build)."
     },
     {
+      "name": "cth-grant-ctcn-suriname-comms",
+      "category": "comms",
+      "canonical": "skills/cth-grant-ctcn-suriname-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Grant \u00b7 CTCN Suriname Desk. Trigger on CTCN Suriname isolated grant draft comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Grant \u00b7 CTCN Suriname"
+    },
+    {
+      "name": "cth-grant-grp-comms",
+      "category": "comms",
+      "canonical": "skills/cth-grant-grp-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Grant \u00b7 GRP Desk. Trigger on GRP isolated grant draft comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Grant \u00b7 GRP"
+    },
+    {
+      "name": "cth-grant-tns-verdexcelerate-comms",
+      "category": "comms",
+      "canonical": "skills/cth-grant-tns-verdexcelerate-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Grant \u00b7 TNS VerdeXcelerate Desk. Trigger on TNS VerdeXcelerate (CANOA) grant comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Grant \u00b7 TNS VerdeXcelerate"
+    },
+    {
+      "name": "cth-grants-comms",
+      "category": "comms",
+      "canonical": "skills/cth-grants-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Grants Desk. Trigger on CTH Grants Desk comms, donor messages, or grant coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Grants"
+    },
+    {
+      "name": "cth-gtm-strategy-comms",
+      "category": "comms",
+      "canonical": "skills/cth-gtm-strategy-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH GTM Strategy Desk. Trigger on CTH go-to-market strategy comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH GTM Strategy"
+    },
+    {
+      "name": "cth-meetings-comms",
+      "category": "comms",
+      "canonical": "skills/cth-meetings-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Meetings Desk. Trigger on CTH Meetings Desk comms, calendar invites, or meeting coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Meetings"
+    },
+    {
       "name": "cth-proposal-build",
       "category": "programs",
       "canonical": "skills/cth-proposal-build/SKILL.md",
@@ -98,6 +230,17 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "Builds client-facing CTH service proposals \u2014 research, alignment gate, HTML, PDF, deploy. Use when: build a proposal, RFP response, services doc, pitch for a client. Do not use when: grants or donor bids (cth-grant)."
+    },
+    {
+      "name": "cth-proposals-comms",
+      "category": "comms",
+      "canonical": "skills/cth-proposals-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Proposals Desk. Trigger on CTH commercial proposal comms or RFP responses. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Proposals"
     },
     {
       "name": "cth-seo",
@@ -110,6 +253,17 @@
       "description": "SEO/AEO command center for cleantechhub.net subdomains. Use when: SEO, keywords, Search Console, schema, sitemap, Ad Grant, technical SEO audit."
     },
     {
+      "name": "cth-strategy-comms",
+      "category": "comms",
+      "canonical": "skills/cth-strategy-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the CTH Strategy Desk. Trigger on CTH Strategy Desk comms or high-level CTH messaging. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "CTH Strategy"
+    },
+    {
       "name": "doctor-bot",
       "category": "infrastructure",
       "canonical": "skills/doctor-bot/SKILL.md",
@@ -118,6 +272,28 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "Invokes Doctor_Bot for MCP, VPS, and Pipedream health checks. Use when: doctor_bot, infra health, BookStack up, MCP health, VPS check."
+    },
+    {
+      "name": "embassy-albert-kobus-comms",
+      "category": "comms",
+      "canonical": "skills/embassy-albert-kobus-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Embassy \u00b7 Albert Kobus Desk. Trigger on Embassy Desk comms with Albert Kobus. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Embassy \u00b7 Albert Kobus"
+    },
+    {
+      "name": "energy-coop-comms",
+      "category": "comms",
+      "canonical": "skills/energy-coop-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Energy Coop Desk. Trigger on Energy Coop Desk comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Energy Coop"
     },
     {
       "name": "gmail",
@@ -160,6 +336,39 @@
       "description": "Converts self-contained HTML to print-quality PDF via Playwright. Use when: export to PDF, convert proposal HTML, PDF from artifact."
     },
     {
+      "name": "inbox-comms",
+      "category": "comms",
+      "canonical": "skills/inbox-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Inbox Desk. Trigger on Inbox Desk comms or Gmail coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Inbox"
+    },
+    {
+      "name": "infrastructure-comms",
+      "category": "comms",
+      "canonical": "skills/infrastructure-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Infrastructure"
+    },
+    {
+      "name": "investor-matching-comms",
+      "category": "comms",
+      "canonical": "skills/investor-matching-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Investor Matching Desk. Trigger on Investor Matching Desk comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Investor Matching"
+    },
+    {
       "name": "live-artifact-build",
       "category": "infrastructure",
       "canonical": "skills/live-artifact-build/SKILL.md",
@@ -168,6 +377,17 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "Builds persistent live Cowork sidebar artifacts \u2014 dashboards, trackers, status pages. Use when: dashboard, live view, status page, keep this updated."
+    },
+    {
+      "name": "mac-scan-comms",
+      "category": "comms",
+      "canonical": "skills/mac-scan-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Mac Scan Desk. Trigger on Mac Scan Desk comms or Mac hygiene coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Mac Scan"
     },
     {
       "name": "miro",
@@ -190,6 +410,28 @@
       "description": "Manages Monday.com workspaces, boards, dashboards, automations. Use when: Monday.com, boards, workdocs, widgets."
     },
     {
+      "name": "mubon-comms",
+      "category": "comms",
+      "canonical": "skills/mubon-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Mubon Desk. Trigger on Mubon or P4G/MubOn program comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Mubon"
+    },
+    {
+      "name": "newsletter-comms",
+      "category": "comms",
+      "canonical": "skills/newsletter-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Newsletter Desk. Trigger on CTH Newsletter System comms or newsletter drafts. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Newsletter"
+    },
+    {
       "name": "nexus-onepager",
       "category": "programs",
       "canonical": "skills/nexus-onepager/SKILL.md",
@@ -200,6 +442,17 @@
       "description": "Builds bilingual Nexus startup one-pagers at nexus.cleantechhub.net/s/{slug}. Use when: startup one-pager, Nexus profile, deploy to /s/."
     },
     {
+      "name": "nexus-origo-comms",
+      "category": "comms",
+      "canonical": "skills/nexus-origo-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Nexus/Origo Desk. Trigger on Nexus portfolio or Origo/Climate Data Platform comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Nexus/Origo"
+    },
+    {
       "name": "notion",
       "category": "operations",
       "canonical": "skills/notion/SKILL.md",
@@ -208,6 +461,17 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "Searches, creates, moves, and reorganizes Notion pages. Use when: Notion, restructure pages, move to Notion, clean up Notion."
+    },
+    {
+      "name": "rein-hubs-comms",
+      "category": "comms",
+      "canonical": "skills/rein-hubs-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the REIN Hubs Desk. Trigger on REIN Hubs or Pvblic-related comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "REIN Hubs"
     },
     {
       "name": "secrets",
@@ -249,8 +513,74 @@
       "license": "MIT",
       "version": "2.1.0",
       "description": "End-to-end social campaign \u2014 captions, Canva images, Notion, Pipedream, Buffer. Use when: social campaign, schedule posts, CLP campaign, campaign metrics."
+    },
+    {
+      "name": "socials-comms",
+      "category": "comms",
+      "canonical": "skills/socials-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Socials Desk. Trigger on CTH Socials Desk comms, social posts, or channel coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Socials"
+    },
+    {
+      "name": "sustenttia-comms",
+      "category": "comms",
+      "canonical": "skills/sustenttia-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Sustenttia Desk. Trigger on Sustenttia client comms or Sustenttia Desk coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Sustenttia"
+    },
+    {
+      "name": "teclogi-comms",
+      "category": "comms",
+      "canonical": "skills/teclogi-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Teclogi Desk. Trigger on Teclogi comms, dataroom client messages, or Teclogi Desk coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
+      "desk": "Teclogi"
     }
   ],
+  "groups": {
+    "core": 24,
+    "comms_desk": 27,
+    "comms_skill_names": [
+      "academy-comms",
+      "aic-comms",
+      "almendra-comms",
+      "aura-comms",
+      "budget-comms",
+      "chamber-bucaramanga-comms",
+      "cth-grant-ctcn-suriname-comms",
+      "cth-grant-grp-comms",
+      "cth-grant-tns-verdexcelerate-comms",
+      "cth-grants-comms",
+      "cth-gtm-strategy-comms",
+      "cth-meetings-comms",
+      "cth-proposals-comms",
+      "cth-strategy-comms",
+      "embassy-albert-kobus-comms",
+      "energy-coop-comms",
+      "inbox-comms",
+      "infrastructure-comms",
+      "investor-matching-comms",
+      "mac-scan-comms",
+      "mubon-comms",
+      "newsletter-comms",
+      "nexus-origo-comms",
+      "rein-hubs-comms",
+      "socials-comms",
+      "sustenttia-comms",
+      "teclogi-comms"
+    ]
+  },
   "skipped": [
     {
       "name": "secrets",
@@ -268,8 +598,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 24,
-    "cursor_stubs": 23,
+    "canonical_on_main": 51,
+    "cursor_stubs": 50,
     "cursor_skip": 1
   }
 }
