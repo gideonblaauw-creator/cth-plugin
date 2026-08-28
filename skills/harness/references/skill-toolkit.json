@@ -304,6 +304,14 @@
       "description": "Communications protocol for the Socials Desk. Trigger on CTH Socials Desk comms, social posts, or channel coordination. Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26)."
     },
     {
+      "name": "socials-loop",
+      "category": "operations",
+      "canonical": "skills/socials-loop/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "description": "Socials Desk weekly content loop — ingest → Hands research → Hands copy → Hands stills → Desk review → Gideon HITL → Workbench post (only if Hands cannot). Trigger on \"socials loop\", \"weekly social\", \"social post pack\", \"LI/IG/FB pack\", \"social stills\", or Socials Desk content production."
+    },
+    {
       "name": "newsletter-comms",
       "category": "comms",
       "canonical": "skills/newsletter-comms/SKILL.md",
