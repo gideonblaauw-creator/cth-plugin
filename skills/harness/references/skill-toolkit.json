@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-08-28",
+  "inventory_date": "2026-08-29",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
   "skill_template": "skills/skill-template/SKILL.md",
   "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
@@ -463,6 +463,16 @@
       "description": "Searches, creates, moves, and reorganizes Notion pages. Use when: Notion, restructure pages, move to Notion, clean up Notion."
     },
     {
+      "name": "oss-stills",
+      "category": "infrastructure",
+      "canonical": "skills/oss-stills/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "OSS self-host stills \u2014 ComfyUI + Flux.1-Dev + CTH LoRA on named GPU host (or HOLD). Use when: OSS stills, ComfyUI still, Flux LoRA still, branded diffusion still. Do not use when: OpenRouter FLUX HTTP mocks, Canva layouts, HeyGen video, or VPS-4 weight installs."
+    },
+    {
       "name": "mac-scan-worker",
       "category": "infrastructure",
       "canonical": "skills/mac-scan-worker/SKILL.md",
@@ -568,7 +578,7 @@
     }
   ],
   "groups": {
-    "core": 25,
+    "core": 26,
     "comms_desk": 27,
     "comms_skill_names": [
       "academy-comms",
@@ -617,8 +627,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 52,
-    "cursor_stubs": 51,
+    "canonical_on_main": 53,
+    "cursor_stubs": 52,
     "cursor_skip": 1
   }
 }

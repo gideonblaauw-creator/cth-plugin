@@ -1,0 +1,30 @@
+# CleantechHUB brand DNA — Manual de Marca (Jan 2024)
+# Source: skills/cleantechhub-brand/SKILL.md
+# Use for OSS diffusion / ComfyUI stills (skills/oss-stills/SKILL.md).
+# Five colors only — do not add black, purple, red, or a sixth hue.
+
+brand: CleantechHUB
+source: Manual de Marca Jan 2024
+tagline: Inspira. Actúa. Transforma.
+
+colors:
+  - name: Deep Blue
+    hex: "#0C498A"
+    role: primary
+  - name: Light Cyan
+    hex: "#B2EEFA"
+    role: accent
+  - name: Light Green
+    hex: "#9DC384"
+    role: accent
+  - name: Forest Green
+    hex: "#669348"
+    role: secondary
+  - name: Sky Blue
+    hex: "#69B5FA"
+    role: accent
+
+typography:
+  web_stack: "'Open Sans', 'PT Sans', sans-serif"
+  headline: Open Sans
+  body: PT Sans
