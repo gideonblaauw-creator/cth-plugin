@@ -81,7 +81,8 @@ Apply the correct brand skill. Mark all public CTH copy **Awaiting Gideon's appr
 | Route | When | Skill / Tool |
 |---|---|---|
 | **Canva** | Brand layouts, templates, co-brand assets | `skills/canva/SKILL.md` — export before use |
-| **OpenRouter images** | Throwaway mocks, AI stills | OpenRouter `POST /api/v1/images` per harness §5 media bus |
+| **OpenRouter images** | Throwaway mocks, quick AI stills | OpenRouter `POST /api/v1/images` per harness §5 media bus |
+| **OSS self-host** | Branded diffusion stills when GPU host live | `skills/oss-stills/SKILL.md` — ComfyUI + Flux.1-Dev + CTH LoRA; `host: HOLD` until stand-up |
 | **HeyGen** | Presenter video only — not default for stills | Harness: presenter video stays HeyGen primary |
 
 Do not pass Canva editor URLs to Buffer or Workbench. Export first.

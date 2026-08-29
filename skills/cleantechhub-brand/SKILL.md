@@ -125,10 +125,15 @@ Before delivering any CleantechHUB-branded content, verify:
 6. "CleantechHUB" is spelled correctly everywhere (one word, capital H-U-B).
 7. For HTML artifacts: CSS custom properties are defined and used for all brand colors.
 8. For bilingual content: Spanish is Latin American neutral.
+## Brand DNA for diffusion (OSS stills)
+
+For ComfyUI / Flux LoRA stills, use the five-color Manual de Marca Jan 2024 palette in `skills/cleantechhub-brand/brand_dna.yaml` (not the Inter/CSS palette above). Routed by `skills/oss-stills/SKILL.md`.
+
 ## Related skills
 
 | Skill | When instead |
 |---|---|
+| `oss-stills` | OSS self-host branded stills (ComfyUI + Flux.1-Dev + CTH LoRA) |
 | `clp26-brand` | CLP26 / ClimateLaunchpad campaign content |
 | `cth-proposal-build` | Proposal HTML structure (still apply CTH brand here first) |
 | `nexus-onepager` | Startup profile pages on Nexus |

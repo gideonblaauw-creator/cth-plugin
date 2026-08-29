@@ -329,13 +329,13 @@ Empty model on a mechanical job still = `gemini-3.7-flash` (19 Aug fill-in). Pri
 
 Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
 
-- **IMAGE primary:** Images desk (no real people). Fallback: Canva brand layouts (not diffusion). Later HITL only: fal.ai via Composio + `FAL_KEY`. fal generate tools are currently restricted/not Active — do not connect now.
+- **IMAGE primary:** Images desk (no real people). Fallback: Canva brand layouts (not diffusion). **OSS self-host stills (when GPU host live):** ComfyUI + Flux.1-Dev + CTH LoRA per `skills/oss-stills/SKILL.md` — brand DNA in `skills/cleantechhub-brand/brand_dna.yaml`; `host: HOLD` until Gideon stands up a dedicated GPU box or confirms Air GPU. Never Flux weights on VPS-4. Later HITL only: fal.ai via Composio + `FAL_KEY`. fal generate tools are currently restricted/not Active — do not connect now.
 - **VIDEO primary:** HeyGen presenter (avatar + ES translate). Auth the existing plugin first (needsAuth). Prefer Composio HeyGen only if plugin session fails. Do not add a second HeyGen plugin. B-roll: OpenRouter `POST /api/v1/videos` (`minimax/hailuo-3`, `hailuo-2.3`, `alibaba/wan-2.7`, `google/veo-3.1-lite`; not ZDR). Later HITL: MiniMax hosted Hailuo 2.3 / H3 API (NOT Go M3, NOT local H3 weights). GPU later (not on VPS-4): Wan-Animate-2 Apache or LTX-2.5 (community license under $10M ARR, official min 16GB VRAM). Never download video weights onto VPS-4. Never local H3 for US-facing AIC/Frank (US/EU/UK/KR excluded).
 - **VOICE primary:** HeyGen Starfish inside presenter. Standalone TTS/clone/STT: hold. ElevenLabs Composio exists, not Active — do not connect until Gideon says. No Voice desk.
 
 **OpenRouter media generate bus — Gideon GO 2026-08-20 7:10pm COT (one-key bus):**
 - OpenRouter is the media-generate bus (Hands HTTP). Do not add a Cursor OpenRouter plugin (none in catalog). Prefer Composio later only if a toolkit exists. Do not connect fal.ai, `FAL_KEY`, or ElevenLabs.
-- **IMAGE generate:** OpenRouter `POST /api/v1/images` (`FLUX` / `Qwen-Image`). Images desk stays throwaway mocks. Canva stays brand layouts.
+- **IMAGE generate (cloud bus):** OpenRouter `POST /api/v1/images` (`FLUX` / `Qwen-Image`). Images desk stays throwaway mocks. Canva stays brand layouts. **OSS self-host track (parallel, not replacement):** `skills/oss-stills/SKILL.md` — ComfyUI + Flux.1-Dev + CTH LoRA on named GPU host; OpenRouter rows stay.
 - **VIDEO B-roll:** OpenRouter `POST /api/v1/videos` (`minimax/hailuo-3`, `hailuo-2.3`, `alibaba/wan-2.7`, `google/veo-3.1-lite`). Not ZDR.
 - **VIDEO presenter:** HeyGen stays presenter (`avatar` + `ES translate` + `Starfish`). Auth existing plugin first (`needsAuth`).
 - **VOICE / STT:** OpenRouter `POST /api/v1/audio/speech` and `/audio/transcriptions` (`minimax/speech-2.8-hd` ES, `fish-audio/s2.1-pro` clone, `hexgrad/kokoro-82m` cheap EN).
@@ -357,9 +357,9 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (52 canonical skills):** 25 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
+**Planted on main (53 canonical skills):** 26 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (51):** all canonical except `secrets`.
+**Cursor stubs (52):** all canonical except `secrets`.
 
 **Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 
