@@ -74,7 +74,7 @@ No files only in chat. The ticket and the output live in the repo or Archive.
 ## 5. Hands rules
 
 - GitHub is SSOT. Change via PR.
-- No secrets in the repo (.env, PATs, credentials.txt).
+- No secrets in the repo (.env, PATs, credentials.txt). Durable SoT = Infisical (`skills/secrets/SKILL.md`); runtime `.env` is regenerable cache only.
 - No Grok Bot UUIDs.
 - Do not clone Archive onto a cloud VM.
 - Do not treat the Mac as SoT.

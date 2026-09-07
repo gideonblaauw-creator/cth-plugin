@@ -69,4 +69,6 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 
 Never local H3 / US-excluded video weights for US-facing AIC/Frank content (Harness media lock).
+## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 
+Service secrets → **Infisical** (`skills/secrets/SKILL.md`). Never paste token values in tickets, PRs, or chat. Hands fetch by project / environment / key name only.

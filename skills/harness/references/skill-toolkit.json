@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-08-29",
+  "inventory_date": "2026-09-07",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
   "skill_template": "skills/skill-template/SKILL.md",
   "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
@@ -322,7 +322,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary. Read before any Cloud Hands ticket."
     },
     {
@@ -345,6 +345,16 @@
       "version": "1.0.0",
       "description": "Communications protocol for the Inbox Desk. Trigger on Inbox Desk comms or Gmail coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Inbox"
+    },
+    {
+      "name": "infisical",
+      "category": "infrastructure",
+      "canonical": "skills/infisical/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Pointer to Infisical as CleantechHUB sole durable secrets SoT. Use when: Infisical, where to store API keys, fetch secrets for Hands, machine identity. Do not use when: full rotation/leak protocol (secrets skill)."
     },
     {
       "name": "infrastructure-comms",
@@ -498,8 +508,8 @@
       "claude_desktop": true,
       "cursor": "skip",
       "license": "MIT",
-      "version": "2.1.0",
-      "description": "Secrets protocol \u2014 store, rotate, scan, recover API keys and credentials. Use when: secrets, API keys, .env, tokens, credential rotation. Claude Desktop only.",
+      "version": "3.0.0",
+      "description": "Secrets protocol — Infisical SoT, store, rotate, scan, recover API keys and credentials. Use when: secrets, API keys, Infisical, tokens, credential rotation. Claude Desktop only.",
       "cursor_skip_reason": "Do not load in Cursor; Claude Desktop only"
     },
     {
@@ -578,7 +588,7 @@
     }
   ],
   "groups": {
-    "core": 26,
+    "core": 27,
     "comms_desk": 27,
     "comms_skill_names": [
       "academy-comms",
@@ -627,8 +637,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 53,
-    "cursor_stubs": 52,
+    "canonical_on_main": 54,
+    "cursor_stubs": 53,
     "cursor_skip": 1
   }
 }
