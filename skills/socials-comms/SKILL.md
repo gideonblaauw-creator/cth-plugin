@@ -69,4 +69,6 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 
 All public CTH social copy: **Awaiting Gideon's approval** before publish.
+## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 
+Service secrets → **Infisical** (`skills/secrets/SKILL.md`). Never paste token values in tickets, PRs, or chat. Hands fetch by project / environment / key name only.

@@ -70,3 +70,14 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 Gideon merges and deploys. Hands does not deploy.
 
+## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
+
+Service API keys and tokens → **Infisical** only (`skills/secrets/SKILL.md`, `skills/infisical/SKILL.md`). Harness hard gate: `skills/harness/SKILL.md` §5 **Secrets SoT**.
+
+- Ticket Hands with **project / environment / key name** — never paste token values in tickets, PRs, or chat.
+- Prefer **machine identity** for VPS/Hands workers.
+- VPS `.env` = runtime cache regenerable from Infisical — not SoT.
+
+**Migration gaps (HITL — document; do not delete live secrets without Gideon):** Grok box-secrets; Orch connector-secrets (e.g. OpenRouter); Lovable env (e.g. Beehiiv); VPS leftover `infisical-creds` / OPENROUTER env files. See `skills/secrets/SKILL.md` § Migration gaps.
+
+**Carve-out:** Obsidian vault = narrative notes only — no API keys/tokens in Obsidian.

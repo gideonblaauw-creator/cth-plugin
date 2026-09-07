@@ -55,7 +55,7 @@ If no connection exists for the target service:
 1. Call `COMPOSIO_MANAGE_CONNECTIONS` to initiate OAuth or API key authentication
 2. Guide the user through the authentication flow:
    - For OAuth: direct the user to the authorization URL and wait for callback
-   - For API key: ask the user to provide their API key for the service
+   - For API key: store durable keys in Infisical (`skills/secrets/SKILL.md`); never paste values in chat — use HITL via Infrastructure Desk to add the key, then re-auth the connector
 3. Call `COMPOSIO_WAIT_FOR_CONNECTIONS` to wait for the auth flow to complete
 4. Verify the connection is active before proceeding
 
@@ -105,7 +105,7 @@ Use `COMPOSIO_MULTI_EXECUTE_TOOL` for executing multiple actions in sequence:
 
 Regularly check connection status before executing actions. Connections can expire or be revoked:
 - OAuth tokens may expire — re-authenticate if needed
-- API keys may be rotated — update if actions start failing
+- API keys may be rotated — update in Infisical first, then refresh connector auth if actions start failing
 - Service permissions may change — verify access levels
 
 ### Multiple Accounts

@@ -81,7 +81,7 @@ The BookStack container runs alongside other CTH services on the OVH VPS. All co
 
 1. Dump the MariaDB database: `docker exec bookstack-db mysqldump -u bookstack -p bookstack > backup.sql`
 2. Copy uploaded files from the container: `docker cp bookstack:/config/www/uploads/ ./uploads-backup/`
-3. Copy environment configuration: back up the `.env` file and `docker-compose.yml`
+3. Copy environment configuration: back up `docker-compose.yml`; record Infisical path for secrets (do not treat VPS `.env` as SoT — export from Infisical if needed)
 4. Store backups off-server (use rsync or scp to a secondary location)
 
 ### Recovery Procedure

@@ -73,7 +73,7 @@ skills/<name>/
 - Running a grant pack → `cth-grant`
 - Building a client proposal → `cth-proposal-build`
 - Executing Harness tickets → `harness`
-- Loading credentials → `secrets` (Claude Desktop only; no Cursor stub)
+- Loading credentials → `secrets` (Claude Desktop only; no Cursor stub) or `infisical` (desk pointer)
 
 ## Related skills
 

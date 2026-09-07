@@ -6,7 +6,7 @@ description: >
   Hands ticket.
 license: MIT
 metadata:
-  version: "3.1.0"
+  version: "3.2.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -310,6 +310,24 @@ Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `compos
 
 Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
 
+### Secrets SoT — Gideon 2026-09-07 (hard gate)
+
+**Infisical = sole durable secrets SoT** for service credentials (API keys, tokens, OAuth client secrets used by automation).
+
+- **No durable secret storage** on VPS disk (`.env` as SoT), Mac plaintext, Grok Bot box-secrets, chat, Drive Docs, Notion, or git.
+- **Hands tickets:** fetch from Infisical by **project / environment / key name** — never paste token values into prompts, PRs, tickets, or chat.
+- **Prefer Infisical machine identity** for Hands/VPS workers. Do not rely on user JWTs pasted in chat.
+- **Runtime injection only** (process env from Infisical sync / agent identity). Short-lived runtime env is OK; durable SoT is Infisical.
+- VPS `.env` files may exist as **regenerable runtime cache** (`chmod 600`, gitignored) — never as authoritative SoT. If disk disagrees with Infisical, Infisical wins.
+
+Full protocol: `skills/secrets/SKILL.md`. Desk pointer: `skills/infisical/SKILL.md`.
+
+**Supersedes** any prior wording that treats VPS `.env`, Beehiiv-in-Lovable, connector-secrets boxes, or Grok box-secrets as durable SoT.
+
+**Carve-out:** Obsidian vault (Air + Tailscale daily copy to VPS) is allowed for **personal/work narrative notes** and non-API sensitive docs — **not** for API keys/tokens (those go Infisical).
+
+**Migration gaps (HITL — document in tickets; do not delete live secrets without Gideon):** Grok box-secrets → Infisical; Orch connector-secrets (e.g. OpenRouter); Lovable env (e.g. Beehiiv); VPS leftover `infisical-creds` / OPENROUTER env files. See `skills/secrets/SKILL.md` § Migration gaps.
+
 ### OSS-first + tiny/private — Gideon 2026-08-20 (Orchestrator) (hard gate)
 
 Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, the Flash fill-in (empty mechanical = `gemini-3.7-flash`), or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
@@ -357,9 +375,9 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (53 canonical skills):** 26 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
+**Planted on main (54 canonical skills):** 27 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`, `infisical`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (52):** all canonical except `secrets`.
+**Cursor stubs (53):** all canonical except `secrets`.
 
 **Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 
