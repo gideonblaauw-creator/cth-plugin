@@ -1,7 +1,8 @@
 ---
 name: notion
 description: >
-  Searches, creates, moves, and reorganizes Notion pages.
+  Searches, creates, moves, and reorganizes Notion pages; hosts HITL understanding
+  loops (explainers, micro worlds, shared spaces).
 ---
 
 # notion

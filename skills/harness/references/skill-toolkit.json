@@ -469,8 +469,8 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "2.1.0",
-      "description": "Searches, creates, moves, and reorganizes Notion pages. Use when: Notion, restructure pages, move to Notion, clean up Notion."
+      "version": "2.2.0",
+      "description": "Searches, creates, moves, and reorganizes Notion pages; hosts HITL understanding loops (explainers, micro worlds, shared spaces). Use when: Notion, restructure pages, move to Notion, clean up Notion, HITL explainer, understanding loop, agent explainer page."
     },
     {
       "name": "oss-stills",
