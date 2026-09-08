@@ -1,17 +1,61 @@
 ---
 name: notion
 description: >
-  Searches, creates, moves, and reorganizes Notion pages. Use when: Notion,
-  restructure pages, move to Notion, clean up Notion.
+  Searches, creates, moves, and reorganizes Notion pages; hosts HITL understanding
+  loops (explainers, micro worlds, shared spaces). Use when: Notion, restructure
+  pages, move to Notion, clean up Notion, HITL explainer, understanding loop,
+  agent explainer page.
 license: MIT
 metadata:
-  version: "2.1.0"
+  version: "2.2.0"
   category: "operations"
 ---
 
 # Notion Operations
 
-Search, create, update, and reorganize pages and databases in Notion — manage the CTH content database, campaign calendars, project documentation, and workspace structure.
+Search, create, update, and reorganize pages and databases in Notion — manage the CTH content database, campaign calendars, project documentation, workspace structure, and human-in-the-loop understanding surfaces.
+
+## Human-in-the-loop — understanding loops
+
+Notion is the default HITL surface for **understand to participate**, not thumbs-up-only verification. After meaningful agent work, desks and Hands plant understanding artifacts here so teammates can comment, quiz, and decide together.
+
+**Thesis (Geoffrey Litt, Notion):** Agents increasingly handle correctness verification. Humans stay in the loop to understand across successive loops. Unexplained agent velocity = cognitive debt.
+
+Three techniques — full playbook: `references/hitl-understanding-loops.md`.
+
+### i) Explanations
+
+After meaningful agent work, create an **Explainer** page in Notion:
+
+1. Background → Intuition/essence → Literate walkthrough → Quiz (5 medium questions).
+2. Prefer Notion over local-only HTML so teammates can comment.
+3. Quiz = speed regulator. Do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
+4. Tasteful HTML blocks only (Notion HTML blocks for interactive figures). Avoid interactive slop.
+
+### ii) Micro worlds
+
+When prose is not enough to feel the behavior:
+
+1. Agent builds an ephemeral UI, sim, or debugger (scrubber, side-by-side migration, playground).
+2. Host via Notion HTML block or link to a throwaway demo.
+3. Learning artifact, not product scope. Archive when the mental model lands; keep the Explainer.
+
+### iii) Shared spaces
+
+Plans, explainers, and decisions live in Notion multiplayer:
+
+1. Shared threads (humans + agents).
+2. Commentable plan docs.
+3. Decisions databases with human rationale.
+
+Collective understanding beats private laptop artifacts.
+
+### HITL operating rules
+
+- **Understand to participate** — HITL is for comprehension across loops, not rubber-stamp approval.
+- **Cognitive debt pause** — If velocity outpaces explanation, pause new work and write the Explainer first.
+- **Secrets** — Use Infisical (`skills/infisical/SKILL.md`); never paste tokens in Notion or chat.
+- **Notion is not secrets SoT** — Notion holds plans and rationale; credentials stay in Infisical.
 
 ## Workspace Overview
 
@@ -146,4 +190,7 @@ Build pages with clear hierarchy: heading, then supporting content, then sub-sec
 - **Rate limiting**: Notion enforces rate limits on API calls. Implement delays between batch operations. Retry with exponential backoff on 429 responses.
 - **Missing content after update**: Always read the full page before updating to avoid overwriting. Notion page updates can replace content if not handled carefully.
 
-For Notion database schemas and workspace map, see references/.
+## References
+
+- `references/hitl-understanding-loops.md` — HITL understanding loops (explainers, micro worlds, shared spaces); load when planting or reviewing agent explainers.
+- Other Notion database schemas and workspace map — see `references/` when present.
