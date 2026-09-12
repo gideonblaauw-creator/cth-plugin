@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -44,6 +44,7 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - **Lane A repo / store for this Desk:** `https://github.com/gideonblaauw-creator/cth-plugin` for harness/skills.
 - Ticket template: `tickets/TEMPLATE.md`
 - Read `skills/harness/SKILL.md` before launching Hands.
+- Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
 
 ## 5. Lowest-tier model
 

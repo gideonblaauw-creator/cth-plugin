@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-09-07",
+  "inventory_date": "2026-09-12",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
   "skill_template": "skills/skill-template/SKILL.md",
   "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
@@ -322,7 +322,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.6.0",
+      "version": "3.6.1",
       "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier. Read before any Cloud Hands ticket."
     },
     {
@@ -363,7 +363,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "description": "Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Infrastructure"
     },
@@ -377,6 +377,16 @@
       "version": "1.0.0",
       "description": "Communications protocol for the Investor Matching Desk. Trigger on Investor Matching Desk comms. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Investor Matching"
+    },
+    {
+      "name": "langgraph-production",
+      "category": "infrastructure",
+      "canonical": "skills/langgraph-production/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Builds production LangGraph agent graphs with HITL interrupt, Notion Understanding Lab, checkpoint memory, and LangSmith evals. Use when: langgraph: yes on a ticket, production agent graph, client agent graph, HITL interrupt, LangGraph checkpoint, LangSmith eval. Do not use when: OpenCode OSS experiments, grant packs, or skill-only harness edits."
     },
     {
       "name": "live-artifact-build",
@@ -588,7 +598,7 @@
     }
   ],
   "groups": {
-    "core": 27,
+    "core": 29,
     "comms_desk": 27,
     "comms_skill_names": [
       "academy-comms",
@@ -637,8 +647,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 54,
-    "cursor_stubs": 53,
+    "canonical_on_main": 56,
+    "cursor_stubs": 55,
     "cursor_skip": 1
   }
 }

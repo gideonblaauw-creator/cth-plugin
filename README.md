@@ -102,6 +102,7 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `live-artifact-build` | Create and maintain persistent live artifacts in the Cowork sidebar — dashboards, trackers, status pages, and build monitors |
 | `skill-template` | Author and review Agent Skills — frontmatter spec, Cursor stub pattern, progressive disclosure (Agent Skills spec aligned) |
 | `app-build` | Blaauw app-build protocol — classify, gate, and promote trees to GitHub without inventing repos |
+| `langgraph-production` | Production LangGraph + HITL interrupt ↔ Notion Understanding Lab + LangSmith. Ticket `langgraph: yes`. OpenCode is OSS experiments only |
 
 ---
 

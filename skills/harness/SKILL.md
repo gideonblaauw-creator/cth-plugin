@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.6.0"
+  version: "3.6.1"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -64,6 +64,8 @@ Required fields:
 - `reviewer:` which Desk reviews
 
 Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. Tier 1–2 also need this build’s Notion lab URLs (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
+
+Optional Lane A field: `langgraph: yes` — production / client agent graph. Hands follows `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
 
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
@@ -403,9 +405,9 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (54 canonical skills):** 27 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`, `infisical`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
+**Planted on main (56 canonical skills):** 29 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`, `infisical`, `mac-scan-worker`, `langgraph-production`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (53):** all canonical except `secrets`.
+**Cursor stubs (55):** all canonical except `secrets`.
 
 **Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 
@@ -484,6 +486,7 @@ model: gemini-3.7-flash | composer-2.5 (fast=false)
 lane: github-pr | drive-folder
 tier: 0 | 1 | 2
 escalate:
+langgraph: yes
 lab_notion:
   lab_context_url:
   lab_playground_url:
@@ -496,3 +499,5 @@ context:
 `tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.
 
 `lab_notion` — required on Tier 1–2. This build’s Notion lab URLs (flat aliases: `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). Every build gets its own pages. Do not reuse Scanner / VertiGreen / Dataroom URLs for other products. If omitted: Infra posts Tier label + View PR only and flags missing lab pages.
+
+`langgraph` — optional. `langgraph: yes` routes production / client agent graphs to `skills/langgraph-production/SKILL.md`. OpenCode is OSS experiments only.
