@@ -184,13 +184,19 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 ### View Understanding Lab — tier lock (Gideon 2026-09-12)
 
-**Default Tier 0.** Do not plant a lab, PR footer, or Infra CTA on every Lane A merge. CTA **View Understanding Lab** and full five-beat PASS apply **only** to tickets that name Tier 1 or Tier 2 (or a one-line escalate reason). Canonical lock: `docs/understanding-lab-tiers.md`.
+**Default Tier 0.** Do not plant a lab, PR footer, or Infra CTA on every Lane A merge. CTA **View Understanding Lab** and full five-beat PASS apply **only** to tickets that name Tier 1 or Tier 2 (or a one-line escalate reason). Omit `tier:` → treat as Tier 0 and **say so**. Canonical lock: `docs/understanding-lab-tiers.md`.
+
+**HARD — lead with the tier label.** Every View Understanding Lab / Hands completion instruction (Infra chat **and** harness footer copy) starts with one of these first lines. Never surface the lab box/CTA without naming Tier 1 or 2 in the **same** message. Tier 0 never gets the lab popup.
+
+- `**Tier 0** — ship (no Understanding Lab)`
+- `**Tier 1** — Light Understanding` + lab links
+- `**Tier 2** — Full Lab + ledger` + full lab links
 
 **One-liner:** Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2.
 
 | Tier | Ticket signal | Hands duty |
 |---|---|---|
-| **0 — Ship (DEFAULT)** | `tier:` omitted or `0`. Internal, familiar, low blast radius. | Normal **draft** PR + short what/why. **No lab. No CTA.** Anti-blackbox: explainable in ~1 minute if asked. |
+| **0 — Ship (DEFAULT)** | `tier:` omitted or `0`. Internal, familiar, low blast radius. | Normal **draft** PR + short what/why. **No lab. No CTA.** Lead with `**Tier 0** — ship (no Understanding Lab)` and say so if the ticket omitted `tier:`. Anti-blackbox: explainable in ~1 minute if asked. |
 | **1 — Light Understanding** | `tier: 1` **and** `escalate:` one-liner. Agent-heavy, client-facing, or “don’t fully feel this.” | Plant light lab: Context ≤½ page; Playground light (one scenario, 2–3 options with tradeoffs, choose); one Shared decision row / locks file with rationale + `locked_at`. Skip full Explanation essay, quiz, stable host, event-store projector. **CTA** footer + Infra chat. Light PASS only. |
 | **2 — Full Lab + ledger (rare)** | Ticket **MUST** name `tier: 2` (never default, never infer) **and** `escalate:` one-liner. Donor/audit, unfamiliar domain, production agent permissions, or decision will be cited later. | Full five beats + append `events.jsonl` (VPS Archive ledger path) + Notion promote + GH run artifact on close. **CTA** footer + Infra chat. **Full five-beat PASS** only. |
 
@@ -198,13 +204,13 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 **5-beat flow (locked, Tier 2):** `Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`. **Playground hard lock (Tier 1–2):** `scenario → consequences → options → choose` — not scrub-only or single-suggestion override. Tier 1 uses one scenario and 2–3 options. Full definition: `skills/notion/SKILL.md`.
 
-**View Understanding Lab PR footer:** Tier 1–2 draft PR bodies **must** end with the matching block in `docs/view-understanding-lab-footer.md` (not Tier 0). See `skills/notion/SKILL.md` § View Understanding Lab delivery.
+**View Understanding Lab PR footer:** Every Lane A draft PR body **must** end with the matching block in `docs/view-understanding-lab-footer.md`, **leading with** the tier label. Tier 0 = label only (`**Tier 0** — ship (no Understanding Lab)` — no lab box). Tier 1–2 = label then lab links. See `skills/notion/SKILL.md` § View Understanding Lab delivery.
 
 **Operating rules:** (1) Default Tier 0. (2) Playground > paperwork (if budget for one beat: options→choose). (3) Ledger follows tier: Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`. (4) CTA only on Tier 1–2 PRs. (5) Kill: Tier 1 >30 min human time with no clearer decision → strip; Tier 0 ship you can’t re-explain in a week → next similar job Tier 1.
 
 **Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Required for Tier 2; **skip** as a requirement on Tier 1. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
 
-**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post **View Understanding Lab** as its own prominent chat link beside the agent card on **Tier 1–2** Hands completion only (`skills/infrastructure-comms/SKILL.md` §7). Not on Tier 0.
+**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post a follow-up beside the agent card that **leads with the tier label** (`skills/infrastructure-comms/SKILL.md` §7). Lab links only after `**Tier 1** — Light Understanding` or `**Tier 2** — Full Lab + ledger`. Tier 0 follow-up is the Tier 0 label only — no lab popup.
 
 **URLs and beats:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges. Merge after **light PASS** (Tier 1) or **full five-beat PASS** (Tier 2). Tier 0: short what/why — no lab PASS.
 
@@ -487,4 +493,4 @@ reviewer:
 context:
 ```
 
-`tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.
+`tier` — Lane A Understanding Lab. Omit or `0` = treat as Tier 0 and **say so** (`**Tier 0** — ship (no Understanding Lab)`; no lab popup). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. Footer and Infra chat lead with the tier label. See `docs/understanding-lab-tiers.md`.

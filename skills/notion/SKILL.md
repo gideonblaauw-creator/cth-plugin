@@ -126,15 +126,24 @@ Plans, explanations, and decisions live in Notion multiplayer:
 
 Collective understanding beats private laptop artifacts. **Shared decisions** is beat 4 in the Understanding Lab flow.
 
-### View Understanding Lab delivery (Tier 1–2 only)
+### View Understanding Lab delivery (lead with tier)
 
-CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Tier 0: omit this block.
+**HARD:** Footer copy and Infra chat **lead with** the tier label. Never surface the Understanding Lab box/CTA without naming Tier 1 or 2 in the **same** message. Tier 0 never gets the lab popup. Omit `tier:` → treat as Tier 0 and **say so**. Canonical: `docs/understanding-lab-tiers.md`.
 
-When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md` (fill real URLs). Tier 2 uses the full five-beat block:
+First line, before any `## View Understanding Lab` heading:
+
+- `**Tier 0** — ship (no Understanding Lab)`
+- `**Tier 1** — Light Understanding` + lab links
+- `**Tier 2** — Full Lab + ledger` + full lab links
+
+CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge.
+
+When Hands opens a Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md` (fill real URLs). Tier 2 full five-beat block:
 
 ```markdown
+**Tier 2** — Full Lab + ledger
+
 ## View Understanding Lab
-- **Tier:** 2
 - **Escalate:** <one-line reason from the ticket>
 - **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
 - **Playground (stable HTML):** HITL_HTML_STABLE_URL
@@ -144,17 +153,18 @@ When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, th
 **Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
 
-Tier 1 uses the **light** footer in the same helper (Context ≤½ page, Playground light, one Shared decision row). Gate line must say **light PASS**, not full five-beat PASS.
+Tier 1 uses the **light** footer in the same helper (label `**Tier 1** — Light Understanding`, then Context ≤½ page, Playground light, one Shared decision row). Gate line must say **light PASS**, not full five-beat PASS. Tier 0 uses the label-only snippet — no `## View Understanding Lab` heading.
 
-**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card on **Tier 1–2** Hands completion only. Do not bury links only in the PR body. Do **not** post the CTA on Tier 0.
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post a follow-up that **leads with the tier label** beside the agent card. Lab links only in the same message after Tier 1 or Tier 2. Do not bury links only in the PR body. Do **not** post the lab CTA on Tier 0.
 
 **Stable HTML host:** Placeholder `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Do not invent a fake URL. Required for Tier 2; skip as a requirement on Tier 1. Paste helper: `docs/view-understanding-lab-footer.md`.
 
 ### HITL operating rules
 
 - **Understand to participate** — HITL is for comprehension across loops, not rubber-stamp approval.
-- **Default Tier 0** — No lab and no CTA unless the ticket names Tier 1–2 or an escalate reason.
-- **CTA + full five-beat PASS only for Tier 1–2** — CTA on both; full five-beat PASS is Tier 2 only (Tier 1 = light PASS).
+- **Default Tier 0** — No lab and no CTA unless the ticket names Tier 1–2 or an escalate reason. Omit `tier:` → treat as Tier 0 and say so.
+- **Lead with the tier label** — Infra chat and footer first line is `**Tier 0** — ship (no Understanding Lab)` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`. Never lab box/CTA without naming Tier 1 or 2 in the same message.
+- **CTA + full five-beat PASS only for Tier 1–2** — CTA on both; full five-beat PASS is Tier 2 only (Tier 1 = light PASS). Tier 0 never gets the lab popup.
 - **Playground > paperwork** — If budget for one beat: options→choose.
 - **Ledger follows tier** — Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`.
 - **Playground hard lock (Tier 1–2)** — `scenario → consequences → options → choose`; not scrub-only or single-suggestion override.

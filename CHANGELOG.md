@@ -12,6 +12,7 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 - Playground hard lock stays for Tier 1–2: `scenario → consequences → options → choose`
 - `major: yes|no` from PR #24 is superseded — do not infer a lab from scope
 - Canonical lock: `docs/understanding-lab-tiers.md`; ticket field in `tickets/TEMPLATE.md`
+- **HARD:** Infra chat and harness footer copy **lead with** the tier label (`**Tier 0** — ship (no Understanding Lab)` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`). Never surface the lab box/CTA without naming Tier 1 or 2 in the same message. Omit `tier:` → treat as Tier 0 and say so. Tier 0 never gets the lab popup
 
 ### View Understanding Lab delivery (major Lane A)
 

@@ -69,23 +69,30 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 Gideon merges and deploys. Hands does not deploy.
 
-### View Understanding Lab — Tier 1–2 Hands completion only
+### Hands completion — lead with the tier label (HARD)
 
-CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Canonical lock: `docs/understanding-lab-tiers.md`. See `skills/harness/SKILL.md` § View Understanding Lab — tier lock.
+Every Hands completion follow-up **leads with** the tier label. Never start with “View Understanding Lab”. Never surface the Understanding Lab box/CTA without naming Tier 1 or 2 in the **same** message. Tier 0 never gets the lab popup. If the ticket omits `tier:` → treat as Tier 0 and **say so**. Canonical lock: `docs/understanding-lab-tiers.md`. See `skills/harness/SKILL.md` § View Understanding Lab — tier lock.
 
-On **Tier 0** (default, or `tier:` omitted): send the cloud-agent card (View PR) only. **Do not** post View Understanding Lab. Merge bar is Infra review + short what/why — no lab PASS.
+**First line (required):**
 
-On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gideon chat — in this order:
+- `**Tier 0** — ship (no Understanding Lab)`
+- `**Tier 1** — Light Understanding` + lab links
+- `**Tier 2** — Full Lab + ledger` + full lab links
+
+On **every** Lane A Hands completion, Infrastructure **MUST** in Gideon chat — in this order:
 
 1. **Send the cloud-agent card** (View PR).
-2. **Immediately send a short follow-up** whose **first line** is **View Understanding Lab**, with:
-   - Named **tier** and `escalate:` reason from the ticket
+2. **Immediately send a short follow-up** whose **first line** is the matching tier label above.
+3. **Then**, only for Tier 1 or 2, the lab links in the **same** message:
+   - `escalate:` reason from the ticket
    - Context (Notion): `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
    - Playground: Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`) plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
    - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
-3. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
+4. **Remind:** draft PR only. Tier 0 = no lab PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
 
-**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2; the **chat link beside View PR** is mandatory for Infra on Tier 1–2. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0.
+**Tier 0** (default, or `tier:` omitted): after the View PR card, the follow-up is **only** `**Tier 0** — ship (no Understanding Lab)` plus “ticket omitted `tier:`” when that is true. **Do not** post View Understanding Lab. No lab popup.
+
+**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2 and **must lead with** the same tier label. Cursor cannot add a native second button on the agent card — Infra owns the prominent chat message. That message still **starts with the tier label**, not the CTA heading.
 
 Full footer templates: `docs/view-understanding-lab-footer.md`; playbook `skills/notion/SKILL.md` § View Understanding Lab delivery. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 
