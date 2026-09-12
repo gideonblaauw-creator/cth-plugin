@@ -67,10 +67,12 @@ escalate:
 
 ## Delivery (CTA + PASS)
 
-| Tier | View Understanding Lab CTA | Merge PASS |
-|---|---|---|
-| 0 | No | Short what/why. Infra reviews. Gideon merges. |
-| 1 | Yes (PR footer + Infra chat) | Light PASS only |
-| 2 | Yes (PR footer + Infra chat) | Full five-beat PASS only |
+**Infra chat first line** (Gideon lock 2026-09-12): every Hands completion leads with the Tier label **before** View PR / View Understanding Lab.
 
-Full five-beat PASS is **not** the merge bar for every Lane A PR. CTA + full five-beat PASS apply only when the ticket names Tier 1–2 (Tier 2 for the full five beats; Tier 1 keeps the light bar).
+| Tier | Infra first line (Gideon chat) | View Understanding Lab CTA | Merge PASS |
+|---|---|---|---|
+| 0 | `**Tier 0** — Ship` then View PR. **No** lab CTA. | No | Short what/why. Infra reviews. Gideon merges. |
+| 1 | `**Tier 1** — Light Understanding` then View PR then lab links | Yes (PR footer + Infra chat) | Light PASS only |
+| 2 | `**Tier 2** — Full Lab + ledger` then View PR then lab links | Yes (PR footer + Infra chat) | Full five-beat PASS only |
+
+Full five-beat PASS is **not** the merge bar for every Lane A PR. CTA + full five-beat PASS apply only when the ticket names Tier 1–2 (Tier 2 for the full five beats; Tier 1 keeps the light bar). Infra never leads Gideon chat with the lab CTA.

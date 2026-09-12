@@ -4,6 +4,12 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Infra chat delivery — Tier label first (Gideon 2026-09-12)
+
+- Every Hands completion in Gideon chat **leads with the Tier label** (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab
+- Tier 0 announces Tier 0 with no lab CTA; Tier 1–2 announce the tier, then View PR, then lab links
+- Surfaces: `skills/infrastructure-comms/SKILL.md` §7; `docs/understanding-lab-tiers.md` Delivery; `docs/view-understanding-lab-footer.md`; harness Cursor-product-limit line
+
 ### Understanding Lab tier lock (Gideon 2026-09-12)
 
 - Locked Tier 0 / Tier 1 / Tier 2 balance: desks **default Tier 0**; escalate only with a named `tier:` + `escalate:` reason

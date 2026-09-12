@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -69,23 +69,38 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 Gideon merges and deploys. Hands does not deploy.
 
-### View Understanding Lab — Tier 1–2 Hands completion only
+### View Understanding Lab — Hands completion in Gideon chat
 
 CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Canonical lock: `docs/understanding-lab-tiers.md`. See `skills/harness/SKILL.md` § View Understanding Lab — tier lock.
 
-On **Tier 0** (default, or `tier:` omitted): send the cloud-agent card (View PR) only. **Do not** post View Understanding Lab. Merge bar is Infra review + short what/why — no lab PASS.
+**First line in Gideon chat is always the Tier label** (Gideon lock 2026-09-12). Every Hands completion leads with one of these before View PR / View Understanding Lab:
+
+- `**Tier 0** — Ship`
+- `**Tier 1** — Light Understanding`
+- `**Tier 2** — Full Lab + ledger`
+
+Never lead with the lab CTA.
+
+On **Tier 0** (default, or `tier:` omitted), Infrastructure **MUST** in Gideon chat — in this order:
+
+1. **Lead with the Tier label:** `**Tier 0** — Ship`
+2. **Send the cloud-agent card** (View PR) plus short what/why.
+3. **Do not** post View Understanding Lab.
+
+Merge bar is Infra review + short what/why — no lab PASS.
 
 On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gideon chat — in this order:
 
-1. **Send the cloud-agent card** (View PR).
-2. **Immediately send a short follow-up** whose **first line** is **View Understanding Lab**, with:
+1. **Lead with the Tier label:** `**Tier 1** — Light Understanding` or `**Tier 2** — Full Lab + ledger`
+2. **Send the cloud-agent card** (View PR).
+3. **Then send View Understanding Lab** as its own prominent follow-up, with:
    - Named **tier** and `escalate:` reason from the ticket
    - Context (Notion): `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
    - Playground: Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`) plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
    - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
-3. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
+4. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
 
-**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2; the **chat link beside View PR** is mandatory for Infra on Tier 1–2. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0.
+**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2; the **chat link after the Tier label and View PR** is mandatory for Infra on Tier 1–2. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0.
 
 Full footer templates: `docs/view-understanding-lab-footer.md`; playbook `skills/notion/SKILL.md` § View Understanding Lab delivery. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 

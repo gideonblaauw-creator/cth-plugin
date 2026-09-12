@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.5.0"
+  version: "3.5.1"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -204,7 +204,7 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 **Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Required for Tier 2; **skip** as a requirement on Tier 1. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
 
-**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post **View Understanding Lab** as its own prominent chat link beside the agent card on **Tier 1–2** Hands completion only (`skills/infrastructure-comms/SKILL.md` §7). Not on Tier 0.
+**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** lead Gideon chat with the Tier label (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab (`skills/infrastructure-comms/SKILL.md` §7). Tier 0 announces Tier 0 then View PR only — no lab CTA. Tier 1–2 announce the tier, then View PR, then **View Understanding Lab** as its own prominent chat link. Never lead with the lab CTA.
 
 **URLs and beats:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges. Merge after **light PASS** (Tier 1) or **full five-beat PASS** (Tier 2). Tier 0: short what/why — no lab PASS.
 
