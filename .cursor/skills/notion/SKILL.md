@@ -1,8 +1,8 @@
 ---
 name: notion
 description: >
-  Searches, creates, moves, and reorganizes Notion pages; hosts HITL Lab understanding
-  loops (5-beat flow, explainers, micro worlds, shared spaces, major Lane A PR gate).
+  Searches, creates, moves, and reorganizes Notion pages; hosts Understanding Lab
+  loops (Context, Explanation, Playground, Shared decisions, Next cycle; major Lane A PR gate).
 ---
 
 # notion

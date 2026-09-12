@@ -6,7 +6,7 @@ description: >
   Hands ticket.
 license: MIT
 metadata:
-  version: "3.3.0"
+  version: "3.4.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -182,22 +182,24 @@ If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, n
 
 Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
 
-### View HITL Lab — major Lane A (hard gate)
+### View Understanding Lab — major Lane A (hard gate)
 
 **Major vs tiny** on Lane A tickets:
 
 | Class | Ticket signal | Hands duty |
 |---|---|---|
-| **Major** | `major: yes` on the ticket, or scope is substantive (CTH Apps, client products, Tools, FabFloow products, behavior-changing repo work) | Plant/update Notion HITL Lab beats if missing (Home → Explainer → Microworld → Decisions → Next loop). Open **draft** PR only. **Mandatory** View HITL Lab PR footer — see `skills/notion/SKILL.md` § View HITL Lab delivery. |
-| **Tiny / mechanical** | `major: no`, or copy tweaks, inventories, stub-only edits, version bumps without behavior change | Skip full HITL Lab. Standard draft PR + Infra review. |
+| **Major** | `major: yes` on the ticket, or scope is substantive (CTH Apps, client products, Tools, FabFloow products, behavior-changing repo work) | Plant/update Notion Understanding Lab beats if missing (`Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`). Open **draft** PR only. **Mandatory** View Understanding Lab PR footer — see `skills/notion/SKILL.md` § View Understanding Lab delivery. |
+| **Tiny / mechanical** | `major: no`, or copy tweaks, inventories, stub-only edits, version bumps without behavior change | Skip full Understanding Lab. Standard draft PR + Infra review. |
 
-**View HITL Lab PR footer:** Major Lane A draft PR bodies **must** end with the block in `skills/notion/SKILL.md` § View HITL Lab delivery (Notion Home, stable HTML, local fallback, Decisions DB, gate line). Paste helper: `docs/hitl-view-lab-footer.md`.
+**5-beat flow (locked):** `Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`. **Playground (beat 3, hard):** scenarios + consequences + 2–4 option paths with tradeoffs; flow `scenario → consequences → options → choose` before Shared decisions — not scrub-only or single-suggestion override. Full definition: `skills/notion/SKILL.md`.
+
+**View Understanding Lab PR footer:** Major Lane A draft PR bodies **must** end with the block in `skills/notion/SKILL.md` § View Understanding Lab delivery (Context, Playground stable/local, Shared decisions, gate line). Paste helper: `docs/view-understanding-lab-footer.md`.
 
 **Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
 
-**Cursor product limit:** Cloud-agent **View PR** is not a second HITL button. Infra **must** post **View HITL Lab** as its own prominent chat link beside the agent card on major Hands completion (`skills/infrastructure-comms/SKILL.md` §7).
+**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post **View Understanding Lab** as its own prominent chat link beside the agent card on major Hands completion (`skills/infrastructure-comms/SKILL.md` §7).
 
-**URLs and 5-beat flow:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges after ≤10 min HITL pass.
+**URLs and 5-beat flow:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges after ≤10 min Understanding Lab pass (Explanation → Playground → Shared decisions).
 
 ### Token lock — Gideon 2026-08-26 (hard gate; supersedes Sonnet-default, Haiku-default, review-auto-Sonnet for Cloud Hands)
 

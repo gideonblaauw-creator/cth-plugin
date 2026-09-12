@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -69,21 +69,21 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 Gideon merges and deploys. Hands does not deploy.
 
-### View HITL Lab — major Lane A Hands completion (mandatory)
+### View Understanding Lab — major Lane A Hands completion (mandatory)
 
-On **major** Lane A Hands completion (see `skills/harness/SKILL.md` § View HITL Lab — major vs tiny), Infrastructure **MUST** in Gideon chat — in this order:
+On **major** Lane A Hands completion (see `skills/harness/SKILL.md` § View Understanding Lab — major vs tiny), Infrastructure **MUST** in Gideon chat — in this order:
 
 1. **Send the cloud-agent card** (View PR).
-2. **Immediately send a short follow-up** whose **first line** is **View HITL Lab**, with:
-   - Notion lab Home: `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
-   - Stable interactive HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`)
-   - Local fallback: `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
-   - Decisions DB: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b`
-3. **Remind:** draft PR only — **no merge** until HITL PASS (Explainer → Microworld → Decisions, ≤10 min).
+2. **Immediately send a short follow-up** whose **first line** is **View Understanding Lab**, with:
+   - Context (Notion): `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
+   - Playground stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`)
+   - Playground local fallback: `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+   - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b`
+3. **Remind:** draft PR only — **no merge** until Understanding Lab PASS (Explanation → Playground → Shared decisions, ≤10 min).
 
-**Do not** bury View HITL Lab links only in the PR body. The PR footer is mandatory for Hands; the **chat link beside View PR** is mandatory for Infra. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View HITL Lab** message.
+**Do not** bury View Understanding Lab links only in the PR body. The PR footer is mandatory for Hands; the **chat link beside View PR** is mandatory for Infra. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message.
 
-Full footer template: `skills/notion/SKILL.md` § View HITL Lab delivery; paste helper `docs/hitl-view-lab-footer.md`.
+Full footer template: `skills/notion/SKILL.md` § View Understanding Lab delivery; paste helper `docs/view-understanding-lab-footer.md`.
 
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 

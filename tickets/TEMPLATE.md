@@ -18,6 +18,6 @@ reviewer:
 context:
 ```
 
-`major` — Lane A only. `yes` = plant Notion HITL Lab + mandatory View HITL Lab PR footer (`docs/hitl-view-lab-footer.md`). `no` or omit when scope is tiny/mechanical. Infer from scope if omitted — see `skills/harness/SKILL.md` § View HITL Lab.
+`major` — Lane A only. `yes` = plant Notion Understanding Lab + mandatory View Understanding Lab PR footer (`docs/view-understanding-lab-footer.md`). `no` or omit when scope is tiny/mechanical. Infer from scope if omitted — see `skills/harness/SKILL.md` § View Understanding Lab.
 
 `model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical) or `composer-2.5` with `fast=false` (repo/code). Review/eval/brand with no model → HOLD and flag Gideon. See Token lock 2026-08-26 in `skills/harness/SKILL.md` §5.
