@@ -4,6 +4,21 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### LangGraph production Hands lane (2026-09-12)
+
+- Added `skills/langgraph-production/SKILL.md` plus Cursor stub (HITL `interrupt` ↔ Notion Understanding Lab, checkpoint memory, eval fixtures, deploy/monitor pointer)
+- Ticket field `langgraph: yes` in `tickets/TEMPLATE.md`; brief desk routing in harness and `infrastructure-comms`
+- Version pins (PyPI 2026-09-12): `langgraph==1.2.11`, `langgraph-checkpoint==4.2.0`, `langsmith==0.12.4`
+- Client / production graphs on this lane only; OpenCode remains OSS experiments only
+- Dogfood order documented: `cth-data-room-scanner` first, then FabFloow LexiScan L2. Lab repo `langgraph-lab` is a separate Hands ticket
+
+### BUILDING model lock t1242u (2026-09-12)
+
+- **BUILDING = Composer 2.5 Fast ON** — repo/code/build Hands launch `composer-2.5` (`fast=true`); empty build tickets fill Fast ON (not Flash)
+- Mechanical/tiny still `gemini-3.7-flash` when named; review/eval/brand still HOLD
+- Canonical: `docs/hands-model-routing.md`; harness §5 BUILDING lock; desk comms §5; `tickets/TEMPLATE.md`
+- Supersedes prior repo/code `fast=false` default from Token lock 2026-08-26
+
 ### Infra chat delivery — Tier label first (Gideon 2026-09-12)
 
 - Every Hands completion in Gideon chat **leads with the Tier label** (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab

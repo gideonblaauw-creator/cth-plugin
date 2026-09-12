@@ -50,10 +50,10 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 | Job | Model | Notes |
 |-----|-------|-------|
 | Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | Empty mechanical model → Flash |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | Never Fast |
+| Repo / code / build Hands | `composer-2.5` (`fast=true`) | Fast ON for builds (t1242u) |
 | Review / eval / brand with no model | **HOLD** | Flag Gideon. No auto-Sonnet/Opus/Grok |
 
-Never silently use Sonnet, Haiku, Opus, Grok, or Composer Fast on Cloud Hands.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1242u); mechanical/tiny stay Flash.
 
 ## 6. Workbench exception
 

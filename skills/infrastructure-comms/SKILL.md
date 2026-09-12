@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -44,16 +44,18 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - **Lane A repo / store for this Desk:** `https://github.com/gideonblaauw-creator/cth-plugin` for harness/skills.
 - Ticket template: `tickets/TEMPLATE.md`
 - Read `skills/harness/SKILL.md` before launching Hands.
+- Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
+- **BUILDING (t1242u):** repo/code/build Hands → Composer 2.5 **Fast ON**; empty build ticket fills Fast ON (not Flash). Canonical: `docs/hands-model-routing.md`.
 
 ## 5. Lowest-tier model
 
 | Job | Model | Notes |
 |-----|-------|-------|
 | Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | Empty mechanical model → Flash |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | Never Fast |
+| Repo / code / build Hands | `composer-2.5` (`fast=true`) | Fast ON for builds (t1242u) |
 | Review / eval / brand with no model | **HOLD** | Flag Gideon. No auto-Sonnet/Opus/Grok |
 
-Never silently use Sonnet, Haiku, Opus, Grok, or Composer Fast on Cloud Hands.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1242u); mechanical/tiny stay Flash.
 
 ## 6. Workbench exception
 
