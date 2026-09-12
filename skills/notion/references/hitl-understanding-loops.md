@@ -22,7 +22,7 @@ Home → Explainer (quiz) → Micro world (sim) → Decisions DB → Next loop
 | 4. Decisions DB | Shared database | Rationale, blockers, go/no-go rows; team participates |
 | 5. Next loop | Handoff page | What ships, what returns, next cycle needs |
 
-Microworld is beat 3 — after comprehension (Explainer + quiz), before team decisions.
+Microworld is beat 3 — after comprehension (Explainer + quiz), before team decisions. Micro world is the **key understanding step** (Explainer orients; Decisions records locked intent).
 
 ## Gate policy — major builds only
 

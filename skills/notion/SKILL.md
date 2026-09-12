@@ -35,7 +35,7 @@ For **major Lane A builds**, plant a collaborative **HITL Lab** in Notion. Walk 
 | 4. **Decisions DB** | Shared decisions database | Record rationale, blockers, and go/no-go rows |
 | 5. **Next loop** | Handoff page | What ships, what returns, what the next cycle needs |
 
-**Microworld sits between Explainer and Decisions** — prose and quiz first, then sim, then team decisions.
+**Microworld sits between Explainer and Decisions** — prose and quiz first, then sim, then team decisions. Micro world is the **key understanding step** (Explainer orients; Decisions records locked intent).
 
 ### Gate policy — major builds only
 
