@@ -99,6 +99,24 @@ Plans, explainers, and decisions live in Notion multiplayer — not only in solo
 
 Collective understanding beats private laptop artifacts. Decisions DB = beat 4 in the HITL Lab flow.
 
+## View HITL Lab delivery (major Lane A)
+
+When Hands opens a **major** Lane A draft PR on an allowlist repo, the PR body **MUST** end with this block (fill real URLs):
+
+```markdown
+## View HITL Lab
+- **Notion lab Home:** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
+- **Interactive HTML (stable host):** <URL from HITL static host — see harness § View HITL Lab>
+- **Interactive HTML (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+- **Decisions DB:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
+
+**Gate:** Draft only. Infra reviews. Gideon merges after ≤10 min HITL pass (Explainer → Microworld → Decisions).
+```
+
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. Infra chat **must** post **View HITL Lab** as its own prominent link beside the agent card whenever a major Hands run finishes — not only links buried in the PR body.
+
+**Stable HTML host:** `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Paste helper: `docs/hitl-view-lab-footer.md`. Notion URLs: this file and `skills/notion/SKILL.md`.
+
 ## Operating rules
 
 | Rule | Action |

@@ -7,7 +7,7 @@ description: >
   understanding loop, agent explainer page, major Lane A PR gate.
 license: MIT
 metadata:
-  version: "2.3.0"
+  version: "2.4.0"
   category: "operations"
 ---
 
@@ -103,6 +103,24 @@ Plans, explainers, and decisions live in Notion multiplayer:
 3. Decisions databases with human rationale.
 
 Collective understanding beats private laptop artifacts. The Decisions DB is beat 4 in the HITL Lab flow.
+
+### View HITL Lab delivery (major Lane A)
+
+When Hands opens a **major** Lane A draft PR on an allowlist repo, the PR body **MUST** end with this block (fill real URLs):
+
+```markdown
+## View HITL Lab
+- **Notion lab Home:** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
+- **Interactive HTML (stable host):** <URL from HITL static host — see harness § View HITL Lab>
+- **Interactive HTML (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+- **Decisions DB:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
+
+**Gate:** Draft only. Infra reviews. Gideon merges after ≤10 min HITL pass (Explainer → Microworld → Decisions).
+```
+
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post **View HITL Lab** as its own prominent link beside the agent card whenever a major Hands run finishes. Do not bury links only in the PR body.
+
+**Stable HTML host:** Placeholder `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Do not invent a fake URL. Paste helper: `docs/hitl-view-lab-footer.md`.
 
 ### HITL operating rules
 

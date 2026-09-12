@@ -12,9 +12,12 @@ folder:
 done-when:
 model: gemini-3.7-flash | composer-2.5 (fast=false)
 lane: github-pr | drive-folder
+major: yes | no
 hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+`major` — Lane A only. `yes` = plant Notion HITL Lab + mandatory View HITL Lab PR footer (`docs/hitl-view-lab-footer.md`). `no` or omit when scope is tiny/mechanical. Infer from scope if omitted — see `skills/harness/SKILL.md` § View HITL Lab.
 
 `model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical) or `composer-2.5` with `fast=false` (repo/code). Review/eval/brand with no model → HOLD and flag Gideon. See Token lock 2026-08-26 in `skills/harness/SKILL.md` §5.

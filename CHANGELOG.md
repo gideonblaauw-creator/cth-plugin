@@ -4,6 +4,12 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### View HITL Lab delivery (major Lane A)
+
+- Harness, Notion, and Infrastructure comms: **View HITL Lab** mandatory PR footer + Infra chat link beside View PR for major Lane A draft PRs
+- Major vs tiny classification on tickets (`major: yes|no` or scope inference); tiny/mechanical skips full lab
+- Paste helper: `docs/hitl-view-lab-footer.md`; stable HTML placeholder `HITL_HTML_STABLE_URL` until Infra plants host
+
 ### Cursor-native project config (Claude plugin unchanged)
 
 - Added `AGENTS.md` as a thin Cursor pointer; `CLAUDE.md` is unchanged
