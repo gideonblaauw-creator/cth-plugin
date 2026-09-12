@@ -75,11 +75,13 @@ Lab pages support a **language toggle** — dual pages (EN + ES) or in-page swit
 
 ## Running demo (reference implementations)
 
+These are **pattern templates**, not default CTA URLs. Every build / product gets its own Understanding Lab Notion page(s) (Gideon 2026-09-12 via FabFloow). Do not reuse Scanner / VertiGreen pages for LexiScan, Sustenttia, or other products.
+
 | Demo | Subject | Use as template for |
 |---|---|---|
-| Dataroom Reviewer | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi Lane A **Tier 1–2** PR (ticket must name the tier) |
-| Synthetic VertiGreen | FabFloow / client product | Playground + Shared decisions pattern |
-| CleantechHUB Notion lab URLs | CTH Apps on allowlist repos | Full 5-beat flow |
+| Dataroom Reviewer | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi Lane A **Tier 1–2** PR (ticket must name the tier **and** Scanner lab URLs) |
+| Synthetic VertiGreen | FabFloow / client product | Playground + Shared decisions pattern — **not** a fallback URL |
+| CleantechHUB Notion lab URLs | CTH Apps on allowlist repos | Full 5-beat flow — **per build** |
 
 ## Three techniques (Geoffrey Litt pillars — Notion as HITL surface)
 
@@ -121,25 +123,27 @@ Collective understanding beats private laptop artifacts. **Shared decisions** = 
 
 CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Tier 0: omit this block.
 
-When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md`. Tier 2 full five-beat block:
+When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo **and the ticket supplied this build’s lab URLs**, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md`. Fill placeholders from the ticket (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). Never default to Scanner page IDs. Tier 2 full five-beat block:
 
 ```markdown
 ## View Understanding Lab
 - **Tier:** 2
 - **Escalate:** <one-line reason from the ticket>
-- **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
-- **Playground (stable HTML):** HITL_HTML_STABLE_URL
+- **Context (Notion):** <lab_context_url>
+- **Playground (stable HTML):** <lab_playground_url or HITL_HTML_STABLE_URL>
 - **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
-- **Shared decisions:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
+- **Shared decisions:** <lab_shared_decisions_url>
 
 **Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
 
 Tier 1 uses the **light** footer in the same helper. Gate line must say light PASS, not full five-beat PASS.
 
-**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card on **Tier 1–2** Hands completion only — not only links buried in the PR body, and **not** on Tier 0.
+If the ticket omitted lab URLs: omit the filled footer. Infra posts Tier label + View PR only and flags missing lab pages. Do **not** paste Scanner / VertiGreen / Dataroom links.
 
-**Stable HTML host:** `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Required for Tier 2; skip as a requirement on Tier 1. Paste helper: `docs/view-understanding-lab-footer.md`. Notion URLs: this file and `skills/notion/SKILL.md`. Do not rewrite live Notion page content in this lock.
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card on **Tier 1–2** Hands completion **only when this build’s lab URLs are on the ticket** — not only links buried in the PR body, and **not** on Tier 0.
+
+**Stable HTML host:** `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Required for Tier 2; skip as a requirement on Tier 1. Paste helper: `docs/view-understanding-lab-footer.md`. Notion URLs come from the **ticket**, not from this file. Do not rewrite live Notion page content in this lock.
 
 ## Operating rules
 

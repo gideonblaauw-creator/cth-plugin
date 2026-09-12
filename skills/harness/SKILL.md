@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.5.1"
+  version: "3.6.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -63,7 +63,7 @@ Required fields:
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
 
-Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
+Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. Tier 1–2 also need this build’s Notion lab URLs (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
 
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
@@ -198,13 +198,15 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 
 **5-beat flow (locked, Tier 2):** `Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`. **Playground hard lock (Tier 1–2):** `scenario → consequences → options → choose` — not scrub-only or single-suggestion override. Tier 1 uses one scenario and 2–3 options. Full definition: `skills/notion/SKILL.md`.
 
-**View Understanding Lab PR footer:** Tier 1–2 draft PR bodies **must** end with the matching block in `docs/view-understanding-lab-footer.md` (not Tier 0). See `skills/notion/SKILL.md` § View Understanding Lab delivery.
+**View Understanding Lab PR footer:** Tier 1–2 draft PR bodies **must** end with the matching block in `docs/view-understanding-lab-footer.md` (not Tier 0). Fill placeholders from **this ticket’s** `lab_notion:` URLs (or the three flat `lab_*_url` fields). See `skills/notion/SKILL.md` § View Understanding Lab delivery.
 
-**Operating rules:** (1) Default Tier 0. (2) Playground > paperwork (if budget for one beat: options→choose). (3) Ledger follows tier: Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`. (4) CTA only on Tier 1–2 PRs. (5) Kill: Tier 1 >30 min human time with no clearer decision → strip; Tier 0 ship you can’t re-explain in a week → next similar job Tier 1.
+**Per-build Notion lab pages (Gideon 2026-09-12 via FabFloow):** every build / product gets its own Understanding Lab Notion page(s). Do **not** reuse Scanner (Dataroom / VertiGreen) lab pages for LexiScan, Sustenttia, or any other product. Footer templates use placeholders, not Scanner page IDs as a universal default. If a Tier 1–2 ticket omits lab URLs, Infra posts the Tier label + View PR only and flags missing lab pages — **does not** paste Scanner VertiGreen / Dataroom links and **does not** post View Understanding Lab until the Desk supplies this build’s pages. Scanner / Teclogi: the Desk may supply existing Scanner lab pages **on that Scanner ticket only**. Creating LexiScan Notion pages is out of scope for Hands (FabFloow owns).
+
+**Operating rules:** (1) Default Tier 0. (2) Playground > paperwork (if budget for one beat: options→choose). (3) Ledger follows tier: Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`. (4) CTA only on Tier 1–2 PRs **and only with this build’s lab URLs**. (5) Kill: Tier 1 >30 min human time with no clearer decision → strip; Tier 0 ship you can’t re-explain in a week → next similar job Tier 1.
 
 **Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Required for Tier 2; **skip** as a requirement on Tier 1. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
 
-**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** lead Gideon chat with the Tier label (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab (`skills/infrastructure-comms/SKILL.md` §7). Tier 0 announces Tier 0 then View PR only — no lab CTA. Tier 1–2 announce the tier, then View PR, then **View Understanding Lab** as its own prominent chat link. Never lead with the lab CTA.
+**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** lead Gideon chat with the Tier label (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab (`skills/infrastructure-comms/SKILL.md` §7). Tier 0 announces Tier 0 then View PR only — no lab CTA. Tier 1–2 announce the tier, then View PR, then **View Understanding Lab** as its own prominent chat link **only when the ticket supplied this build’s Notion lab URLs**. Never lead with the lab CTA. Never paste Scanner lab URLs onto another product’s chat.
 
 **URLs and beats:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges. Merge after **light PASS** (Tier 1) or **full five-beat PASS** (Tier 2). Tier 0: short what/why — no lab PASS.
 
@@ -482,9 +484,15 @@ model: gemini-3.7-flash | composer-2.5 (fast=false)
 lane: github-pr | drive-folder
 tier: 0 | 1 | 2
 escalate:
+lab_notion:
+  lab_context_url:
+  lab_playground_url:
+  lab_shared_decisions_url:
 hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
 
 `tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.
+
+`lab_notion` — required on Tier 1–2. This build’s Notion lab URLs (flat aliases: `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). Every build gets its own pages. Do not reuse Scanner / VertiGreen / Dataroom URLs for other products. If omitted: Infra posts Tier label + View PR only and flags missing lab pages.

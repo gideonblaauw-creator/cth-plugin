@@ -7,7 +7,7 @@ description: >
   Lab, understanding loop, agent explanation page, Understanding Lab tier (0/1/2).
 license: MIT
 metadata:
-  version: "2.6.0"
+  version: "2.7.0"
   category: "operations"
 ---
 
@@ -90,13 +90,15 @@ Lab pages support a **language toggle** — either dual pages (EN + ES) or an in
 
 ### Running demo (reference implementations)
 
-Use these as templates when planting a new lab:
+Use these as **pattern templates** when planting a **new** lab for the same product. They are **not** default CTA URLs for other products.
 
 | Demo | Repo / subject | Notes |
 |---|---|---|
-| **Dataroom Reviewer** | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi-only Lane A repo |
-| **Synthetic VertiGreen** | FabFloow / client product example | Sim + decisions pattern |
-| **CleantechHUB Notion lab URLs** | CTH Apps on allowlist repos | Context → Explanation → Playground → Shared decisions → Next cycle |
+| **Dataroom Reviewer** | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi-only Lane A repo. Scanner lab pages stay on Scanner tickets. |
+| **Synthetic VertiGreen** | FabFloow / client product example | Sim + decisions pattern. Not a fallback URL for LexiScan or Sustenttia. |
+| **CleantechHUB Notion lab URLs** | CTH Apps on allowlist repos | Context → Explanation → Playground → Shared decisions → Next cycle — **per build** |
+
+**Per-build pages (Gideon 2026-09-12 via FabFloow):** every build / product gets its own Understanding Lab Notion page(s). Hands copies URLs from the ticket (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). Never paste Scanner / VertiGreen / Dataroom page IDs onto LexiScan, Sustenttia, or another product. If the ticket omits URLs, flag the Desk — do not invent pages (LexiScan lab pages: FabFloow owns).
 
 ### i) Explanations (Geoffrey Litt pillar → beat 2)
 
@@ -130,19 +132,21 @@ Collective understanding beats private laptop artifacts. **Shared decisions** is
 
 CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Tier 0: omit this block.
 
-When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md` (fill real URLs). Tier 2 uses the full five-beat block:
+When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo **and the ticket supplied this build’s lab URLs**, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md` (fill placeholders from the ticket — never Scanner defaults). Tier 2 uses the full five-beat block:
 
 ```markdown
 ## View Understanding Lab
 - **Tier:** 2
 - **Escalate:** <one-line reason from the ticket>
-- **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
-- **Playground (stable HTML):** HITL_HTML_STABLE_URL
+- **Context (Notion):** <lab_context_url>
+- **Playground (stable HTML):** <lab_playground_url or HITL_HTML_STABLE_URL>
 - **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
-- **Shared decisions:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
+- **Shared decisions:** <lab_shared_decisions_url>
 
 **Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
+
+If the ticket omitted lab URLs: omit the filled footer (or note “lab pages missing”). Infra flags the gap. Do **not** paste Scanner / VertiGreen / Dataroom page IDs.
 
 Tier 1 uses the **light** footer in the same helper (Context ≤½ page, Playground light, one Shared decision row). Gate line must say **light PASS**, not full five-beat PASS.
 

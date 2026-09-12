@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.3.1"
+  version: "1.4.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -93,14 +93,18 @@ On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gide
 
 1. **Lead with the Tier label:** `**Tier 1** — Light Understanding` or `**Tier 2** — Full Lab + ledger`
 2. **Send the cloud-agent card** (View PR).
-3. **Then send View Understanding Lab** as its own prominent follow-up, with:
+3. **Then send View Understanding Lab** as its own prominent follow-up **only when the ticket supplied this build’s Notion lab URLs** (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`):
    - Named **tier** and `escalate:` reason from the ticket
-   - Context (Notion): `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
-   - Playground: Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`) plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
-   - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
+   - Context (Notion): the ticket’s `<lab_context_url>` — **this build only**
+   - Playground: the ticket’s `<lab_playground_url>`. Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = that URL or `HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]` plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+   - Shared decisions: the ticket’s `<lab_shared_decisions_url>` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
 4. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
 
-**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2; the **chat link after the Tier label and View PR** is mandatory for Infra on Tier 1–2. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0.
+**If the Tier 1–2 ticket omits lab URLs:** stop after the Tier label + View PR. Flag missing lab pages in Gideon chat. **Do not** paste Scanner (Dataroom / VertiGreen) links. **Do not** post View Understanding Lab until the Desk supplies this build’s pages.
+
+**Per-build pages (Gideon 2026-09-12 via FabFloow):** every build / product gets its own Understanding Lab Notion page(s). Never reuse Scanner lab pages for LexiScan, Sustenttia, or any other product. Scanner / Teclogi URLs may appear **only** when the ticket is for `cth-data-room-scanner` and the Desk put those URLs on that ticket.
+
+**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2 when lab URLs exist. The PR footer is mandatory for Hands on Tier 1–2 **once URLs are on the ticket**; the **chat link after the Tier label and View PR** is mandatory for Infra on Tier 1–2 **once URLs are on the ticket**. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0. **Do not** invent a default Notion URL.
 
 Full footer templates: `docs/view-understanding-lab-footer.md`; playbook `skills/notion/SKILL.md` § View Understanding Lab delivery. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 
