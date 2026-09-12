@@ -287,5 +287,5 @@ Build pages with clear hierarchy: heading, then supporting content, then sub-sec
 
 ## References
 
-- `references/hitl-understanding-loops.md` — HITL understanding loops (explainers, micro worlds, shared spaces); load when planting or reviewing agent explainers.
+- `references/hitl-understanding-loops.md` — Understanding Lab (Context, Explanation, Playground, Shared decisions, Next cycle); load when planting or reviewing major Lane A labs.
 - Other Notion database schemas and workspace map — see `references/` when present.
