@@ -1,13 +1,13 @@
 ---
 name: notion
 description: >
-  Searches, creates, moves, and reorganizes Notion pages; hosts HITL understanding
-  loops (explainers, micro worlds, shared spaces). Use when: Notion, restructure
-  pages, move to Notion, clean up Notion, HITL explainer, understanding loop,
-  agent explainer page.
+  Searches, creates, moves, and reorganizes Notion pages; hosts HITL Lab understanding
+  loops (5-beat flow, explainers, micro worlds, shared spaces). Use when: Notion,
+  restructure pages, move to Notion, clean up Notion, HITL explainer, HITL Lab,
+  understanding loop, agent explainer page, major Lane A PR gate.
 license: MIT
 metadata:
-  version: "2.2.0"
+  version: "2.3.0"
   category: "operations"
 ---
 
@@ -15,15 +15,68 @@ metadata:
 
 Search, create, update, and reorganize pages and databases in Notion — manage the CTH content database, campaign calendars, project documentation, workspace structure, and human-in-the-loop understanding surfaces.
 
-## Human-in-the-loop — understanding loops
+## Human-in-the-loop — HITL Lab (understanding loops)
 
 Notion is the default HITL surface for **understand to participate**, not thumbs-up-only verification. After meaningful agent work, desks and Hands plant understanding artifacts here so teammates can comment, quiz, and decide together.
 
 **Thesis (Geoffrey Litt, Notion):** Agents increasingly handle correctness verification. Humans stay in the loop to understand across successive loops. Unexplained agent velocity = cognitive debt.
 
-Three techniques — full playbook: `references/hitl-understanding-loops.md`.
+Three techniques (Geoffrey Litt pillars) — full playbook: `references/hitl-understanding-loops.md`.
 
-### i) Explanations
+### HITL Lab — 5-beat flow
+
+For **major Lane A builds**, plant a collaborative **HITL Lab** in Notion. Walk reviewers through five beats in order:
+
+| Beat | Page / artifact | Purpose |
+|---|---|---|
+| 1. **Home** | Lab landing page | Context, links, language toggle, who is reviewing |
+| 2. **Explainer** | Background → Intuition → Literate walkthrough → **Quiz** (5 medium questions) | Comprehension gate |
+| 3. **Micro world** | Ephemeral sim / scrubber / playground | Feel the behavior (between Explainer and Decisions) |
+| 4. **Decisions DB** | Shared decisions database | Record rationale, blockers, and go/no-go rows |
+| 5. **Next loop** | Handoff page | What ships, what returns, what the next cycle needs |
+
+**Microworld sits between Explainer and Decisions** — prose and quiz first, then sim, then team decisions. Micro world is the **key understanding step** (Explainer orients; Decisions records locked intent).
+
+### Gate policy — major builds only
+
+The HITL Lab gate applies to **Lane A major builds only**:
+
+- CTH Apps, client products, Tools, FabFloow products, and similar substantive PRs.
+- **Not** every tiny or mechanical PR (copy tweaks, inventories, stub updates, version bumps without behavior change).
+
+**Trigger:** major PRs only on **Lane A allowlist repos** (see `skills/harness/SKILL.md` § Lane A repo lock). Match `repo_url` to the owning repo before planting a lab. Wrong repo = miss.
+
+**Maker ≠ checker:** Hands plants the lab and opens a **draft** PR. Infrastructure Desk reviews. Gideon merges.
+
+### Timebox
+
+Total human gate ≤ **10 minutes** (suggested split):
+
+- Explainer + quiz — ~4 min
+- Micro world — ~3 min
+- Decisions DB — ~3 min
+
+Design each beat to respect the box. Quiz = speed regulator; do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
+
+### Collaborative — not solo Gideon
+
+HITL Lab is a **shared space**. Team members participate via page comments and Decisions DB rows. Do not assume Gideon reviews alone. Plant enough context for async teammates to contribute.
+
+### EN / ES
+
+Lab pages support a **language toggle** — either dual pages (EN + ES) or an in-page switch pattern. Default EN; mirror key beats for Spanish-speaking reviewers when the build touches ES audiences.
+
+### Running demo (reference implementations)
+
+Use these as templates when planting a new lab:
+
+| Demo | Repo / subject | Notes |
+|---|---|---|
+| **Dataroom Reviewer** | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi-only Lane A repo |
+| **Synthetic VertiGreen** | FabFloow / client product example | Sim + decisions pattern |
+| **CleantechHUB Notion lab URLs** | CTH Apps on allowlist repos | Home → Explainer → Microworld → Decisions → Next loop |
+
+### i) Explanations (Geoffrey Litt pillar)
 
 After meaningful agent work, create an **Explainer** page in Notion:
 
@@ -32,15 +85,16 @@ After meaningful agent work, create an **Explainer** page in Notion:
 3. Quiz = speed regulator. Do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
 4. Tasteful HTML blocks only (Notion HTML blocks for interactive figures). Avoid interactive slop.
 
-### ii) Micro worlds
+### ii) Micro worlds (Geoffrey Litt pillar)
 
 When prose is not enough to feel the behavior:
 
 1. Agent builds an ephemeral UI, sim, or debugger (scrubber, side-by-side migration, playground).
 2. Host via Notion HTML block or link to a throwaway demo.
 3. Learning artifact, not product scope. Archive when the mental model lands; keep the Explainer.
+4. In the 5-beat flow, this is beat 3 — **after** Explainer/quiz, **before** Decisions DB.
 
-### iii) Shared spaces
+### iii) Shared spaces (Geoffrey Litt pillar)
 
 Plans, explainers, and decisions live in Notion multiplayer:
 
@@ -48,12 +102,15 @@ Plans, explainers, and decisions live in Notion multiplayer:
 2. Commentable plan docs.
 3. Decisions databases with human rationale.
 
-Collective understanding beats private laptop artifacts.
+Collective understanding beats private laptop artifacts. The Decisions DB is beat 4 in the HITL Lab flow.
 
 ### HITL operating rules
 
 - **Understand to participate** — HITL is for comprehension across loops, not rubber-stamp approval.
+- **Major builds only** — Do not plant a full HITL Lab for tiny/mechanical PRs.
 - **Cognitive debt pause** — If velocity outpaces explanation, pause new work and write the Explainer first.
+- **Collaborative** — Shared space; team comments and Decisions rows; not solo Gideon.
+- **Timebox** — ≤ 10 min total human gate across Explainer, microworld, and Decisions.
 - **Secrets** — Use Infisical (`skills/infisical/SKILL.md`); never paste tokens in Notion or chat.
 - **Notion is not secrets SoT** — Notion holds plans and rationale; credentials stay in Infisical.
 
