@@ -2,11 +2,11 @@
 name: harness
 description: >
   CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks. Use when:
-  harness, ticket, Cloud Hands, lane, Desk/Hands boundary. Read before any Cloud
-  Hands ticket.
+  harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab
+  tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.4.0"
+  version: "3.5.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -63,7 +63,7 @@ Required fields:
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
 
-See `tickets/TEMPLATE.md`.
+Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
 
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
@@ -182,24 +182,31 @@ If AIC work needs Archive or VPS `gws`, also pass environment `{type: machine, n
 
 Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = miss. Box = scratch. Archive only via worker `vps`. mac-scan is not a jump host.
 
-### View Understanding Lab — major Lane A (hard gate)
+### View Understanding Lab — tier lock (Gideon 2026-09-12)
 
-**Major vs tiny** on Lane A tickets:
+**Default Tier 0.** Do not plant a lab, PR footer, or Infra CTA on every Lane A merge. CTA **View Understanding Lab** and full five-beat PASS apply **only** to tickets that name Tier 1 or Tier 2 (or a one-line escalate reason). Canonical lock: `docs/understanding-lab-tiers.md`.
 
-| Class | Ticket signal | Hands duty |
+**One-liner:** Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2.
+
+| Tier | Ticket signal | Hands duty |
 |---|---|---|
-| **Major** | `major: yes` on the ticket, or scope is substantive (CTH Apps, client products, Tools, FabFloow products, behavior-changing repo work) | Plant/update Notion Understanding Lab beats if missing (`Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`). Open **draft** PR only. **Mandatory** View Understanding Lab PR footer — see `skills/notion/SKILL.md` § View Understanding Lab delivery. |
-| **Tiny / mechanical** | `major: no`, or copy tweaks, inventories, stub-only edits, version bumps without behavior change | Skip full Understanding Lab. Standard draft PR + Infra review. |
+| **0 — Ship (DEFAULT)** | `tier:` omitted or `0`. Internal, familiar, low blast radius. | Normal **draft** PR + short what/why. **No lab. No CTA.** Anti-blackbox: explainable in ~1 minute if asked. |
+| **1 — Light Understanding** | `tier: 1` **and** `escalate:` one-liner. Agent-heavy, client-facing, or “don’t fully feel this.” | Plant light lab: Context ≤½ page; Playground light (one scenario, 2–3 options with tradeoffs, choose); one Shared decision row / locks file with rationale + `locked_at`. Skip full Explanation essay, quiz, stable host, event-store projector. **CTA** footer + Infra chat. Light PASS only. |
+| **2 — Full Lab + ledger (rare)** | Ticket **MUST** name `tier: 2` (never default, never infer) **and** `escalate:` one-liner. Donor/audit, unfamiliar domain, production agent permissions, or decision will be cited later. | Full five beats + append `events.jsonl` (VPS Archive ledger path) + Notion promote + GH run artifact on close. **CTA** footer + Infra chat. **Full five-beat PASS** only. |
 
-**5-beat flow (locked):** `Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`. **Playground (beat 3, hard):** scenarios + consequences + 2–4 option paths with tradeoffs; flow `scenario → consequences → options → choose` before Shared decisions — not scrub-only or single-suggestion override. Full definition: `skills/notion/SKILL.md`.
+`major: yes` without `tier:` is a **miss** — do not infer a lab from scope. Flag the Desk to name a tier or escalate reason; ship as Tier 0 until they do.
 
-**View Understanding Lab PR footer:** Major Lane A draft PR bodies **must** end with the block in `skills/notion/SKILL.md` § View Understanding Lab delivery (Context, Playground stable/local, Shared decisions, gate line). Paste helper: `docs/view-understanding-lab-footer.md`.
+**5-beat flow (locked, Tier 2):** `Context → Explanation (quiz) → Playground → Shared decisions → Next cycle`. **Playground hard lock (Tier 1–2):** `scenario → consequences → options → choose` — not scrub-only or single-suggestion override. Tier 1 uses one scenario and 2–3 options. Full definition: `skills/notion/SKILL.md`.
 
-**Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
+**View Understanding Lab PR footer:** Tier 1–2 draft PR bodies **must** end with the matching block in `docs/view-understanding-lab-footer.md` (not Tier 0). See `skills/notion/SKILL.md` § View Understanding Lab delivery.
 
-**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post **View Understanding Lab** as its own prominent chat link beside the agent card on major Hands completion (`skills/infrastructure-comms/SKILL.md` §7).
+**Operating rules:** (1) Default Tier 0. (2) Playground > paperwork (if budget for one beat: options→choose). (3) Ledger follows tier: Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`. (4) CTA only on Tier 1–2 PRs. (5) Kill: Tier 1 >30 min human time with no clearer decision → strip; Tier 0 ship you can’t re-explain in a week → next similar job Tier 1.
 
-**URLs and 5-beat flow:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges after ≤10 min Understanding Lab pass (Explanation → Playground → Shared decisions).
+**Stable HTML host (placeholder):** `HITL_HTML_STABLE_URL` — Infra fills after Vercel/Tailscale plant. Do not invent a fake URL. Required for Tier 2; **skip** as a requirement on Tier 1. Until planted, Hands leaves the stable-host line as the placeholder token or `[PENDIENTE — Infra plants HITL_HTML_STABLE_URL]`.
+
+**Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** post **View Understanding Lab** as its own prominent chat link beside the agent card on **Tier 1–2** Hands completion only (`skills/infrastructure-comms/SKILL.md` §7). Not on Tier 0.
+
+**URLs and beats:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges. Merge after **light PASS** (Tier 1) or **full five-beat PASS** (Tier 2). Tier 0: short what/why — no lab PASS.
 
 ### Token lock — Gideon 2026-08-26 (hard gate; supersedes Sonnet-default, Haiku-default, review-auto-Sonnet for Cloud Hands)
 
@@ -473,7 +480,11 @@ folder:
 done-when:
 model: gemini-3.7-flash | composer-2.5 (fast=false)
 lane: github-pr | drive-folder
+tier: 0 | 1 | 2
+escalate:
 hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+`tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.

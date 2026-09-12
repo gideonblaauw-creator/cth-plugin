@@ -2,7 +2,7 @@
 name: notion
 description: >
   Searches, creates, moves, and reorganizes Notion pages; hosts Understanding Lab
-  loops (Context, Explanation, Playground, Shared decisions, Next cycle; major Lane A PR gate).
+  loops (Context, Explanation, Playground, Shared decisions, Next cycle; Tier 0/1/2 lock).
 ---
 
 # notion
