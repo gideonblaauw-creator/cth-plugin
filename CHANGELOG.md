@@ -4,6 +4,15 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Understanding Lab tier lock (Gideon 2026-09-12)
+
+- Locked Tier 0 / Tier 1 / Tier 2 balance: desks **default Tier 0**; escalate only with a named `tier:` + `escalate:` reason
+- One-liner: Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2
+- View Understanding Lab CTA + full five-beat PASS **only** for Tier 1–2 (Tier 1 = light PASS; Tier 2 = full five beats + `events.jsonl`). Not every Lane A merge
+- Playground hard lock stays for Tier 1–2: `scenario → consequences → options → choose`
+- `major: yes|no` from PR #24 is superseded — do not infer a lab from scope
+- Canonical lock: `docs/understanding-lab-tiers.md`; ticket field in `tickets/TEMPLATE.md`
+
 ### View Understanding Lab delivery (major Lane A)
 
 - Locked lab name **Understanding Lab**; CTA **View Understanding Lab**; 5 beats: Context → Explanation (quiz) → Playground → Shared decisions → Next cycle

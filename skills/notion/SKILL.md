@@ -4,10 +4,10 @@ description: >
   Searches, creates, moves, and reorganizes Notion pages; hosts Understanding Lab
   loops (5-beat flow: Context, Explanation, Playground, Shared decisions, Next cycle).
   Use when: Notion, restructure pages, move to Notion, clean up Notion, Understanding
-  Lab, understanding loop, agent explanation page, major Lane A PR gate.
+  Lab, understanding loop, agent explanation page, Understanding Lab tier (0/1/2).
 license: MIT
 metadata:
-  version: "2.5.0"
+  version: "2.6.0"
   category: "operations"
 ---
 
@@ -27,7 +27,7 @@ Three techniques (Geoffrey Litt pillars) — full playbook: `references/hitl-und
 
 ### Understanding Lab — 5-beat flow
 
-For **major Lane A builds**, plant a collaborative **Understanding Lab** in Notion. Walk reviewers through five beats in this order only:
+For **Tier 2** tickets only, plant a collaborative **Understanding Lab** in Notion and walk reviewers through five beats in this order only. Tier 1 uses a **light** subset (Context ≤½ page + Playground light + one Shared decision row). Tier 0 plants **no lab**. Canonical lock: `docs/understanding-lab-tiers.md`.
 
 ```
 Context → Explanation (quiz) → Playground → Shared decisions → Next cycle
@@ -56,26 +56,29 @@ Playground **must**:
 
 **Flow inside beat 3:** `scenario → consequences → options → choose` — then proceed to Shared decisions.
 
-### Gate policy — major builds only
+### Gate policy — Understanding Lab tiers (Gideon 2026-09-12)
 
-The Understanding Lab gate applies to **Lane A major builds only**:
+Desks **default Tier 0**. Do not plant a lab because the PR is “major” or client-facing. The ticket must name `tier: 1` or `tier: 2` (or a one-line `escalate:` reason). `major: yes` without `tier:` is a miss.
 
-- CTH Apps, client products, Tools, FabFloow products, and similar substantive PRs.
-- **Not** every tiny or mechanical PR (copy tweaks, inventories, stub updates, version bumps without behavior change).
+| Tier | When | Bar | CTA / PASS |
+|---|---|---|---|
+| **0 — Ship (DEFAULT)** | Internal, familiar, low blast radius | Normal PR + short what/why. No lab. Explainable in ~1 minute if asked. | No CTA. No lab PASS. |
+| **1 — Light Understanding** | Agent-heavy, client-facing, or “don’t fully feel this” | (1) Context ≤½ page (2) Playground light: one scenario, 2–3 options with tradeoffs, choose (3) one Shared decision row / locks file with rationale + `locked_at` | CTA yes. **Light PASS only.** Skip full Explanation essay, quiz, stable host, event-store projector. |
+| **2 — Full Lab + ledger (rare)** | Donor/audit, unfamiliar domain, production agent permissions, or decision will be cited later | Full five beats + append `events.jsonl` (VPS Archive ledger path) + Notion promote + GH run artifact on close | CTA yes. **Full five-beat PASS only.** Ticket MUST name Tier 2. Never default. |
 
-**Trigger:** major PRs only on **Lane A allowlist repos** (see `skills/harness/SKILL.md` § Lane A repo lock). Match `repo_url` to the owning repo before planting a lab. Wrong repo = miss.
+**Trigger:** Tier 1–2 on **Lane A allowlist repos** only (see `skills/harness/SKILL.md` § Lane A repo lock). Match `repo_url` to the owning repo before planting a lab. Wrong repo = miss.
 
-**Maker ≠ checker:** Hands plants the lab and opens a **draft** PR. Infrastructure Desk reviews. Gideon merges.
+**Maker ≠ checker:** Hands plants the lab (when the ticket names Tier 1–2) and opens a **draft** PR. Infrastructure Desk reviews. Gideon merges.
+
+**One-liner:** Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2.
 
 ### Timebox
 
-Total human gate ≤ **10 minutes** (suggested split):
+- **Tier 0:** no lab timebox — short what/why.
+- **Tier 1:** stay inside the light bar. **Kill:** >30 min human time with no clearer decision → strip to Tier 0.
+- **Tier 2** human gate ≤ **10 minutes** (suggested split): Explanation + quiz ~4 min · Playground ~3 min · Shared decisions ~3 min.
 
-- Explanation + quiz — ~4 min
-- Playground — ~3 min
-- Shared decisions — ~3 min
-
-Design each beat to respect the box. Quiz = speed regulator; do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
+Design each beat to respect the box. Quiz (Tier 2) = speed regulator; do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
 
 ### Collaborative — not solo Gideon
 
@@ -123,34 +126,43 @@ Plans, explanations, and decisions live in Notion multiplayer:
 
 Collective understanding beats private laptop artifacts. **Shared decisions** is beat 4 in the Understanding Lab flow.
 
-### View Understanding Lab delivery (major Lane A)
+### View Understanding Lab delivery (Tier 1–2 only)
 
-When Hands opens a **major** Lane A draft PR on an allowlist repo, the PR body **MUST** end with this block (fill real URLs):
+CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Tier 0: omit this block.
+
+When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md` (fill real URLs). Tier 2 uses the full five-beat block:
 
 ```markdown
 ## View Understanding Lab
+- **Tier:** 2
+- **Escalate:** <one-line reason from the ticket>
 - **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
 - **Playground (stable HTML):** HITL_HTML_STABLE_URL
 - **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
 - **Shared decisions:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
 
-**Gate:** Draft only. Infra reviews. Gideon merges after ≤10 min Understanding Lab pass (Explanation → Playground → Shared decisions).
+**Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
 
-**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card whenever a major Hands run finishes. Do not bury links only in the PR body.
+Tier 1 uses the **light** footer in the same helper (Context ≤½ page, Playground light, one Shared decision row). Gate line must say **light PASS**, not full five-beat PASS.
 
-**Stable HTML host:** Placeholder `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Do not invent a fake URL. Paste helper: `docs/view-understanding-lab-footer.md`.
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card on **Tier 1–2** Hands completion only. Do not bury links only in the PR body. Do **not** post the CTA on Tier 0.
+
+**Stable HTML host:** Placeholder `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Do not invent a fake URL. Required for Tier 2; skip as a requirement on Tier 1. Paste helper: `docs/view-understanding-lab-footer.md`.
 
 ### HITL operating rules
 
 - **Understand to participate** — HITL is for comprehension across loops, not rubber-stamp approval.
-- **Major builds only** — Do not plant a full Understanding Lab for tiny/mechanical PRs.
-- **Cognitive debt pause** — If velocity outpaces explanation, pause new work and write the Explanation first.
+- **Default Tier 0** — No lab and no CTA unless the ticket names Tier 1–2 or an escalate reason.
+- **CTA + full five-beat PASS only for Tier 1–2** — CTA on both; full five-beat PASS is Tier 2 only (Tier 1 = light PASS).
+- **Playground > paperwork** — If budget for one beat: options→choose.
+- **Ledger follows tier** — Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`.
+- **Playground hard lock (Tier 1–2)** — `scenario → consequences → options → choose`; not scrub-only or single-suggestion override.
+- **Kill** — Tier 1 >30 min human time with no clearer decision → strip; Tier 0 ship you can’t re-explain in a week → next similar job Tier 1.
+- **Cognitive debt pause** — If velocity outpaces explanation, escalate the *next* similar job to Tier 1 — do not silently run a full lab on Tier 0.
 - **Collaborative** — Shared space; team comments and Shared decisions rows; not solo Gideon.
-- **Timebox** — ≤ 10 min total human gate across Explanation, Playground, and Shared decisions.
-- **Playground hard gate** — Beat 3 must follow `scenario → consequences → options → choose`; not scrub-only or single-suggestion override.
 - **Secrets** — Use Infisical (`skills/infisical/SKILL.md`); never paste tokens in Notion or chat.
-- **Notion is not secrets SoT** — Notion holds plans and rationale; credentials stay in Infisical.
+- **Notion is not secrets SoT** — Notion holds plans and rationale; credentials stay in Infisical. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 
 ## Workspace Overview
 
@@ -287,5 +299,5 @@ Build pages with clear hierarchy: heading, then supporting content, then sub-sec
 
 ## References
 
-- `references/hitl-understanding-loops.md` — Understanding Lab (Context, Explanation, Playground, Shared decisions, Next cycle); load when planting or reviewing major Lane A labs.
+- `references/hitl-understanding-loops.md` — Understanding Lab beats; load when planting or reviewing **Tier 1–2** labs (`docs/understanding-lab-tiers.md`).
 - Other Notion database schemas and workspace map — see `references/` when present.

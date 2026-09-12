@@ -322,8 +322,8 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.2.0",
-      "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary. Read before any Cloud Hands ticket."
+      "version": "3.5.0",
+      "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier. Read before any Cloud Hands ticket."
     },
     {
       "name": "html-to-pdf",
@@ -363,7 +363,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "1.0.0",
+      "version": "1.3.0",
       "description": "Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Infrastructure"
     },
@@ -469,8 +469,8 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "2.2.0",
-      "description": "Searches, creates, moves, and reorganizes Notion pages; hosts HITL understanding loops (explainers, micro worlds, shared spaces). Use when: Notion, restructure pages, move to Notion, clean up Notion, HITL explainer, understanding loop, agent explainer page."
+      "version": "2.6.0",
+      "description": "Searches, creates, moves, and reorganizes Notion pages; hosts Understanding Lab loops (5-beat flow: Context, Explanation, Playground, Shared decisions, Next cycle). Use when: Notion, restructure pages, move to Notion, clean up Notion, Understanding Lab, understanding loop, agent explanation page, Understanding Lab tier (0/1/2)."
     },
     {
       "name": "oss-stills",

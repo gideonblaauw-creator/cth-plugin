@@ -1,7 +1,8 @@
 ---
 name: harness
 description: >
-  CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks.
+  CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks,
+  Understanding Lab tiers.
 ---
 
 # harness

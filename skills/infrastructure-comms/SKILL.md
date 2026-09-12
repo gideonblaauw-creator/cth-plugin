@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -69,21 +69,25 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 Gideon merges and deploys. Hands does not deploy.
 
-### View Understanding Lab — major Lane A Hands completion (mandatory)
+### View Understanding Lab — Tier 1–2 Hands completion only
 
-On **major** Lane A Hands completion (see `skills/harness/SKILL.md` § View Understanding Lab — major vs tiny), Infrastructure **MUST** in Gideon chat — in this order:
+CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Canonical lock: `docs/understanding-lab-tiers.md`. See `skills/harness/SKILL.md` § View Understanding Lab — tier lock.
+
+On **Tier 0** (default, or `tier:` omitted): send the cloud-agent card (View PR) only. **Do not** post View Understanding Lab. Merge bar is Infra review + short what/why — no lab PASS.
+
+On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gideon chat — in this order:
 
 1. **Send the cloud-agent card** (View PR).
 2. **Immediately send a short follow-up** whose **first line** is **View Understanding Lab**, with:
+   - Named **tier** and `escalate:` reason from the ticket
    - Context (Notion): `https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d`
-   - Playground stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`)
-   - Playground local fallback: `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
-   - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b`
-3. **Remind:** draft PR only — **no merge** until Understanding Lab PASS (Explanation → Playground → Shared decisions, ≤10 min).
+   - Playground: Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = stable HTML URL (`HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]`) plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+   - Shared decisions: `https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
+3. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
 
-**Do not** bury View Understanding Lab links only in the PR body. The PR footer is mandatory for Hands; the **chat link beside View PR** is mandatory for Infra. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message.
+**Do not** bury View Understanding Lab links only in the PR body on Tier 1–2. The PR footer is mandatory for Hands on Tier 1–2; the **chat link beside View PR** is mandatory for Infra on Tier 1–2. Cursor cannot add a native second button on the agent card — Infra owns the prominent **View Understanding Lab** message. **Do not** post that message on Tier 0.
 
-Full footer template: `skills/notion/SKILL.md` § View Understanding Lab delivery; paste helper `docs/view-understanding-lab-footer.md`.
+Full footer templates: `docs/view-understanding-lab-footer.md`; playbook `skills/notion/SKILL.md` § View Understanding Lab delivery. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 

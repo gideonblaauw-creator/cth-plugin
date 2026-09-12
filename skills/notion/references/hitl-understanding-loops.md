@@ -10,7 +10,7 @@ Agents increasingly handle correctness verification. Humans stay in the loop to 
 
 ## Understanding Lab — 5-beat flow
 
-For **major Lane A builds**, plant a collaborative **Understanding Lab** in Notion. Walk reviewers through five beats in this order only:
+For **Tier 2** tickets only, plant a collaborative **Understanding Lab** in Notion and walk reviewers through five beats in this order only. Tier 1 is a light subset. Tier 0 plants no lab. Canonical lock: `docs/understanding-lab-tiers.md`.
 
 ```
 Context → Explanation (quiz) → Playground → Shared decisions → Next cycle
@@ -39,28 +39,31 @@ Playground **must**:
 
 **Flow inside beat 3:** `scenario → consequences → options → choose` — then proceed to Shared decisions.
 
-## Gate policy — major builds only
+## Gate policy — Understanding Lab tiers (Gideon 2026-09-12)
 
-| Applies | Does not apply |
-|---|---|
-| CTH Apps, client products, Tools, FabFloow products | Tiny/mechanical PRs (copy, inventories, stub-only edits) |
-| Substantive Lane A PRs on allowlist repos | Wrong-repo or out-of-scope work |
+Desks **default Tier 0**. Ticket must name `tier: 1` or `tier: 2` (or `escalate:` one-liner). Do not infer a lab from “major” scope. `major: yes` without `tier:` is a miss.
 
-**Trigger:** major PRs only on **Lane A allowlist repos** (`skills/harness/SKILL.md` § Lane A repo lock).
+| Tier | Applies when | Does not apply | PASS |
+|---|---|---|---|
+| **0 — Ship (DEFAULT)** | Internal, familiar, low blast radius | — | No lab. Short what/why. |
+| **1 — Light Understanding** | Agent-heavy, client-facing, or “don’t fully feel this” + named escalate reason | Ticket omitted the reason | Light PASS (Context ≤½ page + Playground light + one Shared decision row). Skip essay, quiz, stable host, event-store. |
+| **2 — Full Lab + ledger** | Donor/audit, unfamiliar domain, production agent permissions, or cited-later decision. **Ticket MUST name Tier 2.** | Inferred / defaulted Tier 2 | Full five-beat PASS + `events.jsonl` + Notion promote + GH run artifact. |
 
-**Maker ≠ checker:** Hands plants the lab and opens a **draft** PR. Infrastructure Desk reviews. Gideon merges.
+**Trigger:** Tier 1–2 only on **Lane A allowlist repos** (`skills/harness/SKILL.md` § Lane A repo lock).
+
+**Maker ≠ checker:** Hands plants the lab when the ticket names Tier 1–2 and opens a **draft** PR. Infrastructure Desk reviews. Gideon merges.
+
+**One-liner:** Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2.
 
 ## Timebox
 
-Total human gate ≤ **10 minutes** (suggested):
-
-| Segment | Target |
+| Tier | Target |
 |---|---|
-| Explanation + quiz | ~4 min |
-| Playground | ~3 min |
-| Shared decisions | ~3 min |
+| 0 | No lab timebox — short what/why |
+| 1 | Light bar only. Kill if >30 min human time with no clearer decision → strip |
+| 2 | ≤ **10 minutes** total (Explanation + quiz ~4 · Playground ~3 · Shared decisions ~3) |
 
-Quiz = speed regulator. Do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
+Quiz (Tier 2) = speed regulator. Do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
 
 ## Collaborative
 
@@ -74,7 +77,7 @@ Lab pages support a **language toggle** — dual pages (EN + ES) or in-page swit
 
 | Demo | Subject | Use as template for |
 |---|---|---|
-| Dataroom Reviewer | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi Lane A major PR |
+| Dataroom Reviewer | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi Lane A **Tier 1–2** PR (ticket must name the tier) |
 | Synthetic VertiGreen | FabFloow / client product | Playground + Shared decisions pattern |
 | CleantechHUB Notion lab URLs | CTH Apps on allowlist repos | Full 5-beat flow |
 
@@ -114,33 +117,42 @@ Plans, explanations, and decisions live in Notion multiplayer — not only in so
 
 Collective understanding beats private laptop artifacts. **Shared decisions** = beat 4 in the Understanding Lab flow.
 
-## View Understanding Lab delivery (major Lane A)
+## View Understanding Lab delivery (Tier 1–2 only)
 
-When Hands opens a **major** Lane A draft PR on an allowlist repo, the PR body **MUST** end with this block (fill real URLs):
+CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names Tier 1 or Tier 2. **Not** every Lane A merge. Tier 0: omit this block.
+
+When Hands opens a **Tier 1 or Tier 2** Lane A draft PR on an allowlist repo, the PR body **MUST** end with the matching footer in `docs/view-understanding-lab-footer.md`. Tier 2 full five-beat block:
 
 ```markdown
 ## View Understanding Lab
+- **Tier:** 2
+- **Escalate:** <one-line reason from the ticket>
 - **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
 - **Playground (stable HTML):** HITL_HTML_STABLE_URL
 - **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
 - **Shared decisions:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
 
-**Gate:** Draft only. Infra reviews. Gideon merges after ≤10 min Understanding Lab pass (Explanation → Playground → Shared decisions).
+**Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
 
-**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card whenever a major Hands run finishes — not only links buried in the PR body.
+Tier 1 uses the **light** footer in the same helper. Gate line must say light PASS, not full five-beat PASS.
 
-**Stable HTML host:** `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Paste helper: `docs/view-understanding-lab-footer.md`. Notion URLs: this file and `skills/notion/SKILL.md`.
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card on **Tier 1–2** Hands completion only — not only links buried in the PR body, and **not** on Tier 0.
+
+**Stable HTML host:** `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Required for Tier 2; skip as a requirement on Tier 1. Paste helper: `docs/view-understanding-lab-footer.md`. Notion URLs: this file and `skills/notion/SKILL.md`. Do not rewrite live Notion page content in this lock.
 
 ## Operating rules
 
 | Rule | Action |
 |---|---|
 | Understand to participate | HITL is for comprehension across loops, not rubber-stamp approval. |
-| Major builds only | Full Understanding Lab for substantive Lane A PRs; skip for tiny/mechanical work. |
-| Cognitive debt pause | If velocity outpaces explanation, pause new work and write the Explanation first. |
+| Default Tier 0 | No lab and no CTA unless the ticket names Tier 1–2 or an escalate reason. |
+| CTA + full five-beat PASS only for Tier 1–2 | CTA on both; full five-beat PASS is Tier 2 only (Tier 1 = light PASS). Not every Lane A merge. |
+| Playground > paperwork | If budget for one beat: options→choose. |
+| Ledger follows tier | Tier 1 = disk/Notion row; Tier 2 = `events.jsonl`. |
+| Playground hard lock (Tier 1–2) | `scenario → consequences → options → choose`; not scrub-only or single-suggestion override. |
+| Kill | Tier 1 >30 min human with no clearer decision → strip; Tier 0 you can’t re-explain in a week → next similar job Tier 1. |
+| Cognitive debt pause | If velocity outpaces explanation, escalate the next similar job to Tier 1. |
 | Collaborative | Shared space; team comments and Shared decisions rows; not solo Gideon. |
-| Timebox | ≤ 10 min total human gate (Explanation ~4 · Playground ~3 · Shared decisions ~3). |
-| Playground hard gate | Beat 3: `scenario → consequences → options → choose`; not scrub-only or single-suggestion override. |
 | Secrets | Use Infisical (`skills/infisical/SKILL.md`); never paste tokens in Notion or chat. |
 | Notion is not secrets SoT | Notion holds plans and rationale; credentials stay in Infisical. |
