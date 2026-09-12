@@ -13,6 +13,6 @@ This file is a Cursor discovery stub. The playbook source of truth is `skills/la
 
 1. Read `skills/langgraph-production/SKILL.md` before building a production or client agent graph.
 2. Follow that playbook. Do not invent parallel rules in this stub.
-3. Require `langgraph: yes` on the ticket. OpenCode is OSS experiments only.
+3. Require `langgraph: yes` on the ticket. Launch Composer 2.5 Fast ON for builds (t1242u). OpenCode is OSS experiments only.
 4. Copy per-build `lab_notion:` URLs only. Never reuse Scanner pages for other products.
 5. No secrets in the repo or chat. HITL before any client deploy.

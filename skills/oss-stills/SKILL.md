@@ -62,7 +62,7 @@ Every still is a **seven-field Hands ticket** per `tickets/TEMPLATE.md`. No bc-i
 desk: Socials | Grants | Proposals | <owning Desk>
 folder: /opt/claude-files/Projects/<project>/stills/ or repo path for Lane A assets
 done-when: <N> branded still(s) exported to folder; public-ready URLs if for Buffer/Workbench
-model: composer-2.5 (fast=false)
+model: composer-2.5 (fast=true)
 lane: github-pr | drive-folder
 hitl: nothing sent/posted/paid; stills Awaiting Gideon's approval before publish
 reviewer: <owning Desk> — maker ≠ checker
@@ -75,7 +75,7 @@ context:
   count: <integer>
 ```
 
-**Model rule:** Default `composer-2.5` (`fast=false`) for ComfyUI workflow edits, LoRA wiring, and export packs on the GPU host. Use `gemini-3.7-flash` only when the ticket is a **tiny** mechanical rename/manifest with no workflow change — name that exception in `context:`.
+**Model rule:** Default `composer-2.5` (`fast=true`) — Fast ON for builds (t1242u) for ComfyUI workflow edits, LoRA wiring, and export packs on the GPU host. Use `gemini-3.7-flash` only when the ticket is a **tiny** mechanical rename/manifest with no workflow change — name that exception in `context:`.
 
 **Route selection (Desk / Orchestrator):**
 

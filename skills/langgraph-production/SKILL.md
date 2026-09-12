@@ -18,7 +18,7 @@ metadata:
 Hands builds **client and production** agent graphs on this lane only: LangGraph + HITL `interrupt` ↔ Notion Understanding Lab + LangSmith. OpenCode is OSS experiments only.
 
 **Owner:** Infrastructure Desk
-**Model:** `composer-2.5` (`fast=false`) — never Fast, never Flash
+**Model:** `composer-2.5` (`fast=true`) — Fast ON for builds (Gideon lock t1242u). Never Flash on a build ticket.
 **HITL:** draft PR; Infrastructure PASS; Gideon merges. HITL before any client deploy.
 
 ## When to use
@@ -37,7 +37,7 @@ Pair with existing Lane A fields. `tier:` and `lab_notion:` keep the Understandi
 desk: <owning Desk>
 folder: <owning repo path>
 done-when: graph compiles; HITL interrupt resumes from this build’s lab; eval fixtures pass
-model: composer-2.5 (fast=false)
+model: composer-2.5 (fast=true)
 lane: github-pr
 langgraph: yes
 tier: 0 | 1 | 2
@@ -54,7 +54,7 @@ reviewer: Infrastructure
 
 ## Desk routing
 
-- **Client agent graphs and production agents** — this Hands lane only (`composer-2.5`, `fast=false`, Lane A on the owning repo).
+- **Client agent graphs and production agents** — this Hands lane only (`composer-2.5` Fast ON, Lane A on the owning repo).
 - **OpenCode** — OSS experiments and public-notebook mirrors only. Never a client or production deploy path.
 - **This repo (`cth-plugin`)** — playbook and ticket fields only. Graph code lives on the owning product repo (Lane A lock in `skills/harness/SKILL.md` §5).
 - Wrong repo = miss. Do not plant a Teclogi graph on `cth-plugin`. Do not plant LexiScan on `cth-data-room-scanner`.
@@ -81,7 +81,7 @@ Bump pins only on a later ticket that names new versions. Optional extras (`lang
 
 ## Workflow
 
-1. **Confirm the ticket** — Require `langgraph: yes`, owning `repo_url`, `composer-2.5` (`fast=false`), and HITL “no client deploy.” Read `tier:` and `lab_notion:`. Done when: fields present or Desk flagged; no graph work on a missing `langgraph: yes`.
+1. **Confirm the ticket** — Require `langgraph: yes`, owning `repo_url`, build model (`composer-2.5` Fast ON), and HITL “no client deploy.” Read `tier:` and `lab_notion:`. Done when: fields present or Desk flagged; no graph work on a missing `langgraph: yes`.
 2. **Design graph and state** — Write typed state, nodes, and edges before code. Done when: a short state map lists keys, reducers, and which node may `interrupt()`.
 3. **Wire HITL** — Call `interrupt()` at the human gate. Map the payload to this build’s Notion lab URLs. Done when: resume uses `Command(resume=…)` on the same `thread_id`.
 4. **Checkpoint memory** — Compile with a durable checkpointer in production. Done when: `MemorySaver` is local-only and production uses a pinned durable store.
@@ -239,6 +239,7 @@ Do not implement the scanner graph or LexiScan on a playbook-only ticket. Each d
 - Client / production graphs use this lane. OpenCode is OSS experiments only.
 - Pin the three package versions above. No floating `latest`.
 - Per-build `lab_notion:` URLs. Never reuse Scanner pages for other products.
+- Build model: Composer 2.5 **Fast ON** (t1242u). Do not default builds to Flash.
 - Do not create `langgraph-lab`, enroll Academy, or grind the LangSmith Deployment course on this playbook.
 
 ## Do not use when
@@ -254,7 +255,7 @@ Do not implement the scanner graph or LexiScan on a playbook-only ticket. Each d
 
 | Skill | When |
 |---|---|
-| `harness` | Ticket contract, token lock, Lane A repo lock, tiers |
+| `harness` | Ticket contract, token lock, BUILDING lock t1242u, Lane A repo lock, tiers |
 | `notion` | Understanding Lab beats, per-build URLs, PR footer |
 | `infrastructure-comms` | Infra review, Tier label in Gideon chat, no merge |
 | `app-build` | Creating `langgraph-lab` after Gideon marks the row |

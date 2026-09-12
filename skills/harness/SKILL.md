@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.6.1"
+  version: "3.7.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -58,7 +58,7 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `model:` `gemini-3.7-flash` | `composer-2.5` (`fast=false`) — Cloud Hands only (Token lock 2026-08-26)
+- `model:` `gemini-3.7-flash` | `composer-2.5` (`fast=true`) — Cloud Hands only (Token lock 2026-08-26; BUILDING t1242u)
 - `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
@@ -70,9 +70,9 @@ Optional Lane A field: `langgraph: yes` — production / client agent graph. Han
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
 
-Cloud Hands model lanes (Cursor cloud agents — **Token lock 2026-08-26**):
+Cloud Hands model lanes (Cursor cloud agents — **Token lock 2026-08-26**; repo/code **Fast ON** — BUILDING lock **t1242u 2026-09-12**):
 - `gemini-3.7-flash` — mechanical copy, file packs, inventories, research grind, unspecified mechanical
-- `composer-2.5` (`fast=false`) — repo / code Hands
+- `composer-2.5` (`fast=true`) — repo / code / build Hands (**Fast ON**)
 
 That is the whole Cloud Hands model list. Anything more advanced (Sonnet, Opus, Haiku as Hands, etc.) → HOLD and flag Gideon. Do not silently fill.
 
@@ -222,21 +222,35 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 | Job | Model id | Notes |
 |---|---|---|
 | Mechanical copy, file packs, inventories, research grind, unspecified mechanical | `gemini-3.7-flash` | Empty mechanical model still fills here |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | Never Fast |
+| Repo / code / build Hands | `composer-2.5` (`fast=true`) | **Fast ON** (BUILDING t1242u) |
 
-**Anything more advanced** (Sonnet, Opus, Haiku as Hands, Fable, Sol, Grok, Composer Fast, second cloud Kimi) → **HOLD and flag Gideon.** Do not silently fill Sonnet, Haiku, Auto, Grok, or Kimi-cloud.
+**Anything more advanced** (Sonnet, Opus, Haiku as Hands, Fable, Sol, Grok, second cloud Kimi) → **HOLD and flag Gideon.** Do not silently fill Sonnet, Haiku, Auto, Grok, or Kimi-cloud.
 
-**Forbidden on Cloud Hands** (remap or hold; miss if used on pack writes): Grok, Grok Fast, Composer Fast, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor.
+**Forbidden on Cloud Hands** (remap or hold; miss if used on **pack writes**): Grok, Grok Fast, Composer Fast on pack writes, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor.
 
 **Review / eval / brand** with no model → **HOLD and flag Gideon.** Do not auto-fill Sonnet. (Supersedes review-auto-Sonnet from 19 Aug.)
 
-**Repo / code** with no model → `composer-2.5` (`fast=false`). Do not silent-fill OpenCode or Sonnet.
+**Repo / code / build** with no model → `composer-2.5` (`fast=true`). Do **not** default builds to Flash. Do not silent-fill OpenCode or Sonnet.
+
+Canonical fill-in copy: `docs/hands-model-routing.md`.
 
 **Private residency** (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. If it does not fit 3B, hold for Gideon. Private overrides Flash.
 
 Machine-readable skill inventory: `skills/harness/references/skill-toolkit.json` (canonical + Cursor stub paths, skip list).
 
 Do not weaken Lane A repo lock, Hands-shift lock, Tools-session lock, media-generation routing, or tiny/private axes from 19–21 Aug. Do not expand OSS/OpenCode Go beyond what OSS-first (20 Aug) already names.
+
+### BUILDING model lock — Gideon t1242u 2026-09-12 (hard gate; supersedes repo/code `fast=false` default)
+
+**BUILDING = Composer 2.5 Fast ON.**
+
+| Job class | Model | Empty `model:` fill-in |
+|---|---|---|
+| Mechanical / tiny (pack writes, inventories, copy grind) | `gemini-3.7-flash` | Empty **mechanical** ticket |
+| Repo / code / build (Lane A PR, app, graph, skill plant) | `composer-2.5` (`fast=true`) | Empty **build** ticket — **not** Flash |
+| Review / eval / brand | — | **HOLD** — flag Gideon |
+
+Mechanical/tiny still Flash when named. High-tier still HOLD. Composer Fast on **pack writes** is still a miss (remap to Flash). Canonical: `docs/hands-model-routing.md`.
 
 ### Model routing — Gideon 2026-08-19 (hard gate; $ table and usage scrape — historical)
 
@@ -260,7 +274,7 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Cheapest Flash fallback | `gemini-3-flash` | $0.50 / $3 | Other Models |
 | Tiny transforms | `gpt-5.6-luna` | $0.20 / $1.20 | Other Models |
 | Tiny transforms | `gpt-5.4-nano` | $0.20 / $1.25 | Other Models |
-| Repo / code Hands | `composer-2.5` (`fast=false`) | $0.50 / $2.50 | Cursor Models pool. Never Fast. Cursor Hands fallback when Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands. |
+| Repo / code / build Hands | `composer-2.5` (`fast=true`) | $3 / $15 Fast | Cursor Models pool. **Fast ON** for builds (t1242u). Cursor Hands fallback when Go is blocked (VPS CF 1010), over quota, hung, or Gideon says Hands. |
 | Review / eval / brand / Grant Graph spec | `claude-sonnet-4-6` | $3 / $15 | Other Models. Keep as review default. |
 | Review note only | `claude-sonnet-5` | $2 / $10 | Cheaper. Do not lock unless Gideon says. |
 | Mixed / unspecified | `default` (Auto) | — | Do not invent an Auto Cost $. Official models-and-pricing does not publish one. |
@@ -272,7 +286,7 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Forbidden on pack writes | `grok-4.6` | $2 / $6 | Orchestrator chat only. Not pack Hands. |
 | Forbidden on pack writes | `grok-4.6` Fast | $4 / $12 | Especially never Fast on packs. Miss if used. |
 | Forbidden on pack writes | `grok-4.5` Fast | $4 / $12 | Official table $4/$12 (not the help-page $18 out). Miss if used. |
-| Forbidden on pack writes | `composer-2.5` Fast | $3 / $15 | Product default is Fast — Hands must set `fast=false`. Miss if used. |
+| Forbidden on pack writes | `composer-2.5` Fast | $3 / $15 | Fast ON is for **builds** only (t1242u). Miss if used on mechanical pack writes. |
 | Forbidden on pack writes | any Opus | $5 / $25 | Opus 5 official rate. Miss if used. |
 | Forbidden on pack writes | `claude-fable-5` | $10 / $50 | Miss if used. |
 | Forbidden on pack writes | `gpt-5.6-sol` | $5 / $30 | Miss if used. |
@@ -284,7 +298,7 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 - Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
 - Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
 - Review / eval / brand with no model → HOLD and flag Gideon. Do not auto-fill Sonnet. (Token lock 2026-08-26 supersedes review-auto-Sonnet.)
-- Repo / code with no model → `composer-2.5` (`fast=false`). Never Fast. Never a second Kimi cloud agent. Do not silent-fill OpenCode or Sonnet. (Token lock 2026-08-26.)
+- Repo / code / build with no model → `composer-2.5` (`fast=true`). **Fast ON** (t1242u). Never a second Kimi cloud agent. Do not silent-fill OpenCode, Sonnet, or Flash on builds. (BUILDING lock 2026-09-12 supersedes 26 Aug `fast=false` default for builds.)
 - Private residency (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. Do not fill Flash. If it does not fit 3B, hold for Gideon.
 
 **Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
@@ -334,11 +348,11 @@ Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `compos
 - `grok-4.6-high-fast` is Orchestrator coordination chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
 - Mechanical Cloud Hands = `gemini-3.7-flash` only (Haiku/Luna/Nano in the table are historical $ context, not fill-in).
 - Review/eval/brand with no model → HOLD and flag Gideon. Do not auto-fill Sonnet.
-- Repo / code Cloud Hands = `composer-2.5` (`fast=false`). No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
+- Repo / code / build Cloud Hands = `composer-2.5` (`fast=true`). **Fast ON** (t1242u). No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
 - One Hands ticket per artifact.
 - Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot. Presenter video stays HeyGen primary. Do not invert HeyGen to fallback.
 
-Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 docs: Fast is the product default ($3/$15); Hands must set `fast=false`. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
+Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 Fast ($3/$15): **BUILDING lock t1242u** — repo/code/build Hands launch **Fast ON**; mechanical pack writes still Flash. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
 
 ### Secrets SoT — Gideon 2026-09-07 (hard gate)
 
@@ -362,7 +376,7 @@ Full protocol: `skills/secrets/SKILL.md`. Desk pointer: `skills/infisical/SKILL.
 
 Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, the Flash fill-in (empty mechanical = `gemini-3.7-flash`), or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
 
-**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=false`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. Never Composer Fast. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
+**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=true`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. **Fast ON for builds** (t1242u); not on mechanical pack writes. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
 
 **2. Go has no image/video/voice generation weights.** Official list is coding-only (verified 20 Aug 2026, `https://opencode.ai/docs/go/`). Do not invent models. Current official list: Grok 4.5, GLM-5.3, GLM-5.2, GLM-5.1, GPT 5.6 Luna, Kimi K3, Kimi K2.7 Code, Kimi K2.6, MiMo-V2.5, MiMo-V2.5-Pro, MiniMax M3, MiniMax M2.7, Muse Spark 1.2 Contributor (limited regions — forbidden), Qwen3.8 Max, Qwen3.7 Max, Qwen3.7 Plus, Qwen3.6 Plus, DeepSeek V4 Pro, DeepSeek V4 Flash, Hy3. MiniMax M3 / MiMo / Kimi may read image/video (text out). Presenter video stays HeyGen primary. Image generate stays Images desk. Do not invert HeyGen to fallback.
 
@@ -482,7 +496,7 @@ Facts from the first week. Do not repeat these mistakes.
 desk:
 folder:
 done-when:
-model: gemini-3.7-flash | composer-2.5 (fast=false)
+model: gemini-3.7-flash | composer-2.5 (fast=true)
 lane: github-pr | drive-folder
 tier: 0 | 1 | 2
 escalate:

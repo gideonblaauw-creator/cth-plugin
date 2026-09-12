@@ -128,11 +128,11 @@ Workbench is **not** a second Hands. See `skills/socials-comms/SKILL.md` §6 and
 | Research pack | `gemini-3.7-flash` | `drive-folder` or `github-pr` per store |
 | Copy pack (LI/IG/FB) | `gemini-3.7-flash` | same |
 | Stills pack | `gemini-3.7-flash` + Tools | same |
-| Repo / skill edits | `composer-2.5` (`fast=false`) | `github-pr` on owning repo |
+| Repo / skill edits | `composer-2.5` (`fast=true`) | Fast ON (t1242u) | `github-pr` on owning repo |
 
 Lane A for this repo: `https://github.com/gideonblaauw-creator/cth-plugin`. Ticket template: `tickets/TEMPLATE.md`.
 
-Never silently use Sonnet, Haiku, Opus, Grok, or Composer Fast on Cloud Hands.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1242u); mechanical/tiny stay Flash.
 
 ## 10. Do not add
 
@@ -154,7 +154,7 @@ This loop does **not** introduce:
 - Drive + Archive (Lane B, VPS source of truth)
 - HITL before send / post / pay
 - Flash for mechanical Hands work
-- `composer-2.5` (`fast=false`) for repo Hands
+- `composer-2.5` (`fast=true`) for repo/build Hands (t1242u)
 - High-tier review with no model → HOLD, flag Gideon
 
 ## 12. Related skills

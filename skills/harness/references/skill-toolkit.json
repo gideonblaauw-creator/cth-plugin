@@ -322,7 +322,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.6.1",
+      "version": "3.7.0",
       "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier. Read before any Cloud Hands ticket."
     },
     {
@@ -363,7 +363,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "description": "Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Infrastructure"
     },
