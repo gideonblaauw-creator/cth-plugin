@@ -4,6 +4,15 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### View Understanding Lab delivery (major Lane A)
+
+- Locked lab name **Understanding Lab**; CTA **View Understanding Lab**; 5 beats: Context → Explanation (quiz) → Playground → Shared decisions → Next cycle
+- Playground hard gate (Gideon 2026-09-12): scenarios, consequences, 2–4 option paths with tradeoffs; flow `scenario → consequences → options → choose` before Shared decisions
+- Harness, Notion, and Infrastructure comms: mandatory PR footer + Infra chat link beside View PR for major Lane A draft PRs
+- Major vs tiny classification on tickets (`major: yes|no` or scope inference); tiny/mechanical skips full lab
+- Paste helper: `docs/view-understanding-lab-footer.md`; stable HTML placeholder `HITL_HTML_STABLE_URL` until Infra plants host
+- Synonym map for legacy Notion page titles in Notion skill + `hitl-understanding-loops.md`
+
 ### Cursor-native project config (Claude plugin unchanged)
 
 - Added `AGENTS.md` as a thin Cursor pointer; `CLAUDE.md` is unchanged

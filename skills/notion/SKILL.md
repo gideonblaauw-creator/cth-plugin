@@ -1,13 +1,13 @@
 ---
 name: notion
 description: >
-  Searches, creates, moves, and reorganizes Notion pages; hosts HITL Lab understanding
-  loops (5-beat flow, explainers, micro worlds, shared spaces). Use when: Notion,
-  restructure pages, move to Notion, clean up Notion, HITL explainer, HITL Lab,
-  understanding loop, agent explainer page, major Lane A PR gate.
+  Searches, creates, moves, and reorganizes Notion pages; hosts Understanding Lab
+  loops (5-beat flow: Context, Explanation, Playground, Shared decisions, Next cycle).
+  Use when: Notion, restructure pages, move to Notion, clean up Notion, Understanding
+  Lab, understanding loop, agent explanation page, major Lane A PR gate.
 license: MIT
 metadata:
-  version: "2.3.0"
+  version: "2.5.0"
   category: "operations"
 ---
 
@@ -15,31 +15,50 @@ metadata:
 
 Search, create, update, and reorganize pages and databases in Notion — manage the CTH content database, campaign calendars, project documentation, workspace structure, and human-in-the-loop understanding surfaces.
 
-## Human-in-the-loop — HITL Lab (understanding loops)
+## Human-in-the-loop — Understanding Lab
 
-Notion is the default HITL surface for **understand to participate**, not thumbs-up-only verification. After meaningful agent work, desks and Hands plant understanding artifacts here so teammates can comment, quiz, and decide together.
+Notion is the default HITL surface for **understand to participate**, not thumbs-up-only verification. After meaningful agent work, desks and Hands plant **Understanding Lab** artifacts here so teammates can comment, quiz, and decide together.
 
 **Thesis (Geoffrey Litt, Notion):** Agents increasingly handle correctness verification. Humans stay in the loop to understand across successive loops. Unexplained agent velocity = cognitive debt.
 
 Three techniques (Geoffrey Litt pillars) — full playbook: `references/hitl-understanding-loops.md`.
 
-### HITL Lab — 5-beat flow
+**Synonym map (legacy → locked):** Home → Context · Explainer → Explanation (+ quiz) · Micro world / Microworld → Playground · Decisions DB (beat) → Shared decisions · Next loop → Next cycle · HITL Lab → Understanding Lab · View HITL Lab → View Understanding Lab. Existing Notion page titles may still use legacy names.
 
-For **major Lane A builds**, plant a collaborative **HITL Lab** in Notion. Walk reviewers through five beats in order:
+### Understanding Lab — 5-beat flow
+
+For **major Lane A builds**, plant a collaborative **Understanding Lab** in Notion. Walk reviewers through five beats in this order only:
+
+```
+Context → Explanation (quiz) → Playground → Shared decisions → Next cycle
+```
 
 | Beat | Page / artifact | Purpose |
 |---|---|---|
-| 1. **Home** | Lab landing page | Context, links, language toggle, who is reviewing |
-| 2. **Explainer** | Background → Intuition → Literate walkthrough → **Quiz** (5 medium questions) | Comprehension gate |
-| 3. **Micro world** | Ephemeral sim / scrubber / playground | Feel the behavior (between Explainer and Decisions) |
-| 4. **Decisions DB** | Shared decisions database | Record rationale, blockers, and go/no-go rows |
-| 5. **Next loop** | Handoff page | What ships, what returns, what the next cycle needs |
+| 1. **Context** | Lab landing page | Context, links, language toggle, who is reviewing |
+| 2. **Explanation** (+ quiz) | Background → Intuition → Literate walkthrough → **Quiz** (5 medium questions) | Comprehension gate |
+| 3. **Playground** | Scenario-based interactive surface | **Key understanding step** — see Playground definition below |
+| 4. **Shared decisions** | Shared decisions database (Notion page may still be titled Decisions DB) | Record rationale, blockers, and go/no-go rows **after** Playground choice |
+| 5. **Next cycle** | Handoff page | What ships, what returns, what the next cycle needs |
 
-**Microworld sits between Explainer and Decisions** — prose and quiz first, then sim, then team decisions. Micro world is the **key understanding step** (Explainer orients; Decisions records locked intent).
+**Playground sits between Explanation and Shared decisions** — comprehension first, then scenario exploration, then locked team decisions. Playground is the **key understanding step** (Explanation orients; Shared decisions records locked intent).
+
+#### Playground definition (Gideon 2026-09-12 — hard)
+
+Playground is **not** only scrubbing agent findings or agree/override/defer on one suggestion.
+
+Playground **must**:
+
+1. Give **scenarios** — concrete situations tied to the build.
+2. Surface **consequences** of each path (what happens if…).
+3. Give **optionality** — especially when the reviewer is less familiar with the topic: the agent proposes **2–4 clear alternative options** with tradeoffs, not a single forced recommendation.
+4. Let the human pick / combine / defer **before** Shared decisions records the lock.
+
+**Flow inside beat 3:** `scenario → consequences → options → choose` — then proceed to Shared decisions.
 
 ### Gate policy — major builds only
 
-The HITL Lab gate applies to **Lane A major builds only**:
+The Understanding Lab gate applies to **Lane A major builds only**:
 
 - CTH Apps, client products, Tools, FabFloow products, and similar substantive PRs.
 - **Not** every tiny or mechanical PR (copy tweaks, inventories, stub updates, version bumps without behavior change).
@@ -52,15 +71,15 @@ The HITL Lab gate applies to **Lane A major builds only**:
 
 Total human gate ≤ **10 minutes** (suggested split):
 
-- Explainer + quiz — ~4 min
-- Micro world — ~3 min
-- Decisions DB — ~3 min
+- Explanation + quiz — ~4 min
+- Playground — ~3 min
+- Shared decisions — ~3 min
 
 Design each beat to respect the box. Quiz = speed regulator; do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
 
 ### Collaborative — not solo Gideon
 
-HITL Lab is a **shared space**. Team members participate via page comments and Decisions DB rows. Do not assume Gideon reviews alone. Plant enough context for async teammates to contribute.
+Understanding Lab is a **shared space**. Team members participate via page comments and Shared decisions rows. Do not assume Gideon reviews alone. Plant enough context for async teammates to contribute.
 
 ### EN / ES
 
@@ -74,43 +93,62 @@ Use these as templates when planting a new lab:
 |---|---|---|
 | **Dataroom Reviewer** | `gideonblaauw-creator/cth-data-room-scanner` | Teclogi-only Lane A repo |
 | **Synthetic VertiGreen** | FabFloow / client product example | Sim + decisions pattern |
-| **CleantechHUB Notion lab URLs** | CTH Apps on allowlist repos | Home → Explainer → Microworld → Decisions → Next loop |
+| **CleantechHUB Notion lab URLs** | CTH Apps on allowlist repos | Context → Explanation → Playground → Shared decisions → Next cycle |
 
-### i) Explanations (Geoffrey Litt pillar)
+### i) Explanations (Geoffrey Litt pillar → beat 2)
 
-After meaningful agent work, create an **Explainer** page in Notion:
+After meaningful agent work, create an **Explanation** page in Notion:
 
 1. Background → Intuition/essence → Literate walkthrough → Quiz (5 medium questions).
 2. Prefer Notion over local-only HTML so teammates can comment.
 3. Quiz = speed regulator. Do not mark **Approved** until quiz passed or waived with a one-line reason on the page.
 4. Tasteful HTML blocks only (Notion HTML blocks for interactive figures). Avoid interactive slop.
 
-### ii) Micro worlds (Geoffrey Litt pillar)
+### ii) Playground (Geoffrey Litt pillar → beat 3)
 
-When prose is not enough to feel the behavior:
+When prose is not enough to feel the behavior — see **Playground definition** above (hard gate):
 
-1. Agent builds an ephemeral UI, sim, or debugger (scrubber, side-by-side migration, playground).
-2. Host via Notion HTML block or link to a throwaway demo.
-3. Learning artifact, not product scope. Archive when the mental model lands; keep the Explainer.
-4. In the 5-beat flow, this is beat 3 — **after** Explainer/quiz, **before** Decisions DB.
+1. Agent builds scenarios with consequences and **2–4 option paths** with tradeoffs (not a single forced recommendation).
+2. Host via Notion HTML block, stable HTML (`HITL_HTML_STABLE_URL`), or local fallback.
+3. Learning artifact, not product scope. Flow: `scenario → consequences → options → choose`.
+4. Human picks / combines / defers **before** Shared decisions locks intent. Archive Playground when the mental model lands; keep the Explanation.
 
-### iii) Shared spaces (Geoffrey Litt pillar)
+### iii) Shared spaces (Geoffrey Litt pillar → beat 4)
 
-Plans, explainers, and decisions live in Notion multiplayer:
+Plans, explanations, and decisions live in Notion multiplayer:
 
 1. Shared threads (humans + agents).
 2. Commentable plan docs.
-3. Decisions databases with human rationale.
+3. Shared decisions databases with human rationale (Notion page title may still read Decisions DB).
 
-Collective understanding beats private laptop artifacts. The Decisions DB is beat 4 in the HITL Lab flow.
+Collective understanding beats private laptop artifacts. **Shared decisions** is beat 4 in the Understanding Lab flow.
+
+### View Understanding Lab delivery (major Lane A)
+
+When Hands opens a **major** Lane A draft PR on an allowlist repo, the PR body **MUST** end with this block (fill real URLs):
+
+```markdown
+## View Understanding Lab
+- **Context (Notion):** https://app.notion.com/p/3d5dfee50be98174a045febce0fc4b3d
+- **Playground (stable HTML):** HITL_HTML_STABLE_URL
+- **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+- **Shared decisions:** https://app.notion.com/p/bb52cfa45b6744e59983528480fbab4b
+
+**Gate:** Draft only. Infra reviews. Gideon merges after ≤10 min Understanding Lab pass (Explanation → Playground → Shared decisions).
+```
+
+**Cursor product limit:** The cloud-agent **View PR** card cannot host a native second button. That is a Cursor product surface — we cannot add it. Infra chat **must** post **View Understanding Lab** as its own prominent link beside the agent card whenever a major Hands run finishes. Do not bury links only in the PR body.
+
+**Stable HTML host:** Placeholder `HITL_HTML_STABLE_URL` in `skills/harness/SKILL.md` until Infra plants Vercel/Tailscale. Do not invent a fake URL. Paste helper: `docs/view-understanding-lab-footer.md`.
 
 ### HITL operating rules
 
 - **Understand to participate** — HITL is for comprehension across loops, not rubber-stamp approval.
-- **Major builds only** — Do not plant a full HITL Lab for tiny/mechanical PRs.
-- **Cognitive debt pause** — If velocity outpaces explanation, pause new work and write the Explainer first.
-- **Collaborative** — Shared space; team comments and Decisions rows; not solo Gideon.
-- **Timebox** — ≤ 10 min total human gate across Explainer, microworld, and Decisions.
+- **Major builds only** — Do not plant a full Understanding Lab for tiny/mechanical PRs.
+- **Cognitive debt pause** — If velocity outpaces explanation, pause new work and write the Explanation first.
+- **Collaborative** — Shared space; team comments and Shared decisions rows; not solo Gideon.
+- **Timebox** — ≤ 10 min total human gate across Explanation, Playground, and Shared decisions.
+- **Playground hard gate** — Beat 3 must follow `scenario → consequences → options → choose`; not scrub-only or single-suggestion override.
 - **Secrets** — Use Infisical (`skills/infisical/SKILL.md`); never paste tokens in Notion or chat.
 - **Notion is not secrets SoT** — Notion holds plans and rationale; credentials stay in Infisical.
 
@@ -249,5 +287,5 @@ Build pages with clear hierarchy: heading, then supporting content, then sub-sec
 
 ## References
 
-- `references/hitl-understanding-loops.md` — HITL understanding loops (explainers, micro worlds, shared spaces); load when planting or reviewing agent explainers.
+- `references/hitl-understanding-loops.md` — Understanding Lab (Context, Explanation, Playground, Shared decisions, Next cycle); load when planting or reviewing major Lane A labs.
 - Other Notion database schemas and workspace map — see `references/` when present.
