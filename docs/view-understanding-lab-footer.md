@@ -4,7 +4,7 @@ Paste at the **end** of a **Tier 1 or Tier 2** Lane A draft PR body. Replace pla
 
 **Do not** paste either block on Tier 0 (default). CTA **View Understanding Lab** and full five-beat PASS apply **only** when the ticket names `tier: 1` or `tier: 2` (plus `escalate:` one-liner). Canonical lock: `docs/understanding-lab-tiers.md`.
 
-Infra: also post **View Understanding Lab** as a prominent chat link beside the cloud-agent card on Tier 1–2 — do not rely on PR body alone, and do **not** post the CTA on Tier 0.
+Infra: in Gideon chat, **lead with the Tier label** (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab (Gideon lock 2026-09-12). Tier 0 announces `**Tier 0** — Ship` then View PR only — **no** lab CTA. Tier 1–2 announce the tier, then View PR, then **View Understanding Lab** as a prominent follow-up. Do not lead with the lab CTA. Do not rely on PR body alone.
 
 **Playground hard lock (Tier 1–2):** `scenario → consequences → options → choose` before Shared decisions — not scrub-only or single-suggestion override. Tier 1 = one scenario, 2–3 options. Tier 2 = full hard gate (2–4 option paths).
 
