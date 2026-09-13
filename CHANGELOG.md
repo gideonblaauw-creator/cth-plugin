@@ -8,7 +8,7 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 - **LexiScan house-tour HTML = canonical playground format** for all Tier 1–2 Understanding Lab / HITL microworlds
 - New doc: `docs/understanding-lab-playground-standard.md` — checklist, anti-patterns, ownership (FabFloow product / Infra format lock)
-- Canonical refs: repo `fabfloow-lexiscan`, path `understanding-lab/playground/` (PR #16 MERGED), Notion Playground + Shared decisions URLs, Vercel `fabfloow-ul-playground` (UL host, not product demo), FabFloow brand note; optional ticket field `playground_standard: lexiscan-html-v2`
+- Canonical refs: repo `fabfloow-lexiscan`, path `understanding-lab/playground/` (PR #16 MERGED), Notion Playground + Shared decisions (LexiScan example) URLs, Vercel `fabfloow-ul-playground` (UL host, not product demo; FabFloow will publish URL), LexiScan skin = FabFloow cream/mustard/copper; optional ticket field `playground_standard: lexiscan-html-v2`
 - Updated: `docs/understanding-lab-tiers.md`, `docs/view-understanding-lab-footer.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7, `skills/notion/references/hitl-understanding-loops.md`, `tickets/TEMPLATE.md`
 - Legacy Scanner tabbed microworld documented as anti-pattern; remediation PRs separate
 

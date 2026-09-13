@@ -98,7 +98,7 @@ On Tier 1–2 draft PR review, confirm:
 - Path: `understanding-lab/playground/` (PR #16 MERGED)
 - Files: `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`
 - Notion Playground: https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f
-- Shared decisions: https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8
-- Public host (when live): Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo)
+- Shared decisions (LexiScan example): https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8
+- Public host (when live): Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo; FabFloow will publish URL)
 - HITL loop beats: `skills/notion/references/hitl-understanding-loops.md`
 - PR footer when lab URLs exist: `docs/view-understanding-lab-footer.md`
