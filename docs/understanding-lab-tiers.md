@@ -6,6 +6,8 @@ Canonical lock for Lane A desks. Playbook surfaces: `skills/harness/SKILL.md` §
 
 **Per-build pages:** every build / product gets its own Understanding Lab Notion page(s). Do not reuse Scanner lab pages for LexiScan or other products.
 
+**Playground format (Gideon lock t1268u):** Tier 1–2 playgrounds use the **LexiScan house-tour HTML standard** — interactive floor-plan navigation, per-room quests/quiz/decision doors, EN+ES, decision ledger export. Canonical template: `docs/understanding-lab-playground-standard.md`. Do not invent a new layout per product.
+
 `major: yes|no` from PR #24 is **superseded**. Do not infer a lab from “substantive scope” or `major: yes`. The ticket must name `tier:` or a one-line escalate reason. Omit `tier:` → **Tier 0**.
 
 Notion page titles may still use legacy names (HITL Lab, Explainer, Microworld). Do not rewrite live Notion pages in this lock — Infra may update Notion separately.
@@ -52,6 +54,8 @@ Keep Playground hard lock for Tier 1–2: `scenario → consequences → options
 - Tier 1: one scenario, 2–3 options with tradeoffs, then choose.
 - Tier 2: full Playground hard gate (scenarios + consequences + 2–4 option paths with tradeoffs) before Shared decisions.
 - Not scrub-only. Not a single-suggestion override.
+
+**Artifact format (t1268u):** implement beat 3 as a **LexiScan-standard HTML house tour** at `understanding-lab/playground/` in the product repo (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`). Scanner’s legacy tabbed microworld shell is not the template for new builds. Full checklist: `docs/understanding-lab-playground-standard.md`.
 
 ## Ticket fields
 

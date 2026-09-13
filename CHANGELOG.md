@@ -4,6 +4,14 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Understanding Lab playground standard t1268u (2026-09-13)
+
+- **LexiScan house-tour HTML = canonical playground format** for all Tier 1–2 Understanding Lab / HITL microworlds
+- New doc: `docs/understanding-lab-playground-standard.md` — checklist, anti-patterns, ownership (FabFloow product / Infra format lock)
+- Canonical refs: repo `fabfloow-lexiscan`, path `understanding-lab/playground/` (PR #16 MERGED), Notion Playground + Shared decisions (LexiScan example) URLs, Vercel `fabfloow-ul-playground` (UL host, not product demo; FabFloow will publish URL), LexiScan skin = FabFloow cream/mustard/copper; optional ticket field `playground_standard: lexiscan-html-v2`
+- Updated: `docs/understanding-lab-tiers.md`, `docs/view-understanding-lab-footer.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7, `skills/notion/references/hitl-understanding-loops.md`, `tickets/TEMPLATE.md`
+- Legacy Scanner tabbed microworld documented as anti-pattern; remediation PRs separate
+
 ### BUILDING model lock t1263u (2026-09-13)
 
 - **BUILDING = Composer 2.5 Fast ON** — hardens t1242u: repo/code/build Hands launch `composer-2.5` (`fast=true`); empty build tickets fill Fast ON (not Flash)
