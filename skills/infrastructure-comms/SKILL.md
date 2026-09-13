@@ -110,6 +110,19 @@ On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gide
 
 Full footer templates: `docs/view-understanding-lab-footer.md`; playbook `skills/notion/SKILL.md` § View Understanding Lab delivery. Do not rewrite live Notion page content in this lock (Infra may do Notion separately).
 
+### Playground format lock (Gideon t1268u)
+
+On **Tier 1–2** review, the repo playground **must** match the **LexiScan house-tour HTML standard** — not a flat FAQ, not a one-off layout, not Scanner’s legacy tabbed microworld as the outer shell.
+
+| Rule | Detail |
+|---|---|
+| **Canonical template** | https://github.com/gideonblaauw-creator/fabfloow-lexiscan — `understanding-lab/playground/` (PR #16) |
+| **Ticket field** | `playground_standard: lexiscan-html-v2` (optional on Tier 1–2; Infra checks against it when present) |
+| **Ownership** | FabFloow owns LexiScan **product**; Infrastructure owns **shared format lock** |
+| **PASS gate** | House tour + per-room quests/quiz/decision doors + EN/ES + ledger export + `smoke.sh` — see `docs/understanding-lab-playground-standard.md` |
+
+When posting Playground in Gideon chat, link the ticket’s `<lab_playground_url>` (Notion hub). If the draft PR adds or changes `understanding-lab/playground/`, call out the repo path so reviewers can run `python -m http.server` per README.
+
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 
 Service API keys and tokens → **Infisical** only (`skills/secrets/SKILL.md`, `skills/infisical/SKILL.md`). Harness hard gate: `skills/harness/SKILL.md` §5 **Secrets SoT**.

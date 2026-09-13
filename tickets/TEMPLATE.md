@@ -19,6 +19,7 @@ lab_notion:
   lab_context_url:
   lab_playground_url:
   lab_shared_decisions_url:
+playground_standard: lexiscan-html-v2
 hitl: nothing sent/posted/paid
 reviewer:
 context:
@@ -29,5 +30,7 @@ context:
 `langgraph` — optional. Set `langgraph: yes` for a **production / client agent graph**. Hands follows `skills/langgraph-production/SKILL.md` on the owning product repo (`composer-2.5`, Fast ON). OpenCode is OSS experiments only — never a client deploy path. Omit when the ticket is not a LangGraph build.
 
 `lab_notion` — **required on Tier 1–2.** This build’s / this product’s Understanding Lab Notion URLs. Flat aliases: `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`. **Every build gets its own pages** (Gideon 2026-09-12 via FabFloow). Do not reuse Scanner (Dataroom / VertiGreen) URLs for LexiScan, Sustenttia, or other products. If omitted on Tier 1–2: Infra posts Tier label + View PR only and flags missing lab pages — **does not** paste Scanner links. Unused on Tier 0. LangGraph HITL maps `interrupt()` to these URLs — see `skills/langgraph-production/SKILL.md`.
+
+`playground_standard` — optional on Tier 1–2. When set to `lexiscan-html-v2`, Hands plants the repo artifact at `understanding-lab/playground/` using the LexiScan house-tour file set (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`). Canonical lock t1268u: `docs/understanding-lab-playground-standard.md`. Omit on Tier 0.
 
 `model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical/tiny) or `composer-2.5` with **Fast ON** (`fast=true`) for repo/code/builds (Signal Radar, LexiScan, scanner, harness, LangGraph). Empty build ticket → Composer Fast ON (not Flash). Never silently launch a build with Fast off. Review/eval/brand with no model → HOLD and flag Gideon. See BUILDING lock t1263u in `docs/hands-model-routing.md` and `skills/harness/SKILL.md` §5.

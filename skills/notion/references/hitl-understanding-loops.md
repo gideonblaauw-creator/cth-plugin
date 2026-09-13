@@ -109,6 +109,8 @@ When behavior is hard to feel from prose alone — see **Playground definition**
 - Flow: `scenario → consequences → options → choose`.
 - Human picks / combines / defers **before** Shared decisions. Archive Playground when the mental model lands; keep the Explanation.
 
+**HTML artifact standard (Gideon t1268u):** Tier 1–2 repo playgrounds use the **LexiScan house-tour format** — canonical path `understanding-lab/playground/` in https://github.com/gideonblaauw-creator/fabfloow-lexiscan (PR #16). Interactive floor-plan navigation; per-room quests, quiz, and decision doors; EN+ES; decision ledger export. Notion example: Playground — LexiScan L1 laboral (https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f). Full checklist and anti-patterns: `docs/understanding-lab-playground-standard.md`. Scanner’s legacy tabbed microworld (Context / Explainer / Decision Tree / …) is a **legacy shell** — remediate toward LexiScan standard; do not copy that shell for new products.
+
 ### iii) Shared spaces (beat 4)
 
 Plans, explanations, and decisions live in Notion multiplayer — not only in solo agent chat.

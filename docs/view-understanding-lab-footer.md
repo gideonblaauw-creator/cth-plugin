@@ -12,6 +12,8 @@ Infra: in Gideon chat, **lead with the Tier label** (`**Tier 0** — Ship` / `**
 
 **Playground hard lock (Tier 1–2):** `scenario → consequences → options → choose` before Shared decisions — not scrub-only or single-suggestion override. Tier 1 = one scenario, 2–3 options. Tier 2 = full hard gate (2–4 option paths).
 
+**Playground artifact (t1268u):** when the product repo includes a microworld, it **must** follow the LexiScan house-tour standard at `understanding-lab/playground/`. The ticket’s `<lab_playground_url>` is the Notion hub; the repo path is the runnable artifact Infra expects on Tier 1–2 review. Canonical checklist: `docs/understanding-lab-playground-standard.md`.
+
 See `skills/notion/SKILL.md` § View Understanding Lab delivery and `skills/harness/SKILL.md` § View Understanding Lab — tier lock.
 
 ---
@@ -25,7 +27,7 @@ Hands: plant Context ≤½ page, Playground light, and one Shared decision row /
 - **Tier:** 1 — Light Understanding
 - **Escalate:** <one-line reason from the ticket>
 - **Context (Notion, ≤½ page):** <lab_context_url>
-- **Playground (light):** <lab_playground_url> — one scenario, 2–3 options with tradeoffs; host optional
+- **Playground (light):** <lab_playground_url> — LexiScan-format house tour (`understanding-lab/playground/`); one scenario room, 2–3 decision doors; host optional
 - **Shared decisions:** one row + rationale + locked_at — <lab_shared_decisions_url>
 
 **Gate:** Draft only. Infra reviews. Gideon merges after Tier 1 light PASS (Context ≤½ page → Playground light → one Shared decision row). Full five-beat PASS is Tier 2 only.
@@ -42,8 +44,9 @@ Hands: plant all five beats (`Context → Explanation (quiz) → Playground → 
 - **Tier:** 2 — Full Lab + ledger
 - **Escalate:** <one-line reason from the ticket>
 - **Context (Notion):** <lab_context_url>
-- **Playground (stable HTML):** <lab_playground_url or HITL_HTML_STABLE_URL>
-- **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+- **Playground (stable HTML):** <lab_playground_url or HITL_HTML_STABLE_URL> — LexiScan-format house tour artifact
+- **Playground (repo path):** `understanding-lab/playground/` — run `python -m http.server` per README
+- **Playground (local fallback):** `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up (legacy Scanner only until remediated)
 - **Shared decisions:** <lab_shared_decisions_url>
 - **Ledger:** append events.jsonl (VPS Archive ledger path) + GH run artifact on close
 
