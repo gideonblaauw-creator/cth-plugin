@@ -116,9 +116,15 @@ On **Tier 1–2** review, the repo playground **must** match the **LexiScan hous
 
 | Rule | Detail |
 |---|---|
-| **Canonical template** | https://github.com/gideonblaauw-creator/fabfloow-lexiscan — `understanding-lab/playground/` (PR #16) |
+| **Repo** | https://github.com/gideonblaauw-creator/fabfloow-lexiscan |
+| **Path** | `understanding-lab/playground/` (PR #16 MERGED) |
+| **Files** | `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh` |
+| **Notion Playground** | https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f |
+| **Shared decisions** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
+| **Public host (when live)** | Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo) |
+| **Brand note** | LexiScan chrome = FabFloow cream/mustard/copper; other products use their own brand — never CTH lime on non-CTH products |
+| **Ownership** | Infra = shared format lock; FabFloow = LexiScan product craft only |
 | **Ticket field** | `playground_standard: lexiscan-html-v2` (optional on Tier 1–2; Infra checks against it when present) |
-| **Ownership** | FabFloow owns LexiScan **product**; Infrastructure owns **shared format lock** |
 | **PASS gate** | House tour + per-room quests/quiz/decision doors + EN/ES + ledger export + `smoke.sh` — see `docs/understanding-lab-playground-standard.md` |
 
 When posting Playground in Gideon chat, link the ticket’s `<lab_playground_url>` (Notion hub). If the draft PR adds or changes `understanding-lab/playground/`, call out the repo path so reviewers can run `python -m http.server` per README.
