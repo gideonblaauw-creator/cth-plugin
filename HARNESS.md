@@ -52,7 +52,7 @@ This section points at paths that exist on `main`. It is not the CTH Harness rul
 | `AGENTS.md` | Cursor pointer, Skip list, Cursor Cloud validation |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Token lock 2026-08-26 (Cloud Hands):** Grok Bot = coordination only. File/research/code/copy → Cloud Hands. Allowed models: `gemini-3.7-flash` (mechanical/tiny) and `composer-2.5` (`fast=true`) (repo/code/build — Fast ON, t1242u). Review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Full lock in `skills/harness/SKILL.md` §5.
+**Token lock 2026-08-26 (Cloud Hands):** Grok Bot = coordination only. File/research/code/copy → Cloud Hands. Allowed models: `gemini-3.7-flash` (mechanical/tiny) and `composer-2.5` (`fast=true`) (repo/code/build — Fast ON, t1263u). Review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Full lock in `skills/harness/SKILL.md` §5.
 
 **Skill toolkit:** 52 canonical skills under `skills/` (25 core + 27 desk comms); 51 Cursor stubs; `secrets` skipped in Cursor. Author new skills with `skills/skill-template/SKILL.md`. See `skill-toolkit.json` for paths.
 

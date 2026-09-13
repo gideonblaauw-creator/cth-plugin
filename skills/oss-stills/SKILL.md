@@ -75,7 +75,7 @@ context:
   count: <integer>
 ```
 
-**Model rule:** Default `composer-2.5` (`fast=true`) — Fast ON for builds (t1242u) for ComfyUI workflow edits, LoRA wiring, and export packs on the GPU host. Use `gemini-3.7-flash` only when the ticket is a **tiny** mechanical rename/manifest with no workflow change — name that exception in `context:`.
+**Model rule:** Default `composer-2.5` (`fast=true`) — Fast ON for builds (t1263u) for ComfyUI workflow edits, LoRA wiring, and export packs on the GPU host. Use `gemini-3.7-flash` only when the ticket is a **tiny** mechanical rename/manifest with no workflow change — name that exception in `context:`.
 
 **Route selection (Desk / Orchestrator):**
 
