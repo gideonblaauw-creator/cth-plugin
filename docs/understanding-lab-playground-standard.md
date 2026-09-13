@@ -20,9 +20,9 @@ Copy these refs verbatim when citing the template in skills, tickets, or PR foot
 | **Path** | `understanding-lab/playground/` (PR #16 **MERGED**) |
 | **Files** | `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh` |
 | **Notion Playground** | https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f |
-| **Shared decisions** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
-| **Public host (when live)** | Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo) |
-| **Brand note** | LexiScan chrome = FabFloow cream / mustard / copper; other products use their own brand — **never CTH lime on non-CTH products** |
+| **Shared decisions (LexiScan example)** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
+| **Public host (when live)** | Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo; FabFloow will publish URL) |
+| **Brand note** | LexiScan skin = FabFloow cream/mustard/copper; other products use their own brand — **never CTH lime on non-CTH products** |
 | **Ownership** | Infra = shared format lock; FabFloow = LexiScan product craft only |
 | **Ticket field (Tier 1–2)** | `playground_standard: lexiscan-html-v2` (optional but recommended) |
 
