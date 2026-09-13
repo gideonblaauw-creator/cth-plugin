@@ -18,7 +18,7 @@ metadata:
 Hands builds **client and production** agent graphs on this lane only: LangGraph + HITL `interrupt` ↔ Notion Understanding Lab + LangSmith. OpenCode is OSS experiments only.
 
 **Owner:** Infrastructure Desk
-**Model:** `composer-2.5` (`fast=true`) — Fast ON for builds (Gideon lock t1242u). Never Flash on a build ticket.
+**Model:** `composer-2.5` (`fast=true`) — Fast ON for builds (Gideon lock t1263u). Never Flash on a build ticket. Never silently launch with Fast off.
 **HITL:** draft PR; Infrastructure PASS; Gideon merges. HITL before any client deploy.
 
 ## When to use
@@ -239,7 +239,7 @@ Do not implement the scanner graph or LexiScan on a playbook-only ticket. Each d
 - Client / production graphs use this lane. OpenCode is OSS experiments only.
 - Pin the three package versions above. No floating `latest`.
 - Per-build `lab_notion:` URLs. Never reuse Scanner pages for other products.
-- Build model: Composer 2.5 **Fast ON** (t1242u). Do not default builds to Flash.
+- Build model: Composer 2.5 **Fast ON** (t1263u). Do not default builds to Flash. No silent Fast-off swap.
 - Do not create `langgraph-lab`, enroll Academy, or grind the LangSmith Deployment course on this playbook.
 
 ## Do not use when
@@ -255,7 +255,7 @@ Do not implement the scanner graph or LexiScan on a playbook-only ticket. Each d
 
 | Skill | When |
 |---|---|
-| `harness` | Ticket contract, token lock, BUILDING lock t1242u, Lane A repo lock, tiers |
+| `harness` | Ticket contract, token lock, BUILDING lock t1263u, Lane A repo lock, tiers |
 | `notion` | Understanding Lab beats, per-build URLs, PR footer |
 | `infrastructure-comms` | Infra review, Tier label in Gideon chat, no merge |
 | `app-build` | Creating `langgraph-lab` after Gideon marks the row |

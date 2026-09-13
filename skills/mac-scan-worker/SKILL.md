@@ -189,7 +189,7 @@ Pattern matches Harness VPS worker reference: `{type: machine, name: vps}` → m
 | Job | Model |
 |---|---|
 | Mechanical copy, inventories, hygiene scripts | `gemini-3.7-flash` |
-| Repo / code / build on Lane A | `composer-2.5` (`fast=true`) | Fast ON (t1242u) |
+| Repo / code / build on Lane A | `composer-2.5` (`fast=true`) | Fast ON (t1263u) |
 | Review / eval / brand, no model | **HOLD** — flag Gideon |
 
 **Lane:** `github-pr` on the owning repo, or local Air paths per ticket `folder:` — never Archive via mac-scan.

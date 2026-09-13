@@ -4,6 +4,14 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### BUILDING model lock t1263u (2026-09-13)
+
+- **BUILDING = Composer 2.5 Fast ON** — hardens t1242u: repo/code/build Hands launch `composer-2.5` (`fast=true`); empty build tickets fill Fast ON (not Flash)
+- Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code
+- **Never silently launch a build with Fast off** — `composer-2.5 (fast=false)` on a build = miss → remap to `fast=true` and flag; HITL: no silent model swap to Fast off
+- Mechanical/tiny still `gemini-3.7-flash` when named; review/eval/brand still HOLD; no Opus/Grok auto-fill
+- Canonical: `docs/hands-model-routing.md`; harness §5 BUILDING lock; `skills/langgraph-production/SKILL.md`; `skills/infrastructure-comms/SKILL.md` §5; desk comms §5; `tickets/TEMPLATE.md`
+
 ### LangGraph production Hands lane (2026-09-12)
 
 - Added `skills/langgraph-production/SKILL.md` plus Cursor stub (HITL `interrupt` ↔ Notion Understanding Lab, checkpoint memory, eval fixtures, deploy/monitor pointer)

@@ -45,17 +45,17 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - Ticket template: `tickets/TEMPLATE.md`
 - Read `skills/harness/SKILL.md` before launching Hands.
 - Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
-- **BUILDING (t1242u):** repo/code/build Hands → Composer 2.5 **Fast ON**; empty build ticket fills Fast ON (not Flash). Canonical: `docs/hands-model-routing.md`.
+- **BUILDING (t1263u):** repo/code/build Hands → Composer 2.5 **Fast ON** (`fast=true`); empty build ticket fills Fast ON (not Flash). Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code. Never silently launch a build with Fast off. Canonical: `docs/hands-model-routing.md`.
 
 ## 5. Lowest-tier model
 
 | Job | Model | Notes |
 |-----|-------|-------|
 | Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | Empty mechanical model → Flash |
-| Repo / code / build Hands | `composer-2.5` (`fast=true`) | Fast ON for builds (t1242u) |
+| Repo / code / build Hands (Signal Radar, LexiScan, scanner, harness, LangGraph) | `composer-2.5` (`fast=true`) | Fast ON for builds (t1263u). No silent Fast off |
 | Review / eval / brand with no model | **HOLD** | Flag Gideon. No auto-Sonnet/Opus/Grok |
 
-Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1242u); mechanical/tiny stay Flash.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1263u); mechanical/tiny stay Flash. `composer-2.5 (fast=false)` on a build → miss: remap to `fast=true` and flag.
 
 ## 6. Workbench exception
 

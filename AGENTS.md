@@ -22,11 +22,11 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - Never mix those two playbooks.
 - CleantechHUB brand work uses `cleantechhub-brand`.
 - Never cite REIN Hubs dollar amounts.
-- **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`. Token lock **2026-08-26** in §5: Grok Bot coordination only; allowed Cloud Hands models are `gemini-3.7-flash` (mechanical/tiny) and `composer-2.5` (`fast=true`) (repo/code/build — Fast ON, t1242u); review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Skill inventory: `skills/harness/references/skill-toolkit.json`. Hands-shift lock (2026-08-17), Lane A repo lock (2026-08-19), OSS-first tiny/private (2026-08-20) remain in the same §5. **Understanding Lab tiers (Gideon 2026-09-12):** default **Tier 0** (no lab, no View Understanding Lab CTA). Ticket must name `tier: 1` or `tier: 2` plus `escalate:` to plant a lab. CTA + full five-beat PASS only for Tier 1–2. Canonical: `docs/understanding-lab-tiers.md`.
+- **Cloud Hands agents executing a ticket** must read `skills/harness/SKILL.md` first. Ticket contracts use `tickets/TEMPLATE.md`. Token lock **2026-08-26** in §5: Grok Bot coordination only; allowed Cloud Hands models are `gemini-3.7-flash` (mechanical/tiny) and `composer-2.5` (`fast=true`) (repo/code/build — Fast ON, t1263u); review/eval/brand with no model → HOLD and flag Gideon (no auto-Sonnet). Skill inventory: `skills/harness/references/skill-toolkit.json`. Hands-shift lock (2026-08-17), Lane A repo lock (2026-08-19), OSS-first tiny/private (2026-08-20) remain in the same §5. **Understanding Lab tiers (Gideon 2026-09-12):** default **Tier 0** (no lab, no View Understanding Lab CTA). Ticket must name `tier: 1` or `tier: 2` plus `escalate:` to plant a lab. CTA + full five-beat PASS only for Tier 1–2. Canonical: `docs/understanding-lab-tiers.md`.
 - **Before promoting a tree, creating a repo, or opening a branch on any app/service/pipeline**, read `skills/app-build/SKILL.md`. Do not create a GitHub repo until Gideon marks the row.
 - **Authoring or reviewing skills**, read `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 - **Production / client LangGraph agent graphs** use `langgraph-production` (`langgraph: yes` on the ticket). OpenCode is OSS experiments only.
-- **Hands model routing (BUILDING t1242u):** repo/code/build → `composer-2.5` Fast ON; mechanical/tiny → Flash. Canonical: `docs/hands-model-routing.md`.
+- **Hands model routing (BUILDING t1263u):** repo/code/build → `composer-2.5` Fast ON; mechanical/tiny → Flash. Canonical: `docs/hands-model-routing.md`.
 
 ## VPS files
 
