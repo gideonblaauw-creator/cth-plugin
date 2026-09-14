@@ -6,7 +6,7 @@
 - **Infrastructure** = shared format lock (repo path, file set, checklist, anti-patterns, Vercel host naming). Remediation PRs migrate legacy playgrounds toward this standard.
 - **FabFloow** = LexiScan **product craft only** (content, scenarios, Notion lab pages for LexiScan builds). FabFloow does not own the cross-product format lock.
 
-**Related locks:** `docs/understanding-lab-tiers.md` (Tier 0/1/2), `docs/view-understanding-lab-footer.md` (PR footer), `skills/harness/SKILL.md` § View Understanding Lab, `skills/infrastructure-comms/SKILL.md` §7.
+**Related locks:** `docs/understanding-lab-tiers.md` (Tier 0/1/2), `docs/view-understanding-lab-footer.md` (PR footer), `docs/software-factory.md` (factory step 5 = Understanding Lab; Tier 1–2 hard gate before merge), `skills/harness/SKILL.md` § View Understanding Lab, `skills/infrastructure-comms/SKILL.md` §7.
 
 ---
 
@@ -21,7 +21,7 @@ Copy these refs verbatim when citing the template in skills, tickets, or PR foot
 | **Files** | `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh` |
 | **Notion Playground** | https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f |
 | **Shared decisions (LexiScan example)** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
-| **Public host (when live)** | Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo; FabFloow will publish URL) |
+| **Public host (when live)** | https://fabfloow-ul-playground.vercel.app — Vercel project `fabfloow-ul-playground` (Understanding Lab host only; **not** LexiScan product demo or prod apps) |
 | **Brand note** | LexiScan skin = FabFloow cream/mustard/copper; other products use their own brand — **never CTH lime on non-CTH products** |
 | **Ownership** | Infra = shared format lock; FabFloow = LexiScan product craft only |
 | **Ticket field (Tier 1–2)** | `playground_standard: lexiscan-html-v2` (optional but recommended) |
