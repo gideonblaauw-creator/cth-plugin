@@ -3,24 +3,26 @@ name: software-factory
 description: >
   Software Factory v0 — Lane A Apps+Software conveyor for Cloud Hands and
   Infrastructure review. Use when: factory, Software Factory, Apps+Software
-  build, Prove(eng), Ship, draft PR conveyor, or Infrastructure PASS on a
-  product repo. Do not use when: grant packs (Lane B), socials copy, or
-  Signal Radar product work (separate build; may adopt factory later).
+  build, Prove(eng), Ship (PR-Agent + visual CI), draft PR conveyor, or
+  Infrastructure PASS on a product repo. Do not use when: grant packs (Lane B),
+  socials copy, or Signal Radar product work (separate build; may adopt factory later).
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: infrastructure
   owner: Infrastructure
   adopted: "2026-09-14"
+  ship_ci_lock: "t267u"
 ---
 
 # Software Factory v0
 
 **Owner:** Infrastructure  
 **Date:** 2026-09-14  
-**Canonical doc:** `docs/software-factory.md`
+**Canonical doc:** `docs/software-factory.md`  
+**Ship CI:** `docs/software-factory-ship-ci.md` · Templates: `docs/examples/software-factory/`
 
-Lane A Apps+Software builds follow a locked conveyor. Cloud Hands executes steps 1–3 and opens the draft PR. Infrastructure PASSes Ship (step 4). Understanding Lab (step 5) is tier-gated. Gideon merges.
+Lane A Apps+Software builds follow a locked conveyor. Cloud Hands executes steps 1–3, opens the draft PR, runs the Ship auto-loop (PR-Agent + Playwright/Argos visual CI), then pings Infra PASS (step 4). Understanding Lab (step 5) is tier-gated. Gideon merges.
 
 ## When to use
 
@@ -63,19 +65,27 @@ Hands must leave engineering proof in the PR:
 | Build type | Required proof |
 |---|---|
 | All factory code builds | **pytest + smoke** (or repo-equivalent test + smoke script) |
-| UI / behavior changes | **+ before/after** — screenshot, video, or metrics embedded or linked in the PR body |
+| UI / behavior changes | **+ before/after** — screenshot, video, or metrics embedded or linked in the PR body (Hands auto) |
 
 Ticket field: `prove_eng: pytest+smoke` or `prove_eng: before-after` (use both when UI and code change).
 
-This step is **not** the Understanding Lab. Do not skip pytest/smoke because a Tier 1–2 lab exists.
+This step is **not** the Understanding Lab. Do not skip pytest/smoke because a Tier 1–2 lab exists. Visual CI in step 4 **supplements** Hands before/after — does not replace pytest/smoke.
 
 ### 4 — Ship
 
 - Open a **draft PR** only. Never merge.
-- **v0:** no Greptile/CodeRabbit review-agent loop.
-- Hands self-check: scope, tests green, prove evidence present, tier-appropriate PR footer.
-- **Infra PASS** = human Infrastructure review. Happens **before** step 5.
-- Do not ask Gideon to walk the playground until Infra PASS.
+- On **product repos** with factory Ship CI planted (from `docs/examples/software-factory/`):
+  - **PR-Agent** ([Codium-ai/pr-agent](https://github.com/Codium-ai/pr-agent)) — `/describe`, plain-English walkthrough, `/ask` on comments.
+  - **Visual before/after CI:** Playwright + Argos CI posts pixel diffs on the PR (Mic Prove in CI).
+- **Auto-loop YES (t267u):** On PR-Agent fail, visual CI fail, or open review comments:
+  1. Read PR-Agent summary and visual diff comments.
+  2. Reply on the PR, fix on the branch, push.
+  3. Re-run **Prove(eng)** — pytest + smoke; refresh Hands before/after when UI changed.
+  4. Wait for PR-Agent + visual CI green and threads resolved.
+  5. **Only then** ping Infrastructure for **Infra PASS**.
+- Do **not** send Gideon to Understanding Lab until auto-loop clears **and** Infra PASS.
+- First factory build on a repo: copy workflow templates from `docs/examples/software-factory/` into that repo’s `.github/workflows/` (not org-wide from `cth-plugin`).
+- Secrets: Infisical → GitHub Actions on the product repo — `OPENAI_API_KEY`, `ARGOS_TOKEN` (names only in tickets). Per-product `BASE_URL` / preview URL **[PENDIENTE]** until planted.
 
 ### 5 — Understanding Lab (tier-gated)
 
@@ -88,7 +98,7 @@ This step is **not** the Understanding Lab. Do not skip pytest/smoke because a T
 **No merge without UL PASS on Tier 1–2.** Do not soften this gate.
 
 Playground: LexiScan house-tour standard — `docs/understanding-lab-playground-standard.md`.  
-UL public host (LexiScan reference): https://fabfloow-ul-playground.vercel.app — **not** product demo/prod apps.
+UL public host: https://fabfloow-ul-playground.vercel.app — **not** product demo/prod apps (cross-link; PR #31).
 
 Tier rules: `docs/understanding-lab-tiers.md`. Tier 1–2 PR footer: `docs/view-understanding-lab-footer.md`.
 
@@ -102,6 +112,7 @@ Gideon merges after step 4 PASS and, when Tier 1–2, step 5 UL PASS. Hands does
 
 ```
 factory: yes
+ship_review: pr-agent
 prove_eng: pytest+smoke | before-after
 tier: 0 | 1 | 2
 escalate:
@@ -118,15 +129,16 @@ See `tickets/TEMPLATE.md` for full contract.
 
 ## Infrastructure PASS checklist (step 4)
 
-Infra reviews **before** UL walk. Confirm:
+Infra reviews **before** UL walk — **after** Hands Ship auto-loop clears. Confirm:
 
 - [ ] Owning repo and branch match ticket (`repo_url` / Lane A lock)
 - [ ] Draft PR only — no merge by Hands
 - [ ] **Prove (eng):** pytest + smoke passed (or documented equivalent)
-- [ ] UI/behavior PRs include before/after evidence in PR
+- [ ] UI/behavior PRs include Hands before/after evidence in PR (visual CI supplements, does not replace)
+- [ ] **PR-Agent:** `/describe` or equivalent summary present; open review comments resolved
+- [ ] **Visual CI:** Playwright + Argos green when repo has UI surface (or legit skip noted on ticket)
 - [ ] Short what/why in PR body
 - [ ] Tier label correct: Tier 0 = no lab CTA; Tier 1–2 = lab URLs on ticket + PR footer when URLs exist
-- [ ] No Greptile/CodeRabbit dependency in v0
 - [ ] **Do not** post View Understanding Lab or walk playground until this checklist PASSes
 
 After Infra PASS on Tier 1–2, post Tier label → View PR → View Understanding Lab (when lab URLs exist). Merge remains blocked until UL PASS.
@@ -138,7 +150,8 @@ Infra chat protocol: `skills/infrastructure-comms/SKILL.md` § Software Factory.
 ## Out of scope (v0)
 
 - Signal Radar as a factory stage
-- Grant packs, socials, Greptile/CodeRabbit
+- Grant packs, socials
+- Enabling Ship CI org-wide from `cth-plugin` alone (templates only)
 - Gideon merge or deploy by Hands
 - Local worktree isolate (later)
 
