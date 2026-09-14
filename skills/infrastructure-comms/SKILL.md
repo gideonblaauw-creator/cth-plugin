@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.5.0"
+  version: "1.6.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -142,7 +142,7 @@ When the ticket sets `factory: yes`, follow the locked conveyor in `docs/softwar
 | Step | Infrastructure role |
 |---|---|
 | **1–3** | Do not review mid-build unless Desk escalates. Hands owns Isolate, Build, Prove(eng). |
-| **4 Ship** | **Infra PASS** = human half of Ship. Review draft PR **before** any UL walk. Checklist: owning repo, draft-only, pytest+smoke (or equivalent), before/after on UI/behavior PRs, short what/why, tier-correct CTA, no Greptile/CodeRabbit dependency. |
+| **4 Ship** | **Infra PASS** = human half of Ship — **after** Hands Ship auto-loop clears. Checklist: owning repo, draft-only, pytest+smoke, Hands before/after on UI PRs, **PR-Agent summary present and comments resolved**, **visual CI green** (Playwright + Argos/Lost Pixel when UI surface), short what/why, tier-correct CTA. Reference: `docs/software-factory-ship-ci.md`. |
 | **5 Understanding Lab** | **After Infra PASS only.** Tier 0: skip — no playground walk. Tier 1–2: post View Understanding Lab when lab URLs exist; **hard gate** — no Gideon merge until UL PASS. |
 | **Merge** | Gideon only. Remind: draft PR, no Hands merge. |
 
@@ -154,9 +154,11 @@ When the ticket sets `factory: yes`, follow the locked conveyor in `docs/softwar
 - **Tier 1:** hard gate — light UL PASS + ≥1 Shared decisions lock row before merge.
 - **Tier 2:** hard gate — full five-beat UL PASS before merge.
 
-**Prove split:** Step 3 Prove(eng) = pytest/smoke/before-after in the PR. Step 5 = human Understanding Lab only (Tier 1–2). Do not conflate them.
+**Prove split:** Step 3 Prove(eng) = pytest/smoke + Hands before/after in the PR. Step 4 visual CI = Mic Prove (pixels on PR). Step 5 = human Understanding Lab only (Tier 1–2). Visual CI supplements Hands before/after — does not replace pytest/smoke.
 
-**Out of scope:** Signal Radar product (not a factory stage), Greptile/CodeRabbit in v0.
+**Ship CI (t267u):** PR-Agent + Playwright/Argos templates in `docs/examples/software-factory/`. Hands auto-loops on fail/comments before pinging Infra PASS.
+
+**Out of scope:** Signal Radar product (not a factory stage). Do not enable Ship CI org-wide from `cth-plugin` alone.
 
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 

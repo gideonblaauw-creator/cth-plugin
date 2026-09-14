@@ -1,0 +1,41 @@
+# TEMPLATE — copy to .github/workflows/pr-agent.yml in the owning Lane A product repo.
+# Do not enable org-wide from cth-plugin. See docs/software-factory-ship-ci.md
+#
+# Secrets (Infisical → GitHub Actions on the product repo; names only):
+#   OPENAI_API_KEY — or provider key per PR-Agent docs (ANTHROPIC_API_KEY, etc.)
+# GITHUB_TOKEN is provided by Actions.
+
+name: PR Agent
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  pr_agent:
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Codium-ai/pr-agent — alternative: The-PR-Agent/pr-agent (Qodo)
+      - name: PR Agent
+        uses: Codium-ai/pr-agent@main
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # describe = plain-English walkthrough on open/sync
+          # pr_agent also responds to /ask, /review, etc. via issue_comment
+          pr_description: "true"
+          pr_review: "true"
+          pr_questions: "true"
