@@ -1,10 +1,11 @@
 # Understanding Lab playground standard (Gideon lock t1268u)
 
-**One-liner:** All Understanding Lab / HITL playgrounds (microworlds) use the **LexiScan house-tour HTML format**. LexiScan is the canonical reference. Do not invent a new layout per product.
+**One-liner:** All Understanding Lab / HITL playgrounds (microworlds) use the **LexiScan house-tour HTML format**. LexiScan (FabFloow product) is the canonical **format example** — not the UL harness. Do not invent a new layout per product.
 
 **Ownership:**
-- **Infrastructure** = shared format lock (repo path, file set, checklist, anti-patterns, Vercel host naming). Remediation PRs migrate legacy playgrounds toward this standard.
-- **FabFloow** = LexiScan **product craft only** (content, scenarios, Notion lab pages for LexiScan builds). FabFloow does not own the cross-product format lock.
+- **Infrastructure** = Understanding Lab harness (playground format lock, `HITL_HTML_STABLE_URL`, shared docs/skills via `cth-plugin`). Remediation PRs migrate legacy playgrounds toward this standard.
+- **FabFloow** = internal **client** desk (LexiScan product craft, content, scenarios, Notion lab pages for LexiScan builds). FabFloow does not own the UL harness or cross-product format lock.
+- **LexiScan** = FabFloow **product** only — canonical example for playground format; not the Understanding Lab harness.
 
 **Related locks:** `docs/understanding-lab-tiers.md` (Tier 0/1/2), `docs/view-understanding-lab-footer.md` (PR footer), `docs/software-factory.md` (factory step 5 = Understanding Lab; Tier 1–2 hard gate before merge), `skills/harness/SKILL.md` § View Understanding Lab, `skills/infrastructure-comms/SKILL.md` §7.
 
@@ -21,9 +22,11 @@ Copy these refs verbatim when citing the template in skills, tickets, or PR foot
 | **Files** | `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh` |
 | **Notion Playground** | https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f |
 | **Shared decisions (LexiScan example)** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
-| **Public host (when live)** | https://fabfloow-ul-playground.vercel.app — Vercel project `fabfloow-ul-playground` (Understanding Lab host only; **not** LexiScan product demo or prod apps) |
+| **Public host (LIVE — UL playground; LexiScan example)** | https://fabfloow-ul-playground.vercel.app (Vercel `fabfloow-ul-playground`; Infra-planted UL stable host, exemplified by LexiScan product) |
+| **NOT UL harness host (LexiScan product apps)** | DEMO (frozen): https://fabfloow-lexiscan.vercel.app · PROD: https://fabfloow-lexiscan-app.vercel.app |
+| **`HITL_HTML_STABLE_URL` (Infra UL stable-host reference; LexiScan example)** | https://fabfloow-ul-playground.vercel.app |
 | **Brand note** | LexiScan skin = FabFloow cream/mustard/copper; other products use their own brand — **never CTH lime on non-CTH products** |
-| **Ownership** | Infra = shared format lock; FabFloow = LexiScan product craft only |
+| **Ownership** | Infra = UL harness + format lock; FabFloow = internal client; LexiScan = product craft only (format example) |
 | **Ticket field (Tier 1–2)** | `playground_standard: lexiscan-html-v2` (optional but recommended) |
 
 Hands on Tier 1–2 product repos **must** place the repo artifact at `understanding-lab/playground/` (or the product’s agreed Lane A equivalent) using this file set. The Notion Playground page links to the hosted or local artifact; it does not replace the HTML house tour. Export paste target = this build’s Shared decisions URL (LexiScan example above).
@@ -69,9 +72,9 @@ Every Tier 1–2 playground **must** satisfy all nine items. Infra reviews again
 |---|---|
 | **0** | No playground required. |
 | **1** | LexiScan-format house tour; may scope to **one** primary scenario room (2–3 decision doors). Stable host optional. |
-| **2** | Full LexiScan-format house tour; all rooms for the build; stable host when Infra has planted `HITL_HTML_STABLE_URL` or product Vercel (LexiScan reference: `fabfloow-ul-playground`). |
+| **2** | Full LexiScan-format house tour; all rooms for the build; stable host when Infra has planted `HITL_HTML_STABLE_URL` or product Vercel (Infra UL host; LexiScan example: https://fabfloow-ul-playground.vercel.app). |
 
-Notion Playground URL on the ticket (`lab_playground_url`) points to the **hub page** for that build. The repo path `understanding-lab/playground/` is the **artifact** Infra and reviewers run locally or via public host. **Public host is not the LexiScan product demo** — Understanding Lab playgrounds deploy to the UL host project (LexiScan: Vercel `fabfloow-ul-playground`).
+Notion Playground URL on the ticket (`lab_playground_url`) points to the **hub page** for that build. The repo path `understanding-lab/playground/` is the **artifact** Infra and reviewers run locally or via public host. **Public UL host is not a LexiScan product app** — Infra plants Understanding Lab playgrounds on the UL stable host (LexiScan product example: https://fabfloow-ul-playground.vercel.app), **not** the LexiScan product demos at `fabfloow-lexiscan.vercel.app` (DEMO frozen) or `fabfloow-lexiscan-app.vercel.app` (PROD).
 
 ---
 
@@ -99,6 +102,8 @@ On Tier 1–2 draft PR review, confirm:
 - Files: `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`
 - Notion Playground: https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f
 - Shared decisions (LexiScan example): https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8
-- Public host (when live): Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo; FabFloow will publish URL)
+- Public host (LIVE — UL playground; LexiScan example): https://fabfloow-ul-playground.vercel.app
+- NOT UL harness host (LexiScan product apps): DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app
+- `HITL_HTML_STABLE_URL` (Infra UL stable-host reference; LexiScan example): https://fabfloow-ul-playground.vercel.app
 - HITL loop beats: `skills/notion/references/hitl-understanding-loops.md`
 - PR footer when lab URLs exist: `docs/view-understanding-lab-footer.md`
