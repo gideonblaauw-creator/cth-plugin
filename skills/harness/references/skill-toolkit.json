@@ -581,8 +581,8 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "0.1.0",
-      "description": "Software Factory v0 \u2014 Lane A Apps+Software conveyor for Cloud Hands and Infrastructure review. Use when: factory, Software Factory, Apps+Software build, Prove(eng), Ship, draft PR conveyor, or Infrastructure PASS on a product repo.",
+      "version": "0.2.0",
+      "description": "Software Factory v0 \u2014 Lane A Apps+Software conveyor for Cloud Hands and Infrastructure review. Use when: factory, Software Factory, Apps+Software build, Prove(eng), Ship (PR-Agent + visual CI), draft PR conveyor, or Infrastructure PASS on a product repo.",
       "owner": "Infrastructure"
     },
     {

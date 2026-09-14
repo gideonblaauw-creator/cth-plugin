@@ -1,0 +1,58 @@
+# TEMPLATE — copy to .github/workflows/visual-ci.yml in the owning Lane A product repo.
+# Do not enable org-wide from cth-plugin. See docs/software-factory-ship-ci.md
+#
+# Mic Prove in CI: Playwright captures screenshots/video; Argos posts diffs on the PR.
+# Supplements Hands before/after in the PR body — does not replace pytest/smoke.
+#
+# Secrets (Infisical → GitHub Actions on the product repo; names only):
+#   ARGOS_TOKEN
+#
+# Per-product [PENDIENTE]:
+#   BASE_URL / PREVIEW_URL — Vercel preview or staging URL for Playwright
+
+name: Visual CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright (screenshots + video on failure)
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ vars.PREVIEW_URL || 'http://127.0.0.1:3000' }}
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Argos upload
+        if: always()
+        uses: argos-ci/action@v5
+        with:
+          token: ${{ secrets.ARGOS_TOKEN }}

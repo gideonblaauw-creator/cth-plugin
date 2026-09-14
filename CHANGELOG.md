@@ -4,10 +4,21 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Software Factory Ship CI locks t267u (2026-09-14)
+
+- **Overrides v0 HOLD on review agents** — step 4 Ship now includes PR-Agent + Playwright/Argos visual CI
+- **PR-Agent:** Codium-ai/pr-agent — `/describe`, walkthrough, `/ask` on PR comments
+- **Visual CI:** Playwright + Argos — before/after pixel diffs on PR (Mic Prove in CI)
+- **Auto-loop YES:** Hands fix → re-Prove(eng) → wait for green → then Infra PASS; no UL until loop clears + Infra PASS
+- New: `docs/software-factory-ship-ci.md`, `docs/examples/software-factory/` (pr-agent.yml + visual-ci.yml templates for product repos)
+- Secrets note: Infisical → GH Actions (`OPENAI_API_KEY`, `ARGOS_TOKEN` — names only); per-product `BASE_URL` **[PENDIENTE]**
+- Updated: `docs/software-factory.md`, `skills/software-factory/SKILL.md`, `skills/infrastructure-comms/SKILL.md`, `skills/harness/SKILL.md`, `tickets/TEMPLATE.md` (`ship_review: pr-agent`)
+- Non-goals: no workflow install on Signal Radar/scanner/LexiScan; UL host cross-link only (PR #31 owns live host plant)
+
 ### Software Factory v0 (2026-09-14)
 
 - **Locked Apps+Software conveyor:** `1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge`
-- New doc: `docs/software-factory.md` — gates, tier mapping, Prove split (eng vs UL), out-of-scope (Signal Radar product, grants, socials, Greptile/CodeRabbit)
+- New doc: `docs/software-factory.md` — gates, tier mapping, Prove split (eng vs UL), out-of-scope (Signal Radar product, grants, socials)
 - New skill: `skills/software-factory/SKILL.md` + Cursor stub — Hands steps, ticket fields, Infra PASS checklist
 - **Tier 0:** skip step 5 (UL); ship what/why after Infra PASS. **Tier 1–2:** step 5 hard gate before Gideon merge
 - **Prove(eng):** pytest + smoke; + before/after for UI/behavior PRs. **Infra PASS** = human half of Ship, before UL

@@ -16,3 +16,4 @@ This file is a Cursor discovery stub. The playbook source of truth is `skills/so
 2. Follow that playbook. Do not invent a parallel workflow in this stub.
 3. Canonical doc: `docs/software-factory.md`.
 4. Tier 1–2: Understanding Lab is factory step 5 — hard gate before Gideon merge.
+5. Ship CI (t267u): PR-Agent + Playwright/Argos; auto-loop before Infra PASS — `docs/software-factory-ship-ci.md`.
