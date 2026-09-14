@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.7.0"
+  version: "3.8.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -66,6 +66,8 @@ Required fields:
 Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. Tier 1–2 also need this build’s Notion lab URLs (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
 
 Optional Lane A field: `langgraph: yes` — production / client agent graph. Hands follows `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
+
+Optional Lane A field: `factory: yes` — Apps+Software build follows the **Software Factory v0** conveyor (`docs/software-factory.md`, `skills/software-factory/SKILL.md`). Default `ship_review: pr-agent` (PR-Agent + visual CI on product repos). Optional `prove_eng: pytest+smoke | before-after`. Tier 0 skips factory step 5 (Understanding Lab); Tier 1–2 make step 5 a hard gate before Gideon merge.
 
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
@@ -213,6 +215,29 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 **Cursor product limit:** Cloud-agent **View PR** is not a second lab button. Infra **must** lead Gideon chat with the Tier label (`**Tier 0** — Ship` / `**Tier 1** — Light Understanding` / `**Tier 2** — Full Lab + ledger`) before View PR / View Understanding Lab (`skills/infrastructure-comms/SKILL.md` §7). Tier 0 announces Tier 0 then View PR only — no lab CTA. Tier 1–2 announce the tier, then View PR, then **View Understanding Lab** as its own prominent chat link **only when the ticket supplied this build’s Notion lab URLs**. Never lead with the lab CTA. Never paste Scanner lab URLs onto another product’s chat.
 
 **URLs and beats:** `skills/notion/SKILL.md` and `skills/notion/references/hitl-understanding-loops.md`. Maker ≠ checker: Hands plants; Infrastructure reviews; Gideon merges. Merge after **light PASS** (Tier 1) or **full five-beat PASS** (Tier 2). Tier 0: short what/why — no lab PASS.
+
+### Software Factory — v0 lock (Gideon 2026-09-14)
+
+**Owner:** Infrastructure. **Canonical:** `docs/software-factory.md` · **Skill:** `skills/software-factory/SKILL.md` · **Infra review:** `skills/infrastructure-comms/SKILL.md` § Software Factory.
+
+**Locked conveyor:** `1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge`
+
+| Step | Hands / Infra | v0 rule |
+|---|---|---|
+| **1 Isolate** | Hands | Cloud Hands branch off `main` on owning Lane A repo. Local worktree skill = later. |
+| **2 Build** | Hands | Ticket scope on branch. `composer-2.5` (`fast=true`) for repo/code/build. |
+| **3 Prove (eng)** | Hands | **pytest + smoke** always. UI/behavior PRs **+ before/after** (screenshot/video/metrics in PR). Not the Understanding Lab. |
+| **4 Ship** | Hands auto-loop + Infra | Draft PR + **PR-Agent** + **visual CI** (Playwright + Argos/Lost Pixel) on product repos. Hands fix until review loop clears, then **Infra PASS**. Infra PASS **before** step 5. Templates: `docs/examples/software-factory/`. |
+| **5 Understanding Lab** | Gideon + Infra | Tier-gated. **Tier 0:** skip. **Tier 1–2:** hard gate — no merge without UL PASS. |
+| **Merge** | Gideon | After step 4; + step 5 when Tier 1–2. Hands never merges. |
+
+**Tier 0:** skip step 5; ship what/why after Infra PASS. **Tier 1–2:** step 5 = Understanding Lab (LexiScan house-tour standard — canonical example); Shared decisions required (Tier 1: ≥1 lock row; Tier 2: full beat). **UL public host (Infra):** LexiScan product example: https://fabfloow-ul-playground.vercel.app — not LexiScan DEMO/PROD; FabFloow = internal client, not UL harness.
+
+**Ship CI (t267u):** PR-Agent + visual before/after CI. Auto-loop on fail/comments → fix → re-Prove(eng) → Infra PASS. `docs/software-factory-ship-ci.md`.
+
+**Out of scope in v0:** Signal Radar product (separate build), grant packs (Lane B), socials, enabling Ship CI org-wide from `cth-plugin` alone.
+
+Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: pytest+smoke | before-after`. See `tickets/TEMPLATE.md`.
 
 ### Token lock — Gideon 2026-08-26 (hard gate; supersedes Sonnet-default, Haiku-default, review-auto-Sonnet for Cloud Hands)
 

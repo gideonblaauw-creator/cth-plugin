@@ -10,6 +10,34 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 - Clarified LexiScan **product** apps are not the UL harness host: DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app
 - Updated: `docs/understanding-lab-playground-standard.md`, `docs/understanding-lab-tiers.md`, `docs/view-understanding-lab-footer.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7
 
+### Software Factory UL ownership lock t269u (2026-09-14)
+
+- **FabFloow** = internal client; **LexiScan** = FabFloow product — neither is the Understanding Lab harness
+- UL harness / format / `HITL_HTML_STABLE_URL` = **Infrastructure** (`cth-plugin`)
+- LexiScan house-tour + https://fabfloow-ul-playground.vercel.app = canonical **example** only — not LexiScan DEMO/PROD apps
+- Updated: `docs/software-factory.md`, `skills/software-factory/SKILL.md`, `skills/harness/SKILL.md` § Software Factory
+
+### Software Factory Ship CI locks t267u (2026-09-14)
+
+- **Overrides v0 HOLD on review agents** — step 4 Ship now includes PR-Agent + visual before/after CI
+- **PR-Agent:** Codium-ai/pr-agent / The-PR-Agent/pr-agent (Qodo) — `/describe`, walkthrough, `/ask` on PR comments
+- **Visual CI:** Playwright + Argos CI or Lost Pixel — before/after pixel diffs on PR (Mic Prove in CI)
+- **Auto-loop YES:** Hands fix → re-Prove(eng) → wait for green → then Infra PASS; no UL until loop clears + Infra PASS
+- New: `docs/software-factory-ship-ci.md`, `docs/examples/software-factory/` (pr-agent.yml + visual-ci.yml templates for product repos)
+- Secrets note: Infisical → GH Actions (`OPENAI_API_KEY`, `ARGOS_TOKEN` / `LOST_PIXEL_API_KEY` — names only); per-product `BASE_URL` **[PENDIENTE]**
+- Updated: `docs/software-factory.md`, `skills/software-factory/SKILL.md`, `skills/infrastructure-comms/SKILL.md`, `skills/harness/SKILL.md`, `tickets/TEMPLATE.md` (`ship_review: pr-agent`)
+- Non-goals: no workflow install on Signal Radar/scanner/LexiScan in this PR; templates only
+
+### Software Factory v0 (2026-09-14)
+
+- **Locked Apps+Software conveyor:** `1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge`
+- New doc: `docs/software-factory.md` — gates, tier mapping, Prove split (eng vs UL), out-of-scope (Signal Radar product, grants, socials)
+- New skill: `skills/software-factory/SKILL.md` + Cursor stub — Hands steps, ticket fields, Infra PASS checklist
+- **Tier 0:** skip step 5 (UL); ship what/why after Infra PASS. **Tier 1–2:** step 5 hard gate before Gideon merge
+- **Prove(eng):** pytest + smoke; + before/after for UI/behavior PRs. **Infra PASS** = human half of Ship, before UL
+- **UL host reference:** https://fabfloow-ul-playground.vercel.app (not product demo/prod apps)
+- Updated: `docs/understanding-lab-tiers.md`, `docs/understanding-lab-playground-standard.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md`, `tickets/TEMPLATE.md`
+
 ### Understanding Lab playground standard t1268u (2026-09-13)
 
 - **LexiScan house-tour HTML = canonical playground format** for all Tier 1–2 Understanding Lab / HITL microworlds

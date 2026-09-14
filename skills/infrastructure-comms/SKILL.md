@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.4.1"
+  version: "1.6.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -130,6 +130,37 @@ On **Tier 1–2** review, the repo playground **must** match the **LexiScan hous
 | **PASS gate** | House tour + per-room quests/quiz/decision doors + EN/ES + ledger export + `smoke.sh` — see `docs/understanding-lab-playground-standard.md` |
 
 When posting Playground in Gideon chat, link the ticket’s `<lab_playground_url>` (Notion hub). If the draft PR adds or changes `understanding-lab/playground/`, call out the repo path so reviewers can run `python -m http.server` per README.
+
+### Software Factory — step order and Infra PASS (v0)
+
+When the ticket sets `factory: yes`, follow the locked conveyor in `docs/software-factory.md` and `skills/software-factory/SKILL.md`.
+
+**Step order (do not reorder):**
+
+```
+1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge
+```
+
+| Step | Infrastructure role |
+|---|---|
+| **1–3** | Do not review mid-build unless Desk escalates. Hands owns Isolate, Build, Prove(eng). |
+| **4 Ship** | **Infra PASS** = human half of Ship — **after** Hands Ship auto-loop clears. Checklist: owning repo, draft-only, pytest+smoke, Hands before/after on UI PRs, **PR-Agent summary present and comments resolved**, **visual CI green** (Playwright + Argos/Lost Pixel when UI surface), short what/why, tier-correct CTA. Reference: `docs/software-factory-ship-ci.md`. |
+| **5 Understanding Lab** | **After Infra PASS only.** Tier 0: skip — no playground walk. Tier 1–2: post View Understanding Lab when lab URLs exist; **hard gate** — no Gideon merge until UL PASS. |
+| **Merge** | Gideon only. Remind: draft PR, no Hands merge. |
+
+**Infra PASS before UL:** Do not send Gideon to the playground or post View Understanding Lab on factory builds that have not earned step 4 PASS.
+
+**Tier mapping at step 5:**
+
+- **Tier 0:** skip step 5. Lead with `**Tier 0** — Ship`, View PR, short what/why. Merge after Infra PASS.
+- **Tier 1:** hard gate — light UL PASS + ≥1 Shared decisions lock row before merge.
+- **Tier 2:** hard gate — full five-beat UL PASS before merge.
+
+**Prove split:** Step 3 Prove(eng) = pytest/smoke + Hands before/after in the PR. Step 4 visual CI = Mic Prove (pixels on PR). Step 5 = human Understanding Lab only (Tier 1–2). Visual CI supplements Hands before/after — does not replace pytest/smoke.
+
+**Ship CI (t267u):** PR-Agent + Playwright/Argos templates in `docs/examples/software-factory/`. Hands auto-loops on fail/comments before pinging Infra PASS.
+
+**Out of scope:** Signal Radar product (not a factory stage). Do not enable Ship CI org-wide from `cth-plugin` alone.
 
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 

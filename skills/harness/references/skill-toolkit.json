@@ -575,6 +575,17 @@
       "desk": "Socials"
     },
     {
+      "name": "software-factory",
+      "category": "infrastructure",
+      "canonical": "skills/software-factory/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "0.2.0",
+      "description": "Software Factory v0 \u2014 Lane A Apps+Software conveyor for Cloud Hands and Infrastructure review. Use when: factory, Software Factory, Apps+Software build, Prove(eng), Ship (PR-Agent + visual CI), draft PR conveyor, or Infrastructure PASS on a product repo.",
+      "owner": "Infrastructure"
+    },
+    {
       "name": "sustenttia-comms",
       "category": "comms",
       "canonical": "skills/sustenttia-comms/SKILL.md",

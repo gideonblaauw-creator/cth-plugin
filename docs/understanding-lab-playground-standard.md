@@ -7,7 +7,7 @@
 - **FabFloow** = internal **client** desk (LexiScan product craft, content, scenarios, Notion lab pages for LexiScan builds). FabFloow does not own the UL harness or cross-product format lock.
 - **LexiScan** = FabFloow **product** only — canonical example for playground format; not the Understanding Lab harness.
 
-**Related locks:** `docs/understanding-lab-tiers.md` (Tier 0/1/2), `docs/view-understanding-lab-footer.md` (PR footer), `skills/harness/SKILL.md` § View Understanding Lab, `skills/infrastructure-comms/SKILL.md` §7.
+**Related locks:** `docs/understanding-lab-tiers.md` (Tier 0/1/2), `docs/view-understanding-lab-footer.md` (PR footer), `docs/software-factory.md` (factory step 5 = Understanding Lab; Tier 1–2 hard gate before merge), `skills/harness/SKILL.md` § View Understanding Lab, `skills/infrastructure-comms/SKILL.md` §7.
 
 ---
 

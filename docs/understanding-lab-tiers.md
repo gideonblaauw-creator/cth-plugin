@@ -2,7 +2,9 @@
 
 **One-liner:** Push product at Tier 0; earn trust at Tier 1; prove it at Tier 2.
 
-Canonical lock for Lane A desks. Playbook surfaces: `skills/harness/SKILL.md` § View Understanding Lab, `skills/notion/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7. Delivery helper: `docs/view-understanding-lab-footer.md`.
+**Software Factory step 5 (Gideon lock 2026-09-14):** On factory builds (`factory: yes`), Understanding Lab is **factory step 5** — after Prove(eng) and Infra Ship PASS. **Tier 0:** skip step 5; ship what/why only, then Gideon merge. **Tier 1–2:** step 5 is a **hard gate** before Gideon merge — no merge without UL PASS. Infra PASS (step 4) happens **before** UL; do not walk the playground on non-PASS drafts. Canonical conveyor: `docs/software-factory.md`.
+
+Canonical lock for Lane A desks. Playbook surfaces: `skills/harness/SKILL.md` § View Understanding Lab, `skills/software-factory/SKILL.md`, `skills/notion/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7. Delivery helper: `docs/view-understanding-lab-footer.md`.
 
 **Per-build pages:** every build / product gets its own Understanding Lab Notion page(s). Do not reuse Scanner lab pages for LexiScan or other products.
 
@@ -16,6 +18,7 @@ Notion page titles may still use legacy names (HITL Lab, Explainer, Microworld).
 
 - **When:** internal, familiar, low blast radius.
 - **Bar:** normal PR + short what/why. No lab.
+- **Factory step 5:** **skip** Understanding Lab. Ship what/why after Infra PASS, then Gideon merge.
 - **Anti-blackbox:** explainable in ~1 minute if asked.
 - **CTA:** none. Do **not** add View Understanding Lab to the PR or Infra chat.
 
@@ -30,6 +33,7 @@ Notion page titles may still use legacy names (HITL Lab, Explainer, Microworld).
 - **Escalate** with one-line reason on the ticket (`escalate:`).
 - **CTA:** View Understanding Lab on the draft PR + Infra chat link beside View PR — **this build’s** Notion URLs from the ticket. Never Scanner defaults.
 - **PASS:** light bar above — **not** full five-beat PASS.
+- **Factory step 5:** **hard gate** — no Gideon merge without UL light PASS (after Infra Ship PASS).
 
 ## Tier 2 — Full Lab + ledger (rare)
 
@@ -38,6 +42,7 @@ Notion page titles may still use legacy names (HITL Lab, Explainer, Microworld).
 - **Ticket MUST name Tier 2.** Never default. Never infer.
 - **CTA:** View Understanding Lab on the draft PR + Infra chat link beside View PR — **this build’s** Notion URLs from the ticket. Never Scanner defaults.
 - **PASS:** full five-beat PASS only. Event-store *implementation* is out of scope here — Hands appends the ledger file when Infra has planted the Archive path.
+- **Factory step 5:** **hard gate** — no Gideon merge without full five-beat UL PASS (after Infra Ship PASS).
 
 ## Operating rules
 
