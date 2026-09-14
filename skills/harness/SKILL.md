@@ -231,7 +231,7 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 | **5 Understanding Lab** | Gideon + Infra | Tier-gated. **Tier 0:** skip. **Tier 1–2:** hard gate — no merge without UL PASS. |
 | **Merge** | Gideon | After step 4; + step 5 when Tier 1–2. Hands never merges. |
 
-**Tier 0:** skip step 5; ship what/why after Infra PASS. **Tier 1–2:** step 5 = Understanding Lab (LexiScan house-tour standard); Shared decisions required (Tier 1: ≥1 lock row; Tier 2: full beat). UL host reference: https://fabfloow-ul-playground.vercel.app — not product demo/prod apps.
+**Tier 0:** skip step 5; ship what/why after Infra PASS. **Tier 1–2:** step 5 = Understanding Lab (LexiScan house-tour standard — canonical example); Shared decisions required (Tier 1: ≥1 lock row; Tier 2: full beat). **UL public host (Infra):** LexiScan product example: https://fabfloow-ul-playground.vercel.app — not LexiScan DEMO/PROD; FabFloow = internal client, not UL harness.
 
 **Ship CI (t267u):** PR-Agent + visual before/after CI. Auto-loop on fail/comments → fix → re-Prove(eng) → Infra PASS. `docs/software-factory-ship-ci.md`.
 

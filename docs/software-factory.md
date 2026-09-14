@@ -42,9 +42,9 @@ Factory step 5 is the **Understanding Lab** beat from the harness tier lock. Can
 
 **Infra PASS before UL:** Infrastructure reviews and PASSes the draft PR (step 4) before Gideon walks step 5. Do not send Gideon to the playground on drafts that have not earned Infra PASS or while the Ship auto-loop is open.
 
-**Playground format (Tier 1–2):** LexiScan house-tour HTML standard — `docs/understanding-lab-playground-standard.md`.
+**Playground format (Tier 1–2):** LexiScan house-tour HTML standard (canonical **example** only) — `docs/understanding-lab-playground-standard.md`. UL harness / format / `HITL_HTML_STABLE_URL` = **Infrastructure** (`cth-plugin`). **FabFloow** = internal client; **LexiScan** = FabFloow product — neither is the UL harness.
 
-**LexiScan UL public host:** https://fabfloow-ul-playground.vercel.app — Understanding Lab playgrounds only. **Not** LexiScan product demo or production product apps.
+**UL public host (Infra):** LexiScan product example: https://fabfloow-ul-playground.vercel.app — **not** LexiScan DEMO/PROD apps. FabFloow owns LexiScan product craft, not the UL harness.
 
 ---
 

@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Software Factory UL ownership lock t269u (2026-09-14)
+
+- **FabFloow** = internal client; **LexiScan** = FabFloow product — neither is the Understanding Lab harness
+- UL harness / format / `HITL_HTML_STABLE_URL` = **Infrastructure** (`cth-plugin`)
+- LexiScan house-tour + https://fabfloow-ul-playground.vercel.app = canonical **example** only — not LexiScan DEMO/PROD apps
+- Updated: `docs/software-factory.md`, `skills/software-factory/SKILL.md`, `skills/harness/SKILL.md` § Software Factory
+
 ### Software Factory Ship CI locks t267u (2026-09-14)
 
 - **Overrides v0 HOLD on review agents** — step 4 Ship now includes PR-Agent + visual before/after CI

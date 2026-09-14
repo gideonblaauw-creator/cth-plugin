@@ -98,8 +98,8 @@ This step is **not** the Understanding Lab. Do not skip pytest/smoke because a T
 
 **No merge without UL PASS on Tier 1–2.** Do not soften this gate.
 
-Playground: LexiScan house-tour standard — `docs/understanding-lab-playground-standard.md`.  
-UL public host (LexiScan reference): https://fabfloow-ul-playground.vercel.app — **not** product demo/prod apps.
+Playground: LexiScan house-tour standard (canonical **example**; Infra format lock) — `docs/understanding-lab-playground-standard.md`. UL harness / format / `HITL_HTML_STABLE_URL` = Infrastructure (`cth-plugin`). FabFloow = internal client (LexiScan product craft only); neither FabFloow nor LexiScan is the UL harness.  
+**UL public host (Infra):** LexiScan product example: https://fabfloow-ul-playground.vercel.app — **not** LexiScan DEMO/PROD apps.
 
 Tier rules: `docs/understanding-lab-tiers.md`. Tier 1–2 PR footer: `docs/view-understanding-lab-footer.md`.
 
