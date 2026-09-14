@@ -4,6 +4,16 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Software Factory v0 (2026-09-14)
+
+- **Locked Apps+Software conveyor:** `1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge`
+- New doc: `docs/software-factory.md` — gates, tier mapping, Prove split (eng vs UL), out-of-scope (Signal Radar product, grants, socials, Greptile/CodeRabbit)
+- New skill: `skills/software-factory/SKILL.md` + Cursor stub — Hands steps, ticket fields, Infra PASS checklist
+- **Tier 0:** skip step 5 (UL); ship what/why after Infra PASS. **Tier 1–2:** step 5 hard gate before Gideon merge
+- **Prove(eng):** pytest + smoke; + before/after for UI/behavior PRs. **Infra PASS** = human half of Ship, before UL
+- **UL host reference:** https://fabfloow-ul-playground.vercel.app (not product demo/prod apps)
+- Updated: `docs/understanding-lab-tiers.md`, `docs/understanding-lab-playground-standard.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md`, `tickets/TEMPLATE.md`
+
 ### Understanding Lab playground standard t1268u (2026-09-13)
 
 - **LexiScan house-tour HTML = canonical playground format** for all Tier 1–2 Understanding Lab / HITL microworlds
