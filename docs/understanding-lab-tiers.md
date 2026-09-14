@@ -55,7 +55,7 @@ Keep Playground hard lock for Tier 1–2: `scenario → consequences → options
 - Tier 2: full Playground hard gate (scenarios + consequences + 2–4 option paths with tradeoffs) before Shared decisions.
 - Not scrub-only. Not a single-suggestion override.
 
-**Artifact format (t1268u):** implement beat 3 as a **LexiScan-standard HTML house tour** at `understanding-lab/playground/` in the product repo (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`). Scanner’s legacy tabbed microworld shell is not the template for new builds. Full checklist: `docs/understanding-lab-playground-standard.md`. **Stable host (LexiScan reference):** https://fabfloow-ul-playground.vercel.app — not the LexiScan product demos (`fabfloow-lexiscan.vercel.app` DEMO, `fabfloow-lexiscan-app.vercel.app` PROD).
+**Artifact format (t1268u):** implement beat 3 as a **LexiScan-standard HTML house tour** at `understanding-lab/playground/` in the product repo (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`). Scanner’s legacy tabbed microworld shell is not the template for new builds. Full checklist: `docs/understanding-lab-playground-standard.md`. **Stable host (Infra UL harness; LexiScan product example):** https://fabfloow-ul-playground.vercel.app — not the LexiScan product demos (`fabfloow-lexiscan.vercel.app` DEMO, `fabfloow-lexiscan-app.vercel.app` PROD).
 
 ## Ticket fields
 

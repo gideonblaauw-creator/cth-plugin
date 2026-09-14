@@ -4,10 +4,10 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
-### LexiScan UL playground host live (2026-09-14)
+### Understanding Lab playground host live — LexiScan example (2026-09-14)
 
-- Planted live LexiScan Understanding Lab host: https://fabfloow-ul-playground.vercel.app as `HITL_HTML_STABLE_URL` reference in harness docs
-- Clarified LexiScan **product** apps are not the UL lab host: DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app
+- Planted live Understanding Lab stable host (Infra harness): https://fabfloow-ul-playground.vercel.app as `HITL_HTML_STABLE_URL` reference in harness docs — exemplified by the LexiScan product example (FabFloow internal client)
+- Clarified LexiScan **product** apps are not the UL harness host: DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app
 - Updated: `docs/understanding-lab-playground-standard.md`, `docs/understanding-lab-tiers.md`, `docs/view-understanding-lab-footer.md`, `skills/harness/SKILL.md`, `skills/infrastructure-comms/SKILL.md` §7
 
 ### Understanding Lab playground standard t1268u (2026-09-13)
