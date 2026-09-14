@@ -98,7 +98,7 @@ On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gide
 3. **Then send View Understanding Lab** as its own prominent follow-up **only when the ticket supplied this build’s Notion lab URLs** (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`):
    - Named **tier** and `escalate:` reason from the ticket
    - Context (Notion): the ticket’s `<lab_context_url>` — **this build only**
-   - Playground: the ticket’s `<lab_playground_url>`. Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = that URL or `HITL_HTML_STABLE_URL` from harness once planted; until then state `[PENDIENTE]` plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
+   - Playground: the ticket’s `<lab_playground_url>`. Tier 1 = light (one scenario, 2–3 options; stable host **not** required). Tier 2 = that URL or `HITL_HTML_STABLE_URL` from harness (LexiScan reference: https://fabfloow-ul-playground.vercel.app — **not** LexiScan product demos); other products until planted: `[PENDIENTE]` plus local fallback `http://127.0.0.1:8080/hitl/microworld/` or `/review/<job_id>` when Flask is up
    - Shared decisions: the ticket’s `<lab_shared_decisions_url>` (Tier 1 = one row + rationale + `locked_at`; Tier 2 = full beat)
 4. **Remind:** draft PR only — **no merge** until the tier PASS. Tier 1 = light PASS. Tier 2 = **full five-beat PASS** (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle). Do not demand full five-beat PASS on Tier 1 or Tier 0.
 
@@ -121,7 +121,9 @@ On **Tier 1–2** review, the repo playground **must** match the **LexiScan hous
 | **Files** | `index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh` |
 | **Notion Playground** | https://app.notion.com/p/3d9dfee50be981e08a7bfffe2cc2f33f |
 | **Shared decisions** | https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8 |
-| **Public host (when live)** | Vercel project `fabfloow-ul-playground` (separate from LexiScan product demo) |
+| **Public host (LIVE — LexiScan UL)** | https://fabfloow-ul-playground.vercel.app |
+| **NOT UL lab host (LexiScan product)** | DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app |
+| **`HITL_HTML_STABLE_URL` (LexiScan reference)** | https://fabfloow-ul-playground.vercel.app |
 | **Brand note** | LexiScan chrome = FabFloow cream/mustard/copper; other products use their own brand — never CTH lime on non-CTH products |
 | **Ownership** | Infra = shared format lock; FabFloow = LexiScan product craft only |
 | **Ticket field** | `playground_standard: lexiscan-html-v2` (optional on Tier 1–2; Infra checks against it when present) |

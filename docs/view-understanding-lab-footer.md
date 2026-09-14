@@ -53,7 +53,7 @@ Hands: plant all five beats (`Context → Explanation (quiz) → Playground → 
 **Gate:** Draft only. Infra reviews. Gideon merges after full five-beat PASS (Context → Explanation+quiz → Playground hard gate → Shared decisions → Next cycle).
 ```
 
-**Stable host:** Replace `HITL_HTML_STABLE_URL` with the value Infra plants in harness after Vercel/Tailscale deploy. Do not invent a fake URL. Required for Tier 2; skip as a requirement on Tier 1. A Playground URL on the ticket (`lab_playground_url`) wins over the placeholder token.
+**Stable host:** LexiScan reference `HITL_HTML_STABLE_URL` = https://fabfloow-ul-playground.vercel.app (planted in `skills/harness/SKILL.md`). **Not** LexiScan product apps: DEMO https://fabfloow-lexiscan.vercel.app · PROD https://fabfloow-lexiscan-app.vercel.app. Other products: Infra plants per-product host — do not invent URLs. Required for Tier 2; skip as a requirement on Tier 1. A Playground URL on the ticket (`lab_playground_url`) wins over the stable-host token.
 
 **Ticket fields:** `tier: 0|1|2` and `escalate:` — omit `tier:` → default Tier 0 (no footer). `major: yes` without `tier:` is a miss. Tier 1–2 also need this build’s `lab_notion:` URLs (or the three flat `lab_*_url` fields).
 
