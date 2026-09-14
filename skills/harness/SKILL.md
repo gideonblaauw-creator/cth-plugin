@@ -67,7 +67,7 @@ Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation
 
 Optional Lane A field: `langgraph: yes` — production / client agent graph. Hands follows `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
 
-Optional Lane A field: `factory: yes` — Apps+Software build follows the **Software Factory v0** conveyor (`docs/software-factory.md`, `skills/software-factory/SKILL.md`). Optional `prove_eng: pytest+smoke | before-after`. Tier 0 skips factory step 5 (Understanding Lab); Tier 1–2 make step 5 a hard gate before Gideon merge.
+Optional Lane A field: `factory: yes` — Apps+Software build follows the **Software Factory v0** conveyor (`docs/software-factory.md`, `skills/software-factory/SKILL.md`). Default `ship_review: pr-agent` (PR-Agent + visual CI on product repos). Optional `prove_eng: pytest+smoke | before-after`. Tier 0 skips factory step 5 (Understanding Lab); Tier 1–2 make step 5 a hard gate before Gideon merge.
 
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
@@ -227,15 +227,17 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 | **1 Isolate** | Hands | Cloud Hands branch off `main` on owning Lane A repo. Local worktree skill = later. |
 | **2 Build** | Hands | Ticket scope on branch. `composer-2.5` (`fast=true`) for repo/code/build. |
 | **3 Prove (eng)** | Hands | **pytest + smoke** always. UI/behavior PRs **+ before/after** (screenshot/video/metrics in PR). Not the Understanding Lab. |
-| **4 Ship** | Hands + Infra | Draft PR + Hands self-check + **Infra PASS**. No Greptile/CodeRabbit in v0. Infra PASS **before** step 5. |
+| **4 Ship** | Hands auto-loop + Infra | Draft PR + **PR-Agent** + **visual CI** (Playwright + Argos/Lost Pixel) on product repos. Hands fix until review loop clears, then **Infra PASS**. Infra PASS **before** step 5. Templates: `docs/examples/software-factory/`. |
 | **5 Understanding Lab** | Gideon + Infra | Tier-gated. **Tier 0:** skip. **Tier 1–2:** hard gate — no merge without UL PASS. |
 | **Merge** | Gideon | After step 4; + step 5 when Tier 1–2. Hands never merges. |
 
 **Tier 0:** skip step 5; ship what/why after Infra PASS. **Tier 1–2:** step 5 = Understanding Lab (LexiScan house-tour standard); Shared decisions required (Tier 1: ≥1 lock row; Tier 2: full beat). UL host reference: https://fabfloow-ul-playground.vercel.app — not product demo/prod apps.
 
-**Out of scope in v0:** Signal Radar product (separate build), grant packs (Lane B), socials, Greptile/CodeRabbit review-agent loop.
+**Ship CI (t267u):** PR-Agent + visual before/after CI. Auto-loop on fail/comments → fix → re-Prove(eng) → Infra PASS. `docs/software-factory-ship-ci.md`.
 
-Ticket: `factory: yes`, optional `prove_eng: pytest+smoke | before-after`. See `tickets/TEMPLATE.md`.
+**Out of scope in v0:** Signal Radar product (separate build), grant packs (Lane B), socials, enabling Ship CI org-wide from `cth-plugin` alone.
+
+Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: pytest+smoke | before-after`. See `tickets/TEMPLATE.md`.
 
 ### Token lock — Gideon 2026-08-26 (hard gate; supersedes Sonnet-default, Haiku-default, review-auto-Sonnet for Cloud Hands)
 
