@@ -3,7 +3,8 @@ name: legal-eval
 description: >
   Hands playbook for Legal Desk clause and playbook review — extract, compare, severity
   route, structured memo. Use when: legal-eval on ticket, clause review, MOU/LOI/agreement
-  redline, playbook diff, compliance checklist, governance review.
+  redline, playbook diff, compliance checklist, governance review. Dual entity lock:
+  S.L. (NIF B19439389) for consulting; Foundation for grants/convenios; wrong entity = blocker.
 ---
 
 # legal-eval

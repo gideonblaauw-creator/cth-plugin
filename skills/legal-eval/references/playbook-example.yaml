@@ -1,14 +1,37 @@
 # EXAMPLE ONLY — not counsel-approved
-# Skeleton for CTH commercial consulting playbook config.
+# Dual-entity skeleton for CTH Legal playbook config.
 # Hands compare extracted clauses against preferred / fallback / forbidden entries.
 # Do not send this file to counterparties.
 
+# --- S.L. commercial consulting playbook (EXAMPLE ONLY) ---
 playbook_id: cth-sl-consulting-v0
 version: "0.1.0-example"
 entity:
+  cth_party: sl
   canonical_name: CLEANTECHHUB INTERNATIONAL S.L.
+  nif: B19439389
   form: S.L.
+  instrument_types:
+    - MSA
+    - SOW
+    - vendor_agreement
+    - NDA_consulting_ops
   jurisdiction_notes: "Spanish S.L.; ES+EN clause library preferred/fallback; multi-jurisdiction ES/CO → flag counsel matrix [PENDIENTE]"
+
+# --- Foundation grant/convenio playbook (EXAMPLE ONLY) ---
+# Uncomment or copy as separate playbook file when ticket scopes Foundation instruments.
+# playbook_id: cth-foundation-grant-v0
+# version: "0.1.0-example"
+# entity:
+#   cth_party: foundation
+#   canonical_name: CleantechHUB Foundation
+#   form: Colombian foundation
+#   instrument_types:
+#     - grant_agreement
+#     - convenio
+#     - nonprofit_instrument
+#     - foundation_as_party
+#   jurisdiction_notes: "Colombian foundation; coordinate with Grants Desk; counsel matrix [PENDIENTE] for cross-border"
 
 severity_enum:
   - blocker
@@ -38,8 +61,12 @@ hitl:
     - LOI
     - MOU
     - consulting_agreement
+    - grant_agreement
+    - convenio
   before_sign:
     - consulting_agreement
+    - grant_agreement
+    - convenio
     - governance_pack
   loose_never_for_signature: true
 
@@ -47,22 +74,35 @@ doc_type_defaults:
   NDA:
     review_mode: moderate
     hitl: low
+    cth_party: sl
   LOI:
     review_mode: moderate
     hitl: medium
+    cth_party: sl
     flags:
       - binding_vs_non_binding
   MOU:
     review_mode: moderate
     hitl: medium
+    cth_party: sl
     flags:
       - binding_vs_non_binding
   consulting_agreement:
     review_mode: moderate
     hitl: medium_high
+    cth_party: sl
+  grant_agreement:
+    review_mode: moderate
+    hitl: medium_high
+    cth_party: foundation
+  convenio:
+    review_mode: moderate
+    hitl: medium_high
+    cth_party: foundation
   governance:
     review_mode: strict
     hitl: counsel_directors
+    cth_party: per_instrument
 
 hard_stops:
   - uncapped_liability
@@ -70,8 +110,16 @@ hard_stops:
   - silent_auto_renew_over_12m_without_notice
   - unknown_governing_law
   - missing_citation_no_approved_fallback
+  - wrong_cth_entity_for_instrument_type
 
 clauses:
+  parties_entity:
+    preferred_sl: "CLEANTECHHUB INTERNATIONAL S.L. (NIF B19439389)"
+    preferred_foundation: "CleantechHUB Foundation"
+    forbidden:
+      - "Wrong CTH entity for instrument type"
+      - "Invented entity label without Gideon lock"
+
   liability_cap:
     preferred: "Aggregate liability capped at fees paid in the twelve (12) months preceding the claim."
     fallback: "Aggregate liability capped at total fees under the agreement."

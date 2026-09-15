@@ -4,7 +4,7 @@ Extend via ticket + Gideon lock. v0 minimum families for commercial consulting a
 
 | ID | Family | Extract focus | Playbook notes |
 |---|---|---|---|
-| `parties-entity` | Parties / entity | Legal names, roles, signatures | **CLEANTECHHUB INTERNATIONAL S.L.** lock; no invented labels |
+| `parties-entity` | Parties / entity | Legal names, roles, signatures | **Dual lock:** consulting → **CLEANTECHHUB INTERNATIONAL S.L.** (NIF B19439389); grant/convenio/foundation → **CleantechHUB Foundation**; wrong entity → `blocker` |
 | `scope-sow` | Scope / SOW | Deliverables, exclusions, change control | Preferred/fallback/forbidden vs playbook |
 | `fees-payment` | Fees / payment | Amount, currency, invoicing, taxes | Align with commercial consulting library |
 | `term-termination` | Term / termination | Duration, renewal, notice, exit | Hard stop: silent auto-renew >12m without notice |
@@ -17,16 +17,17 @@ Extend via ticket + Gideon lock. v0 minimum families for commercial consulting a
 | `boilerplate` | Boilerplate | Notices, assignment, severability, entire agreement | Fallback library |
 | `compliance-aml-sanctions` | Compliance / AML / sanctions | Representations, screening, export | Governance + consulting packs |
 | `employment-contractor` | Employment / contractor | Status, benefits, substitution | Flag misclassification risk → counsel |
-| `sl-entity-naming` | S.L. entity naming (CO commercial consulting) | Sociedad Limitada form, Spanish/English pairing | Mismatch → negotiate/blocker by mode |
+| `cth-entity-naming` | CTH entity naming (dual lock) | S.L. form + NIF for consulting; Foundation name for grant/convenio | Wrong entity for instrument type → **`blocker`**; form/label mismatch → `negotiate` or `blocker` by mode |
 
 ## Doc-type emphasis
 
-| Doc type | Priority families |
-|---|---|
-| NDA | parties-entity, ip-confidentiality, term-termination, governing-law-dispute |
-| LOI / MOU | parties-entity, scope-sow, binding effect, term-termination, governing-law-dispute |
-| Consulting agreement | Full taxonomy |
-| Governance | compliance-aml-sanctions, employment-contractor, liability-indemnity, governing-law-dispute |
+| Doc type | CTH party | Priority families |
+|---|---|---|
+| NDA (consulting ops) | S.L. | parties-entity, ip-confidentiality, term-termination, governing-law-dispute |
+| LOI / MOU (commercial) | S.L. | parties-entity, scope-sow, binding effect, term-termination, governing-law-dispute |
+| Consulting agreement | S.L. | Full taxonomy |
+| Grant / convenio | Foundation | parties-entity, scope-sow, fees-payment, term-termination, governing-law-dispute, compliance-aml-sanctions |
+| Governance | Per instrument | compliance-aml-sanctions, employment-contractor, liability-indemnity, governing-law-dispute |
 
 ## Binding vs non-binding (LOI / MOU)
 

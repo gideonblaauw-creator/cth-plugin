@@ -21,6 +21,7 @@ Do not invent alternate metrics or numeric scores in counterparty-facing output.
 3. **Silent auto-renew >12 months without notice** — renewal without adequate notice period.
 4. **Unknown governing law** — missing, contradictory, or not extractable with citation.
 5. **Missing citation / no approved fallback** — cite-or-stop failure; cannot compare to library.
+6. **Wrong CTH entity for instrument type** — party block names the wrong CleantechHUB entity (e.g. S.L. on a grant/convenio, or Foundation on a commercial consulting MSA). See dual entity lock in `legal-eval` SKILL.md.
 
 ## Mode interaction
 

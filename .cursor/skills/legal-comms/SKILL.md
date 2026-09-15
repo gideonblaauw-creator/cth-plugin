@@ -4,6 +4,7 @@ description: >
   Communications protocol for the Legal Desk. Trigger on Legal Desk comms, agreements,
   MOUs, LOIs, compliance packs, or governance packs. Grok Bot coordination only;
   clause/playbook evals → Cloud Hands via legal-eval (Token lock 2026-08-26).
+  Dual entity lock: S.L. (consulting) vs Foundation (grants/convenios); wrong entity = blocker.
 ---
 
 # legal-comms
