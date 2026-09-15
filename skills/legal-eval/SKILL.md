@@ -7,7 +7,7 @@ description: >
   comms routing (legal-comms), grants (cth-grant), or commercial proposals (cth-proposal-build).
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   category: programs
   desk: "Legal"
   owner: Infrastructure desk 4b96b1e8
@@ -21,7 +21,7 @@ Read `skills/harness/SKILL.md` and `skills/legal-comms/SKILL.md` before executin
 
 ## Workflow — six-stage loop
 
-1. **Intake** — Capture matter id, doc type, parties, entity, language, `review_mode`, fine mode if named. Done when: intake block is complete and cite-or-stop rules acknowledged.
+1. **Intake** — Capture matter id, doc type, parties, **`cth_party`** (`sl` \| `foundation`), entity check (per dual lock), language, `review_mode`, fine mode if named. Done when: intake block is complete, correct CTH party confirmed or flagged, and cite-or-stop rules acknowledged.
 2. **Extract** — Pull clauses with citations (section/paragraph). **Cite-or-stop:** no uncited legal claims. Done when: every extracted clause has a source anchor or is marked `unknown`.
 3. **Playbook compare** — Match against preferred / fallback / forbidden library (`references/playbook-example.yaml` is EXAMPLE ONLY). Done when: each material clause has preferred, fallback, or gap flagged.
 4. **Severity route** — Assign canonical severity (below). Apply hard stops. Done when: every finding has severity + firewall label.
@@ -65,6 +65,7 @@ Canonical enum for Legal eval findings:
 - Silent auto-renew **>12 months** without notice
 - Unknown governing law
 - Missing citation / no approved fallback
+- **Wrong CTH entity** for instrument type (see dual entity lock)
 
 ### Desk coarse label map (optional reporting)
 
@@ -82,26 +83,33 @@ When Desk asks for coarse labels, map without inventing metrics:
 
 Cover at minimum these families (full table: `references/clause-taxonomy-v0.md`):
 
-parties/entity · scope/SOW · fees/payment · term/termination · IP/confidentiality · liability/indemnity · governing law/dispute · data/privacy · non-solicit/non-compete · force majeure · boilerplate · compliance/AML/sanctions · employment/contractor · **S.L. entity naming** (Colombia commercial consulting)
+parties/entity · scope/SOW · fees/payment · term/termination · IP/confidentiality · liability/indemnity · governing law/dispute · data/privacy · non-solicit/non-compete · force majeure · boilerplate · compliance/AML/sanctions · employment/contractor · **CTH entity naming** (dual lock: S.L. vs Foundation)
 
-## Entity lock — Spanish S.L.
+## Dual entity lock
 
-For CTH commercial consulting:
+Choose the CTH party by **instrument type**. **Wrong entity = `blocker`** (hard stop).
 
-- Canonical entity: **CLEANTECHHUB INTERNATIONAL S.L.** (Sociedad Limitada).
-- Flag wrong entity form or invented labels.
-- Severity: `negotiate` or `blocker` in `strict` mode depending on mismatch; at least `negotiate` in `moderate`.
+| Instrument type | CTH party |
+|---|---|
+| Commercial consulting (MSA, SOW, vendor, NDA for consulting ops) | **CLEANTECHHUB INTERNATIONAL S.L.** (NIF **B19439389**) |
+| Grants / nonprofit / convenios / foundation-as-party | **CleantechHUB Foundation** (Colombian foundation) |
 
-Multi-jurisdiction ES/CO → flag; counsel matrix **[PENDIENTE]**.
+Rules:
+
+- **Entity check** is a hard stop in stage 1 (intake) and stage 4 (severity route).
+- When instrument type is ambiguous, ticket must name `cth_party: sl` \| `foundation`.
+- No invented entity labels without Gideon lock.
+- Multi-jurisdiction ES/CO → flag; counsel matrix **[PENDIENTE]**.
 
 ## Doc-type defaults
 
-| Doc type | Default review_mode | HITL | Notes |
-|---|---|---|---|
-| NDA | moderate | Low | Entity + confidentiality focus |
-| LOI / MOU | moderate | Medium before send | Flag binding vs non-binding |
-| Consulting agreement | moderate | Medium–high before send | Full taxonomy |
-| Governance | strict | Counsel/directors | `governance_review` fine mode |
+| Doc type | Default review_mode | HITL | CTH party | Notes |
+|---|---|---|---|---|
+| NDA (consulting ops) | moderate | Low | S.L. | Entity + confidentiality focus |
+| LOI / MOU (commercial) | moderate | Medium before send | S.L. | Flag binding vs non-binding |
+| Consulting agreement (MSA, SOW, vendor) | moderate | Medium–high before send | S.L. | Full taxonomy |
+| Grant / convenio / foundation instrument | moderate | Medium–high before send | Foundation | Route to Grants Desk when substance overlaps |
+| Governance | strict | Counsel/directors | Per instrument | `governance_review` fine mode |
 
 ## `[INTERNAL]` / `[EXTERNAL]` firewall
 
@@ -134,7 +142,8 @@ Deliver this structure (example: `references/example-memo.md`):
 - **review_mode:** {strict|moderate|loose}
 - **fine_mode:** {optional}
 - **doc_type:** {NDA|LOI|MOU|Agreement|Governance|…}
-- **entity:** CLEANTECHHUB INTERNATIONAL S.L. (check result)
+- **cth_party:** sl | foundation
+- **entity:** {canonical name per dual lock — check result}
 - **language:** {ES|EN|bilingual}
 
 ## Summary

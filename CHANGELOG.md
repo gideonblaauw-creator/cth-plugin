@@ -4,6 +4,14 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Legal dual entity lock t1353u (2026-09-15)
+
+- Updated: `skills/legal-comms/SKILL.md` — dual CTH entity lock (S.L. for commercial consulting; Foundation for grants/convenios); wrong entity = `blocker`; intake captures `cth_party: sl | foundation`
+- Updated: `skills/legal-eval/SKILL.md` — same dual lock; entity check as hard stop; doc-type matrix maps consulting → S.L. (NIF B19439389), grant/convenio/foundation → Foundation
+- Updated: `skills/legal-eval/references/severity-rubric.md` — wrong-entity hard stop (#6)
+- Updated: `skills/legal-eval/references/playbook-example.yaml` — dual-entity EXAMPLE skeletons (S.L. + Foundation commented block); NIF B19439389 on S.L.
+- Updated: `skills/legal-eval/references/clause-taxonomy-v0.md`, `example-memo.md` — parties/entity family notes for both entities; Foundation example memo
+
 ### Legal desk plant t1338u (2026-09-15)
 
 - New Desk: **Legal** — agreements, MOUs, LOIs, compliance, governance packs (owner **4b96b1e8**; first matter **AURA**)

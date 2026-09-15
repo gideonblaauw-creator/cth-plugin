@@ -7,7 +7,7 @@ description: >
   Do not use when: executing clause review (legal-eval) or grant/proposal playbooks.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   category: comms
   desk: "Legal"
   owner: Infrastructure desk 4b96b1e8
@@ -60,6 +60,7 @@ All agreement packs, clause reviews, redlines, inventories, HTML/docx, and repo 
 | `review_mode:` | Coarse: `strict` \| `moderate` \| `loose`. Default **moderate** for named commercial consulting packs. **`loose` never** for signature candidates. Signature path requires explicit mode ≠ `loose`. |
 | Fine mode (optional) | `intake_triage`, `extract_only`, `playbook_diff`, `redline_suggest`, `risk_only`, `full_memo`, `template_compare`, `compliance_checklist`, `governance_review` — name on ticket when needed. |
 | `skill:` | Clause/playbook eval → **`legal-eval`**. Comms-only routing stays on this skill. |
+| `cth_party:` | When instrument type is ambiguous: `sl` \| `foundation`. Intake must capture before eval proceeds. |
 
 ### Doc-type HITL defaults
 
@@ -96,13 +97,21 @@ Nothing **signed**, **sent**, or **paid** without **Gideon Blaauw** yes in the o
 - Signature candidate packs require **Gideon HITL** + `review_mode` ≠ `loose`.
 - Agent does **not** own legal risk; library-only redlines; no counterparty send without firewall pass.
 
-## 8. Entity lock — Spanish S.L.
+## 8. Dual entity lock
 
-For CTH **commercial consulting** entity naming:
+Choose the CTH party by **instrument type**. Wrong entity = **`blocker`** severity (hard stop) in `legal-eval`.
 
-- Canonical full name: **CLEANTECHHUB INTERNATIONAL S.L.** (Sociedad Limitada).
-- Entity form lock: Spanish **S.L.** — no invented entity labels without Gideon lock.
-- ES+EN clause library preferred/fallback. Multi-jurisdiction ES/CO → flag; counsel matrix **[PENDIENTE]**.
+| Instrument type | CTH party |
+|---|---|
+| Commercial consulting (MSA, SOW, vendor, NDA for consulting ops) | **CLEANTECHHUB INTERNATIONAL S.L.** (NIF **B19439389**) |
+| Grants / nonprofit / convenios / foundation-as-party | **CleantechHUB Foundation** (Colombian foundation) |
+
+Rules:
+
+- Match party to doc type before any redline or send candidate.
+- No invented entity labels without Gideon lock.
+- When instrument type is ambiguous, ticket must name `cth_party: sl` \| `foundation`; **intake** captures it before eval proceeds.
+- ES+EN clause library preferred/fallback for S.L. consulting packs. Multi-jurisdiction ES/CO → flag; counsel matrix **[PENDIENTE]**.
 
 ## 9. `[INTERNAL]` / `[EXTERNAL]` firewall
 
@@ -116,7 +125,7 @@ Every finding and every exported pack segment must be labeled **`[INTERNAL]`** o
 
 Bounded first-pass loop for **`legal-eval`** tickets (Hands executes; Desk reviews):
 
-1. **Intake** — matter id, doc type, review_mode, entity, language.
+1. **Intake** — matter id, doc type, review_mode, `cth_party` (sl \| foundation), entity check, language.
 2. **Extract** — cite-or-stop; no uncited claims.
 3. **Playbook compare** — preferred / fallback / forbidden vs library.
 4. **Severity route** — canonical enum (see `legal-eval`).
