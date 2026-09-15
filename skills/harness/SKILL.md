@@ -111,7 +111,7 @@ Box is a Tool used by Workbench. It is not a layer Gideon names.
 Routes. Does not draft grants, decks, or posts. Picks Desk, Workbench, or Hands lane. HITL before send/post/pay.
 
 ### Desks that exist
-Grants (plus isolated live drafts: CTCN Suriname, GRP, TNS VerdeXcelerate — max two live drafts), Proposals, Meetings, Inbox, Socials (was CTH Social Media), Strategy, GTM, Energy Coop, Mubon, Sustenttia, AIC, AURA, Teclogi, Embassy, REIN Hubs, Almendra.
+Grants (plus isolated live drafts: CTCN Suriname, GRP, TNS VerdeXcelerate — max two live drafts), Proposals, Meetings, Inbox, Socials (was CTH Social Media), Strategy, GTM, Energy Coop, Mubon, Sustenttia, AIC, AURA, Legal (`legal-comms`, `legal-eval`; owner **4b96b1e8**; first matter AURA), Teclogi, Embassy, REIN Hubs, Almendra.
 
 ### Desks to stand up when a ticket hits (Claude folders already exist)
 Budget (`CTH - 2026 Budget`), Academy/CLP (`CTH - Academy`, `CTH - CLP 2026`), Origo/Data (`CTH - Climate_Data_Platform`, Nexus, WIKI), Investor Matching, Newsletter (`CTH Newsletter System`), Ruta Verde, Apps, Bosque Soberano, Run Up parent, Infrastructure (`Claude Infrastructure`, Chief of Staff).
@@ -448,9 +448,9 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 | `AGENTS.md` | Cursor pointer + Skip list |
 | `CLAUDE.md` | Claude Desktop plugin pointer |
 
-**Planted on main (56 canonical skills):** 29 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`, `infisical`, `mac-scan-worker`, `langgraph-production`) + 27 desk comms skills (`*-comms`) — see `skill-toolkit.json`.
+**Planted on main (58 canonical skills):** 30 core/plugin skills (brand, programs, operations, infrastructure — includes `skill-template`, `socials-loop`, `oss-stills`, `infisical`, `mac-scan-worker`, `langgraph-production`, `legal-eval`) + 28 desk comms skills (`*-comms`, includes `legal-comms`) — see `skill-toolkit.json`.
 
-**Cursor stubs (55):** all canonical except `secrets`.
+**Cursor stubs (57):** all canonical except `secrets`.
 
 **Authoring:** new or updated skills follow `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 

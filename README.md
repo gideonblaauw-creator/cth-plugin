@@ -75,6 +75,7 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `cth-proposal-build` | Build polished client-facing service proposals — research, alignment gate, HTML build, PDF export, and deployment |
 | `cth-seo` | SEO command center for cleantechhub.net subdomains — keywords, schema markup, content strategy, Google Ads Grant, AEO, and technical audits |
 | `nexus-onepager` | Build and deploy bilingual (EN/ES) startup one-pager profile pages at nexus.cleantechhub.net |
+| `legal-eval` | Legal Desk Hands playbook — clause extract, playbook compare, severity route, structured memo; HITL before sign; not licensed counsel |
 
 ### Operations
 

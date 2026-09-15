@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Legal desk plant t1338u (2026-09-15)
+
+- New Desk: **Legal** — agreements, MOUs, LOIs, compliance, governance packs (owner **4b96b1e8**; first matter **AURA**)
+- New skill: `skills/legal-comms/SKILL.md` + Cursor stub — coordination-only desk comms; tickets Hands via `legal-eval`; HITL before sign/send/pay; `[INTERNAL]`/`[EXTERNAL]` firewall; Spanish **S.L.** entity lock (**CLEANTECHHUB INTERNATIONAL S.L.**)
+- New skill: `skills/legal-eval/SKILL.md` + Cursor stub + `references/` — clause review playbook; coarse review modes (`strict`|`moderate`|`loose`); fine modes; severity enum `blocker`|`negotiate`|`accept`|`info`|`unknown`; six-stage loop; example playbook YAML (EXAMPLE ONLY)
+- Updated: `skills/harness/references/skill-toolkit.json`, `skills/harness/SKILL.md` (Desks that exist + inventory counts)
+
 ### Understanding Lab playground host live — LexiScan example (2026-09-14)
 
 - Planted live Understanding Lab stable host (Infra harness): https://fabfloow-ul-playground.vercel.app as `HITL_HTML_STABLE_URL` reference in harness docs — exemplified by the LexiScan product example (FabFloow internal client)
