@@ -1,5 +1,5 @@
 {
-  "inventory_date": "2026-09-12",
+  "inventory_date": "2026-09-15",
   "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
   "skill_template": "skills/skill-template/SKILL.md",
   "template_reference": "skills/skill-template/references/SKILL-TEMPLATE.md",
@@ -389,6 +389,27 @@
       "description": "Builds production LangGraph agent graphs with HITL interrupt, Notion Understanding Lab, checkpoint memory, and LangSmith evals. Use when: langgraph: yes on a ticket, production agent graph, client agent graph, HITL interrupt, LangGraph checkpoint, LangSmith eval. Do not use when: OpenCode OSS experiments, grant packs, or skill-only harness edits."
     },
     {
+      "name": "legal-comms",
+      "category": "comms",
+      "canonical": "skills/legal-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Communications protocol for the Legal Desk. Trigger on Legal Desk comms, agreements, MOUs, LOIs, compliance packs, or governance packs. Grok Bot coordination only; clause/playbook evals \u2192 Cloud Hands via legal-eval (Token lock 2026-08-26).",
+      "desk": "Legal"
+    },
+    {
+      "name": "legal-eval",
+      "category": "programs",
+      "canonical": "skills/legal-eval/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Hands playbook for Legal Desk clause and playbook review \u2014 extract, compare, severity route, structured memo. Use when: legal-eval on ticket, clause review, MOU/LOI/agreement redline, playbook diff, compliance checklist, governance review. Do not use when: Desk comms routing (legal-comms), grants (cth-grant), or commercial proposals (cth-proposal-build)."
+    },
+    {
       "name": "live-artifact-build",
       "category": "infrastructure",
       "canonical": "skills/live-artifact-build/SKILL.md",
@@ -609,8 +630,8 @@
     }
   ],
   "groups": {
-    "core": 29,
-    "comms_desk": 27,
+    "core": 30,
+    "comms_desk": 28,
     "comms_skill_names": [
       "academy-comms",
       "aic-comms",
@@ -631,6 +652,7 @@
       "inbox-comms",
       "infrastructure-comms",
       "investor-matching-comms",
+      "legal-comms",
       "mac-scan-comms",
       "mubon-comms",
       "newsletter-comms",
@@ -658,8 +680,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 56,
-    "cursor_stubs": 55,
+    "canonical_on_main": 58,
+    "cursor_stubs": 57,
     "cursor_skip": 1
   }
 }

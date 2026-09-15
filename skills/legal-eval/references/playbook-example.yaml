@@ -1,0 +1,95 @@
+# EXAMPLE ONLY — not counsel-approved
+# Skeleton for CTH commercial consulting playbook config.
+# Hands compare extracted clauses against preferred / fallback / forbidden entries.
+# Do not send this file to counterparties.
+
+playbook_id: cth-sl-consulting-v0
+version: "0.1.0-example"
+entity:
+  canonical_name: CLEANTECHHUB INTERNATIONAL S.L.
+  form: S.L.
+  jurisdiction_notes: "Spanish S.L.; ES+EN clause library preferred/fallback; multi-jurisdiction ES/CO → flag counsel matrix [PENDIENTE]"
+
+severity_enum:
+  - blocker
+  - negotiate
+  - accept
+  - info
+  - unknown
+
+review_modes_coarse:
+  - strict
+  - moderate
+  - loose
+
+review_modes_fine:
+  - intake_triage
+  - extract_only
+  - playbook_diff
+  - redline_suggest
+  - risk_only
+  - full_memo
+  - template_compare
+  - compliance_checklist
+  - governance_review
+
+hitl:
+  before_send:
+    - LOI
+    - MOU
+    - consulting_agreement
+  before_sign:
+    - consulting_agreement
+    - governance_pack
+  loose_never_for_signature: true
+
+doc_type_defaults:
+  NDA:
+    review_mode: moderate
+    hitl: low
+  LOI:
+    review_mode: moderate
+    hitl: medium
+    flags:
+      - binding_vs_non_binding
+  MOU:
+    review_mode: moderate
+    hitl: medium
+    flags:
+      - binding_vs_non_binding
+  consulting_agreement:
+    review_mode: moderate
+    hitl: medium_high
+  governance:
+    review_mode: strict
+    hitl: counsel_directors
+
+hard_stops:
+  - uncapped_liability
+  - preexisting_ip_assignment_to_counterparty
+  - silent_auto_renew_over_12m_without_notice
+  - unknown_governing_law
+  - missing_citation_no_approved_fallback
+
+clauses:
+  liability_cap:
+    preferred: "Aggregate liability capped at fees paid in the twelve (12) months preceding the claim."
+    fallback: "Aggregate liability capped at total fees under the agreement."
+    forbidden:
+      - "Unlimited liability"
+      - "Liability exceeds fees paid without cap"
+
+  binding_effect_loi:
+    preferred: "Non-binding except for confidentiality, exclusivity (if any), and governing law of this LOI."
+    fallback: "Explicit list of binding sections only."
+    forbidden:
+      - "Entire LOI binding without carve-outs"
+
+firewall:
+  internal_never_on_counterparty:
+    - playbook_yaml
+    - severity_scores
+    - internal_memo
+  external_allowed:
+    - redline_suggest
+    - house_paper
