@@ -105,6 +105,21 @@ Gideon may open a Desk chat. Workbench chats under Socials should stay out of hi
 
 Box is a Tool used by Workbench. It is not a layer Gideon names.
 
+### Cursor Projects ↔ Desks (Infra lock)
+
+**One Cursor Project ≈ one durable workstream** (desk / client / product), not one chat. Orchestrator is **not** a Project. OpenCode is Hands lane chat, not a Project. No Project per inbox/scratch.
+
+| Lane | Workspace |
+|---|---|
+| A — product code | Owning repo on Lane A allowlist (`cth-plugin`, `signal-radar`, `cth-data-room-scanner`, `fabfloow-lexiscan`, `sustenttia-v2`, `americas-innovation-hub`, `almendra`, …) |
+| B — Drive/Archive packs | `cth-matters` + Hands worker `{type: machine, name: vps}` |
+
+Create Project modal defaulting to `cth-matters` is correct for packs, **wrong** for product code. Project name = desk slug; align with Grok Bot sidebar and VPS `/opt/claude-files/Projects/…`. Isolated grant desks = chats inside CTH-Grants, not separate Projects.
+
+**Ownership:** Orchestrator → **Infrastructure** → Hands. Gideon creates/merges Cursor IDE Projects; Infra seeds map + Grok Bot shards; Hands plants docs. Optional ticket fields: `cursor_project`, `cursor_workspace` — see `tickets/TEMPLATE.md`.
+
+Full desk → Project → workspace tables, pods, rollout: **`docs/cursor-projects.md`**.
+
 ## 4. Org
 
 ### Orchestrator

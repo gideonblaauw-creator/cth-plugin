@@ -4,6 +4,14 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Cursor Projects ↔ Desk map (Infra ownership)
+
+- New doc: `docs/cursor-projects.md` — locked convention: one Cursor Project ≈ one durable workstream; Lane A product repos vs Lane B `cth-matters`; Layer 0–4 pods/desks/bench/personal tables; rollout phases; optional ticket fields
+- Updated: `skills/harness/SKILL.md` — § Cursor Projects ↔ Desks pointer
+- Updated: `skills/infrastructure-comms/SKILL.md` — § Cursor Projects ↔ Desk map (Infra ownership)
+- Updated: `tickets/TEMPLATE.md` — optional `cursor_project`, `cursor_workspace` when opening Hands from a desk Project
+- HITL: Gideon creates/merges Cursor IDE Projects; Infra seeds map + Grok Bot shards; no Projects API from code
+
 ### Legal dual entity lock t1353u (2026-09-15)
 
 - Updated: `skills/legal-comms/SKILL.md` — dual CTH entity lock (S.L. for commercial consulting; Foundation for grants/convenios); wrong entity = `blocker`; intake captures `cth_party: sl | foundation`

@@ -47,6 +47,19 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
 - **BUILDING (t1263u):** repo/code/build Hands → Composer 2.5 **Fast ON** (`fast=true`); empty build ticket fills Fast ON (not Flash). Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code. Never silently launch a build with Fast off. Canonical: `docs/hands-model-routing.md`.
 
+### Cursor Projects ↔ Desk map (Infra ownership)
+
+Desk structure trickles into **Cursor IDE Projects** — not one Project per chat. Orchestrator routes; **Infrastructure** owns the map; Hands plants repo docs; **Gideon** creates/merges Projects (no Projects API from code).
+
+| Rule | Detail |
+|---|---|
+| One Project | One durable workstream (desk / client / product) |
+| Lane A workspace | Owning product repo — not `cth-matters` for code |
+| Lane B workspace | `cth-matters` + VPS worker `{type: machine, name: vps}` |
+| Grant isolation | CTCN / GRP / TNS = chats inside CTH-Grants, not separate Projects |
+
+When ticketing Hands for a desk, optional fields `cursor_project` + `cursor_workspace` name the target Project and repo lane. Rollout phases and full tables: **`docs/cursor-projects.md`**. Harness pointer: `skills/harness/SKILL.md` § Cursor Projects ↔ Desks.
+
 ## 5. Lowest-tier model
 
 | Job | Model | Notes |

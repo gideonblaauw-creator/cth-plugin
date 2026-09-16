@@ -4,11 +4,15 @@ Copy this block into a new file (e.g. `tickets/YYYY-MM-DD-short-name.md`) and fi
 `desk:` is free-form — write the Desk name as it exists or will exist.
 See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Desk list.
 
+When opening Hands from a Cursor Project, name the Project and workspace lane so the agent lands on the correct repo or pack store.
+
 ---
 
 ```
 desk:
 folder:
+cursor_project:
+cursor_workspace:
 done-when:
 model: gemini-3.7-flash | composer-2.5 (fast=true)
 lane: github-pr | drive-folder
@@ -41,5 +45,9 @@ context:
 `lab_notion` — **required on Tier 1–2.** This build’s / this product’s Understanding Lab Notion URLs. Flat aliases: `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`. **Every build gets its own pages** (Gideon 2026-09-12 via FabFloow). Do not reuse Scanner (Dataroom / VertiGreen) URLs for LexiScan, Sustenttia, or other products. If omitted on Tier 1–2: Infra posts Tier label + View PR only and flags missing lab pages — **does not** paste Scanner links. Unused on Tier 0. LangGraph HITL maps `interrupt()` to these URLs — see `skills/langgraph-production/SKILL.md`.
 
 `playground_standard` — optional on Tier 1–2. When set to `lexiscan-html-v2`, Hands plants the repo artifact at `understanding-lab/playground/` using the LexiScan house-tour file set (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`). Canonical lock t1268u: `docs/understanding-lab-playground-standard.md`. Omit on Tier 0.
+
+`cursor_project` — optional. Desk slug / Cursor IDE Project name when Hands is opened from a desk-scoped Project (e.g. `CTH-Infrastructure`, `CTH-Grants`, `Sustenttia`). Canonical map: `docs/cursor-projects.md`.
+
+`cursor_workspace` — optional. Lane A repo slug (`cth-plugin`, `sustenttia-v2`, `cth-data-room-scanner`, …) or `cth-matters` for Lane B packs. Pair with `cursor_project` when the default Create Project modal would pick the wrong repo.
 
 `model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical/tiny) or `composer-2.5` with **Fast ON** (`fast=true`) for repo/code/builds (Signal Radar, LexiScan, scanner, harness, LangGraph). Empty build ticket → Composer Fast ON (not Flash). Never silently launch a build with Fast off. Review/eval/brand with no model → HOLD and flag Gideon. See BUILDING lock t1263u in `docs/hands-model-routing.md` and `skills/harness/SKILL.md` §5.
