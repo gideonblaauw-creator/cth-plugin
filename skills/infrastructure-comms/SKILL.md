@@ -46,6 +46,7 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - Read `skills/harness/SKILL.md` before launching Hands.
 - Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
 - **BUILDING (t1263u):** repo/code/build Hands → Composer 2.5 **Fast ON** (`fast=true`); empty build ticket fills Fast ON (not Flash). Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code. Never silently launch a build with Fast off. Canonical: `docs/hands-model-routing.md`.
+- **Product-agent-loop (t1423u):** when ticket sets `eve: yes`, Infra checks Eve paths on the owning Lane A repo — `agent/instructions.md`, tools/skills under `agent/` — not desk/pack trees. Canonical: `docs/eve-convention.md`. Not Vercel Agent Runs; playground UI remains LexiScan house-tour standard (`docs/understanding-lab-playground-standard.md`).
 
 ### Cursor Projects ↔ Desk map (Infra ownership)
 

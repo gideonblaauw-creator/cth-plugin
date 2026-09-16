@@ -27,6 +27,7 @@ lab_notion:
   lab_playground_url:
   lab_shared_decisions_url:
 playground_standard: lexiscan-html-v2
+eve: yes
 hitl: nothing sent/posted/paid
 reviewer:
 context:
@@ -49,5 +50,7 @@ context:
 `cursor_project` — optional. Desk slug / Cursor IDE Project name when Hands is opened from a desk-scoped Project (e.g. `CTH-Infrastructure`, `CTH-Grants`, `Sustenttia`). Canonical map: `docs/cursor-projects.md`.
 
 `cursor_workspace` — optional. Lane A repo slug (`cth-plugin`, `sustenttia-v2`, `cth-data-room-scanner`, …) or `cth-matters` for Lane B packs. Pair with `cursor_project` when the default Create Project modal would pick the wrong repo.
+
+`eve` — optional. Set `eve: yes` on **product-agent-loop** tickets (Signal Radar, dataroom-scanner agent loops, LexiScan runner, Origo agent loops, new Lane A “app is an agent” products). Hands plants under locked `agent/` paths per `docs/eve-convention.md`. **Not** Vercel Agent Runs. Desk / pack / channel jobs **must not** invent Eve trees — omit `eve: yes`. Playground UI (Tier 1–2) stays LexiScan house-tour HTML — Eve is agent runtime files only.
 
 `model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical/tiny) or `composer-2.5` with **Fast ON** (`fast=true`) for repo/code/builds (Signal Radar, LexiScan, scanner, harness, LangGraph). Empty build ticket → Composer Fast ON (not Flash). Never silently launch a build with Fast off. Review/eval/brand with no model → HOLD and flag Gideon. See BUILDING lock t1263u in `docs/hands-model-routing.md` and `skills/harness/SKILL.md` §5.

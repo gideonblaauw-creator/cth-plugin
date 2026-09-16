@@ -20,7 +20,8 @@ metadata:
 **Owner:** Infrastructure  
 **Date:** 2026-09-14  
 **Canonical doc:** `docs/software-factory.md`  
-**Ship CI:** `docs/software-factory-ship-ci.md` · Templates: `docs/examples/software-factory/`
+**Ship CI:** `docs/software-factory-ship-ci.md` · Templates: `docs/examples/software-factory/`  
+**Product-agent files (when applicable):** `docs/eve-convention.md` — Eve path lock for agent loops; not the Understanding Lab playground UI.
 
 Lane A Apps+Software builds follow a locked conveyor. Cloud Hands executes steps 1–3, opens the draft PR, runs the Ship auto-loop (PR-Agent + visual CI), then pings Infra PASS (step 4). Understanding Lab (step 5) is tier-gated. Gideon merges.
 
@@ -122,7 +123,10 @@ lab_notion:
   lab_playground_url:
   lab_shared_decisions_url:
 playground_standard: lexiscan-html-v2
+eve: yes
 ```
+
+`eve: yes` — optional. Set when the factory build is also a **product-agent-loop**; Hands uses locked `agent/` paths per `docs/eve-convention.md`. Omit on desk/pack jobs.
 
 See `tickets/TEMPLATE.md` for full contract.
 
