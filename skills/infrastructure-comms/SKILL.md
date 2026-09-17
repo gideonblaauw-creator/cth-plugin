@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.6.0"
+  version: "1.7.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -60,6 +60,8 @@ Desk structure trickles into **Cursor IDE Projects** — not one Project per cha
 | Grant isolation | CTCN / GRP / TNS = chats inside CTH-Grants, not separate Projects |
 
 When ticketing Hands for a desk, optional fields `cursor_project` + `cursor_workspace` name the target Project and repo lane. Rollout phases and full tables: **`docs/cursor-projects.md`**. Harness pointer: `skills/harness/SKILL.md` § Cursor Projects ↔ Desks.
+
+**Peer docs (Infra pointers):** `docs/cursor-projects.md` (Cursor Projects ↔ Desks); **`docs/rakazo-plan-b-pointer.md`** (Plan B emergency failover — Phases 0–4 in `gideonblaauw-creator/rakazo-plan-b`; desk playbook `skills/rakazo-failover-comms/SKILL.md`).
 
 ## 5. Lowest-tier model
 

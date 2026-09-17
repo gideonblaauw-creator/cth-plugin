@@ -1,0 +1,45 @@
+# Rakazo Plan B — coordination pointer (Infra lock)
+
+**Owner:** Infrastructure. **SoT for Phases 0–4:** private repo [`gideonblaauw-creator/rakazo-plan-b`](https://github.com/gideonblaauw-creator/rakazo-plan-b).
+
+This doc is a **pointer only**. Do not install, deploy, or paste secrets from here. Live runbooks and channel layers live in `rakazo-plan-b`.
+
+## Plan A vs Plan B
+
+| Plan | Role | When |
+|---|---|---|
+| **Plan A** | Grok Bot Orchestrator + Cursor Cloud Hands | Default — all normal desk work |
+| **Plan B** | Rakazo emergency failover | **Gideon declare only** — not a standing mode |
+
+Plan B is **emergency-only**. Desks do not pre-switch, dual-primary, or warm-failover without explicit Gideon go.
+
+## Phase map (detail in `rakazo-plan-b`)
+
+| Phase | Scope | Notes |
+|---|---|---|
+| **0** | Docs plant | Coordination pointers + skills in `cth-plugin`; no VPS install |
+| **1** | VPS-4 Tailscale Docker twins | Orch + Infra containers — live steps in `rakazo-plan-b` |
+| **2–4** | Emergency craft + channels | See `rakazo-plan-b` runbooks |
+
+## Emergency craft rule
+
+When Gideon declares Plan B:
+
+- **Craft → Rakazo**, not Cursor Cloud Hands.
+- **Channels → Babo HITL** (human-in-the-loop before send/post/pay).
+- **LinkedIn:** **[PENDIENTE]** — no standing Workbench assumption under Plan B.
+
+## Where to read next
+
+| Artifact | Location |
+|---|---|
+| Failover runbook | `rakazo-plan-b` → `failover-runbook` (repo root or `docs/`) |
+| Babo channel layer | `rakazo-plan-b` → `babo-channel-layer` |
+| Desk comms playbook | `skills/rakazo-failover-comms/SKILL.md` |
+| Harness rulebook | `skills/harness/SKILL.md` |
+
+## Non-goals (this pointer)
+
+- No VPS install from `cth-plugin`
+- No secrets, tokens, or Eve trees
+- No dual-primary wording — Plan A stays default until Gideon declares Plan B

@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Rakazo Plan B pointer + failover comms (2026-09-17)
+
+- New doc: `docs/rakazo-plan-b-pointer.md` — Plan A (Grok Bot) vs Plan B (Rakazo emergency, Gideon declare only); Phases 0–4 live in private repo `gideonblaauw-creator/rakazo-plan-b`; Phase 0 docs plant; Phase 1 VPS-4 Tailscale Docker twins (Orch+Infra); emergency craft → Rakazo not Cursor Hands; channels via Babo HITL; LinkedIn **[PENDIENTE]**
+- New skill: `skills/rakazo-failover-comms/SKILL.md` + Cursor stub — coordination only; escalate Plan B on Gideon declare; pointers to `failover-runbook` + `babo-channel-layer` in `rakazo-plan-b`; UL tier on every Hands finish; Composer Fast ON for builds
+- Updated: `skills/harness/references/skill-toolkit.json`, `skills/infrastructure-comms/SKILL.md` — peer doc pointer
+- Non-goals: no VPS install, no secrets, no Eve trees, no dual-primary wording
+
 ### Cursor Projects ↔ Desk map (Infra ownership)
 
 - New doc: `docs/cursor-projects.md` — locked convention: one Cursor Project ≈ one durable workstream; Lane A product repos vs Lane B `cth-matters`; Layer 0–4 pods/desks/bench/personal tables; rollout phases; optional ticket fields
