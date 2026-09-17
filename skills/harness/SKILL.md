@@ -69,6 +69,8 @@ Optional Lane A field: `langgraph: yes` — production / client agent graph. Han
 
 Optional Lane A field: `factory: yes` — Apps+Software build follows the **Software Factory v0** conveyor (`docs/software-factory.md`, `skills/software-factory/SKILL.md`). Default `ship_review: pr-agent` (PR-Agent + visual CI on product repos). Optional `prove_eng: pytest+smoke | before-after`. Tier 0 skips factory step 5 (Understanding Lab); Tier 1–2 make step 5 a hard gate before Gideon merge.
 
+Optional Lane A field: `eve: yes` — **product-agent-loop** on the owning Lane A repo. Hands plants under locked `agent/` paths (`agent/instructions.md`, `agent/tools/*.ts`, `agent/skills/*.md`, optional `agent/agent.ts`, optional `agent/tasks/`). Canonical: `docs/eve-convention.md`. **Not** Vercel Agent Runs; **not** desk/pack/Drive/session-dump trees. GitHub Lane A = SSOT — never Archive or box scratch as SoT.
+
 ### iv) Cloud Hands
 **Cloud Hands** writes files. Not a Desk. Not a Workbench. Gideon does not DM Hands for strategy.
 
@@ -253,6 +255,22 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 **Out of scope in v0:** Signal Radar product (separate build), grant packs (Lane B), socials, enabling Ship CI org-wide from `cth-plugin` alone.
 
 Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: pytest+smoke | before-after`. See `tickets/TEMPLATE.md`.
+
+### Eve — file convention (Gideon t1423u)
+
+**Owner:** Infrastructure. **Canonical:** `docs/eve-convention.md`.
+
+**Eve** = **file convention only** for Lane A **product-agent** repos (Signal Radar, dataroom-scanner agent loops, LexiScan runner, Origo agent loops, new “app is an agent” products). **Not** runtime / Vercel Agent Runs. **Not** Desks, Archive, Drive packs, or session dumps.
+
+**Locked paths (product repo root):** `agent/instructions.md` (required); optional `agent/agent.ts`; `agent/tools/*.ts` (Zod schemas); `agent/skills/*.md`; optional `agent/tasks/`. Auto-discovery — **no** central tool registry.
+
+**SSOT:** GitHub Lane A repo. **Never** plant Eve under `/opt/claude-files/` or box scratch as SoT.
+
+**Playground vs Eve:** Tier 1–2 HITL UI = LexiScan house-tour HTML (`docs/understanding-lab-playground-standard.md`). Eve = agent runtime files — not the playground UI.
+
+**Ticket gate:** product-agent-loop tickets **must** use Eve paths (`eve: yes`). Desk / pack / channel jobs **must not** invent Eve trees.
+
+**Non-goals (t1423u):** no Vercel Eve deploy; no Signal Radar remap in this lock.
 
 ### Token lock — Gideon 2026-08-26 (hard gate; supersedes Sonnet-default, Haiku-default, review-auto-Sonnet for Cloud Hands)
 

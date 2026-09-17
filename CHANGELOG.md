@@ -12,6 +12,15 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 - Updated: `tickets/TEMPLATE.md` — optional `cursor_project`, `cursor_workspace` when opening Hands from a desk Project
 - HITL: Gideon creates/merges Cursor IDE Projects; Infra seeds map + Grok Bot shards; no Projects API from code
 
+### Eve file convention t1423u (2026-09-16)
+
+- New doc: `docs/eve-convention.md` — Eve = file convention only for Lane A product-agent repos; locked `agent/` paths; auto-discovery; no central tool registry
+- **Not** Vercel Agent Runs, Desks, Archive/Drive packs, or session dumps; GitHub Lane A = SSOT (never `/opt/claude-files/` or box scratch as SoT)
+- Applies to: Signal Radar, dataroom-scanner agent loops, LexiScan runner, Origo agent loops, new “app is an agent” Lane A products
+- Ticket gate: `eve: yes` on product-agent-loop; desk/pack/channel jobs must not invent Eve trees
+- Cross-link: playground UI = LexiScan house-tour (`docs/understanding-lab-playground-standard.md`); Eve = agent runtime files only
+- Updated: `skills/harness/SKILL.md` (§ Eve + optional `eve: yes`), `skills/software-factory/SKILL.md`, `skills/infrastructure-comms/SKILL.md`, `tickets/TEMPLATE.md`, `docs/understanding-lab-playground-standard.md`
+
 ### Legal dual entity lock t1353u (2026-09-15)
 
 - Updated: `skills/legal-comms/SKILL.md` — dual CTH entity lock (S.L. for commercial consulting; Foundation for grants/convenios); wrong entity = `blocker`; intake captures `cth_party: sl | foundation`
