@@ -9,7 +9,9 @@ This doc is a **pointer only**. Do not install, deploy, or paste secrets from he
 | Plan | Role | When |
 |---|---|---|
 | **Plan A** | Grok Bot Orchestrator + Cursor Cloud Hands | Default — all normal desk work |
-| **Plan B** | Rakazo emergency failover | **Gideon declare only** — not a standing mode |
+| **Plan B** | Rakazo Orchestrator + Desks (emergency failover) | **Gideon declare only** — not a standing mode |
+
+**Cursor Cloud Hands always craft** (Lane A and Lane B). Craft does **not** move to Rakazo computers.
 
 Plan B is **emergency-only**. Desks do not pre-switch, dual-primary, or warm-failover without explicit Gideon go.
 
@@ -19,13 +21,14 @@ Plan B is **emergency-only**. Desks do not pre-switch, dual-primary, or warm-fai
 |---|---|---|
 | **0** | Docs plant | Coordination pointers + skills in `cth-plugin`; no VPS install |
 | **1** | VPS-4 Tailscale Docker twins | Orch + Infra containers — live steps in `rakazo-plan-b` |
-| **2–4** | Emergency craft + channels | See `rakazo-plan-b` runbooks |
+| **2–4** | Orchestration + channels | See `rakazo-plan-b` runbooks |
 
-## Emergency craft rule
+## Emergency coordination rule
 
 When Gideon declares Plan B:
 
-- **Craft → Rakazo**, not Cursor Cloud Hands.
+- **Orchestration → Rakazo** (Orchestrator + Desks only).
+- **Craft → Cursor Cloud Hands** (always — ticket Hands on Lane A or Lane B).
 - **Channels → Babo HITL** (human-in-the-loop before send/post/pay).
 - **LinkedIn:** **[PENDIENTE]** — no standing Workbench assumption under Plan B.
 
@@ -43,3 +46,4 @@ When Gideon declares Plan B:
 - No VPS install from `cth-plugin`
 - No secrets, tokens, or Eve trees
 - No dual-primary wording — Plan A stays default until Gideon declares Plan B
+- No wording that craft moves to Rakazo computers

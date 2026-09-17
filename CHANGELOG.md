@@ -4,6 +4,10 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Rakazo Plan B craft lock t1465u (2026-09-17)
+
+- Updated: `docs/rakazo-plan-b-pointer.md`, `skills/rakazo-failover-comms/SKILL.md` — Plan B Rakazo = Orchestrator + Desks only; Cursor Cloud Hands craft always (Lane A/B); stripped craft→Rakazo wording; Babo channels unchanged
+
 ### Rakazo Plan B pointer + failover comms (2026-09-17)
 
 - New doc: `docs/rakazo-plan-b-pointer.md` — Plan A (Grok Bot) vs Plan B (Rakazo emergency, Gideon declare only); Phases 0–4 live in private repo `gideonblaauw-creator/rakazo-plan-b`; Phase 0 docs plant; Phase 1 VPS-4 Tailscale Docker twins (Orch+Infra); emergency craft → Rakazo not Cursor Hands; channels via Babo HITL; LinkedIn **[PENDIENTE]**
