@@ -522,6 +522,17 @@
       "description": "Recreate and operate the mac-scan private Cursor worker on Gideon's MacBook Air. Trigger on mac-scan worker setup, My Machines mac-scan, or Mac Scan Hands environment {type: machine, name: mac-scan}."
     },
     {
+      "name": "rakazo-failover-comms",
+      "category": "comms",
+      "canonical": "skills/rakazo-failover-comms/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Coordination playbook for Rakazo Plan B emergency failover. Use when: Plan B, Rakazo failover, Gideon declares emergency, Babo channel layer, or failover runbook routing. Do not use when: normal Plan A desk work (use the owning desk comms skill), VPS install from cth-plugin, or secrets handling.",
+      "desk": "Infrastructure"
+    },
+    {
       "name": "rein-hubs-comms",
       "category": "comms",
       "canonical": "skills/rein-hubs-comms/SKILL.md",
@@ -631,7 +642,7 @@
   ],
   "groups": {
     "core": 30,
-    "comms_desk": 28,
+    "comms_desk": 29,
     "comms_skill_names": [
       "academy-comms",
       "aic-comms",
@@ -657,6 +668,7 @@
       "mubon-comms",
       "newsletter-comms",
       "nexus-origo-comms",
+      "rakazo-failover-comms",
       "rein-hubs-comms",
       "socials-comms",
       "sustenttia-comms",
@@ -680,8 +692,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 58,
-    "cursor_stubs": 57,
+    "canonical_on_main": 59,
+    "cursor_stubs": 58,
     "cursor_skip": 1
   }
 }
