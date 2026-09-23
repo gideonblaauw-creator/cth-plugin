@@ -638,6 +638,16 @@
       "version": "1.0.0",
       "description": "Communications protocol for the Teclogi Desk. Trigger on Teclogi comms, dataroom client messages, or Teclogi Desk coordination. Grok Bot coordination only; file/copy/code \u2192 Cloud Hands (Token lock 2026-08-26).",
       "desk": "Teclogi"
+    },
+    {
+      "name": "workbench-pdf-reader",
+      "category": "infrastructure",
+      "canonical": "skills/workbench-pdf-reader/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Dedicated PDF keyword search and snippet extract for grants/research via pdfgrep. Use when: PDF keyword search, PDF snippet extract, grant PDF grep, research PDF search, Archive PDF path search. Do not use when: ad-hoc pdfgrep one-liners, HTML-to-PDF (html-to-pdf), or scanned PDFs without text layer."
     }
   ],
   "groups": {
@@ -692,8 +702,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 59,
-    "cursor_stubs": 58,
+    "canonical_on_main": 60,
+    "cursor_stubs": 59,
     "cursor_skip": 1
   }
 }
