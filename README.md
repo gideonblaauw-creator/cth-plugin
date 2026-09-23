@@ -10,7 +10,7 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **24 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **60 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -104,6 +104,7 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `skill-template` | Author and review Agent Skills — frontmatter spec, Cursor stub pattern, progressive disclosure (Agent Skills spec aligned) |
 | `app-build` | Blaauw app-build protocol — classify, gate, and promote trees to GitHub without inventing repos |
 | `langgraph-production` | Production LangGraph + HITL interrupt ↔ Notion Understanding Lab + LangSmith. Ticket `langgraph: yes`. OpenCode is OSS experiments only |
+| `workbench-pdf-reader` | PDF keyword search and snippet extract for grants/research via `scripts/workbench-pdf-read.sh` (pdfgrep + pdftotext fallback) |
 
 ---
 
