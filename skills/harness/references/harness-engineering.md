@@ -161,6 +161,7 @@ Initializer/coder split from upstream applies to **multi-hour product builds** (
 | “Done” but UI untested | Behavioral | Factory before/after or headless screenshot |
 | Buffer / social schedule assumed live | Context | Buffer **dead** — use Socials Desk + Workbench path |
 | Touched voice stack | Scope | **WA-Voice untouched** — stop and escalate Infra |
+| Local executor crawl/research/pack grind | Hands-ticket HARD | Re-ticket Cloud Hands — `skills/harness/references/hands-ticket-hard.md` |
 
 Full upstream symptom table lives in the source repo’s `reference/debugging-guide.md`; use it for generic agent failures, **plus** this table for CTH org mistakes.
 
@@ -179,6 +180,7 @@ Full upstream symptom table lives in the source repo’s `reference/debugging-gu
 | Path | Role |
 |---|---|
 | `skills/harness/SKILL.md` | Harness SoT |
+| `skills/harness/references/hands-ticket-hard.md` | **Desks + Workbenches → Hands** lock (24 Sep 2026); Mail Finder pattern; no local executor grind |
 | `tickets/TEMPLATE.md` | Seven-field ticket contract |
 | `docs/hands-model-routing.md` | Model fill-in |
 | `docs/understanding-lab-tiers.md` | Tier 0 default |

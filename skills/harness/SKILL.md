@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.8.1"
+  version: "3.8.2"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -159,6 +159,16 @@ OpenCode is a Hands lane, not a Desk.
 ### Operating protocol — Desk / Hands boundary (hard gate)
 
 Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not first-draft file packs, inventory-grind, or write code. Researcher/Scraper file writes are Hands tickets. Drive packs use Drive MCP/Tool, not a GitHub repo unless Gideon marked a repo row.
+
+### Hands-ticket HARD (24 Sep 2026)
+
+**Every Desk and every Workbench (+ capability agents) tickets craft to Cursor Cloud Hands.** Local Grok `executor` / box grind for research, crawl, packs, code, copy, HTML/PDF, or scrape is a **protocol miss** (Mail Finder incident). Capability agents ticket Hands for file packs; they do not first-draft Archive trees in Grok chat.
+
+**Narrow exception:** channel connector I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo, Monday stamps) **only when Hands cannot** — never to run crawl, research, or pack grind locally. **HITL** before send / post / pay / activate / cutover.
+
+**Orchestrator verify:** on miss, stop local grind, re-ticket Hands, patch profile/skill if needed; ready-ping Gideon only for HITL or blockers. Ready-ping carries PR/URL/**bc-id**/paths, not process notes. Parallel-first micro-Hands (one artifact + acceptance; cap 3–5 live per workstream). Lane A = owning repo PR; Lane B = `{type: machine, name: vps}` for Archive/Drive/packs (no `repo_url` when packs-only).
+
+Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id).
 
 ### Hands-shift lock — Gideon 2026-08-17 (hard gate)
 
