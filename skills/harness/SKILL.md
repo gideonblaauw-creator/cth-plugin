@@ -6,7 +6,7 @@ description: >
   tier. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.8.0"
+  version: "3.8.1"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -492,6 +492,10 @@ Do not connect fal.ai, `FAL_KEY`, or ElevenLabs. Official prices still `https://
 - `dual-desktop-macos` — Claude Desktop only; not on `main`; do not invent.
 
 Human-readable category tables also live in `README.md` § Skill Inventory (may lag `skill-toolkit.json`).
+
+## 6b. Harness engineering patterns (CTH-adapted)
+
+**Reference (not a second rulebook):** `skills/harness/references/harness-engineering.md` — adapted from [jonzarecki/harness-engineering-skill](https://github.com/jonzarecki/harness-engineering-skill): verification loops, context map, multi-session progress, debug catalog, Hashimoto “fix the harness once,” mapped to **Orchestrator · Desks · Workbench · Cloud Hands**, graph-first → loops (heartbeat, skill, maker≠checker, connectors, verifier), autonomy bands **1 Silent / 2 Desk / 3 Orch / 4 HITL** (send/post/pay/activate/cutover), and **SMART + n8n-li verifiers** on **18 live pilots**. **Buffer stays dead/inactive.** **WA-Voice untouched** (`/opt/cth-voice`). Hands do not activate n8n, merge, send, or deploy from this doc alone.
 
 ## 7. File structure
 
