@@ -6,6 +6,8 @@ Canonical playbooks live in `skills/<name>/SKILL.md`. Read those files. Do not d
 
 Authoring new skills: read `skills/skill-template/SKILL.md` first.
 
+Presentations HTML+SVG diagrams (no Mermaid): canonical playbook `skills/diagram-design/SKILL.md`.
+
 Intentionally omitted:
 
 - `secrets` — do not load in Cursor
