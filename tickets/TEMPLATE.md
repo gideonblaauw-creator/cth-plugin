@@ -6,6 +6,8 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 
 When opening Hands from a Cursor Project, name the Project and workspace lane so the agent lands on the correct repo or pack store.
 
+Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). Desk reviews Hands output (maker ≠ checker); n8n-li verifiers on live pilots supplement evidence — they do not replace Desk review or Gideon merge.
+
 ---
 
 ```

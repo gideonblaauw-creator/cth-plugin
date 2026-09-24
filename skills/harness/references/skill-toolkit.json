@@ -7,6 +7,10 @@
   "canonical_root": "skills/<name>/SKILL.md",
   "cursor_stub_root": ".cursor/skills/<name>/SKILL.md",
   "rulebook": "skills/harness/SKILL.md",
+  "harness_references": [
+    "skills/harness/references/harness-engineering.md",
+    "skills/harness/references/skill-toolkit.json"
+  ],
   "setup_docs": "HARNESS.md",
   "skills": [
     {
@@ -322,7 +326,7 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.7.0",
+      "version": "3.8.1",
       "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier. Read before any Cloud Hands ticket."
     },
     {

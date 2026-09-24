@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-24",
+  "branch": "feat/harness-engineering-skill",
+  "pr_url": "https://github.com/gideonblaauw-creator/cth-plugin/pull/42",
+  "skill_path": "skills/harness/SKILL.md",
+  "reference_path": "skills/harness/references/harness-engineering.md",
+  "archive_repo_path": "docs/archive/2026-09-24-harness-engineering/",
+  "archive_vps_path": "/opt/claude-files/Infrastructure/2026-09-24/harness-engineering/",
+  "vps_plant": "PENDING_INFRA",
+  "upstream": "https://github.com/jonzarecki/harness-engineering-skill",
+  "tier": 0,
+  "hitl": "no merge, no send, no activate, no deploy"
+}
