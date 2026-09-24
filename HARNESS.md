@@ -48,6 +48,7 @@ This section points at paths that exist on `main`. It is not the CTH Harness rul
 | `skills/skill-template/SKILL.md` | Skill authoring template — Agent Skills spec + CTH routing |
 | `skills/skill-template/references/SKILL-TEMPLATE.md` | Copy-paste skeleton for new skills |
 | `skills/harness/references/skill-toolkit.json` | Skill inventory — canonical `skills/<name>/SKILL.md`, Cursor stubs, skip list |
+| `skills/harness/references/hands-ticket-hard.md` | Desks + Workbenches → Cloud Hands lock (24 Sep 2026); Mail Finder pattern — pointer only |
 | `skills/harness/references/harness-engineering.md` | CTH-adapted harness-engineering patterns (verification, context map, loops, autonomy bands) — pointer only; rulebook stays in `skills/harness/SKILL.md` |
 | `tickets/TEMPLATE.md` | Seven-field ticket contract |
 | `AGENTS.md` | Cursor pointer, Skip list, Cursor Cloud validation |

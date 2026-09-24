@@ -8,6 +8,7 @@
   "cursor_stub_root": ".cursor/skills/<name>/SKILL.md",
   "rulebook": "skills/harness/SKILL.md",
   "harness_references": [
+    "skills/harness/references/hands-ticket-hard.md",
     "skills/harness/references/harness-engineering.md",
     "skills/harness/references/skill-toolkit.json"
   ],

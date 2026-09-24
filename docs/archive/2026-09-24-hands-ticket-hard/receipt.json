@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-24",
+  "ticket": "hands-ticket-hard-cth-plugin",
+  "branch": "feat/hands-ticket-hard",
+  "repo": "https://github.com/gideonblaauw-creator/cth-plugin",
+  "skill_path": "skills/harness/SKILL.md",
+  "reference_path": "skills/harness/references/hands-ticket-hard.md",
+  "archive_path": "docs/archive/2026-09-24-hands-ticket-hard/",
+  "vps_target": "/opt/claude-files/Infrastructure/2026-09-24/hands-ticket-hard/",
+  "vps_plant": "PENDING_INFRA",
+  "tier": 0
+}
