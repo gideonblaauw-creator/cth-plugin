@@ -16,20 +16,25 @@ Apply these rules to every piece of content you create or edit for CleantechHUB.
 
 ## Visual Identity
 
+Source of truth: the CleantechHUB **Manual de Marca** (Brand Book, January 2024). Tagline: *Inspira · Actúa · Transforma*.
+
 ### Color Palette
 
-Use these exact hex values. Map them to CSS custom properties when building HTML artifacts.
+Use ONLY these five official colors for primary elements. Map them to CSS custom properties when building HTML artifacts.
 
 | Role | Name | Hex | Usage |
 |------|------|-----|-------|
-| Primary | CTH Green | #2D6A4F | Headers, primary buttons, key accents |
-| Secondary | CTH Dark | #1B4332 | Text on light backgrounds, footer bars |
-| Accent | CTH Lime | #95D5B2 | Highlights, secondary buttons, badges |
-| Background | CTH Light | #D8F3DC | Section backgrounds, cards |
-| Neutral | CTH White | #FFFFFF | Page backgrounds |
-| Text | CTH Charcoal | #333333 | Body text |
+| Primary | Deep Blue | #0C498A | Official documents, formal comms, logo default, headers |
+| Primary | Light Cyan | #B2EEFA | Backgrounds and light fills — the "water" element |
+| Primary | Light Green | #9DC384 | Creative pieces, secondary emphasis — the "earth" element |
+| Secondary | Forest Green | #669348 | Supporting earth tones, footer bars |
+| Secondary | Sky Blue | #69B5FA | Supporting water tones |
 
-Never introduce off-brand colors for primary UI elements. If a design calls for additional shades, derive them by adjusting opacity of the existing palette — do not invent new hues.
+**Color meaning:** blues represent water as a vital element and the human drive for change; greens represent the earth we belong to and must care for.
+
+Neutrals: use white (#FFFFFF) for page backgrounds and a dark tone (Deep Blue #0C498A or near-black) for body text. Do not invent new hues — derive extra shades by adjusting the opacity of the palette.
+
+**Forbidden:** black backgrounds combined with the dark blue logo (legibility conflict), purple or magenta backgrounds, and any color outside this palette.
 
 ### CSS Custom Properties
 
@@ -37,13 +42,14 @@ When building any HTML artifact, always define these at the root:
 
 ```css
 :root {
-  --cth-primary: #2D6A4F;
-  --cth-dark: #1B4332;
-  --cth-accent: #95D5B2;
-  --cth-light: #D8F3DC;
+  --cth-deep-blue: #0C498A;
+  --cth-light-cyan: #B2EEFA;
+  --cth-light-green: #9DC384;
+  --cth-forest-green: #669348;
+  --cth-sky-blue: #69B5FA;
   --cth-white: #FFFFFF;
-  --cth-text: #333333;
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-primary: 'Open Sans', 'PT Sans', sans-serif;
+  color-scheme: light;
 }
 ```
 
@@ -51,19 +57,21 @@ Reference these variables throughout your CSS instead of hardcoding hex values.
 
 ### Typography
 
-- **Headlines:** Inter Bold. If Inter is unavailable, fall back to system sans-serif.
-- **Body text:** Inter Regular, 16px base size, 1.6 line-height.
-- **Accent text:** Inter Medium for labels, navigation items, metadata, and captions.
-- Never use serif fonts in CleantechHUB materials.
-- Minimum body text size is 14px; prefer 16px.
+- **Wordmark:** Titilium Bold — used for the "CleantechHUB" wordmark only.
+- **Primary:** Open Sans (Regular, SemiBold, Bold) — body text, headings, and main copy in all documents.
+- **Secondary:** PT Sans — accompanying brand copy and supporting text.
+- **Tertiary:** Hind Bold — extra artwork and modern variations.
+- Web/digital fallback stack: `'Open Sans', 'PT Sans', sans-serif`. For HTML artifacts, load the fonts:
+  `<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">`
+- Never use serif fonts in CleantechHUB materials. Minimum body text size is 14px; prefer 16px.
 
 ### Logo Usage
 
-- The full logo is the "CleantechHUB" wordmark — "Cleantech" in regular weight, "HUB" in bold.
-- Maintain minimum clear space of 1x the height of the "H" in HUB on all sides.
-- Never stretch, rotate, add effects to, or recolor the logo.
-- On dark backgrounds, use the white variant of the wordmark.
-- When the logo cannot be embedded (plain text contexts), write "CleantechHUB" as one word with capital H-U-B.
+- The full logo is the "CleantechHUB" wordmark — "Cleantech" in regular weight, "HUB" in bold. In plain-text contexts, write "CleantechHUB" as one word with capital H-U-B.
+- Approved color versions: Deep Blue (#0C498A, default/official), Light Cyan (#B2EEFA, creative), Forest Green (#669348, semi-formal), Light Green (#9DC384, friendly/creative), and monochrome black-on-white or white-on-black for single-color reproduction.
+- Maintain a clear-space exclusion zone on all sides (Manual de Marca: 3 cm in print; digitally, at least 1x the height of the "H" in HUB). Minimum print size is 4 cm wide.
+- Never stretch, rotate, recolor, add shadows, or apply effects to the logo. Do not place it on busy photos without a solid-color shield, or on any background where it cannot be fully read.
+- For co-branding and partnerships, use the dark blue horizontal logo and keep the same clear-space and minimum-size rules.
 
 ## Tone of Voice
 
@@ -118,7 +126,7 @@ Format signatures as:
 Before delivering any CleantechHUB-branded content, verify:
 
 1. Color palette is correct — no off-brand colors in primary elements.
-2. Typography uses Inter (or system sans-serif fallback) — no serif fonts.
+2. Typography uses Open Sans / PT Sans (or system sans-serif fallback) — no serif fonts.
 3. Tone follows the five principles — expert, accessible, action-oriented, collaborative, climate-positive.
 4. Logo or wordmark is present where the format allows.
 5. Standard footer or signature is included where appropriate.
