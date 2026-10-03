@@ -26,7 +26,7 @@ Do **not** use wire for dense architecture (use **Architecture**), time-ordered 
 
 **Status** uses wire-only tokens in [`style-guide.md`](style-guide.md#wire-status-tokens-status-only) — always pair color with the shape cue.
 
-**Split:** more than 12 nodes → one **overview** frame (counts per lane) plus one **detail** frame per lane that has nodes, stacked in a single SVG/HTML export.
+**Large lane maps (>12 nodes):** single canvas with **compact columns** per lane (target width ~1280px). All **cross-lane edges** render with orthogonal lane-to-lane routing — no overview strip and no implied-only wires.
 
 ## Callable tool
 

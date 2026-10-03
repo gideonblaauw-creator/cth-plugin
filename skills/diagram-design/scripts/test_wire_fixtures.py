@@ -11,12 +11,19 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from render_wire import ICON_GUTTER, NODE_LABEL_SIZE, NODE_PAD_X, render_spec_path  # noqa: E402
-from wire_text import text_width  # noqa: E402
+from render_wire import (  # noqa: E402
+    ICON_GUTTER,
+    NODE_LABEL_SIZE,
+    NODE_PAD_X,
+    path_within_canvas,
+    render_spec_path,
+)
+from wire_text import NODE_LABEL_LINE_HEIGHT, text_width  # noqa: E402
 
 FIXTURES = SCRIPT_DIR.parent / "fixtures" / "wire"
 LEGEND_CLEARANCE = 16
 SVG_NS = {"svg": "http://www.w3.org/2000/svg"}
+SPLIT_FIXTURE = FIXTURES / "split-cross-lane-synthetic.yaml"
 
 
 def _float(value: str | None, default: float = 0.0) -> float:
@@ -121,6 +128,66 @@ def verify_svg(svg_source: str) -> list[str]:
                 if abs(icon_cy - ty) > 2:
                     errors.append("legend icon cy misaligned with text baseline")
 
+    for group in root.iter():
+        if not group.tag.endswith("g"):
+            continue
+        if "wire-node" not in (group.get("class") or ""):
+            continue
+        label_ys: list[float] = []
+        for text_el in group.iter():
+            if not text_el.tag.endswith("text"):
+                continue
+            if "wire-node-label" not in (text_el.get("class") or ""):
+                continue
+            label_ys.append(_float(text_el.get("y")))
+        if len(label_ys) == 2:
+            label_ys.sort()
+            gap = label_ys[1] - label_ys[0]
+            if abs(gap - NODE_LABEL_LINE_HEIGHT) > 0.01:
+                errors.append(
+                    f"2-line label gap {gap}px != {NODE_LABEL_LINE_HEIGHT}px on {group.get('id')}"
+                )
+
+    width = _float(root.get("width"))
+    height = _float(root.get("height"))
+    if width <= 0 or height <= 0:
+        view = root.get("viewBox", "0 0 0 0").split()
+        if len(view) == 4:
+            width, height = _float(view[2]), _float(view[3])
+    edge_count = 0
+    for el in root.iter():
+        if not el.tag.endswith("path"):
+            continue
+        if el.get("marker-end") != "url(#wire-arrow)":
+            continue
+        edge_count += 1
+        path_d = el.get("d") or ""
+        if width and height and not path_within_canvas(path_d, int(width), int(height)):
+            errors.append(f"edge {el.get('id')} exits canvas ({width}x{height})")
+
+    return errors
+
+
+def verify_split_cross_lane(spec_path: Path, svg_source: str) -> list[str]:
+    errors: list[str] = []
+    if spec_path.name != SPLIT_FIXTURE.name:
+        return errors
+    import yaml
+
+    spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+    expected_edges = len(spec.get("edges") or [])
+    root = ET.fromstring(svg_source)
+    rendered = sum(
+        1
+        for el in root.iter()
+        if el.tag.endswith("path") and el.get("marker-end") == "url(#wire-arrow)"
+    )
+    if rendered != expected_edges:
+        errors.append(f"expected {expected_edges} edge paths, got {rendered}")
+    if "overview-" in svg_source:
+        errors.append("overview strip nodes must not appear in split layout")
+    if "Lane:" in svg_source:
+        errors.append("duplicate lane subtitle (Lane: ...) must not appear")
     return errors
 
 
@@ -130,6 +197,7 @@ def main() -> int:
     for spec_path in specs:
         _html, svg, _md = render_spec_path(spec_path)
         errors = verify_svg(svg)
+        errors.extend(verify_split_cross_lane(spec_path, svg))
         if errors:
             failed = True
             print(f"FAIL {spec_path.name}")
