@@ -55,6 +55,24 @@ Applied to schematics:
 
 ---
 
+## Wire diagram (callable)
+
+Harness **lane wires** (YAML spec → HTML, SVG, Markdown, PNG) live beside the hand-drawn visual types. Use for Gideon → Orchestrator → Desks → Hands → Tools team reports, n8n/data-flow sketches, and before/after policy maps — not for dense architecture or charts.
+
+```bash
+python3 scripts/wire.py path/to/spec.yaml --out ./out [--html] [--svg] [--md] [--png]
+python3 scripts/validate_spec.py path/to/spec.yaml
+```
+
+- Spec v1, schema, and layout rules: [`references/type-wire.md`](references/type-wire.md)
+- Status colors (amber/red **status only** + shape cues): [`references/style-guide.md`](references/style-guide.md)
+- Fixtures: [`fixtures/wire/`](fixtures/wire/); operator notes: [`README-wire.md`](README-wire.md)
+- Outputs: `<id>-wire.{html,svg,md,png}` with vendored fonts under `assets/fonts/wire/` (no Google Fonts in wire HTML)
+
+Register in harness tooling via `skills/harness/references/skill-toolkit.json` (`diagram-design` → wire CLI).
+
+---
+
 ## 2. When to Use
 
 Use for any of the 41 visual types (§3) when a reader will learn more from a visual than from prose, a table, or a bulleted list.

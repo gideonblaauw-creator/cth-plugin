@@ -253,6 +253,24 @@
       "description": "SEO/AEO command center for cleantechhub.net subdomains. Use when: SEO, keywords, Search Console, schema, sitemap, Ad Grant, technical SEO audit."
     },
     {
+      "name": "diagram-design",
+      "category": "presentations",
+      "canonical": "skills/diagram-design/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "2.6.0-cth",
+      "description": "CleantechHUB HTML+SVG diagrams and callable wire renderer. Use when: presentation diagram, architecture figure, or harness wire YAML (scripts/wire.py).",
+      "tools": [
+        {
+          "id": "wire",
+          "entry": "skills/diagram-design/scripts/wire.py",
+          "usage": "wire.py spec.yaml --out DIR [--png --svg --html --md]"
+        }
+      ],
+      "desk": "Presentations"
+    },
+    {
       "name": "cth-strategy-comms",
       "category": "comms",
       "canonical": "skills/cth-strategy-comms/SKILL.md",

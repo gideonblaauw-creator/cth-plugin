@@ -37,6 +37,17 @@ Every token is referred to by **semantic role**, not by its hex value. Type refe
 | `accent-tint` | Fill for accent-bordered boxes | `rgba(157,195,132,0.18)` | `rgba(181,217,160,0.14)` |
 | `link` | HTTP/API calls, external arrows | `#69B5FA` (sky blue) | `#B2EEFA` |
 
+### Wire status tokens (status only)
+
+Wire diagrams (`references/type-wire.md`) may use **amber and red only for status**, each paired with a shape cue. Do not use these hues for generic nodes or edges.
+
+| Status | Fill/stroke | Shape cue |
+|---|---|---|
+| `done` | `#669348` (forest green) | check mark |
+| `waiting` | `#E3A21A` (amber) | clock |
+| `blocked` | `#C0392B` (red) | horizontal bar |
+| `hold` / HITL | `#8A97A6` (neutral) | dashed node border |
+
 > **Brand palette source (CleantechHUB):** Deep Blue `#0C498A`, Light Cyan `#B2EEFA`, Light Green `#9DC384`, Forest Green `#669348`, Sky Blue `#69B5FA` — from `skills/cleantechhub-brand/brand_dna.yaml`. Upstream stone+rust (`#f5f5f5`, `#2d3142`, `#eb6c36`) is **not** used in this install. See [`cleantechhub-brand-mapping.md`](cleantechhub-brand-mapping.md).
 
 > **Note:** The pre-baked example HTML files in `assets/` were built under an earlier skin. Regenerating them against the current `style-guide.md` is a v5.1 task. New diagrams the skill produces will use the tokens above.

@@ -245,6 +245,16 @@ def normalize_css_escapes(source: str) -> str:
     return CSS_ESCAPE_RE.sub(replace, source)
 
 
+def is_wire_font_url(value: str) -> bool:
+    stripped = value.strip().strip("'\"")
+    if stripped.startswith("#"):
+        return False
+    lowered = stripped.casefold()
+    if lowered.startswith(("http://", "https://", "//")):
+        return False
+    return stripped.startswith("./fonts/") and stripped.endswith(".woff2")
+
+
 def check_css_references(parser: DiagramParser, errors: list[str]) -> None:
     # Match the repository linter's fail-closed treatment of CSS loader syntax.
     source = normalize_css_escapes("\n".join(parser.styles + parser.css_attributes))
@@ -255,6 +265,8 @@ def check_css_references(parser: DiagramParser, errors: list[str]) -> None:
     for match in CSS_URL_RE.finditer(source):
         value = match.group(1).strip().strip("'\"").strip()
         if not value.startswith("#"):
+            if is_wire_font_url(value):
+                continue
             errors.append("non-fragment CSS url() is not allowed")
             found_loader = True
     if CSS_IMAGE_SET_RE.search(source):
