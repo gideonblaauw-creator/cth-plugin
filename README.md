@@ -10,7 +10,7 @@ Operational plugin for CleantechHUB collaborators — brand guidelines, program 
 
 ## What This Plugin Does
 
-The CTH Plugin provides **60 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
+The CTH Plugin provides **61 skills** organized across **4 categories** that encode CleantechHUB's operational knowledge — from brand guidelines and grant writing to infrastructure monitoring and social media campaigns. Each skill is a structured markdown file that teaches an AI assistant how to perform a specific CTH workflow correctly, including hard-won lessons and failure modes.
 
 The plugin also defines **13 connector categories** mapping CleantechHUB's standard tools (Buffer, Canva, Monday.com, etc.) to their MCP integrations, with documented alternatives for teams using different products.
 
@@ -91,6 +91,7 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `notion` | Search, create, move, and reorganize Notion pages — content databases, campaign calendars, and workspace structure |
 | `composio` | Connect to hundreds of third-party services through Composio's integration gateway when no dedicated connector exists |
 | `miro` | Read and create content on Miro boards — diagrams, structured docs, tables, and workflow visualizations |
+| `wire-brief` | STE-80 English intake brief from loose EN/ES asks before wire diagrams, images, explainer video, or derived MD |
 
 ### Infrastructure
 
