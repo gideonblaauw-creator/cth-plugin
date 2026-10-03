@@ -7,7 +7,7 @@ import argparse
 import sys
 from pathlib import Path
 
-PAPER = "#B2EEFA"
+PAPER = "#F7FBFD"
 
 
 def export_png(html_path: Path, png_path: Path, scale: int = 2) -> None:
