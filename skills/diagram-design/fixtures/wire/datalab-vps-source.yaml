@@ -1,0 +1,183 @@
+wire: 1
+id: datalab
+title: CTH Datalab — strategy pack to governed outputs (Lane B VPS)
+lang: en
+layout: lanes
+source: "/opt/claude-files/datalab/2026-09-23/DATALAB-STRATEGY-BRIEF.md; 2026-10-02/fde/03-estrategia-fde-v0.md; 2026-10-03 wire test"
+lanes:
+  - gideon
+  - orchestrator
+  - datalab
+  - hands
+  - data-sources
+  - outputs
+nodes:
+  - id: gideon-hitl
+    lane: gideon
+    label: "HITL lock\nDRAFT no send"
+    status: hold
+    ref: DATALAB-STRATEGY-BRIEF.md
+  - id: gideon-wire-ask
+    lane: gideon
+    label: "Wire diagram\nVPS test ask"
+    status: done
+    ref: "2026-10-03/wire/"
+  - id: orch-lane-b
+    lane: orchestrator
+    label: "Orchestrator\nLane B route"
+    status: done
+    ref: 03-stakeholders-products.md
+  - id: dl-layer3
+    lane: datalab
+    label: "Datalab desk\nLayer 3 platform"
+    status: done
+    ref: DATALAB-STRATEGY-BRIEF §3
+  - id: dl-ladder
+    lane: datalab
+    label: "Delivery ladder\nDatathon→Lab→CDW"
+    status: done
+    ref: 02-strategy-fit-maxing.md
+  - id: dl-cohort
+    lane: datalab
+    label: "Cohort continuity\nMetabase ops"
+    status: waiting
+    ref: DATALAB-STRATEGY-BRIEF §5
+  - id: dl-chain
+    lane: datalab
+    label: "DMAT→Baserow\n→Metabase chain"
+    status: waiting
+    ref: DATALAB-STRATEGY-BRIEF B.4
+  - id: dl-fde
+    lane: datalab
+    label: "FDE modules\nFlows·Base·Dashboard"
+    status: hold
+    note: v0 not validated
+    ref: 03-estrategia-fde-v0.md
+  - id: dl-poc-design
+    lane: datalab
+    label: "PoC Engine design\nOpen Energy Sandbox"
+    status: hold
+    note: cluster aspirational
+    ref: 10-datalab-poc-engine-wire.md
+  - id: dl-academy
+    lane: datalab
+    label: "Academy handoff\nND→Data Lab"
+    status: waiting
+    ref: 04-operating-sketch-rewired.md
+  - id: hands-vps
+    lane: hands
+    label: "VPS Lane B\nsingle writer"
+    status: done
+    ref: "2026-10-03/wire/"
+  - id: hands-celery
+    lane: hands
+    label: "Celery Django\nDatathon scoring"
+    status: done
+    ref: DATALAB-STRATEGY-BRIEF B.4
+  - id: src-strategy
+    lane: data-sources
+    label: "Strategy pack\n2026-09-23 VPS"
+    status: done
+    ref: /opt/claude-files/datalab/2026-09-23/
+  - id: src-chamber
+    lane: data-sources
+    label: "Green Data\nChamber Datathon"
+    status: waiting
+    note: sprint date PENDIENTE
+    ref: CCB-Bucaramanga brief
+  - id: src-xm
+    lane: data-sources
+    label: "XM public\nenergy rows"
+    status: done
+    ref: ccb_cluster_energia_pnl
+  - id: src-origo
+    lane: data-sources
+    label: "Origo optional\nTrack 2 substrate"
+    status: hold
+    ref: 04-operating-sketch-rewired.md
+  - id: out-drive
+    lane: outputs
+    label: "CTH Drive\nHITL private"
+    status: hold
+    ref: DATALAB-STRATEGY-BRIEF header
+  - id: out-vps
+    lane: outputs
+    label: "VPS archive\n/opt/claude-files/datalab"
+    status: done
+    ref: INDEX.md
+  - id: out-vercel
+    lane: outputs
+    label: "APC UMBRAL deck\nVercel publish"
+    status: done
+    ref: apc-umbral-cth.vercel.app
+  - id: out-wire-artifacts
+    lane: outputs
+    label: "Wire PNG SVG\nHTML MD export"
+    status: done
+    ref: diagram-design wire.py
+edges:
+  - from: gideon-wire-ask
+    to: orch-lane-b
+    kind: ask
+    label: wire test
+  - from: gideon-hitl
+    to: dl-layer3
+    kind: hitl
+    label: no send
+  - from: orch-lane-b
+    to: dl-layer3
+    kind: ticket
+  - from: dl-layer3
+    to: dl-ladder
+    kind: data
+  - from: dl-ladder
+    to: dl-cohort
+    kind: ticket
+  - from: dl-cohort
+    to: dl-chain
+    kind: data
+  - from: dl-chain
+    to: hands-celery
+    kind: data
+    label: scoring
+  - from: dl-academy
+    to: src-chamber
+    kind: data
+    label: Acquire
+  - from: src-chamber
+    to: dl-cohort
+    kind: data
+    label: prototypes
+  - from: src-strategy
+    to: dl-layer3
+    kind: data
+  - from: src-xm
+    to: dl-chain
+    kind: data
+  - from: src-origo
+    to: dl-chain
+    kind: data
+    label: optional
+  - from: dl-fde
+    to: dl-poc-design
+    kind: ticket
+  - from: dl-poc-design
+    to: dl-chain
+    kind: data
+  - from: hands-vps
+    to: out-vps
+    kind: data
+  - from: hands-vps
+    to: out-wire-artifacts
+    kind: data
+  - from: dl-layer3
+    to: out-vercel
+    kind: data
+    label: Layer stack
+  - from: dl-cohort
+    to: out-drive
+    kind: hitl
+    label: HITL
+  - from: gideon-hitl
+    to: out-drive
+    kind: hitl
