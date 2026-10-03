@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cleantechhub.net/schemas/wire/1",
+  "title": "CTH Wire Diagram Spec v1",
+  "type": "object",
+  "required": ["wire", "id", "title", "lang", "layout", "nodes", "edges"],
+  "additionalProperties": true,
+  "properties": {
+    "wire": { "const": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,62}$"
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "lang": { "enum": ["en", "es", "en+es"] },
+    "layout": { "enum": ["lanes", "flow", "before-after"] },
+    "source": { "type": "string" },
+    "lanes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "lane", "label", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "lane": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["done", "waiting", "blocked", "hold"] },
+          "ref": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "from": { "type": "string", "minLength": 1 },
+          "to": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["ask", "ticket", "hitl", "data"] },
+          "label": { "type": "string" }
+        }
+      }
+    }
+  }
+}

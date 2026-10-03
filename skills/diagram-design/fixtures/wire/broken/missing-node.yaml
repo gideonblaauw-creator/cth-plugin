@@ -1,0 +1,14 @@
+wire: 1
+id: broken-edge
+title: Broken edge target
+lang: en
+layout: lanes
+nodes:
+  - id: only-one
+    lane: gideon
+    label: Solo
+    status: done
+edges:
+  - from: only-one
+    to: ghost-node
+    kind: ticket

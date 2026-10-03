@@ -1,0 +1,14 @@
+wire: 1
+id: broken-lane
+title: Broken lane reference
+lang: en
+layout: lanes
+lanes:
+  - gideon
+  - orchestrator
+nodes:
+  - id: stray
+    lane: desks
+    label: Wrong lane
+    status: waiting
+edges: []

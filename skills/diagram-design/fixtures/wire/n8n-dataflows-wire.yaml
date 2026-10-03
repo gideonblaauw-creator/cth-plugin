@@ -1,0 +1,103 @@
+wire: 1
+id: n8n-dataflows
+title: n8n automation data flows (CleantechHUB VPS)
+lang: en+es
+layout: flow
+source: Internal ops — n8n on OVH alongside BookStack
+lanes:
+  - gideon
+  - orchestrator
+  - desks
+  - hands
+  - tools
+nodes:
+  - id: trigger-slack
+    lane: tools
+    label: Slack trigger
+    status: done
+  - id: trigger-schedule
+    lane: tools
+    label: Cron schedule
+    status: done
+  - id: n8n-core
+    lane: orchestrator
+    label: n8n core
+    status: done
+  - id: wf-inbox
+    lane: desks
+    label: Inbox triage WF
+    status: waiting
+  - id: wf-socials
+    lane: desks
+    label: Socials loop WF
+    status: done
+  - id: wf-doctor
+    lane: tools
+    label: Doctor_Bot WF
+    status: done
+  - id: composio-bridge
+    lane: tools
+    label: Composio bridge
+    status: waiting
+  - id: hands-dispatch
+    lane: hands
+    label: Cloud Hands ticket
+    status: blocked
+    note: lane B repo lock
+  - id: gdrive-write
+    lane: tools
+    label: Google Drive put
+    status: done
+  - id: notion-sync
+    lane: tools
+    label: Notion sync
+    status: hold
+  - id: bookstack-index
+    lane: tools
+    label: BookStack index
+    status: done
+  - id: mariadb-log
+    lane: tools
+    label: MariaDB audit log
+    status: done
+  - id: caddy-edge
+    lane: tools
+    label: Caddy edge TLS
+    status: done
+edges:
+  - from: trigger-slack
+    to: n8n-core
+    kind: data
+  - from: trigger-schedule
+    to: n8n-core
+    kind: data
+  - from: n8n-core
+    to: wf-inbox
+    kind: ticket
+  - from: n8n-core
+    to: wf-socials
+    kind: ticket
+  - from: wf-inbox
+    to: composio-bridge
+    kind: data
+  - from: wf-socials
+    to: gdrive-write
+    kind: data
+  - from: composio-bridge
+    to: hands-dispatch
+    kind: ticket
+  - from: hands-dispatch
+    to: notion-sync
+    kind: hitl
+  - from: wf-doctor
+    to: mariadb-log
+    kind: data
+  - from: n8n-core
+    to: wf-doctor
+    kind: ticket
+  - from: gdrive-write
+    to: bookstack-index
+    kind: data
+  - from: bookstack-index
+    to: caddy-edge
+    kind: data

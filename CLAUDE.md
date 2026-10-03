@@ -40,9 +40,13 @@ Mark any public-voice CleantechHUB content (social media posts, newsletter copy,
 - `wiki.cleantechhub.net` — Knowledge base (BookStack)
 - `nexus.cleantechhub.net` — Startup portfolio (static HTML)
 
+## Presentations diagrams
+
+For editorial architecture, data-flow, and slide-ready figures, use **`skills/diagram-design/SKILL.md`** (HTML+SVG). Do not ship Mermaid as the final CleantechHUB artifact. Smoke sample: `skills/diagram-design/assets/cth-smoke-architecture.html`.
+
 ## Plugin Structure
 
-- `skills/` — 24 skill directories, each with a `SKILL.md` and optional `references/` for detailed knowledge
+- `skills/` — skill directories, each with a `SKILL.md` and optional `references/` for detailed knowledge
 - `.cursorrules` — Cursor IDE context (brand colors, infrastructure rule, code standards)
 - `.mcp.json` — MCP server configurations for connectors
 - `CONNECTORS.md` — Tool category mapping with CTH standards and alternatives
