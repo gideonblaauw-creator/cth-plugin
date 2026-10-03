@@ -1,0 +1,21 @@
+wire: 1
+id: two-line-spacing
+title: Two-line label spacing regression
+lang: en
+layout: flow
+source: test fixture — even 2-line baselines
+lanes:
+  - hands
+nodes:
+  - id: long-a
+    lane: hands
+    label: Cloud Hands build
+    status: waiting
+  - id: long-b
+    lane: hands
+    label: Infrastructure Desk review
+    status: done
+edges:
+  - from: long-a
+    to: long-b
+    kind: ticket
