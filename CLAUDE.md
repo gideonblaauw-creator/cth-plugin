@@ -44,6 +44,8 @@ Mark any public-voice CleantechHUB content (social media posts, newsletter copy,
 
 For editorial architecture, data-flow, and slide-ready figures, use **`skills/diagram-design/SKILL.md`** (HTML+SVG). Do not ship Mermaid as the final CleantechHUB artifact. Smoke sample: `skills/diagram-design/assets/cth-smoke-architecture.html`.
 
+**Wire diagrams from a loose ask:** `wire-brief` → `diagram-design` (`wire.py`). Triggers include *wire diagram*, *diagrama*, *diagrama de cables*, *diagrama de flujo*. Harness team report MD with a Wire diagram section: `multi-agent-team-report` (spec YAML beside the report; no PIL/Matplotlib).
+
 ## Plugin Structure
 
 - `skills/` — skill directories, each with a `SKILL.md` and optional `references/` for detailed knowledge

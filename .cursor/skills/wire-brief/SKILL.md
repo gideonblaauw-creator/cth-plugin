@@ -2,7 +2,8 @@
 name: wire-brief
 description: >
   STE-80 English wire brief from loose EN/ES asks before diagrams, video, image,
-  or MD. Use when: wire diagram, diagrama, explainer video, image from ask.
+  or MD. Use when: wire diagram, diagrama, diagrama de cables/flujo, explainer
+  video, image from ask.
 ---
 
 # wire-brief

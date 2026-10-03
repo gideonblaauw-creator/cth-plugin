@@ -474,6 +474,16 @@
       "description": "Manages Monday.com workspaces, boards, dashboards, automations. Use when: Monday.com, boards, workdocs, widgets."
     },
     {
+      "name": "multi-agent-team-report",
+      "category": "infrastructure",
+      "canonical": "skills/multi-agent-team-report/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "Harness team report Markdown with Wire diagram via wire.py and colocated spec.yaml. Use when: team report, weekly harness report, Orchestrator routing summary."
+    },
+    {
       "name": "mubon-comms",
       "category": "comms",
       "canonical": "skills/mubon-comms/SKILL.md",
@@ -663,6 +673,16 @@
       "desk": "Teclogi"
     },
     {
+      "name": "wire-brief",
+      "category": "operations",
+      "canonical": "skills/wire-brief/SKILL.md",
+      "claude_desktop": true,
+      "cursor": "stub",
+      "license": "MIT",
+      "version": "1.0.0",
+      "description": "STE-80 English intake before wire diagrams, images, explainer video, or derived MD. Use when: wire diagram, diagrama, diagrama de cables, diagrama de flujo, loose ask."
+    },
+    {
       "name": "workbench-pdf-reader",
       "category": "infrastructure",
       "canonical": "skills/workbench-pdf-reader/SKILL.md",
@@ -725,8 +745,8 @@
     }
   ],
   "counts": {
-    "canonical_on_main": 60,
-    "cursor_stubs": 59,
+    "canonical_on_main": 62,
+    "cursor_stubs": 61,
     "cursor_skip": 1
   }
 }

@@ -4,7 +4,8 @@ description: >
   CleantechHUB Presentations craft skill — editorial HTML+SVG diagrams (no Mermaid
   deliverables). Architecture, data flow, flowchart, sequence, state, ER, timeline,
   swimlane, charts, and 30+ other visual types. CTH brand pre-installed. Use when:
-  presentation diagram, architecture SVG, data-flow HTML, slide figure, redraw import.
+  presentation diagram, architecture SVG, data-flow HTML, slide figure, redraw import,
+  harness wire YAML (wire.py). Do not use when: loose wire-diagram ask (wire-brief first).
 license: MIT
 metadata:
   version: "2.6.0-cth"
