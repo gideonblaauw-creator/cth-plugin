@@ -28,6 +28,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - **Authoring or reviewing skills**, read `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 - **Production / client LangGraph agent graphs** use `langgraph-production` (`langgraph: yes` on the ticket). OpenCode is OSS experiments only.
 - **Hands model routing (BUILDING t1263u):** repo/code/build → `composer-2.5` Fast ON; mechanical/tiny → Flash. Canonical: `docs/hands-model-routing.md`.
+- **Wire diagrams, diagramas, explainer video, image, or MD from a loose ask:** run `wire-brief` (STE-80 intake + optional G0) before `diagram-design` or other render skills.
 
 ## VPS files
 
