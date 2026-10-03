@@ -97,6 +97,24 @@ def wrap_label(
     return lines
 
 
+def label_lines_for_node(
+    label: str,
+    inner_width: float,
+    *,
+    font_size: float = NODE_LABEL_FONT_SIZE,
+    max_lines: int = 2,
+) -> list[str]:
+    if "\n" in label:
+        explicit = [part.strip() for part in label.split("\n") if part.strip()]
+        if len(explicit) <= max_lines:
+            return explicit
+        merged = " ".join(explicit[max_lines - 1 :])
+        return explicit[: max_lines - 1] + [merged]
+    if text_width(label, font_size) <= inner_width:
+        return [label]
+    return wrap_label(label, inner_width, font_size=font_size, max_lines=max_lines)
+
+
 def label_metrics_for_spec(
     nodes: list[dict],
     *,
@@ -112,11 +130,7 @@ def label_metrics_for_spec(
     provisional: dict[str, list[str]] = {}
     for node in nodes:
         label = node["label"]
-        single = text_width(label, fs)
-        if single <= inner_at_min:
-            lines = [label]
-        else:
-            lines = wrap_label(label, inner_at_min, font_size=fs)
+        lines = label_lines_for_node(label, inner_at_min, font_size=fs)
         max_lines_needed = max(max_lines_needed, len(lines))
         provisional[node["id"]] = lines
         for line in lines:
@@ -128,10 +142,7 @@ def label_metrics_for_spec(
     max_lines_needed = 1
     for node in nodes:
         label = node["label"]
-        if text_width(label, fs) <= inner_final:
-            lines = [label]
-        else:
-            lines = wrap_label(label, inner_final, font_size=fs)
+        lines = label_lines_for_node(label, inner_final, font_size=fs)
         final_lines[node["id"]] = lines
         max_lines_needed = max(max_lines_needed, len(lines))
     has_note = any(node.get("note") for node in nodes)

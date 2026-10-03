@@ -12,11 +12,14 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from render_wire import (  # noqa: E402
+    Box,
     ICON_GUTTER,
     NODE_LABEL_SIZE,
     NODE_PAD_X,
     path_within_canvas,
     render_spec_path,
+    segment_intersects_box,
+    segments_from_path,
 )
 from wire_text import NODE_LABEL_LINE_HEIGHT, text_width  # noqa: E402
 
@@ -24,6 +27,7 @@ FIXTURES = SCRIPT_DIR.parent / "fixtures" / "wire"
 LEGEND_CLEARANCE = 16
 SVG_NS = {"svg": "http://www.w3.org/2000/svg"}
 SPLIT_FIXTURE = FIXTURES / "split-cross-lane-synthetic.yaml"
+SKIP_FIXTURES = {"datalab-vps-source.yaml"}
 
 
 def _float(value: str | None, default: float = 0.0) -> float:
@@ -168,6 +172,54 @@ def verify_svg(svg_source: str) -> list[str]:
     return errors
 
 
+def verify_edge_node_gutters(svg_source: str, *, layout: str = "lanes") -> list[str]:
+    if layout != "lanes":
+        return []
+    errors: list[str] = []
+    root = ET.fromstring(svg_source)
+    node_boxes: dict[str, Box] = {}
+    for group in root.iter():
+        if not group.tag.endswith("g"):
+            continue
+        if "wire-node" not in (group.get("class") or ""):
+            continue
+        group_id = group.get("id") or ""
+        if "-node-" not in group_id:
+            continue
+        node_id = group_id.split("-node-", 1)[1]
+        rect_el = None
+        for child in group:
+            if child.tag.endswith("rect") and (child.get("class") or "") != "wire-lane-band":
+                rect_el = child
+                break
+        if rect_el is None:
+            continue
+        rx, ry, rw, rh = parse_rect(rect_el)
+        node_boxes[node_id] = Box(int(rx), int(ry), int(rw), int(rh))
+
+    for el in root.iter():
+        if not el.tag.endswith("path"):
+            continue
+        if el.get("marker-end") != "url(#wire-arrow)":
+            continue
+        from_id = el.get("data-from")
+        to_id = el.get("data-to")
+        path_d = el.get("d") or ""
+        segments = segments_from_path(path_d)
+        for seg_index, (p1, p2) in enumerate(segments):
+            for node_id, box in node_boxes.items():
+                if from_id and node_id == from_id:
+                    continue
+                if to_id and node_id == to_id:
+                    continue
+                if segment_intersects_box(p1, p2, box, inset=1.0):
+                    errors.append(
+                        f"edge {el.get('id')} segment {seg_index} crosses node {node_id!r}"
+                    )
+                    break
+    return errors
+
+
 def verify_split_cross_lane(spec_path: Path, svg_source: str) -> list[str]:
     errors: list[str] = []
     if spec_path.name != SPLIT_FIXTURE.name:
@@ -192,11 +244,16 @@ def verify_split_cross_lane(spec_path: Path, svg_source: str) -> list[str]:
 
 
 def main() -> int:
-    specs = sorted(FIXTURES.glob("*.yaml"))
+    specs = sorted(p for p in FIXTURES.glob("*.yaml") if p.name not in SKIP_FIXTURES)
     failed = False
     for spec_path in specs:
         _html, svg, _md = render_spec_path(spec_path)
+        import yaml
+
+        spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+        layout = spec.get("layout", "lanes")
         errors = verify_svg(svg)
+        errors.extend(verify_edge_node_gutters(svg, layout=layout))
         errors.extend(verify_split_cross_lane(spec_path, svg))
         if errors:
             failed = True

@@ -46,6 +46,7 @@ COL_GAP = 24
 ROW_GAP = 20
 MARGIN = 24
 CHANNEL = 20
+ROUTE_CLEARANCE = 12
 LEGEND_ITEM_H = 22
 LEGEND_CLEARANCE = 16
 
@@ -415,25 +416,275 @@ def path_hits_obstacles(
     return False
 
 
+def segments_hit_obstacles(
+    segments: list[tuple[int, int, int, int]], obstacles: Iterable[Box]
+) -> bool:
+    for x1, y1, x2, y2 in segments:
+        if abs(y1 - y2) <= 1:
+            if any(h_seg_hits_box(y1, x1, x2, box) for box in obstacles):
+                return True
+        elif abs(x1 - x2) <= 1:
+            if any(v_seg_hits_box(x1, y1, y2, box) for box in obstacles):
+                return True
+    return False
+
+
+def routing_obstacles(
+    obstacles: list[Box], src: Box, dst: Box
+) -> list[Box]:
+    return [
+        b.inflated(ROUTE_CLEARANCE)
+        for b in obstacles
+        if b is not src and b is not dst
+    ]
+
+
 def candidate_mid_x_values(
     sx: int, tx: int, obstacles: list[Box], src: Box, dst: Box
 ) -> list[int]:
-    lo = min(sx, tx) - 80
-    hi = max(sx, tx) + 80
+    lo = min(sx, tx) - 120
+    hi = max(sx, tx) + 120
     gaps: set[int] = set()
-    gaps.add(snap(dst.x - CHANNEL))
-    gaps.add(snap(src.right + CHANNEL))
+    gaps.add(snap(dst.x - ROUTE_CLEARANCE))
+    gaps.add(snap(src.right + ROUTE_CLEARANCE))
     gaps.add(snap((sx + tx) // 2))
     sorted_obs = sorted(obstacles, key=lambda b: b.x)
     for index in range(len(sorted_obs) - 1):
-        gap = (sorted_obs[index].right + sorted_obs[index + 1].x) // 2
-        gaps.add(snap(gap))
+        left, right = sorted_obs[index], sorted_obs[index + 1]
+        if right.x - left.right >= ROUTE_CLEARANCE * 2:
+            gap = (left.right + right.x) // 2
+            gaps.add(snap(gap))
+    if sorted_obs:
+        gaps.add(snap(sorted_obs[0].x - ROUTE_CLEARANCE))
+        gaps.add(snap(sorted_obs[-1].right + ROUTE_CLEARANCE))
     gaps.add(snap(lo))
     gaps.add(snap(hi))
     candidates = sorted(g for g in gaps if lo <= g <= hi)
     if not candidates:
         candidates = [snap((sx + tx) // 2)]
     return candidates
+
+
+def pick_mid_x(
+    sx: int,
+    sy: int,
+    tx: int,
+    ty: int,
+    obstacles: list[Box],
+    src: Box,
+    dst: Box,
+    *,
+    canvas_w: int | None,
+) -> int:
+    obs = routing_obstacles(obstacles, src, dst)
+    candidates = candidate_mid_x_values(sx, tx, obs, src, dst)
+    best: tuple[int, int] | None = None
+    target = (sx + tx) // 2
+    for candidate in candidates:
+        mid_x = clamp_x(candidate, canvas_w)
+        if path_hits_obstacles(sx, sy, mid_x, ty, tx, obs):
+            continue
+        score = abs(mid_x - target)
+        if best is None or score < best[0]:
+            best = (score, mid_x)
+    if best:
+        return best[1]
+    return clamp_x(snap(target), canvas_w)
+
+
+def lane_row_bounds(placed: dict[str, PlacedNode], spec: dict[str, Any]) -> dict[str, tuple[int, int]]:
+    bounds: dict[str, tuple[int, int]] = {}
+    for lane in normalize_lanes(spec):
+        nodes = [pn for pn in placed.values() if pn.spec["lane"] == lane]
+        if not nodes:
+            continue
+        top = min(pn.box.y for pn in nodes)
+        bottom = max(pn.box.bottom for pn in nodes)
+        bounds[lane] = (top, bottom)
+    return bounds
+
+
+def gutter_below_lane(
+    lane: str,
+    lane_bounds: dict[str, tuple[int, int]],
+    lanes: list[str],
+) -> int | None:
+    if lane not in lane_bounds:
+        return None
+    try:
+        index = lanes.index(lane)
+    except ValueError:
+        return None
+    if index + 1 >= len(lanes):
+        return snap(lane_bounds[lane][1] + ROW_GAP)
+    next_lane = lanes[index + 1]
+    if next_lane not in lane_bounds:
+        return None
+    bottom = lane_bounds[lane][1]
+    top = lane_bounds[next_lane][0]
+    if top <= bottom + ROUTE_CLEARANCE:
+        return None
+    return snap((bottom + top) // 2)
+
+
+def gutter_above_lane(
+    lane: str,
+    lane_bounds: dict[str, tuple[int, int]],
+    lanes: list[str],
+) -> int | None:
+    if lane not in lane_bounds:
+        return None
+    try:
+        index = lanes.index(lane)
+    except ValueError:
+        return None
+    if index <= 0:
+        return snap(lane_bounds[lane][0] - ROW_GAP)
+    prev_lane = lanes[index - 1]
+    if prev_lane not in lane_bounds:
+        return None
+    bottom = lane_bounds[prev_lane][1]
+    top = lane_bounds[lane][0]
+    if top <= bottom + ROUTE_CLEARANCE:
+        return None
+    return snap((bottom + top) // 2)
+
+
+def path_from_segments(segments: list[tuple[int, int, int, int]]) -> str:
+    if not segments:
+        return ""
+    x0, y0, _, _ = segments[0]
+    parts = [f"M {x0} {y0}"]
+    for _, _, x1, y1 in segments:
+        parts.append(f"L {x1} {y1}")
+    return " ".join(parts)
+
+
+def route_margin_bus(
+    sx: int,
+    sy: int,
+    tx: int,
+    ty: int,
+    channel_y: int,
+    obs: list[Box],
+    *,
+    canvas_h: int | None,
+) -> str | None:
+    bus_x = snap(MARGIN + 4)
+    channel_y = clamp_y(channel_y, canvas_h)
+    segment_sets = [
+        [
+            (sx, sy, sx, channel_y),
+            (sx, channel_y, bus_x, channel_y),
+            (bus_x, channel_y, tx, channel_y),
+            (tx, channel_y, tx, ty),
+        ],
+        [
+            (sx, sy, sx, channel_y),
+            (sx, channel_y, bus_x, channel_y),
+            (bus_x, channel_y, bus_x, ty),
+            (bus_x, ty, tx, ty),
+        ],
+    ]
+    for segments in segment_sets:
+        if not segments_hit_obstacles(segments, obs):
+            return path_from_segments(segments)
+    return None
+
+
+def route_u_below(
+    sx: int,
+    sy: int,
+    tx: int,
+    ty: int,
+    gutter_y: int,
+    obs: list[Box],
+    *,
+    canvas_h: int | None,
+) -> str | None:
+    gutter_y = clamp_y(gutter_y, canvas_h)
+    segments = [
+        (sx, sy, sx, gutter_y),
+        (sx, gutter_y, tx, gutter_y),
+        (tx, gutter_y, tx, ty),
+    ]
+    if segments_hit_obstacles(segments, obs):
+        return None
+    return path_from_segments(segments)
+
+
+def canvas_bottom_gutter_y(obstacles: Iterable[Box]) -> int:
+    boxes = list(obstacles)
+    if not boxes:
+        return snap(MARGIN + 2 * ROUTE_CLEARANCE)
+    max_bottom = max(b.bottom for b in boxes)
+    return snap(max_bottom + 2 * ROUTE_CLEARANCE)
+
+
+def lane_channel_ys(
+    src: Box,
+    dst: Box,
+    obstacles: list[Box],
+    *,
+    src_lane: str,
+    dst_lane: str,
+    lane_bounds: dict[str, tuple[int, int]],
+) -> list[int]:
+    """Horizontal gutter Y values in gaps between lane rows (src lane → dst lane)."""
+    _ = (src, dst, obstacles)
+    channel_ys: list[int] = []
+    lanes = normalize_lanes({"lanes": list(lane_bounds.keys())})
+    if src_lane not in lane_bounds or dst_lane not in lane_bounds:
+        return channel_ys
+    try:
+        index_src = lanes.index(src_lane)
+        index_dst = lanes.index(dst_lane)
+    except ValueError:
+        return channel_ys
+    lo, hi = min(index_src, index_dst), max(index_src, index_dst)
+    for index in range(lo, hi):
+        left, right = lanes[index], lanes[index + 1]
+        if left not in lane_bounds or right not in lane_bounds:
+            continue
+        bottom = lane_bounds[left][1]
+        top = lane_bounds[right][0]
+        if top > bottom + ROUTE_CLEARANCE:
+            channel_ys.append(snap((bottom + top) // 2))
+    seen: set[int] = set()
+    ordered: list[int] = []
+    for value in channel_ys:
+        if value not in seen:
+            seen.add(value)
+            ordered.append(value)
+    return ordered
+
+
+def route_lanes_gutter(
+    src: Box,
+    dst: Box,
+    obstacles: list[Box],
+    *,
+    src_lane: str,
+    dst_lane: str,
+    lane_bounds: dict[str, tuple[int, int]],
+    canvas_w: int | None,
+    canvas_h: int | None,
+) -> str | None:
+    """Route via left margin bus + destination column (avoids node rows)."""
+    sx, sy = src.right_mid()
+    tx, ty = dst.left_mid()
+    if tx <= sx + 4:
+        sx, sy = src.left_mid()
+        tx, ty = dst.right_mid()
+    obs = routing_obstacles(obstacles, src, dst)
+    channel_ys = lane_channel_ys(
+        src, dst, obstacles, src_lane=src_lane, dst_lane=dst_lane, lane_bounds=lane_bounds
+    )
+    for channel_y in channel_ys:
+        path = route_margin_bus(sx, sy, tx, ty, channel_y, obs, canvas_h=canvas_h)
+        if path:
+            return path
+    return None
 
 
 def clamp_x(value: int, canvas_w: int | None) -> int:
@@ -460,12 +711,15 @@ def route_orthogonal(
     *,
     canvas_w: int | None = None,
     canvas_h: int | None = None,
+    src_lane: str = "",
+    dst_lane: str = "",
+    lane_bounds: dict[str, tuple[int, int]] | None = None,
 ) -> str:
     if layout == "flow":
         sx, sy = src.bottom_mid()
         tx, ty = dst.top_mid()
         mid_y = snap(sy + (ty - sy) // 2)
-        obs = [b for b in obstacles if b is not src and b is not dst]
+        obs = routing_obstacles(obstacles, src, dst)
         for delta in (0, -CHANNEL, CHANNEL, -2 * CHANNEL, 2 * CHANNEL):
             candidate = clamp_y(snap(mid_y + delta), canvas_h)
             if not any(
@@ -484,42 +738,98 @@ def route_orthogonal(
         else:
             sx, sy = src.left_mid()
             tx, ty = dst.right_mid()
-        mid_x = clamp_x(snap((sx + tx) // 2), canvas_w)
-        obs = [b.inflated(4) for b in obstacles]
-        if path_hits_obstacles(sx, sy, mid_x, ty, tx, obs):
-            for candidate in candidate_mid_x_values(sx, tx, obs, src, dst):
-                candidate = clamp_x(candidate, canvas_w)
-                if not path_hits_obstacles(sx, sy, candidate, ty, tx, obs):
-                    mid_x = candidate
-                    break
+        mid_x = pick_mid_x(sx, sy, tx, ty, obstacles, src, dst, canvas_w=canvas_w)
         return f"M {sx} {sy} L {mid_x} {sy} L {mid_x} {ty} L {tx} {ty}"
 
     sx, sy = src.right_mid()
     tx, ty = dst.left_mid()
-    obs = [b.inflated(4) for b in obstacles if b != src and b != dst]
-    if tx <= sx:
+    if tx <= sx + 4:
         sx, sy = src.left_mid()
         tx, ty = dst.right_mid()
-        mid_x = clamp_x(snap(sx - CHANNEL), canvas_w)
-        if path_hits_obstacles(sx, sy, mid_x, ty, tx, obs):
-            for candidate in candidate_mid_x_values(sx, tx, obs, src, dst):
-                candidate = clamp_x(candidate, canvas_w)
-                if not path_hits_obstacles(sx, sy, candidate, ty, tx, obs):
-                    mid_x = candidate
-                    break
-        return f"M {sx} {sy} L {mid_x} {sy} L {mid_x} {ty} L {tx} {ty}"
 
-    mid_x = clamp_x(snap(sx + (tx - sx) // 2), canvas_w)
-    if path_hits_obstacles(sx, sy, mid_x, ty, tx, obs):
-        for candidate in candidate_mid_x_values(sx, tx, obs, src, dst):
-            candidate = clamp_x(candidate, canvas_w)
-            if not path_hits_obstacles(sx, sy, candidate, ty, tx, obs):
-                mid_x = candidate
-                break
-        else:
-            if obstacles:
-                mid_x = clamp_x(snap(max(b.right for b in obstacles) + CHANNEL), canvas_w)
+    bounds = lane_bounds or {}
+    obs = routing_obstacles(obstacles, src, dst)
+    if src_lane and dst_lane and src_lane == dst_lane:
+        lanes = normalize_lanes({"lanes": list(bounds.keys())})
+        below_y = canvas_bottom_gutter_y(obstacles)
+        path = route_u_below(sx, sy, tx, ty, below_y, obs, canvas_h=canvas_h)
+        if path:
+            return path
+        for gutter_y in (
+            gutter_below_lane(src_lane, bounds, lanes),
+            gutter_above_lane(src_lane, bounds, lanes),
+        ):
+            if gutter_y is None:
+                continue
+            path = route_margin_bus(sx, sy, tx, ty, gutter_y, obs, canvas_h=canvas_h)
+            if path:
+                return path
+        mid_x = pick_mid_x(sx, sy, tx, ty, obstacles, src, dst, canvas_w=canvas_w)
+        candidate = f"M {sx} {sy} L {mid_x} {sy} L {mid_x} {ty} L {tx} {ty}"
+        mid_segments = [
+            (sx, sy, mid_x, sy),
+            (mid_x, sy, mid_x, ty),
+            (mid_x, ty, tx, ty),
+        ]
+        if not segments_hit_obstacles(mid_segments, obs):
+            return candidate
+        path = route_u_below(sx, sy, tx, ty, below_y + ROW_GAP, obs, canvas_h=canvas_h)
+        if path:
+            return path
+        return candidate
+
+    gutter_path = route_lanes_gutter(
+        src,
+        dst,
+        obstacles,
+        src_lane=src_lane,
+        dst_lane=dst_lane,
+        lane_bounds=bounds,
+        canvas_w=canvas_w,
+        canvas_h=canvas_h,
+    )
+    if gutter_path:
+        return gutter_path
+
+    below_y = canvas_bottom_gutter_y(obstacles)
+    path = route_u_below(sx, sy, tx, ty, below_y, obs, canvas_h=canvas_h)
+    if path:
+        return path
+
+    mid_x = pick_mid_x(sx, sy, tx, ty, obstacles, src, dst, canvas_w=canvas_w)
     return f"M {sx} {sy} L {mid_x} {sy} L {mid_x} {ty} L {tx} {ty}"
+
+
+def segments_from_path(path_d: str) -> list[tuple[tuple[float, float], tuple[float, float]]]:
+    points = parse_orthogonal_path(path_d)
+    return list(zip(points, points[1:]))
+
+
+def segment_intersects_box(
+    p1: tuple[float, float],
+    p2: tuple[float, float],
+    box: Box,
+    *,
+    inset: float = 1.0,
+) -> bool:
+    x1, y1 = p1
+    x2, y2 = p2
+    bx, by, bw, bh = float(box.x), float(box.y), float(box.w), float(box.h)
+    left, right = bx + inset, bx + bw - inset
+    top, bottom = by + inset, by + bh - inset
+    if abs(y1 - y2) < 0.01:
+        y = y1
+        if y < top or y > bottom:
+            return False
+        xa, xb = min(x1, x2), max(x1, x2)
+        return xa < right and xb > left
+    if abs(x1 - x2) < 0.01:
+        x = x1
+        if x < left or x > right:
+            return False
+        ya, yb = min(y1, y2), max(y1, y2)
+        return ya < bottom and yb > top
+    return False
 
 
 def parse_orthogonal_path(path_d: str) -> list[tuple[float, float]]:
@@ -568,6 +878,7 @@ def edges_layers(
     paths: list[str] = []
     labels: list[str] = []
     obstacles = [p.box for p in placed.values()]
+    bounds = lane_row_bounds(placed, spec)
     edges = sorted(spec["edges"], key=lambda e: (e["from"], e["to"], e["kind"]))
     for index, edge in enumerate(edges):
         src = placed.get(edge["from"])
@@ -577,10 +888,19 @@ def edges_layers(
         stroke, width, dash = edge_style(edge["kind"])
         dash_attr = f' stroke-dasharray="{dash}"' if dash else ""
         path = route_orthogonal(
-            src.box, dst.box, layout, obstacles, canvas_w=canvas_w, canvas_h=canvas_h
+            src.box,
+            dst.box,
+            layout,
+            obstacles,
+            canvas_w=canvas_w,
+            canvas_h=canvas_h,
+            src_lane=src.spec["lane"],
+            dst_lane=dst.spec["lane"],
+            lane_bounds=bounds,
         )
         paths.append(
-            f'<path id="{slug}-edge-{index}" d="{path}" fill="none" stroke="{stroke}" '
+            f'<path id="{slug}-edge-{index}" data-from="{html.escape(edge["from"])}" '
+            f'data-to="{html.escape(edge["to"])}" d="{path}" fill="none" stroke="{stroke}" '
             f'stroke-width="{width}"{dash_attr} marker-end="url(#wire-arrow)"/>'
         )
         if edge.get("label"):
