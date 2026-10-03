@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from validate_spec import DEFAULT_LANES, load_spec, validate_spec_dict
+from wire_text import label_metrics_for_spec
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_FONTS_HREF = "./fonts/wire"
@@ -29,20 +30,22 @@ TOKENS = {
     "status_hold": "#8A97A6",
 }
 
-NODE_W = 176
-NODE_H = 56
+NODE_W_MIN = 168
 NODE_LABEL_SIZE = 16
 LANE_LABEL_SIZE = 13
 EDGE_LABEL_SIZE = 11
 LANE_LABEL_W = 128
 LANE_PAD = 12
 LANE_BAND_EXTRA = 8
+NODE_PAD_X = 12
+ICON_GUTTER = 28
 GRID = 4
 COL_GAP = 24
 ROW_GAP = 20
 MARGIN = 24
 CHANNEL = 20
-LEGEND_ITEM_H = 20
+LEGEND_ITEM_H = 22
+LEGEND_CLEARANCE = 16
 
 
 def snap(value: float) -> int:
@@ -106,6 +109,28 @@ def nodes_by_lane(spec: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
     return grouped
 
 
+def ensure_wire_layout(spec: dict[str, Any]) -> dict[str, Any]:
+    if "_wire_metrics" in spec:
+        return spec["_wire_metrics"]
+    node_w, node_h, lines = label_metrics_for_spec(
+        spec["nodes"],
+        node_w_min=NODE_W_MIN,
+        pad_x=NODE_PAD_X,
+        icon_gutter=ICON_GUTTER,
+    )
+    metrics = {"node_w": node_w, "node_h": node_h, "lines": lines}
+    spec["_wire_metrics"] = metrics
+    return metrics
+
+
+def node_w(spec: dict[str, Any]) -> int:
+    return int(ensure_wire_layout(spec)["node_w"])
+
+
+def node_h(spec: dict[str, Any]) -> int:
+    return int(ensure_wire_layout(spec)["node_h"])
+
+
 def lane_columns(count: int) -> int:
     if count <= 3:
         return count or 1
@@ -115,22 +140,24 @@ def lane_columns(count: int) -> int:
 
 
 def layout_lane_row(
-    nodes: list[dict[str, Any]], y: int, x_start: int
+    spec: dict[str, Any], nodes: list[dict[str, Any]], y: int, x_start: int
 ) -> list[PlacedNode]:
     if not nodes:
         return []
+    nw, nh = node_w(spec), node_h(spec)
     cols = lane_columns(len(nodes))
     placed: list[PlacedNode] = []
     for index, node in enumerate(nodes):
         col = index % cols
         row = index // cols
-        x = snap(x_start + col * (NODE_W + COL_GAP))
-        ny = snap(y + row * (NODE_H + ROW_GAP))
-        placed.append(PlacedNode(node, Box(x, ny, NODE_W, NODE_H)))
+        x = snap(x_start + col * (nw + COL_GAP))
+        ny = snap(y + row * (nh + ROW_GAP))
+        placed.append(PlacedNode(node, Box(x, ny, nw, nh)))
     return placed
 
 
 def layout_lanes(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list[Box]]:
+    ensure_wire_layout(spec)
     grouped = nodes_by_lane(spec)
     lanes = normalize_lanes(spec)
     x_start = MARGIN + LANE_LABEL_W + LANE_PAD
@@ -143,7 +170,7 @@ def layout_lanes(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list
         row_nodes = grouped.get(lane, [])
         if not row_nodes:
             continue
-        placed = layout_lane_row(row_nodes, y, x_start)
+        placed = layout_lane_row(spec, row_nodes, y, x_start)
         all_nodes.extend(placed)
         row_top = min(p.box.y for p in placed) - LANE_BAND_EXTRA
         row_bottom = max(p.box.y + p.box.h for p in placed) + LANE_BAND_EXTRA
@@ -160,20 +187,25 @@ def layout_lanes(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list
 
 
 def layout_flow(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list[Box]]:
+    ensure_wire_layout(spec)
+    nw, nh = node_w(spec), node_h(spec)
     nodes = sorted(spec["nodes"], key=lambda n: n["id"])
     x = snap(MARGIN + LANE_LABEL_W)
     y = MARGIN + 8
     placed: list[PlacedNode] = []
     for node in nodes:
-        placed.append(PlacedNode(node, Box(x, y, NODE_W, NODE_H)))
-        y = snap(y + NODE_H + ROW_GAP)
-    width = snap(x + NODE_W + MARGIN)
-    height = snap(y + MARGIN)
-    band = Box(MARGIN, MARGIN, width - 2 * MARGIN, height - MARGIN) if placed else []
+        placed.append(PlacedNode(node, Box(x, y, nw, nh)))
+        y = snap(y + nh + ROW_GAP)
+    width = snap(x + nw + MARGIN)
+    content_bottom = y
+    height = snap(content_bottom + MARGIN)
+    band = Box(MARGIN, MARGIN, width - 2 * MARGIN, content_bottom - MARGIN) if placed else []
     return placed, width, height, [band] if placed else []
 
 
 def layout_before_after(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list[Box]]:
+    ensure_wire_layout(spec)
+    nw, nh = node_w(spec), node_h(spec)
     before_lane = "before"
     after_lane = "after"
     lanes = normalize_lanes(spec)
@@ -190,22 +222,24 @@ def layout_before_after(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, in
         key=lambda n: n["id"],
     )
     left_x = snap(MARGIN + 8)
-    right_x = snap(left_x + NODE_W + 80)
+    right_x = snap(left_x + nw + 80)
     header_y = MARGIN + 20
     y0 = snap(MARGIN + 44)
     rows = max(len(left), len(right))
     placed: list[PlacedNode] = []
     for row in range(rows):
-        y = snap(y0 + row * (NODE_H + ROW_GAP))
+        y = snap(y0 + row * (nh + ROW_GAP))
         if row < len(left):
-            placed.append(PlacedNode(left[row], Box(left_x, y, NODE_W, NODE_H)))
+            placed.append(PlacedNode(left[row], Box(left_x, y, nw, nh)))
         if row < len(right):
-            placed.append(PlacedNode(right[row], Box(right_x, y, NODE_W, NODE_H)))
-    width = snap(right_x + NODE_W + MARGIN)
-    height = snap(y0 + rows * (NODE_H + ROW_GAP) + MARGIN)
+            placed.append(PlacedNode(right[row], Box(right_x, y, nw, nh)))
+    width = snap(right_x + nw + MARGIN)
+    content_bottom = snap(y0 + rows * (nh + ROW_GAP))
+    height = snap(content_bottom + MARGIN)
+    band_h = content_bottom - y0 + 8
     bands = [
-        Box(left_x - 8, y0 - 8, NODE_W + 16, height - y0 + 8),
-        Box(right_x - 8, y0 - 8, NODE_W + 16, height - y0 + 8),
+        Box(left_x - 8, y0 - 8, nw + 16, band_h),
+        Box(right_x - 8, y0 - 8, nw + 16, band_h),
     ]
     spec["_before_after_meta"] = {
         "header_y": header_y,
@@ -217,6 +251,7 @@ def layout_before_after(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, in
 
 
 def layout_spec(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list[Box]]:
+    ensure_wire_layout(spec)
     layout = spec.get("layout", "lanes")
     if layout == "flow":
         return layout_flow(spec)
@@ -234,8 +269,7 @@ def status_stroke(status: str) -> str:
     }[status]
 
 
-def status_icon(status: str, box: Box, scale: float = 1.0) -> str:
-    cx, cy = box.x + box.w - 22, box.y + 20
+def status_icon_at(status: str, cx: int, cy: int) -> str:
     color = status_stroke(status)
     if status == "done":
         return (
@@ -255,28 +289,41 @@ def status_icon(status: str, box: Box, scale: float = 1.0) -> str:
     )
 
 
-def node_svg(pn: PlacedNode, slug: str) -> str:
+def status_icon(status: str, box: Box) -> str:
+    cx = box.right - ICON_GUTTER // 2
+    cy = box.y + box.h // 2
+    return status_icon_at(status, cx, cy)
+
+
+def node_svg(pn: PlacedNode, slug: str, spec: dict[str, Any]) -> str:
     node = pn.spec
     box = pn.box
     status = node["status"]
     stroke = status_stroke(status)
     fill = "#FFFFFF"
     dash = ' stroke-dasharray="6 4"' if status == "hold" else ""
-    label = html.escape(node["label"])
     nid = html.escape(node["id"])
-    label_y = box.y + 24
+    metrics = ensure_wire_layout(spec)
+    lines = metrics["lines"].get(node["id"], [node["label"]])
+    line_height = 18
+    first_baseline = box.y + 22 if len(lines) == 1 else box.y + 20
     parts = [
         f'<g id="{slug}-node-{nid}" class="wire-node" data-status="{status}">',
         f'<rect x="{box.x}" y="{box.y}" width="{box.w}" height="{box.h}" rx="6" '
         f'fill="{fill}" stroke="{stroke}" stroke-width="1.2"{dash}/>',
-        f'<text x="{box.x + 12}" y="{label_y}" font-family="Geist, sans-serif" '
-        f'font-size="{NODE_LABEL_SIZE}" font-weight="600" fill="{TOKENS["ink"]}">{label}</text>',
-        status_icon(status, box),
     ]
+    for index, line in enumerate(lines):
+        baseline = snap(first_baseline + index * line_height)
+        parts.append(
+            f'<text x="{box.x + NODE_PAD_X}" y="{baseline}" class="wire-node-label" '
+            f'font-family="Geist, sans-serif" font-size="{NODE_LABEL_SIZE}" font-weight="600" '
+            f'fill="{TOKENS["ink"]}">{html.escape(line)}</text>'
+        )
+    parts.append(status_icon(status, box))
     if node.get("note"):
         note = html.escape(node["note"])
         parts.append(
-            f'<text x="{box.x + 12}" y="{box.y + 44}" font-family="Geist Mono, monospace" '
+            f'<text x="{box.x + NODE_PAD_X}" y="{box.bottom - 8}" font-family="Geist Mono, monospace" '
             f'font-size="10" fill="{TOKENS["muted"]}">{note}</text>'
         )
     parts.append("</g>")
@@ -462,7 +509,7 @@ def lane_labels_svg(spec: dict[str, Any], placed: dict[str, PlacedNode]) -> str:
         meta = spec.get("_before_after_meta") or {}
         hy = meta.get("header_y", MARGIN + 20)
         lx = meta.get("left_x", MARGIN)
-        rx = meta.get("right_x", lx + NODE_W + 80)
+        rx = meta.get("right_x", lx + node_w(spec) + 80)
         lines.append(
             f'<text x="{lx + 12}" y="{hy}" font-family="Geist Mono, monospace" font-size="{LANE_LABEL_SIZE}" '
             f'font-weight="600" letter-spacing="0.14em" fill="{TOKENS["ink"]}">BEFORE</text>'
@@ -492,7 +539,7 @@ def lane_bands_svg(bands: list[Box]) -> str:
     parts: list[str] = []
     for index, band in enumerate(bands):
         parts.append(
-            f'<rect x="{band.x}" y="{band.y}" width="{band.w}" height="{band.h}" '
+            f'<rect class="wire-lane-band" x="{band.x}" y="{band.y}" width="{band.w}" height="{band.h}" '
             f'fill="{TOKENS["lane_tint"]}" opacity="0.55" rx="4"/>'
         )
     return "\n".join(parts)
@@ -504,7 +551,7 @@ def used_statuses(spec: dict[str, Any]) -> list[str]:
     return [s for s in order if s in present]
 
 
-def legend_svg(spec: dict[str, Any], canvas_w: int, canvas_h: int) -> tuple[str, int]:
+def legend_svg(spec: dict[str, Any], canvas_w: int, content_bottom: int) -> tuple[str, int]:
     statuses = used_statuses(spec)
     if not statuses:
         return "", 0
@@ -514,27 +561,29 @@ def legend_svg(spec: dict[str, Any], canvas_w: int, canvas_h: int) -> tuple[str,
         "blocked": "Blocked",
         "hold": "Hold / HITL",
     }
-    legend_w = 152
-    legend_h = snap(12 + len(statuses) * LEGEND_ITEM_H)
+    legend_w = 168
+    legend_h = snap(12 + len(statuses) * LEGEND_ITEM_H + 8)
     x = snap(canvas_w - legend_w - MARGIN)
-    y = snap(canvas_h - legend_h - MARGIN)
+    y = snap(content_bottom + LEGEND_CLEARANCE)
     parts = [
         f'<g id="wire-legend">',
-        f'<rect x="{x}" y="{y}" width="{legend_w}" height="{legend_h}" rx="6" '
+        f'<rect id="wire-legend-box" x="{x}" y="{y}" width="{legend_w}" height="{legend_h}" rx="6" '
         f'fill="{TOKENS["paper"]}" stroke="{TOKENS["rule"]}" stroke-width="0.8" stroke-opacity="0.5"/>',
         f'<text x="{x + 12}" y="{y + 16}" font-family="Geist Mono, monospace" font-size="10" '
         f'font-weight="600" letter-spacing="0.1em" fill="{TOKENS["muted"]}">STATUS</text>',
     ]
     for index, status in enumerate(statuses):
-        iy = y + 24 + index * LEGEND_ITEM_H
-        mini = Box(x + 12, iy - 10, 28, 20)
-        parts.append(status_icon(status, mini))
+        baseline = y + 28 + index * LEGEND_ITEM_H
+        icon_cx = x + 24
+        parts.append(f'<g class="wire-legend-row">')
+        parts.append(status_icon_at(status, icon_cx, baseline))
         parts.append(
-            f'<text x="{x + 48}" y="{iy + 4}" font-family="Geist, sans-serif" font-size="12" '
+            f'<text x="{x + 48}" y="{baseline}" font-family="Geist, sans-serif" font-size="12" '
             f'fill="{TOKENS["ink"]}">{labels[status]}</text>'
         )
+        parts.append("</g>")
     parts.append("</g>")
-    return "\n".join(parts), legend_h + MARGIN
+    return "\n".join(parts), legend_h
 
 
 def compose_scene(
@@ -552,10 +601,11 @@ def compose_scene(
     layout = spec.get("layout", "lanes")
     legend_source = legend_spec or spec
     statuses = used_statuses(legend_source) if include_legend else []
-    legend_pad = snap(12 + len(statuses) * LEGEND_ITEM_H + MARGIN) if statuses else 0
-    height = snap(height + legend_pad)
+    content_bottom = height
     slug = spec["id"]
-    nodes_layer = "\n".join(node_svg(p, slug) for p in sorted(placed_list, key=lambda p: p.spec["id"]))
+    nodes_layer = "\n".join(
+        node_svg(p, slug, spec) for p in sorted(placed_list, key=lambda p: p.spec["id"])
+    )
     edge_paths, edge_labels = edges_layers(spec, placed, slug, layout)
     lanes_layer = lane_labels_svg(spec, placed)
     bands_layer = lane_bands_svg(lane_bands)
@@ -568,7 +618,8 @@ def compose_scene(
     )
     legend = ""
     if include_legend and statuses:
-        legend, _ = legend_svg(legend_source, width, height)
+        legend, legend_h = legend_svg(legend_source, width, content_bottom)
+        height = snap(content_bottom + LEGEND_CLEARANCE + legend_h + MARGIN)
     body = (
         f'{sub_text}{bands_layer}{lanes_layer}{edge_paths}{nodes_layer}{edge_labels}{legend}'
     )
@@ -601,12 +652,14 @@ def build_canvas_svg(
 
 
 def overview_placed(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, list[Box]]:
+    ensure_wire_layout(spec)
+    nw, nh = node_w(spec), node_h(spec)
     grouped = nodes_by_lane(spec)
     lanes = [lane for lane in normalize_lanes(spec) if grouped.get(lane)]
     x = snap(MARGIN + LANE_LABEL_W)
     y = snap(MARGIN + 8)
     placed: list[PlacedNode] = []
-    max_x = x + NODE_W
+    max_x = x + nw
     for lane in lanes:
         count = len(grouped[lane])
         pseudo = {
@@ -615,10 +668,10 @@ def overview_placed(spec: dict[str, Any]) -> tuple[list[PlacedNode], int, int, l
             "label": f"{lane} ({count})",
             "status": "done",
         }
-        box = Box(x, y, NODE_W + 40, NODE_H)
+        box = Box(x, y, nw + 40, nh)
         placed.append(PlacedNode(pseudo, box))
         max_x = max(max_x, box.x + box.w)
-        y = snap(y + NODE_H + ROW_GAP)
+        y = snap(y + nh + ROW_GAP)
     width = snap(max_x + MARGIN)
     height = snap(y + MARGIN)
     band = Box(MARGIN, MARGIN, width - 2 * MARGIN, height - MARGIN)
@@ -680,11 +733,13 @@ def render_svg_document(spec: dict[str, Any]) -> str:
                 f'<g transform="translate(0,{y})"><rect width="{fw}" height="{fh}" fill="{TOKENS["paper"]}"/>{body}</g>'
             )
             y += fh
-        total_h = y
+        content_bottom = y
         statuses = used_statuses(spec)
-        legend_pad = snap(12 + len(statuses) * LEGEND_ITEM_H + MARGIN) if statuses else 0
-        total_h = snap(total_h + legend_pad)
-        legend, _ = legend_svg(spec, total_w, total_h)
+        legend = ""
+        total_h = content_bottom + MARGIN
+        if statuses:
+            legend, legend_h = legend_svg(spec, total_w, content_bottom)
+            total_h = snap(content_bottom + LEGEND_CLEARANCE + legend_h + MARGIN)
         return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {total_w} {total_h}" width="{total_w}" height="{total_h}" role="img" aria-labelledby="{slug}-title {slug}-desc">
   <title id="{slug}-title">{html.escape(title)}</title>
   <desc id="{slug}-desc">{html.escape(desc)}</desc>

@@ -23,17 +23,29 @@ def export_png(html_path: Path, png_path: Path, scale: int = 2) -> None:
     url = html_path.as_uri()
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
-        page = browser.new_page(
-            device_scale_factor=scale,
-            viewport={"width": 1280, "height": 900},
-        )
+        page = browser.new_page(device_scale_factor=scale)
         page.goto(url, wait_until="networkidle")
         page.evaluate(
-            """() => document.documentElement.style.background = '%s'"""
-            % PAPER
+            """() => {
+              document.documentElement.style.background = '%s';
+              document.body.style.background = '%s';
+              document.body.style.padding = '0';
+              document.body.style.margin = '0';
+            }"""
+            % (PAPER, PAPER)
         )
-        page.wait_for_timeout(100)
-        page.screenshot(path=str(png_path), full_page=True, omit_background=False)
+        page.wait_for_function("document.fonts.ready")
+        svg = page.locator(".diagram svg").first
+        svg.wait_for(state="visible")
+        box = svg.bounding_box()
+        if box:
+            page.set_viewport_size(
+                {
+                    "width": max(1, int(box["width"])),
+                    "height": max(1, int(box["height"])),
+                }
+            )
+        svg.screenshot(path=str(png_path), omit_background=False)
         browser.close()
 
 
