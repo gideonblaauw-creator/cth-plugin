@@ -1,0 +1,45 @@
+wire: 1
+id: harness-before-after
+title: Harness routing — before vs after Hands-ticket HARD
+lang: en
+layout: before-after
+source: Desk policy change 24 Sep 2026
+lanes:
+  - before
+  - after
+nodes:
+  - id: local-grind
+    lane: before
+    label: Local executor grind
+    status: blocked
+    note: desk laptop
+  - id: ad-hoc-copy
+    lane: before
+    label: Ad-hoc copy edits
+    status: waiting
+  - id: cloud-hands
+    lane: after
+    label: Cloud Hands craft
+    status: done
+  - id: grok-only
+    lane: after
+    label: Grok Bot coordinate
+    status: done
+  - id: hitl-gideon
+    lane: after
+    label: Gideon approval gate
+    status: hold
+edges:
+  - from: local-grind
+    to: cloud-hands
+    kind: ticket
+    label: replaced
+  - from: ad-hoc-copy
+    to: cloud-hands
+    kind: ask
+  - from: cloud-hands
+    to: grok-only
+    kind: data
+  - from: cloud-hands
+    to: hitl-gideon
+    kind: hitl

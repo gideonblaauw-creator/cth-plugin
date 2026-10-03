@@ -1,0 +1,15 @@
+wire: 1
+id: broken-dup
+title: Broken duplicate ids
+lang: en
+layout: lanes
+nodes:
+  - id: a
+    lane: gideon
+    label: A
+    status: done
+  - id: a
+    lane: orchestrator
+    label: A duplicate
+    status: done
+edges: []

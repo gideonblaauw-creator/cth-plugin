@@ -1,0 +1,74 @@
+wire: 1
+id: team-report
+title: Gideon team report — Orchestrator to Desks to Hands
+lang: en
+layout: lanes
+source: Weekly harness team report (Tier 0)
+lanes:
+  - gideon
+  - orchestrator
+  - desks
+  - hands
+  - tools
+nodes:
+  - id: gideon-brief
+    lane: gideon
+    label: Gideon brief
+    status: done
+    ref: ticket-884
+  - id: grok-route
+    lane: orchestrator
+    label: Grok Bot route
+    status: done
+  - id: desk-academy
+    lane: desks
+    label: Academy Desk
+    status: waiting
+    note: CLP26 copy queue
+  - id: desk-infra
+    lane: desks
+    label: Infrastructure Desk
+    status: done
+  - id: hands-build
+    lane: hands
+    label: Cloud Hands build
+    status: waiting
+  - id: hands-verify
+    lane: hands
+    label: Cloud Hands verify
+    status: hold
+    note: HITL brand gate
+  - id: doctor-bot
+    lane: tools
+    label: Doctor_Bot
+    status: done
+  - id: bookstack
+    lane: tools
+    label: BookStack wiki
+    status: done
+edges:
+  - from: gideon-brief
+    to: grok-route
+    kind: ask
+    label: prioritize
+  - from: grok-route
+    to: desk-academy
+    kind: ticket
+  - from: grok-route
+    to: desk-infra
+    kind: ticket
+  - from: desk-academy
+    to: hands-build
+    kind: ticket
+  - from: desk-infra
+    to: hands-build
+    kind: data
+  - from: hands-build
+    to: hands-verify
+    kind: hitl
+  - from: hands-verify
+    to: doctor-bot
+    kind: data
+  - from: doctor-bot
+    to: bookstack
+    kind: data
