@@ -90,10 +90,8 @@ def wrap_label(
         return lines
     merged = " ".join(lines[max_lines - 1 :])
     lines = lines[: max_lines - 1] + [merged]
-    while text_width(lines[-1], font_size) > max_inner_width and len(lines[-1]) > 1:
-        lines[-1] = lines[-1][:-1]
-    if text_width(lines[-1], font_size) > max_inner_width:
-        lines[-1] = lines[-1][: max(1, len(lines[-1]) - 2)] + "…"
+    while len(lines) > max_lines:
+        lines = lines[: max_lines - 1] + [" ".join(lines[max_lines - 1 :])]
     return lines
 
 
@@ -102,7 +100,7 @@ def label_lines_for_node(
     inner_width: float,
     *,
     font_size: float = NODE_LABEL_FONT_SIZE,
-    max_lines: int = 2,
+    max_lines: int = 4,
 ) -> list[str]:
     if "\n" in label:
         explicit = [part.strip() for part in label.split("\n") if part.strip()]
