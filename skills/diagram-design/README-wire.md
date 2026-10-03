@@ -9,6 +9,7 @@ cd skills/diagram-design
 python3 scripts/validate_spec.py fixtures/wire/team-report-wire.yaml
 python3 scripts/wire.py fixtures/wire/team-report-wire.yaml --out /tmp/wire --png --svg --html --md
 python3 scripts/self_check.py /tmp/wire/team-report-wire.html
+python3 scripts/test_wire_fixtures.py
 ```
 
 PNG export requires Playwright:
