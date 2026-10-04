@@ -92,6 +92,7 @@ This repo is the skill source of truth. Open the folder itself in Cursor rather 
 | `composio` | Connect to hundreds of third-party services through Composio's integration gateway when no dedicated connector exists |
 | `miro` | Read and create content on Miro boards — diagrams, structured docs, tables, and workflow visualizations |
 | `wire-brief` | STE-80 English intake brief from loose EN/ES asks before wire diagrams, images, explainer video, or derived MD |
+| `multi-agent-team-report` | Harness team report Markdown with Wire diagram exports via `wire.py` and colocated `spec.yaml` |
 
 ### Infrastructure
 

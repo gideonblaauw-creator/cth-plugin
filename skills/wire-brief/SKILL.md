@@ -3,7 +3,8 @@ name: wire-brief
 description: >
   Converts loose EN/ES asks into an STE-80 English wire brief before diagrams,
   images, explainer video scripts, or derived MD. Use when: wire diagram,
-  diagrama, explainer video, image from an ask, MD from voice or strategy input.
+  diagrama, diagrama de cables, diagrama de flujo, explainer video, image from
+  an ask, MD from voice or strategy input.
   Do not use when: final diagram render (diagram-design), grant prose (cth-grant),
   or client proposals (cth-proposal-build).
 license: MIT
@@ -23,7 +24,7 @@ metadata:
 
 | Trigger | Run wire-brief first |
 |---------|----------------------|
-| User says **wire diagram**, **diagrama**, or flow from an ask | Yes |
+| User says **wire diagram**, **diagrama**, **diagrama de cables**, **diagrama de flujo**, or flow from an ask | Yes |
 | Explainer video script from an ask | Yes |
 | Image brief from an ask | Yes |
 | MD explainer derived from voice or typed ask | Yes |

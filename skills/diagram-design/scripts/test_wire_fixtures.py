@@ -11,12 +11,27 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from render_wire import ICON_GUTTER, NODE_LABEL_SIZE, NODE_PAD_X, render_spec_path  # noqa: E402
-from wire_text import text_width  # noqa: E402
+from render_wire import (  # noqa: E402
+    MIN_LABEL_PX_AT_1280,
+    TARGET_VIEW_WIDTH,
+    TARGET_VIEW_WIDTH_MAX,
+    Box,
+    ICON_GUTTER,
+    NODE_LABEL_SIZE,
+    NODE_PAD_X,
+    boxes_overlap,
+    path_within_canvas,
+    render_spec_path,
+    segment_intersects_box,
+    segments_from_path,
+)
+from wire_text import NODE_LABEL_LINE_HEIGHT, text_width  # noqa: E402
 
 FIXTURES = SCRIPT_DIR.parent / "fixtures" / "wire"
 LEGEND_CLEARANCE = 16
 SVG_NS = {"svg": "http://www.w3.org/2000/svg"}
+SPLIT_FIXTURE = FIXTURES / "split-cross-lane-synthetic.yaml"
+SKIP_FIXTURES = {"datalab-vps-source.yaml"}
 
 
 def _float(value: str | None, default: float = 0.0) -> float:
@@ -121,15 +136,200 @@ def verify_svg(svg_source: str) -> list[str]:
                 if abs(icon_cy - ty) > 2:
                     errors.append("legend icon cy misaligned with text baseline")
 
+    for group in root.iter():
+        if not group.tag.endswith("g"):
+            continue
+        if "wire-node" not in (group.get("class") or ""):
+            continue
+        label_ys: list[float] = []
+        for text_el in group.iter():
+            if not text_el.tag.endswith("text"):
+                continue
+            if "wire-node-label" not in (text_el.get("class") or ""):
+                continue
+            label_ys.append(_float(text_el.get("y")))
+        if len(label_ys) == 2:
+            label_ys.sort()
+            gap = label_ys[1] - label_ys[0]
+            if abs(gap - NODE_LABEL_LINE_HEIGHT) > 0.01:
+                errors.append(
+                    f"2-line label gap {gap}px != {NODE_LABEL_LINE_HEIGHT}px on {group.get('id')}"
+                )
+
+    width = _float(root.get("width"))
+    height = _float(root.get("height"))
+    if width <= 0 or height <= 0:
+        view = root.get("viewBox", "0 0 0 0").split()
+        if len(view) == 4:
+            width, height = _float(view[2]), _float(view[3])
+    edge_count = 0
+    for el in root.iter():
+        if not el.tag.endswith("path"):
+            continue
+        if el.get("marker-end") != "url(#wire-arrow)":
+            continue
+        edge_count += 1
+        path_d = el.get("d") or ""
+        if width and height and not path_within_canvas(path_d, int(width), int(height)):
+            errors.append(f"edge {el.get('id')} exits canvas ({width}x{height})")
+
+    return errors
+
+
+def verify_edge_node_gutters(svg_source: str, *, layout: str = "lanes") -> list[str]:
+    if layout != "lanes":
+        return []
+    errors: list[str] = []
+    root = ET.fromstring(svg_source)
+    node_boxes: dict[str, Box] = {}
+    for group in root.iter():
+        if not group.tag.endswith("g"):
+            continue
+        if "wire-node" not in (group.get("class") or ""):
+            continue
+        group_id = group.get("id") or ""
+        if "-node-" not in group_id:
+            continue
+        node_id = group_id.split("-node-", 1)[1]
+        rect_el = None
+        for child in group:
+            if child.tag.endswith("rect") and (child.get("class") or "") != "wire-lane-band":
+                rect_el = child
+                break
+        if rect_el is None:
+            continue
+        rx, ry, rw, rh = parse_rect(rect_el)
+        node_boxes[node_id] = Box(int(rx), int(ry), int(rw), int(rh))
+
+    for el in root.iter():
+        if not el.tag.endswith("path"):
+            continue
+        if el.get("marker-end") != "url(#wire-arrow)":
+            continue
+        from_id = el.get("data-from")
+        to_id = el.get("data-to")
+        path_d = el.get("d") or ""
+        segments = segments_from_path(path_d)
+        for seg_index, (p1, p2) in enumerate(segments):
+            for node_id, box in node_boxes.items():
+                if from_id and node_id == from_id:
+                    continue
+                if to_id and node_id == to_id:
+                    continue
+                if segment_intersects_box(p1, p2, box, inset=1.0):
+                    errors.append(
+                        f"edge {el.get('id')} segment {seg_index} crosses node {node_id!r}"
+                    )
+                    break
+    return errors
+
+
+def verify_edge_labels_clear(svg_source: str) -> list[str]:
+    errors: list[str] = []
+    root = ET.fromstring(svg_source)
+    node_boxes: list[Box] = []
+    for group in root.iter():
+        if "wire-node" not in (group.get("class") or ""):
+            continue
+        for child in group:
+            if child.tag.endswith("rect"):
+                rx, ry, rw, rh = parse_rect(child)
+                node_boxes.append(Box(int(rx), int(ry), int(rw), int(rh)))
+                break
+    for group in root.iter():
+        if "wire-edge-label" not in (group.get("class") or ""):
+            continue
+        label_rect = None
+        for child in group:
+            if child.tag.endswith("rect"):
+                label_rect = child
+                break
+        if label_rect is None:
+            continue
+        rx, ry, rw, rh = parse_rect(label_rect)
+        label_box = Box(int(rx), int(ry), int(rw), int(rh))
+        for node_box in node_boxes:
+            if boxes_overlap(label_box, node_box, inset=1.0):
+                label_text = ""
+                for text_el in group.iter():
+                    if text_el.tag.endswith("text"):
+                        label_text = "".join(text_el.itertext())
+                        break
+                errors.append(
+                    f"edge label {label_text!r} overlaps a node (rect {label_box.x},{label_box.y})"
+                )
+                break
+    return errors
+
+
+def verify_datalab_layout(svg_source: str) -> list[str]:
+    errors: list[str] = []
+    root = ET.fromstring(svg_source)
+    width = _float(root.get("width"))
+    if width <= 0:
+        view = root.get("viewBox", "0 0 0 0").split()
+        if len(view) == 4:
+            width = _float(view[2])
+    if width < TARGET_VIEW_WIDTH - 80 or width > TARGET_VIEW_WIDTH_MAX + 80:
+        errors.append(
+            f"datalab canvas width {width}px outside target "
+            f"{TARGET_VIEW_WIDTH}–{TARGET_VIEW_WIDTH_MAX}px band"
+        )
+    effective_label = NODE_LABEL_SIZE * 1280.0 / width if width else 0.0
+    if effective_label < MIN_LABEL_PX_AT_1280 - 0.01:
+        errors.append(
+            f"datalab label effective size at 1280px viewport is {effective_label:.2f}px "
+            f"(need >={MIN_LABEL_PX_AT_1280}px)"
+        )
+    for text_el in root.iter():
+        if not text_el.tag.endswith("text"):
+            continue
+        if "wire-node-label" not in (text_el.get("class") or ""):
+            continue
+        label = "".join(text_el.itertext())
+        if "…" in label or label.endswith("..."):
+            errors.append(f"truncated node label {label!r}")
+    return errors
+
+
+def verify_split_cross_lane(spec_path: Path, svg_source: str) -> list[str]:
+    errors: list[str] = []
+    if spec_path.name != SPLIT_FIXTURE.name:
+        return errors
+    import yaml
+
+    spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+    expected_edges = len(spec.get("edges") or [])
+    root = ET.fromstring(svg_source)
+    rendered = sum(
+        1
+        for el in root.iter()
+        if el.tag.endswith("path") and el.get("marker-end") == "url(#wire-arrow)"
+    )
+    if rendered != expected_edges:
+        errors.append(f"expected {expected_edges} edge paths, got {rendered}")
+    if "overview-" in svg_source:
+        errors.append("overview strip nodes must not appear in split layout")
+    if "Lane:" in svg_source:
+        errors.append("duplicate lane subtitle (Lane: ...) must not appear")
     return errors
 
 
 def main() -> int:
-    specs = sorted(FIXTURES.glob("*.yaml"))
+    specs = sorted(p for p in FIXTURES.glob("*.yaml") if p.name not in SKIP_FIXTURES)
     failed = False
     for spec_path in specs:
         _html, svg, _md = render_spec_path(spec_path)
+        import yaml
+
+        spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+        layout = spec.get("layout", "lanes")
         errors = verify_svg(svg)
+        errors.extend(verify_edge_node_gutters(svg, layout=layout))
+        errors.extend(verify_edge_labels_clear(svg))
+        if spec_path.name == "datalab.yaml":
+            errors.extend(verify_datalab_layout(svg))
+        errors.extend(verify_split_cross_lane(spec_path, svg))
         if errors:
             failed = True
             print(f"FAIL {spec_path.name}")

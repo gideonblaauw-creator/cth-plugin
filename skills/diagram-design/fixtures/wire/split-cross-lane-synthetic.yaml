@@ -1,0 +1,111 @@
+wire: 1
+id: split-cross-lane-synthetic
+title: Synthetic split test — 3 lanes, cross-lane wires
+lang: en
+layout: lanes
+source: Regression fixture for >12 nodes with lane-to-lane edges
+lanes:
+  - client
+  - platform
+  - data
+nodes:
+  - id: c-intake
+    lane: client
+    label: Client intake
+    status: done
+  - id: c-scope
+    lane: client
+    label: Scope lock
+    status: done
+  - id: c-hitl
+    lane: client
+    label: Client HITL gate
+    status: hold
+  - id: c-signoff
+    lane: client
+    label: Sign-off packet
+    status: waiting
+  - id: p-orchestrator
+    lane: platform
+    label: Orchestrator route
+    status: done
+  - id: p-desk
+    lane: platform
+    label: Infrastructure Desk
+    status: done
+  - id: p-hands
+    lane: platform
+    label: Cloud Hands build
+    status: waiting
+  - id: p-factory
+    lane: platform
+    label: Software Factory
+    status: done
+  - id: p-fde
+    lane: platform
+    label: FDE modules
+    status: done
+  - id: p-poc
+    lane: platform
+    label: PoC Engine
+    status: waiting
+  - id: d-warehouse
+    lane: data
+    label: Data warehouse
+    status: done
+  - id: d-lake
+    lane: data
+    label: Lake ingest
+    status: done
+  - id: d-features
+    lane: data
+    label: Feature store
+    status: waiting
+  - id: d-export
+    lane: data
+    label: Export API
+    status: done
+edges:
+  - from: c-intake
+    to: p-orchestrator
+    kind: ask
+  - from: c-scope
+    to: p-desk
+    kind: ticket
+  - from: p-orchestrator
+    to: p-hands
+    kind: ticket
+  - from: p-desk
+    to: p-hands
+    kind: data
+  - from: p-hands
+    to: p-factory
+    kind: ticket
+  - from: p-factory
+    to: c-hitl
+    kind: hitl
+  - from: p-hands
+    to: d-lake
+    kind: data
+  - from: d-lake
+    to: d-warehouse
+    kind: data
+  - from: d-warehouse
+    to: d-features
+    kind: data
+  - from: d-features
+    to: p-poc
+    kind: data
+    label: features
+  - from: p-fde
+    to: p-poc
+    kind: ticket
+  - from: p-poc
+    to: d-export
+    kind: data
+  - from: c-signoff
+    to: d-export
+    kind: hitl
+  - from: p-hands
+    to: c-signoff
+    kind: hitl
