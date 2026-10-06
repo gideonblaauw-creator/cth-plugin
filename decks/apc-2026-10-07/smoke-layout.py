@@ -13,7 +13,7 @@ VIEWPORTS = [
     ("1366x768", 1366, 768),
     ("1512x982", 1512, 982),
 ]
-SLIDES = [1, 7, 13]
+SLIDES = [1, 7, 11, 16]
 
 
 def ensure_playwright():
@@ -50,6 +50,10 @@ def main():
                 out = OUT_DIR / f"apc-fix-layout-{vp_name}-slide{slide_num:02d}.png"
                 page.screenshot(path=str(out), full_page=False)
                 print("OK", out, f"frame={box['width']:.0f}x{box['height']:.0f} @ ({box['x']:.0f},{box['y']:.0f})")
+                if slide_num == 11:
+                    epic_out = OUT_DIR / f"apc-epic-angels-slide11-{vp_name}.png"
+                    page.screenshot(path=str(epic_out), full_page=False)
+                    print("OK", epic_out)
             page.close()
         browser.close()
 

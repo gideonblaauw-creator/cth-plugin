@@ -814,23 +814,22 @@ body.print-all .nav-hint {
         <p class="step-copy">Una foto de datos, sale una foto</p>
       </div>
       <div class="step glass">
-        <div class="step-time">1:30</div>
-        <div class="step-route">#/lab/mapa · #/lab/delta</div>
-        <p class="step-copy">Living lab Bogotá: mapa y delta</p>
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/lab</div>
+        <p class="step-copy">Living lab: mapa, delta, ROI opcional</p>
       </div>
       <div class="step glass">
-        <div class="step-time">0:30</div>
-        <div class="step-route">#/lab/roi</div>
-        <p class="step-copy">Compuerta ROI</p>
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/client</div>
+        <p class="step-copy">Producto cliente · solo lectura</p>
       </div>
     </div>
-    <p class="fallback">Si la conexión falla → capturas en las dos diapositivas siguientes</p>
+    <p class="fallback">Si la conexión falla → cuatro capturas en vivo en las diapositivas siguientes</p>
     <div class="thumbs" aria-hidden="true">
-      <img src="img/b-datalab.webp" alt="" width="128" height="72">
-      <img src="img/b-datathon.webp" alt="" width="128" height="72">
-      <img src="img/b-lab-mapa.webp" alt="" width="128" height="72">
-      <img src="img/b-lab-delta.webp" alt="" width="128" height="72">
-      <img src="img/b-lab-roi.webp" alt="" width="128" height="72">
+      <img src="img/b-live-datalab.png" alt="" width="128" height="72">
+      <img src="img/b-live-datathon.png" alt="" width="128" height="72">
+      <img src="img/b-live-lab.png" alt="" width="128" height="72">
+      <img src="img/b-live-client.png" alt="" width="128" height="72">
     </div>
   </div>
   <footer class="footer">
@@ -925,30 +924,24 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-07 h2{font-size:72px;margin:0 0 20px;color:#fff}
-.s-07 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0;align-items:stretch;max-width:100%;overflow:hidden}
-.s-07 .caption a{color:#B2EEFA;text-decoration:none;word-break:break-all}
-.s-07 .shot-wrap{display:flex;flex-direction:column;gap:0;min-height:620px}
-.s-07 .shot-wrap img{width:100%;flex:1;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.25)}
-.s-07 .caption.glass{padding:16px 22px;font-size:30px;font-weight:600;color:#fff;border-radius:0 0 12px 12px;margin-top:-4px}
-.s-07 .caption code{font-size:28px;color:#B2EEFA;font-weight:700}
+.s-07 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-07 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-07 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-07 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-07 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-07 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
 .s-07 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
 <section class="slide slide-deep s-07" data-slide="07">
   <span class="block-badge">Bloque 2 · Datalab</span>
   <div class="slide-main">
-    <h2>Capturas · entornos 1 y 2</h2>
-    <div class="cap-grid">
-      <figure class="shot-wrap">
-        <img src="img/b-datalab.webp" alt="Vista Datalab" width="900" height="620">
-        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datalab</a> · estrategia</figcaption>
-      </figure>
-      <figure class="shot-wrap">
-        <img src="img/b-datathon.webp" alt="Vista Datathon" width="900" height="620">
-        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/datathon" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datathon</a> · evento efímero</figcaption>
-      </figure>
-    </div>
-    <p class="src">Capturas · datalab.cleantechhub.net (pack QA) · 6 oct 2026</p>
+    <h2>Entorno 1 · Datalab</h2>
+    <p class="env-desc">Estrategia, sin datos operativos. Decide qué construir.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-datalab.png" alt="Captura en vivo del entorno Datalab" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datalab</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
   </div>
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
@@ -957,46 +950,24 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-08 h2{font-size:72px;margin:0 0 16px;color:#fff}
-.s-08 .cap-grid{display:grid;grid-template-columns:1.05fr 0.95fr;grid-template-rows:1fr 1fr;gap:18px;flex:1;min-height:0;max-width:100%;overflow:hidden}
-.s-08 .caption a{color:#B2EEFA;text-decoration:none;word-break:break-all;font-size:24px}
-.s-08 .shot-wrap{display:flex;flex-direction:column;min-height:0}
-.s-08 .shot-wrap.hero{grid-row:span 2}
-.s-08 .shot-wrap img{width:100%;height:100%;min-height:240px;object-fit:contain;object-position:center;border-radius:12px;background:rgba(0,0,0,.22)}
-.s-08 .caption.glass{padding:14px 20px;font-size:28px;font-weight:600;color:#fff;margin-top:8px}
-.s-08 .caption code{color:#B2EEFA;font-size:26px}
-.s-08 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
-.s-08 .pair .shot-wrap img{min-height:200px}
-.s-08 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
+.s-08 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-08 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-08 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-08 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-08 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-08 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-08 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
 <section class="slide slide-deep s-08" data-slide="08">
   <span class="block-badge">Bloque 2 · Datalab</span>
   <div class="slide-main">
-    <h2>Capturas · living lab y compuerta ROI</h2>
-    <div class="cap-grid">
-      <figure class="shot-wrap hero">
-        <img src="img/b-lab-mapa.webp" alt="Mapa living lab Bogotá" width="960" height="720">
-        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/lab/mapa" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/mapa</a> · Living lab · calidad del aire Bogotá</figcaption>
-      </figure>
-      <figure class="shot-wrap">
-        <div class="pair">
-          <div class="shot-wrap">
-            <img src="img/b-lab-delta.webp" alt="Panel Delta antes" width="420" height="240">
-            <figcaption class="caption glass">Delta · antes</figcaption>
-          </div>
-          <div class="shot-wrap">
-            <img src="img/b-lab-delta-after.webp" alt="Panel Delta después" width="420" height="240">
-            <figcaption class="caption glass">Delta · después</figcaption>
-          </div>
-        </div>
-        <figcaption class="caption glass" style="margin-top:10px"><a href="https://datalab.cleantechhub.net/app/#/lab/delta" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/delta</a></figcaption>
-      </figure>
-      <figure class="shot-wrap">
-        <img src="img/b-lab-roi-gate.webp" alt="Compuerta ROI abierta" width="880" height="320">
-        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/lab/roi" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/roi</a> · compuerta ROI</figcaption>
-      </figure>
-    </div>
-    <p class="src">Capturas · datalab.cleantechhub.net (pack QA) · 6 oct 2026 · toggles Delta «Después» y «Abrir compuerta ROI»</p>
+    <h2>Entorno 2 · Datathon</h2>
+    <p class="env-desc">Efímero, por evento: entra una foto de datos, sale una foto. Se borra al cerrar.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-datathon.png" alt="Captura en vivo del entorno Datathon" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/datathon" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datathon</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
   </div>
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
@@ -1005,16 +976,107 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-09 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;align-items:stretch;margin-top:24px}
-.s-09 .proj-card{padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:0}
-.s-09 .shot-wrap{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.15);max-height:340px}
-.s-09 .shot-wrap img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
-.s-09 .proj-title{font-size:40px;font-weight:700;line-height:1.2;margin:0;color:#fff}
-.s-09 .proj-oneliner{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.92);margin:0}
-.s-09 .proj-url{font-size:24px;color:#B2EEFA;font-weight:600;margin-top:auto}
-.s-09 .chip-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.s-09 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-09 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-09 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-09 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-09 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-09 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-09 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
-<section class="slide has-photo s-09" style="--bg:url('img/c-cpi-solar.webp')">
+<section class="slide slide-deep s-09" data-slide="09">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 3 · Living lab</h2>
+    <p class="env-desc">Persistente (datos, lógica, acceso). Nunca es sistema de registro. Mapa, delta y compuerta ROI viven aquí.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-lab.png" alt="Captura en vivo del Living lab" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/lab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-10 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-10 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-10 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-10 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-10 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-10 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-10 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-10" data-slide="10">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 4 · Producto cliente</h2>
+    <p class="env-desc">Lee en un solo sentido desde el living lab. Nunca escribe de vuelta.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-client.png" alt="Captura en vivo del producto cliente" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/client" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/client</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-11 h2{font-size:68px;margin:0 0 16px;color:#fff}
+.s-11 .epic-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:28px;flex:1;min-height:0;align-items:stretch}
+.s-11 .epic-copy{display:flex;flex-direction:column;gap:16px;font-size:30px;line-height:1.4}
+.s-11 .epic-copy ul{padding-left:28px;margin:0}
+.s-11 .epic-copy li{margin-bottom:8px}
+.s-11 .epic-link.glass{padding:16px 20px;font-size:28px;font-weight:600}
+.s-11 .epic-link a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-11 .epic-meta{font-size:26px;color:rgba(178,238,250,.9)}
+.s-11 .sample{font-size:28px;color:#9DC384;font-weight:600}
+.s-11 .pack-note{font-size:24px;color:rgba(255,255,255,.78);font-style:italic;margin-top:auto}
+.s-11 .live-shot img{width:100%;height:100%;max-height:720px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.12)}
+.s-11 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-11" data-slide="11">
+  <span class="block-badge">Nexus · Epic Angels</span>
+  <div class="slide-main">
+    <h2>Filtro Epic Angels en Nexus</h2>
+    <div class="epic-layout">
+      <div class="epic-copy glass">
+        <p><strong>Qué hace:</strong> filtro especial en el portafolio público de startups CTH para mujeres al frente / C-level en clima — early-stage, clima / circular / agritech, enfoque LATAM; ticket Epic Angels ~US$50–250k.</p>
+        <p><strong>Cómo lo usa APC:</strong> abra el enlace, explore las <strong>18 startups</strong> filtrables y pida intros o lista curada.</p>
+        <p class="sample">Ejemplos en el filtro: CurubaTech · ArtexLab · CommunityLab</p>
+        <div class="epic-link"><a href="https://nexus.cleantechhub.net/p/startup-portfolio?epic=1" target="_blank" rel="noopener">https://nexus.cleantechhub.net/p/startup-portfolio?epic=1</a></div>
+        <p class="epic-meta">Portafolio base: nexus.cleantechhub.net/p/startup-portfolio · Red: epicangelnetwork.com</p>
+        <p class="pack-note">Pack de tarjetas disponible bajo solicitud (no enviado).</p>
+      </div>
+      <figure class="live-shot">
+        <img src="img/nexus-epic-angels.png" alt="Nexus con filtro Epic Angels activo" width="900" height="720">
+      </figure>
+    </div>
+    <p class="src">Captura en vivo · nexus.cleantechhub.net · filtro Epic Angels · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-12 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;align-items:stretch;margin-top:24px}
+.s-12 .proj-card{padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:0}
+.s-12 .shot-wrap{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.15);max-height:340px}
+.s-12 .shot-wrap img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
+.s-12 .proj-title{font-size:40px;font-weight:700;line-height:1.2;margin:0;color:#fff}
+.s-12 .proj-oneliner{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.92);margin:0}
+.s-12 .proj-url{font-size:24px;color:#B2EEFA;font-weight:600;margin-top:auto}
+.s-12 .chip-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+</style>
+<section class="slide has-photo s-12" style="--bg:url('img/c-cpi-solar.webp')">
   <span class="block-badge">Bloque 3 · Proyectos</span>
   <h2 class="slide-title">Proyectos · plataformas vivas</h2>
   <div class="proj-grid">
@@ -1045,15 +1107,15 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-10 .afcia-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;margin-top:28px}
-.s-10 .round-card{padding:36px 40px;display:flex;flex-direction:column;gap:16px}
-.s-10 .round-label{font-size:28px;font-weight:700;color:#B2EEFA;text-transform:uppercase;letter-spacing:.06em}
-.s-10 .round-amt{font-size:88px;font-weight:700;line-height:1;color:#9DC384;margin:8px 0}
-.s-10 .round-meta{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.95)}
-.s-10 .round-meta strong{color:#fff;font-weight:700}
-.s-10 .program-name{font-size:30px;color:rgba(255,255,255,0.88);margin-top:8px;line-height:1.35}
+.s-13 .afcia-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;margin-top:28px}
+.s-13 .round-card{padding:36px 40px;display:flex;flex-direction:column;gap:16px}
+.s-13 .round-label{font-size:28px;font-weight:700;color:#B2EEFA;text-transform:uppercase;letter-spacing:.06em}
+.s-13 .round-amt{font-size:88px;font-weight:700;line-height:1;color:#9DC384;margin:8px 0}
+.s-13 .round-meta{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.95)}
+.s-13 .round-meta strong{color:#fff;font-weight:700}
+.s-13 .program-name{font-size:30px;color:rgba(255,255,255,0.88);margin-top:8px;line-height:1.35}
 </style>
-<section class="slide s-10 slide-gradient">
+<section class="slide s-13 slide-gradient">
   <span class="block-badge">Bloque 3 · Proyectos</span>
   <h2 class="slide-title">PNUD · AFCIA</h2>
   <p class="program-name">Adaptation Fund Climate Innovation Accelerator · plataforma AF-EU-UNDP Innovation Small Grants Aggregator</p>
@@ -1077,13 +1139,13 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-11 .aura-panel{max-width:1500px;margin-top:32px;padding:44px 48px}
-.s-11 .aura-lead{font-size:38px;line-height:1.5;color:#fff;font-weight:600;margin-bottom:28px}
-.s-11 .aura-body{font-size:34px;line-height:1.55;color:rgba(255,255,255,0.94)}
-.s-11 .aura-body p{margin:0 0 20px}
-.s-11 .aura-eso{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
+.s-14 .aura-panel{max-width:1500px;margin-top:32px;padding:44px 48px}
+.s-14 .aura-lead{font-size:38px;line-height:1.5;color:#fff;font-weight:600;margin-bottom:28px}
+.s-14 .aura-body{font-size:34px;line-height:1.55;color:rgba(255,255,255,0.94)}
+.s-14 .aura-body p{margin:0 0 20px}
+.s-14 .aura-eso{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
 </style>
-<section class="slide has-photo s-11" style="--bg:url('img/c-aura.webp')">
+<section class="slide has-photo s-14" style="--bg:url('img/c-aura.webp')">
   <span class="block-badge">Bloque 3 · Proyectos</span>
   <h2 class="slide-title">AuRA</h2>
   <div class="glass aura-panel">
@@ -1102,16 +1164,16 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-12 .cpi-panel{max-width:1580px;margin-top:24px;padding:40px 44px}
-.s-12 .status-chip{display:inline-block;padding:8px 22px;border:2px solid #B2EEFA;border-radius:10px;font-size:30px;font-weight:700;color:#B2EEFA;margin-bottom:24px}
-.s-12 .cpi-h3{font-size:40px;font-weight:700;color:#9DC384;margin:0 0 16px}
-.s-12 .cpi-body{font-size:34px;line-height:1.5;color:rgba(255,255,255,0.94);margin:0 0 20px}
-.s-12 .coprop-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:20px 0}
-.s-12 .coprop-name{font-size:36px;font-weight:700;color:#fff;padding:10px 20px;background:rgba(255,255,255,0.08);border-radius:8px;border:1px solid rgba(255,255,255,0.12)}
-.s-12 .chip-convo{display:inline-block;padding:6px 16px;border:2px dashed #69B5FA;border-radius:8px;font-size:26px;font-weight:700;color:#69B5FA}
-.s-12 .fecha-obj{font-size:36px;font-weight:700;color:#B2EEFA;margin-top:24px}
+.s-15 .cpi-panel{max-width:1580px;margin-top:24px;padding:40px 44px}
+.s-15 .status-chip{display:inline-block;padding:8px 22px;border:2px solid #B2EEFA;border-radius:10px;font-size:30px;font-weight:700;color:#B2EEFA;margin-bottom:24px}
+.s-15 .cpi-h3{font-size:40px;font-weight:700;color:#9DC384;margin:0 0 16px}
+.s-15 .cpi-body{font-size:34px;line-height:1.5;color:rgba(255,255,255,0.94);margin:0 0 20px}
+.s-15 .coprop-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:20px 0}
+.s-15 .coprop-name{font-size:36px;font-weight:700;color:#fff;padding:10px 20px;background:rgba(255,255,255,0.08);border-radius:8px;border:1px solid rgba(255,255,255,0.12)}
+.s-15 .chip-convo{display:inline-block;padding:6px 16px;border:2px dashed #69B5FA;border-radius:8px;font-size:26px;font-weight:700;color:#69B5FA}
+.s-15 .fecha-obj{font-size:36px;font-weight:700;color:#B2EEFA;margin-top:24px}
 </style>
-<section class="slide has-photo s-12" style="--bg:url('img/c-cpi-solar.webp')">
+<section class="slide has-photo s-15" style="--bg:url('img/c-cpi-solar.webp')">
   <span class="block-badge">Bloque 3 · Proyectos</span>
   <h2 class="slide-title">Energy Coops × CPI Global Innovation Lab for Climate Finance 2026</h2>
   <div class="glass cpi-panel">
@@ -1135,14 +1197,14 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-13 .growth-card p.help{font-size:24px;color:rgba(255,255,255,.88)}
+.s-16 .growth-card p.help{font-size:24px;color:rgba(255,255,255,.88)}
 </style>
-<section class="slide has-photo s-13" style="--bg:url('img/d-growth.jpg')">
+<section class="slide has-photo s-16" style="--bg:url('img/d-growth.jpg')">
   <div class="slide-inner">
     <span class="block-badge">Bloque 4 · Growth</span>
     <h2 class="slide-title">Startups del portafolio CTH que accedieron a financiación</h2>
     <div class="card-grid-4">
-      <div class="glass growth-card s-13">
+      <div class="glass growth-card s-16">
         <h3>Proplanet</h3>
         <p class="meta">CLAC22 · Medellín · reciclaje Tetra Pak</p>
         <p class="help">CTH conectó la startup con FIMI vía ClimAccelerator.</p>
@@ -1177,10 +1239,10 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-14 .quote-block{max-width:1600px}
-.s-14 .amount-line{font-size:48px;font-weight:700;color:var(--cyan);margin:20px 0}
+.s-17 .quote-block{max-width:1600px}
+.s-17 .amount-line{font-size:48px;font-weight:700;color:var(--cyan);margin:20px 0}
 </style>
-<section class="slide has-photo s-14" style="--bg:url('img/d-proplanet.jpg')">
+<section class="slide has-photo s-17" style="--bg:url('img/d-proplanet.jpg')">
   <div class="slide-inner">
     <span class="block-badge">Bloque 4 · Growth</span>
     <h2 class="slide-title">Caso Proplanet</h2>
@@ -1199,14 +1261,14 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-15 .col h3{font-size:40px}
-.s-15 .col p{font-size:28px}
-.s-15 .stat{font-size:30px;line-height:1.35;margin:12px 0}
-.s-15 .thumb-mubon{background-image:url('img/d-mubon.jpg')}
-.s-15 .thumb-weia{background-image:url('img/d-weia.webp')}
-.s-15 .thumb-bbns{background-image:url('img/d-bbns.jpg')}
+.s-18 .col h3{font-size:40px}
+.s-18 .col p{font-size:28px}
+.s-18 .stat{font-size:30px;line-height:1.35;margin:12px 0}
+.s-18 .thumb-mubon{background-image:url('img/d-mubon.jpg')}
+.s-18 .thumb-weia{background-image:url('img/d-weia.webp')}
+.s-18 .thumb-bbns{background-image:url('img/d-bbns.jpg')}
 </style>
-<section class="slide no-photo s-15">
+<section class="slide no-photo s-18">
   <div class="slide-inner">
     <span class="block-badge">Bloque 4 · Growth</span>
     <h2 class="slide-title">MubOn · WEIA · Bio Natural Solutions</h2>
@@ -1242,12 +1304,12 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-16 h2.slide-title{font-size:64px}
-.s-16 .tor-lead{font-size:28px;line-height:1.35;margin-bottom:12px}
-.s-16 .map-list li{font-size:26px;margin-bottom:8px}
-.s-16 .map-list{margin:8px 0 0;padding-left:28px}
+.s-19 h2.slide-title{font-size:64px}
+.s-19 .tor-lead{font-size:28px;line-height:1.35;margin-bottom:12px}
+.s-19 .map-list li{font-size:26px;margin-bottom:8px}
+.s-19 .map-list{margin:8px 0 0;padding-left:28px}
 </style>
-<section class="slide no-photo s-16">
+<section class="slide no-photo s-19">
   <div class="slide-inner">
     <span class="block-badge">Convocatoria APC · Encaje</span>
     <h2 class="slide-title">Encaje con la convocatoria APC</h2>
@@ -1285,11 +1347,11 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-17 h2.slide-title{font-size:60px}
-.s-17 .steps{font-size:28px;margin-top:16px;line-height:1.4}
-.s-17 .no-funds{font-size:26px;color:var(--green);font-weight:700;margin-bottom:8px}
+.s-20 h2.slide-title{font-size:60px}
+.s-20 .steps{font-size:28px;margin-top:16px;line-height:1.4}
+.s-20 .no-funds{font-size:26px;color:var(--green);font-weight:700;margin-bottom:8px}
 </style>
-<section class="slide has-photo s-17" style="--bg:url('img/d-close.jpg')">
+<section class="slide has-photo s-20" style="--bg:url('img/d-close.jpg')">
   <div class="slide-inner">
     <span class="block-badge">Cierre · Solicitud</span>
     <h2 class="slide-title">La solicitud a APC</h2>
@@ -1319,10 +1381,10 @@ body.print-all .nav-hint {
   </footer>
 </section>
 <style>
-.s-18 h2.slide-title{font-size:68px;margin-bottom:16px}
-.s-18 .sources-col li{margin-bottom:6px;break-inside:avoid}
+.s-21 h2.slide-title{font-size:68px;margin-bottom:16px}
+.s-21 .sources-col li{margin-bottom:6px;break-inside:avoid}
 </style>
-<section class="slide no-photo s-18">
+<section class="slide no-photo s-21">
   <div class="slide-inner">
     <span class="block-badge">Anexo · Fuentes</span>
     <h2 class="slide-title">Fuentes públicas</h2>

@@ -34,8 +34,8 @@ def main():
 
         slides = page.locator(".deck .slide")
         count = slides.count()
-        if count != 18:
-            raise SystemExit(f"Expected 18 slides, found {count}")
+        if count != 21:
+            raise SystemExit(f"Expected 21 slides, found {count}")
 
         for i in range(count):
             nn = f"{i + 1:02d}"
