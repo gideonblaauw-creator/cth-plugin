@@ -1,18 +1,21 @@
 (function () {
   'use strict';
 
+  var frame = document.querySelector('.deck-frame');
   var stage = document.querySelector('.deck-stage');
   var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
   var current = 0;
   var printMode = /\?print(?:=|$)/.test(window.location.search) || window.location.hash === '#print';
 
   function scaleStage() {
-    if (!stage || printMode) return;
+    if (!frame || !stage || printMode) return;
     var vw = window.innerWidth;
     var vh = window.innerHeight;
     var sw = 1920;
     var sh = 1080;
-    var scale = Math.min(vw / sw, vh / sh);
+    var scale = Math.min(vw / sw, vh / sh) * 0.96;
+    frame.style.width = Math.round(sw * scale) + 'px';
+    frame.style.height = Math.round(sh * scale) + 'px';
     stage.style.transform = 'scale(' + scale + ')';
   }
 
@@ -71,7 +74,7 @@
 
   function onClick(e) {
     if (printMode) return;
-    var rect = stage.getBoundingClientRect();
+    var rect = (frame || stage).getBoundingClientRect();
     var x = e.clientX - rect.left;
     if (x > rect.width / 2) next();
     else prev();

@@ -30,11 +30,20 @@ html, body {
   overflow: hidden;
 }
 
-.deck-stage {
+/* Layout box matches scaled stage so overflow:hidden does not clip letterboxed edges */
+.deck-frame {
   position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: var(--stage-w);
   height: var(--stage-h);
-  transform-origin: center center;
+  transform-origin: top left;
   overflow: hidden;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
@@ -51,7 +60,7 @@ html, body {
   inset: 0;
   width: var(--stage-w);
   height: var(--stage-h);
-  padding: 48px 64px 88px;
+  padding: 48px 88px 88px;
   display: none;
   flex-direction: column;
   color: var(--white);
@@ -201,8 +210,8 @@ ul {
 .deck-footer,
 .slide-footer {
   position: absolute;
-  left: 64px;
-  right: 64px;
+  left: 88px;
+  right: 88px;
   bottom: 28px;
   display: flex;
   justify-content: space-between;
@@ -371,7 +380,7 @@ ul {
 .block-badge {
   position: absolute;
   top: 40px;
-  left: 64px;
+  left: 88px;
   z-index: 5;
   padding: 8px 18px;
   border: 2px solid var(--cyan);
@@ -593,7 +602,13 @@ h2.slide-title {
     position: static;
     display: block;
   }
+  .deck-frame {
+    width: var(--stage-w);
+    height: auto;
+    overflow: visible;
+  }
   .deck-stage {
+    position: relative;
     transform: none !important;
     width: var(--stage-w);
     height: auto;
@@ -625,7 +640,14 @@ body.print-all .deck-viewport {
   overflow: visible;
 }
 
+body.print-all .deck-frame {
+  width: var(--stage-w);
+  height: auto;
+  overflow: visible;
+}
+
 body.print-all .deck-stage {
+  position: relative;
   transform: none !important;
   box-shadow: none;
 }

@@ -16,11 +16,11 @@ css_content="$(cat "$CSS")"
   echo '</style>'
   echo '</head>'
   echo '<body>'
-  echo '<div class="deck-viewport"><div class="deck-stage"><div class="deck" id="deck">'
+  echo '<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">'
   for f in $(ls -1 "$ROOT/slides/"*.html 2>/dev/null | sort); do
     cat "$f"
   done
-  echo '</div></div></div>'
+  echo '</div></div></div></div>'
   echo '<p class="nav-hint" aria-hidden="true">← → · espacio · clic</p>'
   echo '<script>'
   cat "$JS"

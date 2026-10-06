@@ -41,11 +41,20 @@ html, body {
   overflow: hidden;
 }
 
-.deck-stage {
+/* Layout box matches scaled stage so overflow:hidden does not clip letterboxed edges */
+.deck-frame {
   position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: var(--stage-w);
   height: var(--stage-h);
-  transform-origin: center center;
+  transform-origin: top left;
   overflow: hidden;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 }
@@ -62,7 +71,7 @@ html, body {
   inset: 0;
   width: var(--stage-w);
   height: var(--stage-h);
-  padding: 48px 64px 88px;
+  padding: 48px 88px 88px;
   display: none;
   flex-direction: column;
   color: var(--white);
@@ -212,8 +221,8 @@ ul {
 .deck-footer,
 .slide-footer {
   position: absolute;
-  left: 64px;
-  right: 64px;
+  left: 88px;
+  right: 88px;
   bottom: 28px;
   display: flex;
   justify-content: space-between;
@@ -382,7 +391,7 @@ ul {
 .block-badge {
   position: absolute;
   top: 40px;
-  left: 64px;
+  left: 88px;
   z-index: 5;
   padding: 8px 18px;
   border: 2px solid var(--cyan);
@@ -604,7 +613,13 @@ h2.slide-title {
     position: static;
     display: block;
   }
+  .deck-frame {
+    width: var(--stage-w);
+    height: auto;
+    overflow: visible;
+  }
   .deck-stage {
+    position: relative;
     transform: none !important;
     width: var(--stage-w);
     height: auto;
@@ -636,7 +651,14 @@ body.print-all .deck-viewport {
   overflow: visible;
 }
 
+body.print-all .deck-frame {
+  width: var(--stage-w);
+  height: auto;
+  overflow: visible;
+}
+
 body.print-all .deck-stage {
+  position: relative;
   transform: none !important;
   box-shadow: none;
 }
@@ -653,7 +675,7 @@ body.print-all .nav-hint {
 </style>
 </head>
 <body>
-<div class="deck-viewport"><div class="deck-stage"><div class="deck" id="deck">
+<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
 <section class="slide has-photo s-01 active" style="--bg: url('img/a-programas-workshop.jpg')">
   <div class="slide-inner">
     <p class="tagline">Inspira. Actúa. Transforma.</p>
@@ -904,7 +926,8 @@ body.print-all .nav-hint {
 </section>
 <style>
 .s-07 h2{font-size:72px;margin:0 0 20px;color:#fff}
-.s-07 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0;align-items:stretch}
+.s-07 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0;align-items:stretch;max-width:100%;overflow:hidden}
+.s-07 .caption a{color:#B2EEFA;text-decoration:none;word-break:break-all}
 .s-07 .shot-wrap{display:flex;flex-direction:column;gap:0;min-height:620px}
 .s-07 .shot-wrap img{width:100%;flex:1;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.25)}
 .s-07 .caption.glass{padding:16px 22px;font-size:30px;font-weight:600;color:#fff;border-radius:0 0 12px 12px;margin-top:-4px}
@@ -918,11 +941,11 @@ body.print-all .nav-hint {
     <div class="cap-grid">
       <figure class="shot-wrap">
         <img src="img/b-datalab.webp" alt="Vista Datalab" width="900" height="620">
-        <figcaption class="caption glass">Ruta <code>#/datalab</code> · estrategia</figcaption>
+        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datalab</a> · estrategia</figcaption>
       </figure>
       <figure class="shot-wrap">
         <img src="img/b-datathon.webp" alt="Vista Datathon" width="900" height="620">
-        <figcaption class="caption glass">Ruta <code>#/datathon</code> · evento efímero</figcaption>
+        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/datathon" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datathon</a> · evento efímero</figcaption>
       </figure>
     </div>
     <p class="src">Capturas · datalab.cleantechhub.net (pack QA) · 6 oct 2026</p>
@@ -935,7 +958,8 @@ body.print-all .nav-hint {
 </section>
 <style>
 .s-08 h2{font-size:72px;margin:0 0 16px;color:#fff}
-.s-08 .cap-grid{display:grid;grid-template-columns:1.05fr 0.95fr;grid-template-rows:1fr 1fr;gap:18px;flex:1;min-height:0}
+.s-08 .cap-grid{display:grid;grid-template-columns:1.05fr 0.95fr;grid-template-rows:1fr 1fr;gap:18px;flex:1;min-height:0;max-width:100%;overflow:hidden}
+.s-08 .caption a{color:#B2EEFA;text-decoration:none;word-break:break-all;font-size:24px}
 .s-08 .shot-wrap{display:flex;flex-direction:column;min-height:0}
 .s-08 .shot-wrap.hero{grid-row:span 2}
 .s-08 .shot-wrap img{width:100%;height:100%;min-height:240px;object-fit:contain;object-position:center;border-radius:12px;background:rgba(0,0,0,.22)}
@@ -952,7 +976,7 @@ body.print-all .nav-hint {
     <div class="cap-grid">
       <figure class="shot-wrap hero">
         <img src="img/b-lab-mapa.webp" alt="Mapa living lab Bogotá" width="960" height="720">
-        <figcaption class="caption glass"><code>#/lab/mapa</code> · Living lab · calidad del aire Bogotá</figcaption>
+        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/lab/mapa" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/mapa</a> · Living lab · calidad del aire Bogotá</figcaption>
       </figure>
       <figure class="shot-wrap">
         <div class="pair">
@@ -965,11 +989,11 @@ body.print-all .nav-hint {
             <figcaption class="caption glass">Delta · después</figcaption>
           </div>
         </div>
-        <figcaption class="caption glass" style="margin-top:10px"><code>#/lab/delta</code></figcaption>
+        <figcaption class="caption glass" style="margin-top:10px"><a href="https://datalab.cleantechhub.net/app/#/lab/delta" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/delta</a></figcaption>
       </figure>
       <figure class="shot-wrap">
         <img src="img/b-lab-roi-gate.webp" alt="Compuerta ROI abierta" width="880" height="320">
-        <figcaption class="caption glass"><code>#/lab/roi</code> · compuerta ROI</figcaption>
+        <figcaption class="caption glass"><a href="https://datalab.cleantechhub.net/app/#/lab/roi" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab/roi</a> · compuerta ROI</figcaption>
       </figure>
     </div>
     <p class="src">Capturas · datalab.cleantechhub.net (pack QA) · 6 oct 2026 · toggles Delta «Después» y «Abrir compuerta ROI»</p>
@@ -1330,24 +1354,27 @@ body.print-all .nav-hint {
     <span class="slide-num"></span>
   </footer>
 </section>
-</div></div></div>
+</div></div></div></div>
 <p class="nav-hint" aria-hidden="true">← → · espacio · clic</p>
 <script>
 (function () {
   'use strict';
 
+  var frame = document.querySelector('.deck-frame');
   var stage = document.querySelector('.deck-stage');
   var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
   var current = 0;
   var printMode = /\?print(?:=|$)/.test(window.location.search) || window.location.hash === '#print';
 
   function scaleStage() {
-    if (!stage || printMode) return;
+    if (!frame || !stage || printMode) return;
     var vw = window.innerWidth;
     var vh = window.innerHeight;
     var sw = 1920;
     var sh = 1080;
-    var scale = Math.min(vw / sw, vh / sh);
+    var scale = Math.min(vw / sw, vh / sh) * 0.96;
+    frame.style.width = Math.round(sw * scale) + 'px';
+    frame.style.height = Math.round(sh * scale) + 'px';
     stage.style.transform = 'scale(' + scale + ')';
   }
 
@@ -1406,7 +1433,7 @@ body.print-all .nav-hint {
 
   function onClick(e) {
     if (printMode) return;
-    var rect = stage.getBoundingClientRect();
+    var rect = (frame || stage).getBoundingClientRect();
     var x = e.clientX - rect.left;
     if (x > rect.width / 2) next();
     else prev();
