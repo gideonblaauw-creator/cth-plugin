@@ -34,3 +34,14 @@ Ningún chip `[PENDIENTE]` visible en las diapositivas de este lote.
 | 16-encaje-tdr | `[PENDIENTE] presencia en Chocó, Valle, Risaralda, Caldas, Quindío` | Evidencia de implementación legal o operativa en los 5 departos. del criterio territorial |
 | 16-encaje-tdr | `[PENDIENTE] estado en la convocatoria` | Si CTH postuló antes del 23 sep 2026 y si fue seleccionada (resultados 1 oct) |
 | 17-solicitud | `[PENDIENTE] estado` (ruta Filantropía / patrocinio fiscal) | Estado de la ruta de CTH en la Estrategia de Filantropía APC |
+
+## 7 oct 2026 · ocultos en pantalla (default reversible, sin respuesta de Gideon)
+
+- **02 Agenda:** duración resuelta → «60 minutos (11:30–12:30 COT)» según invitación Gmail.
+- Los demás chips `[PENDIENTE]` se **ocultaron** de lo que se renderiza; el texto original queda en los `slides/*.html` como comentario HTML `<!-- OCULTO 7 oct 2026 … -->` (sin corchetes). Para restaurar: quitar el comentario, volver a poner `[PENDIENTE]` o el dato confirmado y correr `./build.sh`.
+  - 16-growth: WEIA «financiación con apoyo CTH»; Bio Natural Solutions «financiación con apoyo CTH».
+  - 18-mubon-weia-bbns: WEIA «monto / instrumento / fecha de financiación»; Bio Natural Solutions «financiación con apoyo CTH».
+  - 19-encaje-tdr: viñetas completas Transparencia (estados financieros / RTE), Territorios (Chocó, Valle, Risaralda, Caldas, Quindío), Postulación CTH (estado en la convocatoria).
+  - 20-solicitud: chip «estado» en la solicitud 1 (ruta Estrategia de Filantropía / patrocinio fiscal); la solicitud se mantiene.
+- `[en construcción]` (evaluations.cleantechhub.net/mubon, slide 18) no se tocó.
+- PDF y `png/` no regenerados en esta pasada; la fuente de verdad en vivo es `index.html`.
