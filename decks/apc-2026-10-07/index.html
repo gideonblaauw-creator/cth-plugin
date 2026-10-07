@@ -404,6 +404,14 @@ ul {
   backdrop-filter: blur(6px);
 }
 
+/* 7 oct 2026: on photo slides .slide-inner is position:relative, so the badge
+   was offset by the slide padding and overlapped the title. Re-anchor it to the
+   same spot as on non-photo slides (40px top, 88px left of the slide). */
+.slide.has-photo .slide-inner > .block-badge {
+  top: -8px;
+  left: 0;
+}
+
 .slide-deep {
   background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
 }
