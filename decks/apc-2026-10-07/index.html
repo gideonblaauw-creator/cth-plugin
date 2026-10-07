@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleantechHUB × APC Colombia · 7 oct 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* DECK_CSS_INLINE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --green: #9DC384;
+  --forest: #669348;
+  --sky: #69B5FA;
+  --white: #FFFFFF;
+  --stage-w: 1920px;
+  --stage-h: 1080px;
+  --font: 'Open Sans', 'PT Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font);
+  background: #051a33;
+  color: var(--white);
+}
+
+/* Viewport: letterboxed 1920×1080 stage */
+.deck-viewport {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Layout box matches scaled stage so overflow:hidden does not clip letterboxed edges */
+.deck-frame {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  transform-origin: top left;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.deck {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  padding: 48px 88px 88px;
+  display: none;
+  flex-direction: column;
+  color: var(--white);
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
+  overflow: hidden;
+}
+
+.slide.active {
+  display: flex;
+  z-index: 2;
+}
+
+/* Photo slides */
+.slide.has-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.slide.has-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.85) 75%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.slide.has-photo .slide-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 28px 32px;
+}
+
+h1 {
+  font-size: 104px;
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--cyan);
+}
+
+p, li {
+  font-size: 36px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+ul {
+  padding-left: 36px;
+}
+
+.small, .meta-line {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.src {
+  font-size: 24px;
+  color: rgba(178, 238, 250, 0.8);
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.pendiente {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 2px dashed var(--cyan);
+  color: var(--cyan);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.chip-staging {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 2px dashed var(--sky);
+  color: var(--sky);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.accent-num {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.accent-green {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.footer,
+.deck-footer,
+.slide-footer {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.85);
+  z-index: 10;
+}
+
+.footer .slide-num,
+.deck-footer .slide-num,
+.slide-footer .slide-num {
+  color: var(--cyan);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.tagline {
+  font-size: 32px;
+  color: var(--cyan);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.grid-4 .glass {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-4 h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.grid-4 p, .grid-4 li {
+  font-size: 26px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.grid-4 ul {
+  padding-left: 22px;
+  list-style: disc;
+}
+
+/* Agenda */
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.agenda-list li {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 34px;
+}
+
+.agenda-list .num {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--deep);
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agenda-list .demo-time {
+  font-size: 28px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* Programas ladder */
+.program-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.program-card {
+  text-align: center;
+}
+
+.program-card .arrow {
+  font-size: 40px;
+  color: var(--sky);
+  margin: 8px 0;
+}
+
+.program-card h3 {
+  font-size: 38px;
+  color: var(--white);
+}
+
+.program-card p {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.rein-card {
+  margin-top: 8px;
+}
+
+.rein-card p {
+  font-size: 30px;
+}
+
+.portada-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.portada-grid .glass h3 {
+  font-size: 32px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.portada-grid p {
+  font-size: 30px;
+}
+
+.cover-lede {
+  font-size: 34px;
+  line-height: 1.4;
+  color: var(--cyan);
+  margin-top: 12px;
+  max-width: 1600px;
+}
+
+.cover-title {
+  font-size: 96px;
+}
+
+/* Shared layout (Hands B–D fragments) */
+.block-badge {
+  position: absolute;
+  top: 40px;
+  left: 88px;
+  z-index: 5;
+  padding: 8px 18px;
+  border: 2px solid var(--cyan);
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+/* 7 oct 2026: on photo slides .slide-inner is position:relative, so the badge
+   was offset by the slide padding and overlapped the title. Re-anchor it to the
+   same spot as on non-photo slides (40px top, 88px left of the slide). */
+.slide.has-photo .slide-inner > .block-badge {
+  top: -8px;
+  left: 0;
+}
+
+.slide-deep {
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
+}
+
+.slide > .block-badge + h2.slide-title,
+.slide > h2.slide-title,
+.slide > .slide-main {
+  position: relative;
+  z-index: 2;
+}
+
+h2.slide-title {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 52px 0 24px;
+  color: var(--white);
+}
+
+.card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+  min-height: 0;
+}
+
+.growth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 22px 24px;
+}
+
+.growth-card h3 {
+  font-size: 36px;
+  margin: 0;
+  color: var(--white);
+}
+
+.growth-card p {
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.growth-card .amt {
+  font-size: 38px;
+  color: var(--cyan);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.growth-card .meta {
+  font-size: 24px;
+  color: rgba(178, 238, 250, 0.9);
+  line-height: 1.3;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+}
+
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 26px;
+}
+
+.cal-table td,
+.cal-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+  vertical-align: top;
+}
+
+.cal-table th {
+  color: var(--cyan);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.weights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.weight-box {
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.weight-box .pct {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.weight-box .lbl {
+  font-size: 22px;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+
+.ask-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ask-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 32px;
+  line-height: 1.35;
+}
+
+.ask-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sources-col {
+  columns: 2;
+  column-gap: 40px;
+  font-size: 24px;
+  line-height: 1.45;
+}
+
+.sources-col a {
+  color: var(--cyan);
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.tagline-close {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-top: 20px;
+}
+
+.quote {
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 16px 0;
+}
+
+.quote cite {
+  display: block;
+  font-size: 24px;
+  font-style: normal;
+  margin-top: 12px;
+  color: var(--cyan);
+}
+
+/* Nav hint (screen only) */
+.nav-hint {
+  position: fixed;
+  bottom: 12px;
+  right: 16px;
+  z-index: 9999;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+/* Print: all slides, one per page */
+@media print {
+  html, body {
+    overflow: visible;
+    background: white;
+  }
+  .deck-viewport {
+    position: static;
+    display: block;
+  }
+  .deck-frame {
+    width: var(--stage-w);
+    height: auto;
+    overflow: visible;
+  }
+  .deck-stage {
+    position: relative;
+    transform: none !important;
+    width: var(--stage-w);
+    height: auto;
+    box-shadow: none;
+  }
+  .deck {
+    position: static;
+    height: auto;
+  }
+  .slide {
+    position: relative;
+    display: flex !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .nav-hint {
+    display: none;
+  }
+}
+
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+
+body.print-all .deck-viewport {
+  position: static;
+  display: block;
+  overflow: visible;
+}
+
+body.print-all .deck-frame {
+  width: var(--stage-w);
+  height: auto;
+  overflow: visible;
+}
+
+body.print-all .deck-stage {
+  position: relative;
+  transform: none !important;
+  box-shadow: none;
+}
+
+body.print-all .slide {
+  display: flex !important;
+  position: relative;
+  page-break-after: always;
+}
+
+body.print-all .nav-hint {
+  display: none;
+}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
+<section class="slide has-photo s-01 active" style="--bg: url('img/a-programas-workshop.jpg')">
+  <div class="slide-inner">
+    <p class="tagline">Inspira. Actúa. Transforma.</p>
+    <h1 class="cover-title">CleantechHUB × APC Colombia</h1>
+    <p class="subtitle">Reunión de seguimiento · Miércoles 7 oct 2026 · 11:30 COT</p>
+    <p class="cover-lede">Cuatro bloques para la cooperación climática: Programas · Datalab · Proyectos · Growth</p>
+    <div class="portada-grid">
+      <div class="glass">
+        <h3>APC Colombia · Dirección de Gestión de Demanda</h3>
+        <p><strong>Santiago Quiñones Cárdenas</strong><br>Director de Gestión de Demanda</p>
+        <p><strong>Natalia Yizeth Vargas Rojas</strong><br>Profesional Especializado</p>
+      </div>
+      <div class="glass">
+        <h3>Presenta</h3>
+        <p><strong>Gideon Blaauw</strong><br>CleantechHUB (CTH Foundation)</p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide">
+  <div class="slide-inner">
+    <h2>Agenda</h2>
+    <div class="glass" style="flex:1;padding:32px 40px">
+      <ol class="agenda-list">
+        <li>
+          <span class="num">1</span>
+          <span><strong>Desde el 16 sep</strong> — Presentamos el ecosistema CTH y el Datalab; hoy: cómo se organiza CTH en 4 bloques y qué pedimos a APC.</span>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <span><strong>Demo en vivo · Datalab</strong> <span class="demo-time">(4 min)</span></span>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <span><strong>Los 4 bloques</strong> — Programas · Datalab · Proyectos · Growth</span>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <span><strong>Encaje con la convocatoria APC</strong> — Estrategia de Filantropía 2026</span>
+        </li>
+        <li>
+          <span class="num">5</span>
+          <span><strong>Solicitud y próximos pasos</strong></span>
+        </li>
+      </ol>
+      <p class="small" style="margin-top:20px">Duración total de la reunión: 60 minutos (11:30–12:30 COT)</p>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide has-photo" style="--bg: url('img/a-quienes-somos.jpg')">
+  <div class="slide-inner">
+    <h2 style="font-size:64px;margin-bottom:16px">Quiénes somos</h2>
+    <div class="glass" style="margin-bottom:20px;padding:22px 28px">
+      <p style="font-size:32px;margin:0"><strong>CleantechHUB</strong> — ESO de emprendimiento climático en Latinoamérica, desde <span class="accent-num">2019</span>: programas tempranos, acceso a financiación y redes con inversionistas, corporativos y gobierno. Entidad: <strong>Fundación CleantechHUB (CTH Foundation)</strong>.</p>
+    </div>
+    <h3 style="font-size:40px;color:var(--white);margin-bottom:14px">Cuatro bloques de trabajo</h3>
+    <div class="grid-4">
+      <div class="glass">
+        <h3>1 · Programas</h3>
+        <ul>
+          <li>Ideación</li>
+          <li>Incubación</li>
+          <li>Aceleración</li>
+          <li>REIN Hubs</li>
+        </ul>
+      </div>
+      <div class="glass">
+        <h3>2 · Datalab</h3>
+        <p>datalab.cleantechhub.net</p>
+      </div>
+      <div class="glass">
+        <h3>3 · Proyectos</h3>
+        <ul>
+          <li>Energy Co-op</li>
+          <li>Origo</li>
+          <li>PNUD AFCIA</li>
+          <li>AuRA</li>
+        </ul>
+      </div>
+      <div class="glass">
+        <h3>4 · Growth</h3>
+        <ul>
+          <li>Proplanet</li>
+          <li>MubOn</li>
+          <li>WEIA</li>
+          <li>Bio Natural Solutions</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">Fuente: base deck 16 sep 2026 · cleantechhub.net</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-04 .demo-title{font-size:88px;font-weight:700;line-height:1.08;color:#fff;margin:0 0 20px}
+.s-04 .demo-url{font-size:56px;font-weight:700;color:#B2EEFA;letter-spacing:.02em;margin-bottom:28px}
+.s-04 .demo-url span{color:rgba(255,255,255,.75);font-weight:600;font-size:34px}
+.s-04 .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 24px}
+.s-04 .step.glass{padding:20px 18px;text-align:left}
+.s-04 .step-time{font-size:40px;font-weight:700;color:#B2EEFA;line-height:1;margin-bottom:8px}
+.s-04 .step-route{font-size:24px;color:#69B5FA;font-weight:600;margin-bottom:10px;font-family:ui-monospace,monospace}
+.s-04 .step-copy{font-size:30px;line-height:1.35;color:#fff;font-weight:600}
+.s-04 .fallback{font-size:28px;color:#9DC384;font-weight:600;margin-top:8px}
+.s-04 .thumbs{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.s-04 .thumbs img{height:72px;width:auto;border-radius:8px;border:2px solid rgba(255,255,255,.2);object-fit:cover}
+.s-04 .slide-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:48px}
+</style>
+<section class="slide slide-deep s-04" data-slide="04">
+  <span class="block-badge">Demo en vivo · Datalab</span>
+  <div class="slide-main">
+    <h2 class="demo-title">Demo en vivo · Datalab (4 min)</h2>
+    <p class="demo-url"><span>https://</span>datalab.cleantechhub.net</p>
+    <div class="timeline">
+      <div class="step glass">
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/datalab</div>
+        <p class="step-copy">Decidimos qué construir</p>
+      </div>
+      <div class="step glass">
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/datathon</div>
+        <p class="step-copy">Una foto de datos, sale una foto</p>
+      </div>
+      <div class="step glass">
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/lab</div>
+        <p class="step-copy">Living lab: mapa, delta, ROI opcional</p>
+      </div>
+      <div class="step glass">
+        <div class="step-time">1:00</div>
+        <div class="step-route">#/client</div>
+        <p class="step-copy">Producto cliente · solo lectura</p>
+      </div>
+    </div>
+    <p class="fallback">Si la conexión falla → cuatro capturas en vivo en las diapositivas siguientes</p>
+    <div class="thumbs" aria-hidden="true">
+      <img src="img/b-live-datalab.png" alt="" width="128" height="72">
+      <img src="img/b-live-datathon.png" alt="" width="128" height="72">
+      <img src="img/b-live-lab.png" alt="" width="128" height="72">
+      <img src="img/b-live-client.png" alt="" width="128" height="72">
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide has-photo" style="--bg: url('img/a-programas-workshop.jpg')">
+  <div class="slide-inner">
+    <span class="badge">Bloque 1 · Programas</span>
+    <h2 style="font-size:64px">Programas · de la idea al mercado</h2>
+    <div class="program-cards">
+      <div class="glass program-card">
+        <h3>Ideación</h3>
+        <p>ClimateLaunchpad<br><span class="accent-green">CLP</span></p>
+      </div>
+      <div class="glass program-card">
+        <h3>Incubación</h3>
+        <p>Programa de incubación CTH</p>
+      </div>
+      <div class="glass program-card">
+        <h3>Aceleración</h3>
+        <p>ClimAccelerator<br><span class="accent-green">CLAC</span></p>
+      </div>
+    </div>
+    <div class="glass rein-card">
+      <h3 style="font-size:36px;color:var(--white)">REIN Hubs</h3>
+      <p>Con <strong>PVBLIC Foundation</strong> · hubs en <strong>CO, PE, CR, GT, SV</strong> · estado: <span class="accent-num">en pausa</span></p>
+      <p class="small" style="margin-top:10px"><a href="https://www.pvblic.org/rein-hubs" style="color:var(--cyan)">pvblic.org/rein-hubs</a></p>
+    </div>
+    <p class="src">Programas: base deck 16 sep · REIN: pvblic.org/rein-hubs · estado en pausa (Gideon 6 oct 2026)</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-06 h2{font-size:72px;margin:0 0 24px;color:#fff}
+.s-06 .env-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px}
+.s-06 .env-card.glass{padding:22px 20px;min-height:280px;display:flex;flex-direction:column}
+.s-06 .env-num{font-size:44px;font-weight:700;color:#B2EEFA;margin-bottom:6px}
+.s-06 .env-name{font-size:34px;font-weight:700;color:#fff;margin-bottom:12px}
+.s-06 .env-desc{font-size:30px;line-height:1.4;color:rgba(255,255,255,.92);flex:1}
+.s-06 .rule-bar{font-size:30px;line-height:1.45;padding:18px 22px;margin-bottom:16px}
+.s-06 .rule-bar strong{color:#B2EEFA}
+.s-06 .pipeline{font-size:28px;line-height:1.45;color:rgba(255,255,255,.9);padding:0 4px}
+.s-06 .pipeline em{font-style:normal;color:#9DC384;font-weight:600}
+.s-06 .slide-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+</style>
+<section class="slide slide-deep s-06" data-slide="06">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Lo que acaban de ver</h2>
+    <div class="env-grid">
+      <article class="env-card glass">
+        <div class="env-num">1</div>
+        <div class="env-name">Datalab</div>
+        <p class="env-desc">Estrategia, sin datos operativos. Decide qué construir.</p>
+      </article>
+      <article class="env-card glass">
+        <div class="env-num">2</div>
+        <div class="env-name">Datathon</div>
+        <p class="env-desc">Efímero, por evento: entra una foto de datos, sale una foto. Se borra al cerrar.</p>
+      </article>
+      <article class="env-card glass">
+        <div class="env-num">3</div>
+        <div class="env-name">Living lab</div>
+        <p class="env-desc">Persistente (datos, lógica, acceso). Nunca es sistema de registro.</p>
+      </article>
+      <article class="env-card glass">
+        <div class="env-num">4</div>
+        <div class="env-name">Producto cliente</div>
+        <p class="env-desc">Lee en un solo sentido desde el living lab.</p>
+      </article>
+    </div>
+    <div class="rule-bar glass">
+      <strong>Regla del sitio:</strong> cifras «Datos demo» = sintéticos · «Dato público» = fuente citada.
+    </div>
+    <p class="pipeline">
+      Pipeline presentado el 16 sep: <em>Datathon</em> climático · nov 2026 (Semana Global del Emprendimiento) →
+      <em>Climate Data Week Bogotá</em> · 1Q 2027.
+    </p>
+    <p class="src">Living lab en vivo: Bogotá, calidad del aire (RMCAB · panel Delta · compuerta ROI) · datalab.cleantechhub.net</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-07 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-07 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-07 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-07 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-07 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-07 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-07 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-07" data-slide="07">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 1 · Datalab</h2>
+    <p class="env-desc">Estrategia, sin datos operativos. Decide qué construir.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-datalab.png" alt="Captura en vivo del entorno Datalab" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datalab</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-08 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-08 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-08 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-08 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-08 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-08 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-08 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-08" data-slide="08">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 2 · Datathon</h2>
+    <p class="env-desc">Efímero, por evento: entra una foto de datos, sale una foto. Se borra al cerrar.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-datathon.png" alt="Captura en vivo del entorno Datathon" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/datathon" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/datathon</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-09 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-09 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-09 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-09 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-09 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-09 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-09 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-09" data-slide="09">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 3 · Living lab</h2>
+    <p class="env-desc">Persistente (datos, lógica, acceso). Nunca es sistema de registro. Mapa, delta y compuerta ROI viven aquí.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-lab.png" alt="Captura en vivo del Living lab" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/lab" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/lab</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-10 h2{font-size:68px;margin:0 0 12px;color:#fff}
+.s-10 .env-desc{font-size:32px;line-height:1.35;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:1680px}
+.s-10 .live-shot{flex:1;min-height:0;display:flex;flex-direction:column;gap:12px}
+.s-10 .live-shot img{width:100%;flex:1;min-height:0;max-height:760px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-10 .live-url.glass{padding:16px 22px;font-size:30px;font-weight:600}
+.s-10 .live-url a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-10 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-10" data-slide="10">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Entorno 4 · Producto cliente</h2>
+    <p class="env-desc">Lee en un solo sentido desde el living lab. Nunca escribe de vuelta.</p>
+    <figure class="live-shot">
+      <img src="img/b-live-client.png" alt="Captura en vivo del producto cliente" width="1760" height="760">
+      <figcaption class="live-url glass"><a href="https://datalab.cleantechhub.net/app/#/client" target="_blank" rel="noopener">https://datalab.cleantechhub.net/app/#/client</a></figcaption>
+    </figure>
+    <p class="src">Captura en vivo · datalab.cleantechhub.net · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-11 h2{font-size:68px;margin:0 0 16px;color:#fff}
+.s-11 .epic-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:28px;flex:1;min-height:0;align-items:stretch}
+.s-11 .epic-copy{display:flex;flex-direction:column;gap:16px;font-size:30px;line-height:1.4}
+.s-11 .epic-copy ul{padding-left:28px;margin:0}
+.s-11 .epic-copy li{margin-bottom:8px}
+.s-11 .epic-link.glass{padding:16px 20px;font-size:28px;font-weight:600}
+.s-11 .epic-link a{color:#B2EEFA;text-decoration:none;word-break:break-all}
+.s-11 .epic-meta{font-size:26px;color:rgba(178,238,250,.9)}
+.s-11 .sample{font-size:28px;color:#9DC384;font-weight:600}
+.s-11 .pack-note{font-size:24px;color:rgba(255,255,255,.78);font-style:italic;margin-top:auto}
+.s-11 .live-shot img{width:100%;height:100%;max-height:720px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.12)}
+.s-11 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+</style>
+<section class="slide slide-deep s-11" data-slide="11">
+  <span class="block-badge">Nexus · Epic Angels</span>
+  <div class="slide-main">
+    <h2>Filtro Epic Angels en Nexus</h2>
+    <div class="epic-layout">
+      <div class="epic-copy glass">
+        <p><strong>Qué hace:</strong> filtro especial en el portafolio público de startups CTH para mujeres al frente / C-level en clima — early-stage, clima / circular / agritech, enfoque LATAM; ticket Epic Angels ~US$50–250k.</p>
+        <p><strong>Cómo lo usa APC:</strong> abra el enlace, explore las <strong>18 startups</strong> filtrables y pida intros o lista curada.</p>
+        <p class="sample">Ejemplos en el filtro: CurubaTech · ArtexLab · CommunityLab</p>
+        <div class="epic-link"><a href="https://nexus.cleantechhub.net/p/startup-portfolio?epic=1" target="_blank" rel="noopener">https://nexus.cleantechhub.net/p/startup-portfolio?epic=1</a></div>
+        <p class="epic-meta">Portafolio base: nexus.cleantechhub.net/p/startup-portfolio · Red: epicangelnetwork.com</p>
+        <p class="pack-note">Pack de tarjetas disponible bajo solicitud (no enviado).</p>
+      </div>
+      <figure class="live-shot">
+        <img src="img/nexus-epic-angels.png" alt="Nexus con filtro Epic Angels activo" width="900" height="720">
+      </figure>
+    </div>
+    <p class="src">Captura en vivo · nexus.cleantechhub.net · filtro Epic Angels · 6 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-12 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;align-items:stretch;margin-top:24px}
+.s-12 .proj-card{padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:0}
+.s-12 .shot-wrap{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.15);max-height:340px}
+.s-12 .shot-wrap img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
+.s-12 .proj-title{font-size:40px;font-weight:700;line-height:1.2;margin:0;color:#fff}
+.s-12 .proj-oneliner{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.92);margin:0}
+.s-12 .proj-url{font-size:24px;color:#B2EEFA;font-weight:600;margin-top:auto}
+.s-12 .chip-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+</style>
+<section class="slide has-photo s-12" style="--bg:url('img/c-cpi-solar.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">Proyectos · plataformas vivas</h2>
+  <div class="proj-grid">
+    <div class="glass proj-card">
+      <div class="shot-wrap">
+        <img src="img/c-energiacoop.webp" alt="Captura del sitio Cooperativa Energética en Caja (hero)" width="800" height="306" loading="eager">
+      </div>
+      <p class="proj-title">Energy Co-op</p>
+      <p class="proj-oneliner">Cooperativa Energética en Caja: todo lo que necesitas para crear, financiar y operar una cooperativa de energía comunitaria en Colombia.</p>
+      <p class="proj-url">energiacoop.cleantechhub.net</p>
+    </div>
+    <div class="glass proj-card">
+      <div class="shot-wrap">
+        <img src="img/c-origo.webp" alt="Captura del sitio Origo (staging)" width="800" height="450" loading="eager">
+      </div>
+      <div class="chip-row">
+        <p class="proj-title" style="margin:0">Origo</p>
+        <span class="chip-staging">STAGING</span>
+      </div>
+      <p class="proj-oneliner">Plataforma climática y territorial · CleantechHUB × PASO.</p>
+      <p class="proj-url">origo.data.cleantechhub.net</p>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-13 .afcia-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;margin-top:28px}
+.s-13 .round-card{padding:36px 40px;display:flex;flex-direction:column;gap:16px}
+.s-13 .round-label{font-size:28px;font-weight:700;color:#B2EEFA;text-transform:uppercase;letter-spacing:.06em}
+.s-13 .round-amt{font-size:88px;font-weight:700;line-height:1;color:#9DC384;margin:8px 0}
+.s-13 .round-meta{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.95)}
+.s-13 .round-meta strong{color:#fff;font-weight:700}
+.s-13 .program-name{font-size:30px;color:rgba(255,255,255,0.88);margin-top:8px;line-height:1.35}
+</style>
+<section class="slide s-13 slide-gradient">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">PNUD · AFCIA</h2>
+  <p class="program-name">Adaptation Fund Climate Innovation Accelerator · plataforma AF-EU-UNDP Innovation Small Grants Aggregator</p>
+  <div class="afcia-grid">
+    <div class="glass round-card">
+      <span class="round-label">Ronda 1</span>
+      <p class="round-amt">US$60.000</p>
+      <p class="round-meta"><strong>Abr 2022 – sep 2023</strong><br>Fondo Acción como socio administrador<br><strong>52</strong> equipos fundadores</p>
+    </div>
+    <div class="glass round-card">
+      <span class="round-label">Ronda 2</span>
+      <p class="round-amt">US$110.000</p>
+      <p class="round-meta"><strong>2024–2025</strong> · convenio directo con PNUD<br><strong>5 hubs</strong> (CO · CR · GT · SV · PE)<br><strong>6.000+</strong> actores del ecosistema</p>
+    </div>
+  </div>
+  <p class="src">Fuentes: convenios LVGA firmados e informes PNUD (AF-EU-UNDP Innovation Small Grants Aggregator Platform)</p>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-14 .aura-panel{max-width:1500px;margin-top:32px;padding:44px 48px}
+.s-14 .aura-lead{font-size:38px;line-height:1.5;color:#fff;font-weight:600;margin-bottom:28px}
+.s-14 .aura-body{font-size:34px;line-height:1.55;color:rgba(255,255,255,0.94)}
+.s-14 .aura-body p{margin:0 0 20px}
+.s-14 .aura-eso{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
+</style>
+<section class="slide has-photo s-14" style="--bg:url('img/c-aura.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">AuRA</h2>
+  <div class="glass aura-panel">
+    <p class="aura-lead">AuRA · Aceleradora del Ecosistema de Inversión de Impacto — iniciativa de Fundación Bolívar Davivienda y BID Lab.</p>
+    <div class="aura-body">
+      <p>CleantechHUB participa como ESO de la Cohorte 2. Acuerdo de pago por resultados firmado en sep 2026.</p>
+      <div class="aura-eso">
+        <p><strong>Aporte como ESO:</strong> acompañamiento a startups climáticas para prepararlas para inversión de impacto — programas de aceleración, acceso a redes de inversionistas y fortalecimiento institucional (información pública del programa).</p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-15 .cpi-panel{max-width:1580px;margin-top:24px;padding:40px 44px}
+.s-15 .status-chip{display:inline-block;padding:8px 22px;border:2px solid #B2EEFA;border-radius:10px;font-size:30px;font-weight:700;color:#B2EEFA;margin-bottom:24px}
+.s-15 .cpi-h3{font-size:40px;font-weight:700;color:#9DC384;margin:0 0 16px}
+.s-15 .cpi-body{font-size:34px;line-height:1.5;color:rgba(255,255,255,0.94);margin:0 0 20px}
+.s-15 .coprop-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:20px 0}
+.s-15 .coprop-name{font-size:36px;font-weight:700;color:#fff;padding:10px 20px;background:rgba(255,255,255,0.08);border-radius:8px;border:1px solid rgba(255,255,255,0.12)}
+.s-15 .chip-convo{display:inline-block;padding:6px 16px;border:2px dashed #69B5FA;border-radius:8px;font-size:26px;font-weight:700;color:#69B5FA}
+.s-15 .fecha-obj{font-size:36px;font-weight:700;color:#B2EEFA;margin-top:24px}
+</style>
+<section class="slide has-photo s-15" style="--bg:url('img/c-cpi-solar.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">Energy Coops × CPI Global Innovation Lab for Climate Finance 2026</h2>
+  <div class="glass cpi-panel">
+    <span class="status-chip">Postulación en preparación</span>
+    <p class="cpi-h3">Concepto · Cooperativa Energética en Caja</p>
+    <p class="cpi-body">Plataforma «energiacoop» para crear, financiar y operar cooperativas de energía comunitaria en Colombia (CleantechHUB).</p>
+    <p class="cpi-h3">Co-proponentes</p>
+    <div class="coprop-row">
+      <span class="coprop-name">DGRV</span>
+      <span class="coprop-name">Coogranada</span>
+      <span class="coprop-name">CFA</span>
+      <span class="chip-convo">en conversación — no confirmado</span>
+    </div>
+    <p class="cpi-body"><strong>Contexto público:</strong> DGRV ejecuta el programa LAC E-Coop financiado por el BID en Colombia (2024–2027), con CFA y Coogranada como socios en Medellín (dgrv.coop; BID CO-G1059).</p>
+    <p class="fecha-obj">Fecha objetivo de radicación: 16 oct 2026</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-16 .growth-card p.help{font-size:24px;color:rgba(255,255,255,.88)}
+</style>
+<section class="slide has-photo s-16" style="--bg:url('img/d-growth.jpg')">
+  <div class="slide-inner">
+    <span class="block-badge">Bloque 4 · Growth</span>
+    <h2 class="slide-title">Startups del portafolio CTH que accedieron a financiación</h2>
+    <div class="card-grid-4">
+      <div class="glass growth-card s-16">
+        <h3>Proplanet</h3>
+        <p class="meta">CLAC22 · Medellín · reciclaje Tetra Pak</p>
+        <p class="help">CTH conectó la startup con FIMI vía ClimAccelerator.</p>
+        <p class="amt">US$400.000</p>
+        <p class="meta">FIMI / Fondo Acción · 2024</p>
+      </div>
+      <div class="glass growth-card">
+        <h3>MubOn</h3>
+        <p class="meta">CLAC24 · carga EV compartida</p>
+        <p class="help">Alianza MubOn–Fundación CleantechHUB ante P4G.</p>
+        <p class="amt">US$338.000</p>
+        <p class="meta">Subvención P4G a la alianza · Colombia</p>
+      </div>
+      <div class="glass growth-card">
+        <h3>WEIA</h3>
+        <p class="meta">CLP · fintech-agtech</p>
+        <p class="help">«Siembra ahora, paga después» · Colombia</p>
+        <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <p><span class="pendiente">PENDIENTE financiación con apoyo CTH</span></p> -->
+      </div>
+      <div class="glass growth-card">
+        <h3>Bio Natural Solutions</h3>
+        <p class="meta">CLAC23 · matriz Perú · filial Colombia</p>
+        <p class="help">Bioinsumos y recubrimientos poscosecha desde residuos agroindustriales.</p>
+        <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <p><span class="pendiente">PENDIENTE financiación con apoyo CTH</span></p> -->
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-17 .quote-block{max-width:1600px}
+.s-17 .amount-line{font-size:48px;font-weight:700;color:var(--cyan);margin:20px 0}
+</style>
+<section class="slide has-photo s-17" style="--bg:url('img/d-proplanet.jpg')">
+  <div class="slide-inner">
+    <span class="block-badge">Bloque 4 · Growth</span>
+    <h2 class="slide-title">Caso Proplanet</h2>
+    <div class="glass quote-block">
+      <p class="quote">«Fue gracias al programa Climate Accelerator de la Fundación CleantechHUB, donde FIMI conoció a Proplanet al ser uno de los 21 startups de tecnologías limpias más prometedoras.»</p>
+      <cite>— Fondo Acción · FIMI · 18 mar 2024</cite>
+      <p class="amount-line">Inversión documentada: <span class="accent">US$400.000</span> (2024)</p>
+      <p class="small">Reciclaje de envases Tetra Pak · pulpa de cartón y pellets de polyaluminio · Medellín · cohorte CLAC22.</p>
+    </div>
+    <p class="src">Fuentes: fondoaccion.org/2024/03/18/fimi-invirtio-en-proplanet · economistacolombia.com (7 feb 2024, monto USD 400.000)</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-18 .col h3{font-size:40px}
+.s-18 .col p{font-size:28px}
+.s-18 .stat{font-size:30px;line-height:1.35;margin:12px 0}
+.s-18 .thumb-mubon{background-image:url('img/d-mubon.jpg')}
+.s-18 .thumb-weia{background-image:url('img/d-weia.webp')}
+.s-18 .thumb-bbns{background-image:url('img/d-bbns.jpg')}
+</style>
+<section class="slide no-photo s-18">
+  <div class="slide-inner">
+    <span class="block-badge">Bloque 4 · Growth</span>
+    <h2 class="slide-title">MubOn · WEIA · Bio Natural Solutions</h2>
+    <div class="card-grid-3">
+      <div class="glass col">
+        <div class="thumb thumb-mubon" role="img" aria-label="Movilidad eléctrica"></div>
+        <h3>MubOn</h3>
+        <p class="stat"><span class="accent">US$338.000</span> · subvención P4G a la alianza MubOn–Fundación CleantechHUB.</p>
+        <p class="stat">SUI (wiki CTH): <strong>1 kWh</strong> ≈ <strong>6,5 km</strong> eléctrico ≈ <strong>1,12 kg CO₂e</strong> evitados (±8%) · verificado IoT.</p>
+        <p class="small">evaluations.cleantechhub.net/mubon <span class="pendiente">[en construcción]</span></p>
+      </div>
+      <div class="glass col">
+        <div class="thumb thumb-weia" role="img" aria-label="WEIA agro fintech"></div>
+        <h3>WEIA (WËIA)</h3>
+        <p>CLP · fintech-agtech · «Siembra ahora, paga después»: compradores financian agroinsumos al siembra y recuperan al cosechar.</p>
+        <p class="small">weia.com.co · trazabilidad en blockchain.</p>
+        <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <p><span class="pendiente">PENDIENTE monto / instrumento / fecha de financiación</span></p> -->
+      </div>
+      <div class="glass col">
+        <div class="thumb thumb-bbns" role="img" aria-label="Bioinsumos agrícolas"></div>
+        <h3>Bio Natural Solutions</h3>
+        <p>CLAC23 · empresa matriz en Perú, filial en Colombia · bioinsumos y recubrimientos poscosecha (p. ej. Vital Cover) a partir de residuos agroindustriales.</p>
+        <p class="small">bionatsolutions.com</p>
+        <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <p><span class="pendiente">PENDIENTE financiación con apoyo CTH</span></p> -->
+      </div>
+    </div>
+    <p class="src">P4G: p4gpartnerships.org/…/mubon-fundacion-cleantech-hub · Wiki SUI MubOn · weia.com.co · bionatsolutions.com</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-19 h2.slide-title{font-size:64px}
+.s-19 .tor-lead{font-size:28px;line-height:1.35;margin-bottom:12px}
+.s-19 .map-list li{font-size:26px;margin-bottom:8px}
+.s-19 .map-list{margin:8px 0 0;padding-left:28px}
+</style>
+<section class="slide no-photo s-19">
+  <div class="slide-inner">
+    <span class="block-badge">Convocatoria APC · Encaje</span>
+    <h2 class="slide-title">Encaje con la convocatoria APC</h2>
+    <div class="two-col">
+      <div class="glass">
+        <p class="tor-lead"><strong>Objeto (TDR §2):</strong> acompañar a <span class="accent">30 OSC</span> colombianas a construir estrategias de fundraising de filantropía internacional y conectarlas con el mecanismo de <span class="accent">patrocinio fiscal</span> del escritorio APC (10 patrocinadores EE. UU. + Europa reciente), <strong>principalmente desde Europa</strong>.</p>
+        <p class="tor-lead"><strong>Acompañamiento</strong> = formación, asesoría, mentoría y facilitación de relacionamiento. <strong>Sin transferencia de recursos</strong> de APC (§2, §3.2, §11).</p>
+        <div class="weights">
+          <div class="weight-box"><div class="pct">20%</div><div class="lbl">Estrategia de fundraising</div></div>
+          <div class="weight-box"><div class="pct">30%</div><div class="lbl">Fortaleza y transparencia</div></div>
+          <div class="weight-box"><div class="pct">30%</div><div class="lbl">Conexión internacional</div></div>
+          <div class="weight-box"><div class="pct">20%</div><div class="lbl">Territorios (5 deptos.)</div></div>
+        </div>
+        <table class="cal-table">
+          <tr><th>27 oct 2026</th><td>Espacios de conexión con patrocinadores fiscales europeos (Fase 5)</td></tr>
+        </table>
+      </div>
+      <div class="glass">
+        <h3>CTH en el marco del TDR</h3>
+        <ul class="map-list">
+          <li><strong>Relaciones internacionales:</strong> PNUD AFCIA · P4G · PVBLIC / REIN Hubs (pvblic.org/rein-hubs).</li>
+          <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <li><strong>Transparencia:</strong> <span class="pendiente">PENDIENTE estados financieros públicos / RTE</span></li> -->
+          <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <li><strong>Territorios:</strong> <span class="pendiente">PENDIENTE presencia en Chocó, Valle, Risaralda, Caldas, Quindío</span></li> -->
+          <li><strong>Entidad dinamizadora (Anexo I):</strong> CTH acompaña startups, ESOs y hubs — efecto multiplicador en el ecosistema.</li>
+          <!-- OCULTO 7 oct 2026 (pendiente sin dato; restaurar cuando haya hecho confirmado): <li><strong>Postulación CTH:</strong> <span class="pendiente">PENDIENTE estado en la convocatoria</span></li> -->
+        </ul>
+      </div>
+    </div>
+    <p class="src">APC Colombia · TDR «Convocatoria … patrocinio fiscal» (2026) · §2, §8, §9, §11, Anexo I</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-20 h2.slide-title{font-size:60px}
+.s-20 .steps{font-size:28px;margin-top:16px;line-height:1.4}
+.s-20 .no-funds{font-size:26px;color:var(--green);font-weight:700;margin-bottom:8px}
+</style>
+<section class="slide has-photo s-20" style="--bg:url('img/d-close.jpg')">
+  <div class="slide-inner">
+    <span class="block-badge">Cierre · Solicitud</span>
+    <h2 class="slide-title">La solicitud a APC</h2>
+    <p class="no-funds">Sin solicitar recursos económicos a APC — el TDR excluye transferencia de fondos.</p>
+    <div class="two-col" style="gap:20px">
+      <div class="glass">
+        <ul class="ask-list">
+          <li><span class="ask-num">1</span><span>Confirmar la ruta de CTH en la Estrategia de Filantropía / escritorio de patrocinadores fiscales.<!-- OCULTO 7 oct 2026: <span class="pendiente">PENDIENTE estado</span> --></span></li>
+          <li><span class="ask-num">2</span><span>Un espacio en la conexión con patrocinadores fiscales europeos del <strong>27 oct</strong> para las líneas <strong>Energy Co-op</strong> y <strong>Datalab</strong>.</span></li>
+          <li><span class="ask-num">3</span><span>Reconocer a CTH como <strong>entidad dinamizadora del ecosistema</strong> (multiplicador con startups y ESOs).</span></li>
+          <li><span class="ask-num">4</span><span>Un punto focal técnico en la Dirección de Demanda para seguimiento.</span></li>
+        </ul>
+      </div>
+      <div class="glass">
+        <h3>Próximos pasos</h3>
+        <p class="steps"><strong>16 oct 2026</strong> — ventana de postulación preliminar CPI Global Innovation Lab for Climate Finance (Energy Co-ops × CPI).</p>
+        <p class="steps"><strong>27 oct 2026</strong> — Fase 5 TDR APC: espacios de conexión con patrocinadores fiscales europeos.</p>
+        <p class="tagline-close">Inspira. Actúa. Transforma.</p>
+        <p style="font-size:40px;font-weight:700;margin-top:8px">Gracias</p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-21 h2.slide-title{font-size:68px;margin-bottom:16px}
+.s-21 .sources-col li{margin-bottom:6px;break-inside:avoid}
+</style>
+<section class="slide no-photo s-21">
+  <div class="slide-inner">
+    <span class="block-badge">Anexo · Fuentes</span>
+    <h2 class="slide-title">Fuentes públicas</h2>
+    <div class="glass" style="flex:1;overflow:hidden">
+      <ul class="sources-col">
+        <li><a href="https://datalab.cleantechhub.net">datalab.cleantechhub.net</a></li>
+        <li><a href="https://energiacoop.cleantechhub.net">energiacoop.cleantechhub.net</a></li>
+        <li><a href="https://origo.data.cleantechhub.net">origo.data.cleantechhub.net</a></li>
+        <li><a href="https://www.pvblic.org/rein-hubs">pvblic.org/rein-hubs</a></li>
+        <li><a href="https://fondoaccion.org/2024/03/18/fimi-invirtio-en-proplanet/">fondoaccion.org · FIMI / Proplanet (18 mar 2024)</a></li>
+        <li><a href="https://economistacolombia.com/empresarial/fimi-invirtio-us400000-para-transformar-mas-de-10-000-toneladas-de-envases-tetra-pak-al-2030/">economistacolombia.com (7 feb 2024 · USD 400.000)</a></li>
+        <li><a href="https://p4gpartnerships.org/pioneering-green-partnerships/all-p4g-partnerships/mubon-fundacion-cleantech-hub/">p4gpartnerships.org · MubOn–Fundación Cleantech Hub</a></li>
+        <li><a href="https://weia.com.co">weia.com.co</a></li>
+        <li><a href="https://bionatsolutions.com">bionatsolutions.com</a></li>
+        <li><a href="https://www.bidlab.org">bidlab.org · AuRA (texto plano, sin montos)</a></li>
+        <li><a href="https://www.fundacionbolivardavivienda.org/programas/emprende-pais/aura/">fundacionbolivardavivienda.org · AuRA</a></li>
+        <li><a href="https://dgrv.coop">dgrv.coop · cooperativas energéticas Colombia</a></li>
+        <li><a href="https://www.iadb.org/en/project/CO-G1059">iadb.org · CO-G1059</a></li>
+        <li><a href="https://wiki.cleantechhub.net/books/scalable-unit-of-impact-a-framework-for-climate-finance/page/mubon-colombia-kwh-delivered-per-charging-point">wiki.cleantechhub.net · SUI MubOn</a></li>
+        <li><a href="https://evaluations.cleantechhub.net/mubon">evaluations.cleantechhub.net/mubon</a></li>
+        <li>APC Colombia · TDR «Convocatoria … patrocinio fiscal» (2026)</li>
+        <li>Convenios LVGA e informes PNUD (archivo CTH)</li>
+      </ul>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+</div></div></div></div>
+<p class="nav-hint" aria-hidden="true">← → · espacio · clic</p>
+<script>
+(function () {
+  'use strict';
+
+  var frame = document.querySelector('.deck-frame');
+  var stage = document.querySelector('.deck-stage');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var current = 0;
+  var printMode = /\?print(?:=|$)/.test(window.location.search) || window.location.hash === '#print';
+
+  function scaleStage() {
+    if (!frame || !stage || printMode) return;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var sw = 1920;
+    var sh = 1080;
+    var scale = Math.min(vw / sw, vh / sh) * 0.96;
+    frame.style.width = Math.round(sw * scale) + 'px';
+    frame.style.height = Math.round(sh * scale) + 'px';
+    stage.style.transform = 'scale(' + scale + ')';
+  }
+
+  function initSlideNumbers() {
+    var total = slides.length;
+    slides.forEach(function (s, i) {
+      var el = s.querySelector('.slide-num');
+      if (el) {
+        el.textContent = (i + 1) + ' / ' + total;
+      }
+    });
+  }
+
+  function setSlide(index) {
+    if (!slides.length) return;
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === index);
+    });
+    current = index;
+    if (!printMode) {
+      var hash = index === 0 ? '#1' : '#' + (index + 1);
+      if (window.location.hash !== hash) {
+        history.replaceState(null, '', hash);
+      }
+    }
+  }
+
+  function next() {
+    setSlide(current + 1);
+  }
+
+  function prev() {
+    setSlide(current - 1);
+  }
+
+  function slideFromHash() {
+    var h = window.location.hash.replace(/^#/, '');
+    if (!h || h === 'print') return 0;
+    var n = parseInt(h, 10);
+    if (!isNaN(n) && n >= 1) return n - 1;
+    return 0;
+  }
+
+  function onKey(e) {
+    if (printMode) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === ' ' || k === 'PageDown') {
+      e.preventDefault();
+      next();
+    } else if (k === 'ArrowLeft' || k === 'PageUp') {
+      e.preventDefault();
+      prev();
+    }
+  }
+
+  function onClick(e) {
+    if (printMode) return;
+    var rect = (frame || stage).getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    if (x > rect.width / 2) next();
+    else prev();
+  }
+
+  initSlideNumbers();
+
+  if (printMode) {
+    document.body.classList.add('print-all');
+    slides.forEach(function (s) {
+      s.classList.add('active');
+    });
+  } else {
+    setSlide(slideFromHash());
+    window.addEventListener('resize', scaleStage);
+    window.addEventListener('hashchange', function () {
+      setSlide(slideFromHash());
+    });
+    document.addEventListener('keydown', onKey);
+    if (stage) stage.addEventListener('click', onClick);
+    scaleStage();
+  }
+})();
+</script>
+</body></html>
