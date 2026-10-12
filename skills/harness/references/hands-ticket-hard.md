@@ -31,7 +31,28 @@
 
 - **Lane A** — allowlist repos (e.g. `cth-plugin`) for code/skills
 - **Lane B** — `{type: machine, name: vps}` for Archive / Drive / HTML packs — no `repo_url` on Lane B when packs-only
-- **Parallel-first** micro-Hands: one artifact + one acceptance; cap **3–5** live Hands per workstream
+- **Parallel-first** micro-Hands: one artifact + one acceptance; see § Parallel jobs (above ~8 live per desk, ping Orchestrator)
+
+---
+
+## Plan first (MANDATORY, Gideon 12 Oct 2026)
+Before any Hands launch the desk writes a plan and puts it in the ticket:
+1. Precise restatement in Simplified Technical English (ASD-STE100): approved words with one meaning, sentences of at most about 20 words, one instruction per sentence, active voice, imperative verbs. Fields: Goal / Audience / Deliverable / Done when / Constraints / Out of scope / Open questions.
+2. Context check: memory, Archive, prior work; no duplication or contradiction.
+3. Smallest independent jobs: split into the smallest units that each yield one artifact with one acceptance check; list dependencies explicitly.
+4. Risks + mandatory push back: state at least one challenge to the ask (weak assumption, better route, cost, scope, timing) or write 'no push back: <reason>'. Questions only Gideon can answer are asked once, up front.
+5. Plan in ticket: the reviewer checks the output against the plan.
+Big or costly jobs: show Gideon the plan before launch. Small jobs proceed.
+
+## Parallel jobs (MANDATORY, Gideon 12 Oct 2026)
+More than one job means one Hands agent per independent job, all launched at the same time. Never work one and queue the rest.
+- Each job gets its own bc-id in the turn it arrives; only true dependencies wait, and they are written down.
+- Keep a job list (job, bc-id, state): live, blocked on a named HITL/blocker, or done. Nothing is 'queued' without a bc-id.
+- Above ~8 live per desk, ping Orchestrator instead of serializing.
+- Models still follow hands-model-routing (low-end by default).
+
+## Protocol changes
+Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
 ---
 
@@ -47,6 +68,8 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Capability agents doing first-draft file trees in the Grok chat instead of Hands
 - Blind-copying work that belongs on VPS Archive or a GitHub PR into chat-only artifacts
 - Claiming “reviewed” without Hands evidence paths / bc-ids
+- Launching Hands without a written plan or push back
+- Working one job and queuing the rest
 
 ---
 
