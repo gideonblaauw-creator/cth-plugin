@@ -1,39 +1,69 @@
 <style>
 .s-02 h2{font-size:68px;margin:0 0 20px;color:#fff}
-.s-02 .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;flex:1;min-height:0}
-.s-02 .fit-col.glass{padding:28px 32px;display:flex;flex-direction:column;gap:14px}
-.s-02 .fit-col h3{font-size:40px;margin:0 0 8px;color:#B2EEFA}
-.s-02 .fit-col p,.s-02 .fit-col li{font-size:30px;line-height:1.4;margin:0 0 10px}
-.s-02 .fit-col ul{padding-left:28px;margin:0}
-.s-02 .fit-col li{margin-bottom:10px}
-.s-02 .cite{font-size:24px;color:rgba(178,238,250,.85);margin-top:auto;padding-top:12px}
+.s-02 .fit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1;min-height:0}
+.s-02 .fit-col.glass{padding:0;display:flex;flex-direction:column;overflow:hidden}
+.s-02 .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:24px 28px;text-align:left}
+.s-02 .fit-col h3{font-size:36px;margin:0 0 8px;color:#B2EEFA}
+.s-02 .fit-col .lead{font-size:28px;line-height:1.35;margin:0}
+.s-02 .expand-body{display:none;padding:0 28px 22px;font-size:28px;line-height:1.4}
+.s-02 .expand-body.open{display:block}
+.s-02 .expand-body ul{padding-left:28px;margin:0}
+.s-02 .expand-body li{margin-bottom:8px}
+.s-02 .cite{font-size:24px;color:rgba(178,238,250,.85);margin-top:8px}
+.s-02 .cite a{color:#B2EEFA}
+.s-02 .expand-hint{font-size:24px;color:#69B5FA;margin-top:10px}
 .s-02 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
-<section class="slide slide-deep s-02" data-slide="02">
+<section class="slide slide-deep s-02" data-slide="02" data-menu-title="Encaje CTH × B4B">
   <span class="block-badge">Encaje</span>
   <div class="slide-main">
     <h2>CleantechHUB × Bridge for Billions</h2>
     <div class="fit-grid">
-      <article class="fit-col glass">
-        <h3>Programas CleantechHUB</h3>
-        <ul>
-          <li><strong>ClimateLaunchpad</strong> — ideación y validación temprana de ideas verdes.</li>
-          <li><strong>Incubación</strong> — acompañamiento a equipos en etapa pre-seed / seed.</li>
-          <li><strong>ClimAccelerator</strong> — aceleración de startups climáticas con foco en escalamiento.</li>
-        </ul>
-        <p class="cite">Organizador nacional ClimateLaunchpad · cleantechhub.net</p>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Programas CleantechHUB</h3>
+          <p class="lead">Ideación → incubación → aceleración climática.</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li><strong>ClimateLaunchpad</strong> — ideación y validación temprana.</li>
+            <li><strong>Incubación</strong> — pre-seed / seed.</li>
+            <li><strong>ClimAccelerator</strong> — escalamiento.</li>
+          </ul>
+          <p class="cite"><a href="https://cleantechhub.net" target="_blank" rel="noopener">cleantechhub.net</a></p>
+        </div>
       </article>
-      <article class="fit-col glass">
-        <h3>Oferta pública B4B</h3>
-        <p>Bridge for Billions <strong>asocia organizaciones</strong> para empoderar emprendedores y fortalecer ecosistemas, con impacto social duradero.</p>
-        <ul>
-          <li>Rutas para <strong>organizaciones y corporativos</strong> (programas a medida).</li>
-          <li>Rutas para <strong>emprendedores y mentores</strong> (metodología y red).</li>
-        </ul>
-        <p class="cite">Fuente: bridgeforbillions.org · «Enabling real change through entrepreneurship»</p>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Oferta pública B4B</h3>
+          <p class="lead">Partnerships con organizaciones y metodología para emprendedores.</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li>Organizaciones y corporativos — programas a medida.</li>
+            <li>Emprendedores y mentores — metodología digital.</li>
+          </ul>
+          <p class="cite"><a href="https://www.bridgeforbillions.org/" target="_blank" rel="noopener">bridgeforbillions.org</a></p>
+        </div>
+      </article>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Conecta + ecosistema FVC</h3>
+          <p class="lead">B4B (Conecta) · Latimpacto + BID Lab (Fondo Verde Catalítico).</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li><strong>Conecta</strong> — ESOs en LatAm; respaldo BID Lab (<a href="https://conecta.bridgeforbillions.org/" target="_blank" rel="noopener">conecta.bridgeforbillions.org</a>).</li>
+            <li><strong>FVC</strong> — US$5M, 350 emprendimientos vía ESOs (<a href="https://latimpacto.org/fondo-verde-catalitico/" target="_blank" rel="noopener">latimpacto.org</a>).</li>
+          </ul>
+          <p class="cite">Puente posible CTH–B4B: <span class="pendiente">[PENDIENTE validar]</span> financiación Conecta vía FVC.</p>
+        </div>
       </article>
     </div>
-    <p class="src">Hipótesis de esta reunión: combinar pipeline CTH (ideación → incubación → aceleración) con programas B4B donde haya overlap geográfico y de etapa.</p>
+    <p class="src">Hipótesis de reunión: combinar pipeline CTH con Conecta/B4B donde haya overlap geográfico (CO, LAC) y etapa.</p>
   </div>
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>

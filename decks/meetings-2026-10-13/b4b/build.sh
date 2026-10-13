@@ -21,7 +21,26 @@ css_content="$(cat "$CSS")"
     cat "$f"
   done
   echo '</div></div></div></div>'
-  echo '<p class="nav-hint" aria-hidden="true">← → · espacio · clic</p>'
+  cat << 'CHROME'
+
+<div class="deck-chrome" id="deck-chrome">
+  <button type="button" class="chrome-btn" id="btn-menu" aria-expanded="false">Índice</button>
+  <nav class="slide-dots" id="slide-dots" aria-label="Progreso de diapositivas"></nav>
+  <button type="button" class="chrome-btn" id="btn-questions" aria-pressed="false">Mostrar preguntas</button>
+</div>
+<div class="deck-menu" id="deck-menu" hidden>
+  <div class="deck-menu-panel" role="dialog" aria-label="Índice de diapositivas">
+    <h2>Índice</h2>
+    <ul class="deck-menu-list" id="deck-menu-list"></ul>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Captura ampliada">
+  <button type="button" class="chrome-btn lightbox-close" id="lightbox-close">Cerrar</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+</div>
+CHROME
+  echo '<p class="nav-hint" aria-hidden="true">← → · espacio · clic · índice · puntos</p>'
   echo '<script>'
   cat "$JS"
   echo '</script>'

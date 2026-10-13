@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent
 INDEX = ROOT / "index.html"
 PDF_OUT = ROOT / "CTH-B4B-2026-10-13.pdf"
 PNG_DIR = ROOT / "png"
-SLIDE_COUNT = 7
+SLIDE_COUNT = 9
 
 
 def ensure_playwright():

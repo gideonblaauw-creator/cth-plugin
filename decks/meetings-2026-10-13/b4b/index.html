@@ -680,11 +680,202 @@ body.print-all .slide {
 body.print-all .nav-hint {
   display: none;
 }
+
+/* --- Interactive chrome (screen only) --- */
+.deck-chrome {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px 16px;
+  background: linear-gradient(to top, rgba(5, 26, 51, 0.95), rgba(5, 26, 51, 0.55));
+  pointer-events: none;
+}
+
+.deck-chrome > * {
+  pointer-events: auto;
+}
+
+.chrome-btn {
+  font-family: var(--font);
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(178, 238, 250, 0.45);
+  background: rgba(12, 73, 138, 0.85);
+  color: #fff;
+  cursor: pointer;
+}
+
+.chrome-btn[aria-pressed="true"] {
+  background: #B2EEFA;
+  color: #0C498A;
+}
+
+.slide-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(960px, 60vw);
+  justify-content: center;
+}
+
+.slide-dots button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(178, 238, 250, 0.7);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.slide-dots button.active,
+.slide-dots button[aria-current="true"] {
+  background: #B2EEFA;
+  border-color: #B2EEFA;
+}
+
+.deck-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(4, 20, 40, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.deck-menu[hidden] {
+  display: none !important;
+}
+
+.deck-menu-panel {
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 100%);
+  border: 1px solid rgba(178, 238, 250, 0.25);
+  border-radius: 16px;
+  padding: 28px 32px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.deck-menu-panel h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.deck-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deck-menu-list li {
+  margin-bottom: 10px;
+}
+
+.deck-menu-list button {
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 28px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.deck-menu-list button:hover,
+.deck-menu-list button:focus {
+  border-color: #B2EEFA;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox img {
+  max-width: min(1600px, 92vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-cap {
+  font-size: 28px;
+  color: #B2EEFA;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 28px;
+  padding: 10px 16px;
+}
+
+body.show-questions .ask-collapsible {
+  display: flex !important;
+}
+
+body.print-all .deck-chrome,
+body.print-all .deck-menu,
+body.print-all .lightbox {
+  display: none !important;
+}
+
+body.print-all .expand-body {
+  display: block !important;
+}
+
+body.print-all .ask-collapsible {
+  display: flex !important;
+}
+
+@media print {
+  .deck-chrome,
+  .deck-menu,
+  .lightbox {
+    display: none !important;
+  }
+  .expand-body {
+    display: block !important;
+  }
+  .ask-collapsible {
+    display: flex !important;
+  }
+}
 </style>
 </head>
 <body>
 <div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
-<section class="slide slide-deep s-01 active" data-slide="01">
+<section class="slide slide-deep s-01 active" data-slide="01" data-menu-title="Portada">
   <div class="slide-inner">
     <p class="tagline">Inspira. Actúa. Transforma.</p>
     <h1 class="cover-title">CleantechHUB × Bridge for Billions</h1>
@@ -709,40 +900,206 @@ body.print-all .nav-hint {
 </section>
 <style>
 .s-02 h2{font-size:68px;margin:0 0 20px;color:#fff}
-.s-02 .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;flex:1;min-height:0}
-.s-02 .fit-col.glass{padding:28px 32px;display:flex;flex-direction:column;gap:14px}
-.s-02 .fit-col h3{font-size:40px;margin:0 0 8px;color:#B2EEFA}
-.s-02 .fit-col p,.s-02 .fit-col li{font-size:30px;line-height:1.4;margin:0 0 10px}
-.s-02 .fit-col ul{padding-left:28px;margin:0}
-.s-02 .fit-col li{margin-bottom:10px}
-.s-02 .cite{font-size:24px;color:rgba(178,238,250,.85);margin-top:auto;padding-top:12px}
+.s-02 .fit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1;min-height:0}
+.s-02 .fit-col.glass{padding:0;display:flex;flex-direction:column;overflow:hidden}
+.s-02 .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:24px 28px;text-align:left}
+.s-02 .fit-col h3{font-size:36px;margin:0 0 8px;color:#B2EEFA}
+.s-02 .fit-col .lead{font-size:28px;line-height:1.35;margin:0}
+.s-02 .expand-body{display:none;padding:0 28px 22px;font-size:28px;line-height:1.4}
+.s-02 .expand-body.open{display:block}
+.s-02 .expand-body ul{padding-left:28px;margin:0}
+.s-02 .expand-body li{margin-bottom:8px}
+.s-02 .cite{font-size:24px;color:rgba(178,238,250,.85);margin-top:8px}
+.s-02 .cite a{color:#B2EEFA}
+.s-02 .expand-hint{font-size:24px;color:#69B5FA;margin-top:10px}
 .s-02 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
-<section class="slide slide-deep s-02" data-slide="02">
+<section class="slide slide-deep s-02" data-slide="02" data-menu-title="Encaje CTH × B4B">
   <span class="block-badge">Encaje</span>
   <div class="slide-main">
     <h2>CleantechHUB × Bridge for Billions</h2>
     <div class="fit-grid">
-      <article class="fit-col glass">
-        <h3>Programas CleantechHUB</h3>
-        <ul>
-          <li><strong>ClimateLaunchpad</strong> — ideación y validación temprana de ideas verdes.</li>
-          <li><strong>Incubación</strong> — acompañamiento a equipos en etapa pre-seed / seed.</li>
-          <li><strong>ClimAccelerator</strong> — aceleración de startups climáticas con foco en escalamiento.</li>
-        </ul>
-        <p class="cite">Organizador nacional ClimateLaunchpad · cleantechhub.net</p>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Programas CleantechHUB</h3>
+          <p class="lead">Ideación → incubación → aceleración climática.</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li><strong>ClimateLaunchpad</strong> — ideación y validación temprana.</li>
+            <li><strong>Incubación</strong> — pre-seed / seed.</li>
+            <li><strong>ClimAccelerator</strong> — escalamiento.</li>
+          </ul>
+          <p class="cite"><a href="https://cleantechhub.net" target="_blank" rel="noopener">cleantechhub.net</a></p>
+        </div>
       </article>
-      <article class="fit-col glass">
-        <h3>Oferta pública B4B</h3>
-        <p>Bridge for Billions <strong>asocia organizaciones</strong> para empoderar emprendedores y fortalecer ecosistemas, con impacto social duradero.</p>
-        <ul>
-          <li>Rutas para <strong>organizaciones y corporativos</strong> (programas a medida).</li>
-          <li>Rutas para <strong>emprendedores y mentores</strong> (metodología y red).</li>
-        </ul>
-        <p class="cite">Fuente: bridgeforbillions.org · «Enabling real change through entrepreneurship»</p>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Oferta pública B4B</h3>
+          <p class="lead">Partnerships con organizaciones y metodología para emprendedores.</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li>Organizaciones y corporativos — programas a medida.</li>
+            <li>Emprendedores y mentores — metodología digital.</li>
+          </ul>
+          <p class="cite"><a href="https://www.bridgeforbillions.org/" target="_blank" rel="noopener">bridgeforbillions.org</a></p>
+        </div>
+      </article>
+      <article class="fit-col glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Conecta + ecosistema FVC</h3>
+          <p class="lead">B4B (Conecta) · Latimpacto + BID Lab (Fondo Verde Catalítico).</p>
+          <p class="expand-hint">Clic para detalle</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li><strong>Conecta</strong> — ESOs en LatAm; respaldo BID Lab (<a href="https://conecta.bridgeforbillions.org/" target="_blank" rel="noopener">conecta.bridgeforbillions.org</a>).</li>
+            <li><strong>FVC</strong> — US$5M, 350 emprendimientos vía ESOs (<a href="https://latimpacto.org/fondo-verde-catalitico/" target="_blank" rel="noopener">latimpacto.org</a>).</li>
+          </ul>
+          <p class="cite">Puente posible CTH–B4B: <span class="pendiente">[PENDIENTE validar]</span> financiación Conecta vía FVC.</p>
+        </div>
       </article>
     </div>
-    <p class="src">Hipótesis de esta reunión: combinar pipeline CTH (ideación → incubación → aceleración) con programas B4B donde haya overlap geográfico y de etapa.</p>
+    <p class="src">Hipótesis de reunión: combinar pipeline CTH con Conecta/B4B donde haya overlap geográfico (CO, LAC) y etapa.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>Bridge for Billions · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-03c h2{font-size:64px;margin:0 0 16px;color:#fff}
+.s-03c .fvc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1;min-height:0}
+.s-03c .fact-card.glass{padding:0;overflow:hidden;display:flex;flex-direction:column;text-align:left}
+.s-03c .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:22px 26px;text-align:left}
+.s-03c .expand-trigger h3{font-size:36px;margin:0 0 8px;color:#B2EEFA}
+.s-03c .expand-trigger .lead{font-size:28px;line-height:1.35;margin:0;color:rgba(255,255,255,.92)}
+.s-03c .expand-trigger .hint{font-size:24px;margin-top:10px;color:#69B5FA}
+.s-03c .expand-body{display:none;padding:0 26px 22px;font-size:28px;line-height:1.4}
+.s-03c .expand-body.open{display:block}
+.s-03c .expand-body ul{padding-left:28px;margin:0 0 12px}
+.s-03c .expand-body li{margin-bottom:8px}
+.s-03c .fact-link{font-size:24px;margin-top:8px}
+.s-03c .fact-link a{color:#B2EEFA}
+.s-03c .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
+</style>
+<section class="slide slide-deep s-03c" data-slide="03" data-menu-title="Conecta / Fondo Verde Catalítico">
+  <span class="block-badge">Conecta · FVC</span>
+  <div class="slide-main">
+    <h2>Conecta y Fondo Verde Catalítico</h2>
+    <div class="fvc-grid">
+      <article class="fact-card glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Conecta (Bridge for Billions)</h3>
+          <p class="lead">Comunidad y metodología para <strong>ESOs</strong>: Conecta Academy, incubación co-creada y red regional.</p>
+          <p class="hint">Clic para detalle · conecta.bridgeforbillions.org</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li>LatAm: foco en Centroamérica, Colombia y México.</li>
+            <li>Respaldo declarado: <strong>BID Lab</strong> y <strong>Fundación Argidius</strong>.</li>
+            <li>Más de 40 ESOs en la región; plataforma digital B4B para incubación.</li>
+          </ul>
+          <p class="fact-link">Fuente: <a href="https://conecta.bridgeforbillions.org/comunidad-de-lideres-conecta-latinoamerica-es-2025/" target="_blank" rel="noopener">conecta.bridgeforbillions.org</a></p>
+        </div>
+      </article>
+      <article class="fact-card glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Fondo Verde Catalítico (FVC)</h3>
+          <p class="lead"><strong>Latimpacto</strong> lidera; <strong>BID Lab</strong> cofinancia y cocrea · capital catalítico para descarbonización.</p>
+          <p class="hint">Clic para detalle · latimpacto.org/fondo-verde-catalitico</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li><strong>US$5 millones</strong> movilizados; meta de fortalecer <strong>350</strong> modelos de negocio climáticos vía ESOs.</li>
+            <li><strong>9 ESOs</strong> seleccionadas (comunicado Latimpacto, ~1 año post convocatoria sep 2024).</li>
+            <li>Intermediarios: hasta US$400 000 (Amazonía) o US$480 000 (LAC) según instrumento.</li>
+            <li>Aliados: GCF, BID, Bayer Foundation, Coca-Cola LatAm.</li>
+          </ul>
+          <p class="fact-link">Fuentes: <a href="https://latimpacto.org/fondo-verde-catalitico/" target="_blank" rel="noopener">latimpacto.org</a> · <a href="https://bidlab.org/es/noticias/nueva-convocatoria-del-fondo-verde-catalitico-impulsando-la-descarbonizacion-en-america" target="_blank" rel="noopener">bidlab.org</a></p>
+        </div>
+      </article>
+      <article class="fact-card glass expand-card" style="grid-column:1/-1">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Elegibilidad y geografía (FVC)</h3>
+          <p class="lead">Convocatoria a <strong>ESOs</strong> · Amazonía (BR, CO, EC, GY, PE, SR) y más países LAC.</p>
+          <p class="hint">Clic para sectores y calendario publicado</p>
+        </button>
+        <div class="expand-body">
+          <ul>
+            <li>Sectores: agricultura regenerativa, bioingredientes, tecnologías limpias, servicios ecosistémicos.</li>
+            <li>Enfoque: cadenas de valor net-zero, economía circular, soluciones inclusivas y lideradas por mujeres.</li>
+            <li>Calendario convocatoria sep 2024: cierre <strong>30 nov 2024</strong> · anuncio <strong>30 mar 2025</strong>.</li>
+            <li>Contacto: <a href="mailto:convocatoria@latimpacto.org">convocatoria@latimpacto.org</a></li>
+          </ul>
+          <p class="fact-link"><span class="pendiente">[PENDIENTE]</span> — relación financiera directa Conecta ↔ FVC en fuentes públicas consultadas.</p>
+        </div>
+      </article>
+    </div>
+    <p class="src">Hechos citados en SOURCES.md · sin cifras REIN · sin afirmar vínculo Conecta–FVC no publicado.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>Bridge for Billions · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-04c h2{font-size:64px;margin:0 0 16px;color:#fff}
+.s-04c .hypo-badge{display:inline-block;padding:8px 18px;border-radius:10px;font-size:26px;font-weight:700;background:rgba(105,181,250,.2);border:1px solid #69B5FA;color:#69B5FA;margin-bottom:16px}
+.s-04c .hypo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1;min-height:0}
+.s-04c .hypo-card.glass{padding:0;display:flex;flex-direction:column}
+.s-04c .hypo-card .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:22px 24px;text-align:left}
+.s-04c .hypo-card h3{font-size:32px;color:#9DC384;margin:0 0 10px}
+.s-04c .hypo-card .lead{font-size:28px;line-height:1.35;margin:0}
+.s-04c .hypo-card .expand-body{display:none;padding:0 24px 20px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.92)}
+.s-04c .hypo-card .expand-body.open{display:block}
+.s-04c .bridge-bar.glass{padding:20px 26px;font-size:28px;line-height:1.4;margin-top:14px}
+.s-04c .bridge-bar strong{color:#B2EEFA}
+.s-04c .slide-main{flex:1;display:flex;flex-direction:column;padding-top:28px;min-height:0}
+</style>
+<section class="slide slide-deep s-04c" data-slide="04" data-menu-title="CTH × B4B vía Conecta">
+  <span class="block-badge">Hipótesis de encaje</span>
+  <div class="slide-main">
+    <p class="hypo-badge">Hipótesis — no hechos confirmados</p>
+    <h2>Cómo CleantechHUB × B4B se conectan vía Conecta</h2>
+    <div class="hypo-grid">
+      <article class="hypo-card glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>1 · Pipeline</h3>
+          <p class="lead">CTH aporta deal flow climático (ClimateLaunchpad → incubación → ClimAccelerator); B4B aporta metodología Conecta y plataforma para ESOs.</p>
+        </button>
+        <div class="expand-body">
+          <p>Colaboración posible en cohortes climáticas en Colombia y LAC, alineadas a sectores FVC (tecnologías limpias, bioeconomía).</p>
+        </div>
+      </article>
+      <article class="hypo-card glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>2 · Rol ESO</h3>
+          <p class="lead">CTH actuaría como ESO/intermediario cualificado; B4B habilita operación y comunidad Conecta.</p>
+        </button>
+        <div class="expand-body">
+          <p><span class="pendiente">[PENDIENTE]</span> — elegibilidad CTH en convocatoria FVC o programas Conecta 2026–2027 (validar con Latimpacto y B4B).</p>
+        </div>
+      </article>
+      <article class="hypo-card glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>3 · Evidencia</h3>
+          <p class="lead">Nexus y Datalab como vitrinas de portafolio y datos demo para seguimiento de impacto climático.</p>
+        </button>
+        <div class="expand-body">
+          <p>157 startups / 8 programas en Nexus; entornos Datalab para living labs y producto cliente — complemento a medición Conecta.</p>
+        </div>
+      </article>
+    </div>
+    <div class="bridge-bar glass">
+      <strong>Puente institucional publicado:</strong> BID Lab aparece en Conecta y en el FVC (Latimpacto). CTH explora articulación con María Paula (B4B) en ese ecosistema — <span class="pendiente">[PENDIENTE]</span> confirmar si Conecta recibe recursos del FVC.
+    </div>
+    <p class="src">Hipótesis para conversación Holland House · Gideon Blaauw · 13 oct 2026.</p>
   </div>
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
@@ -762,7 +1119,7 @@ body.print-all .nav-hint {
 .s-03 .rein-side p{font-size:28px;line-height:1.4;margin:0}
 .s-03 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
-<section class="slide slide-deep s-03" data-slide="03">
+<section class="slide slide-deep s-03" data-slide="05" data-menu-title="REIN Hubs">
   <span class="block-badge">Contexto regional</span>
   <div class="slide-main">
     <h2>REIN Hubs · PVBLIC Foundation</h2>
@@ -807,7 +1164,7 @@ body.print-all .nav-hint {
 .s-04 .live-shot img{width:100%;height:100%;max-height:720px;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.12)}
 .s-04 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
 </style>
-<section class="slide slide-deep s-04" data-slide="04">
+<section class="slide slide-deep s-04" data-slide="06" data-menu-title="Nexus + Epic Angels">
   <span class="block-badge">Muestra · Nexus</span>
   <div class="slide-main">
     <h2>Portafolio público de startups</h2>
@@ -840,31 +1197,41 @@ body.print-all .nav-hint {
 .s-05 .env-head a{color:#B2EEFA;text-decoration:none;font-weight:600}
 .s-05 .shot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;flex:1;min-height:0}
 .s-05 .shot-card{display:flex;flex-direction:column;gap:8px;min-height:0}
-.s-05 .shot-card img{width:100%;flex:1;min-height:0;max-height:360px;object-fit:contain;object-position:center top;border-radius:10px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.s-05 .shot-thumb{border:0;padding:0;background:transparent;cursor:pointer;width:100%;flex:1;min-height:0;display:block}
+.s-05 .shot-thumb img{width:100%;flex:1;min-height:0;max-height:360px;object-fit:contain;object-position:center top;border-radius:10px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
 .s-05 .shot-label.glass{padding:10px 14px;font-size:26px;font-weight:700;text-align:center}
+.s-05 .shot-label a{color:#B2EEFA;text-decoration:none;font-size:24px;display:block;margin-top:6px}
 .s-05 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
 </style>
-<section class="slide slide-deep s-05" data-slide="05">
+<section class="slide slide-deep s-05" data-slide="07" data-menu-title="Datalab (4 entornos)">
   <span class="block-badge">Muestra · Datalab</span>
   <div class="slide-main">
     <h2>Cuatro entornos en datalab.cleantechhub.net</h2>
-    <p class="env-head">Hub: <a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">datalab.cleantechhub.net/app/#/datalab</a> · estrategia, eventos, living labs y productos cliente (lectura unidireccional desde el lab).</p>
+    <p class="env-head">Hub: <a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">datalab.cleantechhub.net/app/#/datalab</a> · clic en captura = ampliar · enlaces = entorno en vivo.</p>
     <div class="shot-grid">
       <figure class="shot-card">
-        <img src="img/b-live-datalab.png" alt="Entorno Datalab">
-        <figcaption class="shot-label glass">1 · Datalab — estrategia sin datos operativos</figcaption>
+        <button type="button" class="shot-thumb lightbox-open" data-src="img/b-live-datalab.png" data-caption="Datalab — estrategia sin datos operativos" aria-label="Ampliar captura Datalab">
+          <img src="img/b-live-datalab.png" alt="Entorno Datalab">
+        </button>
+        <figcaption class="shot-label glass">1 · Datalab<a href="https://datalab.cleantechhub.net/app/#/datalab" target="_blank" rel="noopener">Abrir entorno ↗</a></figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="img/b-live-datathon.png" alt="Entorno Datathon">
-        <figcaption class="shot-label glass">2 · Datathon — efímero por evento</figcaption>
+        <button type="button" class="shot-thumb lightbox-open" data-src="img/b-live-datathon.png" data-caption="Datathon — efímero por evento" aria-label="Ampliar captura Datathon">
+          <img src="img/b-live-datathon.png" alt="Entorno Datathon">
+        </button>
+        <figcaption class="shot-label glass">2 · Datathon<a href="https://datalab.cleantechhub.net/app/#/datathon" target="_blank" rel="noopener">Abrir entorno ↗</a></figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="img/b-live-lab.png" alt="Living lab">
-        <figcaption class="shot-label glass">3 · Living lab — persistente, no sistema de registro</figcaption>
+        <button type="button" class="shot-thumb lightbox-open" data-src="img/b-live-lab.png" data-caption="Living lab — persistente" aria-label="Ampliar captura Living lab">
+          <img src="img/b-live-lab.png" alt="Living lab">
+        </button>
+        <figcaption class="shot-label glass">3 · Living lab<a href="https://datalab.cleantechhub.net/app/#/lab" target="_blank" rel="noopener">Abrir entorno ↗</a></figcaption>
       </figure>
       <figure class="shot-card">
-        <img src="img/b-live-client.png" alt="Producto cliente">
-        <figcaption class="shot-label glass">4 · Producto cliente — lectura desde el living lab</figcaption>
+        <button type="button" class="shot-thumb lightbox-open" data-src="img/b-live-client.png" data-caption="Producto cliente" aria-label="Ampliar captura Producto cliente">
+          <img src="img/b-live-client.png" alt="Producto cliente">
+        </button>
+        <figcaption class="shot-label glass">4 · Producto cliente<a href="https://datalab.cleantechhub.net/app/#/client" target="_blank" rel="noopener">Abrir entorno ↗</a></figcaption>
       </figure>
     </div>
     <p class="src">Capturas reutilizadas · datalab.cleantechhub.net · oct 2026</p>
@@ -880,17 +1247,22 @@ body.print-all .nav-hint {
 .s-06 .ask-list{list-style:none;padding:0;margin:0;flex:1;display:flex;flex-direction:column;justify-content:center;gap:0}
 .s-06 .ask-list li{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:32px;line-height:1.35}
 .s-06 .ask-num{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#B2EEFA;color:#0C498A;font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}
+.s-06 .ask-collapsible{display:none}
 .s-06 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:40px;min-height:0}
+.s-06 .ask-hint{font-size:26px;color:#69B5FA;margin-bottom:12px}
 </style>
-<section class="slide slide-deep s-06" data-slide="06">
+<section class="slide slide-deep s-06" data-slide="08" data-menu-title="Preguntas de colaboración">
   <span class="block-badge">Preguntas de colaboración</span>
   <div class="slide-main">
     <h2>¿Dónde encajamos juntos?</h2>
+    <p class="ask-hint">Use «Mostrar preguntas» en la barra inferior para revelar preguntas Conecta / FVC.</p>
     <ol class="ask-list">
       <li><span class="ask-num">1</span><span>¿Qué cohortes o verticales B4B están abiertas en 2026–2027 para startups climáticas en Colombia y LATAM?</span></li>
       <li><span class="ask-num">2</span><span>¿Cómo combinarían la metodología B4B con ClimateLaunchpad (ideación), incubación CTH y ClimAccelerator?</span></li>
-      <li><span class="ask-num">3</span><span>¿Interesa co-diseñar un piloto que use Nexus (157 startups / 8 programas) como vitrina y Datalab para datos demo o living labs?</span></li>
-      <li><span class="ask-num">4</span><span>Cuando REIN Hubs retome (CO, PE, CR, GT, SV), ¿qué rol verían para B4B frente a CleantechHUB?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">3</span><span>¿Conecta tiene línea activa en Colombia en 2025–2026 y cómo encaja CleantechHUB como ESO?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">4</span><span>¿Existe (o planean) articulación entre <strong>Conecta</strong> y el <strong>Fondo Verde Catalítico</strong> (Latimpacto / BID Lab) que CTH pueda sumarse?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">5</span><span>¿Interesa co-diseñar un piloto que use Nexus (157 startups / 8 programas) como vitrina y Datalab para datos demo o living labs?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">6</span><span>Cuando REIN Hubs retome (CO, PE, CR, GT, SV), ¿qué rol verían para B4B frente a CleantechHUB?</span></li>
     </ol>
     <p class="src">Preguntas abiertas · sin compromisos comerciales en esta reunión.</p>
   </div>
@@ -909,7 +1281,7 @@ body.print-all .nav-hint {
 .s-07 .loop strong{color:#B2EEFA}
 .s-07 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:40px;min-height:0}
 </style>
-<section class="slide slide-deep s-07" data-slide="07">
+<section class="slide slide-deep s-07" data-slide="09" data-menu-title="Próximos pasos">
   <span class="block-badge">Próximos pasos</span>
   <div class="slide-main">
     <h2>Después de Holland House</h2>
@@ -931,7 +1303,24 @@ body.print-all .nav-hint {
   </footer>
 </section>
 </div></div></div></div>
-<p class="nav-hint" aria-hidden="true">← → · espacio · clic</p>
+
+<div class="deck-chrome" id="deck-chrome">
+  <button type="button" class="chrome-btn" id="btn-menu" aria-expanded="false">Índice</button>
+  <nav class="slide-dots" id="slide-dots" aria-label="Progreso de diapositivas"></nav>
+  <button type="button" class="chrome-btn" id="btn-questions" aria-pressed="false">Mostrar preguntas</button>
+</div>
+<div class="deck-menu" id="deck-menu" hidden>
+  <div class="deck-menu-panel" role="dialog" aria-label="Índice de diapositivas">
+    <h2>Índice</h2>
+    <ul class="deck-menu-list" id="deck-menu-list"></ul>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Captura ampliada">
+  <button type="button" class="chrome-btn lightbox-close" id="lightbox-close">Cerrar</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+</div>
+<p class="nav-hint" aria-hidden="true">← → · espacio · clic · índice · puntos</p>
 <script>
 (function () {
   'use strict';
@@ -959,8 +1348,17 @@ body.print-all .nav-hint {
     slides.forEach(function (s, i) {
       var el = s.querySelector('.slide-num');
       if (el) {
-        el.textContent = (i + 1) + ' / ' + total;
+        el.textContent = i + 1 + ' / ' + total;
       }
+    });
+  }
+
+  function updateDots() {
+    var dots = document.querySelectorAll('.slide-dots button');
+    dots.forEach(function (btn, i) {
+      var on = i === current;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-current', on ? 'true' : 'false');
     });
   }
 
@@ -971,9 +1369,10 @@ body.print-all .nav-hint {
       s.classList.toggle('active', i === index);
     });
     current = index;
+    updateDots();
     if (!printMode) {
       var hash = index === 0 ? '#1' : '#' + (index + 1);
-      if (window.location.hash !== hash) {
+      if (window.location.hash !== hash && window.location.hash !== '#print') {
         history.replaceState(null, '', hash);
       }
     }
@@ -995,8 +1394,26 @@ body.print-all .nav-hint {
     return 0;
   }
 
+  function isInteractiveTarget(el) {
+    if (!el || el === stage) return false;
+    var tag = el.tagName;
+    if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT') return true;
+    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open')) return true;
+    return false;
+  }
+
   function onKey(e) {
     if (printMode) return;
+    var menu = document.getElementById('deck-menu');
+    if (menu && !menu.hidden && e.key === 'Escape') {
+      menu.hidden = true;
+      return;
+    }
+    var lb = document.getElementById('lightbox');
+    if (lb && !lb.hidden && e.key === 'Escape') {
+      lb.hidden = true;
+      return;
+    }
     var k = e.key;
     if (k === 'ArrowRight' || k === ' ' || k === 'PageDown') {
       e.preventDefault();
@@ -1007,20 +1424,128 @@ body.print-all .nav-hint {
     }
   }
 
-  function onClick(e) {
-    if (printMode) return;
+  function onStageClick(e) {
+    if (printMode || isInteractiveTarget(e.target)) return;
     var rect = (frame || stage).getBoundingClientRect();
     var x = e.clientX - rect.left;
     if (x > rect.width / 2) next();
     else prev();
   }
 
+  function initExpandCards() {
+    document.querySelectorAll('.expand-card .expand-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        var body = btn.parentElement.querySelector('.expand-body');
+        if (!body) return;
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  function initDots() {
+    var wrap = document.getElementById('slide-dots');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    slides.forEach(function (_s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.title = 'Diapositiva ' + (i + 1);
+      b.setAttribute('aria-label', 'Ir a diapositiva ' + (i + 1));
+      b.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        setSlide(i);
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function initMenu() {
+    var menu = document.getElementById('deck-menu');
+    var list = document.getElementById('deck-menu-list');
+    var btnMenu = document.getElementById('btn-menu');
+    if (!menu || !list || !btnMenu) return;
+
+    list.innerHTML = '';
+    slides.forEach(function (slide, i) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      var title = slide.getAttribute('data-menu-title') || 'Diapositiva ' + (i + 1);
+      b.textContent = i + 1 + '. ' + title;
+      b.addEventListener('click', function () {
+        menu.hidden = true;
+        setSlide(i);
+      });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+
+    btnMenu.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      menu.hidden = !menu.hidden;
+    });
+
+    menu.addEventListener('click', function (ev) {
+      if (ev.target === menu) menu.hidden = true;
+    });
+  }
+
+  function initQuestionsToggle() {
+    var btn = document.getElementById('btn-questions');
+    if (!btn) return;
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var on = document.body.classList.toggle('show-questions');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? 'Ocultar preguntas' : 'Mostrar preguntas';
+    });
+  }
+
+  function initLightbox() {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-cap');
+    var close = document.getElementById('lightbox-close');
+    if (!lb || !img) return;
+
+    document.querySelectorAll('.lightbox-open').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        img.src = btn.getAttribute('data-src') || '';
+        img.alt = btn.getAttribute('data-caption') || '';
+        if (cap) cap.textContent = btn.getAttribute('data-caption') || '';
+        lb.hidden = false;
+      });
+    });
+
+    function closeLb() {
+      lb.hidden = true;
+      img.src = '';
+    }
+
+    if (close) close.addEventListener('click', closeLb);
+    lb.addEventListener('click', function (ev) {
+      if (ev.target === lb) closeLb();
+    });
+  }
+
   initSlideNumbers();
+  initDots();
+  initMenu();
+  initQuestionsToggle();
+  initExpandCards();
+  initLightbox();
 
   if (printMode) {
     document.body.classList.add('print-all');
+    document.body.classList.add('show-questions');
     slides.forEach(function (s) {
       s.classList.add('active');
+    });
+    document.querySelectorAll('.expand-body').forEach(function (el) {
+      el.classList.add('open');
     });
   } else {
     setSlide(slideFromHash());
@@ -1029,7 +1554,7 @@ body.print-all .nav-hint {
       setSlide(slideFromHash());
     });
     document.addEventListener('keydown', onKey);
-    if (stage) stage.addEventListener('click', onClick);
+    if (stage) stage.addEventListener('click', onStageClick);
     scaleStage();
   }
 })();
