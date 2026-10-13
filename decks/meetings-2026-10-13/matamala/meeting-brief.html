@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meeting brief — Christian Matamala · CleantechHUB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cth-blue: #0C498A;
+      --cth-sky: #B2EEFA;
+      --cth-sage: #9DC384;
+      --cth-green: #669348;
+      --cth-accent: #69B5FA;
+      --cth-text: #1a2e3b;
+      --cth-muted: #3d5566;
+      --font: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 20px; }
+    body {
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--cth-text);
+      background: #f4f8fb;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #fff;
+      min-height: 297mm;
+    }
+    header {
+      background: linear-gradient(135deg, var(--cth-blue) 0%, #0a3a6e 100%);
+      color: #fff;
+      padding: 1.35rem 1.75rem 1.1rem;
+      border-bottom: 4px solid var(--cth-sage);
+    }
+    header .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cth-sky);
+      margin-bottom: 0.35rem;
+    }
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+    header .meta {
+      font-size: 0.85rem;
+      opacity: 0.95;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1.25rem;
+    }
+    main { padding: 1.25rem 1.75rem 1.5rem; }
+    section { margin-bottom: 1.15rem; }
+    h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cth-blue);
+      border-left: 4px solid var(--cth-green);
+      padding-left: 0.55rem;
+      margin-bottom: 0.45rem;
+    }
+    p, li { font-size: 1rem; color: var(--cth-muted); }
+    p { margin-bottom: 0.45rem; }
+    ul { padding-left: 1.15rem; margin-bottom: 0.35rem; }
+    li { margin-bottom: 0.3rem; }
+    a { color: var(--cth-blue); word-break: break-word; }
+    .confidence {
+      background: var(--cth-sky);
+      border: 1px solid var(--cth-accent);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .confidence strong { color: var(--cth-blue); }
+    .confidence .level {
+      display: inline-block;
+      background: var(--cth-green);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    .fact-list li::marker { color: var(--cth-green); }
+    .hypothesis li { list-style: none; padding-left: 0; margin-left: -1.15rem; }
+    .hypothesis li::before {
+      content: "→";
+      color: var(--cth-accent);
+      font-weight: 700;
+      margin-right: 0.35rem;
+    }
+    .talk-points {
+      background: linear-gradient(180deg, #f0faf4 0%, #fff 100%);
+      border: 1px solid var(--cth-sage);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+    }
+    .talk-points ol { padding-left: 1.25rem; }
+    .talk-points li { margin-bottom: 0.35rem; }
+    .pendiente {
+      color: #8b4513;
+      font-weight: 600;
+    }
+    footer {
+      border-top: 2px solid var(--cth-sky);
+      padding: 0.65rem 1.75rem;
+      font-size: 0.72rem;
+      color: var(--cth-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .page-break { page-break-before: always; }
+    @media print {
+      html, body { width: 210mm; background: #fff; }
+      .page { box-shadow: none; margin: 0; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page { margin: 12mm 10mm; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <div class="eyebrow">CleantechHUB · Internal meeting brief</div>
+      <h1>Christian Matamala</h1>
+      <div class="meta">
+        <span>Tue 13 Oct 2026 · 15:00 COT</span>
+        <span>Holland House Colombia, Bogotá</span>
+        <span>Contact for Gideon Blaauw (CTH)</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="confidence">
+        <strong>Identity confidence — primary candidate:</strong> Christian Matamala Irribarra
+        <span class="level">MEDIUM</span>
+        <p style="margin-top:0.4rem;margin-bottom:0;">
+          Public sources do <em>not</em> list him as Holland House staff or confirm this calendar slot. A Sep 2026 LinkedIn comment describes a Colombia visit from 1 Oct for ~two weeks with meetings and talks, which aligns with the meeting date. Holland House is a plausible venue for Netherlands–Colombia sustainability and circular-economy networking, not proof of affiliation.
+        </p>
+        <p style="margin-bottom:0;font-size:0.9rem;">
+          <strong>Alternate candidates:</strong> Christian Matamala Carrasco (Chile-based water/sanitation engineer; no Holland House or Bogotá link found) · Any other “Christian Matamala” tied to this invite — <span class="pendiente">[PENDIENTE]</span>
+        </p>
+      </div>
+
+      <section>
+        <h2>Who he is (verified public profile)</h2>
+        <ul class="fact-list">
+          <li>Full name <strong>Christian Matamala Irribarra</strong>; public professional base in the <strong>Santiago Metropolitan Area, Chile</strong>. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
+          <li>Listed as <strong>Gerente</strong>, Cooperativa Ispirare (Aug 2026–present), described as collaborative e-commerce and integral-health products in Latin America. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
+          <li><strong>Coordinador cap. Chile</strong>, Movimiento Laudato Si' (author byline). <a href="https://econews.global/author/christian-matamala/">econews.global/author/christian-matamala/</a></li>
+          <li><strong>Director de Relaciones Estratégicas (Ecuador)</strong>, Cámara Nacional de Economía Circular (CANDEC); company page lists him as key executive. <a href="https://linkedin.com/company/camaracircular">linkedin.com/company/camaracircular</a></li>
+          <li>Multiple concurrent roles in public profile: Hispano-America representative (Laudato Si' World Council), bilingual mentor (UICN-supported protected-areas programme), Climate Reality community mentor, circular-economy facilitation. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
+          <li>2022 event bio: Chilean; ecology, environmental education, circular economy, Climate Reality leadership; postgraduate environmental management; photovoltaic integration. <a href="https://es.linkedin.com/posts/colectivo-basura-cero-latam-275166255_sbc2022-semanabasuracero-basurales-activity-6991045393153196032-W9yx">LinkedIn — Basura Cero LATAM (2022)</a></li>
+          <li>Commented on Colombia’s sustainability reporting and climate-risk transparency (Sep 2024). <a href="https://es.linkedin.com/posts/christian-matamala-irribarra_brasil-colombia-chile-activity-7242306572046000128-7Tz5">LinkedIn post (2024)</a></li>
+          <li>Stated planned <strong>Colombia tour from 1 Oct 2026</strong> (~two weeks) with presentations and meetings, including time in Chía. <a href="https://es.linkedin.com/posts/nicolacerantola_econom%C3%ADacircular-modelosdenegocio-innovaci%C3%B3n-activity-7506635329639215104-3Hz4">LinkedIn comment (2026-09-18)</a></li>
+        </ul>
+        <p><span class="pendiente">[PENDIENTE]</span> His exact title on the meeting invite, other attendees, and whether Holland House hosts or only provides the room.</p>
+      </section>
+
+      <section>
+        <h2>Organisation snapshot — Holland House Colombia</h2>
+        <ul class="fact-list">
+          <li><strong>Cámara de Comercio Colombo Holandesa</strong> (Holland House Colombia): nonprofit bilateral chamber promoting trade and investment between Colombia and the Kingdom of the Netherlands (Netherlands plus Dutch Caribbean). <a href="https://hollandhouse-colombia.com/conocenos/">hollandhouse-colombia.com/conocenos/</a></li>
+          <li><strong>Mission:</strong> promote and strengthen economic and commercial relations between Colombia and the Kingdom of the Netherlands. <a href="https://hollandhouse-colombia.com/conocenos/">hollandhouse-colombia.com/conocenos/</a></li>
+          <li><strong>Bogotá office:</strong> Calle 90 #19-41, Oficina 801, Chapinero; +57 (601) 744 9566; info@hollandhouse-colombia.com. <a href="https://hollandhouse-colombia.com/contactenos/">hollandhouse-colombia.com/contactenos/</a></li>
+          <li>Services include foreign trade support, advisory, trade missions, networking, matchmaking, events, co-working. <a href="https://hollandhouse-colombia.com/comercio-exterior/">hollandhouse-colombia.com/comercio-exterior/</a></li>
+          <li>Executive Director <strong>Jan Willem van Bokhoven</strong> (since Jul 2013) describes focus sectors: water, agriculture, energy, life sciences, infrastructure. <a href="https://linkedin.com/in/janwillemvanbokhoven">linkedin.com/in/janwillemvanbokhoven</a></li>
+          <li>LinkedIn company profile: international trade nonprofit, founded 2013, HQ Bogotá; ~33 employees cited. <a href="https://linkedin.com/company/holland-house---dutch-colombian-chamber-of-commerce">LinkedIn — Holland House Colombia</a></li>
+        </ul>
+      </section>
+
+      <section class="page-break">
+        <h2>Possible CleantechHUB fit (hypotheses only)</h2>
+        <p>Not confirmed partnerships — conversation starters if the primary candidate is correct.</p>
+        <ul class="hypothesis">
+          <li><strong>Programs / education:</strong> Overlap on circular economy, climate literacy, and community-based sustainability (Laudato Si', CANDEC diplomado, ENVIS-style facilitation) could complement CTH training or Dialogos-style programmes — explore co-designed workshops rather than vendor pitch.</li>
+          <li><strong>Datalab:</strong> Interest in sustainability reporting, NIIS-style transparency, and “common language” for climate metrics (per his 2024 Colombia comments) may align with data literacy or open-impact storytelling — <span class="pendiente">[PENDIENTE]</span> whether he seeks tools vs. networks.</li>
+          <li><strong>Nexus:</strong> Cooperativa Ispirare and B Corp / purpose-economy framing in his profile suggest he engages early-stage or mission-driven ventures; Nexus portfolio intros could be mutual if startups fit circular/climate themes.</li>
+          <li><strong>Energy Co-op:</strong> Public bio mentions green energy, efficiency, and photovoltaic integration; Holland House also lists energy as a priority sector — possible bridge to community energy or Dutch–Colombian cleantech suppliers via chamber members.</li>
+          <li><strong>REIN Hubs:</strong> Holland House runs sector missions (e.g. water, agri-food) and Caribbean/Caribbean Netherlands trade links; if CTH participates in regional innovation hubs, chamber matchmaking could surface Dutch or Colombian partners — scope and role <span class="pendiente">[PENDIENTE]</span>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Five talking points / questions</h2>
+        <div class="talk-points">
+          <ol>
+            <li>Confirm identity and agenda: “Are you Christian Matamala Irribarra, and what brings you to Holland House on 13 Oct?”</li>
+            <li>Colombia tour (Oct 2026): which cities, partners, and outcomes he is seeking beyond published talks — any explicit Netherlands or Holland House linkage?</li>
+            <li>Circular economy in practice: what validated business models or pilots he has run (vs. frameworks), and where Colombia fits his CANDEC / regional chamber work.</li>
+            <li>CleantechHUB introduction: which CTH lane (programs, Nexus startups, data/community tools, energy) would create value for his network in Chile, Ecuador, Brazil, and Colombia?</li>
+            <li>Follow-up mechanics: preferred language (ES/EN/PT), consent to share a one-pager with Holland House or Dutch embassy networks, and realistic next step within 30 days.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <h2>Unknowns</h2>
+        <ul>
+          <li><span class="pendiente">[PENDIENTE]</span> Calendar owner and whether Jan Willem van Bokhoven or another Holland House colleague joins.</li>
+          <li><span class="pendiente">[PENDIENTE]</span> Commercial vs. nonprofit intent (consulting, coop sales, chamber membership, or alliance scouting).</li>
+          <li><span class="pendiente">[PENDIENTE]</span> Existing relationship with Gideon or CTH (cold intro vs. warm referral).</li>
+          <li><span class="pendiente">[PENDIENTE]</span> Dutch-language or Netherlands-domiciled entity involvement beyond Holland House as venue.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <span>CleantechHUB · Internal draft · Not for external distribution without approval</span>
+      <span>Sources: decks/meetings-2026-10-13/matamala/sources.md</span>
+    </footer>
+  </article>
+</body>
+</html>
