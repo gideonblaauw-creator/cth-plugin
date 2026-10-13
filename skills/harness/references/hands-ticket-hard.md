@@ -54,6 +54,40 @@ More than one job means one Hands agent per independent job, all launched at the
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
+## Box capacity, channel queues and recovery (MANDATORY, Gideon 13 Oct 2026)
+Reason: the shared box froze on 13 Oct 2026 at 11:13 COT. The box has 8 CPU, 15 GB RAM and 8 GB swap. Each desk desktop with Chrome uses about 1-2 GB.
+
+### 1. Push to Cursor Hands
+- Send as many jobs as possible to Cursor Hands (cloud). Do not run them on the shared box.
+- Run a job on the box only when it needs one of these:
+  - the box browser or desktop,
+  - the Colombia Tailscale exit,
+  - files that are only on the box.
+- Write the reason in the ticket when a job runs on the box.
+
+### 2. Box browser limit
+- Maximum 2 desks do browser or desktop work on the box at the same time.
+- Before you open the box browser, ask the Orchestrator for a slot. If 2 slots are in use, wait or move the job to Hands.
+- Close the browser and release the slot when the job is done.
+
+### 3. Channel queues
+- LinkedIn, WhatsApp and other channel I/O go only through one queue per channel (for example the LinkedIn Sheet / n8n on the VPS).
+- Each queue has one worker only. Desks only add rows to the queue. Desks do not send directly.
+- The worker puts time between jobs.
+- After a breakdown, the worker continues from the queue. It does not start again and it does not lose rows.
+- For LinkedIn, the worker checks the Colombia exit (skill `colombia-tailscale-exit`) before each batch. If the check fails, stop the batch and escalate to Gideon (HITL).
+- HITL rules for send / post stay in force.
+
+### 4. Hands bc-id reporting
+- Every desk always reports the Hands bc-id(s) for each job to the Orchestrator.
+- Report the bc-id when the job starts and again with the result.
+- Purpose: after a breakdown, the Orchestrator can pick up the work with these ids.
+
+### 5. Box recovery
+- After a box move or restart, run `/home/box/ts-autostart.sh`. This script starts tailscaled, turns on swap and sets the Redmi exit node (100.79.180.119).
+- Then check the Colombia exit with the `colombia-tailscale-exit` skill.
+- If the Tailscale state is lost, Gideon must approve the Tailscale login again. Escalate this to Gideon at once (HITL).
+
 ---
 
 ## Workbench / connector exception (narrow)
@@ -70,6 +104,10 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Running work on the box that Hands can do
+- More than 2 desks with browser/desktop work on the box at the same time
+- Desks that send LinkedIn/WhatsApp directly, not through the channel queue
+- Reporting a job without its bc-id
 
 ---
 
