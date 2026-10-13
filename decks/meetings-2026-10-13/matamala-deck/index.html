@@ -875,6 +875,17 @@ body.print-all .ask-collapsible {
 </head>
 <body>
 <div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
+<style>
+.s-04 .slide-main,.s-05 .slide-main,.s-06 .slide-main{padding-right:330px}
+.eup-thumb{position:absolute;right:40px;bottom:100px;width:300px;z-index:5;padding:8px;border:2px solid #B2EEFA;border-radius:14px;background:rgba(12,73,138,.92);cursor:zoom-in;font-family:inherit;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.eup-thumb img{display:block;width:100%;border-radius:8px}
+.eup-thumb span{display:block;font-size:24px;color:#B2EEFA;font-weight:700;margin-top:6px;text-align:left}
+.s-07 .eup-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;min-height:0;align-content:center}
+.s-07 .eup-gallery .lightbox-open{border:2px solid rgba(178,238,250,.6);border-radius:12px;background:rgba(0,0,0,.25);padding:8px;cursor:zoom-in;font-family:inherit;color:#fff}
+.s-07 .eup-gallery img{width:100%;display:block;border-radius:8px}
+.s-07 .eup-gallery span{display:block;font-size:24px;margin-top:6px;color:#B2EEFA;font-weight:600}
+@media print{.eup-thumb{box-shadow:none}}
+</style>
 <section class="slide slide-deep s-01 active" data-slide="01" data-menu-title="Portada">
   <div class="slide-inner">
     <p class="tagline">Inspira. Actúa. Transforma.</p>
@@ -894,6 +905,8 @@ body.print-all .ask-collapsible {
       </div>
     </div>
   </div>
+  <button type="button" class="lightbox-open eup-thumb" data-src="img/emprende-up/01-portada.png" data-caption="Portada propuesta — Mapa de Actores Perú · Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/01-portada.png" alt="Portada propuesta — Mapa de Actores Perú" loading="lazy"><span>Emprende UP · Portada propuesta</span></button>
+
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
     <span>ODS Cero × Datalab · 13 oct 2026</span>
@@ -1056,6 +1069,8 @@ body.print-all .ask-collapsible {
     </div>
     <p class="src">Cifras de inversión en web: autodeclaradas · <span class="pendiente">[PENDIENTE]</span> verificación independiente.</p>
   </div>
+  <button type="button" class="lightbox-open eup-thumb" data-src="img/emprende-up/03-ecosistema-actores.png" data-caption="Mapa de actores del ecosistema · Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/03-ecosistema-actores.png" alt="Mapa de actores del ecosistema" loading="lazy"><span>Emprende UP · Mapa de actores del ecosistema</span></button>
+
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
     <span>ODS Cero × Datalab · 13 oct 2026</span>
@@ -1092,6 +1107,8 @@ body.print-all .ask-collapsible {
     </div>
     <p class="src">Dirección propuesta Gideon: ODS Cero × Datalab Chile · conversación Holland House.</p>
   </div>
+  <button type="button" class="lightbox-open eup-thumb" data-src="img/emprende-up/05-propuesta-objetivo.png" data-caption="Metodología / objetivo de la propuesta · Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/05-propuesta-objetivo.png" alt="Metodología / objetivo de la propuesta" loading="lazy"><span>Emprende UP · Metodología / objetivo de la propuesta</span></button>
+
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
     <span>ODS Cero × Datalab · 13 oct 2026</span>
@@ -1160,6 +1177,8 @@ body.print-all .ask-collapsible {
     </div>
     <p class="src">Sin términos comerciales acordados en esta reunión.</p>
   </div>
+  <button type="button" class="lightbox-open eup-thumb" data-src="img/emprende-up/04-trabajemos-juntos.png" data-caption="Trabajemos juntos — modelo de aliados · Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/04-trabajemos-juntos.png" alt="Trabajemos juntos — modelo de aliados" loading="lazy"><span>Emprende UP · Trabajemos juntos</span></button>
+
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
     <span>ODS Cero × Datalab · 13 oct 2026</span>
@@ -1179,15 +1198,14 @@ body.print-all .ask-collapsible {
   <span class="block-badge">Referencia</span>
   <div class="slide-main">
     <h2>Referencia: Mapa de Actores Climatech (Emprende UP)</h2>
-    <div class="slot-wrap">
-      <figure class="img-slot">
-        <img src="img/emprende-up/mapa-actores.png" alt="Mapa de actores Climatech — placeholder" width="1600" height="900" onerror="this.style.display='none'">
-        <p class="slot-label">Espacio reservado para PNG del mapa de actores<br><span class="pendiente">[PENDIENTE]</span> — arrastrar assets a la carpeta del deck</p>
-        <p class="slot-path">img/emprende-up/*.png</p>
-        <button type="button" class="chrome-btn lightbox-open" data-src="img/emprende-up/mapa-actores.png" data-caption="Mapa de Actores Climatech (Emprende UP)" style="font-size:24px;margin-top:8px">Ampliar (cuando exista PNG)</button>
-      </figure>
+    <div class="eup-gallery">
+      <button type="button" class="lightbox-open" data-src="img/emprende-up/01-portada.png" data-caption="Portada · Propuesta Mapa de Actores Climatech, Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/01-portada.png" alt="Portada"><span>Portada</span></button>
+      <button type="button" class="lightbox-open" data-src="img/emprende-up/02-impacto-cth.png" data-caption="Impacto CTH · Propuesta Mapa de Actores Climatech, Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/02-impacto-cth.png" alt="Impacto CTH"><span>Impacto CTH</span></button>
+      <button type="button" class="lightbox-open" data-src="img/emprende-up/03-ecosistema-actores.png" data-caption="Ecosistema de actores · Propuesta Mapa de Actores Climatech, Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/03-ecosistema-actores.png" alt="Ecosistema de actores"><span>Ecosistema de actores</span></button>
+      <button type="button" class="lightbox-open" data-src="img/emprende-up/04-trabajemos-juntos.png" data-caption="Trabajemos juntos · Propuesta Mapa de Actores Climatech, Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/04-trabajemos-juntos.png" alt="Trabajemos juntos"><span>Trabajemos juntos</span></button>
+      <button type="button" class="lightbox-open" data-src="img/emprende-up/05-propuesta-objetivo.png" data-caption="Objetivo y entregables · Propuesta Mapa de Actores Climatech, Emprende UP (CTH, 12 oct 2026)"><img src="img/emprende-up/05-propuesta-objetivo.png" alt="Objetivo y entregables"><span>Objetivo y entregables</span></button>
     </div>
-    <p class="src">Placeholder interno · no afirmar contenido del mapa hasta cargar fuente Emprende UP.</p>
+    <p class="src">Fuente: propuesta CTH “Mapa de Actores del Emprendimiento Climático en el Perú” para Universidad del Pacífico (Emprende UP), enviada 12 oct 2026 · clic para ampliar · uso interno, sin cifras económicas.</p>
   </div>
   <footer class="footer">
     <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
