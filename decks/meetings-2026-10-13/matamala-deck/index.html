@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleantechHUB × ODS Cero · Datalab · 13 oct 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* DECK_CSS_INLINE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --green: #9DC384;
+  --forest: #669348;
+  --sky: #69B5FA;
+  --white: #FFFFFF;
+  --stage-w: 1920px;
+  --stage-h: 1080px;
+  --font: 'Open Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font);
+  background: #051a33;
+  color: var(--white);
+}
+
+/* Viewport: letterboxed 1920×1080 stage */
+.deck-viewport {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Layout box matches scaled stage so overflow:hidden does not clip letterboxed edges */
+.deck-frame {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  transform-origin: top left;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.deck {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  padding: 48px 88px 88px;
+  display: none;
+  flex-direction: column;
+  color: var(--white);
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
+  overflow: hidden;
+}
+
+.slide.active {
+  display: flex;
+  z-index: 2;
+}
+
+/* Photo slides */
+.slide.has-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.slide.has-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.85) 75%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.slide.has-photo .slide-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 28px 32px;
+}
+
+h1 {
+  font-size: 104px;
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--cyan);
+}
+
+p, li {
+  font-size: 36px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+ul {
+  padding-left: 36px;
+}
+
+.small, .meta-line {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.src {
+  font-size: 24px;
+  color: rgba(178, 238, 250, 0.8);
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.pendiente {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 2px dashed var(--cyan);
+  color: var(--cyan);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.chip-staging {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 2px dashed var(--sky);
+  color: var(--sky);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.accent-num {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.accent-green {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.footer,
+.deck-footer,
+.slide-footer {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.85);
+  z-index: 10;
+}
+
+.footer .slide-num,
+.deck-footer .slide-num,
+.slide-footer .slide-num {
+  color: var(--cyan);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.tagline {
+  font-size: 32px;
+  color: var(--cyan);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.grid-4 .glass {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-4 h3 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.grid-4 p, .grid-4 li {
+  font-size: 26px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.grid-4 ul {
+  padding-left: 22px;
+  list-style: disc;
+}
+
+/* Agenda */
+.agenda-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.agenda-list li {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 34px;
+}
+
+.agenda-list .num {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--deep);
+  border: 2px solid var(--cyan);
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agenda-list .demo-time {
+  font-size: 28px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* Programas ladder */
+.program-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.program-card {
+  text-align: center;
+}
+
+.program-card .arrow {
+  font-size: 40px;
+  color: var(--sky);
+  margin: 8px 0;
+}
+
+.program-card h3 {
+  font-size: 38px;
+  color: var(--white);
+}
+
+.program-card p {
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.rein-card {
+  margin-top: 8px;
+}
+
+.rein-card p {
+  font-size: 30px;
+}
+
+.portada-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.portada-grid .glass h3 {
+  font-size: 32px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.portada-grid p {
+  font-size: 30px;
+}
+
+.cover-lede {
+  font-size: 34px;
+  line-height: 1.4;
+  color: var(--cyan);
+  margin-top: 12px;
+  max-width: 1600px;
+}
+
+.cover-title {
+  font-size: 96px;
+}
+
+/* Shared layout (Hands B–D fragments) */
+.block-badge {
+  position: absolute;
+  top: 40px;
+  left: 88px;
+  z-index: 5;
+  padding: 8px 18px;
+  border: 2px solid var(--cyan);
+  border-radius: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.03em;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+/* 7 oct 2026: on photo slides .slide-inner is position:relative, so the badge
+   was offset by the slide padding and overlapped the title. Re-anchor it to the
+   same spot as on non-photo slides (40px top, 88px left of the slide). */
+.slide.has-photo .slide-inner > .block-badge {
+  top: -8px;
+  left: 0;
+}
+
+.slide-deep {
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
+}
+
+.slide > .block-badge + h2.slide-title,
+.slide > h2.slide-title,
+.slide > .slide-main {
+  position: relative;
+  z-index: 2;
+}
+
+h2.slide-title {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 52px 0 24px;
+  color: var(--white);
+}
+
+.card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  flex: 1;
+  min-height: 0;
+}
+
+.growth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 22px 24px;
+}
+
+.growth-card h3 {
+  font-size: 36px;
+  margin: 0;
+  color: var(--white);
+}
+
+.growth-card p {
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.growth-card .amt {
+  font-size: 38px;
+  color: var(--cyan);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.growth-card .meta {
+  font-size: 24px;
+  color: rgba(178, 238, 250, 0.9);
+  line-height: 1.3;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  flex: 1;
+  min-height: 0;
+}
+
+.cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 26px;
+}
+
+.cal-table td,
+.cal-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+  vertical-align: top;
+}
+
+.cal-table th {
+  color: var(--cyan);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.weights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.weight-box {
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.weight-box .pct {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.weight-box .lbl {
+  font-size: 24px;
+  line-height: 1.25;
+  margin-top: 6px;
+}
+
+.ask-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ask-list li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 32px;
+  line-height: 1.35;
+}
+
+.ask-num {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sources-col {
+  columns: 2;
+  column-gap: 40px;
+  font-size: 24px;
+  line-height: 1.45;
+}
+
+.sources-col a {
+  color: var(--cyan);
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.tagline-close {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-top: 20px;
+}
+
+.quote {
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1.4;
+  margin: 16px 0;
+}
+
+.quote cite {
+  display: block;
+  font-size: 24px;
+  font-style: normal;
+  margin-top: 12px;
+  color: var(--cyan);
+}
+
+/* Nav hint (screen only) */
+.nav-hint {
+  position: fixed;
+  bottom: 12px;
+  right: 16px;
+  z-index: 9999;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+/* Print: all slides, one per page */
+@media print {
+  html, body {
+    overflow: visible;
+    background: white;
+  }
+  .deck-viewport {
+    position: static;
+    display: block;
+  }
+  .deck-frame {
+    width: var(--stage-w);
+    height: auto;
+    overflow: visible;
+  }
+  .deck-stage {
+    position: relative;
+    transform: none !important;
+    width: var(--stage-w);
+    height: auto;
+    box-shadow: none;
+  }
+  .deck {
+    position: static;
+    height: auto;
+  }
+  .slide {
+    position: relative;
+    display: flex !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .nav-hint {
+    display: none;
+  }
+}
+
+@page {
+  size: 1920px 1080px;
+  margin: 0;
+}
+
+body.print-all .deck-viewport {
+  position: static;
+  display: block;
+  overflow: visible;
+}
+
+body.print-all .deck-frame {
+  width: var(--stage-w);
+  height: auto;
+  overflow: visible;
+}
+
+body.print-all .deck-stage {
+  position: relative;
+  transform: none !important;
+  box-shadow: none;
+}
+
+body.print-all .slide {
+  display: flex !important;
+  position: relative;
+  page-break-after: always;
+}
+
+body.print-all .nav-hint {
+  display: none;
+}
+
+/* --- Interactive chrome (screen only) --- */
+.deck-chrome {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px 16px;
+  background: linear-gradient(to top, rgba(5, 26, 51, 0.95), rgba(5, 26, 51, 0.55));
+  pointer-events: none;
+}
+
+.deck-chrome > * {
+  pointer-events: auto;
+}
+
+.chrome-btn {
+  font-family: var(--font);
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(178, 238, 250, 0.45);
+  background: rgba(12, 73, 138, 0.85);
+  color: #fff;
+  cursor: pointer;
+}
+
+.chrome-btn[aria-pressed="true"] {
+  background: #B2EEFA;
+  color: #0C498A;
+}
+
+.slide-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(960px, 60vw);
+  justify-content: center;
+}
+
+.slide-dots button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(178, 238, 250, 0.7);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.slide-dots button.active,
+.slide-dots button[aria-current="true"] {
+  background: #B2EEFA;
+  border-color: #B2EEFA;
+}
+
+.deck-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(4, 20, 40, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.deck-menu[hidden] {
+  display: none !important;
+}
+
+.deck-menu-panel {
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 100%);
+  border: 1px solid rgba(178, 238, 250, 0.25);
+  border-radius: 16px;
+  padding: 28px 32px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.deck-menu-panel h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.deck-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.deck-menu-list li {
+  margin-bottom: 10px;
+}
+
+.deck-menu-list button {
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 28px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.deck-menu-list button:hover,
+.deck-menu-list button:focus {
+  border-color: #B2EEFA;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox[hidden] {
+  display: none !important;
+}
+
+.lightbox img {
+  max-width: min(1600px, 92vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-cap {
+  font-size: 28px;
+  color: #B2EEFA;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 28px;
+  padding: 10px 16px;
+}
+
+body.show-questions .ask-collapsible {
+  display: flex !important;
+}
+
+body.print-all .deck-chrome,
+body.print-all .deck-menu,
+body.print-all .lightbox {
+  display: none !important;
+}
+
+body.print-all .expand-body {
+  display: block !important;
+}
+
+body.print-all .ask-collapsible {
+  display: flex !important;
+}
+
+@media print {
+  .deck-chrome,
+  .deck-menu,
+  .lightbox {
+    display: none !important;
+  }
+  .expand-body {
+    display: block !important;
+  }
+  .ask-collapsible {
+    display: flex !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
+<section class="slide slide-deep s-01 active" data-slide="01" data-menu-title="Portada">
+  <div class="slide-inner">
+    <p class="tagline">Inspira. Actúa. Transforma.</p>
+    <h1 class="cover-title">CleantechHUB × ODS Cero</h1>
+    <p class="subtitle">Colaboración Datalab (Chile) · Martes 13 oct 2026 · 15:00 COT · Holland House, Bogotá</p>
+    <p class="cover-lede">Reunión exploratoria · socio de datos en Chile · sin compromiso comercial en esta sesión</p>
+    <div class="portada-grid">
+      <div class="glass">
+        <h3>Contacto</h3>
+        <p><strong>Christian Matamala Irribarra</strong><br>Polo Empresarial / Fundación ODS Cero<br><span class="accent-green">Identidad: ALTA</span> (socio + asesor senior, fuentes públicas)</p>
+        <p class="small" style="margin-top:10px"><a href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ" target="_blank" rel="noopener">LinkedIn (jun 2026)</a></p>
+      </div>
+      <div class="glass">
+        <h3>Anfitrión</h3>
+        <p><strong>Gideon Blaauw</strong><br>CleantechHUB Foundation</p>
+        <p class="small" style="margin-top:10px">Datalab: <a href="https://datalab.cleantechhub.net/#/datalab" target="_blank" rel="noopener">datalab.cleantechhub.net</a></p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-02 h2{font-size:64px;margin:0 0 16px;color:#fff}
+.s-02 .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1;min-height:0}
+.s-02 .fact.glass{padding:20px 24px;font-size:28px;line-height:1.38}
+.s-02 .fact p{margin:0 0 10px}
+.s-02 .fact a{color:#B2EEFA;font-size:24px;word-break:break-all}
+.s-02 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+.s-02 .id-bar.glass{padding:14px 22px;font-size:28px;margin-bottom:14px}
+</style>
+<section class="slide slide-deep s-02" data-slide="02" data-menu-title="Christian Matamala">
+  <span class="block-badge">Christian · citado</span>
+  <div class="slide-main">
+    <h2>Christian Matamala Irribarra</h2>
+    <div class="id-bar glass"><strong>Confianza identidad: ALTA</strong> — ODS Cero (socio + asesor senior). No figura en junta fundación en odscero.cl.</div>
+    <div class="fact-grid">
+      <article class="fact glass">
+        <p><strong>Socio</strong> y <strong>asesor senior</strong> — desarrollo territorial y vinculación a comunidades para sostenibilidad local; proyecto en <strong>4 regiones</strong> de Chile.</p>
+        <a href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ" target="_blank" rel="noopener">LinkedIn · jun 2026</a>
+      </article>
+      <article class="fact glass">
+        <p><strong>Miembro Fundación ODS Cero Chile</strong> (lista pública de redes, 2023).</p>
+        <a href="https://es.linkedin.com/posts/christian-matamala-irribarra_coaching-sostenibilidad-centroecovirtual-activity-6992698849295261696-8mDU" target="_blank" rel="noopener">LinkedIn · may 2023</a>
+      </article>
+      <article class="fact glass">
+        <p>Base pública: <strong>Santiago</strong>. <strong>Gerente</strong> Cooperativa Ispirare (IspirareCoop en polo ODS Cero).</p>
+        <a href="https://linkedin.com/in/christian-matamala-irribarra" target="_blank" rel="noopener">linkedin.com/in/christian-matamala-irribarra</a>
+      </article>
+      <article class="fact glass">
+        <p>Gira <strong>Colombia desde 1 oct 2026</strong> (~2 semanas): ponencias y reuniones (encaja 13 oct Bogotá).</p>
+        <a href="https://es.linkedin.com/posts/nicolacerantola_econom%C3%ADacircular-modelosdenegocio-innovaci%C3%B3n-activity-7506635329639215104-3Hz4" target="_blank" rel="noopener">LinkedIn · sep 2026</a>
+      </article>
+    </div>
+    <p class="src">Bio circular / ecología (2022): <a href="https://es.linkedin.com/posts/colectivo-basura-cero-latam-275166255_sbc2022-semanabasuracero-basurales-activity-6991045393153196032-W9yx" target="_blank" rel="noopener">Basura Cero LATAM</a></p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-03 h2{font-size:60px;margin:0 0 14px;color:#fff}
+.s-03 .lead{font-size:28px;line-height:1.35;margin-bottom:14px;max-width:1680px}
+.s-03 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-height:0}
+.s-03 .svc.glass{padding:0;overflow:hidden}
+.s-03 .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:20px 24px;text-align:left}
+.s-03 .expand-trigger h3{font-size:32px;margin:0 0 8px;color:#B2EEFA}
+.s-03 .expand-trigger .t{font-size:26px;line-height:1.32;margin:0}
+.s-03 .expand-hint{font-size:24px;color:#69B5FA;margin-top:8px}
+.s-03 .expand-body{display:none;padding:0 24px 18px;font-size:26px;line-height:1.38}
+.s-03 .expand-body.open{display:block}
+.s-03 .expand-body a{color:#B2EEFA;font-size:24px}
+.s-03 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
+</style>
+<section class="slide slide-deep s-03" data-slide="03" data-menu-title="ODS Cero · servicios">
+  <span class="block-badge">ODS Cero · citado</span>
+  <div class="slide-main">
+    <h2>Polo Empresarial ODS Cero</h2>
+    <p class="lead">Primera «Family Office Asociativa» de Chile: gremios, cooperativas y empresas sociales; Fundación desde <strong>16 nov 2021</strong>; camino a Instituto Auxiliar Cooperativo (Ley General de Cooperativas).</p>
+    <div class="svc-grid">
+      <article class="svc glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Medierías · ODS 13</h3>
+          <p class="t">Cooperación con agricultura familiar campesina.</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Programa de mediería con cooperativas y beneficios compartidos.</p>
+          <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a>
+        </div>
+      </article>
+      <article class="svc glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>Consorcio · ODS 7, 9, 11</h3>
+          <p class="t">ERNC, agro, economía circular, biomasa, biotech.</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Acuerdos público-privados de mediana y gran escala.</p>
+          <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a>
+        </div>
+      </article>
+      <article class="svc glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>COMEX</h3>
+          <p class="t">Cooperación internacional · CrowdCommerce.</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Producción y consumo sostenible; agricultura regenerativa.</p>
+          <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a>
+        </div>
+      </article>
+      <article class="svc glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>I+D+i + cooperativismo</h3>
+          <p class="t">Capital de riesgo ESG; seminarios y pasantías.</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Modelo <strong>B2LC</strong> (Business to Local Communities) para innovación social.</p>
+          <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a>
+        </div>
+      </article>
+    </div>
+    <p class="src">Mercados (LinkedIn): alimentos saludables, cosmética natural, ERNC, biocomercio, tecnologías limpias · <a href="https://cl.linkedin.com/company/odscero" target="_blank" rel="noopener">cl.linkedin.com/company/odscero</a></p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-04 h2{font-size:58px;margin:0 0 12px;color:#fff}
+.s-04 .two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;flex:1;min-height:0}
+.s-04 .col.glass{padding:22px 26px;font-size:28px;line-height:1.38}
+.s-04 .col p{margin:0 0 10px}
+.s-04 .col ul{padding-left:28px;margin:0}
+.s-04 .col li{font-size:26px;margin-bottom:6px}
+.s-04 .dim-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.s-04 .dim{padding:10px;text-align:center;border-radius:8px;background:rgba(157,195,132,.2);border:1px solid #9DC384;font-size:24px;font-weight:700}
+.s-04 .col a{color:#B2EEFA;font-size:24px}
+.s-04 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:30px;min-height:0}
+</style>
+<section class="slide slide-deep s-04" data-slide="04" data-menu-title="ODS Cero · datos y red">
+  <span class="block-badge">Datos · equipo · socios</span>
+  <div class="slide-main">
+    <h2>Impacto, datos y geografía</h2>
+    <div class="two-col">
+      <div class="col glass">
+        <p><strong>Open Data (en construcción):</strong> procesos auditados; cuatro dimensiones:</p>
+        <div class="dim-row">
+          <span class="dim">Buen vivir</span>
+          <span class="dim">Ecológica</span>
+          <span class="dim">Económica</span>
+          <span class="dim">Social</span>
+        </div>
+        <p><strong>LAURAS</strong> — Laboratorio Americano de Urgencia Regeneracional Ambiental y Social (I+D+i, transferencia, formación).</p>
+        <p>Regiones citadas: <strong>IV, V, RM, VI</strong> · contacto <strong>vinculacion@odscero.cl</strong></p>
+        <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a>
+      </div>
+      <div class="col glass">
+        <p><strong>Junta fundación (web):</strong> Olguín, Aguilera, Berardi, Oyarzun, Ormazábal.</p>
+        <p><strong>Organismos miembros (web):</strong> AWMA, CIBV, IspirareCoop, Origami, Viento de la estrella, Allevia.</p>
+        <p><strong>Aliados citados:</strong> FCA Universidad de Chile (La Pintana); GSG Impact Chile.</p>
+        <ul>
+          <li><a href="https://es.linkedin.com/posts/odscero_presentes-en-el-encuentro-con-las-cooperativas-activity-7350900849151250432-TTtp" target="_blank" rel="noopener">UChile · jul 2025</a></li>
+          <li><a href="https://es.linkedin.com/posts/odscero_agradecemos-la-invitaci%C3%B3n-que-nos-hace-gsg-activity-7378813172075442176-ziX2" target="_blank" rel="noopener">GSG · sep 2025</a></li>
+        </ul>
+        <p>LinkedIn: workforce <strong>Chile y Colombia</strong> <span class="pendiente">[PENDIENTE]</span> detalle entidad CO.</p>
+        <a href="https://cl.linkedin.com/company/odscero" target="_blank" rel="noopener">LinkedIn company</a>
+      </div>
+    </div>
+    <p class="src">Cifras de inversión en web: autodeclaradas · <span class="pendiente">[PENDIENTE]</span> verificación independiente.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-05 h2{font-size:58px;margin:0 0 10px;color:#fff}
+.s-05 .hypo-badge{display:inline-block;padding:8px 18px;border-radius:10px;font-size:26px;font-weight:700;background:rgba(105,181,250,.2);border:1px solid #69B5FA;color:#69B5FA;margin-bottom:12px}
+.s-05 .hypo-list{list-style:none;padding:0;margin:0 0 12px;flex:1;min-height:0}
+.s-05 .hypo-list li{font-size:28px;line-height:1.38;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.s-05 .env-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+.s-05 .env.glass{padding:14px 16px;text-align:center;font-size:26px;font-weight:700}
+.s-05 .env a{color:#B2EEFA;font-size:24px;display:block;margin-top:8px;font-weight:600}
+.s-05 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:28px;min-height:0}
+</style>
+<section class="slide slide-deep s-05" data-slide="05" data-menu-title="Encaje Datalab (hipótesis)">
+  <span class="block-badge">Hipótesis · Datalab</span>
+  <div class="slide-main">
+    <p class="hypo-badge">Hipótesis — no acuerdo firmado</p>
+    <h2>ODS Cero como data partner Chile</h2>
+    <ul class="hypo-list">
+      <li>Cuatro dimensiones ODS Cero ↔ indicadores Datalab — posible alineación de esquema cuando Open Data esté live. <a href="https://www.odscero.cl/" target="_blank" rel="noopener">odscero.cl</a></li>
+      <li>Programas territoriales (ERNC, agro, circular) → <strong>datos de campo</strong>; CTH hospeda en Datalab sin operar terreno.</li>
+      <li><strong>LAURAS</strong> + <code>#/lab</code> / <code>#/datathon</code> para retos y métodos co-diseñados.</li>
+      <li>Christian (territorio + comunidades) → steward de gobernanza y consentimiento. <a href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li>Huella CL + CO (LinkedIn) + gira oct 2026 — puente Andino <span class="pendiente">[PENDIENTE]</span> alcance.</li>
+    </ul>
+    <div class="env-row">
+      <div class="env glass">#/datalab<a href="https://datalab.cleantechhub.net/#/datalab" target="_blank" rel="noopener">Abrir ↗</a></div>
+      <div class="env glass">#/datathon<a href="https://datalab.cleantechhub.net/#/datathon" target="_blank" rel="noopener">Abrir ↗</a></div>
+      <div class="env glass">#/lab<a href="https://datalab.cleantechhub.net/#/lab" target="_blank" rel="noopener">Abrir ↗</a></div>
+      <div class="env glass">#/client<a href="https://datalab.cleantechhub.net/#/client" target="_blank" rel="noopener">Abrir ↗</a></div>
+    </div>
+    <p class="src">Dirección propuesta Gideon: ODS Cero × Datalab Chile · conversación Holland House.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-06 h2{font-size:56px;margin:0 0 10px;color:#fff}
+.s-06 .prop-badge{display:inline-block;padding:8px 18px;border-radius:10px;font-size:26px;font-weight:700;background:rgba(157,195,132,.25);border:1px solid #9DC384;color:#9DC384;margin-bottom:12px}
+.s-06 .prop-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0}
+.s-06 .prop.glass{padding:0;overflow:hidden}
+.s-06 .expand-trigger{width:100%;border:0;background:transparent;color:#fff;font-family:inherit;cursor:pointer;padding:18px 22px;text-align:left}
+.s-06 .expand-trigger h3{font-size:30px;margin:0 0 6px;color:#9DC384}
+.s-06 .expand-trigger .t{font-size:26px;line-height:1.32;margin:0}
+.s-06 .expand-hint{font-size:24px;color:#69B5FA;margin-top:6px}
+.s-06 .expand-body{display:none;padding:0 22px 16px;font-size:26px;line-height:1.36}
+.s-06 .expand-body.open{display:block}
+.s-06 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:26px;min-height:0}
+</style>
+<section class="slide slide-deep s-06" data-slide="06" data-menu-title="Modelo de alianza (propuestas)">
+  <span class="block-badge">Propuestas</span>
+  <div class="slide-main">
+    <p class="prop-badge">Propuestas — explorar hoy</p>
+    <h2>Modelo de partnership Datalab × ODS Cero</h2>
+    <div class="prop-grid">
+      <article class="prop glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>A · Data provider</h3>
+          <p class="t">Open Data ODS Cero → ingestión Datalab</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Metadatos compartidos (buen vivir, ecológica, económica, social). ODS Cero conserva titularidad y consentimiento comunitario.</p>
+        </div>
+      </article>
+      <article class="prop glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>B · Datathon / lab local</h3>
+          <p class="t">#/datathon + #/lab con LAURAS</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Evento o cohorte en regiones IV–VI; CTH plataforma, ODS Cero problemas y mentores (FCA UChile).</p>
+        </div>
+      </article>
+      <article class="prop glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>C · Referral clientes</h3>
+          <p class="t">Cooperativas miembros → #/client</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Reporting ESG / circular para IspirareCoop, CIBV, etc. Modelo fee vs nonprofit: <span class="pendiente">[PENDIENTE]</span>.</p>
+        </div>
+      </article>
+      <article class="prop glass expand-card">
+        <button type="button" class="expand-trigger" aria-expanded="false">
+          <h3>D · MoU ligero</h3>
+          <p class="t">Roles, licencia, salida</p>
+          <p class="expand-hint">Clic · detalle</p>
+        </button>
+        <div class="expand-body">
+          <p>Controlador de datos (ODS Cero); operador (CTH); ES/EN; términos comerciales después del piloto.</p>
+        </div>
+      </article>
+    </div>
+    <p class="src">Sin términos comerciales acordados en esta reunión.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-07 h2{font-size:52px;margin:0 0 16px;color:#fff;line-height:1.15}
+.s-07 .slot-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:8px 0}
+.s-07 .img-slot{width:100%;max-height:720px;min-height:520px;border:3px dashed rgba(178,238,250,.55);border-radius:16px;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:24px}
+.s-07 .img-slot img{max-width:100%;max-height:680px;object-fit:contain;border-radius:8px}
+.s-07 .slot-label{font-size:28px;color:#B2EEFA;text-align:center;line-height:1.4}
+.s-07 .slot-path{font-size:24px;color:rgba(255,255,255,.75);font-family:monospace}
+.s-07 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:28px;min-height:0}
+</style>
+<section class="slide slide-deep s-07" data-slide="07" data-menu-title="Referencia Emprende UP">
+  <span class="block-badge">Referencia</span>
+  <div class="slide-main">
+    <h2>Referencia: Mapa de Actores Climatech (Emprende UP)</h2>
+    <div class="slot-wrap">
+      <figure class="img-slot">
+        <img src="img/emprende-up/mapa-actores.png" alt="Mapa de actores Climatech — placeholder" width="1600" height="900" onerror="this.style.display='none'">
+        <p class="slot-label">Espacio reservado para PNG del mapa de actores<br><span class="pendiente">[PENDIENTE]</span> — arrastrar assets a la carpeta del deck</p>
+        <p class="slot-path">img/emprende-up/*.png</p>
+        <button type="button" class="chrome-btn lightbox-open" data-src="img/emprende-up/mapa-actores.png" data-caption="Mapa de Actores Climatech (Emprende UP)" style="font-size:24px;margin-top:8px">Ampliar (cuando exista PNG)</button>
+      </figure>
+    </div>
+    <p class="src">Placeholder interno · no afirmar contenido del mapa hasta cargar fuente Emprende UP.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-08 h2{font-size:60px;margin:0 0 14px;color:#fff}
+.s-08 .ask-list{list-style:none;padding:0;margin:0;flex:1;display:flex;flex-direction:column;justify-content:center}
+.s-08 .ask-list li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:30px;line-height:1.35}
+.s-08 .ask-num{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:#B2EEFA;color:#0C498A;font-weight:700;font-size:28px;display:flex;align-items:center;justify-content:center}
+.s-08 .ask-collapsible{display:none}
+.s-08 .ask-hint{font-size:26px;color:#69B5FA;margin-bottom:10px}
+.s-08 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
+</style>
+<section class="slide slide-deep s-08" data-slide="08" data-menu-title="Preguntas de colaboración">
+  <span class="block-badge">Talking points</span>
+  <div class="slide-main">
+    <h2>¿Qué alineamos hoy?</h2>
+    <p class="ask-hint">Barra inferior: «Mostrar preguntas» revela ítems 4–6.</p>
+    <ol class="ask-list">
+      <li><span class="ask-num">1</span><span>¿Christian representa ODS Cero formalmente? ¿Quién del consejo (Olguín / Ormazábal) respalda un piloto Datalab?</span></li>
+      <li><span class="ask-num">2</span><span>Open Data: calendario, API/formato, auditoría — ¿CTH puede ser partner de lanzamiento?</span></li>
+      <li><span class="ask-num">3</span><span>Elegir <strong>una región</strong> (IV–VI) y un set de indicadores — éxito a 90 días.</span></li>
+      <li class="ask-collapsible"><span class="ask-num">4</span><span>¿Primer entorno Datalab: <code>#/lab</code>, <code>#/datathon</code> o <code>#/client</code>?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">5</span><span>Holland House hoy: ¿intro solamente o hilo CL–CO que ODS Cero ya opera?</span></li>
+      <li class="ask-collapsible"><span class="ask-num">6</span><span>Siguiente paso: memo piloto, idiomas (ES/EN/PT), aprobación Gideon antes de anuncio público.</span></li>
+    </ol>
+    <p class="src">Colaboración · no envío externo automático desde este deck.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<style>
+.s-09 h2{font-size:58px;margin:0 0 16px;color:#fff}
+.s-09 .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0}
+.s-09 .risk.glass{padding:18px 22px;font-size:26px;line-height:1.38}
+.s-09 .risk p{margin:0}
+.s-09 .next.glass{padding:18px 22px;font-size:28px;margin-top:12px;line-height:1.4}
+.s-09 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:30px;min-height:0}
+</style>
+<section class="slide slide-deep s-09" data-slide="09" data-menu-title="Riesgos y PENDIENTES">
+  <span class="block-badge">Riesgos · unknowns</span>
+  <div class="slide-main">
+    <h2>Riesgos y <span class="pendiente">[PENDIENTE]</span></h2>
+    <div class="risk-grid">
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Firmante: Fundación vs Polo vs Ispirare.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Open Data sin URL/API pública verificada.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Consentimiento comunitario / datos territoriales.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Título oficial Christian en organigrama web.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Rol Holland House en la cita (facilitador vs COMEX).</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Relación previa CTH–ODS Cero.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Verificar cifras inversión en odscero.cl.</p></article>
+      <article class="risk glass"><p><span class="pendiente">[PENDIENTE]</span> Operación Colombia ODS Cero.</p></article>
+    </div>
+    <div class="next glass">
+      <strong>Después de la reunión:</strong> Gideon comparte notas · CTH prepara one-pager piloto si ODS Cero lo pide · fecha follow-up <span class="pendiente">[PENDIENTE]</span>
+    </div>
+    <p class="src">© 2026 CleantechHUB · borrador interno · Awaiting Gideon's approval uso externo · SOURCES.md</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>ODS Cero × Datalab · 13 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+</div></div></div></div>
+
+<div class="deck-chrome" id="deck-chrome">
+  <button type="button" class="chrome-btn" id="btn-menu" aria-expanded="false">Índice</button>
+  <nav class="slide-dots" id="slide-dots" aria-label="Progreso de diapositivas"></nav>
+  <button type="button" class="chrome-btn" id="btn-questions" aria-pressed="false">Mostrar preguntas</button>
+</div>
+<div class="deck-menu" id="deck-menu" hidden>
+  <div class="deck-menu-panel" role="dialog" aria-label="Índice de diapositivas">
+    <h2>Índice</h2>
+    <ul class="deck-menu-list" id="deck-menu-list"></ul>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Captura ampliada">
+  <button type="button" class="chrome-btn lightbox-close" id="lightbox-close">Cerrar</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+</div>
+<p class="nav-hint" aria-hidden="true">← → · espacio · clic · índice · puntos</p>
+<script>
+(function () {
+  'use strict';
+
+  var frame = document.querySelector('.deck-frame');
+  var stage = document.querySelector('.deck-stage');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var current = 0;
+  var printMode = /\?print(?:=|$)/.test(window.location.search) || window.location.hash === '#print';
+
+  function scaleStage() {
+    if (!frame || !stage || printMode) return;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var sw = 1920;
+    var sh = 1080;
+    var scale = Math.min(vw / sw, vh / sh) * 0.96;
+    frame.style.width = Math.round(sw * scale) + 'px';
+    frame.style.height = Math.round(sh * scale) + 'px';
+    stage.style.transform = 'scale(' + scale + ')';
+  }
+
+  function initSlideNumbers() {
+    var total = slides.length;
+    slides.forEach(function (s, i) {
+      var el = s.querySelector('.slide-num');
+      if (el) {
+        el.textContent = i + 1 + ' / ' + total;
+      }
+    });
+  }
+
+  function updateDots() {
+    var dots = document.querySelectorAll('.slide-dots button');
+    dots.forEach(function (btn, i) {
+      var on = i === current;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+  }
+
+  function setSlide(index) {
+    if (!slides.length) return;
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === index);
+    });
+    current = index;
+    updateDots();
+    if (!printMode) {
+      var hash = index === 0 ? '#1' : '#' + (index + 1);
+      if (window.location.hash !== hash && window.location.hash !== '#print') {
+        history.replaceState(null, '', hash);
+      }
+    }
+  }
+
+  function next() {
+    setSlide(current + 1);
+  }
+
+  function prev() {
+    setSlide(current - 1);
+  }
+
+  function slideFromHash() {
+    var h = window.location.hash.replace(/^#/, '');
+    if (!h || h === 'print') return 0;
+    var n = parseInt(h, 10);
+    if (!isNaN(n) && n >= 1) return n - 1;
+    return 0;
+  }
+
+  function isInteractiveTarget(el) {
+    if (!el || el === stage) return false;
+    var tag = el.tagName;
+    if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT') return true;
+    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open')) return true;
+    return false;
+  }
+
+  function onKey(e) {
+    if (printMode) return;
+    var menu = document.getElementById('deck-menu');
+    if (menu && !menu.hidden && e.key === 'Escape') {
+      menu.hidden = true;
+      return;
+    }
+    var lb = document.getElementById('lightbox');
+    if (lb && !lb.hidden && e.key === 'Escape') {
+      lb.hidden = true;
+      return;
+    }
+    var k = e.key;
+    if (k === 'ArrowRight' || k === ' ' || k === 'PageDown') {
+      e.preventDefault();
+      next();
+    } else if (k === 'ArrowLeft' || k === 'PageUp') {
+      e.preventDefault();
+      prev();
+    }
+  }
+
+  function onStageClick(e) {
+    if (printMode || isInteractiveTarget(e.target)) return;
+    var rect = (frame || stage).getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    if (x > rect.width / 2) next();
+    else prev();
+  }
+
+  function initExpandCards() {
+    document.querySelectorAll('.expand-card .expand-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        var body = btn.parentElement.querySelector('.expand-body');
+        if (!body) return;
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  function initDots() {
+    var wrap = document.getElementById('slide-dots');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    slides.forEach(function (_s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.title = 'Diapositiva ' + (i + 1);
+      b.setAttribute('aria-label', 'Ir a diapositiva ' + (i + 1));
+      b.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        setSlide(i);
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function initMenu() {
+    var menu = document.getElementById('deck-menu');
+    var list = document.getElementById('deck-menu-list');
+    var btnMenu = document.getElementById('btn-menu');
+    if (!menu || !list || !btnMenu) return;
+
+    list.innerHTML = '';
+    slides.forEach(function (slide, i) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      var title = slide.getAttribute('data-menu-title') || 'Diapositiva ' + (i + 1);
+      b.textContent = i + 1 + '. ' + title;
+      b.addEventListener('click', function () {
+        menu.hidden = true;
+        setSlide(i);
+      });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+
+    btnMenu.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      menu.hidden = !menu.hidden;
+    });
+
+    menu.addEventListener('click', function (ev) {
+      if (ev.target === menu) menu.hidden = true;
+    });
+  }
+
+  function initQuestionsToggle() {
+    var btn = document.getElementById('btn-questions');
+    if (!btn) return;
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var on = document.body.classList.toggle('show-questions');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? 'Ocultar preguntas' : 'Mostrar preguntas';
+    });
+  }
+
+  function initLightbox() {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-cap');
+    var close = document.getElementById('lightbox-close');
+    if (!lb || !img) return;
+
+    document.querySelectorAll('.lightbox-open').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        img.src = btn.getAttribute('data-src') || '';
+        img.alt = btn.getAttribute('data-caption') || '';
+        if (cap) cap.textContent = btn.getAttribute('data-caption') || '';
+        lb.hidden = false;
+      });
+    });
+
+    function closeLb() {
+      lb.hidden = true;
+      img.src = '';
+    }
+
+    if (close) close.addEventListener('click', closeLb);
+    lb.addEventListener('click', function (ev) {
+      if (ev.target === lb) closeLb();
+    });
+  }
+
+  initSlideNumbers();
+  initDots();
+  initMenu();
+  initQuestionsToggle();
+  initExpandCards();
+  initLightbox();
+
+  if (printMode) {
+    document.body.classList.add('print-all');
+    document.body.classList.add('show-questions');
+    slides.forEach(function (s) {
+      s.classList.add('active');
+    });
+    document.querySelectorAll('.expand-body').forEach(function (el) {
+      el.classList.add('open');
+    });
+  } else {
+    setSlide(slideFromHash());
+    window.addEventListener('resize', scaleStage);
+    window.addEventListener('hashchange', function () {
+      setSlide(slideFromHash());
+    });
+    document.addEventListener('keydown', onKey);
+    if (stage) stage.addEventListener('click', onStageClick);
+    scaleStage();
+  }
+})();
+</script>
+</body></html>
