@@ -1,22 +1,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --deep: #1B4332;
-  --cyan: #95D5B2;
-  --green: #95D5B2;
-  --forest: #2D6A4F;
-  --sky: #D8F3DC;
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --green: #9DC384;
+  --forest: #669348;
+  --sky: #69B5FA;
   --white: #FFFFFF;
   --stage-w: 1920px;
   --stage-h: 1080px;
-  --font: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font: 'Open Sans', sans-serif;
 }
 
 html, body {
   height: 100%;
   overflow: hidden;
   font-family: var(--font);
-  background: #0d2818;
+  background: #051a33;
   color: var(--white);
 }
 
@@ -64,7 +64,7 @@ html, body {
   display: none;
   flex-direction: column;
   color: var(--white);
-  background: linear-gradient(145deg, #2D6A4F 0%, #1B4332 55%, #0d2818 100%);
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
   overflow: hidden;
 }
 
@@ -158,7 +158,7 @@ ul {
 
 .src {
   font-size: 24px;
-  color: rgba(149, 213, 178, 0.8);
+  color: rgba(178, 238, 250, 0.8);
   margin-top: auto;
   padding-top: 16px;
 }
@@ -402,7 +402,7 @@ ul {
 }
 
 .slide-deep {
-  background: linear-gradient(145deg, #2D6A4F 0%, #1B4332 55%, #0d2818 100%);
+  background: linear-gradient(145deg, #0C498A 0%, #06325c 55%, #042847 100%);
 }
 
 .slide > .block-badge + h2.slide-title,
@@ -465,7 +465,7 @@ h2.slide-title {
 
 .growth-card .meta {
   font-size: 24px;
-  color: rgba(149, 213, 178, 0.9);
+  color: rgba(178, 238, 250, 0.9);
   line-height: 1.3;
 }
 
@@ -519,7 +519,7 @@ h2.slide-title {
 }
 
 .weight-box .lbl {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.25;
   margin-top: 6px;
 }
