@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meeting brief — Christian Matamala · CleantechHUB</title>
+  <title>Collaboration brief — ODS Cero × Datalab · CleantechHUB</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,116 +19,215 @@
       --font: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 20px; }
+    html { font-size: 20px; scroll-behavior: smooth; }
     body {
       font-family: var(--font);
       font-size: 1rem;
       line-height: 1.55;
       color: var(--cth-text);
-      background: #f4f8fb;
+      background: #eef4f9;
       -webkit-font-smoothing: antialiased;
     }
-    .page {
-      max-width: 210mm;
+    .layout {
+      max-width: 920px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      min-height: 100vh;
+    }
+    .section-nav {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      background: var(--cth-blue);
+      color: #fff;
+      padding: 1rem 0.75rem;
+      min-height: 100vh;
+    }
+    .section-nav .nav-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cth-sky);
+      margin-bottom: 0.75rem;
+    }
+    .section-nav a {
+      display: block;
+      color: #e8f4fc;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.4rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.15rem;
+      border-left: 3px solid transparent;
+    }
+    .section-nav a:hover,
+    .section-nav a:focus {
+      background: rgba(255,255,255,0.12);
+      border-left-color: var(--cth-sage);
+      outline: none;
+    }
+    .page {
       background: #fff;
-      min-height: 297mm;
+      box-shadow: 0 2px 24px rgba(12,73,138,0.08);
     }
     header {
       background: linear-gradient(135deg, var(--cth-blue) 0%, #0a3a6e 100%);
       color: #fff;
-      padding: 1.35rem 1.75rem 1.1rem;
+      padding: 1.35rem 1.5rem 1.1rem;
       border-bottom: 4px solid var(--cth-sage);
     }
     header .eyebrow {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--cth-sky);
       margin-bottom: 0.35rem;
     }
-    header h1 {
-      font-size: 1.55rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 0.5rem;
-    }
+    header h1 { font-size: 1.45rem; font-weight: 700; line-height: 1.25; margin-bottom: 0.35rem; }
+    header .subtitle { font-size: 0.95rem; color: var(--cth-sky); margin-bottom: 0.5rem; font-weight: 600; }
     header .meta {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       opacity: 0.95;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem 1.25rem;
+      gap: 0.35rem 1rem;
     }
-    main { padding: 1.25rem 1.75rem 1.5rem; }
-    section { margin-bottom: 1.15rem; }
+    main { padding: 1.15rem 1.5rem 1.75rem; }
+    section {
+      margin-bottom: 1.35rem;
+      scroll-margin-top: 1rem;
+    }
     h2 {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: var(--cth-blue);
       border-left: 4px solid var(--cth-green);
       padding-left: 0.55rem;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
+    h3 { font-size: 0.88rem; color: var(--cth-blue); margin: 0.65rem 0 0.35rem; }
     p, li { font-size: 1rem; color: var(--cth-muted); }
     p { margin-bottom: 0.45rem; }
-    ul { padding-left: 1.15rem; margin-bottom: 0.35rem; }
-    li { margin-bottom: 0.3rem; }
-    a { color: var(--cth-blue); word-break: break-word; }
+    ul, ol { padding-left: 1.15rem; margin-bottom: 0.35rem; }
+    li { margin-bottom: 0.28rem; }
+    a { color: var(--cth-blue); }
+    a.src {
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
     .confidence {
       background: var(--cth-sky);
       border: 1px solid var(--cth-accent);
-      border-radius: 6px;
-      padding: 0.65rem 0.85rem;
-      margin-bottom: 1rem;
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      margin-bottom: 1.1rem;
     }
-    .confidence strong { color: var(--cth-blue); }
     .confidence .level {
       display: inline-block;
       background: var(--cth-green);
       color: #fff;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.15rem 0.45rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.25rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.12rem 0.4rem;
       border-radius: 4px;
       margin-left: 0.35rem;
       vertical-align: middle;
     }
+    .tag-hyp { background: #e8f5e9; color: #2e5c20; border: 1px solid var(--cth-sage); }
+    .tag-prop { background: #e3f2fd; color: var(--cth-blue); border: 1px solid var(--cth-accent); }
     .fact-list li::marker { color: var(--cth-green); }
-    .hypothesis li { list-style: none; padding-left: 0; margin-left: -1.15rem; }
-    .hypothesis li::before {
-      content: "→";
-      color: var(--cth-accent);
-      font-weight: 700;
-      margin-right: 0.35rem;
-    }
-    .talk-points {
-      background: linear-gradient(180deg, #f0faf4 0%, #fff 100%);
+    .pendiente { color: #7a4510; font-weight: 600; }
+    .partner-card {
       border: 1px solid var(--cth-sage);
-      border-radius: 6px;
-      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      background: #f9fcfa;
+      overflow: hidden;
     }
-    .talk-points ol { padding-left: 1.25rem; }
-    .talk-points li { margin-bottom: 0.35rem; }
-    .pendiente {
-      color: #8b4513;
+    .partner-card summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--cth-blue);
+      padding: 0.65rem 0.85rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .partner-card summary::-webkit-details-marker { display: none; }
+    .partner-card summary::after {
+      content: "+";
+      font-size: 1.1rem;
+      color: var(--cth-green);
+      font-weight: 700;
+    }
+    .partner-card[open] summary::after { content: "−"; }
+    .partner-card .card-body {
+      padding: 0 0.85rem 0.75rem;
+      border-top: 1px solid var(--cth-sky);
+    }
+    .datalab-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: 0.4rem 0 0.6rem;
+    }
+    .datalab-pills a {
+      font-size: 0.78rem;
       font-weight: 600;
+      text-decoration: none;
+      background: var(--cth-sky);
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--cth-accent);
     }
     footer {
       border-top: 2px solid var(--cth-sky);
-      padding: 0.65rem 1.75rem;
+      padding: 0.65rem 1.5rem;
       font-size: 0.72rem;
       color: var(--cth-muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
     }
-    .page-break { page-break-before: always; }
+    html.print-mode .section-nav,
+    html.print-mode .print-hint { display: none !important; }
+    html.print-mode .layout { grid-template-columns: 1fr; max-width: 210mm; }
+    html.print-mode .page { box-shadow: none; }
+    html.print-mode .partner-card { break-inside: avoid; }
+    html.print-mode .partner-card summary::after { display: none; }
+    @media (max-width: 720px) {
+      .layout { grid-template-columns: 1fr; }
+      .section-nav {
+        position: relative;
+        min-height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+      .section-nav .nav-title { width: 100%; }
+      .section-nav a { display: inline-block; margin: 0; }
+    }
     @media print {
-      html, body { width: 210mm; background: #fff; }
-      .page { box-shadow: none; margin: 0; }
+      body { background: #fff; }
+      .section-nav, .print-hint { display: none !important; }
+      .layout { grid-template-columns: 1fr; max-width: 210mm; }
+      .partner-card { break-inside: avoid; }
+      .partner-card summary::after { display: none; }
       body {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -138,96 +237,220 @@
   </style>
 </head>
 <body>
-  <article class="page">
-    <header>
-      <div class="eyebrow">CleantechHUB · Internal meeting brief</div>
-      <h1>Christian Matamala</h1>
-      <div class="meta">
-        <span>Tue 13 Oct 2026 · 15:00 COT</span>
-        <span>Holland House Colombia, Bogotá</span>
-        <span>Contact for Gideon Blaauw (CTH)</span>
-      </div>
-    </header>
+  <div class="layout">
+    <nav class="section-nav" aria-label="Brief sections">
+      <div class="nav-title">Sections</div>
+      <a href="#christian">1 · Christian</a>
+      <a href="#odscero">2 · ODS Cero</a>
+      <a href="#fit">3 · Datalab fit</a>
+      <a href="#model">4 · Partnership model</a>
+      <a href="#talk">5 · Talking points</a>
+      <a href="#risks">6 · Risks &amp; unknowns</a>
+    </nav>
 
-    <main>
-      <div class="confidence">
-        <strong>Identity confidence — primary candidate:</strong> Christian Matamala Irribarra
-        <span class="level">MEDIUM</span>
-        <p style="margin-top:0.4rem;margin-bottom:0;">
-          Public sources do <em>not</em> list him as Holland House staff or confirm this calendar slot. A Sep 2026 LinkedIn comment describes a Colombia visit from 1 Oct for ~two weeks with meetings and talks, which aligns with the meeting date. Holland House is a plausible venue for Netherlands–Colombia sustainability and circular-economy networking, not proof of affiliation.
-        </p>
-        <p style="margin-bottom:0;font-size:0.9rem;">
-          <strong>Alternate candidates:</strong> Christian Matamala Carrasco (Chile-based water/sanitation engineer; no Holland House or Bogotá link found) · Any other “Christian Matamala” tied to this invite — <span class="pendiente">[PENDIENTE]</span>
-        </p>
-      </div>
-
-      <section>
-        <h2>Who he is (verified public profile)</h2>
-        <ul class="fact-list">
-          <li>Full name <strong>Christian Matamala Irribarra</strong>; public professional base in the <strong>Santiago Metropolitan Area, Chile</strong>. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
-          <li>Listed as <strong>Gerente</strong>, Cooperativa Ispirare (Aug 2026–present), described as collaborative e-commerce and integral-health products in Latin America. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
-          <li><strong>Coordinador cap. Chile</strong>, Movimiento Laudato Si' (author byline). <a href="https://econews.global/author/christian-matamala/">econews.global/author/christian-matamala/</a></li>
-          <li><strong>Director de Relaciones Estratégicas (Ecuador)</strong>, Cámara Nacional de Economía Circular (CANDEC); company page lists him as key executive. <a href="https://linkedin.com/company/camaracircular">linkedin.com/company/camaracircular</a></li>
-          <li>Multiple concurrent roles in public profile: Hispano-America representative (Laudato Si' World Council), bilingual mentor (UICN-supported protected-areas programme), Climate Reality community mentor, circular-economy facilitation. <a href="https://linkedin.com/in/christian-matamala-irribarra">linkedin.com/in/christian-matamala-irribarra</a></li>
-          <li>2022 event bio: Chilean; ecology, environmental education, circular economy, Climate Reality leadership; postgraduate environmental management; photovoltaic integration. <a href="https://es.linkedin.com/posts/colectivo-basura-cero-latam-275166255_sbc2022-semanabasuracero-basurales-activity-6991045393153196032-W9yx">LinkedIn — Basura Cero LATAM (2022)</a></li>
-          <li>Commented on Colombia’s sustainability reporting and climate-risk transparency (Sep 2024). <a href="https://es.linkedin.com/posts/christian-matamala-irribarra_brasil-colombia-chile-activity-7242306572046000128-7Tz5">LinkedIn post (2024)</a></li>
-          <li>Stated planned <strong>Colombia tour from 1 Oct 2026</strong> (~two weeks) with presentations and meetings, including time in Chía. <a href="https://es.linkedin.com/posts/nicolacerantola_econom%C3%ADacircular-modelosdenegocio-innovaci%C3%B3n-activity-7506635329639215104-3Hz4">LinkedIn comment (2026-09-18)</a></li>
-        </ul>
-        <p><span class="pendiente">[PENDIENTE]</span> His exact title on the meeting invite, other attendees, and whether Holland House hosts or only provides the room.</p>
-      </section>
-
-      <section>
-        <h2>Organisation snapshot — Holland House Colombia</h2>
-        <ul class="fact-list">
-          <li><strong>Cámara de Comercio Colombo Holandesa</strong> (Holland House Colombia): nonprofit bilateral chamber promoting trade and investment between Colombia and the Kingdom of the Netherlands (Netherlands plus Dutch Caribbean). <a href="https://hollandhouse-colombia.com/conocenos/">hollandhouse-colombia.com/conocenos/</a></li>
-          <li><strong>Mission:</strong> promote and strengthen economic and commercial relations between Colombia and the Kingdom of the Netherlands. <a href="https://hollandhouse-colombia.com/conocenos/">hollandhouse-colombia.com/conocenos/</a></li>
-          <li><strong>Bogotá office:</strong> Calle 90 #19-41, Oficina 801, Chapinero; +57 (601) 744 9566; info@hollandhouse-colombia.com. <a href="https://hollandhouse-colombia.com/contactenos/">hollandhouse-colombia.com/contactenos/</a></li>
-          <li>Services include foreign trade support, advisory, trade missions, networking, matchmaking, events, co-working. <a href="https://hollandhouse-colombia.com/comercio-exterior/">hollandhouse-colombia.com/comercio-exterior/</a></li>
-          <li>Executive Director <strong>Jan Willem van Bokhoven</strong> (since Jul 2013) describes focus sectors: water, agriculture, energy, life sciences, infrastructure. <a href="https://linkedin.com/in/janwillemvanbokhoven">linkedin.com/in/janwillemvanbokhoven</a></li>
-          <li>LinkedIn company profile: international trade nonprofit, founded 2013, HQ Bogotá; ~33 employees cited. <a href="https://linkedin.com/company/holland-house---dutch-colombian-chamber-of-commerce">LinkedIn — Holland House Colombia</a></li>
-        </ul>
-      </section>
-
-      <section class="page-break">
-        <h2>Possible CleantechHUB fit (hypotheses only)</h2>
-        <p>Not confirmed partnerships — conversation starters if the primary candidate is correct.</p>
-        <ul class="hypothesis">
-          <li><strong>Programs / education:</strong> Overlap on circular economy, climate literacy, and community-based sustainability (Laudato Si', CANDEC diplomado, ENVIS-style facilitation) could complement CTH training or Dialogos-style programmes — explore co-designed workshops rather than vendor pitch.</li>
-          <li><strong>Datalab:</strong> Interest in sustainability reporting, NIIS-style transparency, and “common language” for climate metrics (per his 2024 Colombia comments) may align with data literacy or open-impact storytelling — <span class="pendiente">[PENDIENTE]</span> whether he seeks tools vs. networks.</li>
-          <li><strong>Nexus:</strong> Cooperativa Ispirare and B Corp / purpose-economy framing in his profile suggest he engages early-stage or mission-driven ventures; Nexus portfolio intros could be mutual if startups fit circular/climate themes.</li>
-          <li><strong>Energy Co-op:</strong> Public bio mentions green energy, efficiency, and photovoltaic integration; Holland House also lists energy as a priority sector — possible bridge to community energy or Dutch–Colombian cleantech suppliers via chamber members.</li>
-          <li><strong>REIN Hubs:</strong> Holland House runs sector missions (e.g. water, agri-food) and Caribbean/Caribbean Netherlands trade links; if CTH participates in regional innovation hubs, chamber matchmaking could surface Dutch or Colombian partners — scope and role <span class="pendiente">[PENDIENTE]</span>.</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Five talking points / questions</h2>
-        <div class="talk-points">
-          <ol>
-            <li>Confirm identity and agenda: “Are you Christian Matamala Irribarra, and what brings you to Holland House on 13 Oct?”</li>
-            <li>Colombia tour (Oct 2026): which cities, partners, and outcomes he is seeking beyond published talks — any explicit Netherlands or Holland House linkage?</li>
-            <li>Circular economy in practice: what validated business models or pilots he has run (vs. frameworks), and where Colombia fits his CANDEC / regional chamber work.</li>
-            <li>CleantechHUB introduction: which CTH lane (programs, Nexus startups, data/community tools, energy) would create value for his network in Chile, Ecuador, Brazil, and Colombia?</li>
-            <li>Follow-up mechanics: preferred language (ES/EN/PT), consent to share a one-pager with Holland House or Dutch embassy networks, and realistic next step within 30 days.</li>
-          </ol>
+    <article class="page">
+      <header>
+        <div class="eyebrow">CleantechHUB · Collaboration brief</div>
+        <h1>ODS Cero × Datalab (Chile)</h1>
+        <p class="subtitle">Christian Matamala · Holland House Bogotá</p>
+        <div class="meta">
+          <span>Tue 13 Oct 2026 · 15:00 COT</span>
+          <span>Focus: data partnership · not a sales pitch</span>
         </div>
-      </section>
+      </header>
 
-      <section>
-        <h2>Unknowns</h2>
-        <ul>
-          <li><span class="pendiente">[PENDIENTE]</span> Calendar owner and whether Jan Willem van Bokhoven or another Holland House colleague joins.</li>
-          <li><span class="pendiente">[PENDIENTE]</span> Commercial vs. nonprofit intent (consulting, coop sales, chamber membership, or alliance scouting).</li>
-          <li><span class="pendiente">[PENDIENTE]</span> Existing relationship with Gideon or CTH (cold intro vs. warm referral).</li>
-          <li><span class="pendiente">[PENDIENTE]</span> Dutch-language or Netherlands-domiciled entity involvement beyond Holland House as venue.</li>
-        </ul>
-      </section>
-    </main>
+      <main>
+        <div class="confidence" id="confidence">
+          <strong>Identity:</strong> Christian Matamala Irribarra, linked to <strong>Polo Empresarial / Fundación ODS Cero</strong>
+          <span class="level">HIGH</span>
+          <p style="margin-top:0.45rem;margin-bottom:0;">
+            Public LinkedIn posts describe him as <em>socio</em> and <em>asesor senior</em> (territorial development &amp; community linkage) with ODS Cero, plus earlier membership in Fundación ODS Cero Chile. This aligns with Gideon’s collaboration direction. He is <strong>not</strong> listed on the foundation officer block at odscero.cl.
+            <a class="src" href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ">source</a>
+          </p>
+        </div>
 
-    <footer>
-      <span>CleantechHUB · Internal draft · Not for external distribution without approval</span>
-      <span>Sources: decks/meetings-2026-10-13/matamala/sources.md</span>
-    </footer>
-  </article>
+        <p class="print-hint" style="font-size:0.82rem;color:var(--cth-muted);margin-bottom:1rem;">
+          Interactive view: use section nav and expand partnership cards. PDF / print: open with <code>?print</code> (e.g. same file + <code>?print</code>).
+        </p>
+
+        <section id="christian">
+          <h2>1 · Christian Matamala</h2>
+          <ul class="fact-list">
+            <li><strong>Christian Matamala Irribarra</strong> — public base Santiago Metropolitan Area, Chile.
+              <a class="src" href="https://linkedin.com/in/christian-matamala-irribarra">LinkedIn</a></li>
+            <li>At <strong>Polo Empresarial ODS Cero Fundación</strong>: describes himself as <strong>socio</strong> and <strong>asesor senior</strong> in <em>desarrollo territorial y vinculación a comunidades para la sostenibilidad local</em>; references a multi-region Chile project (four regions).
+              <a class="src" href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ">LinkedIn (Jun 2026)</a></li>
+            <li>Earlier public list includes <strong>Miembro de la Fundación ODS Cero Chile</strong>.
+              <a class="src" href="https://es.linkedin.com/posts/christian-matamala-irribarra_coaching-sostenibilidad-centroecovirtual-activity-6992698849295261696-8mDU">LinkedIn (May 2023)</a></li>
+            <li>Also active in circular economy / bioeconomy networks; tags <strong>Polo Empresarial ODS Cero</strong> alongside Basura Cero LATAM and Climate Reality (Sep 2026).
+              <a class="src" href="https://linkedin.com/in/christian-matamala-irribarra">LinkedIn activity</a></li>
+            <li>Separate role: <strong>Gerente</strong>, Cooperativa Ispirare (listed on LinkedIn; IspirareCoop appears as a member organism on odscero.cl).
+              <a class="src" href="https://linkedin.com/in/christian-matamala-irribarra">LinkedIn</a>
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>Colombia context: stated plan for a Colombia tour from 1 Oct 2026 (~two weeks) with talks and meetings — consistent with Bogotá on 13 Oct.
+              <a class="src" href="https://es.linkedin.com/posts/nicolacerantola_econom%C3%ADacircular-modelosdenegocio-innovaci%C3%B3n-activity-7506635329639215104-3Hz4">LinkedIn (Sep 2026)</a></li>
+          </ul>
+        </section>
+
+        <section id="odscero">
+          <h2>2 · ODS Cero (Polo Empresarial)</h2>
+          <p><strong>What it is:</strong> Describes itself as Chile’s first “Family Office Asociativa” — a business pole uniting business associations, cooperatives, and social enterprises, pursuing <strong>Instituto Auxiliar Cooperativo</strong> status under Chile’s cooperative law (Fundación constituted 16 Nov 2021).
+            <a class="src" href="https://www.odscero.cl/">odscero.cl</a></p>
+
+          <h3>Services &amp; program lines</h3>
+          <ul class="fact-list">
+            <li><strong>Medierías</strong> (ODS 13) — shared-benefit programme with cooperatives and family farming.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li><strong>Consorcio</strong> (ODS 7, 9, 11) — public–private agreements at medium/large scale: non-conventional renewables (ERNC), agro, circular economy, biomass, biotech, nanotech.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li><strong>COMEX</strong> — international cooperation for sustainable production/consumption, regenerative agriculture; CrowdCommerce.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li><strong>I+D+i + cooperativismo</strong> — ESG venture capital; talks, seminars, internships.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>Operating model <strong>B2LC</strong> (Business to Local Communities) for social innovation investment.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+          </ul>
+
+          <h3>Data &amp; impact</h3>
+          <ul class="fact-list">
+            <li>States programme data will be exposed on an <strong>Open Data platform (en construcción)</strong>, with audited processes, monitoring four dimensions: <em>buen vivir</em>, ecological, economic, social.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li><strong>LAURAS</strong> — “Laboratorio Americano de Urgencia Regeneracional Ambiental y Social”; R&amp;D, innovation, tech transfer, continuing education; mentions compliance platform collaboration across the Americas.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>Site cites portfolio-scale figures (e.g. managing ~USD 100M for sustainable projects; regional investment programmes in regions IV, V, RM, VI) — treat as self-reported on website until independently verified.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+          </ul>
+
+          <h3>Team &amp; governance (public)</h3>
+          <ul class="fact-list">
+            <li>Foundation board (website): Presidente <strong>Juan Jaime Olguín</strong>; Vicepresidente <strong>Sergio Aguilera</strong>; Secretaria <strong>Claudia Berardi</strong>; Tesorera <strong>Ana Maria Oyarzun</strong>; Director <strong>Jorge Ormazábal</strong>.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>LinkedIn lists additional leaders (e.g. Juan Jaime Olguín, Rodrigo Arangua Cabrera, Rodrigo Díaz Valenzuela).
+              <a class="src" href="https://cl.linkedin.com/company/odscero">LinkedIn company</a></li>
+          </ul>
+
+          <h3>Member organisms &amp; partners (public)</h3>
+          <ul class="fact-list">
+            <li>Member logos/names on site include <strong>AWMA</strong>, <strong>CIBV</strong>, <strong>IspirareCoop</strong>, Origami, Viento de la estrella, Allevia.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>Collaboration cited with <strong>Facultad de Ciencias Agronómicas, Universidad de Chile</strong> (La Pintana / Santa Rosa address on site).
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a>
+              <a class="src" href="https://es.linkedin.com/posts/odscero_presentes-en-el-encuentro-con-las-cooperativas-activity-7350900849151250432-TTtp">LinkedIn (Jul 2025)</a></li>
+            <li>Participation with <strong>GSG Impact Chile</strong> (invitation acknowledged Sep 2025).
+              <a class="src" href="https://es.linkedin.com/posts/odscero_agradecemos-la-invitaci%C3%B3n-que-nos-hace-gsg-activity-7378813172075442176-ziX2">LinkedIn</a></li>
+            <li>Project copy references international partners on agrovoltaic/biomass programmes (FCA UChile named on site).
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+          </ul>
+
+          <h3>Geography</h3>
+          <ul class="fact-list">
+            <li>Chile: programmes reference <strong>regions IV, V, RM, VI</strong>; HQ Peñalolén (LinkedIn: Calle Las Palmas 355); contact location also Av. Santa Rosa 11315, La Pintana (FCA UChile).
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a>
+              <a class="src" href="https://cl.linkedin.com/company/odscero">LinkedIn</a></li>
+            <li>LinkedIn company profile states workforce distributed across <strong>Chile and Colombia</strong> (no detail on Colombia entities in results reviewed).
+              <a class="src" href="https://cl.linkedin.com/company/odscero">LinkedIn</a></li>
+            <li>Contact: <strong>vinculacion@odscero.cl</strong>.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+          </ul>
+        </section>
+
+        <section id="fit">
+          <h2>3 · Why ODS Cero may fit as Datalab data partner (Chile) <span class="tag tag-hyp">Hypotheses</span></h2>
+          <p><strong>Datalab</strong> (CTH data platform) — four live environments:</p>
+          <div class="datalab-pills">
+            <a href="https://datalab.cleantechhub.net/#/datalab">#/datalab</a>
+            <a href="https://datalab.cleantechhub.net/#/datathon">#/datathon</a>
+            <a href="https://datalab.cleantechhub.net/#/lab">#/lab</a>
+            <a href="https://datalab.cleantechhub.net/#/client">#/client</a>
+          </div>
+          <ul class="fact-list">
+            <li>ODS Cero already frames impact measurement across four dimensions aligned with sustainability reporting — potential schema overlap with Datalab indicators if Open Data launches.
+              <a class="src" href="https://www.odscero.cl/">odscero.cl</a></li>
+            <li>Cooperative / territorial programmes (ERNC, agro, circular economy) could supply <strong>ground-truth datasets</strong> for Chile pilots without CTH owning field operations.</li>
+            <li><strong>LAURAS</strong> R&amp;D line could pair with <code>#/lab</code> for method co-design; <code>#/datathon</code> for open challenges on circular/regenerative metrics.</li>
+            <li>Christian’s remit (territorial development, community linkage) matches a <strong>local steward</strong> role for data governance and consent — not only IT integration.
+              <a class="src" href="https://es.linkedin.com/posts/christian-matamala-irribarra_cooperativismosostenible-activity-7467190851694157824-RDzJ">LinkedIn</a></li>
+            <li>Colombia footprint (LinkedIn) plus Christian’s Oct 2026 Colombia tour may bridge Andean cooperation — relevance to CTH if Datalab spans CL + CO.
+              <a class="src" href="https://cl.linkedin.com/company/odscero">LinkedIn</a></li>
+          </ul>
+        </section>
+
+        <section id="model">
+          <h2>4 · Partnership model sketch <span class="tag tag-prop">Proposals</span></h2>
+          <p>Options to explore today — not agreed terms.</p>
+
+          <details class="partner-card" open>
+            <summary>A · Chile data provider (Open Data → Datalab)</summary>
+            <div class="card-body">
+              <p>ODS Cero publishes audited programme indicators on its Open Data platform; CTH ingests selected datasets into Datalab with shared metadata (dimensions: buen vivir, ecological, economic, social). CTH provides hosting/visualization; ODS Cero retains ownership and community consent.</p>
+              <p><strong>Ask:</strong> Open Data roadmap, APIs/formats, audit standards, and what may be shared internationally.</p>
+            </div>
+          </details>
+
+          <details class="partner-card">
+            <summary>B · Local datathon &amp; lab anchor</summary>
+            <div class="card-body">
+              <p>Co-branded event or cohort using <code>#/datathon</code> and <code>#/lab</code> with LAURAS / regional cooperatives (IV–VI). CTH supplies platform; ODS Cero supplies problems, mentors, and Chilean participants.</p>
+              <p><strong>Ask:</strong> 2026 milestone calendar (Christian mentioned upcoming announcements) and university partners (FCA UChile).</p>
+            </div>
+          </details>
+
+          <details class="partner-card">
+            <summary>C · Client &amp; ecosystem referral</summary>
+            <div class="card-body">
+              <p>Member cooperatives (IspirareCoop, CIBV, etc.) or COMEX partners use <code>#/client</code> for reporting, ESG dashboards, or circular metrics. CTH offers Datalab as infrastructure; ODS Cero offers trust and local delivery.</p>
+              <p><strong>Ask:</strong> Which member needs data tooling first; whether referral is nonprofit-to-nonprofit or fee-based.</p>
+            </div>
+          </details>
+
+          <details class="partner-card">
+            <summary>D · Governance &amp; MoU (lightweight)</summary>
+            <div class="card-body">
+              <p>Document roles: data controller (ODS Cero), platform operator (CTH), public licence for anonymized aggregates, bilingual comms, and exit clause. Defer commercial terms until pilot scope is defined.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="talk">
+          <h2>5 · Talking points &amp; questions</h2>
+          <ol>
+            <li>Confirm roles: Is Christian representing ODS Cero officially today? Who from Olguín / foundation board backs a Datalab conversation?</li>
+            <li>Open Data platform: timeline, architecture, and whether CTH could be a launch partner rather than a late integrator.</li>
+            <li>Pick one pilot region (IV–VI) and one indicator set — what would success look like in 90 days?</li>
+            <li>Map Datalab routes: which environment fits first — <code>#/lab</code> research, <code>#/datathon</code> crowd challenge, or <code>#/client</code> member reporting?</li>
+            <li>Colombia angle: is today’s Holland House meeting intro-only, or part of a CL–CO cooperation thread ODS Cero already runs?</li>
+            <li>Next step: who drafts a one-page pilot memo, and who needs Gideon’s approval before any public announcement?</li>
+          </ol>
+        </section>
+
+        <section id="risks">
+          <h2>6 · Risks &amp; unknowns</h2>
+          <ul>
+            <li><span class="pendiente">[PENDIENTE]</span> Formal contract path (Fundación vs Polo vs Cooperativa Ispirare) and signatory authority.</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Open Data platform maturity — still “en construcción”; no public URL/API verified.</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Data privacy, indigenous/community consent on territorial datasets.</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Christian’s ODS Cero title on official org charts (not on foundation officer list at odscero.cl).</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Why Holland House Bogotá as venue — facilitator, investor intro, or Colombia COMEX leg?</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Any existing CTH–ODS Cero or CTH–Christian relationship beyond this meeting.</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Verification of self-reported investment figures on odscero.cl.</li>
+            <li><span class="pendiente">[PENDIENTE]</span> Colombia operational detail (LinkedIn mentions Colombia; no public ODS Cero Colombia entity found).</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        CleantechHUB internal · Collaboration focus · Sources: sources.md in this folder · PDF: add <code>?print</code> to this file URL
+      </footer>
+    </article>
+  </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      if (params.has('print')) {
+        document.documentElement.classList.add('print-mode');
+        document.querySelectorAll('.partner-card').forEach(function (d) { d.open = true; });
+      }
+    })();
+  </script>
 </body>
 </html>
