@@ -50,6 +50,10 @@ More than one job means one Hands agent per independent job, all launched at the
 - Keep a job list (job, bc-id, state): live, blocked on a named HITL/blocker, or done. Nothing is 'queued' without a bc-id.
 - Above ~8 live per desk, ping Orchestrator instead of serializing.
 - Models still follow hands-model-routing (low-end by default).
+- Exception: browser and channel jobs that share one account or session (for example LinkedIn, Instagram, WhatsApp/Babo) run one at a time, to avoid account restrictions. All non-browser work for those desks still runs in parallel.
+
+## Blocker escalation (MANDATORY, Gideon 12 Oct 2026)
+Any blocker or slowdown that delays a deliverable (site/LinkedIn stall, tab crash, rate limit, warning banner, box freeze, Tailscale exit offline, failed or skipped routine, target/quota at risk) is escalated up the chain to Gideon as a HITL alert immediately, even if a retry is planned. Never log it silently.
 
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
@@ -70,6 +74,7 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Logging blockers quietly instead of alerting Gideon
 
 ---
 
