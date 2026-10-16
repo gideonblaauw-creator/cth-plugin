@@ -58,7 +58,24 @@ Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by
 
 ## Workbench / connector exception (narrow)
 
-Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo, Monday stamps) **only when Hands cannot** (no CLI/connector/API for that step). Never use the exception to run crawl, research, or file-pack grind locally.
+Channel I/O (Gmail, Calendar, Instagram, Facebook, Ads, WhatsApp/Babo, Monday stamps) **only when Hands cannot** (no CLI/connector/API for that step). Never use the exception to run crawl, research, or file-pack grind locally. LinkedIn is not in this exception. See § LinkedIn HARD.
+
+## LinkedIn HARD (Gideon 16 Oct 2026, 09:27 COT)
+
+This rule supersedes the single-account browser exception for the LinkedIn desk.
+
+- Do not log in to LinkedIn in the box browser.
+- Do not use LinkedIn in the box browser.
+- This rule binds every desk and every agent.
+- LinkedIn flags the account on each box login.
+- Use only two routes for LinkedIn work.
+- Use the approved n8n-li API app for CleantechHUB page posts and analytics.
+- Or use Gideon's own phone.
+- Give Gideon a daily vetted list of 15 personal invites.
+- Gideon taps each invite on his phone.
+- Take connection data only from a LinkedIn data export.
+- Do not scrape LinkedIn.
+- Do not apply the single-account browser exception to LinkedIn.
 
 ---
 
@@ -70,6 +87,8 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Logging in to LinkedIn in the box browser
+- Scraping LinkedIn for connection data
 
 ---
 
