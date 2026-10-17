@@ -24,6 +24,7 @@
 - Review Hands output (**maker ≠ checker**)
 - **HITL** gates before send / post / pay / activate / cutover
 - Ready-ping Orchestrator with PR / URL / **bc-id** / paths — not process notes
+- Report a stopped, paused, pivoted, cut-off, or unfinished Hands session to the Orchestrator immediately (see § Session stop report)
 
 ---
 
@@ -51,6 +52,9 @@ More than one job means one Hands agent per independent job, all launched at the
 - Above ~8 live per desk, ping Orchestrator instead of serializing.
 - Models still follow hands-model-routing (low-end by default).
 
+## Session stop report (MANDATORY, Gideon 16 Oct 2026)
+When a Cursor Cloud Hands session stops, pauses, pivots, is cut off, or finishes with work left, the desk that owns it must immediately report to the Orchestrator (agent 5dc64ea4): the bc-id, the job, the state (active, finished, or cut off), and the incomplete work.
+
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
@@ -70,6 +74,7 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Leaving a stopped, paused, pivoted, cut-off, or unfinished Hands session unreported to the Orchestrator
 
 ---
 
