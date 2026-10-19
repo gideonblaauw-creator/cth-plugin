@@ -7,15 +7,18 @@ Index for the HTML deck audit. The playbook those notes feed is `skills/cth-html
 | Path | Status on 2026-10-19 | What it is |
 |---|---|---|
 | `docs/deck-audit/README.md` | In this branch | This index |
+| `docs/deck-audit/A1-decks-cleantechhub.md` | Merged from `deck-skill-audit-a1` @ `0c39db1` | Curl audit of the thirteen live slugs |
+| `docs/deck-audit/A1.json` | Merged from the same commit | Machine-readable twin of that audit |
 | `docs/deck-audit/A2-vercel-decks.md` | Merged from `deck-skill-audit-a2` @ `16f5251` | Prose audit of Sep–Oct 2026 Vercel decks |
 | `docs/deck-audit/A2.json` | Merged from the same commit | Machine-readable twin of that audit |
-| Branch `deck-skill-audit-a1` | Not on `origin` | Expected further notes under `docs/deck-audit/` |
 
-## Merge audit findings
+## Findings from A1 and A2
 
-A2 is merged. Cite `docs/deck-audit/A2-vercel-decks.md` and `docs/deck-audit/A2.json`. The deck skill's **Audit** section lists what it adopted (Manual de Marca blues and Open Sans, B4B chrome plus an APC sources slide, visible `[PENDIENTE]` chips, no revival of paused Vercel hosts).
+- **Only APC has a sources slide.** A1 checked all thirteen live slugs on 19 Oct 2026. `apc-cth-2026-10-07` is the only one with a sources slide (`Fuentes públicas`). The other twelve do not. Bridge for Billions mentions `SOURCES.md`, and that file is not served.
+- **Language switching exists on 3 decks.** `cth-clp26` and `cth-clp26-rein` share `localStorage` key `clp26lang`. `cpi-lab-backbone-cth` uses `data-en` / `data-es` and key `cpi-backbone-lang`. `aic-q1-2027-packages` uses `data-i18n` and does not store the choice. The other nine slugs are one language.
+- **On 19 Oct 2026 every Vercel host A2 requested returned HTTP 402 `DEPLOYMENT_DISABLED`.** The hostname is allocated and the HTML is not public. New decks use `decks.cleantechhub.net`.
 
-TODO: merge audit findings from `deck-skill-audit-a1` when that ref exists. Checked `origin` on 19 Oct 2026 after A2 landed: `deck-skill-audit-a1` was absent.
+A1 and A2 are both merged. The deck skill cites them in **Outliers** and **Audit**.
 
 ## Reference implementation
 

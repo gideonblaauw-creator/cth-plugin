@@ -1,0 +1,1148 @@
+{
+  "audit": "A1",
+  "date": "2026-10-19",
+  "method": "curl only; no browser and no login",
+  "canonical_host": "https://decks.cleantechhub.net",
+  "root_http": {
+    "url": "https://decks.cleantechhub.net/",
+    "status": 401,
+    "bytes": 0
+  },
+  "wiki_sample": {
+    "url": "https://wiki.cleantechhub.net/decks/apc-cth-2026-10-07/",
+    "status": 301,
+    "location": "https://decks.cleantechhub.net/apc-cth-2026-10-07/"
+  },
+  "print_query_note": "Server HTML is identical with and without ?print. On apc-cth-2026-10-07 both responses were 200 and 56157 bytes. Print mode is client-side.",
+  "excluded": {
+    "slug": "teclogi-financial-model",
+    "reason": "Not hosted. Migration report marks it BLOCKED (Next.js). No public slug was fetched."
+  },
+  "brand_classes": {
+    "CTH": "Deck-visual five #0C498A #B2EEFA #9DC384 #669348 #69B5FA and Open Sans. Not the foundation tokens #2D6A4F #1B4332 #95D5B2, and not Inter.",
+    "REIN Hubs": "Green and orange with a REIN logo. Two palettes on this host.",
+    "AIC": "Dark ink and gold, Cormorant Garamond and Inter.",
+    "other": "Not used. Client names sit on a CTH or REIN frame."
+  },
+  "decks": [
+    {
+      "slug": "cth-clp26",
+      "url": "https://decks.cleantechhub.net/cth-clp26/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 9728,
+      "title": "CLP26 · CleantechHUB · ClimateLaunchpad 2026",
+      "slide_count": 10,
+      "slide_unit": "scroll sections, not paged",
+      "structure": [
+        "hero",
+        "sponsors",
+        "journey",
+        "stories",
+        "built",
+        "mentors",
+        "jury",
+        "watt_son",
+        "clp27 ask",
+        "explorer"
+      ],
+      "interactivity": {
+        "en_es": true,
+        "i18n": "data-i18n",
+        "language_storage": "localStorage clp26lang (shared with cth-clp26-rein on this origin)",
+        "tabs": "story tabs, role=tablist",
+        "toggles": [
+          "video filter",
+          "one-pager filter"
+        ],
+        "expandable_cards": false,
+        "charts": [
+          "Chart.js 4.5.1 horizontal bar",
+          "Chart.js bar funnel",
+          "Chart.js doughnut",
+          "D3 7.9.0 geoMercator map",
+          "topojson-client 3.1.0"
+        ],
+        "index_menu": "sticky section nav",
+        "keyboard": [
+          "Enter on video",
+          "Escape closes drawer"
+        ],
+        "lightbox": false,
+        "print_query": false
+      },
+      "sourcing": {
+        "visible_citations": "PDF reports and explorer",
+        "sources_slide": false,
+        "footnotes": "footer note via data-i18n"
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans",
+        "PT Sans"
+      ],
+      "colours": {
+        "--blue": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--lgreen": "#9DC384",
+        "--green": "#669348",
+        "--sky": "#69B5FA"
+      },
+      "logo": [
+        "img/logo.png",
+        "img/logo-white.png",
+        "inline circle favicon"
+      ],
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "wrap_px": 1180,
+        "deck_frame": false,
+        "scaling": "fluid scroll"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "index.html, styles.css, app.js, lib/chart.umd.js, lib/d3.min.js, lib/topojson-client.min.js, data/*.json, pdf/, img/",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cth-clp26/"
+    },
+    {
+      "slug": "cth-clp26-rein",
+      "url": "https://decks.cleantechhub.net/cth-clp26-rein/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 9999,
+      "title": "CLP26 · REIN Hubs · ClimateLaunchpad 2026",
+      "slide_count": 10,
+      "slide_unit": "scroll sections, not paged",
+      "structure": [
+        "hero with REIN frame",
+        "sponsors",
+        "journey",
+        "stories",
+        "built",
+        "mentors",
+        "jury",
+        "watt_son",
+        "clp27 ask",
+        "explorer"
+      ],
+      "interactivity": {
+        "en_es": true,
+        "i18n": "data-i18n",
+        "language_storage": "localStorage clp26lang (shared with cth-clp26 on this origin)",
+        "tabs": "story tabs, role=tablist",
+        "toggles": [
+          "video filter",
+          "one-pager filter"
+        ],
+        "expandable_cards": false,
+        "charts": [
+          "Chart.js 4.5.1 horizontal bar",
+          "Chart.js bar funnel",
+          "Chart.js doughnut",
+          "D3 7.9.0 geoMercator map",
+          "topojson-client 3.1.0"
+        ],
+        "index_menu": "sticky section nav",
+        "keyboard": [
+          "Enter on video",
+          "Escape closes drawer"
+        ],
+        "lightbox": false,
+        "print_query": false
+      },
+      "sourcing": {
+        "visible_citations": "PDF reports and explorer",
+        "sources_slide": false,
+        "footnotes": "footer note via data-i18n"
+      },
+      "brand": "REIN Hubs",
+      "fonts": [
+        "Open Sans",
+        "Poppins"
+      ],
+      "font_note": "CSS names Source Sans 3 as a fallback. It is not loaded.",
+      "colours": {
+        "--g": "#335D4F",
+        "--o": "#FF6633",
+        "--ink": "#222A27",
+        "--gray": "#5F6663",
+        "--line": "#C9D6D1",
+        "--bg": "#F1F5F3"
+      },
+      "logo": [
+        "img/rein-logo-header.png",
+        "img/rein-logo.png",
+        "text lockup REIN Hubs · PVBLIC × CleantechHUB"
+      ],
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "wrap_px": 1180,
+        "deck_frame": false,
+        "scaling": "fluid scroll"
+      },
+      "build": {
+        "generator_comment": false,
+        "css_comment": "REIN Hubs brand: green primary, orange accent, Open Sans body, Poppins headings",
+        "layout": "same multi-file layout as cth-clp26",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cth-clp26-rein/"
+    },
+    {
+      "slug": "teclogi-jose-arrebol",
+      "url": "https://decks.cleantechhub.net/teclogi-jose-arrebol/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 2998336,
+      "title": "Teclogi · Lo que necesitamos para volver a Arrebol · 16 oct 2026",
+      "slide_count": 9,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "context",
+        "received",
+        "ebitda case",
+        "working capital case",
+        "org case",
+        "drivers case",
+        "figure case",
+        "ask"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": false,
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown"
+        ],
+        "swipe": true,
+        "hash": true,
+        "lightbox": false,
+        "print_query": false,
+        "print_css": "1280px 720px"
+      },
+      "sourcing": {
+        "visible_citations": false,
+        "sources_slide": false,
+        "footnotes": false
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans"
+      ],
+      "font_note": "Stack names PT Sans. The Google font URL loads Open Sans only.",
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--lgreen": "#9DC384",
+        "--green": "#669348",
+        "--sky": "#69B5FA"
+      },
+      "logo": "data-URI image, alt CleantechHUB",
+      "stage": {
+        "width_px": 1280,
+        "height_px": 720,
+        "deck_frame": false,
+        "wrapper_class": "stage",
+        "scaling": "min(innerWidth/1280, innerHeight/720)"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, photos inlined as data URIs",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/teclogi-jose-arrebol/"
+    },
+    {
+      "slug": "cpi-juntos-cth",
+      "url": "https://decks.cleantechhub.net/cpi-juntos-cth/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 1218567,
+      "title": "Energía Comunitaria · Postulemos juntos al CPI Lab · PASO × CleantechHUB · 16 oct 2026",
+      "slide_count": 16,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "opportunity",
+        "precedent",
+        "published diagrams",
+        "legal structure",
+        "community ownership cases",
+        "why together",
+        "data",
+        "technology",
+        "structure",
+        "v2 diagram",
+        "pilots",
+        "roles",
+        "decisions",
+        "calendar",
+        "close"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": "dot navbar",
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown",
+          "Home",
+          "End"
+        ],
+        "swipe": true,
+        "hash": true,
+        "lightbox": "figures open in a new tab, not a lightbox",
+        "print_query": false,
+        "print_css": "16in 9in"
+      },
+      "sourcing": {
+        "visible_citations": "Fuentes and Fuente lines with links on several slides",
+        "sources_slide": false,
+        "footnotes": false,
+        "local_figures": [
+          "img/cpi-ceof-vehicle-mechanics.png",
+          "img/meliquina-antu-consorcio.png",
+          "img/v2-estructura-formato-ceof.svg"
+        ]
+      },
+      "brand": "CTH",
+      "co_brand": "× PASO Colombia",
+      "fonts": [
+        "Open Sans"
+      ],
+      "font_note": "Stack names PT Sans. The Google font URL loads Open Sans only.",
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--lgreen": "#9DC384",
+        "--fgreen": "#669348",
+        "--sky": "#69B5FA"
+      },
+      "logo": "inline white SVG wordmark plus × PASO Colombia",
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "deck_frame": false,
+        "scaling": "slides fill the viewport; scrim is the deck-visual bottom gradient"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, ten photos inlined, three figures in img/",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cpi-juntos-cth/"
+    },
+    {
+      "slug": "cth-rein-funding-oct2026",
+      "url": "https://decks.cleantechhub.net/cth-rein-funding-oct2026/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 14085,
+      "title": "REIN Funding Opportunities · Oct 2026 · REIN Hubs",
+      "slide_count": 0,
+      "slide_unit": "one table page, 10 data rows",
+      "structure": [
+        "header",
+        "filter band",
+        "sortable table",
+        "footer"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "language": "en",
+        "tabs": false,
+        "toggles": "row detail opens on click",
+        "filters": [
+          "search",
+          "verdict",
+          "source"
+        ],
+        "sort": "click column header",
+        "expandable_cards": "detail row under each opportunity",
+        "charts": null,
+        "index_menu": false,
+        "keyboard": false,
+        "lightbox": false,
+        "print_query": false
+      },
+      "sourcing": {
+        "visible_citations": "official link on each detail row; footer says deadlines re-verified 15 Oct 2026",
+        "sources_slide": false,
+        "footnotes": false,
+        "amounts": "present in the live table; not copied into this audit"
+      },
+      "brand": "REIN Hubs",
+      "fonts": [
+        "Poppins",
+        "Lora"
+      ],
+      "colours": {
+        "--db": "#335D4F",
+        "--or": "#F1562A",
+        "--lo": "#FC987C",
+        "--gr": "#E2E2E2",
+        "--ink": "#080808",
+        "--mu": "#5f6360"
+      },
+      "logo": "Wix static PNG, alt REIN Hubs",
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "deck_frame": false,
+        "scaling": "fluid page"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, CSS and JS and data inline",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cth-rein-funding-oct2026/"
+    },
+    {
+      "slug": "cth-epic-angels-2026-10-15",
+      "url": "https://decks.cleantechhub.net/cth-epic-angels-2026-10-15/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 62338,
+      "title": "CleantechHUB × Epic Angels · 15 oct 2026",
+      "slide_count": 10,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "context",
+        "overview",
+        "nexus",
+        "datalab",
+        "startup case",
+        "pipeline case",
+        "programmes",
+        "ask",
+        "index"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": "Mostrar preguntas adds body.show-questions",
+        "expandable_cards": true,
+        "charts": null,
+        "index_menu": "Índice dialog plus dots plus an index slide",
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown",
+          "Escape closes menu and lightbox"
+        ],
+        "click_halves": true,
+        "hash": true,
+        "lightbox": true,
+        "print_query": true
+      },
+      "sourcing": {
+        "visible_citations": ".src lines and linked citations",
+        "sources_slide": false,
+        "footnotes": false,
+        "external_pdf": "https://nexus.cleantechhub.net/nexus-assets/CTH-Epic-Angels-APC-18-cards-2026-09-21.pdf"
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--green": "#9DC384",
+        "--forest": "#669348",
+        "--sky": "#69B5FA",
+        "--white": "#FFFFFF"
+      },
+      "logo": "text wordmark CleantechHUB and tagline Inspira. Actúa. Transforma. No logo file.",
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": true,
+        "scaling": "min(vw/1920, vh/1080) * 0.96; skipped in print mode"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, CSS and JS inline, img/*.png",
+        "build_sh_on_host": false,
+        "migration_report": "local build.sh; unreferenced png/ and a local PDF left out of the upload"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cth-epic-angels-2026-10-15/"
+    },
+    {
+      "slug": "matamala-brief-2026-10-13",
+      "url": "https://decks.cleantechhub.net/matamala-brief-2026-10-13/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 51203,
+      "title": "CleantechHUB × ODS Cero · Datalab · 13 oct 2026",
+      "slide_count": 9,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "profile",
+        "organisation",
+        "data",
+        "partnership",
+        "proposals",
+        "reference images",
+        "ask",
+        "risks and index"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": "Mostrar preguntas",
+        "expandable_cards": true,
+        "charts": null,
+        "index_menu": "Índice dialog plus dots plus an index slide",
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown",
+          "Escape closes menu and lightbox"
+        ],
+        "click_halves": true,
+        "hash": true,
+        "lightbox": true,
+        "print_query": true
+      },
+      "sourcing": {
+        "visible_citations": ".src lines",
+        "sources_slide": false,
+        "footnotes": false,
+        "images_ok": [
+          "img/emprende-up/01-portada.png",
+          "img/emprende-up/02-impacto-cth.png",
+          "img/emprende-up/03-ecosistema-actores.png",
+          "img/emprende-up/04-trabajemos-juntos.png",
+          "img/emprende-up/05-propuesta-objetivo.png"
+        ],
+        "fallback_not_referenced": "img/emprende-up/mapa-actores.png returns text/html"
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--green": "#9DC384",
+        "--forest": "#669348",
+        "--sky": "#69B5FA",
+        "--white": "#FFFFFF"
+      },
+      "logo": "text wordmark and tagline. No logo file.",
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": true,
+        "scaling": "min(vw/1920, vh/1080) * 0.96"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, CSS and JS inline",
+        "build_sh_on_host": false,
+        "migration_report": "local build.sh"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/matamala-brief-2026-10-13/"
+    },
+    {
+      "slug": "b4b-cth-2026-10-13",
+      "url": "https://decks.cleantechhub.net/b4b-cth-2026-10-13/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 50379,
+      "title": "CleantechHUB × Bridge for Billions · 13 oct 2026",
+      "slide_count": 9,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "conecta context",
+        "fit hypothesis",
+        "rein context",
+        "nexus",
+        "datalab",
+        "ask",
+        "next steps",
+        "index"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": "Mostrar preguntas",
+        "expandable_cards": true,
+        "charts": null,
+        "index_menu": "Índice dialog plus dots plus an index slide",
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown",
+          "Escape closes menu and lightbox"
+        ],
+        "click_halves": true,
+        "hash": true,
+        "lightbox": true,
+        "print_query": true
+      },
+      "sourcing": {
+        "visible_citations": ".src lines and a Fuentes link pair",
+        "sources_slide": false,
+        "footnotes": false,
+        "missing_file_named_in_copy": "SOURCES.md is not served"
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--green": "#9DC384",
+        "--forest": "#669348",
+        "--sky": "#69B5FA",
+        "--white": "#FFFFFF"
+      },
+      "logo": "text wordmark and tagline. No logo file.",
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": true,
+        "scaling": "min(vw/1920, vh/1080) * 0.96"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, CSS and JS inline",
+        "build_sh_on_host": false,
+        "migration_report": "local build.sh"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/b4b-cth-2026-10-13/"
+    },
+    {
+      "slug": "teclogi-brief-2026-10-13",
+      "url": "https://decks.cleantechhub.net/teclogi-brief-2026-10-13/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 7181,
+      "title": "Teclogi weekly check-in — Brief 13 Oct 2026",
+      "slide_count": 1,
+      "slide_unit": "single 1920×1080 canvas, two columns, not a pager",
+      "structure": [
+        "header",
+        "status card",
+        "investor table",
+        "open items",
+        "ask",
+        "footer"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "language": "en",
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": false,
+        "keyboard": false,
+        "lightbox": false,
+        "print_query": false,
+        "print_css": "@page 1920px 1080px"
+      },
+      "sourcing": {
+        "visible_citations": "footer names Monday board, Gmail, and a standup",
+        "sources_slide": false,
+        "footnotes": false,
+        "unlinked_asset": "brief.pdf is application/pdf and is not linked from the HTML"
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans"
+      ],
+      "font_note": "Stack names PT Sans. The Google font URL loads Open Sans only.",
+      "colours": {
+        "deep": "#0C498A",
+        "cyan": "#B2EEFA",
+        "green": "#9DC384",
+        "forest": "#669348",
+        "sky": "#69B5FA"
+      },
+      "logo": "text CleantechHUB and tagline. No logo file.",
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": false,
+        "scaling": "locked page, overflow hidden, no scale script"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, CSS inline",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/teclogi-brief-2026-10-13/"
+    },
+    {
+      "slug": "aic-q1-2027-packages",
+      "url": "https://decks.cleantechhub.net/aic-q1-2027-packages/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 14053,
+      "title": "AIC · Bay Area IA · Q1 2027 · Viajes curados para líderes financieros de América Latina",
+      "slide_count": 7,
+      "slide_unit": "scroll sections, not paged",
+      "structure": [
+        "hero",
+        "why",
+        "event picker",
+        "tier picker",
+        "city picker",
+        "visa and timing",
+        "closing band"
+      ],
+      "interactivity": {
+        "en_es": true,
+        "i18n": "data-i18n",
+        "language_storage": null,
+        "default_language": "es",
+        "tabs": false,
+        "toggles": [
+          "TDX checkbox",
+          "details calculation"
+        ],
+        "radiogroups": [
+          "tiers",
+          "cities",
+          "events"
+        ],
+        "expandable_cards": "details.calc only",
+        "charts": "CSS visa bars, no library",
+        "index_menu": "anchor top nav",
+        "keyboard": [
+          "Enter and Space activate a card"
+        ],
+        "lightbox": false,
+        "print_query": false,
+        "parallax": true
+      },
+      "sourcing": {
+        "visible_citations": "footer and calculation note name public sources and Unsplash photographers",
+        "sources_slide": false,
+        "footnotes": false
+      },
+      "brand": "AIC",
+      "fonts": {
+        "display": "Cormorant Garamond",
+        "body": "Inter",
+        "favicon_fallback": "Georgia"
+      },
+      "colours": {
+        "--ink": "#070c18",
+        "--navy": "#0c1528",
+        "--navy2": "#111d36",
+        "--ivory": "#f4efe6",
+        "--muted": "#a9b1c3",
+        "--dim": "#7d869a",
+        "--gold": "#c9a45c",
+        "--champ": "#e6cf9f",
+        "--gold-d": "#9c7a3c",
+        "--plat": "#c9d3e3",
+        "--line": "rgba(217,192,143,.18)",
+        "button_gradient": [
+          "#f3e2b8",
+          "#d8b56f",
+          "#b48a43"
+        ],
+        "button_label": "#1a1206"
+      },
+      "logo": {
+        "image_file": false,
+        "lockup": "AIC in Cormorant Garamond, then Americas Innovation Council in tracked Inter",
+        "favicon": "favicon.svg, 64x64 rx 14, fill #070c18, AIC in #e6cf9f",
+        "sites": [
+          "https://joinaic.com",
+          "https://americasinnovationcouncil.com"
+        ]
+      },
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "wrap": "min(1240px, 92vw)",
+        "deck_frame": false,
+        "scaling": "fluid; hero min-height 100svh"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "index.html, styles.css, app.js, favicon.svg, img/*.webp",
+        "build_sh_on_host": false,
+        "build_mjs_on_host": false,
+        "migration_report": "node build.mjs wrote WebP from Unsplash before upload; runtime has no Blob and no server function"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/aic-q1-2027-packages/"
+    },
+    {
+      "slug": "cee-cth-2026-10-14",
+      "url": "https://decks.cleantechhub.net/cee-cth-2026-10-14/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 48522,
+      "title": "CEE Externado × CleantechHUB · 14 oct 2026",
+      "slide_count": 13,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "photo beat",
+        "actors",
+        "alliance",
+        "otrosi",
+        "datathon",
+        "journey",
+        "live lab",
+        "vitrina",
+        "access",
+        "roadmap",
+        "ask",
+        "close"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": false,
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown"
+        ],
+        "click_halves": true,
+        "hash": true,
+        "lightbox": false,
+        "print_query": true
+      },
+      "sourcing": {
+        "visible_citations": false,
+        "sources_slide": false,
+        "footnotes": false,
+        "unused_css": ".sources-col is styled and not used in the markup"
+      },
+      "brand": "CTH",
+      "co_brand": "CEE Externado logo",
+      "fonts": [
+        "Open Sans",
+        "PT Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--green": "#9DC384",
+        "--forest": "#669348",
+        "--sky": "#69B5FA",
+        "--white": "#FFFFFF"
+      },
+      "logo": [
+        "img/logo-cth-white.svg",
+        "img/logo-cee-externado.png"
+      ],
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": true,
+        "scaling": "min(vw/1920, vh/1080) * 0.96"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML plus img/",
+        "build_sh_on_host": false,
+        "migration_report": "local build.sh, 13 slides"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cee-cth-2026-10-14/"
+    },
+    {
+      "slug": "apc-cth-2026-10-07",
+      "url": "https://decks.cleantechhub.net/apc-cth-2026-10-07/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 56157,
+      "title": "CleantechHUB × APC Colombia · 7 oct 2026",
+      "slide_count": 21,
+      "slide_unit": "paged slides",
+      "structure": [
+        "cover",
+        "agenda",
+        "who we are",
+        "live demo",
+        "programmes",
+        "datalab environments",
+        "nexus filter",
+        "projects",
+        "cases",
+        "fit",
+        "ask",
+        "sources"
+      ],
+      "interactivity": {
+        "en_es": false,
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": false,
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space",
+          "PageUp",
+          "PageDown"
+        ],
+        "click_halves": true,
+        "hash": true,
+        "lightbox": false,
+        "print_query": true,
+        "print_bytes_match_plain": true
+      },
+      "sourcing": {
+        "visible_citations": ".src lines on content slides",
+        "sources_slide": true,
+        "sources_slide_title": "Fuentes públicas",
+        "footnotes": false
+      },
+      "brand": "CTH",
+      "fonts": [
+        "Open Sans",
+        "PT Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--green": "#9DC384",
+        "--forest": "#669348",
+        "--sky": "#69B5FA",
+        "--white": "#FFFFFF"
+      },
+      "logo": "text wordmark and tagline. No logo file.",
+      "stage": {
+        "width_px": 1920,
+        "height_px": 1080,
+        "deck_frame": true,
+        "scaling": "min(vw/1920, vh/1080) * 0.96"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML plus img/",
+        "build_sh_on_host": false,
+        "migration_report": "local build.sh, 21 slides"
+      },
+      "hosting_path": "https://decks.cleantechhub.net/apc-cth-2026-10-07/"
+    },
+    {
+      "slug": "cpi-lab-backbone-cth",
+      "url": "https://decks.cleantechhub.net/cpi-lab-backbone-cth/",
+      "http": 200,
+      "content_type": "text/html",
+      "bytes": 45421,
+      "title": "CPI Lab · Energy Coops backbone · CTH × PASO",
+      "slide_count": 10,
+      "slide_unit": "paged slides",
+      "structure": [
+        "title",
+        "problem and ask",
+        "who is who",
+        "where money sits",
+        "legal diagram",
+        "capital diagram",
+        "demand",
+        "stack",
+        "peer comps",
+        "roles and gate"
+      ],
+      "interactivity": {
+        "en_es": true,
+        "i18n": "data-en and data-es on each line",
+        "language_storage": "localStorage cpi-backbone-lang",
+        "default_language": "es",
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": null,
+        "index_menu": false,
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Space"
+        ],
+        "click_halves": true,
+        "hash": false,
+        "lightbox": false,
+        "print_query": false,
+        "print_css": true
+      },
+      "sourcing": {
+        "visible_citations": "footnotes on diagram slides; MinMinas July 2026 line",
+        "sources_slide": false,
+        "footnotes": true
+      },
+      "brand": "CTH",
+      "co_brand": "CleantechHUB × PASO Colombia, text only",
+      "fonts": [
+        "Open Sans"
+      ],
+      "colours": {
+        "--deep": "#0C498A",
+        "--cyan": "#B2EEFA",
+        "--lgreen": "#9DC384",
+        "--fgreen": "#669348",
+        "--sky": "#69B5FA"
+      },
+      "logo": "no image. Badge text and tagline in the last footnote.",
+      "stage": {
+        "width_px": null,
+        "height_px": null,
+        "deck_frame": false,
+        "scaling": "slides fill the viewport; Unsplash data-bg requested at w=1920"
+      },
+      "build": {
+        "generator_comment": false,
+        "layout": "single HTML, no local images",
+        "build_sh_on_host": false
+      },
+      "hosting_path": "https://decks.cleantechhub.net/cpi-lab-backbone-cth/"
+    }
+  ],
+  "common_pattern": {
+    "family": "paged CTH deck-visual",
+    "count": 8,
+    "frame_shell": {
+      "slugs": [
+        "apc-cth-2026-10-07",
+        "cee-cth-2026-10-14",
+        "b4b-cth-2026-10-13",
+        "cth-epic-angels-2026-10-15",
+        "matamala-brief-2026-10-13"
+      ],
+      "dom": ".deck-viewport > .deck-frame > .deck-stage > .deck > section.slide",
+      "stage_px": [
+        1920,
+        1080
+      ],
+      "scale": "min(vw/1920, vh/1080) * 0.96",
+      "colours": [
+        "#0C498A",
+        "#B2EEFA",
+        "#9DC384",
+        "#669348",
+        "#69B5FA"
+      ],
+      "font": "Open Sans",
+      "wordmark": "CleantechHUB · Inspira. Actúa. Transforma.",
+      "keyboard": [
+        "ArrowLeft",
+        "ArrowRight",
+        "Space",
+        "PageUp",
+        "PageDown"
+      ],
+      "print": "?print or #print adds body.print-all",
+      "charts": null,
+      "en_es": false,
+      "generator_comment": false,
+      "build_sh_on_host": false
+    },
+    "chrome_trio": [
+      "b4b-cth-2026-10-13",
+      "cth-epic-angels-2026-10-15",
+      "matamala-brief-2026-10-13"
+    ],
+    "photo_pager_without_frame": [
+      "teclogi-jose-arrebol",
+      "cpi-juntos-cth",
+      "cpi-lab-backbone-cth"
+    ]
+  },
+  "outliers": [
+    "AIC is a scrolling configurator, not a 16:9 deck, and the only dark-and-gold serif system.",
+    "Two REIN palettes share #335D4F and differ on orange: #FF6633 on the CLP microsite, #F1562A and #FC987C on the funding table.",
+    "Both CLP decks are scroll microsites with Chart.js 4.5.1, D3 7.9.0, and topojson-client 3.1.0. They do not use ClimateLaunchpad campaign #00A651 or #FFC425.",
+    "cth-clp26 and cth-clp26-rein share localStorage key clp26lang on decks.cleantechhub.net.",
+    "teclogi-brief is one locked 1920×1080 page. brief.pdf is hosted and not linked.",
+    "Stage sizes: 1920×1080 frame, 1280×720 Jose, viewport fill for both CPI pagers, no stage for AIC, CLP, and the REIN table.",
+    "EN/ES exists on three decks only.",
+    "Only APC has a sources slide. CEE styles .sources-col and does not use it.",
+    "Lightbox and index menu exist only on Bridge for Billions, Epic Angels, and Matamala.",
+    "No served deck uses foundation tokens #2D6A4F or #1B4332.",
+    "matamala mapa-actores.png is not referenced and still falls back to index.html.",
+    "No generator comment. build.sh on every slug is the index.html fallback."
+  ],
+  "aic_brand_proposal": {
+    "skill_name": "aic-brand",
+    "status": "proposal only; not authored in skills/",
+    "source_deck": "aic-q1-2027-packages",
+    "existing_gap": "skills/aic-comms marks the brand as pending and forbids CleantechHUB lime",
+    "name": "Americas Innovation Council",
+    "short_mark": "AIC",
+    "sites": [
+      "joinaic.com",
+      "americasinnovationcouncil.com"
+    ],
+    "fonts": {
+      "display": "Cormorant Garamond",
+      "display_weights": "500, 600, 700, italic 500 and 600",
+      "display_fallback": "Times New Roman, serif",
+      "body": "Inter",
+      "body_weights": "300, 400, 500, 600",
+      "body_fallback": "system-ui, Segoe UI, sans-serif",
+      "css_vars": {
+        "--serif": "Cormorant Garamond",
+        "--sans": "Inter"
+      }
+    },
+    "colours": {
+      "--ink": "#070c18",
+      "--navy": "#0c1528",
+      "--navy2": "#111d36",
+      "--ivory": "#f4efe6",
+      "--muted": "#a9b1c3",
+      "--dim": "#7d869a",
+      "--gold": "#c9a45c",
+      "--champ": "#e6cf9f",
+      "--gold-d": "#9c7a3c",
+      "--plat": "#c9d3e3",
+      "--line": "rgba(217,192,143,.18)"
+    },
+    "logo": "Text lockup only. No image logo. Favicon is AIC letters in #e6cf9f on #070c18.",
+    "do_not_mix": [
+      "CleantechHUB wordmark",
+      "#2D6A4F",
+      "#95D5B2",
+      "#0C498A",
+      "#B2EEFA"
+    ],
+    "language": "ES default, EN pill, data-i18n, no persistence"
+  }
+}

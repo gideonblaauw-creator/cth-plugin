@@ -1,9 +1,10 @@
 ---
 name: aic-brand
 description: >
-  PROPOSAL, not adopted. Observed Americas Innovation Council visual tokens.
-  Use when: AIC deck, Bravo Bridge visual, joinaic.com brand. Do not use when:
-  CleantechHUB or REIN Hubs. Unverified tokens stay [PENDIENTE].
+  PROPOSAL, not adopted. A1 observed block: Cormorant Garamond, Inter, ink
+  #070c18, gold #c9a45c, type-only mark, 7-section configurator. Use when: AIC
+  deck, Bravo Bridge visual, joinaic.com brand. Do not use when: CleantechHUB
+  or REIN Hubs. Unlocked tokens stay [PENDIENTE].
 ---
 
 # aic-brand

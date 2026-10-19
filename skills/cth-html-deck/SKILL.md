@@ -142,7 +142,7 @@ Read `skills/aic-brand/SKILL.md`. That file is a **PROPOSAL**. Tokens there are 
 /* AIC brand PROPOSAL — tokens [PENDIENTE] */
 ```
 
-AIC is not CleantechHUB. No CTH lime, no CTH blues as primary, no CleantechHUB wordmark unless the ticket is an explicit co-brand. The 1920 stage, 0.96 scale, and 24px floor still apply. Host an AIC deck on `decks.cleantechhub.net` only when the ticket says so.
+AIC is not CleantechHUB. No CTH lime, no CTH blues as primary, no CleantechHUB wordmark unless the ticket is an explicit co-brand. The live AIC page is a 7-section configurator, not this shell (A1). A ticket that asks for an AIC slide deck still uses the 1920 stage, the 0.96 scale, and the 24px floor. Host an AIC deck on `decks.cleantechhub.net` only when the ticket says so.
 
 ## 4. Hosting (HITL)
 
@@ -216,20 +216,32 @@ grep -F 'AIC brand PROPOSAL' shell/deck.css
 grep -E '#0C498A|#2D6A4F|#95D5B2|#335D4F' shell/deck.css
 ```
 
+## Outliers (A1)
+
+A1 measured the thirteen live slugs (`docs/deck-audit/A1-decks-cleantechhub.md`, branch `deck-skill-audit-a1` @ `0c39db1`). A new paged deck still uses the 1920 shell. Two live products do not.
+
+**Allowed exception — ClimateLaunchpad scroll pages.** `cth-clp26` and `cth-clp26-rein` are scroll microsites, not 16:9 decks. They may keep Chart.js 4.5.1, D3 7.9.0, topojson-client 3.1.0, story tabs, and the EN/ES switch (`localStorage` key `clp26lang`, shared by both slugs on this host). They have no `.deck-frame`, no `?print`, and no sources slide. They do not use ClimateLaunchpad campaign green `#00A651` or yellow `#FFC425`. The CleantechHUB edition uses the deck-visual five. The REIN edition uses `#335D4F` and `#FF6633`, with Poppins headings. Chart.js and D3 are non-compliant on a paged deck. A new meeting deck uses inline SVG.
+
+**Non-compliant as a deck — REIN funding table.** `cth-rein-funding-oct2026` is one filterable table. It has no stage, no pager, and no EN/ES switch. Its orange is `#F1562A` and `#FC987C`, not the factsheet orange `#FF6633`. Headings are Lora. Body is Poppins. Leave it as a table page. Do not restyle it into 1920 slides unless the ticket says so. Do not copy its dollar amounts into any deck.
+
 ## Audit
 
-A2 is in this branch. Read `docs/deck-audit/A2-vercel-decks.md` and `docs/deck-audit/A2.json` (branch `deck-skill-audit-a2` @ `16f5251`, audited 19 Oct 2026 21:02 UTC).
+A1 and A2 are both in this branch.
+
+- A1: `docs/deck-audit/A1-decks-cleantechhub.md` and `docs/deck-audit/A1.json` (`deck-skill-audit-a1` @ `0c39db1`, 19 Oct 2026). Curl of the thirteen slugs on `decks.cleantechhub.net`.
+- A2: `docs/deck-audit/A2-vercel-decks.md` and `docs/deck-audit/A2.json` (`deck-skill-audit-a2` @ `16f5251`, 19 Oct 2026 21:02 UTC).
 
 This skill keeps those findings:
 
-- Readable Oct 2026 shells (APC, Bridge for Billions, Matamala deck, CEE) use the Manual de Marca blues and Open Sans. They do not use `#2D6A4F`, `#1B4332`, `#95D5B2`, or Inter. The letterbox is `#051a33`.
-- Bridge for Billions and Matamala share one chrome shell (index, dots, questions, lightbox, expand cards) and have no SOURCES slide. This skill keeps that chrome and adds the APC sources slide.
-- Those shells have no EN/ES switch, no tabs, and no chart library. This skill adds the switch and ships `.tab-set` and `.chart` rules. Charts are inline SVG.
+- Readable Oct 2026 shells (APC, Bridge for Billions, Matamala deck, CEE) use the Manual de Marca blues and Open Sans. They do not use `#2D6A4F`, `#1B4332`, `#95D5B2`, or Inter. The letterbox is `#051a33`. A1 found the same five on the live CTH slugs, and no foundation green.
+- Only APC has a sources slide, on the live host and in source (A1). Bridge for Billions and Matamala share the chrome shell (index, dots, questions, lightbox, expand cards) and have no sources slide. This skill keeps that chrome and adds the APC sources slide.
+- EN/ES exists on three live decks only (A1): both ClimateLaunchpad pages, the CPI backbone, and AIC. The frame shells have no switch. This skill still requires one on a new paged deck.
+- Those frame shells have no chart library. This skill ships `.tab-set` and inline SVG `.chart` rules. Chart.js and D3 stay on the ClimateLaunchpad exception above.
 - B4B and Matamala `shell/deck.css`, `shell/deck.js`, and `build.sh` are the shell to copy. APC is the earlier shell without that chrome.
 - Energy Coops is A4 landscape with no `.deck-frame`. The Matamala `brief.html` is a scrolling page. Neither is this shell.
-- The old Vercel hosts are paused (HTTP 402). New decks go to `decks.cleantechhub.net`.
+- On 19 Oct 2026 every Vercel host A2 requested returned HTTP 402 `DEPLOYMENT_DISABLED`. New decks go to `decks.cleantechhub.net`.
 
-TODO: merge audit findings from `deck-skill-audit-a1` when that ref exists. Checked `origin` on 19 Oct 2026 after A2 landed: `deck-skill-audit-a1` was absent. Index: `docs/deck-audit/README.md`.
+Index: `docs/deck-audit/README.md`.
 
 ## Do not use when
 
@@ -253,6 +265,6 @@ TODO: merge audit findings from `deck-skill-audit-a1` when that ref exists. Chec
 ## References
 
 - Branch `meetings-2026-10-13-b4b`, `decks/meetings-2026-10-13/b4b/` — shell, build, render, sources.
-- `docs/deck-audit/README.md` — audit index and the merge TODO.
+- `docs/deck-audit/README.md` — audit index. A1 and A2 are both merged.
 - `skills/cleantechhub-brand/brand_dna.yaml` — Manual de Marca stage tokens.
 - `skills/aic-brand/SKILL.md` — AIC proposal.

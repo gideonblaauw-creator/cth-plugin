@@ -1,11 +1,12 @@
 ---
 name: aic-brand
 description: >
-  PROPOSAL, not adopted. Records Americas Innovation Council visual tokens
-  observed on the live AIC page for later decks and pages. Use when: AIC deck,
-  Bravo Bridge visual, joinaic.com brand, Americas Innovation Council slides.
-  Do not use when: CleantechHUB decks (cleantechhub-brand, cth-html-deck) or
-  REIN Hubs. Unverified tokens stay [PENDIENTE].
+  PROPOSAL, not adopted. Records Americas Innovation Council tokens. The A1
+  block (Cormorant Garamond, Inter, ink, gold, type-only mark, 7-section
+  configurator) is OBSERVED. Use when: AIC deck, Bravo Bridge visual,
+  joinaic.com brand, Americas Innovation Council slides. Do not use when:
+  CleantechHUB decks (cleantechhub-brand, cth-html-deck) or REIN Hubs.
+  Unlocked tokens stay [PENDIENTE].
 license: MIT
 metadata:
   version: "0.1.0"
@@ -15,7 +16,7 @@ metadata:
 
 # AIC brand (PROPOSAL)
 
-**Status: PROPOSAL. Not adopted.** Gideon has not locked these tokens. Every value below is unverified against a brand manual and is marked **[PENDIENTE]**. Use the observed values on AIC work, and keep the proposal comment in the CSS until this file is adopted.
+**Status: PROPOSAL. Not adopted.** Gideon has not locked these tokens. A1 marks one block **OBSERVED** (seen on the live page). Everything else stays **[PENDIENTE]**. Use the observed values on AIC work, and keep the proposal comment in the CSS until this file is adopted.
 
 This skill exists because `skills/aic-comms/SKILL.md` had no AIC brand skill. Coordination stays in `aic-comms`. This file is visual tokens only.
 
@@ -27,7 +28,7 @@ This skill exists because `skills/aic-comms/SKILL.md` had no AIC brand skill. Co
 - That page's `styles.css` (`:root`) and `favicon.svg`.
 - Slug probe on `decks.cleantechhub.net`: `aic`, `aic-deck`, `bravo-bridge`, `americas-innovation`, `aic-bay-area`, `joinaic`, `aic-q1`, `aic-packages`, `aic-2026`, `aic-2027` returned 404. The 19 Oct 2026 migration report lists `aic-q1-2027-packages` as the only AIC slug. No second AIC deck was found.
 
-The live page is a long scroll, not the 1920×1080 deck shell. Mapping these tokens onto a slide stage is itself **[PENDIENTE]**.
+The live page is a 7-section configurator, not a 16:9 deck. That shape is **OBSERVED** (A1). Mapping the tokens onto a 1920×1080 slide stage is still **[PENDIENTE]**.
 
 ## Identity
 
@@ -38,30 +39,46 @@ The live page is a long scroll, not the 1920×1080 deck shell. Mapping these tok
 - Not CleantechHUB. No CTH lime (`#95D5B2`), no CTH green (`#2D6A4F`), no Manual de Marca blues as primary.
 - Lane A repo: `https://github.com/gideonblaauw-creator/americas-innovation-hub`. Packs park in `https://github.com/gideonblaauw-creator/runupholdings-matters`. Never `cth-matters`.
 
-## Observed tokens [PENDIENTE]
+## Observed on the live page (A1)
 
-Read from `:root` in `aic-q1-2027-packages/styles.css`. Confirmed by a brand owner: no.
+A1 (`docs/deck-audit/A1-decks-cleantechhub.md`, `deck-skill-audit-a1` @ `0c39db1`, 19 Oct 2026) read `https://decks.cleantechhub.net/aic-q1-2027-packages/`. These rows are **OBSERVED**. The proposal is still not adopted.
+
+| Fact | Observed value | Status |
+|---|---|---|
+| Display | Cormorant Garamond, weights 500, 600, 700, italic 500 and 600. Fallback Times New Roman, then serif. CSS `--serif`. | OBSERVED |
+| Body | Inter, weights 300, 400, 500, and 600. Fallback system-ui, Segoe UI, sans-serif. CSS `--sans`. | OBSERVED |
+| Ink | `#070c18` (`--ink`). Page background, theme-color, and favicon fill. | OBSERVED |
+| Gold | `#c9a45c` (`--gold`). Eyebrows, selected border, and step numbers. | OBSERVED |
+| Mark | Type only. No image logo. Header lockup: “AIC” in Cormorant Garamond, a gold-tint rule, then “Americas Innovation Council” in tracked Inter. | OBSERVED |
+| Favicon | `favicon.svg`. 64×64 rounded rectangle, radius 14, fill `#070c18`. Letters AIC in Georgia, 24px, weight 600, fill `#e6cf9f`. | OBSERVED |
+| Product | Seven scroll sections: hero, why, event picker, tier picker, city picker, visa and timing, close. Not a 16:9 deck. No `.deck-frame`. | OBSERVED |
+
+Footer links on that page: `joinaic.com` and `americasinnovationcouncil.com`. **OBSERVED**. Language is an EN | ES pill, Spanish by default, copy in `data-i18n`. The choice is not stored. **OBSERVED**.
+
+## Other tokens [PENDIENTE]
+
+Also read from `:root` in `aic-q1-2027-packages/styles.css`. A brand owner has not locked them.
 
 | Token | Observed | Role on the page | Status |
 |---|---|---|---|
-| `--ink` | `#070c18` | Page background, theme-color, favicon field | [PENDIENTE] |
+| `--ink` | `#070c18` | Page background, theme-color, favicon field | OBSERVED |
 | `--navy` | `#0c1528` | Deep surface | [PENDIENTE] |
 | `--navy2` | `#111d36` | Deep surface | [PENDIENTE] |
 | `--ivory` | `#f4efe6` | Body text | [PENDIENTE] |
 | `--muted` | `#a9b1c3` | Secondary text | [PENDIENTE] |
 | `--dim` | `#7d869a` | Fine print | [PENDIENTE] |
-| `--gold` | `#c9a45c` | Eyebrows, primary button | [PENDIENTE] |
+| `--gold` | `#c9a45c` | Eyebrows, selected border, step numbers | OBSERVED |
 | `--champ` | `#e6cf9f` | Links, focus ring, favicon word | [PENDIENTE] |
 | `--gold-d` | `#9c7a3c` | Dark gold | [PENDIENTE] |
 | `--plat` | `#c9d3e3` | Platinum | [PENDIENTE] |
 | `--line` | `rgba(217,192,143,.18)` | Hairline | [PENDIENTE] |
-| `--serif` | `"Cormorant Garamond", "Times New Roman", serif` | Wordmark, headlines | [PENDIENTE] |
-| `--sans` | `"Inter", system-ui, sans-serif` | UI and body | [PENDIENTE] |
+| `--serif` | `"Cormorant Garamond", "Times New Roman", serif` | Wordmark, headlines | OBSERVED |
+| `--sans` | `"Inter", system-ui, sans-serif` | UI and body | OBSERVED |
 | `--r` | `18px` | Radius | [PENDIENTE] |
 
-Favicon: 64×64, radius 14, fill `#070c18`, the letters AIC in Georgia at 24px, fill `#e6cf9f`. An official logo file was not on the page. **[PENDIENTE]**.
+The favicon file is `favicon.svg`, described in the observed block. An official logo image was not on the page. **[PENDIENTE]**.
 
-The scroll page sets some labels at 11px and 12px. That size is not a slide rule. An AIC deck follows `skills/cth-html-deck/SKILL.md`: 1920×1080 stage, scale ×0.96, nothing under 24px on the stage.
+The scroll page sets some labels at 11px and 12px. That size belongs to the configurator. It is not a 16:9 slide rule. A ticket that asks for an AIC slide deck follows `skills/cth-html-deck/SKILL.md` (1920×1080, scale ×0.96, nothing under 24px on the stage). Do not force the Q1 configurator onto that stage.
 
 ## Voice
 
@@ -82,8 +99,8 @@ Executive and specific. The Q1 page speaks to banks, insurers, pension managers,
 
 2. Map the table above onto custom properties. Do not add a sixth hue.
 3. Wordmark: serif "AIC" plus tracked sans "Americas Innovation Council". Do not redraw or recolor it.
-4. EN/ES toggle, as on the live page (`[data-lang="es"]`, `[data-lang="en"]`).
-5. Slide decks use the `cth-html-deck` shell. Only the tokens change.
+4. EN/ES toggle, as on the live page (`data-i18n`, Spanish default). The live page does not store the choice.
+5. The live product is the 7-section configurator. A slide deck is a separate ticket and uses the `cth-html-deck` shell. Only the tokens change.
 6. Nothing is sent, posted, or paid without Gideon's yes. DNS for `joinaic.com` stays HITL.
 
 ## Do not use when
