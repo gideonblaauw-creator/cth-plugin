@@ -253,3 +253,39 @@ The REIN absent list rejects both funding oranges, `#F1562A` and `#FC987C`. The 
 ### Public repo, re-scan — PASS
 
 Neither skill contains a dollar amount, a credential, an API key, or a mailbox address. The leftover "factsheet" word is an accuracy miss, recorded under item 6. Counterpart names remain the public slug titles already in A1 and A2.
+
+## Re-check 2
+
+**Final verdict: PASS**
+
+Re-read after `a8eb8d1` ("Close the six open re-check items on the deck and AIC skills") on `cursor/cth-html-deck-skill-3ac4`. The diff is five files: `skills/cth-html-deck/SKILL.md`, `skills/aic-brand/SKILL.md`, `docs/deck-audit/README.md`, `.cursor/skills/aic-brand/SKILL.md`, and `CHANGELOG.md`. This pass did not edit those files. Nothing was deployed.
+
+The six open items from the first re-check now match the prescribed fixes. A regression pass over the earlier PASS items found no new false claim, no returned megabyte figure, and no dollar amount, credential, or mailbox address.
+
+### Item 6. REIN source line — PASS
+
+The outliers paragraph now says the funding orange is `#F1562A` and `#FC987C`, not the `cth-clp26-rein` orange `#FF6633`. Section 3 still forbids citing pvblic.org or a factsheet. The word "factsheet" remains only in that ban.
+
+### Item 9. AIC `[PENDIENTE]` scope — PASS
+
+The deck skill and `aic-brand` name the pending rows: `--navy`, `--navy2`, `--ivory`, `--muted`, `--dim`, `--champ`, `--gold-d`, `--plat`, `--line`, and `--r`. They name the OBSERVED rows: favicon, seven-section shape, type-only mark, and second-table `--ink`, `--gold`, `--serif`, and `--sans` (ink `#070c18`, gold `#c9a45c`, Cormorant Garamond, Inter). "Every other row" and "Everything else stays `[PENDIENTE]`" are gone. The proposal is still not adopted. Those status cells match the tables in `skills/aic-brand/SKILL.md`.
+
+### Item 14. Keyboard pass cell — PASS
+
+The cell now says ArrowRight, Space, and PageDown go forward, and ArrowLeft and PageUp go back. That matches section 1. Click halves, hash `#1`, Escape, and the index sentence are still in the cell.
+
+### New issue A. README, stub, and changelog — PASS
+
+`docs/deck-audit/README.md`, `.cursor/skills/aic-brand/SKILL.md`, and `CHANGELOG.md` use the same observed and pending split. None of them says every AIC token is `[PENDIENTE]`.
+
+### New issue B. Host and DNS ban — PASS
+
+Hosting step 4 says: "Do not create a Vercel project, a new host, or a DNS record." The 402 sentence is unchanged. `_APP_DOMAIN_SITES` and the root auth scheme stay `[PENDIENTE]` in the hosting paragraph. No megabyte number returned.
+
+### New issue C. AIC absent `#FC987C` — PASS
+
+The AIC block now includes `grep -F '#FC987C' shell/deck.css` after `#F1562A`, in the absent list. The REIN absent list still has both funding oranges.
+
+### Regression — PASS
+
+Unchanged and still accurate: four EN/ES slugs, the narrowed 402 sentence, the A1-only hosting paragraph, the Next.js `teclogi-financial-model` sentence, glass fill `0.09` and `.weight-box` fill `0.07`, the 24px floor with the 14px exceptions outside `.deck-stage`, the AIC `cth-deck-lang` split, the OBSERVED label, the banned-hue sentence, both `--sans` stacks, the AIC role phrases, and the rest of the acceptance table. Skill descriptions stay under 1024 characters. The public-repo scan is still clean.
