@@ -136,7 +136,7 @@ Do not use CleantechHUB blues as the primary. Read `skills/rein-hubs-comms/SKILL
 
 ### AIC
 
-Read `skills/aic-brand/SKILL.md`. That file is a **PROPOSAL**. Observed ink `#070c18`, gold `#c9a45c`, Cormorant Garamond, Inter, and the type-only mark are filled in. Every other row in `skills/aic-brand/SKILL.md` stays `[PENDIENTE]` until Gideon adopts the proposal. Keep this comment at the top of `shell/deck.css` until then:
+Read `skills/aic-brand/SKILL.md`. That file is a **PROPOSAL**. Rows that stay `[PENDIENTE]` are `--navy`, `--navy2`, `--ivory`, `--muted`, `--dim`, `--champ`, `--gold-d`, `--plat`, `--line`, and `--r`. OBSERVED rows are the favicon, the seven-section shape, the type-only mark, and the second-table rows `--ink`, `--gold`, `--serif`, and `--sans` (ink `#070c18`, gold `#c9a45c`, Cormorant Garamond, Inter). The proposal is still not adopted. Keep this comment at the top of `shell/deck.css` until then:
 
 ```css
 /* AIC brand PROPOSAL — tokens [PENDIENTE] */
@@ -155,7 +155,7 @@ Publish is band 4. Hands do not deploy.
 1. Ship the static tree in the repo PR. `index.html` is self-contained. Images sit beside it.
 2. Wait for Gideon's yes in the owning chat.
 3. Infra overwrites that slug on the existing Appwrite project. Same URL after every update. Ask Gideon to hard-refresh.
-4. Do not create a Vercel project. Do not add `vercel.json`. On 19 Oct 2026 at 21:02 UTC, A2's nine known hosts plus `teclogi-financial-model.vercel.app` returned HTTP 402 `DEPLOYMENT_DISABLED`. Guessed names in that audit returned 404 `DEPLOYMENT_NOT_FOUND`. Leave the known hosts paused.
+4. Do not create a Vercel project, a new host, or a DNS record. Do not add `vercel.json`. On 19 Oct 2026 at 21:02 UTC, A2's nine known hosts plus `teclogi-financial-model.vercel.app` returned HTTP 402 `DEPLOYMENT_DISABLED`. Guessed names in that audit returned 404 `DEPLOYMENT_NOT_FOUND`. Leave the known hosts paused.
 5. The root auth scheme stays `[PENDIENTE]`. Do not copy credentials into git, a ticket, or a skill.
 6. Epic Angels left unreferenced `png/` renders and a local PDF out of the upload (A1). Do the same when the tree is large. Do not write a megabyte number.
 7. After publish, `curl -sI` the slug and every linked asset. HTML, CSS, JS, images, and PDFs must be HTTP 200 with the matching content type. An `index.html` fallback that returns HTML for a missing image is a fail.
@@ -192,7 +192,7 @@ The verifier records each row in `CHECK.md`. A fail names the slide and the rule
 | PDF | `render-deck.py` page count equals the number of `.slide` elements. |
 | curl 200 | Before HITL: a local static server returns 200 for `index.html`. After Gideon authorizes publish: `curl -sI https://decks.cleantechhub.net/<slug>/` is HTTP 200 `text/html`, and linked assets are 200 with the right type. Hands do not publish in order to turn this row green. |
 | EN/ES | Pass when every sentence has `.lang-en` and `.lang-es`, the toggle sets `document.documentElement.lang` and `localStorage` key `cth-deck-lang`, the same numerals appear in both languages, and missing copy is the text `[PENDIENTE]`. ClimateLaunchpad may keep `clp26lang`. The funding table is out of scope. |
-| Keyboard | ArrowRight advances, ArrowLeft returns, Space, Page Up, and Page Down move the same way. Click halves advance or return, and are ignored on a link, button, card, tab, or lightbox control. Hash `#1` is the first slide. Escape closes the menu and the lightbox. The index lists every `data-menu-title`. |
+| Keyboard | ArrowRight, Space, and PageDown go forward. ArrowLeft and PageUp go back. Click halves advance or return, and are ignored on a link, button, card, tab, or lightbox control. Hash `#1` is the first slide. Escape closes the menu and the lightbox. The index lists every `data-menu-title`. |
 | Brand tokens | Each required `grep -F` prints a match. Each absent-hex `grep -F` prints nothing. Skip the cross-brand absent grep only when the ticket names a co-brand, and record that exception in `CHECK.md`. |
 
 CleantechHUB. Each required command must print a match. Each absent command must print nothing:
@@ -248,6 +248,7 @@ grep -F '#95D5B2' shell/deck.css
 grep -F '#335D4F' shell/deck.css
 grep -F '#FF6633' shell/deck.css
 grep -F '#F1562A' shell/deck.css
+grep -F '#FC987C' shell/deck.css
 ```
 
 ## Outliers (A1)
@@ -256,7 +257,7 @@ A1 measured the thirteen live slugs (`docs/deck-audit/A1-decks-cleantechhub.md`,
 
 **Allowed exception — ClimateLaunchpad scroll pages.** `cth-clp26` and `cth-clp26-rein` are scroll microsites, not 16:9 decks. They may keep Chart.js 4.5.1, D3 7.9.0, topojson-client 3.1.0, story tabs, and the EN/ES switch (`localStorage` key `clp26lang`, shared by both slugs on this host). They have no `.deck-frame`, no `?print`, and no sources slide. They do not use ClimateLaunchpad campaign green `#00A651` or yellow `#FFC425`. The CleantechHUB edition uses the deck-visual five. The REIN edition uses `#335D4F` and `#FF6633`, with Poppins headings. Chart.js and D3 are non-compliant on a paged deck. A new meeting deck uses inline SVG.
 
-**Non-compliant as a deck — REIN funding table.** `cth-rein-funding-oct2026` is one filterable table. It has no stage, no pager, and no EN/ES switch. Its orange is `#F1562A` and `#FC987C`, not the factsheet orange `#FF6633`. Headings are Lora. Body is Poppins. Leave it as a table page. Do not restyle it into 1920 slides unless the ticket says so. Do not copy its dollar amounts into any deck.
+**Non-compliant as a deck — REIN funding table.** `cth-rein-funding-oct2026` is one filterable table. It has no stage, no pager, and no EN/ES switch. Its orange is `#F1562A` and `#FC987C`, not the `cth-clp26-rein` orange `#FF6633`. Headings are Lora. Body is Poppins. Leave it as a table page. Do not restyle it into 1920 slides unless the ticket says so. Do not copy its dollar amounts into any deck.
 
 ## Audit
 

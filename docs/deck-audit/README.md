@@ -39,7 +39,7 @@ A1 and A2 are both merged. The deck skill cites them in **Outliers** and **Audit
 |---|---|
 | CleantechHUB | `skills/cleantechhub-brand/brand_dna.yaml` (Manual de Marca, Jan 2024) plus voice in `skills/cleantechhub-brand/SKILL.md` |
 | REIN Hubs | Token table in `skills/cth-html-deck/SKILL.md`. HOLD and the dollar-amount ban: `skills/rein-hubs-comms/SKILL.md` |
-| AIC | `skills/aic-brand/SKILL.md` (PROPOSAL, tokens `[PENDIENTE]`) |
+| AIC | `skills/aic-brand/SKILL.md` (PROPOSAL, not adopted). OBSERVED: favicon, seven-section shape, type-only mark, and second-table `--ink`, `--gold`, `--serif`, `--sans` (ink `#070c18`, gold `#c9a45c`, Cormorant Garamond, Inter). Pending: `--navy`, `--navy2`, `--ivory`, `--muted`, `--dim`, `--champ`, `--gold-d`, `--plat`, `--line`, `--r`. |
 
 ## Host
 

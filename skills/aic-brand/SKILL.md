@@ -6,7 +6,8 @@ description: >
   configurator) is OBSERVED. Use when: AIC deck, Bravo Bridge visual,
   joinaic.com brand, Americas Innovation Council slides. Do not use when:
   CleantechHUB decks (cleantechhub-brand, cth-html-deck) or REIN Hubs.
-  Unlocked tokens stay [PENDIENTE].
+  Pending rows are --navy, --navy2, --ivory, --muted, --dim, --champ,
+  --gold-d, --plat, --line, and --r.
 license: MIT
 metadata:
   version: "0.1.0"
@@ -16,7 +17,7 @@ metadata:
 
 # AIC brand (PROPOSAL)
 
-**Status: PROPOSAL. Not adopted.** Gideon has not locked these tokens. This proposal marks one block OBSERVED. A1 copied the values from the live page and did not use that label. Everything else stays **[PENDIENTE]**. Use the observed values on AIC work, and keep the proposal comment in the CSS until this file is adopted.
+**Status: PROPOSAL. Not adopted.** Gideon has not locked these tokens. This proposal marks one block OBSERVED. A1 copied the values from the live page and did not use that label. Rows that stay `[PENDIENTE]` are `--navy`, `--navy2`, `--ivory`, `--muted`, `--dim`, `--champ`, `--gold-d`, `--plat`, `--line`, and `--r`. OBSERVED rows are the favicon, the seven-section shape, the type-only mark, and the second-table rows `--ink`, `--gold`, `--serif`, and `--sans` (ink `#070c18`, gold `#c9a45c`, Cormorant Garamond, Inter). The proposal is still not adopted. Use the observed values on AIC work, and keep the proposal comment in the CSS until this file is adopted.
 
 This skill exists because `skills/aic-comms/SKILL.md` had no AIC brand skill. Coordination stays in `aic-comms`. This file is visual tokens only.
 
