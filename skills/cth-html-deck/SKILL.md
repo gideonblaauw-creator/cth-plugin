@@ -110,7 +110,7 @@ Stage tokens are the Manual de Marca (Jan 2024) five in `skills/cleantechhub-bra
   --forest: #669348;
   --sky: #69B5FA;
   --white: #FFFFFF;
-  --page: #051a33; /* letterbox behind the stage, not a sixth brand colour */
+  --page: #051a33; /* letterbox behind the stage, not a sixth brand color */
   --stage-w: 1920px;
   --stage-h: 1080px;
   --font: 'Open Sans', 'PT Sans', sans-serif;
@@ -132,7 +132,7 @@ There is no `skills/rein-hubs-brand/SKILL.md` on `main`. Use these tokens (pvbli
 | Line | `#C9D6D1` |
 | Background | `#F1F5F3` |
 
-Type stack: `'Open Sans', 'Source Sans 3', Arial, sans-serif`. Poppins is allowed for web headings. Do not use CleantechHUB blues as the primary. Read `skills/rein-hubs-comms/SKILL.md`: REIN HOLD, and never cite REIN Hubs dollar amounts. If a `rein-hubs-brand` skill lands later, it wins on colour and type. The dollar-amount ban and REIN HOLD still win.
+Type stack: `'Open Sans', 'Source Sans 3', Arial, sans-serif`. Poppins is allowed for web headings. Do not use CleantechHUB blues as the primary. Read `skills/rein-hubs-comms/SKILL.md`: REIN HOLD, and never cite REIN Hubs dollar amounts. If a `rein-hubs-brand` skill lands later, it wins on color and type. The dollar-amount ban and REIN HOLD still win.
 
 ### AIC
 
@@ -244,7 +244,7 @@ TODO: merge audit findings from `deck-skill-audit-a1` when that ref exists. Chec
 
 | Skill | When |
 |---|---|
-| `cleantechhub-brand` | Voice, logo, tagline. Stage colours come from `brand_dna.yaml`, not the green CSS block. |
+| `cleantechhub-brand` | Voice, logo, tagline. Stage colors come from `brand_dna.yaml`, not the green CSS block. |
 | `aic-brand` | AIC context. Proposal only. |
 | `rein-hubs-comms` | REIN HOLD and the dollar-amount ban. |
 | `harness` | Tickets, model lock, maker ≠ checker, HITL. |
