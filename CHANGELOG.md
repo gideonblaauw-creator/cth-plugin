@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### HTML deck skill + AIC brand proposal (2026-10-19)
+
+- New skill: `skills/cth-html-deck/SKILL.md` + Cursor stub — interactive 1920×1080 decks, sourced figures, brand per context, HITL publish to `decks.cleantechhub.net/<slug>/`. Supersedes `cth-html-deck-visual`. Does not deploy.
+- New skill: `skills/aic-brand/SKILL.md` + Cursor stub — PROPOSAL only. Observed tokens from `aic-q1-2027-packages` marked [PENDIENTE].
+- Index: `docs/deck-audit/README.md`. Merged A2 from `deck-skill-audit-a2` @ `16f5251` (`docs/deck-audit/A2-vercel-decks.md`, `A2.json`). `deck-skill-audit-a1` was not on `origin` (merge TODO left in the skill).
+- Updated: `skills/harness/references/skill-toolkit.json`, inventory count in `skills/harness/SKILL.md`, `skills/aic-comms/SKILL.md` brand pointer, `skills/cleantechhub-brand` deck cross-link.
+
 ### Rakazo Plan B craft lock t1465u (2026-09-17)
 
 - Updated: `docs/rakazo-plan-b-pointer.md`, `skills/rakazo-failover-comms/SKILL.md` — Plan B Rakazo = Orchestrator + Desks only; Cursor Cloud Hands craft always (Lane A/B); stripped craft→Rakazo wording; Babo channels unchanged

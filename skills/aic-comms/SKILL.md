@@ -22,7 +22,7 @@ Desk communications playbook. Grok Bot = **coordination only** (Token lock 2026-
 
 ## 2. Brand skill to follow
 
-`[PENDIENTE]` — AIC / Bravo Bridge brand (isolated from `cleantechhub-brand`). Per `skills/app-build/SKILL.md`: do not mix CTH lime into AIC.
+Proposal only, not adopted: `skills/aic-brand/SKILL.md`. Tokens in that file stay **[PENDIENTE]** until Gideon adopts them. Isolated from `cleantechhub-brand`. Do not mix CTH lime into AIC.
 
 No brand leak across clients. Co-brand only when Gideon explicitly approves.
 
