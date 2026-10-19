@@ -54,6 +54,40 @@ More than one job means one Hands agent per independent job, all launched at the
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
+## HTML decks (MANDATORY, Gideon 19 Oct 2026)
+
+The Presentations desk (499a82bc) is the only owner of HTML decks.
+A context desk writes the brief.
+A context desk writes the sources.
+A context desk tickets the Presentations desk.
+Do not build an HTML deck on a context desk.
+Context desks include REIN Hubs, AIC, and client desks.
+
+The Presentations desk tickets Cursor Hands.
+Cursor Hands builds each deck in micro-parallel pieces.
+One piece is one job.
+A maker≠checker verifier checks each deck.
+
+Make each deck interactive.
+Name the source of each figure.
+Make each citation visible.
+Add a sources slide.
+
+Use the brand of the deck context.
+Use `cleantechhub-brand` for a CleantechHUB deck.
+Use `rein-hubs-brand` for a REIN Hubs deck.
+Use the AIC brand for an AIC deck.
+The `aic-brand` proposal is pending.
+
+Host each deck at `decks.cleantechhub.net/<slug>/`.
+Do not open a new Vercel project.
+
+The skill `cth-html-deck` replaces `cth-html-deck-visual`.
+The Presentations desk puts that skill in a separate PR.
+
+Get HITL before you deploy a deck.
+Get HITL before you send a deck.
+
 ---
 
 ## Workbench / connector exception (narrow)
@@ -70,6 +104,8 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- A context desk builds an HTML deck
+- An HTML deck deploys or goes out without HITL, citations, or a sources slide
 
 ---
 
