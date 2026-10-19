@@ -155,3 +155,101 @@ Neither skill contains a dollar amount, a credential, an API key, or a mailbox a
 ### Commit pins — PASS
 
 `deck-skill-audit-a1` @ `0c39db1` and `deck-skill-audit-a2` @ `16f5251` are the branch tips named in the skill and in `README.md`.
+
+## Re-check
+
+**Re-check verdict: FAIL**
+
+Re-read after `b192b76` ("Apply the 14 checker fixes to the deck and AIC skills") on `cursor/cth-html-deck-skill-3ac4`. Sources re-read: both skills, `docs/deck-audit/README.md`, the A1 and A2 files, and the diff from `d0366d9` to `b192b76`. This pass did not edit the skills. Nothing was deployed.
+
+Items 1, 2, 3, 4, 5, 7, 8, 10, 11, 12, and 13 match the prescribed fixes and the audits. Items 6, 9, and 14 stay FAIL. Three new issues are open.
+
+### 1. EN/ES count — PASS
+
+`skills/cth-html-deck/SKILL.md` and `README.md` now say EN/ES exists on four live slugs and name `cth-clp26`, `cth-clp26-rein`, `cpi-lab-backbone-cth`, and `aic-q1-2027-packages`. The other nine are one language.
+
+### 2. Vercel 402 scope — PASS
+
+Hosting step 4, the Audit section, and `README.md` now limit HTTP 402 `DEPLOYMENT_DISABLED` to A2's nine known hosts plus `teclogi-financial-model.vercel.app` at 21:02 UTC on 19 Oct 2026. Guessed names are 404 `DEPLOYMENT_NOT_FOUND`.
+
+### 3. Hosting facts past A1 — PASS
+
+The hosting paragraph matches the A1 record: project `cth-decks`, Caddy strips `/<slug>/`, root HTTP 401 with an empty body, public slug pages, one wiki sample 301, and `index.html` fallback. Team, framework, adapter, install, build, output directory, `_APP_DOMAIN_SITES`, the root auth scheme, and any tar-size cap are `[PENDIENTE]`. The 12 MB, 12.3 MB, and 14 MB figures are gone. See new issue B for the prohibition that step 4 dropped.
+
+### 4. `teclogi-financial-model` — PASS
+
+The sentence now says no slug, BLOCKED (Next.js), HTTP 402, and no readable source. "Node app" is gone.
+
+### 5. Glass fill — PASS
+
+`.glass` is fill `rgba(255,255,255,0.09)`, border `rgba(255,255,255,0.12)`, blur 8px, radius 12px. `.weight-box` is fill `0.07` with the same border and no blur. The scrim stops are unchanged.
+
+### 6. REIN source line — FAIL
+
+Section 3 now takes the six hexes and the credit line from A1 `cth-clp26-rein`, names Open Sans, Poppins, and Source Sans 3, and says not to add Arial or cite pvblic.org or a factsheet.
+
+The outliers paragraph still says: "Its orange is `#F1562A` and `#FC987C`, not the factsheet orange `#FF6633`." That cites a factsheet. A1 and A2 do not. The hex `#FF6633` is the `cth-clp26-rein` orange.
+
+**Fix:** Replace that clause with: "Its orange is `#F1562A` and `#FC987C`, not the `cth-clp26-rein` orange `#FF6633`."
+
+### 7. 24px floor and the 14px exceptions — PASS
+
+`.nav-hint` and `#slide-dots` are outside `.deck-stage`, as siblings after `.deck-viewport`. The 14px hint and the 14×14px dots are stated with those conditions. The Minimum type pass cell matches.
+
+### 8. AIC language storage — PASS
+
+`aic-brand` point 4 keeps `data-i18n` and an unstored choice on the configurator, and sends an AIC slide deck to `cth-deck-lang` plus the room language. The deck skill says the same and says not to copy the in-memory toggle. Point 5 sends a slide deck to the shell.
+
+### 9. "Every other row stays `[PENDIENTE]`" — FAIL
+
+The prescribed sentence was applied. It is still false against `skills/aic-brand/SKILL.md`.
+
+Observed rows beyond ink, gold, Cormorant Garamond, Inter, and the type-only mark: the favicon row, the seven-section product row, the footer links and the unstored EN/ES pill, and the second table's `--ink`, `--gold`, `--serif`, and `--sans` rows. `aic-brand` line 19 says "Everything else stays **[PENDIENTE]**," which is the same overclaim.
+
+**Fix:** In the deck skill, replace "Every other row…" with: "Rows that stay `[PENDIENTE]` are `--navy`, `--navy2`, `--ivory`, `--muted`, `--dim`, `--champ`, `--gold-d`, `--plat`, `--line`, and `--r`. Ink, gold, both faces, the type-only mark, the favicon, and the seven-section shape are OBSERVED. The proposal is still not adopted." In `aic-brand`, replace "Everything else stays **[PENDIENTE]**" with that same split.
+
+### 10. "A1 marks one block OBSERVED" — PASS
+
+`aic-brand` now says this proposal marks one block OBSERVED, and that A1 copied the values and did not use that label.
+
+### 11. "Do not add a sixth hue" — PASS
+
+Point 2 now says: "Use only the custom properties listed in this file. Do not add a CleantechHUB green, a Manual de Marca blue, or a new hue."
+
+### 12. AIC `--sans` rows — PASS
+
+Both `--sans` rows are `"Inter", system-ui, -apple-system, "Segoe UI", sans-serif`.
+
+### 13. AIC role column — PASS
+
+`--navy` is event cards. `--navy2` is second navy. `--muted` includes the brand name. `--champ` is links, italic emphasis, and favicon letters, plus the live `:focus-visible` clause. `--gold-d` is deep gold. `--plat` includes the premium tier. `--line` is a hairline on the gold hue.
+
+### 14. Acceptance checks — FAIL
+
+The EN/ES row, the numeral exemptions, the citation visibility sentence, and the per-hex `grep -F` lists landed. CTH absent hexes include the foundation greens and an Inter `font-family` pipe. REIN absent hexes include `#F1562A` and `#FC987C`.
+
+The keyboard pass cell says: "Space, Page Up, and Page Down move the same way." Section 1 says Space and PageDown go forward and PageUp goes back. "The same way" names no direction, so the row cannot be scored.
+
+**Fix:** Replace that clause with: "Space and PageDown go forward. PageUp goes back." Keep the click-half, hash `#1`, Escape, and index sentences.
+
+### New issue A — README, stub, and changelog still say every AIC token is `[PENDIENTE]`
+
+`docs/deck-audit/README.md` still says AIC is "PROPOSAL, tokens `[PENDIENTE]`." `.cursor/skills/aic-brand/SKILL.md` still says "Tokens stay [PENDIENTE] until Gideon adopts them." `CHANGELOG.md` still says the observed tokens were marked `[PENDIENTE]`.
+
+**Fix:** Use the same split as item 9. Unlocked rows stay `[PENDIENTE]`. Ink, gold, both faces, the mark, the favicon, and the seven-section shape are OBSERVED. The proposal is not adopted.
+
+### New issue B — hosting step 4 dropped the host and DNS ban
+
+The old step 4 said: "Do not create a Vercel project, a new host, a DNS record, or an Appwrite reload." The rewrite keeps the Vercel ban and drops the host ban and the DNS ban. The checker did not ask for that drop. Leave `_APP_DOMAIN_SITES` and any Appwrite reload as `[PENDIENTE]`, as the hosting paragraph already does.
+
+**Fix:** After "Do not create a Vercel project," add: "Do not create a new host or a DNS record."
+
+### New issue C — AIC absent greps omit `#FC987C`
+
+The REIN absent list rejects both funding oranges, `#F1562A` and `#FC987C`. The AIC absent list rejects `#F1562A` and omits `#FC987C`. An AIC deck can paint the second funding orange and still pass.
+
+**Fix:** Add `grep -F '#FC987C' shell/deck.css` to the AIC absent list. It must print nothing.
+
+### Public repo, re-scan — PASS
+
+Neither skill contains a dollar amount, a credential, an API key, or a mailbox address. The leftover "factsheet" word is an accuracy miss, recorded under item 6. Counterpart names remain the public slug titles already in A1 and A2.
