@@ -54,6 +54,26 @@ More than one job means one Hands agent per independent job, all launched at the
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
+## Infra tickets (ASD-STE100)
+
+Use these rules for every Infra ticket.
+
+Give every Infra ticket a separate verifier Hands session.
+The maker is not the checker.
+Keep the verifier read-only.
+The verifier checks the maker result against the success criteria in the ticket.
+The verifier writes PASS or FAIL with evidence.
+Mark the ticket done after the verifier writes PASS.
+
+Send monitoring alerts to the Health workbench (fbc6f772).
+The Health workbench reports to Infra.
+
+Back up the VPS before you start each VPS job.
+Put a rollback in the ticket.
+Before you finish, confirm that SSH key login still works.
+Before you finish, confirm that the Cursor worker connection still works.
+Do not store secrets in Notion, crontabs, chat, or tickets.
+
 ---
 
 ## Workbench / connector exception (narrow)
@@ -70,6 +90,10 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Marking an Infra ticket done before the verifier writes PASS
+- Sending monitoring alerts to a desk other than the Health workbench (fbc6f772)
+- Starting a VPS job before the backup, or with no rollback in the ticket
+- Storing secrets in Notion, a crontab, chat, or a ticket
 
 ---
 

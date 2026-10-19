@@ -170,6 +170,26 @@ Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not 
 
 Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id).
 
+### Infra tickets (ASD-STE100)
+
+Use these rules for every Infra ticket.
+
+Give every Infra ticket a separate verifier Hands session.
+The maker is not the checker.
+Keep the verifier read-only.
+The verifier checks the maker result against the success criteria in the ticket.
+The verifier writes PASS or FAIL with evidence.
+Mark the ticket done after the verifier writes PASS.
+
+Send monitoring alerts to the Health workbench (fbc6f772).
+The Health workbench reports to Infra.
+
+Back up the VPS before you start each VPS job.
+Put a rollback in the ticket.
+Before you finish, confirm that SSH key login still works.
+Before you finish, confirm that the Cursor worker connection still works.
+Do not store secrets in Notion, crontabs, chat, or tickets.
+
 ### Hands-shift lock — Gideon 2026-08-17 (hard gate)
 
 **1. Any first-draft file pack (md, html, docx, png, csv, svg, xlsx) = a seven-field ticket to Cursor Cloud Hands.** No bc-id = miss. Desk reviews only. Desks do not write file packs themselves.
