@@ -15,8 +15,8 @@ Index for the HTML deck audit. The playbook those notes feed is `skills/cth-html
 ## Findings from A1 and A2
 
 - **Only APC has a sources slide.** A1 checked all thirteen live slugs on 19 Oct 2026. `apc-cth-2026-10-07` is the only one with a sources slide (`Fuentes públicas`). The other twelve do not. Bridge for Billions mentions `SOURCES.md`, and that file is not served.
-- **Language switching exists on 3 decks.** `cth-clp26` and `cth-clp26-rein` share `localStorage` key `clp26lang`. `cpi-lab-backbone-cth` uses `data-en` / `data-es` and key `cpi-backbone-lang`. `aic-q1-2027-packages` uses `data-i18n` and does not store the choice. The other nine slugs are one language.
-- **On 19 Oct 2026 every Vercel host A2 requested returned HTTP 402 `DEPLOYMENT_DISABLED`.** The hostname is allocated and the HTML is not public. New decks use `decks.cleantechhub.net`.
+- EN/ES exists on four live slugs (A1 rows): `cth-clp26`, `cth-clp26-rein`, `cpi-lab-backbone-cth`, and `aic-q1-2027-packages`. The other nine are one language. The two ClimateLaunchpad slugs share `localStorage` key `clp26lang`. The CPI backbone uses `data-en` / `data-es` and key `cpi-backbone-lang`. AIC uses `data-i18n` and does not store the choice.
+- On 19 Oct 2026 at 21:02 UTC, A2's nine known hosts plus `teclogi-financial-model.vercel.app` returned HTTP 402 `DEPLOYMENT_DISABLED`. Guessed names in that audit returned 404 `DEPLOYMENT_NOT_FOUND`. New decks use `decks.cleantechhub.net`.
 
 A1 and A2 are both merged. The deck skill cites them in **Outliers** and **Audit**.
 

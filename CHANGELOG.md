@@ -9,6 +9,7 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 - New skill: `skills/cth-html-deck/SKILL.md` + Cursor stub — interactive 1920×1080 decks, sourced figures, brand per context, HITL publish to `decks.cleantechhub.net/<slug>/`. Supersedes `cth-html-deck-visual`. Does not deploy.
 - New skill: `skills/aic-brand/SKILL.md` + Cursor stub — PROPOSAL only. Observed tokens from `aic-q1-2027-packages` marked [PENDIENTE].
 - Index: `docs/deck-audit/README.md`. Merged A2 from `deck-skill-audit-a2` @ `16f5251` and A1 from `deck-skill-audit-a1` @ `0c39db1`.
+- Checker fixes: four EN/ES slugs, 402 only on A2's known hosts, hosting facts past A1 marked `[PENDIENTE]`, glass fill `0.09`, REIN tokens from `cth-clp26-rein`, and per-hex brand greps.
 - Updated: `skills/harness/references/skill-toolkit.json`, inventory count in `skills/harness/SKILL.md`, `skills/aic-comms/SKILL.md` brand pointer, `skills/cleantechhub-brand` deck cross-link.
 
 ### Rakazo Plan B craft lock t1465u (2026-09-17)
