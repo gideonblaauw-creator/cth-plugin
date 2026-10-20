@@ -342,7 +342,7 @@ def build():
             else:
                 fill_cell(stage.cell(i, j), val, size=8, bold=(j == 0), color=INK)
 
-    heading(doc, "2. Honest investment", before=7, after=1)
+    heading(doc, "2. Cost Structure", before=7, after=1)
     body(doc, "These assets reduce cost and risk. They do not replace cash.")
     body(
         doc,
