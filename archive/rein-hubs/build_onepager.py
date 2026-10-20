@@ -506,80 +506,73 @@ def build():
         after=1,
     )
 
-    heading(doc, "4. Top 5 donors in Ghana", before=4, after=1)
-    body(
-        doc,
-        "Ranked for a university-hosted climate-startup hub that needs a multi-year "
-        "grant of US$500,000 to US$1 million. Ticket sizes are copied from the public "
-        "source. Anything not in that source is marked UNVERIFIED.",
-        size=8.5,
-        exact=10.5,
-        after=2,
-    )
-
-    donors = [
+    heading(doc, "4. Donor programs in Ghana, 2026-2030", before=3, after=1)
+    rows = [
         (
-            "1. GIZ / BMZ",
-            "PFS programme with GCIC at Ashesi University. Green incubation and acceleration.",
-            "About EUR 1.2 million for the 2024 partnership. Each business can get up to EUR 10,000. Not a US dollar figure.",
-            "Closest public match: a Ghana university climate incubator, at a size that covers this ask.",
-            "https://ghanacic.ashesi.edu.gh/giz-partners-with-ashesis-gcic-towards-green-entrepreneurship-development/",
+            "Danida Green Business Partnerships (1)",
+            "3 to 5 years. 2025 round closed.",
+            "DKK 4 million to 15 million",
+            "Climate adaptation. Ghana eligible. A university cannot administer.",
         ),
         (
-            "2. Global Affairs Canada",
-            "Supporting the Green Economy of Ghana, through GCIC at Ashesi University.",
-            "Maximum contribution $10,000,000 on the Canada project browser (Canadian dollars), 23 Aug 2021 to 31 Mar 2026. Larger than this ask. A follow-on is UNVERIFIED.",
-            "Published multi-year grant to a Ghanaian university for climate entrepreneurship.",
-            "https://w05.international.gc.ca/projectbrowser-banqueprojets/project-projet/details/p008970001",
+            "GIZ / BMZ, GCIC at Ashesi (2)",
+            "PFS ends Dec 2025. Renewal UNVERIFIED.",
+            "About EUR 1.2 million",
+            "Closest university climate incubator.",
         ),
         (
-            "3. AfDB, YEI MDTF and FAPA",
-            "MicroGREEN. Green jobs for youth and women in Ghana and Senegal. Implementer: Invest in Africa.",
-            "US$850,000 FAPA grant (11 Aug 2025), plus an initial US$1 million YEI MDTF commitment. Ghana and Senegal share the project.",
-            "Programme grants in the target band, already in Ghana. A grant to a university is UNVERIFIED.",
-            "https://www.afdb.org/en/news-and-events/press-releases/african-development-bank-and-invest-africa-sign-850000-grant-agreement-boost-inclusive-green-jobs-ghana-and-senegal-85980",
+            "AfDB MicroGREEN (3)",
+            "From Mar 2024. End past 2026 UNVERIFIED.",
+            "US$850,000 plus initial US$1 million",
+            "Green jobs. Already with Invest in Africa.",
         ),
         (
-            "4. Danida",
-            "Danida Green Business Partnerships, 2025 round. Climate adaptation. Ghana is eligible.",
-            "DKK 4 million to 15 million, for 3 to 5 years. Published in kroner, not US dollars. A US dollar conversion is UNVERIFIED.",
-            "Size and theme fit. The 2025 rules say a university cannot be the administrative partner, and an international commercial partner is required.",
-            "https://danida-business-partnerships.dk/wp-content/uploads/2025/01/DGBP-2025-Guidelines-read-these-if-you-want-to-apply.pdf",
+            "Mastercard Climate Impact Challenge (4)",
+            "3-year grants. Round 2 to Jan 2026.",
+            "US$250,000 to US$1,500,000",
+            "For cohort startups, not the hub host.",
         ),
         (
-            "5. Mastercard Foundation",
-            "Climate Impact Challenge Fund, inside the Fund for Resilience and Prosperity. Ghana is a focus country.",
-            "US$250,000 to US$1,500,000 over three years.",
-            "Ticket covers the band. Rules require a for-profit SME with at least 3 years of operations, so this fits cohort firms, not the university host. A hub grant is UNVERIFIED.",
-            "https://frp.org/sites/default/files/2024-11/Climate%20Impact%20Challenge%20Fund_summary.pdf",
+            "EU Global Gateway, green growth for jobs (5)",
+            "MIP to 2027. 2025-27 amount not set.",
+            "EUR 71.05 million was 2021-24. Later years UNVERIFIED.",
+            "Strategic window. No named hub call.",
+        ),
+        (
+            "UK-Ghana Growth Partnership (6)",
+            "2026 to 2028",
+            "GBP 5 million green prep. GBP 6 million AI and science.",
+            "Live partnership. Not a hub grant.",
         ),
     ]
-    dw = [1.15, 1.55, 1.7, 1.7, 1.3]
-    dtab = doc.add_table(rows=1 + len(donors), cols=5)
+    dw = [2.15, 1.55, 1.85, 1.85]
+    dtab = doc.add_table(rows=1 + len(rows), cols=4)
     set_table_widths(dtab, dw)
     grid_borders(dtab)
-    headers = ("Donor", "Programme", "Ticket, sourced", "Why it fits", "Source")
-    for j, h in enumerate(headers):
+    for j, h in enumerate(("Donor / program", "Period", "Size", "Fit for REIN")):
         fill_cell(dtab.cell(0, j), h, size=7, bold=True, color=WHITE, fill="335D4F")
-    for i, row in enumerate(donors, start=1):
+    for i, row in enumerate(rows, start=1):
         for j, val in enumerate(row):
             fill_cell(dtab.cell(i, j), val, size=6.5, bold=(j == 0), color=INK)
-
     body(
         doc,
-        "Not ranked. USAID: a March 2025 Appropriations letter states that 86% of USAID "
-        "awards were terminated (https://storage.courtlistener.com/recap/gov.uscourts.dcd.277562/"
-        "gov.uscourts.dcd.277562.39.18.pdf). Do not plan a new USAID "
-        "hub grant on the old pipeline. Below this band: FCDO TRANSFORM at GBP 100,000 "
-        "per enterprise; EU Joint Innovation Facility at EUR 100,000 to 250,000; "
-        "Orange Corners Ghana at up to EUR 50,000 per entrepreneur. UNDP Ghana Climate "
-        "Promise is a US$864,000 project with low-value grants. Rockefeller funded the "
-        "African School of Regulation in Accra at US$1 million (2023) and US$3 million "
-        "(2024): energy regulation, not a startup hub. SECO GPSCP II is CHF 9 million "
-        "for cashew and oil palm.",
-        size=8,
-        exact=10,
+        "Ranks 7 to 10 are in the full scan. (1) danida-business-partnerships.dk  "
+        "(2) ghanacic.ashesi.edu.gh  (3) afdb.org MicroGREEN release  "
+        "(4) frp.org Climate Impact Challenge Fund  "
+        "(5) EU MIP annex, international-partnerships.ec.europa.eu  "
+        "(6) gov.uk UK-Ghana Growth Partnership.",
+        size=7.5,
+        exact=9.5,
         before=2,
+        after=1,
+    )
+    body(
+        doc,
+        "Best routes: Danida with PVBLIC as lead, GIZ renewal, Mastercard for cohort startups. "
+        "USAID out (86% of awards terminated, Mar 2025).",
+        size=8.5,
+        exact=11,
+        before=1,
         after=0,
     )
 
