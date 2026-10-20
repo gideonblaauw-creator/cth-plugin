@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REIN Hubs × Academic City — Diversifying West Africa's Climate-Entrepreneurship Capital Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#335d4f;--orange:#ff6633;--gray:#666666;--white:#ffffff;--pale:#eef4f1;--bg:#f5f5f2}
+body{font-family:'Lora',serif;background:var(--bg);color:var(--gray);line-height:1.65}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:var(--green);display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:10px 16px;white-space:nowrap;transition:color .2s,background .2s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.1);text-decoration:none}
+
+/* ── HERO ── */
+.hero{background:var(--green);padding:3rem 2.5rem 2.5rem;color:#fff}
+.hero-eyebrow{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.75rem}
+.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem;color:#fff}
+.hero-sub{font-family:'Lora',serif;font-size:1.05rem;color:rgba(255,255,255,.85);max-width:680px;margin-bottom:1.75rem;font-style:italic}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem}
+.hero-meta-block{font-family:'Poppins',sans-serif;font-size:12px}
+.hero-meta-label{font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.hero-meta-value{color:rgba(255,255,255,.85);line-height:1.5}
+
+/* ── LAYOUT ── */
+.content{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
+.section{padding:3rem 0 2rem;border-top:1px solid #e0ece6}
+.section:first-child{border-top:none}
+.section-eyebrow{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+.section h2{font-family:'Poppins',sans-serif;font-size:clamp(1.2rem,3vw,1.65rem);font-weight:700;color:var(--green);margin-bottom:1.25rem;line-height:1.25}
+.section h3{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:var(--green);margin:1.5rem 0 .6rem}
+p{margin-bottom:1rem}
+
+/* ── DISCLAIMER ── */
+.disclaimer{background:#fff8f5;border-left:4px solid var(--orange);padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin-bottom:1.5rem;font-size:.9rem;font-style:italic;color:#7a5a40}
+
+/* ── PVBLIC INTEGRATION SECTION ── */
+.pvblic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.pvblic-card{background:var(--pale);border-radius:10px;padding:1.25rem;border-top:3px solid var(--green)}
+.pvblic-card-icon{font-size:1.4rem;margin-bottom:.5rem}
+.pvblic-card-name{font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem}
+.pvblic-card-title{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.pvblic-card-desc{font-size:.88rem;color:var(--gray);line-height:1.5}
+.pvblic-rein-bridge{background:var(--green);color:#fff;border-radius:10px;padding:1.25rem 1.5rem;margin-top:1.25rem;display:flex;align-items:flex-start;gap:1rem}
+.pvblic-rein-bridge-icon{font-size:1.5rem;flex-shrink:0}
+.pvblic-rein-bridge p{color:rgba(255,255,255,.9);font-size:.9rem;margin:0}
+.pvblic-rein-bridge strong{color:#fff}
+
+/* ── REIN PILLARS ── */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e0ece6;border-radius:10px;overflow:hidden;margin:1.25rem 0}
+@media(max-width:600px){.pillars{grid-template-columns:repeat(2,1fr)}}
+.pillar{background:#fff;padding:1.1rem 1rem;text-align:center}
+.pillar-letter{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--green);line-height:1}
+.pillar-word{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin:.25rem 0}
+.pillar-desc{font-size:.8rem;color:var(--gray)}
+
+/* ── STAT BOXES ── */
+.kv-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:.92rem}
+.kv-table tr:nth-child(odd) td{background:var(--pale)}
+.kv-table td{padding:.6rem .9rem;vertical-align:top;border-bottom:1px solid #e0ece6}
+.kv-table td:first-child{font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;color:var(--green);width:32%;white-space:nowrap}
+
+/* ── HUB MAP ── */
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1.25rem 0}
+.hub-chip{background:var(--pale);border-radius:8px;padding:.75rem 1rem;font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:600;color:var(--green);border-left:3px solid var(--green)}
+.hub-chip.proposed{border-left-color:var(--orange);background:#fff3ef}
+.hub-chip span{display:block;font-size:.75rem;font-weight:400;color:var(--gray);margin-top:2px}
+
+/* ── SUPPORT CARDS ── */
+.support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.25rem 0}
+.support-card{background:var(--pale);border-radius:10px;padding:1.25rem}
+.support-card-num{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:700;color:var(--orange);margin-bottom:.35rem}
+.support-card h4{font-family:'Poppins',sans-serif;font-size:.85rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.support-card p{font-size:.88rem;color:var(--gray);margin:0}
+
+/* ── BUDGET TABLE ── */
+.budget-box{background:var(--pale);border-radius:12px;padding:1.5rem;margin:1.25rem 0}
+.budget-box h3{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:var(--green);margin-bottom:1rem}
+.budget-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.budget-table th{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);padding:.5rem .75rem;text-align:left;border-bottom:2px solid var(--green)}
+.budget-table td{padding:.55rem .75rem;vertical-align:top;border-bottom:1px solid #d5e8df}
+.budget-table tr.total{background:var(--green);color:#fff}
+.budget-table tr.total td{font-family:'Poppins',sans-serif;font-weight:700;color:#fff;border-bottom:none}
+.budget-note{font-size:.85rem;color:var(--gray);margin-top:.75rem;font-style:italic}
+
+/* ── STAGES ── */
+.stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin:1.25rem 0}
+.stage-card{background:#fff;border:1px solid #d5e8df;border-radius:10px;padding:1.1rem;position:relative;overflow:hidden}
+.stage-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
+.stage-num{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;color:var(--orange);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+.stage-card h4{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:.25rem}
+.stage-duration{font-size:.8rem;color:var(--orange);font-style:italic;margin-bottom:.5rem}
+.stage-card p{font-size:.87rem;color:var(--gray);margin:0}
+
+/* ── TIMELINE ── */
+.timeline{margin:1.25rem 0}
+.tl-item{display:flex;gap:1.25rem;margin-bottom:1.1rem;align-items:flex-start}
+.tl-dot{width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-family:'Poppins',sans-serif;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;text-align:center;line-height:1.2}
+.tl-body{}
+.tl-date{font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:700;color:var(--orange)}
+.tl-body p{font-size:.9rem;margin:.2rem 0 0;color:var(--gray)}
+
+/* ── STAT ROW ── */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;margin:1.25rem 0}
+.stat-box{background:var(--pale);border-radius:10px;padding:1.1rem;text-align:center}
+.stat-box .num{font-family:'Poppins',sans-serif;font-size:1.7rem;font-weight:700;color:var(--green)}
+.stat-box .label{font-size:.82rem;color:var(--gray);margin-top:4px}
+
+/* ── ACU SECTION ── */
+.acu-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.25rem}
+.badge{background:var(--pale);border-radius:20px;padding:.3rem .85rem;font-family:'Poppins',sans-serif;font-size:.78rem;font-weight:600;color:var(--green)}
+.badge.orange{background:#fff3ef;color:var(--orange)}
+
+.labs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.25rem 0}
+.lab-card{background:#fff;border:1px solid #d5e8df;border-radius:10px;padding:1.1rem}
+.lab-tag{font-family:'Poppins',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem}
+.lab-card h4{font-family:'Poppins',sans-serif;font-size:.9rem;font-weight:700;color:var(--green);margin-bottom:.4rem}
+.lab-card p{font-size:.85rem;color:var(--gray);margin:0}
+
+/* ── FIT / BULLETS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.25rem 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.fit-col h4{font-family:'Poppins',sans-serif;font-size:.9rem;font-weight:700;color:var(--green);margin-bottom:.75rem;padding-bottom:.4rem;border-bottom:2px solid var(--green)}
+.fit-col ul{list-style:none;padding:0}
+.fit-col ul li{font-size:.88rem;color:var(--gray);padding:.4rem 0;border-bottom:1px solid #e8f2ec;display:flex;gap:.6rem;line-height:1.5}
+.fit-col ul li::before{content:'✦';color:var(--orange);font-size:.6rem;flex-shrink:0;margin-top:.3rem}
+
+/* ── QUOTE ── */
+.blockquote{background:var(--green);color:#fff;border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0}
+.blockquote p{font-style:italic;font-size:1rem;color:rgba(255,255,255,.9);margin-bottom:.5rem}
+.blockquote cite{font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:600;color:var(--orange)}
+
+/* ── NEXT STEPS TABLE ── */
+.steps-table{width:100%;border-collapse:collapse;font-size:.9rem;margin:1.25rem 0}
+.steps-table th{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);padding:.5rem .75rem;text-align:left;border-bottom:2px solid var(--green)}
+.steps-table td{padding:.6rem .75rem;border-bottom:1px solid #e0ece6;vertical-align:top}
+.steps-table tr:nth-child(odd) td{background:var(--pale)}
+.step-num{font-family:'Poppins',sans-serif;font-weight:700;color:var(--orange);font-size:.85rem}
+
+/* ── CONTACT CARDS ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin:1.25rem 0}
+.contact-card{background:var(--pale);border-radius:10px;padding:1.1rem;display:flex;gap:.85rem;align-items:flex-start}
+.contact-avatar{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-avatar.orange{background:var(--orange)}
+.contact-card h4{font-family:'Poppins',sans-serif;font-size:.9rem;font-weight:700;color:var(--green);margin-bottom:2px}
+.contact-card .role{font-size:.8rem;color:var(--orange);font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:3px}
+.contact-card .email{font-size:.82rem;color:var(--gray)}
+
+/* ── FOOTER ── */
+.footer{background:var(--green);color:#fff;padding:2rem 2.5rem;display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between}
+.footer-brand{font-family:'Poppins',sans-serif}
+.footer-brand .name{font-size:1.1rem;font-weight:700;color:#fff}
+.footer-brand .tagline{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:2px}
+.footer-links{font-size:.85rem}
+.footer-links h5{font-family:'Poppins',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:.5rem}
+.footer-links a{display:block;color:rgba(255,255,255,.8);margin-bottom:.3rem}
+.footer-links a:hover{color:#fff}
+.footer-bottom{background:#1e3d33;color:rgba(255,255,255,.5);text-align:center;font-size:.78rem;padding:.75rem}
+
+.highlight{color:var(--orange);font-weight:600}
+.green-highlight{color:var(--green);font-weight:600}
+.callout{background:var(--pale);border-left:3px solid var(--green);padding:.9rem 1.1rem;border-radius:0 8px 8px 0;margin:1.25rem 0;font-size:.9rem}
+.callout strong{color:var(--green)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#overview">Overview</a>
+  <a href="#pvblic">Pvblic Ecosystem</a>
+  <a href="#network">Network</a>
+  <a href="#support">Support</a>
+  <a href="#programs">Programs</a>
+  <a href="#impact">Impact</a>
+  <a href="#acu">Academic City</a>
+  <a href="#fit">Strategic Fit</a>
+  <a href="#next">Next Steps</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Partnership Proposal · April 2026</div>
+  <h1>REIN Hubs × Academic City<br>Diversifying West Africa's Climate-Entrepreneurship Capital Base</h1>
+  <p class="hero-sub">A Europe–LatAm–West Africa partnership to extend Academic City's federally anchored CCE Hub Ghana — adding a non-US capital channel toward the ACU Foundation's $10M three-year goal and unveiling at the CEEA 2026 Summit in Accra.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">Prepared for</div>
+      <div class="hero-meta-value">Prof. Fred McBagonluri · Academic City University</div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">With</div>
+      <div class="hero-meta-value">Makafui Awuku (TEC) · Deepak Ahuja (Foundation) · Ursula Dussi (CEEA Summit)</div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">From</div>
+      <div class="hero-meta-value">PVBLIC Foundation · CleantechHUB</div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">Contact</div>
+      <div class="hero-meta-value">laurence@pvblic.org</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<div id="overview" class="section">
+  <div class="section-eyebrow">Overview</div>
+  <h2>What is REIN Hubs?</h2>
+  <p>REIN Hubs (<strong>Resilience · Entrepreneurship · Innovation · Nature</strong>) is a pioneering public–private partnership that builds climate and supply-chain ventures — pairing local execution with regional leverage.</p>
+  <p>Through activation, incubation, acceleration, and growth programs, REIN Hubs backs early-stage climate and cleantech founders with capital, mentorship, and corporate access — operating physical hubs where entrepreneurs, researchers, and industry converge to build environment-positive, trade-ready companies.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="pillar-letter">R</div><div class="pillar-word">Resilience</div><div class="pillar-desc">Climate-ready ventures and supply chains</div></div>
+    <div class="pillar"><div class="pillar-letter">E</div><div class="pillar-word">Entrepreneurship</div><div class="pillar-desc">Empowering founders to lead change</div></div>
+    <div class="pillar"><div class="pillar-letter">I</div><div class="pillar-word">Innovation</div><div class="pillar-desc">Local solutions, global technology</div></div>
+    <div class="pillar"><div class="pillar-letter">N</div><div class="pillar-word">Nature</div><div class="pillar-desc">Restoring the systems we depend on</div></div>
+  </div>
+  <table class="kv-table">
+    <tr><td>Founded by</td><td>PVBLIC Foundation & CleantechHUB</td></tr>
+    <tr><td>Key Partners</td><td>UN Joint SDG Fund · European corporate network · CCE-aligned alumni · Angel networks · FOSD</td></tr>
+    <tr><td>Active hubs</td><td>5 countries across Latin America · Accra proposed as West African node</td></tr>
+    <tr><td>Program stages</td><td>4 — Ideation → Incubation → Acceleration → Growth</td></tr>
+    <tr><td>Focus</td><td>Climate, cleantech & resilient supply-chain entrepreneurship</td></tr>
+    <tr><td>Model</td><td>Public–private partnership with local university / corporate hosts</td></tr>
+  </table>
+</div>
+
+<!-- PVBLIC ECOSYSTEM INTEGRATION — NEW SECTION -->
+<div id="pvblic" class="section">
+  <div class="section-eyebrow">Program Architecture</div>
+  <h2>REIN Hubs Within the Pvblic Foundation Ecosystem</h2>
+  <p>REIN Hubs does not operate in isolation — it is fully integrated into the broader Pvblic Foundation program architecture. Each program brings a distinct capability; together they form a complete pipeline from capital mobilisation to community impact to AI-enabled governance.</p>
+
+  <div class="pvblic-grid">
+    <div class="pvblic-card">
+      <div class="pvblic-card-icon">🏛️</div>
+      <div class="pvblic-card-name">FOSD</div>
+      <div class="pvblic-card-title">Family Offices for Sustainable Development</div>
+      <div class="pvblic-card-desc">The capital mobilisation engine. FOSD educates global family offices on multilateral systems, then activates long-term private capital into sovereign and development programs. Operating on an <em>Educate → Engage → Activate</em> thesis, FOSD is a trusted interface for structured capital deployment aligned with national resilience priorities. REIN Hubs draws directly on the FOSD network for non-US investment into hub operations and SAFE investments for startups.</div>
+    </div>
+    <div class="pvblic-card">
+      <div class="pvblic-card-icon">🌍</div>
+      <div class="pvblic-card-name">GHF</div>
+      <div class="pvblic-card-title">Global Health Fund / Humanitarian Framework</div>
+      <div class="pvblic-card-desc">Pvblic's humanitarian and health-focused initiative, channelling resources into community resilience and health infrastructure across emerging markets. Shares beneficiary populations with REIN Hubs and unlocks health-tech venture opportunities within REIN cohorts — particularly relevant in West Africa where environmental and public health challenges converge.</div>
+    </div>
+    <div class="pvblic-card">
+      <div class="pvblic-card-icon">🤖</div>
+      <div class="pvblic-card-name">ALI</div>
+      <div class="pvblic-card-title">AI Leapfrog Initiative & Logic Centers</div>
+      <div class="pvblic-card-desc">ALI equips governments and communities to leapfrog into the AI era through sovereign, ethics-first Logic Centers. Integrated into Pvblic's diplomatic initiatives and the FOSD network, ALI provides AI infrastructure and workforce pipelines that REIN Hub cohorts and Academic City's AI/Robotics programs can directly access. ALI is seeking $10M catalytic capital for its first cohort of Logic Centers — an investment aligned with the CCE Hub Ghana mission.</div>
+    </div>
+    <div class="pvblic-card">
+      <div class="pvblic-card-icon">📡</div>
+      <div class="pvblic-card-name">Pvblic One</div>
+      <div class="pvblic-card-title">Media for Social Impact</div>
+      <div class="pvblic-card-desc">Pvblic's original platform — using media, storytelling, and communications for social impact at global convening moments (UNGA, COP, Climate Week NYC). Pvblic One amplifies REIN Hub stories, ACU venture achievements, and the CEEA 2026 partnership announcement to international audiences, converting local impact into global visibility and investor attention.</div>
+    </div>
+  </div>
+
+  <div class="pvblic-rein-bridge">
+    <div class="pvblic-rein-bridge-icon">🔗</div>
+    <p><strong>REIN Hubs as the Execution Arm:</strong> Within this architecture, REIN Hubs is the on-the-ground program delivery vehicle — translating capital from FOSD family offices, AI infrastructure from ALI, humanitarian partnerships from GHF, and communications amplification from Pvblic One into cohorts of climate-tech startups operating across Latin America and, with Academic City, West Africa. When FOSD activates a family office into a sustainable development program, REIN provides the deployment-ready entrepreneurship ecosystem on the ground.</p>
+  </div>
+</div>
+
+<!-- NETWORK -->
+<div id="network" class="section">
+  <div class="section-eyebrow">Network</div>
+  <h2>Five Active Hubs — With Accra Proposed as the West African Node</h2>
+  <p>Five active REIN Hubs across Latin America, with Academic City University (Accra) proposed as the first West African node — a Europe ↔ LatAm ↔ West Africa triangle, complementing ACU's existing US State Department CCE Hub.</p>
+  <div class="hub-grid">
+    <div class="hub-chip">🇨🇴 Colombia<span>Universidad Externado · Bogotá · Active</span></div>
+    <div class="hub-chip">🇵🇪 Perú<span>Ecosystem partners · Lima · Active</span></div>
+    <div class="hub-chip">🇬🇹 Guatemala<span>Ecosystem partners · Active</span></div>
+    <div class="hub-chip">🇨🇷 Costa Rica<span>Ecosystem partners · Active</span></div>
+    <div class="hub-chip">🇸🇻 El Salvador<span>Ecosystem partners · Active</span></div>
+    <div class="hub-chip proposed">🇬🇭 Ghana<span>Academic City · Accra · Proposed West African node</span></div>
+  </div>
+  <div class="callout"><strong>Cross-continent corridor:</strong> Academic City as the West African node closes the CCE loop — turning REIN Hubs into a true Europe–LatAm–Africa corridor without replacing US State Department anchorage.</div>
+</div>
+
+<!-- SUPPORT -->
+<div id="support" class="section">
+  <div class="section-eyebrow">Support System</div>
+  <h2>A Multi-Layered Support System</h2>
+  <p>REIN Hubs connects local founders to a global ecosystem — from a neighbourhood workshop to a corporate offtake contract.</p>
+  <div class="support-grid">
+    <div class="support-card"><div class="support-card-num">🚀</div><h4>At the Core — Founders</h4><p>Early-stage climate, cleantech, circular-economy and resilient-supply ventures — with a deliberate focus on women and under-represented founders in emerging markets.</p></div>
+    <div class="support-card"><div class="support-card-num">🤝</div><h4>Direct Support</h4><p>Mentor matching, bootcamps, workshops, pitch coaching and workbooks delivered through the Kintec Academy digital platform.</p></div>
+    <div class="support-card"><div class="support-card-num">🌐</div><h4>Network Access</h4><p>University partners, European corporates, multilateral agencies, sponsor networks, FOSD family office network, UN SDG Joint Fund.</p></div>
+    <div class="support-card"><div class="support-card-num">🌍</div><h4>ClimateLaunchpad</h4><p>Direct entry to the world's largest green business idea competition, with finals in Singapore each October — a continental scale-up route.</p></div>
+    <div class="support-card"><div class="support-card-num">📺</div><h4>REIN Live & Global Events</h4><p>REIN Live webinar series spotlighting hub achievements, with presence at COP, Climate Week NYC, UNGA, and the CEEA Accra summit.</p></div>
+    <div class="support-card"><div class="support-card-num">💰</div><h4>Non-US Investor Network</h4><p>European impact investors, EU corporate offtake, philanthropic grants, SAFE investments — intentional diversification away from US federal anchor funding.</p></div>
+  </div>
+
+  <h3>What Each Hub Receives — Six Operational Pillars</h3>
+  <div class="support-grid">
+    <div class="support-card"><div class="support-card-num">1</div><h4>Program Design & Delivery</h4><p>Complete curriculum across the 4-stage pipeline. Bootcamps, mentorship frameworks, pitch coaching, workbooks, and evaluation rubrics — all provided.</p></div>
+    <div class="support-card"><div class="support-card-num">2</div><h4>Brand & Communications</h4><p>Full REIN brand kit — logos, templates, social-media assets, presentation decks. Professional visual identity including a dedicated "REIN Ghana" country logo option.</p></div>
+    <div class="support-card"><div class="support-card-num">3</div><h4>Technology Infrastructure</h4><p>Kintec Academy platform for online learning, evidence tracking and certification. BookStack wiki for knowledge management.</p></div>
+    <div class="support-card"><div class="support-card-num">4</div><h4>Mentor Network</h4><p>Curated mentor pool with mentor–mentee matching. Weekly mentorship cadence. International and local mentor access through the REIN network.</p></div>
+    <div class="support-card"><div class="support-card-num">5</div><h4>Global Competition Pathway</h4><p>Direct entry to ClimateLaunchpad — Nationals → Regional → Global Final in Singapore, October 2026.</p></div>
+    <div class="support-card"><div class="support-card-num">6</div><h4>Visibility & Events</h4><p>REIN Live webinar series. Presence at COP, Climate Week NYC, UNGA, CEEA Accra. Annual impact reporting and communications support.</p></div>
+  </div>
+
+  <!-- UPDATED BUDGET -->
+  <div class="budget-box">
+    <h3>Annual Estimated Budget — REIN Ghana Hub</h3>
+    <table class="budget-table">
+      <thead><tr><th>Component</th><th>Annual Budget (USD)</th><th>What It Covers</th></tr></thead>
+      <tbody>
+        <tr><td>Ideation Programs</td><td>$15,000</td><td>Early-stage idea workshops, bootcamps</td></tr>
+        <tr><td>Incubation Programs</td><td>$30,000</td><td>10-week incubation, mentorship, curriculum</td></tr>
+        <tr><td>Acceleration</td><td>$18,000</td><td>Business-model refinement, investor prep</td></tr>
+        <tr><td>Growth Services</td><td>$12,000</td><td>Post-acceleration scaling support</td></tr>
+        <tr><td>Comms & Hub Maintenance</td><td>$8,000</td><td>Branding, events, platform upkeep</td></tr>
+        <tr><td>Operations & Integration</td><td>$20,000</td><td>Multi-stakeholder integration, local operations, program coordination</td></tr>
+        <tr class="total"><td>Total per Hub / year</td><td>$103,000</td><td>Full annual program delivery — Ghana Hub</td></tr>
+      </tbody>
+    </table>
+    <p class="budget-note">Funder mix: UN SDG Joint Fund · Angel networks · FOSD family office network · European corporate partners · Corporate offtake. An Academic City partnership adds a non-US capital channel matching toward the ACU Foundation's <strong>$10M / 3-year</strong> goal, mirroring the CCE $2-private : $1-federal leverage ratio.</p>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<div id="programs" class="section">
+  <div class="section-eyebrow">Programs</div>
+  <h2>Four Stages from Idea to Scale</h2>
+  <div class="stages">
+    <div class="stage-card"><div class="stage-num">Stage 1</div><h4>Activation</h4><div class="stage-duration">2–3 weeks · Ideation</div><p>Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p></div>
+    <div class="stage-card"><div class="stage-num">Stage 2</div><h4>Incubation</h4><div class="stage-duration">10 weeks · Building</div><p>Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p></div>
+    <div class="stage-card"><div class="stage-num">Stage 3</div><h4>Acceleration</h4><div class="stage-duration">8–12 weeks · Scaling</div><p>Business-model refinement, investor connections, financial modeling, growth strategy.</p></div>
+    <div class="stage-card"><div class="stage-num">Stage 4</div><h4>Cross-Continent Growth</h4><div class="stage-duration">Ongoing · Offtake + Capital</div><p>Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p></div>
+  </div>
+  <div class="callout"><strong>ClimateLaunchpad pathway:</strong> National Finals (Aug) → Regional Final (Sep) → Global Final, Singapore (Oct 23, 2026).</div>
+
+  <h3>2026 Key Milestones</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot">Now–May</div><div class="tl-body"><div class="tl-date">Now – May 15 · Applications Open</div><p>Convocatoria across all LatAm hubs. Target: 15 applicants per hub → ~10 selected.</p></div></div>
+    <div class="tl-item"><div class="tl-dot">May</div><div class="tl-body"><div class="tl-date">May 20–23 · CEEA 2026 Summit · Accra</div><p><strong>Proposed partnership unveil</strong> at Academic City's "Engineering Education for a Sustainable Future" summit.</p></div></div>
+    <div class="tl-item"><div class="tl-dot">Jun</div><div class="tl-body"><div class="tl-date">May–June · Bootcamps Launch</div><p>Colombia (May 27), Central America (1st week June), Perú (2nd week June).</p></div></div>
+    <div class="tl-item"><div class="tl-dot">Jul</div><div class="tl-body"><div class="tl-date">Jun–Jul · Mentoring Period</div><p>Weekly mentor–mentee sessions, workbook completion, pitch prep.</p></div></div>
+    <div class="tl-item"><div class="tl-dot">Aug</div><div class="tl-body"><div class="tl-date">3rd Week August · National Finals</div><p>Each hub selects top performers for the regional final.</p></div></div>
+    <div class="tl-item"><div class="tl-dot">Sep</div><div class="tl-body"><div class="tl-date">Sep 1–4 · Regional Final</div><p>Best startups compete at regional level.</p></div></div>
+    <div class="tl-item"><div class="tl-dot">Oct</div><div class="tl-body"><div class="tl-date">Oct 23 · Global Final · Singapore</div><p>ClimateLaunchpad world championship.</p></div></div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div id="impact" class="section">
+  <div class="section-eyebrow">Impact</div>
+  <h2>Proven Track Record</h2>
+  <div class="stat-row">
+    <div class="stat-box"><div class="num">200+</div><div class="label">Entrepreneurs Supported</div></div>
+    <div class="stat-box"><div class="num">5</div><div class="label">Active Hubs</div></div>
+    <div class="stat-box"><div class="num">4</div><div class="label">Program Stages</div></div>
+    <div class="stat-box"><div class="num">20+</div><div class="label">Institutional Partners</div></div>
+    <div class="stat-box"><div class="num">2+</div><div class="label">Partner Universities</div></div>
+    <div class="stat-box"><div class="num">🌍</div><div class="label">ClimateLaunchpad Global Pathway</div></div>
+  </div>
+  <p>Through REIN Hubs, we empower entrepreneurs across emerging markets to develop solutions that combat environmental challenges and generate economic impact in their communities.</p>
+</div>
+
+<!-- ACADEMIC CITY -->
+<div id="acu" class="section">
+  <div class="section-eyebrow">Our Proposed Partner</div>
+  <h2>Academic City University — Africa's STEAM Flagship in Accra</h2>
+
+  <div class="disclaimer">
+    <strong>Note:</strong> Much of the following information about Academic City University has been compiled from publicly available sources and has not been independently verified for accuracy. We encourage ACU to correct or expand any details before this proposal is shared externally.
+  </div>
+
+  <p>Academic City University (ACU) is a <strong>private STEAM-focused university in Accra, Ghana</strong>, founded in 2017 and awarded a <strong>Presidential Charter on 19 December 2024</strong> — making it an independent degree-awarding institution. Ranked <strong>#2 in Ghana and #15 in Sub-Saharan Africa</strong> by <em>Times Higher Education</em>. ACU hosts <strong>Africa's first Sustainability Laboratory</strong> (the CCE Hub Ghana) plus the <strong>Arm Ecosystem Lab</strong>, both inaugurated 9 February 2023 in partnership with the US Department of State and Arm Ltd.</p>
+
+  <div class="acu-badges">
+    <span class="badge orange">Presidential Charter · 19 Dec 2024</span>
+    <span class="badge">Founded 2017</span>
+    <span class="badge">#2 Ghana · #15 Sub-Saharan Africa (THE)</span>
+    <span class="badge">25+ Nationalities</span>
+    <span class="badge orange">98% Graduate Placement</span>
+    <span class="badge">$2M+ Scholarships</span>
+    <span class="badge orange">Africa's 1st AI + Robotics degrees</span>
+  </div>
+
+  <h3>Organisation Profile</h3>
+  <table class="kv-table">
+    <tr><td>Founded</td><td>~2017 (Presidential Charter granted 19 Dec 2024)</td></tr>
+    <tr><td>Campus</td><td>Property # 279-302, Agbogba, Haatso, P.O. Box AD 421, Accra, Ghana</td></tr>
+    <tr><td>Leadership</td><td>Prof. Fred McBagonluri (President & Provost) · Dr. Sena Agbodjah (VP Academic Affairs) · Ing. Dr. Lucy Agyepong (VP Institutional Advancement)</td></tr>
+    <tr><td>Mission</td><td>Revolutionise higher education in Africa with a strong emphasis on STEAM + entrepreneurship</td></tr>
+    <tr><td>Foundation goal</td><td>$10M new funding over next 3 years · 30% scholarship target within 5 years</td></tr>
+    <tr><td>Recognition</td><td>Technovation "Tech-driven Education Institution of the Year 2025" · 2026 WorldStar Global Packaging Award · Best HR in Education 2025</td></tr>
+  </table>
+
+  <h3>Six ACU Labs & Initiatives — A Purpose-Built Climate-Tech Stack</h3>
+  <div class="labs-grid">
+    <div class="lab-card"><div class="lab-tag">Anchor · Federal-backed</div><h4>CCE Sustainability Lab</h4><p>Africa's first Sustainability Laboratory · inaugurated 9 Feb 2023 · US State Department CCE initiative · home of the Telesto Climate Tech Accelerator (17 entrepreneurs in the inaugural 2023 cohort).</p></div>
+    <div class="lab-card"><div class="lab-tag">Hardware</div><h4>Arm Ecosystem Lab</h4><p>Advanced robotics + digital fabrication; Arm-based hardware startups. Free tools + training for founders. Co-launched 9 Feb 2023 with Arm Ltd.</p></div>
+    <div class="lab-card"><div class="lab-tag">Prototyping</div><h4>MakeLab ACity Accra</h4><p>Open-access prototyping for youth entrepreneurship (with Embassy of Israel); SolidWorks training — only regional university offering it for EV + mechatronics.</p></div>
+    <div class="lab-card"><div class="lab-tag">Bioengineering</div><h4>Bioinnovation Center</h4><p>Affordable medical tech design in partnership with Northeastern University — cross-continental student–faculty research.</p></div>
+    <div class="lab-card"><div class="lab-tag">Umbrella</div><h4>Technology & Entrepreneurship Center (TEC)</h4><p>Runs the CCE Climate Tech Accelerator. Q3 2025: 140 youth trained · 73 workshops · 48% female participation.</p></div>
+    <div class="lab-card"><div class="lab-tag">Circular economy</div><h4>Sustain City Project</h4><p>Plastic-waste management + community buy-back; 100 recycled desks from 1M water sachets. Waakye Packaging won the <strong>2026 WorldStar Global Packaging Award</strong>.</p></div>
+  </div>
+
+  <h3>Notable Alumni & Ventures</h3>
+  <table class="kv-table">
+    <tr><td>Goliath Robotics</td><td><strong>$80,000 Echoing Green grant</strong> · smart electronic wheelchair controllers</td></tr>
+    <tr><td>Waakye Packaging Project</td><td><strong>2026 WorldStar Global Packaging Award — Sustainable Packaging</strong></td></tr>
+    <tr><td>Farmio</td><td>Greenhouse farming solutions — US State Dept featured (Anaporka Adazabra)</td></tr>
+    <tr><td>Translight Solar / Transvolt Ghana</td><td>Solar + EV venture (Kobina Nyanteh)</td></tr>
+    <tr><td>Faith Sobe Cyril (Class of '24)</td><td>Software Engineer, <strong>Apple UK</strong></td></tr>
+  </table>
+
+  <div class="callout">In December 2024, H.E. Nana Addo Dankwa Akufo-Addo granted Academic City the <strong>Presidential Charter</strong> — institutional stability no other emerging African STEAM university has. That charter is the foundation for long-term non-US capital partnerships.</div>
+</div>
+
+<!-- STRATEGIC FIT -->
+<div id="fit" class="section">
+  <div class="section-eyebrow">Strategic Fit</div>
+  <h2>Diversifying the $10M Goal — Where ACU + REIN Compound</h2>
+  <p>The ACU Foundation's three-year $10M target is anchored in US State Department capital. REIN brings the European and LatAm channel that diversifies it — without displacing the CCE relationship. Each side brings the half the other is missing.</p>
+  <div class="two-col">
+    <div class="fit-col">
+      <h4>Academic City Contributes</h4>
+      <ul>
+        <li>Africa's first CCE Sustainability Lab — a federally anchored, ready-made West African node</li>
+        <li>Presidential Charter (19 Dec 2024) — independent degree authority + institutional stability</li>
+        <li>Arm Ecosystem Lab — only regional university with SolidWorks training for EV + mechatronics</li>
+        <li>First-in-Africa undergraduate AI + Robotics Engineering degrees</li>
+        <li>17-entrepreneur CCE cohort infrastructure — proven accelerator delivery with Telesto + ANDE</li>
+        <li>CEEA 2026 Summit (20–23 May, Accra) — largest West African engineering-education convening</li>
+        <li>25+ nationalities on campus — pan-African + international student mix</li>
+        <li>Alumni at Apple UK, Zipline, Turntabl, Worcester Polytechnic</li>
+        <li>Proven project IP — Sustain City, Goliath Robotics ($80K Echoing Green), Waakye (WorldStar 2026)</li>
+        <li>Ghana government alignment — Climate Envoy, VP, and Presidential endorsement</li>
+      </ul>
+    </div>
+    <div class="fit-col">
+      <h4>REIN Hubs + Pvblic Contribute</h4>
+      <ul>
+        <li><strong>Non-US capital channel</strong> — FOSD family office network + European corporates directly feeding the Foundation's $10M 3-year goal</li>
+        <li>LatAm founder pipeline from 5 active hubs into ACU's CCE Climate Tech Accelerator</li>
+        <li>European corporate access — leverages ACU's existing WU Vienna + Fontys ties</li>
+        <li>CleantechHUB accelerator programming — complements Telesto's 17-entrepreneur delivery</li>
+        <li>ClimateLaunchpad on-ramp — continental scale-up pathway for CCE Hub alumni</li>
+        <li>ALI Logic Center pathway — AI infrastructure aligned with ACU's AI/Robotics degrees</li>
+        <li>Cross-continent cohort exchange (Ghana ↔ LatAm), building on the ETHOS (Dayton) template</li>
+        <li>Global marketplace integration for Sustain City, Waakye, and other circular-economy ventures</li>
+        <li>Pvblic One media amplification — UNGA, COP, Climate Week NYC visibility</li>
+        <li>Mentorship at scale — 200+ students/educators/year connected to international industry leaders</li>
+      </ul>
+    </div>
+  </div>
+  <div class="blockquote">
+    <p>"We believe that the future is in our hands and that we must ensure its sustainability and equity."</p>
+    <cite>— Prof. Fred McBagonluri, President & Provost, Academic City University</cite>
+  </div>
+
+  <h3>Ghana, West Africa & the Climate-Innovation Tailwind</h3>
+  <table class="kv-table">
+    <tr><td>Ghana 2026 GDP growth</td><td><strong>4.8%</strong> (IMF projection) — recovery trajectory supports private cleantech capital deployment</td></tr>
+    <tr><td>Ghana inflation (Mar 2026)</td><td>3.2% — macro stability for multi-year capital commitments</td></tr>
+    <tr><td>Bank of Ghana Policy Rate (Mar 2026)</td><td>14.00% — domestic debt cost signals external capital premium valued</td></tr>
+    <tr><td>Africa workforce by 2030</td><td>Largest globally — demographic dividend accessible through ACU's AI + Robotics pipeline</td></tr>
+    <tr><td>Plastic waste signal</td><td>8Mt/year ending up in water bodies globally — driver for Sustain City + Waakye Packaging</td></tr>
+    <tr><td>CCE Hub global goal (by 2026)</td><td>700 market-ready climate ventures · 500 students — REIN can fill the cohort-volume gap</td></tr>
+    <tr><td>CEEA 2026 Summit</td><td>20–23 May 2026 · Academic City · Accra — natural launch window for a REIN × ACU announcement</td></tr>
+  </table>
+</div>
+
+<!-- NEXT STEPS -->
+<div id="next" class="section">
+  <div class="section-eyebrow">Next Steps</div>
+  <h2>Moving Forward Together</h2>
+
+  <table class="steps-table">
+    <thead><tr><th>#</th><th>Action</th><th>Who</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td><span class="step-num">1</span></td><td>Internal review of proposal</td><td>Laurence Kalinsky (PVBLIC) + Gideon Blaauw (CleantechHUB)</td><td>Apr 2026</td></tr>
+      <tr><td><span class="step-num">2</span></td><td>Send proposal to ACU leadership</td><td>Laurence / Gideon → Prof. McBagonluri (CC Awuku, Ahuja, Dussi)</td><td>Late Apr 2026</td></tr>
+      <tr><td><span class="step-num">3</span></td><td>Alignment call</td><td>Laurence + Gideon + McBagonluri + Awuku + Ahuja</td><td>Within 2 weeks</td></tr>
+      <tr><td><span class="step-num">4</span></td><td>Partnership unveil</td><td>Joint announcement at CEEA 2026 Summit · Accra</td><td>May 20–23, 2026</td></tr>
+      <tr><td><span class="step-num">5</span></td><td>Draft MoU + capital-match SOW</td><td>PVBLIC Foundation legal · ACU Foundation</td><td>Q2 2026</td></tr>
+      <tr><td><span class="step-num">6</span></td><td>Cohort scoping + first capital tranche</td><td>Full team</td><td>Q3 2026</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Contact the Team</h3>
+  <p style="font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:700;color:var(--green);margin:.75rem 0 .5rem">REIN Hubs · PVBLIC Foundation & CleantechHUB</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-avatar orange">LK</div>
+      <div><h4>Laurence Kalinsky</h4><div class="role">PVBLIC Foundation — REIN Hubs Lead</div><div class="email">laurence@pvblic.org</div></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-avatar">GB</div>
+      <div><h4>Gideon Blaauw</h4><div class="role">CleantechHUB — Program Lead</div><div class="email">gideon.blaauw@cleantechhub.net</div></div>
+    </div>
+  </div>
+
+  <p style="font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:700;color:var(--green);margin:1.25rem 0 .5rem">Academic City University Team</p>
+  <div class="contact-grid">
+    <div class="contact-card"><div class="contact-avatar">FM</div><div><h4>Prof. Fred McBagonluri</h4><div class="role">President & Provost</div><div class="email">info@acity.edu.gh</div></div></div>
+    <div class="contact-card"><div class="contact-avatar">MA</div><div><h4>Makafui Awuku</h4><div class="role">Manager — TEC</div><div class="email">tec@acity.edu.gh</div></div></div>
+    <div class="contact-card"><div class="contact-avatar">UD</div><div><h4>Ursula Dussi</h4><div class="role">CEEA 2026 Summit Lead</div><div class="email">ursula.dussi@acity.edu.gh</div></div></div>
+    <div class="contact-card"><div class="contact-avatar">DA</div><div><h4>Deepak Ahuja</h4><div class="role">Chair, ACU Foundation</div><div class="email">admin@acityfoundation.org</div></div></div>
+  </div>
+
+  <div class="callout" style="margin-top:2rem"><strong>Together,</strong> we can make the REIN × Academic City Accra Hub the first non-US capital channel for Africa's federally anchored CCE ecosystem — and the anchor partnership toward the Foundation's $10M three-year goal.</div>
+</div>
+
+</div><!-- /content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer">
+    <div class="footer-brand">
+      <div class="name">REIN Hubs</div>
+      <div class="tagline">Resilience · Entrepreneurship · Innovation · Nature</div>
+      <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-top:.5rem;max-width:280px">A pioneering public–private partnership for environment-focused entrepreneurship across LatAm, Europe, and West Africa.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Explore</h5>
+      <a href="https://www.pvblic.org/rein-hubs" target="_blank">www.pvblic.org/rein-hubs</a>
+      <a href="https://acity.edu.gh/" target="_blank">Academic City University</a>
+      <a href="https://tec.acity.edu.gh/" target="_blank">TEC Academic City</a>
+      <a href="https://acityfoundation.org/" target="_blank">ACU Foundation</a>
+    </div>
+    <div class="footer-links">
+      <h5>Partners</h5>
+      <a href="https://www.pvblic.org" target="_blank">PVBLIC Foundation</a>
+      <a href="https://cleantechhub.net" target="_blank">CleantechHUB</a>
+      <a href="https://www.pvblic.org/what-we-do/family-offices" target="_blank">FOSD Network</a>
+      <a>UN Joint SDG Fund</a>
+      <a>Arm Ltd · Telesto Strategy · ANDE</a>
+    </div>
+  </div>
+  <div class="footer-bottom">REIN Hubs × Academic City · Partnership Proposal · April 2026</div>
+</footer>
+
+</body>
+</html>
