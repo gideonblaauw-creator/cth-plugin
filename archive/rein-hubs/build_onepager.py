@@ -389,126 +389,109 @@ def build():
         "and local sponsors come in.",
     )
 
-    heading(doc, "3. To agree with Laurence before Pav", before=6, after=1)
-    agree = [
-        (
-            "a. ",
-            "Year 1 cost split across PVBLIC, ACity, and FOSD. Unconfirmed.",
-            False,
-        ),
-        (
-            "b. ",
-            "Can Pav put a value on the in-kind contribution? ",
-            True,
-        ),
-        (
-            "c. ",
-            "What reduces in Years 2 and 3? The breakdown is not yet set. ",
-            True,
-        ),
-    ]
-    for label, text, confirm in agree:
-        p = doc.add_paragraph()
-        tighten(p, 1, 0, 13)
-        r(p, label, "Arial", 10, True, GREEN)
-        r(p, text, "Georgia", 10, False, INK)
-        if confirm:
-            r(p, "TO CONFIRM", "Arial", 10, True, ORANGE)
-
     doc.add_page_break()
-    heading(doc, "4. Timeline", before=0, after=1)
+    heading(doc, "3. Timeline", before=0, after=1)
     body(
         doc,
-        "Stages run back to back: Ideation 4 weeks, Incubation 10 weeks, "
-        "Acceleration 12 weeks, Growth 12 weeks (38 weeks). "
-        "Only the Pav meeting date and the UNGA82 calendar are fixed below. "
-        "Every other date is TO CONFIRM.",
+        "Gideon has confirmed the Q1 2027 launch: January 2027 is the design month, "
+        "February 2027 is on-site training, and March 2027 is the start of Incubation. "
+        "Ideation (4 weeks) sits inside February with that training, so it still comes "
+        "before Incubation. That February placement is an assumption. "
+        "Acceleration (12 weeks) and Growth (12 weeks) follow in sequence.",
         size=9,
         exact=11,
         after=2,
     )
 
-    mile_w = [2.46, 2.47, 2.47]
-    miles = doc.add_table(rows=1, cols=3)
-    set_table_widths(miles, mile_w)
-    grid_borders(miles, color="335D4F", sz="4")
-    fill_runs(
-        miles.cell(0, 0),
-        [("21 Oct 2026\n", True, WHITE), ("Meeting with Pav", False, WHITE)],
-        size=8,
-        fill="335D4F",
-    )
-    fill_runs(
-        miles.cell(0, 1),
-        [
-            ("1 Dec 2026\n", True, WHITE),
-            ("Agreement and Year 1 funding\n", False, WHITE),
-            ("TO CONFIRM", True, WHITE),
-        ],
-        size=8,
-        fill="FF6633",
-    )
-    fill_runs(
-        miles.cell(0, 2),
-        [
-            ("Q1 2027\n", True, WHITE),
-            ("Year 1 launch\n", False, WHITE),
-            ("ASSUMPTION / TO CONFIRM", True, WHITE),
-        ],
-        size=8,
-        fill="FF6633",
-    )
-
-    # 4 + 10 + 12 + 12 = 38. Widths follow those week counts.
-    stage_bar_w = [7.4 * 4 / 38, 7.4 * 10 / 38, 7.4 * 12 / 38, 7.4 * 12 / 38]
-    bar = doc.add_table(rows=1, cols=4)
-    set_table_widths(bar, stage_bar_w)
-    grid_borders(bar, color="FFFFFF", sz="4")
-    stage_bits = [
-        ("Ideation\n4 weeks", "1B4332"),
-        ("Incubation\n10 weeks", "335D4F"),
-        ("Acceleration\n12 weeks", "3E6B58"),
-        ("Growth\n12 weeks", "FF6633"),
+    year_w = [1.48, 1.48, 1.48, 1.48, 1.48]
+    year1 = doc.add_table(rows=1, cols=5)
+    set_table_widths(year1, year_w)
+    grid_borders(year1, color="FFFFFF", sz="4")
+    year1_bits = [
+        (
+            [("Jan 2027\n", True, WHITE), ("Design month", False, WHITE)],
+            "1B4332",
+        ),
+        (
+            [
+                ("Feb 2027\n", True, WHITE),
+                ("On-site training\n", False, WHITE),
+                ("Ideation, 4 weeks\n", False, WHITE),
+                ("Assumption", True, WHITE),
+            ],
+            "335D4F",
+        ),
+        (
+            [
+                ("Mar 2027\n", True, WHITE),
+                ("Incubation starts\n", False, WHITE),
+                ("10 weeks", False, WHITE),
+            ],
+            "335D4F",
+        ),
+        (
+            [("Then\n", True, WHITE), ("Acceleration\n", False, WHITE), ("12 weeks", False, WHITE)],
+            "3E6B58",
+        ),
+        (
+            [("Then\n", True, WHITE), ("Growth\n", False, WHITE), ("12 weeks", False, WHITE)],
+            "FF6633",
+        ),
     ]
-    for i, (label, hexc) in enumerate(stage_bits):
-        fill_runs(
-            bar.cell(0, i),
-            [(label, True, WHITE)],
-            size=8,
-            fill=hexc,
-        )
+    for i, (parts, hexc) in enumerate(year1_bits):
+        fill_runs(year1.cell(0, i), parts, size=7.5, fill=hexc)
 
-    later = doc.add_table(rows=1, cols=3)
-    set_table_widths(later, mile_w)
+    later = doc.add_table(rows=1, cols=5)
+    set_table_widths(later, year_w)
     grid_borders(later, color="335D4F", sz="4")
     fill_runs(
         later.cell(0, 0),
-        [
-            ("Sept 2027\n", True, WHITE),
-            ("UNGA82 and Climate Week NYC\n", False, WHITE),
-            ("Team slots TO CONFIRM", True, WHITE),
-        ],
+        [("21 Oct 2026\n", True, WHITE), ("Meeting with Pav", False, WHITE)],
         size=7.5,
         fill="335D4F",
     )
     fill_runs(
         later.cell(0, 1),
         [
-            ("2028\n", True, WHITE),
-            ("Year 2, US$75,000\n", False, WHITE),
+            ("1 Dec 2026\n", True, WHITE),
+            ("Agreement and\n", False, WHITE),
+            ("Year 1 funding\n", False, WHITE),
             ("TO CONFIRM", True, WHITE),
         ],
-        size=8,
+        size=7,
         fill="FF6633",
     )
     fill_runs(
         later.cell(0, 2),
         [
-            ("2029\n", True, WHITE),
-            ("Year 3, US$50,000\n", False, WHITE),
+            ("Sept 2027\n", True, WHITE),
+            ("UNGA82 and\n", False, WHITE),
+            ("Climate Week NYC\n", False, WHITE),
+            ("Team slots TO CONFIRM", True, WHITE),
+        ],
+        size=7,
+        fill="335D4F",
+    )
+    fill_runs(
+        later.cell(0, 3),
+        [
+            ("2028\n", True, WHITE),
+            ("Year 2\n", False, WHITE),
+            ("US$75,000\n", False, WHITE),
             ("TO CONFIRM", True, WHITE),
         ],
-        size=8,
+        size=7.5,
+        fill="FF6633",
+    )
+    fill_runs(
+        later.cell(0, 4),
+        [
+            ("2029\n", True, WHITE),
+            ("Year 3\n", False, WHITE),
+            ("US$50,000\n", False, WHITE),
+            ("TO CONFIRM", True, WHITE),
+        ],
+        size=7.5,
         fill="FF6633",
     )
     body(
@@ -516,15 +499,14 @@ def build():
         "UNGA82 opens 7 September 2027. The general debate opens 21 September 2027 "
         "(UN schedule). Climate Week NYC is the same month. Exact Climate Week dates "
         "are TO CONFIRM. The REIN plan is an SDG Media Zone slot for 2 incubation "
-        "winners and 2 growth teams. That slot is TO CONFIRM. "
-        "Stage weeks are not pinned to calendar dates until the launch is agreed.",
+        "winners and 2 growth teams. That slot is TO CONFIRM.",
         size=8.5,
         exact=10.5,
         before=2,
         after=1,
     )
 
-    heading(doc, "5. Top 5 donors in Ghana", before=4, after=1)
+    heading(doc, "4. Top 5 donors in Ghana", before=4, after=1)
     body(
         doc,
         "Ranked for a university-hosted climate-startup hub that needs a multi-year "
