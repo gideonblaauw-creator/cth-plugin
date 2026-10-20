@@ -179,6 +179,28 @@ def fill_cell(cell, text, size=8, bold=False, color=INK, fill=None, font="Arial"
     set_cell_margins(cell)
 
 
+def fill_runs(cell, parts, size=7.5, fill=None, align="center"):
+    """parts: list of (text, bold, color). One paragraph, Arial."""
+    cell.text = ""
+    p = cell.paragraphs[0]
+    tighten(p, 0, 0, size + 1.5)
+    if align == "center":
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    elif align == "left":
+        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    for text, bold, color in parts:
+        lines = text.split("\n")
+        for n, line in enumerate(lines):
+            if line:
+                r(p, line, "Arial", size, bold, color)
+            if n < len(lines) - 1:
+                p.add_run().add_break()
+    if fill:
+        shade(cell, fill)
+    valign(cell, "center")
+    set_cell_margins(cell, top=26, bottom=26, left=40, right=40)
+
+
 def add_bar(cell, fraction, max_width_in):
     """Green bar on a pale track. Width follows the stated dollar amount."""
     cell.text = ""
@@ -392,6 +414,192 @@ def build():
         r(p, text, "Georgia", 10, False, INK)
         if confirm:
             r(p, "TO CONFIRM", "Arial", 10, True, ORANGE)
+
+    doc.add_page_break()
+    heading(doc, "4. Timeline", before=0, after=1)
+    body(
+        doc,
+        "Stages run back to back: Ideation 4 weeks, Incubation 10 weeks, "
+        "Acceleration 12 weeks, Growth 12 weeks (38 weeks). "
+        "Only the Pav meeting date and the UNGA82 calendar are fixed below. "
+        "Every other date is TO CONFIRM.",
+        size=9,
+        exact=11,
+        after=2,
+    )
+
+    mile_w = [2.46, 2.47, 2.47]
+    miles = doc.add_table(rows=1, cols=3)
+    set_table_widths(miles, mile_w)
+    grid_borders(miles, color="335D4F", sz="4")
+    fill_runs(
+        miles.cell(0, 0),
+        [("21 Oct 2026\n", True, WHITE), ("Meeting with Pav", False, WHITE)],
+        size=8,
+        fill="335D4F",
+    )
+    fill_runs(
+        miles.cell(0, 1),
+        [
+            ("1 Dec 2026\n", True, WHITE),
+            ("Agreement and Year 1 funding\n", False, WHITE),
+            ("TO CONFIRM", True, WHITE),
+        ],
+        size=8,
+        fill="FF6633",
+    )
+    fill_runs(
+        miles.cell(0, 2),
+        [
+            ("Q1 2027\n", True, WHITE),
+            ("Year 1 launch\n", False, WHITE),
+            ("ASSUMPTION / TO CONFIRM", True, WHITE),
+        ],
+        size=8,
+        fill="FF6633",
+    )
+
+    # 4 + 10 + 12 + 12 = 38. Widths follow those week counts.
+    stage_bar_w = [7.4 * 4 / 38, 7.4 * 10 / 38, 7.4 * 12 / 38, 7.4 * 12 / 38]
+    bar = doc.add_table(rows=1, cols=4)
+    set_table_widths(bar, stage_bar_w)
+    grid_borders(bar, color="FFFFFF", sz="4")
+    stage_bits = [
+        ("Ideation\n4 weeks", "1B4332"),
+        ("Incubation\n10 weeks", "335D4F"),
+        ("Acceleration\n12 weeks", "3E6B58"),
+        ("Growth\n12 weeks", "FF6633"),
+    ]
+    for i, (label, hexc) in enumerate(stage_bits):
+        fill_runs(
+            bar.cell(0, i),
+            [(label, True, WHITE)],
+            size=8,
+            fill=hexc,
+        )
+
+    later = doc.add_table(rows=1, cols=3)
+    set_table_widths(later, mile_w)
+    grid_borders(later, color="335D4F", sz="4")
+    fill_runs(
+        later.cell(0, 0),
+        [
+            ("Sept 2027\n", True, WHITE),
+            ("UNGA82 and Climate Week NYC\n", False, WHITE),
+            ("Team slots TO CONFIRM", True, WHITE),
+        ],
+        size=7.5,
+        fill="335D4F",
+    )
+    fill_runs(
+        later.cell(0, 1),
+        [
+            ("2028\n", True, WHITE),
+            ("Year 2, US$75,000\n", False, WHITE),
+            ("TO CONFIRM", True, WHITE),
+        ],
+        size=8,
+        fill="FF6633",
+    )
+    fill_runs(
+        later.cell(0, 2),
+        [
+            ("2029\n", True, WHITE),
+            ("Year 3, US$50,000\n", False, WHITE),
+            ("TO CONFIRM", True, WHITE),
+        ],
+        size=8,
+        fill="FF6633",
+    )
+    body(
+        doc,
+        "UNGA82 opens 7 September 2027. The general debate opens 21 September 2027 "
+        "(UN schedule). Climate Week NYC is the same month. Exact Climate Week dates "
+        "are TO CONFIRM. The REIN plan is an SDG Media Zone slot for 2 incubation "
+        "winners and 2 growth teams. That slot is TO CONFIRM. "
+        "Stage weeks are not pinned to calendar dates until the launch is agreed.",
+        size=8.5,
+        exact=10.5,
+        before=2,
+        after=1,
+    )
+
+    heading(doc, "5. Top 5 donors in Ghana", before=4, after=1)
+    body(
+        doc,
+        "Ranked for a university-hosted climate-startup hub that needs a multi-year "
+        "grant of US$500,000 to US$1 million. Ticket sizes are copied from the public "
+        "source. Anything not in that source is marked UNVERIFIED.",
+        size=8.5,
+        exact=10.5,
+        after=2,
+    )
+
+    donors = [
+        (
+            "1. GIZ / BMZ",
+            "PFS programme with GCIC at Ashesi University. Green incubation and acceleration.",
+            "About EUR 1.2 million for the 2024 partnership. Each business can get up to EUR 10,000. Not a US dollar figure.",
+            "Closest public match: a Ghana university climate incubator, at a size that covers this ask.",
+            "https://ghanacic.ashesi.edu.gh/giz-partners-with-ashesis-gcic-towards-green-entrepreneurship-development/",
+        ),
+        (
+            "2. Global Affairs Canada",
+            "Supporting the Green Economy of Ghana, through GCIC at Ashesi University.",
+            "Maximum contribution $10,000,000 on the Canada project browser (Canadian dollars), 23 Aug 2021 to 31 Mar 2026. Larger than this ask. A follow-on is UNVERIFIED.",
+            "Published multi-year grant to a Ghanaian university for climate entrepreneurship.",
+            "https://w05.international.gc.ca/projectbrowser-banqueprojets/project-projet/details/p008970001",
+        ),
+        (
+            "3. AfDB, YEI MDTF and FAPA",
+            "MicroGREEN. Green jobs for youth and women in Ghana and Senegal. Implementer: Invest in Africa.",
+            "US$850,000 FAPA grant (11 Aug 2025), plus an initial US$1 million YEI MDTF commitment. Ghana and Senegal share the project.",
+            "Programme grants in the target band, already in Ghana. A grant to a university is UNVERIFIED.",
+            "https://www.afdb.org/en/news-and-events/press-releases/african-development-bank-and-invest-africa-sign-850000-grant-agreement-boost-inclusive-green-jobs-ghana-and-senegal-85980",
+        ),
+        (
+            "4. Danida",
+            "Danida Green Business Partnerships, 2025 round. Climate adaptation. Ghana is eligible.",
+            "DKK 4 million to 15 million, for 3 to 5 years. Published in kroner, not US dollars. A US dollar conversion is UNVERIFIED.",
+            "Size and theme fit. The 2025 rules say a university cannot be the administrative partner, and an international commercial partner is required.",
+            "https://danida-business-partnerships.dk/wp-content/uploads/2025/01/DGBP-2025-Guidelines-read-these-if-you-want-to-apply.pdf",
+        ),
+        (
+            "5. Mastercard Foundation",
+            "Climate Impact Challenge Fund, inside the Fund for Resilience and Prosperity. Ghana is a focus country.",
+            "US$250,000 to US$1,500,000 over three years.",
+            "Ticket covers the band. Rules require a for-profit SME with at least 3 years of operations, so this fits cohort firms, not the university host. A hub grant is UNVERIFIED.",
+            "https://frp.org/sites/default/files/2024-11/Climate%20Impact%20Challenge%20Fund_summary.pdf",
+        ),
+    ]
+    dw = [1.15, 1.55, 1.7, 1.7, 1.3]
+    dtab = doc.add_table(rows=1 + len(donors), cols=5)
+    set_table_widths(dtab, dw)
+    grid_borders(dtab)
+    headers = ("Donor", "Programme", "Ticket, sourced", "Why it fits", "Source")
+    for j, h in enumerate(headers):
+        fill_cell(dtab.cell(0, j), h, size=7, bold=True, color=WHITE, fill="335D4F")
+    for i, row in enumerate(donors, start=1):
+        for j, val in enumerate(row):
+            fill_cell(dtab.cell(i, j), val, size=6.5, bold=(j == 0), color=INK)
+
+    body(
+        doc,
+        "Not ranked. USAID: a March 2025 Appropriations letter states that 86% of USAID "
+        "awards were terminated (https://storage.courtlistener.com/recap/gov.uscourts.dcd.277562/"
+        "gov.uscourts.dcd.277562.39.18.pdf). Do not plan a new USAID "
+        "hub grant on the old pipeline. Below this band: FCDO TRANSFORM at GBP 100,000 "
+        "per enterprise; EU Joint Innovation Facility at EUR 100,000 to 250,000; "
+        "Orange Corners Ghana at up to EUR 50,000 per entrepreneur. UNDP Ghana Climate "
+        "Promise is a US$864,000 project with low-value grants. Rockefeller funded the "
+        "African School of Regulation in Accra at US$1 million (2023) and US$3 million "
+        "(2024): energy regulation, not a startup hub. SECO GPSCP II is CHF 9 million "
+        "for cashew and oil palm.",
+        size=8,
+        exact=10,
+        before=2,
+        after=0,
+    )
 
     footer = section.footer
     footer.is_linked_to_previous = False
