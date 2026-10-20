@@ -59,6 +59,7 @@ Black Forest Labs Flux.1-Dev default license is **non-commercial (NC)**. Commerc
 Every still is a **seven-field Hands ticket** per `tickets/TEMPLATE.md`. No bc-id = miss. **This plant does not generate images** — tickets below are for when the host is live.
 
 ```
+Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 desk: Socials | Grants | Proposals | <owning Desk>
 folder: /opt/claude-files/Projects/<project>/stills/ or repo path for Lane A assets
 done-when: <N> branded still(s) exported to folder; public-ready URLs if for Buffer/Workbench
@@ -74,6 +75,8 @@ context:
   prompt: <Desk brief — subject, aspect ratio, EN/ES copy context>
   count: <integer>
 ```
+
+Keep the three sentences at the top of the block on every Hands ticket. Scope: every Desk and every Hands job.
 
 **Model rule:** Default `composer-2.5` (`fast=true`) — Fast ON for builds (t1263u) for ComfyUI workflow edits, LoRA wiring, and export packs on the GPU host. Use `gemini-3.7-flash` only when the ticket is a **tiny** mechanical rename/manifest with no workflow change — name that exception in `context:`.
 

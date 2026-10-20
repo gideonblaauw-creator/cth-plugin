@@ -54,6 +54,30 @@ More than one job means one Hands agent per independent job, all launched at the
 ## Protocol changes
 Every change to this protocol ships as a PR to main in cth-plugin (HITL merge by Gideon).
 
+## GitHub-before-live HARD (Gideon 20 Oct 2026)
+
+**Scope:** every Desk and every Hands job. Every build, including every deploy.
+
+Put each change on GitHub before that change goes live.
+Use a pushed branch or a pull request.
+Do not deploy a local-only commit.
+Do not deploy an unpushed commit.
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy.
+3. Use `git ls-remote` or the GitHub API for that check.
+4. Record the pushed branch or the pull request on the receipt.
+5. Record the same SHA on the receipt.
+6. Stop when the push fails.
+7. Escalate the failure to the Desk.
+8. Do not deploy.
+9. Do not use a workaround.
+10. Confirm that the live SHA is present on GitHub.
+
+Mandatory ticket line: Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
 ---
 
 ## Workbench / connector exception (narrow)
@@ -70,6 +94,8 @@ Channel I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo,
 - Claiming “reviewed” without Hands evidence paths / bc-ids
 - Launching Hands without a written plan or push back
 - Working one job and queuing the rest
+- Deploying a commit that is not on GitHub
+- Continuing a deploy after a failed push
 
 ---
 

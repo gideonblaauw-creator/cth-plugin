@@ -108,9 +108,21 @@ Tier rules: `docs/understanding-lab-tiers.md`. Tier 1–2 PR footer: `docs/view-
 
 Gideon merges after step 4 PASS and, when Tier 1–2, step 5 UL PASS. Hands does not merge or deploy.
 
+**GitHub-before-live (HARD, Gideon 20 Oct 2026).** Scope: every Desk and every Hands job. Every build, including this deploy.
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+3. Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+4. Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+5. Confirm that the live SHA is present on GitHub.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
 ---
 
 ## Ticket fields
+
+Mandatory line on every Hands ticket (every Desk, every Hands job): Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 
 ```
 factory: yes

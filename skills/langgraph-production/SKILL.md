@@ -34,6 +34,7 @@ Use this playbook when the ticket sets `langgraph: yes`.
 Pair with existing Lane A fields. `tier:` and `lab_notion:` keep the Understanding Lab lock from `docs/understanding-lab-tiers.md`.
 
 ```
+Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 desk: <owning Desk>
 folder: <owning repo path>
 done-when: graph compiles; HITL interrupt resumes from this build’s lab; eval fixtures pass
@@ -49,6 +50,8 @@ lab_notion:
 hitl: draft PR; no client deploy; no secrets in repo
 reviewer: Infrastructure
 ```
+
+Keep the three sentences at the top of the block on every Hands ticket. Scope: every Desk and every Hands job.
 
 **Done when:** ticket has `langgraph: yes`, names the owning repo, and Hands has read this file before writing graph code.
 
@@ -184,6 +187,19 @@ Finish **Module 1–3** (graph, state, HITL) on the owning repo before any Modul
 
 Pre-deploy checklist (owning repo, after Gideon merge):
 
+**GitHub-before-live (HARD, Gideon 20 Oct 2026).** Scope: every Desk and every Hands job. Every build, including this deploy.
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+3. Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+4. Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+5. Confirm that the live SHA is present on GitHub.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
+- [ ] Deploy ticket names a SHA that exists on origin (`git ls-remote` or the GitHub API)
+- [ ] Receipt records the pushed branch or PR and that SHA
+- [ ] Live SHA is present on GitHub
 - [ ] Pins are `langgraph==1.2.11`, `langgraph-checkpoint==4.2.0`, `langsmith==0.12.4`
 - [ ] Durable checkpointer compiled in; `MemorySaver` not used in prod
 - [ ] HITL `interrupt` sits before irreversible acts; resume path tested

@@ -3,10 +3,10 @@ name: harness
 description: >
   CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks. Use when:
   harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab
-  tier. Read before any Cloud Hands ticket.
+  tier, GitHub-before-live. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.8.2"
+  version: "3.8.3"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -169,6 +169,24 @@ Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not 
 **Orchestrator verify:** on miss, stop local grind, re-ticket Hands, patch profile/skill if needed; ready-ping Gideon only for HITL or blockers. Ready-ping carries PR/URL/**bc-id**/paths, not process notes. **Plan first + parallel jobs (MANDATORY, Gideon 12 Oct 2026):** before any Hands launch the desk writes an ASD-STE100 plan in the ticket (Goal / Audience / Deliverable / Done when / Constraints / Out of scope / Open questions; context check; smallest independent jobs; risks + mandatory push back). More than one job = one Hands per independent job, launched at once, each with a bc-id; never work one and queue the rest; above ~8 live per desk, ping Orchestrator. Protocol changes ship as a PR to main in cth-plugin (HITL merge by Gideon). Lane A = owning repo PR; Lane B = `{type: machine, name: vps}` for Archive/Drive/packs (no `repo_url` when packs-only).
 
 Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id).
+
+### GitHub-before-live HARD — Gideon 20 Oct 2026 (hard gate)
+
+**Scope:** every Desk and every Hands job. Every build, including every deploy.
+
+Put each change on GitHub before that change goes live. Use a pushed branch or a pull request. Do not deploy a local-only commit. Do not deploy an unpushed commit.
+
+**Deploy ticket.** Name the full commit SHA on the deploy ticket. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+
+**Receipt.** Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+
+**Push failure.** Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+
+**Verifier.** Confirm that the live SHA is present on GitHub.
+
+**Mandatory ticket line:** Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
+
+Playbook: **`skills/harness/references/hands-ticket-hard.md`**. Ticket copy: `tickets/TEMPLATE.md`.
 
 ### Hands-shift lock — Gideon 2026-08-17 (hard gate)
 
@@ -569,6 +587,7 @@ Facts from the first week. Do not repeat these mistakes.
 ## 12. Ticket template (copy)
 
 ```
+Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 desk:
 folder:
 done-when:
@@ -585,6 +604,8 @@ hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+Keep the three sentences at the top of the block on every Hands ticket. Scope: every Desk and every Hands job.
 
 `tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.
 

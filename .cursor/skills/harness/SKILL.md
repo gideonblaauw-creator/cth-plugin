@@ -2,7 +2,7 @@
 name: harness
 description: >
   CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks,
-  Understanding Lab tiers, LexiScan playground format (t1268u).
+  Understanding Lab tiers, LexiScan playground format (t1268u), GitHub-before-live.
 ---
 
 # harness
