@@ -311,6 +311,47 @@ body.show-questions .ask-collapsible { display: block; }
 .stage-col h3 { margin-bottom: 8px; }
 .stage-item { margin-bottom: 8px; }
 
+.map-cols {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+.map-col { min-width: 0; }
+[data-stage-btn] {
+  width: 100%;
+  text-align: left;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-green);
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+[data-stage-btn][aria-pressed="true"] {
+  background: var(--rein-green);
+  color: var(--white);
+  border-color: var(--rein-green);
+}
+.map-group {
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  padding: 8px 8px 4px;
+}
+[data-stage-map].has-selection .map-group { opacity: 0.38; }
+[data-stage-map].has-selection .map-group.is-on {
+  opacity: 1;
+  border-color: var(--rein-orange);
+}
+.asset-line { margin: 0 0 8px; }
+.asset-line span, .asset-line a { font-size: 24px; display: block; }
+body.print-all [data-stage-map].has-selection .map-group { opacity: 1; }
+
 /* Print */
 @page { size: 1920px 1080px; margin: 0; }
 

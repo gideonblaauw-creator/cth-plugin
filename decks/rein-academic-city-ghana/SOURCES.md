@@ -28,9 +28,27 @@ The proposal PDF is a different deck. This file names the PDF only where a slide
 | Contacts and footer links, including Laurence Kalinsky, Gideon Blaauw, Prof. Fred McBagonluri, Makafui Awuku, Ursula Dussi, Deepak Ahuja, and the named partner sites. | sources/academic-city-ghana-2026-04-23.html#next |
 | Year 1 US$103K. Programs US$75K. Comms and hub maintenance US$8K. Operations and integration US$20K. Year 2 US$75K. Year 3 US$50K. Total US$228K. Source line: Gideon Blaauw via REIN Hubs desk, 20 Oct 2026. | sources/gideon-2026-10-20.html |
 | Checks on the investment slide: 75 + 8 + 20 = 103, and 103 + 75 + 50 = 228. These checks use the Gideon figures. They are not a new source amount. | sources/gideon-2026-10-20.html |
-| PDF stage list, page 8. Stage 1 Ideation, 2–3 weeks. Stage 2 Incubation, 3 months. Stage 3 Acceleration, 6 months. Stage 4 Growth, 12+ months. Wording on the stage-list slide. | sources/REIN_AcademicCityGhana_Deck_v1.pdf |
-| Asset rows that the HTML names: six labs, Goliath Robotics, Waakye, Farmio, Translight Solar / Transvolt Ghana, Faith Sobe Cyril, Presidential Charter, AI + Robotics degrees, CEEA 2026 Summit, WU Vienna + Fontys ties. | sources/academic-city-ghana-2026-04-23.html#acu |
-| Asset rows that the PDF also names, page 12, including Mana Mobility and Elizabeth Fio. The HTML does not name those two. | sources/REIN_AcademicCityGhana_Deck_v1.pdf |
+| PDF stage list, page 8. Stage 1 Ideation, 2–3 weeks. Stage 2 Incubation, 3 months. Stage 3 Acceleration, 6 months. Stage 4 Growth, 12+ months. Whether these durations replace the HTML durations is open. | sources/REIN_AcademicCityGhana_Deck_v1.pdf |
+| Working stage labels: Ideation (Activation), Incubation, Acceleration, Growth. Hub ops/comms is on the asset map. REIN desk mapping, 20 Oct 2026. | https://github.com/gideonblaauw-creator/cth-plugin/pull/65 |
+| Asset pages used on the map. REIN desk mapping, 20 Oct 2026. The note is PR #64. | https://github.com/gideonblaauw-creator/cth-plugin/pull/64 |
+| TEC workshops. About TEC. | https://tec.acity.edu.gh/about-tech-center/ |
+| Freshman entrepreneurship course. Fundamentals of Innovation and Entrepreneurship. | https://acity.edu.gh/undergraduate-programmes/ |
+| Amphitheatres and classrooms. Amphitheatre I. Also Amphitheatre II node6, U-shaped classroom node40, regular classroom node39. | https://tours.dobiison.com/CampusVisit/ACity/#node5 |
+| CCE Climate Entrepreneurship Curriculum. | https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/ |
+| TEC, incubation row. Also TEC staff. | https://tec.acity.edu.gh/ |
+| CCE Sustainability Lab and Climate Entrepreneurship Incubator. Same launch post. CCE page: https://tec.acity.edu.gh/about-tech-center/the-connecting-climate-entrepreneurs-cce-lab/ | https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/ |
+| MakeLab. | https://tec.acity.edu.gh/about-tech-center/makelab-acity-accra/ |
+| Fabrication room. CNC room is node12. Laser room is node49. | https://tours.dobiison.com/CampusVisit/ACity/#node50 |
+| Ghana BioInnovation Centre. | https://acity.edu.gh/event_acity/bio-innovation/ |
+| Telesto / CCE Climate Tech Accelerator. The page states 12 weeks. Team cap stays open. Same page for the Telesto showcase and for ANDE named on that post. | https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/ |
+| TEC investor showcase. About TEC. | https://tec.acity.edu.gh/about-tech-center/ |
+| FOSD. Named in the PR #65 growth cell. PR #64 has no campus page for FOSD. This URL is the April 2026 proposal footer. | https://www.pvblic.org/what-we-do/family-offices |
+| PVBLIC. Named with UNGA in the PR #65 growth cell. PR #64 has no campus page for PVBLIC or UNGA. UNGA is a convening named in the April 2026 proposal. This URL is the PVBLIC footer link. | https://www.pvblic.org |
+| Hostels. | https://acity.edu.gh/student-life/student-housing/ |
+| Clinic. The page title is Health Centre. | https://acity.edu.gh/student-life/health-center/ |
+| Canteens. | https://acity.edu.gh/student-life/dining-meal-plans/ |
+| Media Lab. | https://tours.dobiison.com/CampusVisit/ACity/#node52 |
+| ACity Radio. | https://tours.dobiison.com/CampusVisit/ACity/#node51 |
 | Same HTML words in plain text. | sources/academic-city-ghana-2026-04-23.txt |
 | Open items. | PENDIENTES.md |
 

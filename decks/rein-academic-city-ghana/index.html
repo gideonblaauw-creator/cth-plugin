@@ -319,6 +319,47 @@ body.show-questions .ask-collapsible { display: block; }
 .stage-col h3 { margin-bottom: 8px; }
 .stage-item { margin-bottom: 8px; }
 
+.map-cols {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+.map-col { min-width: 0; }
+[data-stage-btn] {
+  width: 100%;
+  text-align: left;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-green);
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+[data-stage-btn][aria-pressed="true"] {
+  background: var(--rein-green);
+  color: var(--white);
+  border-color: var(--rein-green);
+}
+.map-group {
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  padding: 8px 8px 4px;
+}
+[data-stage-map].has-selection .map-group { opacity: 0.38; }
+[data-stage-map].has-selection .map-group.is-on {
+  opacity: 1;
+  border-color: var(--rein-orange);
+}
+.asset-line { margin: 0 0 8px; }
+.asset-line span, .asset-line a { font-size: 24px; display: block; }
+body.print-all [data-stage-map].has-selection .map-group { opacity: 1; }
+
 /* Print */
 @page { size: 1920px 1080px; margin: 0; }
 
@@ -490,7 +531,7 @@ body.print-all .ask-collapsible { display: block !important; }
       <div class="card"><h3>Contact</h3><p>laurence@pvblic.org</p></div>
     </div>
     <p>Meeting with Pav. Full name and role: <span class="pendiente">[PENDIENTE]</span></p>
-    <p>Language: English. The April 2026 proposal has no Spanish text. Spanish copy: <span class="pendiente">[PENDIENTE]</span></p>
+    <p>Language: English.</p>
 
     <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html" target="_blank" rel="noopener">Source: April 2026 proposal, cover</a></p>
   </div>
@@ -710,13 +751,13 @@ body.print-all .ask-collapsible { display: block !important; }
     <p class="eyebrow">Programs</p>
     <h2>Four Stages from Idea to Scale</h2>
     <div class="grid-4">
-      <div class="card"><p class="kicker">Stage 1</p><h3>Activation</h3><p class="note">2–3 weeks · Ideation</p><p>Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p></div>
+      <div class="card"><p class="kicker">Stage 1</p><h3>Ideation (Activation)</h3><p class="note">2–3 weeks</p><p>Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p></div>
       <div class="card"><p class="kicker">Stage 2</p><h3>Incubation</h3><p class="note">10 weeks · Building</p><p>Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p></div>
       <div class="card"><p class="kicker">Stage 3</p><h3>Acceleration</h3><p class="note">8–12 weeks · Scaling</p><p>Business-model refinement, investor connections, financial modeling, growth strategy.</p></div>
-      <div class="card"><p class="kicker">Stage 4</p><h3>Cross-Continent Growth</h3><p class="note">Ongoing · Offtake + Capital</p><p>Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p></div>
+      <div class="card"><p class="kicker">Stage 4</p><h3>Growth</h3><p class="note">Ongoing · Cross-Continent Growth</p><p>Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p></div>
     </div>
     <div class="callout"><strong>ClimateLaunchpad pathway:</strong> National Finals (Aug) → Regional Final (Sep) → Global Final, Singapore (Oct 23, 2026).</div>
-    <p>The same HTML page also says the stages are Ideation → Incubation → Acceleration → Growth. The PDF uses other durations. This slide keeps the HTML cards. A match across names: <span class="pendiente">[PENDIENTE]</span></p>
+    <p>Working funnel: Ideation (Activation), Incubation, Acceleration, Growth. <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> PDF page 8 states other durations. Whether those durations replace the HTML durations: <span class="pendiente">[PENDIENTE]</span></p>
 
     <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">Source: April 2026 proposal, Programs</a></p>
   </div>
@@ -1073,27 +1114,27 @@ body.print-all .ask-collapsible { display: block !important; }
   <div class="slide-inner">
 
     <p class="eyebrow">Added section</p>
-    <h2>Stage lists in the two source files</h2>
-    <p>The files do not say that these names are the same stage. Do not pick a list. Which list the room uses: <span class="pendiente">[PENDIENTE]</span></p>
+    <h2>Ideation (Activation), Incubation, Acceleration, Growth</h2>
+    <p>Working funnel from the REIN desk. <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
     <div class="grid-2">
       <div class="card stage-col">
-        <h3>Proposal HTML</h3>
-        <p class="stage-item"><strong>Fact row:</strong> 4 — Ideation → Incubation → Acceleration → Growth.</p>
-        <p class="stage-item"><strong>Stage 1 Activation.</strong> 2–3 weeks · Ideation. Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p>
-        <p class="stage-item"><strong>Stage 2 Incubation.</strong> 10 weeks · Building. Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p>
-        <p class="stage-item"><strong>Stage 3 Acceleration.</strong> 8–12 weeks · Scaling. Business-model refinement, investor connections, financial modeling, growth strategy.</p>
-        <p class="stage-item"><strong>Stage 4 Cross-Continent Growth.</strong> Ongoing · Offtake + Capital. Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p>
+        <h3>Working labels</h3>
+        <p class="stage-item"><strong>Ideation (Activation).</strong> HTML card: 2–3 weeks. Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p>
+        <p class="stage-item"><strong>Incubation.</strong> HTML card: 10 weeks. Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p>
+        <p class="stage-item"><strong>Acceleration.</strong> HTML card: 8–12 weeks. Business-model refinement, investor connections, financial modeling, growth strategy.</p>
+        <p class="stage-item"><strong>Growth.</strong> HTML card name: Cross-Continent Growth. Ongoing. Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p>
       </div>
       <div class="card stage-col">
-        <h3>Proposal PDF</h3>
-        <p class="stage-item"><strong>Stage 1 Ideation.</strong> 2–3 weeks. Open call → screening. Problem-validation sprints, team-building, lean-canvas coaching.</p>
-        <p class="stage-item"><strong>Stage 2 Incubation.</strong> 3 months. Structured curriculum, mentor matching, prototyping support, first customer conversations.</p>
-        <p class="stage-item"><strong>Stage 3 Acceleration.</strong> 6 months. GTM sprints, investor-readiness, ClimateLaunchpad entry, cross-continent cohort exchange.</p>
-        <p class="stage-item"><strong>Stage 4 Growth.</strong> 12+ months. Capital match, EU corporate offtake, alumni network, second-round fundraising support.</p>
+        <h3>Proposal PDF durations</h3>
+        <p class="stage-item"><strong>Ideation.</strong> 2–3 weeks. Open call → screening. Problem-validation sprints, team-building, lean-canvas coaching.</p>
+        <p class="stage-item"><strong>Incubation.</strong> 3 months. Structured curriculum, mentor matching, prototyping support, first customer conversations.</p>
+        <p class="stage-item"><strong>Acceleration.</strong> 6 months. GTM sprints, investor-readiness, ClimateLaunchpad entry, cross-continent cohort exchange.</p>
+        <p class="stage-item"><strong>Growth.</strong> 12+ months. Capital match, EU corporate offtake, alumni network, second-round fundraising support.</p>
+        <p>Whether the PDF durations replace the HTML durations: <span class="pendiente">[PENDIENTE]</span></p>
       </div>
     </div>
 
-    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">HTML stages</a> <a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">PDF stages, page 8</a></p>
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">HTML stages</a> <a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">PDF stages, page 8</a> <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
   </div>
   <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
   <footer class="footer">
@@ -1107,29 +1148,58 @@ body.print-all .ask-collapsible { display: block !important; }
 
     <p class="eyebrow">Added section</p>
     <h2>Academic City assets → REIN stages</h2>
-    <p>No source file maps an asset to a stage. Every map cell stays open.</p>
-    <div class="rows tight">
-      <div class="row cols-map head-row"><span>Asset</span><span>HTML</span><span>PDF</span><span>Stage</span></div>
-      <div class="row cols-map"><span>CCE Sustainability Lab</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Arm Ecosystem Lab</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>MakeLab ACity Accra</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Bioinnovation Center</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Technology &amp; Entrepreneurship Center (TEC)</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Sustain City Project</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Goliath Robotics</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Waakye Packaging Project</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Farmio</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Translight Solar / Transvolt Ghana</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Faith Sobe Cyril</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Presidential Charter</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>AI + Robotics degrees</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>CEEA 2026 Summit</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>WU Vienna + Fontys ties</span><span>Yes</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Mana Mobility</span><span>No</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
-      <div class="row cols-map"><span>Elizabeth Fio</span><span>No</span><span>Yes</span><span class="pendiente">[PENDIENTE]</span></div>
+    <p>Click a stage. Seat and team counts: <span class="pendiente">[PENDIENTE]</span></p>
+    <div data-stage-map>
+      <div class="map-cols">
+        <div class="map-col">
+          <button type="button" data-stage-btn="ideation" aria-pressed="true">Ideation (Activation)</button>
+          <div class="map-group is-on" data-stage-group="ideation">
+            <p class="asset-line"><span>TEC workshops</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Freshman entrepreneurship course</span><a class="cite" href="https://acity.edu.gh/undergraduate-programmes/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Amphitheatres and classrooms</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node5" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>CCE Climate Entrepreneurship Curriculum</span><a class="cite" href="https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="incubation" aria-pressed="false">Incubation</button>
+          <div class="map-group" data-stage-group="incubation">
+            <p class="asset-line"><span>TEC</span><a class="cite" href="https://tec.acity.edu.gh/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>CCE Sustainability Lab and Climate Entrepreneurship Incubator</span><a class="cite" href="https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>MakeLab</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/makelab-acity-accra/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Fabrication, CNC and laser rooms</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node50" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Ghana BioInnovation Centre</span><a class="cite" href="https://acity.edu.gh/event_acity/bio-innovation/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="acceleration" aria-pressed="false">Acceleration</button>
+          <div class="map-group" data-stage-group="acceleration">
+            <p class="asset-line"><span>Telesto / CCE Climate Tech Accelerator (12 weeks)</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="growth" aria-pressed="false">Growth</button>
+          <div class="map-group" data-stage-group="growth">
+            <p class="asset-line"><span>TEC investor showcase</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Telesto showcase</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>ANDE and CCE networks</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>FOSD and PVBLIC/UNGA</span><a class="cite" href="https://www.pvblic.org/what-we-do/family-offices" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="ops" aria-pressed="false">Hub ops/comms</button>
+          <div class="map-group" data-stage-group="ops">
+            <p class="asset-line"><span>Hostels</span><a class="cite" href="https://acity.edu.gh/student-life/student-housing/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Clinic</span><a class="cite" href="https://acity.edu.gh/student-life/health-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Canteens</span><a class="cite" href="https://acity.edu.gh/student-life/dining-meal-plans/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Media Lab</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node52" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>ACity Radio</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node51" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>TEC staff</span><a class="cite" href="https://tec.acity.edu.gh/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#acu" target="_blank" rel="noopener">HTML labs, ventures, and fit list</a> <a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">PDF labs and ventures, page 12</a> <a class="cite" href="sources/academic-city-ghana-2026-04-23.html#fit" target="_blank" rel="noopener">HTML fit list</a></p>
+    <p class="src"><a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/64" target="_blank" rel="noopener">Asset pages, PR #64</a></p>
   </div>
   <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
   <footer class="footer">
@@ -1146,11 +1216,12 @@ body.print-all .ask-collapsible { display: block !important; }
     <div class="rows">
       <div class="row cols-2"><span class="k">Proposal page</span><span><a class="cite" href="sources/academic-city-ghana-2026-04-23.html" target="_blank" rel="noopener">academic-city-ghana-2026-04-23.html</a> — section order and words on the proposal slides.</span></div>
       <div class="row cols-2"><span class="k">Same words as text</span><span><a class="cite" href="sources/academic-city-ghana-2026-04-23.txt" target="_blank" rel="noopener">academic-city-ghana-2026-04-23.txt</a></span></div>
-      <div class="row cols-2"><span class="k">Proposal PDF</span><span><a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">REIN_AcademicCityGhana_Deck_v1.pdf</a> — stage list on the stage slide, and PDF-only asset rows. Budget amounts from this PDF are not copied.</span></div>
+      <div class="row cols-2"><span class="k">Proposal PDF</span><span><a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">REIN_AcademicCityGhana_Deck_v1.pdf</a> — stage durations on the stage-list slide. Budget amounts from this PDF are not copied.</span></div>
+      <div class="row cols-2"><span class="k">Asset map</span><span><a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> Labels from PR #65. Pages from <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/64" target="_blank" rel="noopener">PR #64</a>.</span></div>
       <div class="row cols-2"><span class="k">3-year scale</span><span><a class="cite" href="sources/gideon-2026-10-20.html" target="_blank" rel="noopener">Gideon Blaauw via REIN Hubs desk, 20 Oct 2026</a></span></div>
       <div class="row cols-2"><span class="k">Open items</span><span><a class="cite" href="PENDIENTES.md" target="_blank" rel="noopener">PENDIENTES.md</a> · <a class="cite" href="SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a></span></div>
     </div>
-    <p>Language of the sources: English. Spanish sentences: <span class="pendiente">[PENDIENTE]</span></p>
+    <p>Language: English.</p>
     <div class="expand-card">
       <button type="button" class="expand-trigger" aria-expanded="false">What this deck does not copy</button>
       <div class="expand-body"><p>The PDF budget on page 7 is not on these slides. Counts that disagree stay as [PENDIENTE]. See PENDIENTES.md. This deck is not published. Future slug, after Gideon says yes: decks.cleantechhub.net/rein-academic-city-ghana/</p></div>
@@ -1253,7 +1324,7 @@ body.print-all .ask-collapsible { display: block !important; }
     if (!el || el === stage) return false;
     var tag = el.tagName;
     if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT') return true;
-    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open, .tab-set, .chart, [role="tablist"]')) return true;
+    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open, .tab-set, .chart, [role="tablist"], [data-stage-map]')) return true;
     return false;
   }
 
@@ -1282,6 +1353,44 @@ body.print-all .ask-collapsible { display: block !important; }
     var nextIdx = (idx + dir + tabs.length) % tabs.length;
     selectTab(tabs[nextIdx]);
     tabs[nextIdx].focus();
+  }
+
+  function selectStage(map, id) {
+    map.classList.add('has-selection');
+    map.querySelectorAll('[data-stage-btn]').forEach(function (btn) {
+      var on = btn.getAttribute('data-stage-btn') === id;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    map.querySelectorAll('[data-stage-group]').forEach(function (group) {
+      group.classList.toggle('is-on', group.getAttribute('data-stage-group') === id);
+    });
+  }
+
+  function initStageMap() {
+    document.querySelectorAll('[data-stage-map]').forEach(function (map) {
+      var buttons = Array.prototype.slice.call(map.querySelectorAll('[data-stage-btn]'));
+      buttons.forEach(function (btn, i) {
+        btn.tabIndex = i === 0 ? 0 : -1;
+        btn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          selectStage(map, btn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === btn ? 0 : -1; });
+        });
+        btn.addEventListener('keydown', function (ev) {
+          if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+          ev.preventDefault();
+          ev.stopPropagation();
+          var idx = buttons.indexOf(btn);
+          var dir = ev.key === 'ArrowRight' ? 1 : -1;
+          var nextBtn = buttons[(idx + dir + buttons.length) % buttons.length];
+          selectStage(map, nextBtn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === nextBtn ? 0 : -1; });
+          nextBtn.focus();
+        });
+      });
+      var current = map.querySelector('[data-stage-btn][aria-pressed="true"]') || buttons[0];
+      if (current) selectStage(map, current.getAttribute('data-stage-btn'));
+    });
   }
 
   function initTabs() {
@@ -1458,6 +1567,7 @@ body.print-all .ask-collapsible { display: block !important; }
   initExpandCards();
   initLightbox();
   initTabs();
+  initStageMap();
 
   if (printMode) {
     document.body.classList.add('print-all');

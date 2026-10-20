@@ -65,7 +65,7 @@
     if (!el || el === stage) return false;
     var tag = el.tagName;
     if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT') return true;
-    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open, .tab-set, .chart, [role="tablist"]')) return true;
+    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open, .tab-set, .chart, [role="tablist"], [data-stage-map]')) return true;
     return false;
   }
 
@@ -94,6 +94,44 @@
     var nextIdx = (idx + dir + tabs.length) % tabs.length;
     selectTab(tabs[nextIdx]);
     tabs[nextIdx].focus();
+  }
+
+  function selectStage(map, id) {
+    map.classList.add('has-selection');
+    map.querySelectorAll('[data-stage-btn]').forEach(function (btn) {
+      var on = btn.getAttribute('data-stage-btn') === id;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    map.querySelectorAll('[data-stage-group]').forEach(function (group) {
+      group.classList.toggle('is-on', group.getAttribute('data-stage-group') === id);
+    });
+  }
+
+  function initStageMap() {
+    document.querySelectorAll('[data-stage-map]').forEach(function (map) {
+      var buttons = Array.prototype.slice.call(map.querySelectorAll('[data-stage-btn]'));
+      buttons.forEach(function (btn, i) {
+        btn.tabIndex = i === 0 ? 0 : -1;
+        btn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          selectStage(map, btn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === btn ? 0 : -1; });
+        });
+        btn.addEventListener('keydown', function (ev) {
+          if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+          ev.preventDefault();
+          ev.stopPropagation();
+          var idx = buttons.indexOf(btn);
+          var dir = ev.key === 'ArrowRight' ? 1 : -1;
+          var nextBtn = buttons[(idx + dir + buttons.length) % buttons.length];
+          selectStage(map, nextBtn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === nextBtn ? 0 : -1; });
+          nextBtn.focus();
+        });
+      });
+      var current = map.querySelector('[data-stage-btn][aria-pressed="true"]') || buttons[0];
+      if (current) selectStage(map, current.getAttribute('data-stage-btn'));
+    });
   }
 
   function initTabs() {
@@ -270,6 +308,7 @@
   initExpandCards();
   initLightbox();
   initTabs();
+  initStageMap();
 
   if (printMode) {
     document.body.classList.add('print-all');

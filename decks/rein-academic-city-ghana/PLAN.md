@@ -165,6 +165,10 @@ The HTML page does not state a Year 3 amount.
 10. Granola has no note for a 21 Oct 2026 meeting.
     Do not add meeting decisions from memory.
 
+## Update — REIN desk, 20 Oct 2026
+
+The desk closed three items. The working stage label is Ideation (Activation). The asset map uses that desk list. English only is approved. Seat and team counts stay open. The count conflicts, the founding year, Pav, the action list, and the Year 2 and Year 3 splits stay open.
+
 ## Slide list
 
 1. Cover
