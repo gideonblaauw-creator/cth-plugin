@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REIN Hubs × Academic City — 21 Oct 2026</title>
+<style>
+/* DECK_CSS_INLINE */
+/* Shell behavior adapted from decks/meetings-2026-10-13/b4b/.
+   Colors are the REIN Hubs six. Font files are local (fonts/). */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/open-sans.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/poppins-700.woff2') format('woff2');
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --rein-green: #335D4F;
+  --rein-orange: #FF6633;
+  --ink: #222A27;
+  --gray: #5F6663;
+  --line: #C9D6D1;
+  --paper: #F1F5F3;
+  --white: #FFFFFF;
+  --stage-w: 1920px;
+  --stage-h: 1080px;
+  --font: 'Open Sans', 'DejaVu Sans', sans-serif;
+  --heading: 'Poppins', 'Open Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font);
+  font-size: 24px;
+  background: var(--rein-green);
+  color: var(--ink);
+}
+
+.deck-viewport {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.deck-frame {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+.deck {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: var(--stage-w);
+  height: var(--stage-h);
+  padding: 32px 48px 20px;
+  display: none;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.slide.active { display: flex; z-index: 2; }
+
+.slide-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 12px;
+}
+
+.eyebrow {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rein-orange);
+}
+
+h1, h2, h3, .card h3, .stat .num {
+  font-family: var(--heading);
+  font-weight: 700;
+  color: var(--rein-green);
+}
+
+h1 { font-size: 52px; line-height: 1.12; color: var(--white); }
+h2 { font-size: 40px; line-height: 1.15; }
+h3 { font-size: 28px; line-height: 1.2; }
+
+p, li, td, th, dd, dt { font-size: 24px; line-height: 1.28; }
+p { margin: 0; }
+
+.lede { font-size: 28px; line-height: 1.3; max-width: 1700px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+.grid-6 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.card, .row, .stat, .hub, .quote, .callout {
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+}
+
+.card { padding: 14px 16px; }
+.card h3 { font-size: 26px; margin-bottom: 6px; }
+.card p, .card li { font-size: 24px; color: var(--ink); }
+.card ul { margin: 0; padding-left: 28px; }
+.card li { margin: 0 0 4px; }
+
+.kicker {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-orange);
+  margin-bottom: 4px;
+}
+
+.rows { display: flex; flex-direction: column; gap: 6px; }
+.rows.tight { gap: 3px; }
+.row {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 12px;
+}
+.rows.tight .row { padding: 1px 10px; }
+.row .k {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-green);
+}
+.cols-2 { grid-template-columns: 340px 1fr; }
+.cols-3 { grid-template-columns: 1.1fr 0.7fr 1.4fr; }
+.cols-4 { grid-template-columns: 64px 1.3fr 1.5fr 0.8fr; }
+.cols-map { grid-template-columns: 1.5fr 0.55fr 0.7fr 0.85fr; }
+.head-row {
+  background: var(--rein-green);
+  border-color: var(--rein-green);
+  color: var(--white);
+}
+.head-row .k, .head-row span { color: var(--white); }
+
+.stat { padding: 12px 10px; text-align: center; }
+.stat .num { font-size: 36px; display: block; }
+.stat .label { font-size: 24px; color: var(--gray); display: block; margin-top: 4px; }
+
+.hub { padding: 12px 14px; }
+.hub strong { display: block; font-family: var(--heading); font-size: 26px; color: var(--rein-green); }
+.hub span { font-size: 24px; color: var(--gray); }
+.hub.proposed { border-color: var(--rein-orange); }
+
+.quote { padding: 16px 18px; background: var(--rein-green); border-color: var(--rein-green); }
+.quote p { color: var(--white); font-size: 26px; }
+.quote cite { display: block; margin-top: 8px; font-style: normal; font-family: var(--heading); font-size: 24px; color: var(--rein-orange); }
+
+.callout { padding: 12px 14px; border-left: 8px solid var(--rein-orange); }
+.callout strong { color: var(--rein-green); }
+
+.note {
+  font-size: 24px;
+  color: var(--gray);
+}
+
+.src { font-size: 24px; margin-top: auto; }
+.src a, a.cite {
+  color: var(--rein-green);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.pendiente, .hypo-badge {
+  display: inline-block;
+  border: 2px dashed var(--rein-orange);
+  color: var(--rein-orange);
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+.hypo-badge { border-style: solid; }
+
+.amt { font-family: var(--heading); font-weight: 700; color: var(--rein-green); }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font-size: 24px;
+  color: var(--gray);
+  border-top: 2px solid var(--line);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.ask-collapsible { display: none; font-size: 24px; color: var(--gray); }
+body.show-questions .ask-collapsible { display: block; }
+
+/* Cover */
+.slide.cover { background: var(--rein-green); color: var(--white); }
+.slide.cover .lede { color: var(--white); font-size: 28px; }
+.slide.cover .card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.28); }
+.slide.cover .card h3 { color: var(--rein-orange); }
+.slide.cover .card p { color: var(--white); }
+.slide.cover .src a { color: #FF6633; }
+.slide.cover .footer { color: var(--white); border-top-color: rgba(255,255,255,0.35); }
+.slide.cover .ask-collapsible { color: var(--white); }
+.slide.cover .pendiente { background: var(--white); }
+
+/* Tabs and chart — required on every deck */
+.tab-set { display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+[role="tablist"] { display: flex; flex-wrap: wrap; gap: 8px; }
+[role="tab"], .step-btn {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  background: var(--white);
+  color: var(--rein-green);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+[role="tab"][aria-selected="true"] {
+  background: var(--rein-green);
+  color: var(--white);
+  border-color: var(--rein-green);
+}
+[role="tabpanel"] {
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+[role="tabpanel"][hidden] { display: none; }
+[role="tabpanel"] p { margin-bottom: 4px; }
+
+.chart { width: 620px; height: 400px; display: block; }
+.chart text {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  fill: #222A27;
+}
+.chart [data-year] { cursor: pointer; }
+.chart [data-year].is-on rect { stroke: #FF6633; stroke-width: 6; }
+.invest {
+  display: grid;
+  grid-template-columns: 640px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.figure { margin: 0; }
+
+.expand-card { border: 2px solid var(--line); border-radius: 12px; background: var(--white); }
+.expand-trigger {
+  width: 100%;
+  text-align: left;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-green);
+  background: transparent;
+  border: 0;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.expand-body { display: none; padding: 0 14px 12px; font-size: 24px; }
+.expand-body.open { display: block; }
+
+.stage-col h3 { margin-bottom: 8px; }
+.stage-item { margin-bottom: 8px; }
+
+.map-cols {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+.map-col { min-width: 0; }
+[data-stage-btn] {
+  width: 100%;
+  text-align: left;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--rein-green);
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+[data-stage-btn][aria-pressed="true"] {
+  background: var(--rein-green);
+  color: var(--white);
+  border-color: var(--rein-green);
+}
+.map-group {
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  padding: 8px 8px 4px;
+}
+[data-stage-map].has-selection .map-group { opacity: 0.38; }
+[data-stage-map].has-selection .map-group.is-on {
+  opacity: 1;
+  border-color: var(--rein-orange);
+}
+.asset-line { margin: 0 0 8px; }
+.asset-line span, .asset-line a { font-size: 24px; display: block; }
+body.print-all [data-stage-map].has-selection .map-group { opacity: 1; }
+
+/* Print */
+@page { size: 1920px 1080px; margin: 0; }
+
+@media print {
+  html, body { overflow: visible; background: white; }
+  .deck-viewport { position: static; display: block; }
+  .deck-frame { width: var(--stage-w); height: auto; overflow: visible; }
+  .deck-stage { position: relative; transform: none !important; width: var(--stage-w); height: auto; }
+  .deck { position: static; height: auto; }
+  .slide {
+    position: relative;
+    display: flex !important;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .nav-hint, .deck-chrome, .deck-menu, .lightbox { display: none !important; }
+  .expand-body { display: block !important; }
+  .ask-collapsible { display: block !important; }
+}
+
+body.print-all .deck-viewport { position: static; display: block; overflow: visible; }
+body.print-all .deck-frame { width: var(--stage-w); height: auto; overflow: visible; }
+body.print-all .deck-stage { position: relative; transform: none !important; width: 1920px; height: auto; }
+body.print-all .deck { position: static; height: auto; }
+body.print-all .slide {
+  display: flex !important;
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+body.print-all .nav-hint,
+body.print-all .deck-chrome,
+body.print-all .deck-menu,
+body.print-all .lightbox { display: none !important; }
+body.print-all .expand-body { display: block !important; }
+body.print-all .ask-collapsible { display: block !important; }
+
+/* Chrome sits outside .deck-stage */
+.nav-hint {
+  position: fixed;
+  bottom: 8px;
+  right: 16px;
+  z-index: 9999;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  pointer-events: none;
+}
+
+.deck-chrome {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 16px 12px;
+  background: rgba(34, 42, 39, 0.92);
+  pointer-events: none;
+}
+.deck-chrome > * { pointer-events: auto; }
+.chrome-btn {
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 2px solid #FF6633;
+  background: #335D4F;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.chrome-btn[aria-pressed="true"] { background: #FF6633; color: #FFFFFF; }
+
+.slide-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: min(1100px, 62vw);
+  justify-content: center;
+}
+.slide-dots button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #FF6633;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+.slide-dots button.active,
+.slide-dots button[aria-current="true"] { background: #FF6633; }
+
+.deck-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(34, 42, 39, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.deck-menu[hidden] { display: none !important; }
+.deck-menu-panel {
+  background: #F1F5F3;
+  border: 2px solid #C9D6D1;
+  border-radius: 16px;
+  padding: 20px 24px;
+  max-width: 860px;
+  width: 100%;
+  max-height: 86vh;
+  overflow: auto;
+}
+.deck-menu-panel h2 { font-size: 32px; margin-bottom: 12px; }
+.deck-menu-list { list-style: none; }
+.deck-menu-list li { margin-bottom: 6px; }
+.deck-menu-list button {
+  width: 100%;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #C9D6D1;
+  background: #FFFFFF;
+  color: #222A27;
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  background: rgba(34, 42, 39, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.lightbox[hidden] { display: none !important; }
+.lightbox img { max-width: min(1600px, 92vw); max-height: 78vh; object-fit: contain; }
+.lightbox-cap { font-size: 24px; color: #FFFFFF; margin-top: 12px; }
+.lightbox-close { position: absolute; top: 20px; right: 24px; }
+</style>
+</head>
+<body>
+<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
+<section class="slide" id="s-01" data-menu-title="Cover">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Partnership Proposal · April 2026</p>
+    <h1>REIN Hubs × Academic City</h1>
+    <p class="lede">Diversifying West Africa's Climate-Entrepreneurship Capital Base</p>
+    <p class="lede">A Europe–LatAm–West Africa partnership to extend Academic City's federally anchored CCE Hub Ghana — adding a non-US capital channel toward the ACU Foundation's $10M three-year goal and unveiling at the CEEA 2026 Summit in Accra.</p>
+    <div class="grid-4">
+      <div class="card"><h3>Prepared for</h3><p>Prof. Fred McBagonluri · Academic City University</p></div>
+      <div class="card"><h3>With</h3><p>Makafui Awuku (TEC) · Deepak Ahuja (Foundation) · Ursula Dussi (CEEA Summit)</p></div>
+      <div class="card"><h3>From</h3><p>PVBLIC Foundation · CleantechHUB</p></div>
+      <div class="card"><h3>Contact</h3><p>laurence@pvblic.org</p></div>
+    </div>
+    <p>Meeting with Pav. Full name and role: <span class="pendiente">[PENDIENTE]</span></p>
+    <p>Language: English.</p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html" target="_blank" rel="noopener">Source: April 2026 proposal, cover</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-02" data-menu-title="What is REIN Hubs">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Overview</p>
+    <h2>What is REIN Hubs?</h2>
+    <p>REIN Hubs (<strong>Resilience · Entrepreneurship · Innovation · Nature</strong>) is a pioneering public–private partnership that builds climate and supply-chain ventures — pairing local execution with regional leverage.</p>
+    <p>Through activation, incubation, acceleration, and growth programs, REIN Hubs backs early-stage climate and cleantech founders with capital, mentorship, and corporate access — operating physical hubs where entrepreneurs, researchers, and industry converge to build environment-positive, trade-ready companies.</p>
+    <div class="grid-4">
+      <div class="card"><p class="kicker">R</p><h3>Resilience</h3><p>Climate-ready ventures and supply chains</p></div>
+      <div class="card"><p class="kicker">E</p><h3>Entrepreneurship</h3><p>Empowering founders to lead change</p></div>
+      <div class="card"><p class="kicker">I</p><h3>Innovation</h3><p>Local solutions, global technology</p></div>
+      <div class="card"><p class="kicker">N</p><h3>Nature</h3><p>Restoring the systems we depend on</p></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#overview" target="_blank" rel="noopener">Source: April 2026 proposal, Overview</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-03" data-menu-title="Key facts">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Overview</p>
+    <h2>Key facts</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Founded by</span><span>PVBLIC Foundation &amp; CleantechHUB</span></div>
+      <div class="row cols-2"><span class="k">Key Partners</span><span>UN Joint SDG Fund · European corporate network · CCE-aligned alumni · Angel networks · FOSD</span></div>
+      <div class="row cols-2"><span class="k">Active hubs</span><span class="figure">5 countries across Latin America · Accra proposed as West African node</span></div>
+      <div class="row cols-2"><span class="k">Program stages</span><span class="figure">4 — Ideation → Incubation → Acceleration → Growth</span></div>
+      <div class="row cols-2"><span class="k">Focus</span><span>Climate, cleantech &amp; resilient supply-chain entrepreneurship</span></div>
+      <div class="row cols-2"><span class="k">Model</span><span>Public–private partnership with local university / corporate hosts</span></div>
+    </div>
+    <p class="callout">The proposal PDF uses other counts for hubs, founders, and universities. This slide keeps the HTML. Which count to use: <span class="pendiente">[PENDIENTE]</span></p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#overview" target="_blank" rel="noopener">Source: April 2026 proposal, Overview</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-04" data-menu-title="FOSD and GHF">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Program Architecture</p>
+    <h2>REIN Hubs Within the Pvblic Foundation Ecosystem</h2>
+    <p>REIN Hubs does not operate in isolation — it is fully integrated into the broader Pvblic Foundation program architecture. Each program brings a distinct capability; together they form a complete pipeline from capital mobilisation to community impact to AI-enabled governance.</p>
+    <div class="grid-2">
+      <div class="card">
+        <p class="kicker">FOSD</p>
+        <h3>Family Offices for Sustainable Development</h3>
+        <p>The capital mobilisation engine. FOSD educates global family offices on multilateral systems, then activates long-term private capital into sovereign and development programs. Operating on an Educate → Engage → Activate thesis, FOSD is a trusted interface for structured capital deployment aligned with national resilience priorities. REIN Hubs draws directly on the FOSD network for non-US investment into hub operations and SAFE investments for startups.</p>
+      </div>
+      <div class="card">
+        <p class="kicker">GHF</p>
+        <h3>Global Health Fund / Humanitarian Framework</h3>
+        <p>Pvblic's humanitarian and health-focused initiative, channelling resources into community resilience and health infrastructure across emerging markets. Shares beneficiary populations with REIN Hubs and unlocks health-tech venture opportunities within REIN cohorts — particularly relevant in West Africa where environmental and public health challenges converge.</p>
+      </div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#pvblic" target="_blank" rel="noopener">Source: April 2026 proposal, Pvblic Ecosystem</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-05" data-menu-title="ALI and Pvblic One">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Program Architecture</p>
+    <h2>ALI, Pvblic One, and the execution arm</h2>
+    <div class="grid-2">
+      <div class="card">
+        <p class="kicker">ALI</p>
+        <h3>AI Leapfrog Initiative &amp; Logic Centers</h3>
+        <p>ALI equips governments and communities to leapfrog into the AI era through sovereign, ethics-first Logic Centers. Integrated into Pvblic's diplomatic initiatives and the FOSD network, ALI provides AI infrastructure and workforce pipelines that REIN Hub cohorts and Academic City's AI/Robotics programs can directly access. ALI is seeking <span class="amt">$10M</span> catalytic capital for its first cohort of Logic Centers — an investment aligned with the CCE Hub Ghana mission.</p>
+      </div>
+      <div class="card">
+        <p class="kicker">Pvblic One</p>
+        <h3>Media for Social Impact</h3>
+        <p>Pvblic's original platform — using media, storytelling, and communications for social impact at global convening moments (UNGA, COP, Climate Week NYC). Pvblic One amplifies REIN Hub stories, ACU venture achievements, and the CEEA 2026 partnership announcement to international audiences, converting local impact into global visibility and investor attention.</p>
+      </div>
+    </div>
+    <div class="callout"><strong>REIN Hubs as the Execution Arm:</strong> Within this architecture, REIN Hubs is the on-the-ground program delivery vehicle — translating capital from FOSD family offices, AI infrastructure from ALI, humanitarian partnerships from GHF, and communications amplification from Pvblic One into cohorts of climate-tech startups operating across Latin America and, with Academic City, West Africa. When FOSD activates a family office into a sustainable development program, REIN provides the deployment-ready entrepreneurship ecosystem on the ground.</div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#pvblic" target="_blank" rel="noopener">Source: April 2026 proposal, Pvblic Ecosystem</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-06" data-menu-title="Network">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Network</p>
+    <h2>Five Active Hubs — With Accra Proposed as the West African Node</h2>
+    <p>Five active REIN Hubs across Latin America, with Academic City University (Accra) proposed as the first West African node — a Europe ↔ LatAm ↔ West Africa triangle, complementing ACU's existing US State Department CCE Hub.</p>
+    <div class="grid-3">
+      <div class="hub"><strong>Colombia</strong><span>Universidad Externado · Bogotá · Active</span></div>
+      <div class="hub"><strong>Perú</strong><span>Ecosystem partners · Lima · Active</span></div>
+      <div class="hub"><strong>Guatemala</strong><span>Ecosystem partners · Active</span></div>
+      <div class="hub"><strong>Costa Rica</strong><span>Ecosystem partners · Active</span></div>
+      <div class="hub"><strong>El Salvador</strong><span>Ecosystem partners · Active</span></div>
+      <div class="hub proposed"><strong>Ghana</strong><span>Academic City · Accra · Proposed West African node</span></div>
+    </div>
+    <div class="callout"><strong>Cross-continent corridor:</strong> Academic City as the West African node closes the CCE loop — turning REIN Hubs into a true Europe–LatAm–Africa corridor without replacing US State Department anchorage.</div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#network" target="_blank" rel="noopener">Source: April 2026 proposal, Network</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-07" data-menu-title="Support system">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Support System</p>
+    <h2>A Multi-Layered Support System</h2>
+    <p>REIN Hubs connects local founders to a global ecosystem — from a neighbourhood workshop to a corporate offtake contract.</p>
+    <div class="grid-3">
+      <div class="card"><h3>At the Core — Founders</h3><p>Early-stage climate, cleantech, circular-economy and resilient-supply ventures — with a deliberate focus on women and under-represented founders in emerging markets.</p></div>
+      <div class="card"><h3>Direct Support</h3><p>Mentor matching, bootcamps, workshops, pitch coaching and workbooks delivered through the Kintec Academy digital platform.</p></div>
+      <div class="card"><h3>Network Access</h3><p>University partners, European corporates, multilateral agencies, sponsor networks, FOSD family office network, UN SDG Joint Fund.</p></div>
+      <div class="card"><h3>ClimateLaunchpad</h3><p>Direct entry to the world's largest green business idea competition, with finals in Singapore each October — a continental scale-up route.</p></div>
+      <div class="card"><h3>REIN Live &amp; Global Events</h3><p>REIN Live webinar series spotlighting hub achievements, with presence at COP, Climate Week NYC, UNGA, and the CEEA Accra summit.</p></div>
+      <div class="card"><h3>Non-US Investor Network</h3><p>European impact investors, EU corporate offtake, philanthropic grants, SAFE investments — intentional diversification away from US federal anchor funding.</p></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#support" target="_blank" rel="noopener">Source: April 2026 proposal, Support</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-08" data-menu-title="Six operational pillars">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Support System</p>
+    <h2>What Each Hub Receives — Six Operational Pillars</h2>
+    <div class="grid-3">
+      <div class="card"><p class="kicker">1</p><h3>Program Design &amp; Delivery</h3><p>Complete curriculum across the 4-stage pipeline. Bootcamps, mentorship frameworks, pitch coaching, workbooks, and evaluation rubrics — all provided.</p></div>
+      <div class="card"><p class="kicker">2</p><h3>Brand &amp; Communications</h3><p>Full REIN brand kit — logos, templates, social-media assets, presentation decks. Professional visual identity including a dedicated "REIN Ghana" country logo option.</p></div>
+      <div class="card"><p class="kicker">3</p><h3>Technology Infrastructure</h3><p>Kintec Academy platform for online learning, evidence tracking and certification. BookStack wiki for knowledge management.</p></div>
+      <div class="card"><p class="kicker">4</p><h3>Mentor Network</h3><p>Curated mentor pool with mentor–mentee matching. Weekly mentorship cadence. International and local mentor access through the REIN network.</p></div>
+      <div class="card"><p class="kicker">5</p><h3>Global Competition Pathway</h3><p>Direct entry to ClimateLaunchpad — Nationals → Regional → Global Final in Singapore, October 2026.</p></div>
+      <div class="card"><p class="kicker">6</p><h3>Visibility &amp; Events</h3><p>REIN Live webinar series. Presence at COP, Climate Week NYC, UNGA, CEEA Accra. Annual impact reporting and communications support.</p></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#support" target="_blank" rel="noopener">Source: April 2026 proposal, Support</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-09" data-menu-title="Annual budget">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Support System</p>
+    <h2>Annual Estimated Budget — REIN Ghana Hub</h2>
+    <div class="rows">
+      <div class="row cols-3 head-row"><span>Component</span><span>Annual Budget (USD)</span><span>What It Covers</span></div>
+      <div class="row cols-3"><span>Ideation Programs</span><span class="amt">$15,000</span><span>Early-stage idea workshops, bootcamps</span></div>
+      <div class="row cols-3"><span>Incubation Programs</span><span class="amt">$30,000</span><span>10-week incubation, mentorship, curriculum</span></div>
+      <div class="row cols-3"><span>Acceleration</span><span class="amt">$18,000</span><span>Business-model refinement, investor prep</span></div>
+      <div class="row cols-3"><span>Growth Services</span><span class="amt">$12,000</span><span>Post-acceleration scaling support</span></div>
+      <div class="row cols-3"><span>Comms &amp; Hub Maintenance</span><span class="amt">$8,000</span><span>Branding, events, platform upkeep</span></div>
+      <div class="row cols-3"><span>Operations &amp; Integration</span><span class="amt">$20,000</span><span>Multi-stakeholder integration, local operations, program coordination</span></div>
+      <div class="row cols-3 head-row"><span>Total per Hub / year</span><span class="amt">$103,000</span><span>Full annual program delivery — Ghana Hub</span></div>
+    </div>
+    <p class="note">Check: 15,000 + 30,000 + 18,000 + 12,000 + 8,000 + 20,000 = 103,000. The four program lines sum to 75,000.</p>
+    <p class="note">Funder mix: UN SDG Joint Fund · Angel networks · FOSD family office network · European corporate partners · Corporate offtake. An Academic City partnership adds a non-US capital channel matching toward the ACU Foundation's <span class="amt">$10M / 3-year</span> goal, mirroring the CCE <span class="amt">$2-private : $1-federal</span> leverage ratio.</p>
+    <p>The proposal PDF states a different budget. This slide does not copy it. Which budget to use: <span class="pendiente">[PENDIENTE]</span></p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#support" target="_blank" rel="noopener">Source: April 2026 proposal, Support</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-10" data-menu-title="Four stages">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Programs</p>
+    <h2>Four Stages from Idea to Scale</h2>
+    <div class="grid-4">
+      <div class="card"><p class="kicker">Stage 1</p><h3>Ideation (Activation)</h3><p class="note">2–3 weeks</p><p>Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p></div>
+      <div class="card"><p class="kicker">Stage 2</p><h3>Incubation</h3><p class="note">10 weeks · Building</p><p>Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p></div>
+      <div class="card"><p class="kicker">Stage 3</p><h3>Acceleration</h3><p class="note">8–12 weeks · Scaling</p><p>Business-model refinement, investor connections, financial modeling, growth strategy.</p></div>
+      <div class="card"><p class="kicker">Stage 4</p><h3>Growth</h3><p class="note">Ongoing · Cross-Continent Growth</p><p>Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p></div>
+    </div>
+    <div class="callout"><strong>ClimateLaunchpad pathway:</strong> National Finals (Aug) → Regional Final (Sep) → Global Final, Singapore (Oct 23, 2026).</div>
+    <p>Working funnel: Ideation (Activation), Incubation, Acceleration, Growth. <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> PDF page 8 states other durations. Whether those durations replace the HTML durations: <span class="pendiente">[PENDIENTE]</span></p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">Source: April 2026 proposal, Programs</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-11" data-menu-title="2026 milestones">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Programs</p>
+    <h2>2026 Key Milestones</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Now – May 15</span><span>Applications Open. Convocatoria across all LatAm hubs. Target: 15 applicants per hub → ~10 selected.</span></div>
+      <div class="row cols-2"><span class="k">May 20–23</span><span>CEEA 2026 Summit · Accra. Proposed partnership unveil at Academic City's "Engineering Education for a Sustainable Future" summit.</span></div>
+      <div class="row cols-2"><span class="k">May–June</span><span>Bootcamps Launch. Colombia (May 27), Central America (1st week June), Perú (2nd week June).</span></div>
+      <div class="row cols-2"><span class="k">Jun–Jul</span><span>Mentoring Period. Weekly mentor–mentee sessions, workbook completion, pitch prep.</span></div>
+      <div class="row cols-2"><span class="k">3rd week August</span><span>National Finals. Each hub selects top performers for the regional final.</span></div>
+      <div class="row cols-2"><span class="k">Sep 1–4</span><span>Regional Final. Best startups compete at regional level.</span></div>
+      <div class="row cols-2"><span class="k">Oct 23</span><span>Global Final · Singapore. ClimateLaunchpad world championship.</span></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">Source: April 2026 proposal, Programs</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-12" data-menu-title="Impact">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Impact</p>
+    <h2>Proven Track Record</h2>
+    <div class="grid-6">
+      <div class="stat"><span class="num">200+</span><span class="label">Entrepreneurs Supported</span></div>
+      <div class="stat"><span class="num">5</span><span class="label">Active Hubs</span></div>
+      <div class="stat"><span class="num">4</span><span class="label">Program Stages</span></div>
+      <div class="stat"><span class="num">20+</span><span class="label">Institutional Partners</span></div>
+      <div class="stat"><span class="num">2+</span><span class="label">Partner Universities</span></div>
+      <div class="stat"><span class="num">CLP</span><span class="label">ClimateLaunchpad Global Pathway</span></div>
+    </div>
+    <p>Through REIN Hubs, we empower entrepreneurs across emerging markets to develop solutions that combat environmental challenges and generate economic impact in their communities.</p>
+    <p class="callout">The proposal PDF gives other counts for entrepreneurs and for partner universities. This slide keeps the HTML figures. Which figures to use: <span class="pendiente">[PENDIENTE]</span></p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#impact" target="_blank" rel="noopener">Source: April 2026 proposal, Impact</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-13" data-menu-title="Academic City">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Our Proposed Partner</p>
+    <h2>Academic City University — Africa's STEAM Flagship in Accra</h2>
+    <div class="callout"><strong>Note:</strong> Much of the following information about Academic City University has been compiled from publicly available sources and has not been independently verified for accuracy. We encourage ACU to correct or expand any details before this proposal is shared externally.</div>
+    <p>Academic City University (ACU) is a <strong>private STEAM-focused university in Accra, Ghana</strong>, founded in 2017 and awarded a <strong>Presidential Charter on 19 December 2024</strong> — making it an independent degree-awarding institution. Ranked <strong>#2 in Ghana and #15 in Sub-Saharan Africa</strong> by Times Higher Education. ACU hosts <strong>Africa's first Sustainability Laboratory</strong> (the CCE Hub Ghana) plus the <strong>Arm Ecosystem Lab</strong>, both inaugurated 9 February 2023 in partnership with the US Department of State and Arm Ltd.</p>
+    <div class="grid-4">
+      <div class="card"><p>Presidential Charter · 19 Dec 2024</p></div>
+      <div class="card"><p>Founded 2017</p></div>
+      <div class="card"><p>#2 Ghana · #15 Sub-Saharan Africa (THE)</p></div>
+      <div class="card"><p>25+ Nationalities</p></div>
+      <div class="card"><p>98% Graduate Placement</p></div>
+      <div class="card"><p>$2M+ Scholarships</p></div>
+      <div class="card"><p>Africa's 1st AI + Robotics degrees</p></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#acu" target="_blank" rel="noopener">Source: April 2026 proposal, Academic City</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-14" data-menu-title="Organisation profile">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Our Proposed Partner</p>
+    <h2>Organisation Profile</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Founded</span><span>~2017 (Presidential Charter granted 19 Dec 2024)</span></div>
+      <div class="row cols-2"><span class="k">Campus</span><span>Property # 279-302, Agbogba, Haatso, P.O. Box AD 421, Accra, Ghana</span></div>
+      <div class="row cols-2"><span class="k">Leadership</span><span>Prof. Fred McBagonluri (President &amp; Provost) · Dr. Sena Agbodjah (VP Academic Affairs) · Ing. Dr. Lucy Agyepong (VP Institutional Advancement)</span></div>
+      <div class="row cols-2"><span class="k">Mission</span><span>Revolutionise higher education in Africa with a strong emphasis on STEAM + entrepreneurship</span></div>
+      <div class="row cols-2"><span class="k">Foundation goal</span><span class="figure">$10M new funding over next 3 years · 30% scholarship target within 5 years</span></div>
+      <div class="row cols-2"><span class="k">Recognition</span><span>Technovation "Tech-driven Education Institution of the Year 2025" · 2026 WorldStar Global Packaging Award · Best HR in Education 2025</span></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#acu" target="_blank" rel="noopener">Source: April 2026 proposal, Academic City</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-15" data-menu-title="Labs and initiatives">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Our Proposed Partner</p>
+    <h2>Six ACU Labs &amp; Initiatives — A Purpose-Built Climate-Tech Stack</h2>
+    <div class="grid-3">
+      <div class="card"><p class="kicker">Anchor · Federal-backed</p><h3>CCE Sustainability Lab</h3><p>Africa's first Sustainability Laboratory · inaugurated 9 Feb 2023 · US State Department CCE initiative · home of the Telesto Climate Tech Accelerator (17 entrepreneurs in the inaugural 2023 cohort).</p></div>
+      <div class="card"><p class="kicker">Hardware</p><h3>Arm Ecosystem Lab</h3><p>Advanced robotics + digital fabrication; Arm-based hardware startups. Free tools + training for founders. Co-launched 9 Feb 2023 with Arm Ltd.</p></div>
+      <div class="card"><p class="kicker">Prototyping</p><h3>MakeLab ACity Accra</h3><p>Open-access prototyping for youth entrepreneurship (with Embassy of Israel); SolidWorks training — only regional university offering it for EV + mechatronics.</p></div>
+      <div class="card"><p class="kicker">Bioengineering</p><h3>Bioinnovation Center</h3><p>Affordable medical tech design in partnership with Northeastern University — cross-continental student–faculty research.</p></div>
+      <div class="card"><p class="kicker">Umbrella</p><h3>Technology &amp; Entrepreneurship Center (TEC)</h3><p>Runs the CCE Climate Tech Accelerator. Q3 2025: 140 youth trained · 73 workshops · 48% female participation.</p></div>
+      <div class="card"><p class="kicker">Circular economy</p><h3>Sustain City Project</h3><p>Plastic-waste management + community buy-back; 100 recycled desks from 1M water sachets. Waakye Packaging won the 2026 WorldStar Global Packaging Award.</p></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#acu" target="_blank" rel="noopener">Source: April 2026 proposal, Academic City</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-16" data-menu-title="Alumni and ventures">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Our Proposed Partner</p>
+    <h2>Notable Alumni &amp; Ventures</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Goliath Robotics</span><span class="figure"><span class="amt">$80,000</span> Echoing Green grant · smart electronic wheelchair controllers</span></div>
+      <div class="row cols-2"><span class="k">Waakye Packaging Project</span><span>2026 WorldStar Global Packaging Award — Sustainable Packaging</span></div>
+      <div class="row cols-2"><span class="k">Farmio</span><span>Greenhouse farming solutions — US State Dept featured (Anaporka Adazabra)</span></div>
+      <div class="row cols-2"><span class="k">Translight Solar / Transvolt Ghana</span><span>Solar + EV venture (Kobina Nyanteh)</span></div>
+      <div class="row cols-2"><span class="k">Faith Sobe Cyril (Class of '24)</span><span>Software Engineer, Apple UK</span></div>
+    </div>
+    <div class="callout">In December 2024, H.E. Nana Addo Dankwa Akufo-Addo granted Academic City the <strong>Presidential Charter</strong> — institutional stability no other emerging African STEAM university has. That charter is the foundation for long-term non-US capital partnerships.</div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#acu" target="_blank" rel="noopener">Source: April 2026 proposal, Academic City</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-17" data-menu-title="Strategic fit">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Strategic Fit</p>
+    <h2>Diversifying the $10M Goal — Where ACU + REIN Compound</h2>
+    <p>The ACU Foundation's three-year $10M target is anchored in US State Department capital. REIN brings the European and LatAm channel that diversifies it — without displacing the CCE relationship. Each side brings the half the other is missing.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Academic City Contributes</h3>
+        <ul>
+          <li>Africa's first CCE Sustainability Lab — a federally anchored, ready-made West African node</li>
+          <li>Presidential Charter (19 Dec 2024) — independent degree authority + institutional stability</li>
+          <li>Arm Ecosystem Lab — only regional university with SolidWorks training for EV + mechatronics</li>
+          <li>First-in-Africa undergraduate AI + Robotics Engineering degrees</li>
+          <li>17-entrepreneur CCE cohort infrastructure — proven accelerator delivery with Telesto + ANDE</li>
+          <li>CEEA 2026 Summit (20–23 May, Accra) — largest West African engineering-education convening</li>
+          <li>25+ nationalities on campus — pan-African + international student mix</li>
+          <li>Alumni at Apple UK, Zipline, Turntabl, Worcester Polytechnic</li>
+          <li>Proven project IP — Sustain City, Goliath Robotics ($80K Echoing Green), Waakye (WorldStar 2026)</li>
+          <li>Ghana government alignment — Climate Envoy, VP, and Presidential endorsement</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>REIN Hubs + Pvblic Contribute</h3>
+        <ul>
+          <li>Non-US capital channel — FOSD family office network + European corporates directly feeding the Foundation's $10M 3-year goal</li>
+          <li>LatAm founder pipeline from 5 active hubs into ACU's CCE Climate Tech Accelerator</li>
+          <li>European corporate access — leverages ACU's existing WU Vienna + Fontys ties</li>
+          <li>CleantechHUB accelerator programming — complements Telesto's 17-entrepreneur delivery</li>
+          <li>ClimateLaunchpad on-ramp — continental scale-up pathway for CCE Hub alumni</li>
+          <li>ALI Logic Center pathway — AI infrastructure aligned with ACU's AI/Robotics degrees</li>
+          <li>Cross-continent cohort exchange (Ghana ↔ LatAm), building on the ETHOS (Dayton) template</li>
+          <li>Global marketplace integration for Sustain City, Waakye, and other circular-economy ventures</li>
+          <li>Pvblic One media amplification — UNGA, COP, Climate Week NYC visibility</li>
+          <li>Mentorship at scale — 200+ students/educators/year connected to international industry leaders</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#fit" target="_blank" rel="noopener">Source: April 2026 proposal, Strategic Fit</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-18" data-menu-title="Quote and tailwind">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Strategic Fit</p>
+    <div class="quote"><p>"We believe that the future is in our hands and that we must ensure its sustainability and equity."</p><cite>— Prof. Fred McBagonluri, President &amp; Provost, Academic City University</cite></div>
+    <h2>Ghana, West Africa &amp; the Climate-Innovation Tailwind</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Ghana 2026 GDP growth</span><span class="figure"><span class="amt">4.8%</span> (IMF projection) — recovery trajectory supports private cleantech capital deployment</span></div>
+      <div class="row cols-2"><span class="k">Ghana inflation (Mar 2026)</span><span class="figure"><span class="amt">3.2%</span> — macro stability for multi-year capital commitments</span></div>
+      <div class="row cols-2"><span class="k">Bank of Ghana Policy Rate (Mar 2026)</span><span class="figure"><span class="amt">14.00%</span> — domestic debt cost signals external capital premium valued</span></div>
+      <div class="row cols-2"><span class="k">Africa workforce by 2030</span><span>Largest globally — demographic dividend accessible through ACU's AI + Robotics pipeline</span></div>
+      <div class="row cols-2"><span class="k">Plastic waste signal</span><span class="figure"><span class="amt">8Mt/year</span> ending up in water bodies globally — driver for Sustain City + Waakye Packaging</span></div>
+      <div class="row cols-2"><span class="k">CCE Hub global goal (by 2026)</span><span class="figure"><span class="amt">700</span> market-ready climate ventures · <span class="amt">500</span> students — REIN can fill the cohort-volume gap</span></div>
+      <div class="row cols-2"><span class="k">CEEA 2026 Summit</span><span>20–23 May 2026 · Academic City · Accra — natural launch window for a REIN × ACU announcement</span></div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#fit" target="_blank" rel="noopener">Source: April 2026 proposal, Strategic Fit</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-19" data-menu-title="Next steps">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Next Steps</p>
+    <h2>Moving Forward Together</h2>
+    <p>These dates are the April 2026 proposal. A list updated for this meeting: <span class="pendiente">[PENDIENTE]</span></p>
+    <div class="rows">
+      <div class="row cols-4 head-row"><span>#</span><span>Action</span><span>Who</span><span>When</span></div>
+      <div class="row cols-4"><span>1</span><span>Internal review of proposal</span><span>Laurence Kalinsky (PVBLIC) + Gideon Blaauw (CleantechHUB)</span><span>Apr 2026</span></div>
+      <div class="row cols-4"><span>2</span><span>Send proposal to ACU leadership</span><span>Laurence / Gideon → Prof. McBagonluri (CC Awuku, Ahuja, Dussi)</span><span>Late Apr 2026</span></div>
+      <div class="row cols-4"><span>3</span><span>Alignment call</span><span>Laurence + Gideon + McBagonluri + Awuku + Ahuja</span><span>Within 2 weeks</span></div>
+      <div class="row cols-4"><span>4</span><span>Partnership unveil</span><span>Joint announcement at CEEA 2026 Summit · Accra</span><span>May 20–23, 2026</span></div>
+      <div class="row cols-4"><span>5</span><span>Draft MoU + capital-match SOW</span><span>PVBLIC Foundation legal · ACU Foundation</span><span>Q2 2026</span></div>
+      <div class="row cols-4"><span>6</span><span>Cohort scoping + first capital tranche</span><span>Full team</span><span>Q3 2026</span></div>
+    </div>
+    <div class="callout"><strong>Together,</strong> we can make the REIN × Academic City Accra Hub the first non-US capital channel for Africa's federally anchored CCE ecosystem — and the anchor partnership toward the Foundation's $10M three-year goal.</div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#next" target="_blank" rel="noopener">Source: April 2026 proposal, Next Steps</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-20" data-menu-title="Contacts">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Next Steps</p>
+    <h2>Contact the Team</h2>
+    <p class="kicker">REIN Hubs · PVBLIC Foundation &amp; CleantechHUB</p>
+    <div class="grid-2">
+      <div class="card"><h3>Laurence Kalinsky</h3><p>PVBLIC Foundation — REIN Hubs Lead</p><p>laurence@pvblic.org</p></div>
+      <div class="card"><h3>Gideon Blaauw</h3><p>CleantechHUB — Program Lead</p><p>gideon.blaauw@cleantechhub.net</p></div>
+    </div>
+    <p class="kicker">Academic City University Team</p>
+    <div class="grid-4">
+      <div class="card"><h3>Prof. Fred McBagonluri</h3><p>President &amp; Provost</p><p>info@acity.edu.gh</p></div>
+      <div class="card"><h3>Makafui Awuku</h3><p>Manager — TEC</p><p>tec@acity.edu.gh</p></div>
+      <div class="card"><h3>Ursula Dussi</h3><p>CEEA 2026 Summit Lead</p><p>ursula.dussi@acity.edu.gh</p></div>
+      <div class="card"><h3>Deepak Ahuja</h3><p>Chair, ACU Foundation</p><p>admin@acityfoundation.org</p></div>
+    </div>
+    <p class="note">Proposal footer links: <a class="cite" href="https://www.pvblic.org/rein-hubs" target="_blank" rel="noopener">www.pvblic.org/rein-hubs</a> · <a class="cite" href="https://acity.edu.gh/" target="_blank" rel="noopener">Academic City University</a> · <a class="cite" href="https://tec.acity.edu.gh/" target="_blank" rel="noopener">TEC Academic City</a> · <a class="cite" href="https://acityfoundation.org/" target="_blank" rel="noopener">ACU Foundation</a> · <a class="cite" href="https://www.pvblic.org" target="_blank" rel="noopener">PVBLIC Foundation</a> · <a class="cite" href="https://cleantechhub.net" target="_blank" rel="noopener">CleantechHUB</a> · <a class="cite" href="https://www.pvblic.org/what-we-do/family-offices" target="_blank" rel="noopener">FOSD Network</a>. Also named: UN Joint SDG Fund · Arm Ltd · Telesto Strategy · ANDE.</p>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#next" target="_blank" rel="noopener">Source: April 2026 proposal, Next Steps</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-21" data-menu-title="3-year sliding investment scale">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Added section</p>
+    <h2>3-year sliding investment scale</h2>
+    <div class="invest">
+      <figure class="figure">
+        <svg class="chart" viewBox="0 0 620 400" role="img" aria-label="Year 1 US$103K, Year 2 US$75K, Year 3 US$50K">
+          <line x1="40" y1="300" x2="580" y2="300" stroke="#C9D6D1" stroke-width="3"/>
+          <g data-year="1">
+            <rect x="70" y="60" width="120" height="240" fill="#335D4F"/>
+            <text x="130" y="48" text-anchor="middle">US$103K</text>
+            <text x="130" y="340" text-anchor="middle">Year 1</text>
+          </g>
+          <g data-year="2">
+            <rect x="250" y="125.24" width="120" height="174.76" fill="#FF6633"/>
+            <text x="310" y="112" text-anchor="middle">US$75K</text>
+            <text x="310" y="340" text-anchor="middle">Year 2</text>
+          </g>
+          <g data-year="3">
+            <rect x="430" y="183.5" width="120" height="116.5" fill="#5F6663"/>
+            <text x="490" y="170" text-anchor="middle">US$50K</text>
+            <text x="490" y="340" text-anchor="middle">Year 3</text>
+          </g>
+        </svg>
+      </figure>
+      <div class="tab-set">
+        <div role="tablist" aria-label="Year">
+          <button type="button" role="tab" id="tab-y1" data-year="1" aria-selected="true" aria-controls="panel-y1">Year 1 · US$103K</button>
+          <button type="button" role="tab" id="tab-y2" data-year="2" aria-selected="false" aria-controls="panel-y2">Year 2 · US$75K</button>
+          <button type="button" role="tab" id="tab-y3" data-year="3" aria-selected="false" aria-controls="panel-y3">Year 3 · US$50K</button>
+          <button type="button" role="tab" id="tab-yt" data-year="t" aria-selected="false" aria-controls="panel-yt">Total · US$228K</button>
+        </div>
+        <div>
+          <button type="button" class="step-btn" data-step="prev">Previous year</button>
+          <button type="button" class="step-btn" data-step="next">Next year</button>
+        </div>
+        <div role="tabpanel" id="panel-y1" aria-labelledby="tab-y1">
+          <p><span class="amt">Programs US$75K</span></p>
+          <p><span class="amt">Comms and hub maintenance US$8K</span></p>
+          <p><span class="amt">Operations and integration US$20K</span></p>
+          <p>Check: 75 + 8 + 20 = 103.</p>
+          <p>The April 2026 proposal lists Ideation $15,000, Incubation $30,000, Acceleration $18,000, and Growth Services $12,000. Those four lines sum to $75,000. Comms &amp; Hub Maintenance is $8,000. Operations &amp; Integration is $20,000. The proposal total is $103,000. The figures match Year 1. The proposal does not use the label "programs" for the four lines.</p>
+        </div>
+        <div role="tabpanel" id="panel-y2" aria-labelledby="tab-y2" hidden>
+          <p><span class="amt">Year 2 US$75K</span></p>
+          <p>Component split: <span class="pendiente">[PENDIENTE]</span></p>
+          <p>The April 2026 proposal does not state a Year 2 amount.</p>
+        </div>
+        <div role="tabpanel" id="panel-y3" aria-labelledby="tab-y3" hidden>
+          <p><span class="amt">Year 3 US$50K</span></p>
+          <p>Component split: <span class="pendiente">[PENDIENTE]</span></p>
+          <p>The April 2026 proposal does not state a Year 3 amount.</p>
+        </div>
+        <div role="tabpanel" id="panel-yt" aria-labelledby="tab-yt" hidden>
+          <p><span class="amt">Total US$228K</span></p>
+          <p>Check: 103 + 75 + 50 = 228.</p>
+        </div>
+      </div>
+    </div>
+    <p>Bar height uses the year totals only. Total <span class="amt">US$228K</span> is not a bar. Check: 103 + 75 + 50 = 228. Year 2 split: <span class="pendiente">[PENDIENTE]</span> Year 3 split: <span class="pendiente">[PENDIENTE]</span></p>
+
+    <p class="src"><a class="cite" href="sources/gideon-2026-10-20.html" target="_blank" rel="noopener">Source: Gideon Blaauw via REIN Hubs desk, 20 Oct 2026</a> <a class="cite" href="sources/academic-city-ghana-2026-04-23.html#support" target="_blank" rel="noopener">April 2026 proposal budget</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-22" data-menu-title="Stage lists">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Added section</p>
+    <h2>Ideation (Activation), Incubation, Acceleration, Growth</h2>
+    <p>Working funnel from the REIN desk. <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+    <div class="grid-2">
+      <div class="card stage-col">
+        <h3>Working labels</h3>
+        <p class="stage-item"><strong>Ideation (Activation).</strong> HTML card: 2–3 weeks. Idea validation, team formation, bootcamp, lean canvas, initial pitch.</p>
+        <p class="stage-item"><strong>Incubation.</strong> HTML card: 10 weeks. Product–market fit, MVP development, weekly mentoring, workbooks, pitch deck, business-model canvas.</p>
+        <p class="stage-item"><strong>Acceleration.</strong> HTML card: 8–12 weeks. Business-model refinement, investor connections, financial modeling, growth strategy.</p>
+        <p class="stage-item"><strong>Growth.</strong> HTML card name: Cross-Continent Growth. Ongoing. Market expansion, LatAm ↔ West Africa pilot corridors, European corporate offtake, follow-on funding.</p>
+      </div>
+      <div class="card stage-col">
+        <h3>Proposal PDF durations</h3>
+        <p class="stage-item"><strong>Ideation.</strong> 2–3 weeks. Open call → screening. Problem-validation sprints, team-building, lean-canvas coaching.</p>
+        <p class="stage-item"><strong>Incubation.</strong> 3 months. Structured curriculum, mentor matching, prototyping support, first customer conversations.</p>
+        <p class="stage-item"><strong>Acceleration.</strong> 6 months. GTM sprints, investor-readiness, ClimateLaunchpad entry, cross-continent cohort exchange.</p>
+        <p class="stage-item"><strong>Growth.</strong> 12+ months. Capital match, EU corporate offtake, alumni network, second-round fundraising support.</p>
+        <p>Whether the PDF durations replace the HTML durations: <span class="pendiente">[PENDIENTE]</span></p>
+      </div>
+    </div>
+
+    <p class="src"><a class="cite" href="sources/academic-city-ghana-2026-04-23.html#programs" target="_blank" rel="noopener">HTML stages</a> <a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">PDF stages, page 8</a> <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-23" data-menu-title="Academic City assets → REIN stages">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Added section</p>
+    <h2>Academic City assets → REIN stages</h2>
+    <p>Click a stage. Seat and team counts: <span class="pendiente">[PENDIENTE]</span></p>
+    <div data-stage-map>
+      <div class="map-cols">
+        <div class="map-col">
+          <button type="button" data-stage-btn="ideation" aria-pressed="true">Ideation (Activation)</button>
+          <div class="map-group is-on" data-stage-group="ideation">
+            <p class="asset-line"><span>TEC workshops</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Freshman entrepreneurship course</span><a class="cite" href="https://acity.edu.gh/undergraduate-programmes/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Amphitheatres and classrooms</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node5" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>CCE Climate Entrepreneurship Curriculum</span><a class="cite" href="https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="incubation" aria-pressed="false">Incubation</button>
+          <div class="map-group" data-stage-group="incubation">
+            <p class="asset-line"><span>TEC</span><a class="cite" href="https://tec.acity.edu.gh/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>CCE Sustainability Lab and Climate Entrepreneurship Incubator</span><a class="cite" href="https://acity.edu.gh/academic-city-us-state-department-and-arm-launch-sustainability-lab-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>MakeLab</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/makelab-acity-accra/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Fabrication, CNC and laser rooms</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node50" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Ghana BioInnovation Centre</span><a class="cite" href="https://acity.edu.gh/event_acity/bio-innovation/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="acceleration" aria-pressed="false">Acceleration</button>
+          <div class="map-group" data-stage-group="acceleration">
+            <p class="asset-line"><span>Telesto / CCE Climate Tech Accelerator (12 weeks)</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="growth" aria-pressed="false">Growth</button>
+          <div class="map-group" data-stage-group="growth">
+            <p class="asset-line"><span>TEC investor showcase</span><a class="cite" href="https://tec.acity.edu.gh/about-tech-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Telesto showcase</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>ANDE and CCE networks</span><a class="cite" href="https://tec.acity.edu.gh/2023/07/telesto-strategy-accelerator-program-fueling-climate-solutions-and-startup-growth-in-ghana/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>FOSD and PVBLIC/UNGA</span><a class="cite" href="https://www.pvblic.org/what-we-do/family-offices" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+        <div class="map-col">
+          <button type="button" data-stage-btn="ops" aria-pressed="false">Hub ops/comms</button>
+          <div class="map-group" data-stage-group="ops">
+            <p class="asset-line"><span>Hostels</span><a class="cite" href="https://acity.edu.gh/student-life/student-housing/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Clinic</span><a class="cite" href="https://acity.edu.gh/student-life/health-center/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Canteens</span><a class="cite" href="https://acity.edu.gh/student-life/dining-meal-plans/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>Media Lab</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node52" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>ACity Radio</span><a class="cite" href="https://tours.dobiison.com/CampusVisit/ACity/#node51" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+            <p class="asset-line"><span>TEC staff</span><a class="cite" href="https://tec.acity.edu.gh/" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="src"><a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/64" target="_blank" rel="noopener">Asset pages, PR #64</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+<section class="slide" id="s-24" data-menu-title="SOURCES">
+  <div class="slide-inner">
+
+    <p class="eyebrow">Sources</p>
+    <h2>SOURCES</h2>
+    <div class="rows">
+      <div class="row cols-2"><span class="k">Proposal page</span><span><a class="cite" href="sources/academic-city-ghana-2026-04-23.html" target="_blank" rel="noopener">academic-city-ghana-2026-04-23.html</a> — section order and words on the proposal slides.</span></div>
+      <div class="row cols-2"><span class="k">Same words as text</span><span><a class="cite" href="sources/academic-city-ghana-2026-04-23.txt" target="_blank" rel="noopener">academic-city-ghana-2026-04-23.txt</a></span></div>
+      <div class="row cols-2"><span class="k">Proposal PDF</span><span><a class="cite" href="sources/REIN_AcademicCityGhana_Deck_v1.pdf" target="_blank" rel="noopener">REIN_AcademicCityGhana_Deck_v1.pdf</a> — stage durations on the stage-list slide. Budget amounts from this PDF are not copied.</span></div>
+      <div class="row cols-2"><span class="k">Asset map</span><span><a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/65" target="_blank" rel="noopener">REIN desk mapping, 20 Oct 2026</a> Labels from PR #65. Pages from <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/pull/64" target="_blank" rel="noopener">PR #64</a>.</span></div>
+      <div class="row cols-2"><span class="k">3-year scale</span><span><a class="cite" href="sources/gideon-2026-10-20.html" target="_blank" rel="noopener">Gideon Blaauw via REIN Hubs desk, 20 Oct 2026</a></span></div>
+      <div class="row cols-2"><span class="k">Open items</span><span><a class="cite" href="PENDIENTES.md" target="_blank" rel="noopener">PENDIENTES.md</a> · <a class="cite" href="SOURCES.md" target="_blank" rel="noopener">SOURCES.md</a></span></div>
+    </div>
+    <p>Language: English.</p>
+    <div class="expand-card">
+      <button type="button" class="expand-trigger" aria-expanded="false">What this deck does not copy</button>
+      <div class="expand-body"><p>The PDF budget on page 7 is not on these slides. Counts that disagree stay as [PENDIENTE]. See PENDIENTES.md. This deck is not published. Future slug, after Gideon says yes: decks.cleantechhub.net/rein-academic-city-ghana/</p></div>
+    </div>
+    <p class="note">Awaiting Gideon's approval. Do not send this deck to the room.</p>
+
+    <p class="src"><a class="cite" href="SOURCES.md" target="_blank" rel="noopener">Folder file list matches SOURCES.md</a></p>
+  </div>
+  <p class="ask-collapsible">Questions for this room: <span class="pendiente">[PENDIENTE]</span>. The source files do not list questions.</p>
+  <footer class="footer">
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+</div></div></div></div>
+
+<div class="deck-chrome" id="deck-chrome">
+  <button type="button" class="chrome-btn" id="btn-menu" aria-expanded="false" aria-controls="deck-menu">Index</button>
+  <nav class="slide-dots" id="slide-dots" aria-label="Slide progress"></nav>
+  <button type="button" class="chrome-btn" id="btn-questions" aria-pressed="false">Show questions</button>
+</div>
+<div class="deck-menu" id="deck-menu" hidden>
+  <div class="deck-menu-panel" role="dialog" aria-label="Slide index">
+    <h2>Index</h2>
+    <ul class="deck-menu-list" id="deck-menu-list"></ul>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Enlarged image">
+  <button type="button" class="chrome-btn lightbox-close" id="lightbox-close">Close</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+</div>
+<p class="nav-hint" aria-hidden="true">arrows · space · click · index · dots</p>
+<script>
+(function () {
+  'use strict';
+
+  var frame = document.querySelector('.deck-frame');
+  var stage = document.querySelector('.deck-stage');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var current = 0;
+  var printMode = /\?print(?:=|$)/.test(window.location.search) || window.location.hash === '#print';
+
+  function scaleStage() {
+    if (!frame || !stage || printMode) return;
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var scale = Math.min(vw / 1920, vh / 1080) * 0.96;
+    frame.style.width = Math.round(1920 * scale) + 'px';
+    frame.style.height = Math.round(1080 * scale) + 'px';
+    stage.style.transform = 'scale(' + scale + ')';
+  }
+
+  function initSlideNumbers() {
+    var total = slides.length;
+    slides.forEach(function (s, i) {
+      var el = s.querySelector('.slide-num');
+      if (el) el.textContent = (i + 1) + ' / ' + total;
+    });
+  }
+
+  function updateDots() {
+    var dots = document.querySelectorAll('.slide-dots button');
+    dots.forEach(function (btn, i) {
+      var on = i === current;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-current', on ? 'true' : 'false');
+    });
+  }
+
+  function setSlide(index) {
+    if (!slides.length) return;
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === index);
+    });
+    current = index;
+    updateDots();
+    if (!printMode) {
+      var hash = '#' + (index + 1);
+      if (window.location.hash !== hash && window.location.hash !== '#print') {
+        history.replaceState(null, '', hash);
+      }
+    }
+  }
+
+  function next() { setSlide(current + 1); }
+  function prev() { setSlide(current - 1); }
+
+  function slideFromHash() {
+    var h = window.location.hash.replace(/^#/, '');
+    if (!h || h === 'print') return 0;
+    var n = parseInt(h, 10);
+    if (!isNaN(n) && n >= 1) return n - 1;
+    return 0;
+  }
+
+  function isInteractiveTarget(el) {
+    if (!el || el === stage) return false;
+    var tag = el.tagName;
+    if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT') return true;
+    if (el.closest && el.closest('.deck-chrome, .deck-menu, .lightbox, .expand-card, .lightbox-open, .tab-set, .chart, [role="tablist"], [data-stage-map]')) return true;
+    return false;
+  }
+
+  function selectTab(tab) {
+    var set = tab.closest('.tab-set');
+    if (!set) return;
+    var tabs = set.querySelectorAll('[role="tab"]');
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    var year = tab.getAttribute('data-year');
+    document.querySelectorAll('.chart [data-year]').forEach(function (node) {
+      node.classList.toggle('is-on', node.getAttribute('data-year') === year);
+    });
+  }
+
+  function moveTab(list, dir) {
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) return;
+    var idx = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    if (idx < 0) idx = 0;
+    var nextIdx = (idx + dir + tabs.length) % tabs.length;
+    selectTab(tabs[nextIdx]);
+    tabs[nextIdx].focus();
+  }
+
+  function selectStage(map, id) {
+    map.classList.add('has-selection');
+    map.querySelectorAll('[data-stage-btn]').forEach(function (btn) {
+      var on = btn.getAttribute('data-stage-btn') === id;
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    map.querySelectorAll('[data-stage-group]').forEach(function (group) {
+      group.classList.toggle('is-on', group.getAttribute('data-stage-group') === id);
+    });
+  }
+
+  function initStageMap() {
+    document.querySelectorAll('[data-stage-map]').forEach(function (map) {
+      var buttons = Array.prototype.slice.call(map.querySelectorAll('[data-stage-btn]'));
+      buttons.forEach(function (btn, i) {
+        btn.tabIndex = i === 0 ? 0 : -1;
+        btn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          selectStage(map, btn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === btn ? 0 : -1; });
+        });
+        btn.addEventListener('keydown', function (ev) {
+          if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+          ev.preventDefault();
+          ev.stopPropagation();
+          var idx = buttons.indexOf(btn);
+          var dir = ev.key === 'ArrowRight' ? 1 : -1;
+          var nextBtn = buttons[(idx + dir + buttons.length) % buttons.length];
+          selectStage(map, nextBtn.getAttribute('data-stage-btn'));
+          buttons.forEach(function (b) { b.tabIndex = b === nextBtn ? 0 : -1; });
+          nextBtn.focus();
+        });
+      });
+      var current = map.querySelector('[data-stage-btn][aria-pressed="true"]') || buttons[0];
+      if (current) selectStage(map, current.getAttribute('data-stage-btn'));
+    });
+  }
+
+  function initTabs() {
+    document.querySelectorAll('.tab-set').forEach(function (set) {
+      var tabs = set.querySelectorAll('[role="tab"]');
+      tabs.forEach(function (tab, i) {
+        tab.tabIndex = i === 0 ? 0 : -1;
+        tab.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          selectTab(tab);
+        });
+      });
+      set.querySelectorAll('.step-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          var list = set.querySelector('[role="tablist"]');
+          moveTab(list, btn.getAttribute('data-step') === 'prev' ? -1 : 1);
+        });
+      });
+      var first = set.querySelector('[role="tab"][aria-selected="true"]') || tabs[0];
+      if (first) selectTab(first);
+    });
+    document.querySelectorAll('.chart [data-year]').forEach(function (node) {
+      node.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        var year = node.getAttribute('data-year');
+        var tab = document.querySelector('[role="tab"][data-year="' + year + '"]');
+        if (tab) selectTab(tab);
+      });
+    });
+  }
+
+  function onKey(e) {
+    if (printMode) return;
+    var menu = document.getElementById('deck-menu');
+    var menuBtn = document.getElementById('btn-menu');
+    if (menu && !menu.hidden && e.key === 'Escape') {
+      menu.hidden = true;
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    var lb = document.getElementById('lightbox');
+    if (lb && !lb.hidden && e.key === 'Escape') {
+      lb.hidden = true;
+      return;
+    }
+    var list = e.target && e.target.closest && e.target.closest('[role="tablist"]');
+    if (list && (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'ArrowDown')) {
+      e.preventDefault();
+      e.stopPropagation();
+      var dir = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : -1;
+      moveTab(list, dir);
+      return;
+    }
+    var k = e.key;
+    if (k === 'ArrowRight' || k === ' ' || k === 'PageDown') {
+      e.preventDefault();
+      next();
+    } else if (k === 'ArrowLeft' || k === 'PageUp') {
+      e.preventDefault();
+      prev();
+    }
+  }
+
+  function onStageClick(e) {
+    if (printMode || isInteractiveTarget(e.target)) return;
+    var rect = (frame || stage).getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    if (x > rect.width / 2) next();
+    else prev();
+  }
+
+  function initExpandCards() {
+    document.querySelectorAll('.expand-card .expand-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        var body = btn.parentElement.querySelector('.expand-body');
+        if (!body) return;
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  }
+
+  function initDots() {
+    var wrap = document.getElementById('slide-dots');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    slides.forEach(function (_s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      b.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        setSlide(i);
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function initMenu() {
+    var menu = document.getElementById('deck-menu');
+    var list = document.getElementById('deck-menu-list');
+    var btnMenu = document.getElementById('btn-menu');
+    if (!menu || !list || !btnMenu) return;
+    list.innerHTML = '';
+    slides.forEach(function (slide, i) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      var title = slide.getAttribute('data-menu-title') || ('Slide ' + (i + 1));
+      b.textContent = (i + 1) + '. ' + title;
+      b.addEventListener('click', function () {
+        menu.hidden = true;
+        btnMenu.setAttribute('aria-expanded', 'false');
+        setSlide(i);
+      });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+    btnMenu.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      menu.hidden = !menu.hidden;
+      btnMenu.setAttribute('aria-expanded', menu.hidden ? 'false' : 'true');
+    });
+    menu.addEventListener('click', function (ev) {
+      if (ev.target === menu) {
+        menu.hidden = true;
+        btnMenu.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function initQuestionsToggle() {
+    var btn = document.getElementById('btn-questions');
+    if (!btn) return;
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      var on = document.body.classList.toggle('show-questions');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? 'Hide questions' : 'Show questions';
+    });
+  }
+
+  function initLightbox() {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-cap');
+    var close = document.getElementById('lightbox-close');
+    if (!lb || !img) return;
+    document.querySelectorAll('.lightbox-open').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        img.src = btn.getAttribute('data-src') || '';
+        img.alt = btn.getAttribute('data-caption') || '';
+        if (cap) cap.textContent = btn.getAttribute('data-caption') || '';
+        lb.hidden = false;
+      });
+    });
+    function closeLb() {
+      lb.hidden = true;
+      img.src = '';
+    }
+    if (close) close.addEventListener('click', closeLb);
+    lb.addEventListener('click', function (ev) {
+      if (ev.target === lb) closeLb();
+    });
+  }
+
+  initSlideNumbers();
+  initDots();
+  initMenu();
+  initQuestionsToggle();
+  initExpandCards();
+  initLightbox();
+  initTabs();
+  initStageMap();
+
+  if (printMode) {
+    document.body.classList.add('print-all');
+    document.body.classList.add('show-questions');
+    slides.forEach(function (s) { s.classList.add('active'); });
+    document.querySelectorAll('.expand-body').forEach(function (el) { el.classList.add('open'); });
+  } else {
+    setSlide(slideFromHash());
+    window.addEventListener('resize', scaleStage);
+    window.addEventListener('hashchange', function () { setSlide(slideFromHash()); });
+    document.addEventListener('keydown', onKey);
+    if (stage) stage.addEventListener('click', onStageClick);
+    scaleStage();
+  }
+})();
+</script>
+</body></html>
