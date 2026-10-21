@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REIN Hubs — Comms package v1</title>
+<style>
+  :root {
+    --green: #335D4F;
+    --orange: #FF6633;
+    --ink: #222A27;
+    --muted: #5F6663;
+    --mist: #C9D6D1;
+    --paper: #F1F5F3;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #e7eeea; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 12pt; line-height: 1.4; }
+  h1, h2, .sans, .brand, .gate { font-family: Arial, Helvetica, sans-serif; }
+  a { color: var(--green); }
+  .page {
+    width: 210mm; min-height: 297mm; margin: 12px auto; background: #fff;
+    padding: 14mm 14mm 12mm;
+  }
+  header { display: flex; justify-content: space-between; border-bottom: 2.5px solid var(--green); padding-bottom: 3mm; margin-bottom: 5mm; }
+  .brand { margin: 0; color: var(--green); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .gate { margin: 0; color: var(--orange); font-size: 11px; font-weight: 700; text-align: right; }
+  h1 { margin: 0 0 3mm; color: var(--green); font-size: 32px; line-height: 1.05; }
+  p { margin: 0 0 4mm; }
+  ol { margin: 0; padding-left: 5mm; }
+  li { margin: 0 0 3.5mm; }
+  .src { color: var(--muted); font-size: 10pt; }
+  footer { margin-top: 8mm; border-top: 2px solid var(--green); padding-top: 3mm; display: flex; justify-content: space-between; color: var(--muted); font-size: 9pt; }
+  @page { size: A4; margin: 0; }
+  @media print { body { background: #fff; } .page { margin: 0; } }
+</style>
+</head>
+<body>
+<article class="page">
+  <header>
+    <p class="brand">REIN Hubs · Comms package v1 · English</p>
+    <p class="gate">Awaiting Gideon's approval<br>REIN HOLD · Not for send</p>
+  </header>
+  <h1>REIN Hubs comms package</h1>
+  <p>Draft pack for review. Text and figures come from the 21 Oct 2026 inventory and from <span class="src">decks/rein-*</span> files already in this repo. Nothing here is cleared to send or deploy.</p>
+  <ol>
+    <li><a href="overview.html">One-page overview</a> — <a href="overview.pdf">PDF</a></li>
+    <li><a href="deck/index.html">General deck (9 slides)</a> — <a href="deck/deck.pdf">PDF</a></li>
+    <li>Inserts
+      <ul>
+        <li><a href="inserts/university.html">University</a> — <a href="inserts/university.pdf">PDF</a></li>
+        <li><a href="inserts/funder.html">Funder</a> — <a href="inserts/funder.pdf">PDF</a></li>
+        <li><a href="inserts/corporate.html">Corporate</a> — <a href="inserts/corporate.pdf">PDF</a></li>
+      </ul>
+    </li>
+    <li><a href="proof-sheet.html">Proof sheet</a> — <a href="proof-sheet.pdf">PDF</a></li>
+    <li><a href="media-kit/index.html">Media kit</a> — <a href="media-kit/media-kit.pdf">PDF</a></li>
+    <li><a href="DECISIONS.md">DECISIONS.md</a> — every placeholder and gap</li>
+  </ol>
+  <p class="src">Open conflicts stay in orange as <span style="color:#FF6633;font-family:Arial,Helvetica,sans-serif;font-weight:700">[DECISION: 100+ or 200+ entrepreneurs]</span> and <span style="color:#FF6633;font-family:Arial,Helvetica,sans-serif;font-weight:700">[DECISION: 2+ or 5+ partner universities]</span>.</p>
+  <footer>
+    <span>REIN Hubs · PVBLIC × CleantechHUB</span>
+    <span>Awaiting Gideon's approval · 21 Oct 2026</span>
+  </footer>
+</article>
+</body>
+</html>
