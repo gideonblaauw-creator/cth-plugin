@@ -1,0 +1,501 @@
+{
+  "audit": "A2",
+  "title": "Sep-Oct 2026 CleantechHUB decks still on Vercel",
+  "audited_at": "2026-10-19T21:02:00Z",
+  "method": "public curl only against live hosts; built HTML taken from git when the host returned 402 DEPLOYMENT_DISABLED",
+  "live_note": "HTTP 402 with x-vercel-error DEPLOYMENT_DISABLED means the Vercel project name exists and the deployment is paused (body: Payment required). It is not a 404. Slide facts for those hosts are from source, not from the live response.",
+  "wayback_cdx": "empty for every requested host",
+  "brand_baseline": {
+    "skill": "skills/cleantechhub-brand/SKILL.md",
+    "primary": "#2D6A4F",
+    "secondary": "#1B4332",
+    "accent": "#95D5B2",
+    "font": "Inter",
+    "used_by_readable_decks": false
+  },
+  "meeting_palette": {
+    "deep": "#0C498A",
+    "cyan": "#B2EEFA",
+    "green": "#9DC384",
+    "forest": "#669348",
+    "sky": "#69B5FA",
+    "white": "#FFFFFF",
+    "viewport": "#051a33",
+    "font_common": "Open Sans",
+    "font_also_on_apc_cee_energy": "PT Sans"
+  },
+  "common_pattern": {
+    "applies_to": ["apc", "b4b", "matamala-deck", "cee-source-only"],
+    "lang": "es",
+    "en_es_toggle": false,
+    "dom": [".deck-viewport", ".deck-frame", ".deck-stage", ".deck#deck", "section.slide"],
+    "stage_px": [1920, 1080],
+    "deck_frame_scale": "Math.min(innerWidth/1920, innerHeight/1080) * 0.96 in shell/deck.js; frame width/height set to the scaled stage; deck-stage transform-origin top left",
+    "print": "?print or #print adds body.print-all, shows every slide, skips scale; @page size 1920px 1080px; @media print matches",
+    "nav_base": ["ArrowLeft", "ArrowRight", "Space", "PageUp", "PageDown", "hash #N", "click left/right half"],
+    "build": "build.sh concatenates shell/head.html + inlined shell/deck.css + slides/*.html + inlined shell/deck.js into index.html; img/ stays external",
+    "export": "Playwright 1920x1080 PNG per slide, then PDF. APC uses page.pdf. B4B and Matamala use img2pdf at 508mm x 285.75mm.",
+    "pendiente_class": ".pendiente dashed chip",
+    "tabs": false,
+    "chart_library": false,
+    "official_cth_green_tokens": false
+  },
+  "outliers": [
+    "Every requested host returned HTTP 402 DEPLOYMENT_DISABLED on 2026-10-19, so live HTML could not be counted.",
+    "Readable decks use the blue meeting palette and Open Sans or PT Sans, not CleantechHUB green #2D6A4F or Inter.",
+    "APC is the base shell: no index, dots, lightbox, expand cards, or question toggle. Sources slide is slide 21. Visible PENDIENTE chips were commented out on 7 Oct 2026 except one [en construcción] chip.",
+    "B4B and Matamala deck share byte-identical deck.css, deck.js, and build.sh, and add Índice, dots, question toggle, expand cards, and lightbox. No sources slide. PDF via img2pdf.",
+    "Matamala brief.html is an English 6-section document, not a 1920 deck. No 0.96 frame. Four details cards. ?print sets html.print-mode.",
+    "Energy Coops is A4 landscape 297mm x 210mm, all slides visible, no deck-frame, no JS nav, static EN subtitle, dated 28 Aug 2026, public repo energy-coops-cth.",
+    "CEE matches the APC shell plus ?review (pendiente hidden until review). No confirmed Vercel host (guessed names 404).",
+    "teclogi-jose, teclogi-brief, epic-angels, grp-ic-2026-application, and teclogi-financial-model have no readable source in this repo."
+  ],
+  "decks": [
+    {
+      "id": "apc",
+      "url": "https://apc-cth-2026-10-07.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402, "content_type": "text/plain; charset=utf-8"},
+      "content_from": "git",
+      "source": {
+        "repo": "gideonblaauw-creator/cth-plugin",
+        "branch": "apc-2026-10-07",
+        "commit": "17d3795",
+        "committed_at": "2026-10-07T08:18:28-05:00",
+        "path": "decks/apc-2026-10-07/index.html",
+        "sha256": "e90e5224b575854a6d15bcc40d12fea324623111c51e45a261136adf1ecdd27a",
+        "bytes": 56157
+      },
+      "title": "CleantechHUB × APC Colombia · 7 oct 2026",
+      "lang": "es",
+      "slide_count": 21,
+      "slides": [
+        {"n": 1, "title": "CleantechHUB × APC Colombia", "type": "cover-photo"},
+        {"n": 2, "title": "Agenda", "type": "agenda"},
+        {"n": 3, "title": "Quiénes somos", "type": "photo", "src": true},
+        {"n": 4, "title": "Demo en vivo · Datalab (4 min)", "type": "deep"},
+        {"n": 5, "title": "Programas · de la idea al mercado", "type": "photo-cards", "src": true},
+        {"n": 6, "title": "Lo que acaban de ver", "type": "deep", "src": true},
+        {"n": 7, "title": "Entorno 1 · Datalab", "type": "live-capture", "src": true},
+        {"n": 8, "title": "Entorno 2 · Datathon", "type": "live-capture", "src": true},
+        {"n": 9, "title": "Entorno 3 · Living lab", "type": "live-capture", "src": true},
+        {"n": 10, "title": "Entorno 4 · Producto cliente", "type": "live-capture", "src": true},
+        {"n": 11, "title": "Filtro Epic Angels en Nexus", "type": "deep", "src": true},
+        {"n": 12, "title": "Proyectos · plataformas vivas", "type": "photo"},
+        {"n": 13, "title": "PNUD · AFCIA", "type": "gradient", "src": true},
+        {"n": 14, "title": "AuRA", "type": "photo"},
+        {"n": 15, "title": "Energy Coops × CPI Global Innovation Lab for Climate Finance 2026", "type": "photo"},
+        {"n": 16, "title": "Startups del portafolio CTH que accedieron a financiación", "type": "photo"},
+        {"n": 17, "title": "Caso Proplanet", "type": "photo", "src": true},
+        {"n": 18, "title": "MubOn · WEIA · Bio Natural Solutions", "type": "no-photo", "src": true},
+        {"n": 19, "title": "Encaje con la convocatoria APC", "type": "no-photo", "src": true},
+        {"n": 20, "title": "La solicitud a APC", "type": "photo-ask"},
+        {"n": 21, "title": "Fuentes públicas", "type": "sources"}
+      ],
+      "interactivity": {
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": false,
+        "en_es": false,
+        "index": false,
+        "arrows": true,
+        "click_halves": true,
+        "hash": true,
+        "lightbox": false,
+        "dots": false,
+        "print_query": true
+      },
+      "citations": {
+        "sources_slide": true,
+        "sources_slide_title": "Fuentes públicas",
+        "per_slide_src_class": 12,
+        "sibling_files": ["SOURCES.md", "PENDIENTES.md", "notes/*-SOURCES.md", "notes/*-PENDIENTES.md"]
+      },
+      "brand": {
+        "tokens": {"--deep": "#0C498A", "--cyan": "#B2EEFA", "--green": "#9DC384", "--forest": "#669348", "--sky": "#69B5FA", "--white": "#FFFFFF"},
+        "fonts": ["Open Sans", "PT Sans"],
+        "matches_cleantechhub_brand_skill": false
+      },
+      "stage": {"width_px": 1920, "height_px": 1080, "deck_frame_scale": 0.96, "scale_location": "shell/deck.js scaleStage()"},
+      "build": {
+        "build_sh": "decks/apc-2026-10-07/build.sh",
+        "render": "decks/apc-2026-10-07/render-deck.py",
+        "render_kind": "playwright page.pdf plus png/",
+        "expected_slide_count": 21,
+        "pdf": "APC-CTH-2026-10-07.pdf",
+        "smoke": "smoke-layout.py",
+        "vercel_json": false
+      },
+      "pendiente": {
+        "visible_bracket_chips": 0,
+        "commented_chips": 8,
+        "visible_other": ["[en construcción] on MubOn"],
+        "notes_file": "PENDIENTES.md"
+      }
+    },
+    {
+      "id": "b4b",
+      "url": "https://b4b-cth-2026-10-13.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": "git",
+      "source": {
+        "repo": "gideonblaauw-creator/cth-plugin",
+        "branch": "meetings-2026-10-13-b4b",
+        "commit": "7cb3f08",
+        "committed_at": "2026-10-13T14:19:49Z",
+        "path": "decks/meetings-2026-10-13/b4b/index.html",
+        "sha256": "2b8709dbd405eec427e1b9e83d51f0bedac5f45b6dab6dd853882e5cf69d5afb",
+        "bytes": 50379
+      },
+      "title": "CleantechHUB × Bridge for Billions · 13 oct 2026",
+      "lang": "es",
+      "slide_count": 9,
+      "slides": [
+        {"n": 1, "title": "Portada", "type": "cover-deep", "pendiente": true},
+        {"n": 2, "title": "Encaje CTH × B4B", "type": "expand-cards", "src": true, "pendiente": true},
+        {"n": 3, "title": "Conecta / Fondo Verde Catalítico", "type": "expand-cards", "src": true, "pendiente": true},
+        {"n": 4, "title": "CTH × B4B vía Conecta", "type": "expand-cards", "src": true, "pendiente": true},
+        {"n": 5, "title": "REIN Hubs", "type": "deep", "src": true, "pendiente": true},
+        {"n": 6, "title": "Nexus + Epic Angels", "type": "deep", "src": true},
+        {"n": 7, "title": "Datalab (4 entornos)", "type": "lightbox", "src": true},
+        {"n": 8, "title": "Preguntas de colaboración", "type": "questions", "src": true},
+        {"n": 9, "title": "Próximos pasos", "type": "expand-and-lightbox", "src": true, "pendiente": true}
+      ],
+      "interactivity": {
+        "tabs": false,
+        "toggles": ["Mostrar preguntas / body.show-questions"],
+        "expandable_cards": true,
+        "charts": false,
+        "en_es": false,
+        "index": true,
+        "arrows": true,
+        "click_halves": true,
+        "hash": true,
+        "lightbox": true,
+        "dots": true,
+        "print_query": true
+      },
+      "citations": {
+        "sources_slide": false,
+        "per_slide_src_or_cite": true,
+        "sibling_files": ["SOURCES.md", "PENDIENTES.md"]
+      },
+      "brand": {
+        "tokens": {"--deep": "#0C498A", "--cyan": "#B2EEFA", "--green": "#9DC384", "--forest": "#669348", "--sky": "#69B5FA", "--white": "#FFFFFF"},
+        "fonts": ["Open Sans"],
+        "matches_cleantechhub_brand_skill": false
+      },
+      "stage": {"width_px": 1920, "height_px": 1080, "deck_frame_scale": 0.96},
+      "build": {
+        "build_sh": "decks/meetings-2026-10-13/b4b/build.sh",
+        "render": "decks/meetings-2026-10-13/b4b/render-deck.py",
+        "render_kind": "playwright png then img2pdf 508mm x 285.75mm",
+        "expected_slide_count": 9,
+        "pdf": "CTH-B4B-2026-10-13.pdf",
+        "chrome_injected_by_build": ["index", "dots", "questions toggle", "lightbox"],
+        "shell_identical_to": "matamala-deck",
+        "vercel_json": false
+      },
+      "pendiente": {"visible_bracket_chips": 6, "hidden_until_review": false}
+    },
+    {
+      "id": "matamala-deck",
+      "url": "https://matamala-brief-2026-10-13.vercel.app",
+      "url_note": "Project name says brief. Live body unavailable. A static deploy of matamala-deck/ would serve this index at / and brief.html at /brief.",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": "git",
+      "source": {
+        "repo": "gideonblaauw-creator/cth-plugin",
+        "branch": "meetings-2026-10-13-matamala",
+        "commit": "a13a0eb",
+        "committed_at": "2026-10-13T14:31:32-05:00",
+        "path": "decks/meetings-2026-10-13/matamala-deck/index.html",
+        "sha256": "f34a736d41aa420f324a648c26248cf6c51d98676b704e53264a0d9b32085e74",
+        "bytes": 51203
+      },
+      "title": "CleantechHUB × ODS Cero · Datalab · 13 oct 2026",
+      "lang": "es",
+      "slide_count": 9,
+      "slides": [
+        {"n": 1, "title": "Portada", "type": "cover-deep", "lightbox": true, "src": true},
+        {"n": 2, "title": "Christian Matamala", "type": "deep", "src": true},
+        {"n": 3, "title": "ODS Cero · servicios", "type": "expand-cards", "src": true},
+        {"n": 4, "title": "ODS Cero · datos y red", "type": "deep", "lightbox": true, "src": true, "pendiente": true},
+        {"n": 5, "title": "Encaje Datalab (hipótesis)", "type": "deep", "lightbox": true, "src": true, "pendiente": true},
+        {"n": 6, "title": "Modelo de alianza (propuestas)", "type": "expand-cards", "lightbox": true, "src": true, "pendiente": true},
+        {"n": 7, "title": "Referencia Emprende UP", "type": "gallery", "lightbox": true, "src": true},
+        {"n": 8, "title": "Preguntas de colaboración", "type": "questions", "src": true},
+        {"n": 9, "title": "Riesgos y PENDIENTES", "type": "expand-cards", "lightbox": true, "src": true, "pendiente": true}
+      ],
+      "interactivity": {
+        "tabs": false,
+        "toggles": ["Mostrar preguntas / body.show-questions"],
+        "expandable_cards": true,
+        "charts": false,
+        "en_es": false,
+        "index": true,
+        "arrows": true,
+        "click_halves": true,
+        "hash": true,
+        "lightbox": true,
+        "dots": true,
+        "print_query": true
+      },
+      "citations": {
+        "sources_slide": false,
+        "per_slide_src_class": true,
+        "sibling_files": ["SOURCES.md"]
+      },
+      "brand": {
+        "tokens": {"--deep": "#0C498A", "--cyan": "#B2EEFA", "--green": "#9DC384", "--forest": "#669348", "--sky": "#69B5FA", "--white": "#FFFFFF"},
+        "fonts": ["Open Sans"],
+        "matches_cleantechhub_brand_skill": false
+      },
+      "stage": {"width_px": 1920, "height_px": 1080, "deck_frame_scale": 0.96},
+      "build": {
+        "build_sh": "decks/meetings-2026-10-13/matamala-deck/build.sh",
+        "render": "decks/meetings-2026-10-13/matamala-deck/render-deck.py",
+        "render_kind": "playwright png then img2pdf 508mm x 285.75mm",
+        "expected_slide_count": 9,
+        "pdf": "CTH-Matamala-ODS-Cero-2026-10-13.pdf",
+        "shell_identical_to": "b4b",
+        "vercel_json": {"cleanUrls": true, "trailingSlash": false}
+      },
+      "pendiente": {"visible_bracket_chips": 14, "risks_slide": 9}
+    },
+    {
+      "id": "matamala-brief",
+      "url": "https://matamala-brief-2026-10-13.vercel.app",
+      "url_note": "Same host as the deck. This file is brief.html in the deck folder and an identical copy at decks/meetings-2026-10-13/matamala/meeting-brief.html.",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": "git",
+      "source": {
+        "repo": "gideonblaauw-creator/cth-plugin",
+        "branch": "meetings-2026-10-13-matamala",
+        "commit": "a13a0eb",
+        "path": "decks/meetings-2026-10-13/matamala-deck/brief.html",
+        "sha256": "88b425b5c275bb3909bcf35a4b9ad29573900ecca2d4257f09c227bb6c650690",
+        "bytes": 23983,
+        "identical_to": "decks/meetings-2026-10-13/matamala/meeting-brief.html"
+      },
+      "title": "Collaboration brief — ODS Cero × Datalab · CleantechHUB",
+      "lang": "en",
+      "kind": "scrolling-brief",
+      "slide_count": 0,
+      "sections": [
+        {"id": "christian", "title": "1 · Christian Matamala"},
+        {"id": "odscero", "title": "2 · ODS Cero (Polo Empresarial)"},
+        {"id": "fit", "title": "3 · Why ODS Cero may fit as Datalab data partner (Chile)"},
+        {"id": "model", "title": "4 · Partnership model sketch"},
+        {"id": "talk", "title": "5 · Talking points & questions"},
+        {"id": "risks", "title": "6 · Risks & unknowns"}
+      ],
+      "interactivity": {
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": "4 details.partner-card (A data provider, B datathon anchor, C referral, D governance)",
+        "charts": false,
+        "en_es": false,
+        "index": "sticky section nav",
+        "arrows": false,
+        "lightbox": false,
+        "print_query": "?print adds html.print-mode and opens every details card"
+      },
+      "citations": {"sources_slide": false, "footer": "sources.md in this folder", "anchor_count": 41},
+      "brand": {
+        "tokens": {"--cth-blue": "#0C498A", "--cth-sky": "#B2EEFA", "--cth-sage": "#9DC384", "--cth-green": "#669348", "--cth-accent": "#69B5FA", "--cth-text": "#1a2e3b", "--cth-muted": "#3d5566"},
+        "fonts": ["Open Sans"],
+        "matches_cleantechhub_brand_skill": false
+      },
+      "stage": {"deck_frame": false, "scale_0_96": false, "screen_max_px": 920, "print_max": "210mm"},
+      "build": {"build_sh": false, "render_deck_py": false, "hand_written": true},
+      "pendiente": {"visible_bracket_chips": 8, "section": "risks"}
+    },
+    {
+      "id": "teclogi-jose",
+      "url": "https://teclogi-jose-2026-10-13.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": null,
+      "source": null,
+      "slide_count": null,
+      "blocked": "No HTML served. Not in cth-plugin. Not in the public repos visible to this token."
+    },
+    {
+      "id": "teclogi-brief",
+      "url": "https://teclogi-brief-2026-10-13.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": null,
+      "source": null,
+      "slide_count": null,
+      "blocked": "No HTML served. Not in cth-plugin. Not in the public repos visible to this token."
+    },
+    {
+      "id": "epic-angels",
+      "url": "https://epic-angels-cth-2026-10-16.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "also_probed": {"https://epic-angels.vercel.app": 404},
+      "content_from": null,
+      "source": null,
+      "slide_count": null,
+      "blocked": "No HTML served. Not in cth-plugin. APC slide 11 and B4B slide 06 mention Epic Angels inside those decks; they are not this host."
+    },
+    {
+      "id": "energy-coops",
+      "url": "https://energy-coops-cth.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "content_from": "public-github-raw",
+      "source": {
+        "repo": "gideonblaauw-creator/energy-coops-cth",
+        "commit": "c8fc515",
+        "committed_at": "2026-08-28T15:59:03Z",
+        "path": "index.html",
+        "sha256": "7d6bc88240d282cda1de50553fc51b4a5fcfdd3dfb070641f888d57c7f45dae2",
+        "bytes": 43793,
+        "in_cth_plugin": false
+      },
+      "title": "Energy Coop · Cooperativas Energéticas · CTH × PASO",
+      "lang": "es",
+      "date_on_cover": "2026-08-28",
+      "slide_count": 10,
+      "slides": [
+        {"n": 1, "title": "Cooperativas Energéticas en Colombia", "type": "cover-photo"},
+        {"n": 2, "title": "El Desafío de la Transición Energética Territorial", "type": "photo-gutter-cards", "en_subtitle": true},
+        {"n": 3, "title": "La Referencia Neerlandesa: Energie Samen", "type": "cards", "source_line": true},
+        {"n": 4, "title": "CleantechHUB × PASO Colombia: Construcción de Pipeline", "type": "cards", "en_subtitle": true},
+        {"n": 5, "title": "Alineación Estratégica con Pilares de Política Nacional", "type": "cards", "en_subtitle": true},
+        {"n": 6, "title": "Ecosistema Neerlandés: Asistencia Técnica y Diálogo", "type": "cards", "en_subtitle": true},
+        {"n": 7, "title": "Arquitectura del Piloto Asociativo Demostrativo", "type": "roadmap-4", "en_subtitle": true},
+        {"n": 8, "title": "Estrategia de Interlocución Gubernamental", "type": "cards-or-table", "en_subtitle": true},
+        {"n": 9, "title": "Plan de Acción Inmediato y Acuerdos de Trabajo", "type": "actions", "en_subtitle": true},
+        {"n": 10, "title": "Construyendo Energía Comunitaria Sostenible", "type": "close", "en_subtitle": true}
+      ],
+      "interactivity": {
+        "tabs": false,
+        "toggles": false,
+        "expandable_cards": false,
+        "charts": "metric boxes and a styled table, no canvas",
+        "en_es": "static .subtitle-en under the Spanish title, no toggle",
+        "index": false,
+        "arrows": false,
+        "lightbox": false,
+        "print_query": false,
+        "all_slides_visible": true
+      },
+      "citations": {
+        "sources_slide": false,
+        "lines": ["CleantechHUB · Fuente de Datos: Strategie Belangenbehartiging Jaargang 2026 (15.01.2026)"]
+      },
+      "brand": {
+        "tokens": {"--deep": "#0C498A", "--cyan": "#B2EEFA", "--lgreen": "#9DC384", "--fgreen": "#669348", "--sky": "#69B5FA", "--white": "#FFFFFF"},
+        "fonts": ["Open Sans", "PT Sans"],
+        "matches_cleantechhub_brand_skill": false
+      },
+      "stage": {"deck_frame": false, "scale_0_96": false, "page": "297mm x 210mm", "page_rule": "@page size A4 landscape"},
+      "build": {
+        "build_sh": false,
+        "render_deck_py": false,
+        "vercel_json": {"cleanUrls": true},
+        "export": "@media print and @page; no Playwright script in the repo"
+      },
+      "pendiente": {"visible_bracket_chips": 0}
+    },
+    {
+      "id": "grp-ic-2026",
+      "url": "https://grp-ic-2026-application.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "also_probed": {"https://grp-ic.vercel.app": 404},
+      "content_from": null,
+      "source": null,
+      "slide_count": null,
+      "blocked": "No HTML served. Not in cth-plugin."
+    },
+    {
+      "id": "teclogi-financial-model",
+      "url": "https://teclogi-financial-model.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED", "print_query": 402},
+      "also_probed": {
+        "https://teclogi-financial-model-2026.vercel.app": 404,
+        "https://github.com/gideonblaauw-creator/teclogi-financial-model": 404
+      },
+      "content_from": null,
+      "source": null,
+      "slide_count": null,
+      "repo_search": {
+        "cth_plugin_git_log_S": "empty",
+        "github_code_search_user_gideonblaauw_creator": 0
+      },
+      "blocked": "Hostname exists and is disabled. No file in this repo and no public repo under that name. Structure unknown. Do not assume the 1920 deck shell."
+    }
+  ],
+  "source_only": [
+    {
+      "id": "cee",
+      "live_host_found": false,
+      "probes_404": [
+        "https://cee-datathon-2026-10-14.vercel.app",
+        "https://cee-datathon-cth-2026-10-14.vercel.app"
+      ],
+      "source": {
+        "repo": "gideonblaauw-creator/cth-plugin",
+        "branch": "cee-datathon-2026-10-14",
+        "commit": "3fb3437",
+        "committed_at": "2026-10-08T10:16:13-05:00",
+        "path": "decks/cee-datathon-2026-10-14/index.html",
+        "sha256": "395f2d2744cfcb616a6d122d9a8a3c6defd6d73854874c32c6ed2c8e831b147f",
+        "bytes": 48522
+      },
+      "title": "CEE Externado × CleantechHUB · 14 oct 2026",
+      "lang": "es",
+      "slide_count": 13,
+      "slides": [
+        "CEE Externado × CleantechHUB",
+        "El proyecto en una mirada",
+        "Actores que vamos a articular",
+        "La alianza CEE Universidad – CleantechHUB",
+        "El Otrosí: cinco frentes, un mismo flujo",
+        "Datathon · propósito (datos en flujos digitales)",
+        "Del informe al tablero en vivo",
+        "El Data Lab ya funciona: cinco entornos",
+        "Vitrina: brechas y soluciones",
+        "Datos que se comparten con reglas",
+        "De hoy a la Climate Data Week",
+        "Lo que proponemos acordar hoy",
+        "Inspira. Actúa. Transforma."
+      ],
+      "interactivity": {
+        "tabs": false,
+        "expandable_cards": false,
+        "lightbox": false,
+        "index": false,
+        "arrows": true,
+        "print_query": true,
+        "review_query": "?review shows .pendiente (display:none otherwise); amber #FFD166; CSS prefix 'PENDIENTE · '"
+      },
+      "citations": {"sources_slide": false, "sibling_files": ["SOURCES.md", "PENDIENTES.md"]},
+      "charts": "one inline SVG alliance triangle",
+      "brand": {"same_as": "apc", "fonts": ["Open Sans", "PT Sans"]},
+      "stage": {"width_px": 1920, "height_px": 1080, "deck_frame_scale": 0.96},
+      "build": {
+        "build_sh": "matches APC build.sh",
+        "render": "tools/render.js",
+        "generator": "tools/gen.py",
+        "render_deck_py": false
+      },
+      "pendiente": {"chips_in_html": 18, "visible_without_review": false}
+    }
+  ],
+  "related_hosts": [
+    {
+      "url": "https://energy-sprint-cohort-cth.vercel.app",
+      "live": {"http": 402, "vercel_error": "DEPLOYMENT_DISABLED"},
+      "kind": "impact dashboard, not a deck-frame deck",
+      "repo": "gideonblaauw-creator/energy-sprint-cohort-cth",
+      "title": "Energy Sprint Cohort — Impact Dashboard",
+      "slide_count": 0,
+      "deck_frame": false,
+      "scale_0_96": false,
+      "pendiente_bracket": 3,
+      "in_requested_set": false
+    }
+  ]
+}

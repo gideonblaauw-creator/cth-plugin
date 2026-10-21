@@ -46,6 +46,8 @@ CTH-specific routing (never mix):
 | Grant, donor, competitive bid | `cth-grant` |
 | Commercial client service proposal | `cth-proposal-build` |
 | CleantechHUB visual/copy brand | `cleantechhub-brand` |
+| HTML slide deck | `cth-html-deck` |
+| AIC visual proposal | `aic-brand` (not adopted; tokens [PENDIENTE]) |
 | CLP26 campaign brand | `clp26-brand` |
 | Cloud Hands / tickets / lanes | `harness` |
 | New GitHub repo / promote tree | `app-build` |

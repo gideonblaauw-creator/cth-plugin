@@ -137,3 +137,4 @@ For ComfyUI / Flux LoRA stills, use the five-color Manual de Marca Jan 2024 pale
 | `clp26-brand` | CLP26 / ClimateLaunchpad campaign content |
 | `cth-proposal-build` | Proposal HTML structure (still apply CTH brand here first) |
 | `nexus-onepager` | Startup profile pages on Nexus |
+| `cth-html-deck` | HTML slide decks. Stage colours are `brand_dna.yaml` (Manual de Marca), not the green CSS block above. |
