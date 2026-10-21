@@ -55,6 +55,16 @@ Include a language toggle (EN/ES) that switches all text content. Both languages
 
 ## Deployment
 
+**GitHub-before-live (HARD, Gideon 20 Oct 2026).** Scope: every Desk and every Hands job. Every build, including this VPS sub-site deploy (`/var/www/nexus/s/{slug}/`).
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+3. Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+4. Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+5. Confirm that the live SHA is present on GitHub.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
 All deployment goes to the OVH VPS — never spin up a new host.
 
 For HTML templates and the SUI framework reference, see references/.

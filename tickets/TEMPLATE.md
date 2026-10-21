@@ -11,6 +11,7 @@ Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). 
 ---
 
 ```
+Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 desk:
 folder:
 cursor_project:
@@ -34,6 +35,8 @@ hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+Keep the three sentences at the top of the block on every Hands ticket. Scope: every Desk and every Hands job. Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
 
 `factory` — optional. Set `factory: yes` when the build follows **Software Factory v0** (Apps+Software conveyor). Canonical: `docs/software-factory.md`, `skills/software-factory/SKILL.md`. Conveyor: `1 Isolate → 2 Build → 3 Prove(eng) → 4 Ship → 5 Understanding Lab → Gideon merge`. Infra PASS (step 4) before step 5. Omit when not a factory build (grants, socials, skill-only edits).
 

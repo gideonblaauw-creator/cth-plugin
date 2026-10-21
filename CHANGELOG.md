@@ -4,6 +4,12 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### GitHub-before-live HARD (Gideon 20 Oct 2026)
+
+- HARD rule for every Desk and every Hands job, on every build: put each change on GitHub (pushed branch or pull request) before it goes live. Do not deploy a local-only commit. Do not deploy an unpushed commit.
+- Deploy gate: the ticket names a SHA that exists on origin (`git ls-remote` or the GitHub API). The receipt records the pushed branch or PR and the SHA. A failed push stops the job and escalates. The verifier checks that the live SHA is on GitHub.
+- Updated: `skills/harness/SKILL.md` (v3.8.3), `skills/harness/references/hands-ticket-hard.md`, deploy procedures, Hands ticket templates
+
 ### Rakazo Plan B craft lock t1465u (2026-09-17)
 
 - Updated: `docs/rakazo-plan-b-pointer.md`, `skills/rakazo-failover-comms/SKILL.md` — Plan B Rakazo = Orchestrator + Desks only; Cursor Cloud Hands craft always (Lane A/B); stripped craft→Rakazo wording; Babo channels unchanged

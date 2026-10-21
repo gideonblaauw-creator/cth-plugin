@@ -55,11 +55,22 @@ Grant application outputs that live in Google Drive are Archive/Tool work. Drive
 6. Gideon merges.
 7. Gideon deploys. Hands does not deploy.
 
+**GitHub-before-live (HARD, Gideon 20 Oct 2026).** Scope: every Desk and every Hands job. Every build, including this deploy.
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+3. Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+4. Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+5. Confirm that the live SHA is present on GitHub.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
 Nothing sent, posted, paid, merged, published, or deployed without Gideon in the owning chat.
 
 ## 4. Ticket fields
 
 ```
+Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 desk:
 folder:
 done-when:
@@ -68,6 +79,8 @@ hitl: no merge, no publish, no deploy, no new repo unless Gideon marked the row
 reviewer:
 context:
 ```
+
+Keep the three sentences at the top of the block on every Hands ticket. Scope: every Desk and every Hands job.
 
 No files only in chat. The ticket and the output live in the repo or Archive.
 

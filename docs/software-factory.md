@@ -28,6 +28,18 @@
 
 Step order is fixed. Do not reorder Ship and Understanding Lab.
 
+### GitHub-before-live (HARD, Gideon 20 Oct 2026)
+
+**Scope:** every Desk and every Hands job. Every build, including the Gideon deploy step.
+
+1. Name the full commit SHA on the deploy ticket.
+2. Confirm that this SHA exists on origin before you deploy. Use `git ls-remote` or the GitHub API.
+3. Record the pushed branch or the pull request on the receipt. Record the same SHA on the receipt.
+4. Stop when the push fails. Escalate the failure to the Desk. Do not deploy. Do not use a workaround.
+5. Confirm that the live SHA is present on GitHub.
+
+Canonical: `skills/harness/SKILL.md` § GitHub-before-live HARD.
+
 ---
 
 ## Tier mapping (step 5)
@@ -108,6 +120,8 @@ Per-product `BASE_URL` / preview URL: **[PENDIENTE]** until each Lane A repo pla
 ---
 
 ## Ticket fields (optional)
+
+Mandatory line on every Hands ticket (every Desk, every Hands job): Commit to a pushed branch or PR first. Deploy only from what is on GitHub. Never deploy unpushed commits live.
 
 ```
 factory: yes
