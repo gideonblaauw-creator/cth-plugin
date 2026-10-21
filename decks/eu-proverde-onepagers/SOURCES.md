@@ -43,7 +43,7 @@ No currency was added. The CleantechHUB homepage does not name a currency for th
 | El Salvador hub publishes 77 ecosystem actors | Same HubMap JSON, UTEC KPI `actors` |
 | Costa Rica public profile is under construction | Same HubMap JSON, Universidad LCI Veritas `about` |
 | Ecosystem map: 381 actors. Peru 293, El Salvador 77, Colombia 6, United States 4, South Korea 1. | https://nexus.cleantechhub.net/ecosystem/data/actors.json loaded by https://nexus.cleantechhub.net/ecosystem . The page sets the actor stat to `actors.length`. The visible subtitle names Peru, El Salvador, and Colombia. |
-| 14 verified relations with a source URL | https://nexus.cleantechhub.net/ecosystem/data/relations.json (85 rows). https://nexus.cleantechhub.net/ecosystem/story.mjs keeps a relation when `verified === true` and `source_url` is set. The map stat uses that filter. 14 rows pass. |
+| 40 verified relations with a source URL | https://nexus.cleantechhub.net/ecosystem/data/relations.json (85 rows). `isPublicGraphRelation` in https://nexus.cleantechhub.net/ecosystem/story.mjs keeps a relation when `verified === true` and `source_url` is set. https://nexus.cleantechhub.net/ecosystem/ecosystem.mjs writes that count into `#stat-relations`. 40 rows pass. |
 | Since 2019. Area served: Colombia, Peru, El Salvador, Guatemala, and Costa Rica. Email info@cleantechhub.net. | https://cleantechhub.net (schema.org block: `foundingDate`, `areaServed`, `email`) |
 | “+10 Millons Capital Raised” on the homepage. The page quotes that string and does not add a currency. | https://cleantechhub.net |
 | Logo | https://cleantechhub.net/wp-content/uploads/2025/04/LOGO-AZUL-OSCRURO-CON-TAG-LINE.png (header logo on https://cleantechhub.net) |
@@ -74,6 +74,8 @@ The area landing pages at `datalab.cleantechhub.net` carry the banner “Conteni
 ## Screenshots, charts, and artwork
 
 Captured on 21 October 2026. The same figures and the same images are used in `nexus-interactive.html` and `datalab-interactive.html`. Charts print the integers below and do not add percentages.
+
+The Nexus home screenshot keeps the public counters 174 and 87. The investor and funder counters on that capture read 0. `investors.json` returns HTTP 401, so those two counters were cleared. The portfolio screenshot’s red interface marks were recolored to forest green `#669348`.
 
 | What is on the page | Where it was read |
 |---|---|
