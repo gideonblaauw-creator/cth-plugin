@@ -42,7 +42,7 @@ No currency was added. The CleantechHUB homepage does not name a currency for th
 | Ecosystem map: 381 actors. Peru 293, El Salvador 77, Colombia 6, United States 4, South Korea 1. | https://nexus.cleantechhub.net/ecosystem/data/actors.json loaded by https://nexus.cleantechhub.net/ecosystem . The page sets the actor stat to `actors.length`. The visible subtitle names Peru, El Salvador, and Colombia. |
 | 14 verified relations with a source URL | https://nexus.cleantechhub.net/ecosystem/data/relations.json (85 rows). https://nexus.cleantechhub.net/ecosystem/story.mjs keeps a relation when `verified === true` and `source_url` is set. The map stat uses that filter. 14 rows pass. |
 | Since 2019. Area served: Colombia, Peru, El Salvador, Guatemala, and Costa Rica. Email info@cleantechhub.net. | https://cleantechhub.net (schema.org block: `foundingDate`, `areaServed`, `email`) |
-| “+10 Millons Capital Raised” on the homepage. The page says “más de 10 millones en capital levantado” and does not add a currency. | https://cleantechhub.net |
+| “+10 Millons Capital Raised” on the homepage. The page quotes that string and does not add a currency. | https://cleantechhub.net |
 | Logo | https://cleantechhub.net/wp-content/uploads/2025/04/LOGO-AZUL-OSCRURO-CON-TAG-LINE.png (header logo on https://cleantechhub.net) |
 | Contact CTA cleantechhub.net | https://cleantechhub.net |
 
