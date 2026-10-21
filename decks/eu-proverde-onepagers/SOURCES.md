@@ -17,6 +17,9 @@ No currency was added. The CleantechHUB homepage does not name a currency for th
 - The Nexus home activity feed (names, “hace 2h”, “Vista interna”, the signed-in greeting) is not used.
 - Demo company names on Datalab are not used. The app says startup datasets use an industry label, not a client name.
 - No REIN dollar amount is cited.
+- On 21 October 2026 the portfolio header also printed TOTAL 177 and MOSTRANDO 129. The pages keep 174 from the data array. The website stat on that header was still 126.
+- The ecosystem page showed the banner “Ubicación en mapa pendiente (265)”. That count is not used. The pages use 381 actors from `actors.json`.
+- Living-lab routes behind the token gate show “Cerrado · 3 actores · 90–180 días”, and a Datathon line says “4–6 semanas”. Those figures are not used. The living-lab image is the public flow bar only.
 
 ## Nexus — `nexus.html`
 
@@ -67,3 +70,19 @@ No currency was added. The CleantechHUB homepage does not name a currency for th
 | Logo and contact CTA | Same logo and https://cleantechhub.net contact as the Nexus page |
 
 The area landing pages at `datalab.cleantechhub.net` carry the banner “Contenido de ejemplo”. The sentences above are taken from the app and from those page titles, not from invented product claims.
+
+## Screenshots, charts, and artwork
+
+Captured on 21 October 2026. The same figures and the same images are used in `nexus-interactive.html` and `datalab-interactive.html`. Charts print the integers below and do not add percentages.
+
+| What is on the page | Where it was read |
+|---|---|
+| Nexus screenshots: home, startup portfolio, ecosystem map, mentor directory | https://nexus.cleantechhub.net/p/home , https://nexus.cleantechhub.net/p/startup-portfolio , https://nexus.cleantechhub.net/ecosystem , https://nexus.cleantechhub.net/mentor-directory |
+| Datalab screenshots: app, showcase (vitrina), living-lab flow | https://datalab.cleantechhub.net/app/ , https://datalab.cleantechhub.net/app/#/datalab/vitrina , https://datalab.cleantechhub.net/app/#/lab |
+| Chart: startups by theme, 75 / 52 / 47 | https://nexus.cleantechhub.net/p/startup-portfolio |
+| Chart: startups by stage, 72 / 77 | https://nexus.cleantechhub.net/p/startup-portfolio |
+| Chart: map actors by country, Peru 293, El Salvador 77, Colombia 6, United States 4, South Korea 1 | https://nexus.cleantechhub.net/ecosystem/data/actors.json |
+| Chart: ClimateLaunchpad 2026 hub startups, Externado 22, Landívar 7, Emprende UP 11, UTEC 8 | https://nexus.cleantechhub.net/hubs/hubs-data.json?v=20261021-hubmap-sv |
+| Chart: maturity L1 4, L2 4, L3 24, L4 50, L5 11 | https://datalab.cleantechhub.net/data/showcase-index.json |
+| Photograph on cleantechhub.net | https://cleantechhub.net/wp-content/uploads/2025/04/9-1536x804-1.webp |
+| Frailejón illustration on cleantechhub.net | https://cleantechhub.net/wp-content/uploads/2025/04/FRAILEJON-AZUL1.png |
