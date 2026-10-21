@@ -5,26 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REIN Hubs — One-page overview</title>
 <style>
+@font-face {
+  font-family: Poppins;
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Lora;
+  src: url("fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
   :root {
-    --green: #335D4F;
-    --orange: #FF6633;
-    --ink: #222A27;
-    --muted: #5F6663;
-    --mist: #C9D6D1;
-    --paper: #F1F5F3;
+    --green: #335d4f;
+    --orange: #ff6633;
+    --body: #666666;
     --white: #ffffff;
   }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: #e7eeea;
-    color: var(--ink);
-    font-family: Georgia, "Times New Roman", serif;
+    background: #fff;
+    color: var(--body);
+    font-family: Lora, Georgia, serif;
     font-size: 11pt;
     line-height: 1.35;
   }
-  h1, h2, h3, .sans { font-family: Arial, Helvetica, sans-serif; }
+  h1, h2, h3, .sans { font-family: Poppins, Arial, sans-serif; }
   a { color: var(--green); }
   .page {
     width: 210mm;
@@ -54,7 +63,7 @@
   .gate {
     margin: 0;
     color: var(--orange);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     font-size: 10px;
     font-weight: 700;
     text-align: right;
@@ -71,7 +80,7 @@
     font-size: 12.5pt;
     line-height: 1.4;
   }
-  .ellipsis-note, .src, footer p { margin: 0; color: var(--muted); font-size: 8.5pt; }
+  .ellipsis-note, .src, footer p { margin: 0; color: var(--body); font-size: 8.5pt; }
   h2 {
     margin: 0 0 1.5mm;
     color: var(--green);
@@ -85,8 +94,8 @@
     gap: 2.5mm;
   }
   .model article, .stat, .funnel span, .decision {
-    border: 1px solid var(--mist);
-    background: var(--paper);
+    border: 1px solid var(--green);
+    background: #fff;
     padding: 2.5mm 3mm;
   }
   .model h3 {
@@ -94,7 +103,7 @@
     color: var(--green);
     font-size: 14px;
   }
-  .model p { margin: 1mm 0 0; color: var(--muted); font-size: 9pt; }
+  .model p { margin: 1mm 0 0; color: var(--body); font-size: 9pt; }
   .stats {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1fr;
@@ -102,12 +111,12 @@
   }
   .stat strong {
     display: block;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     color: var(--green);
     font-size: 22px;
     line-height: 1;
   }
-  .stat b { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+  .stat b { font-family: Poppins, Arial, sans-serif; font-size: 12px; }
   .stat p { margin: 1mm 0 0; font-size: 10pt; }
   .funnel {
     display: grid;
@@ -116,7 +125,7 @@
   }
   .funnel span {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     color: var(--green);
     font-weight: 700;
     font-size: 13px;
@@ -126,7 +135,7 @@
     border: 1.5px solid var(--orange);
     background: #fff;
     color: var(--orange);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     font-weight: 700;
     font-size: 12px;
   }
@@ -143,27 +152,33 @@
     .page { margin: 0; box-shadow: none; }
   }
   @page { size: A4; margin: 0; }
+.lockup .word, .lockup .tag { font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); margin: 0; }
+  .lockup .word { font-size: 18px; letter-spacing: 0.04em; line-height: 1; }
+  .lockup .tag { font-size: 11px; letter-spacing: 0.01em; line-height: 1.25; margin-top: 1.2mm; max-width: 118mm; }
+  .cover .lockup .word, .cover .lockup .tag { color: #fff; }
 </style>
 </head>
 <body>
 <article class="page">
   <header class="top">
-    <p class="brand">REIN Hubs · Comms package v1 · English</p>
+    <div class="lockup">
+      <p class="word">REIN HUBS</p>
+      <p class="tag">RESILIENCE, ENTREPRENEURSHIP, INNOVATION &amp; ENVIRONMENT</p>
+    </div>
     <p class="gate">Awaiting Gideon's approval<br>REIN HOLD · Not for send</p>
   </header>
 
-  <h1>REIN Hubs</h1>
   <p class="boilerplate">A Global Platform for Resilient, Inclusive, Nature-Based Innovation. Led by PVBLIC Foundation and CleantechHUB, REIN carries forward the legacy of the U.S. State Department's … CCE initiative…</p>
   <p class="ellipsis-note">Boilerplate as recorded in the 21 Oct 2026 inventory. The ellipses are in that record. Missing words are not filled in.</p>
 
   <section>
     <h2>Hub model</h2>
     <div class="model">
-      <article><h3>Regional Hubs</h3><p>Name only. The inventory does not quote a definition.</p></article>
-      <article><h3>National Alignment</h3><p>Name only. The inventory does not quote a definition.</p></article>
-      <article><h3>Capital Infrastructure</h3><p>Name only. The inventory does not quote a definition.</p></article>
+      <article><h3>Country &amp; Regional Hubs</h3><p>The local and regional infrastructure where ideas are developed, ventures are built, and high-potential solutions are accelerated.</p></article>
+      <article><h3>National Alignment</h3><p>Integration with national development and resilience strategies to ensure ventures respond to country priorities and have pathways for adoption and scale.</p></article>
+      <article><h3>Capital Infrastructure</h3><p>Blended finance pathways connecting investment-ready ventures with multilateral, public, and private capital partners.</p></article>
     </div>
-    <p class="src">Source: Webinar REIN Hubs Latam, Canva, inventory 21 Oct 2026. https://www.canva.com/d/bjdyUgNdsrTiFZo</p>
+    <p class="src">Definitions: https://www.pvblic.org/rein-hubs — checked 21 Oct 2026. The webinar inventory named the same three parts and did not quote these sentences.</p>
   </section>
 
   <section>
@@ -195,14 +210,13 @@
       <span>181 Pitched</span>
       <span>27 Accelerated</span>
     </div>
-    <p class="src">Source file: 02_Central_America_Pvblic_Universities_OnePager. https://docs.google.com/document/d/14Aoyll1dtu-wkUbYjnPY1nAtQVatG6GCdtd5rdKMaRc/edit — inventory slot 4, 21 Oct 2026. That one-pager is marked “HITL pack only. Not sent.”</p>
+    <p class="src">Same counts, with scope, on the 23 May 2025 launch post: more than 270 applications, 181 ventures pitched, and 27 startups selected for acceleration, for the CCE Hubs initiative over three years. https://www.pvblic.org/rein-hubs-officially-launch-at-nature-summit-2025-a-new-era-of-environmental-innovation</p>
   </section>
 
   <section class="decisions" aria-label="Unresolved figures">
     <p class="decision">[DECISION: 100+ or 200+ entrepreneurs]</p>
-    <p class="decision">[DECISION: 2+ or 5+ partner universities]</p>
   </section>
-  <p class="src">These two counts conflict across source files. This page does not pick a value. See DECISIONS.md.</p>
+  <p class="src">University partners named on https://www.pvblic.org/rein-hubs: Universidad Externado, Universidad del Pacífico, Universidad Rafael Landívar, Universidad LCI Veritas, and Universidad Tecnológica de El Salvador (UTEC). See DECISIONS.md.</p>
 
   <footer>
     <p>REIN Hubs · PVBLIC × CleantechHUB</p>

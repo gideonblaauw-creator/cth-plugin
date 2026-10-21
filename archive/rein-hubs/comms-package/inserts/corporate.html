@@ -5,19 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REIN Hubs — Corporate insert</title>
 <style>
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Lora;
+  src: url("../fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
   :root {
-    --green: #335D4F;
-    --orange: #FF6633;
-    --ink: #222A27;
-    --muted: #5F6663;
-    --mist: #C9D6D1;
-    --paper: #F1F5F3;
+    --green: #335d4f;
+    --orange: #ff6633;
+    --body: #666666;
+    --white: #ffffff;
   }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; }
-  body { background: #e7eeea; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 11pt; line-height: 1.35; }
-  h1, h2, .sans, .decision, .brand, .gate { font-family: Arial, Helvetica, sans-serif; }
+  body { background: #fff; color: var(--body); font-family: Lora, Georgia, serif; font-size: 11pt; line-height: 1.35; }
+  h1, h2, .sans, .decision, .brand, .gate { font-family: Poppins, Arial, sans-serif; }
   .page {
     width: 210mm; height: 297mm; margin: 12px auto; background: #fff;
     padding: 12mm 13mm 10mm; display: flex; flex-direction: column; gap: 3.2mm; overflow: hidden;
@@ -28,18 +38,25 @@
   h1 { margin: 0; color: var(--green); font-size: 26px; }
   h2 { margin: 0; color: var(--green); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
   p { margin: 0; }
-  .quote { background: var(--paper); border-left: 4px solid var(--green); padding: 3mm 4mm; }
+  .quote { background: #fff; border-left: 4px solid var(--green); padding: 3mm 4mm; }
   .decision { border: 1.5px solid var(--orange); color: var(--orange); font-weight: 700; font-size: 12px; padding: 2mm 3mm; }
-  .src { color: var(--muted); font-size: 8.5pt; }
-  footer { margin-top: auto; border-top: 2px solid var(--green); padding-top: 2mm; display: flex; justify-content: space-between; color: var(--muted); font-size: 8.5pt; }
+  .src { color: var(--body); font-size: 8.5pt; }
+  footer { margin-top: auto; border-top: 2px solid var(--green); padding-top: 2mm; display: flex; justify-content: space-between; color: var(--body); font-size: 8.5pt; }
   @page { size: A4; margin: 0; }
   @media print { body { background: #fff; } .page { margin: 0; } }
+.lockup .word, .lockup .tag { font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); margin: 0; }
+  .lockup .word { font-size: 18px; letter-spacing: 0.04em; line-height: 1; }
+  .lockup .tag { font-size: 11px; letter-spacing: 0.01em; line-height: 1.25; margin-top: 1.2mm; max-width: 118mm; }
+  .cover .lockup .word, .cover .lockup .tag { color: #fff; }
 </style>
 </head>
 <body>
 <article class="page">
   <header>
-    <p class="brand">REIN Hubs · Insert · Corporate / ecosystem partner · English</p>
+    <div class="lockup">
+      <p class="word">REIN HUBS</p>
+      <p class="tag">RESILIENCE, ENTREPRENEURSHIP, INNOVATION &amp; ENVIRONMENT</p>
+    </div>
     <p class="gate">Awaiting Gideon's approval<br>REIN HOLD · Not for send</p>
   </header>
   <h1>Corporate partner</h1>
@@ -60,8 +77,7 @@
   <p class="src">A later collaboration memo in the inventory was not read in full. It is not used on this page.</p>
 
   <p class="decision">[DECISION: 100+ or 200+ entrepreneurs]</p>
-  <p class="decision">[DECISION: 2+ or 5+ partner universities]</p>
-  <p class="src">The corporate deck is one of the files in the inventory conflict table. This insert does not pick a count. See DECISIONS.md.</p>
+  <p class="src">The live program page names five university partners. It does not choose between 100+ and 200+ entrepreneurs. See DECISIONS.md and PVBLIC-SITE-CHECK.md.</p>
 
   <footer>
     <span>REIN Hubs · PVBLIC × CleantechHUB</span>

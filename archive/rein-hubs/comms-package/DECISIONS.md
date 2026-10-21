@@ -15,12 +15,13 @@ Render these strings as written. Do not replace them until Gideon locks a source
    - **100+** — proposal PDF page 10, recorded in `decks/rein-academic-city-ghana/PENDIENTES.md` item 1.
    - **200+** “Entrepreneurs Supported” — live `decks.cleantechhub.net/rein-academic-city-ghana` page, inventory 21 Oct 2026.
    - **200+** “Entrepreneurs Supported” — `decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html` impact block, and `PENDIENTES.md` item 1.
+   - **1,200+** “Entrepreneurs supported” — https://www.pvblic.org/rein-hubs, By the Numbers, checked 21 Oct 2026. A third figure. It does not select 100+ or 200+.
+   - **300 entrepreneurs engaged** — FOSD Nordic post, https://www.pvblic.org/post/pvblic-foundation-launches-fosd-nordic-to-mobilize-capital-for-global-impact. Not a program page. Not a selection of 100+ or 200+.
 
-2. **`[DECISION: 2+ or 5+ partner universities]`**
-   - **5+** “Including Universidad Externado (Colombia) · Academic City proposed” — Ghana Drive deck. **5+** “Including Universidad Externado” — Circularis v2. Inventory, 21 Oct 2026.
-   - **5+** — proposal PDF page 10, `PENDIENTES.md` item 2.
-   - **2+** “Partner Universities” — live Ghana page, inventory 21 Oct 2026.
-   - **2+** “Partner Universities” — `academic-city-ghana-2026-04-23.html` impact block, and `PENDIENTES.md` item 2.
+2. **University count — resolved by the live program page, 21 Oct 2026.**
+   - https://www.pvblic.org/rein-hubs names five university partners: Universidad Externado (Colombia), Universidad del Pacífico (Perú), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica), and Universidad Tecnológica de El Salvador (UTEC).
+   - The older **2+** and **5+** lines stay on record in the inventory and in `PENDIENTES.md` item 2. They are no longer printed as an open choice.
+   - The program page does not use the words “2+” or “5+”.
 
 3. **`[DECISION: what 200+ refers to]`**
    - The inventory says the **200+** figures may be crossed.
@@ -40,12 +41,10 @@ Render these strings as written. Do not replace them until Gideon locks a source
    - `PENDIENTES.md` item 3. The HTML states no founding year.
    - This package states no founding year.
 
-6. **`[DECISION: brand orange #FF6633 or #F1562A]`**
-   - `#FF6633` — task brief for this package, and the six colours named in `decks/rein-academic-city-ghana/PLAN.md`.
-   - `#F1562A` — live `rein-funding` CSS, inventory slot 5, with `#335D4F`, `#FC987C`, `#E2E2E2`, `#080808`.
-   - Page chrome uses `#335D4F` and `#FF6633` so the files match the brief. That is not a lock on the live-page orange.
-   - There is no `skills/rein-hubs-brand/SKILL.md` in this repo. `PLAN.md` already records that absence.
-   - Fonts on these pages: Arial headings, Georgia body, as specified for this package. The Ghana deck files use Poppins and Open Sans. This package does not treat that pair as superseded.
+6. **Brand orange — resolved.** Gideon, 21 Oct 2026: `#FF6633`. `#F1562A` is dropped.
+   - Palette from REIN HUBS Branding guidelines.pdf (Drive `1mgXFQXO-t9dN5PSeqrbup6a7OzlJOpo7`): `#335d4f` primary, `#ff6633` highlights and calls to action only, `#666666` body text.
+   - Fonts on these pages: Poppins Bold for titles and highlights, Lora Regular for body. Files are in `fonts/`.
+   - Tagline on these pages: RESILIENCE, ENTREPRENEURSHIP, INNOVATION & ENVIRONMENT. That is the guidelines PDF text layer. The live site spells the last word Nature. The Drive PNG logos were not placed, so the pages do not show two taglines.
 
 ## Stage labels (closed in the Ghana file, still noted)
 
@@ -55,12 +54,12 @@ The HTML fact row says “4 — Ideation → Incubation → Acceleration → Gro
 
 The HTML cards say Activation, Incubation, Acceleration, and Cross-Continent Growth.
 
-This package uses the closed label and cites both files. It does not add a fifth stage.
+The program page names Ideation, Incubation, Acceleration, and Investment Readiness, and it states no durations. Perú’s active programs on that page include Growth Services. This package still uses the Ghana closed label. The fourth name is not locked. See `PVBLIC-SITE-CHECK.md`.
 
 ## Gaps
 
 1. **Boilerplate is incomplete in the inventory.** The recorded paragraph is: “A Global Platform for Resilient, Inclusive, Nature-Based Innovation. Led by PVBLIC Foundation and CleantechHUB, REIN carries forward the legacy of the U.S. State Department's … CCE initiative…” Short and medium lines in the media kit are trims of those words. Words inside the ellipses are not supplied.
-2. **Hub-model definitions are missing.** The webinar inventory names Regional Hubs, National Alignment, and Capital Infrastructure. It does not quote what each name means.
+2. **Hub-model definitions now come from the program page.** The webinar inventory did not quote them. The overview and deck slide 4 use the three sentences on https://www.pvblic.org/rein-hubs. The site’s first name is “Country & Regional Hubs.”
 3. **Bios — Missing — to supply.** Inventory slot 5: no bios for Gideon Blaauw or Stephen Keppel. A CAF-specific CV exists and was excluded as a grant document. This package does not add a bio.
 4. **Photos — Missing — to supply.** Inventory slot 5: no approved photo folder.
 5. **No generic one-pager, deck, insert, proof sheet, or hosted comms page existed.** Inventory gaps 1–6. This folder assembles sourced fragments. It does not publish a page.
@@ -75,9 +74,9 @@ This package uses the closed label and cites both files. It does not add a fifth
 14. **Canva brand kit `kAF0z6UigbE` has no URL in the inventory.** It is not confirmed as REIN. Marked unconfirmed in the media kit.
 15. **Partner-name generalisation is limited to one phrase.** On the university insert, “a dedicated ‘REIN Ghana’ country logo option” is printed as “a dedicated country logo option.” The source sentence is cited beside it. No other sentence was rewritten to sound generic.
 16. **Two word orders for the same fund name were not merged.** Sources say both “UN Joint SDG Fund” and “UN SDG Joint Fund.” Each insert keeps the order of the sentence it quotes.
-17. **PDF city names were not added.** `PENDIENTES.md` item 13: PDF page 4 names Guatemala City, San José, and San Salvador. The HTML does not. This package keeps the HTML network line.
+17. **PDF-only city list was not copied as a set.** `PENDIENTES.md` item 13 names Guatemala City, San José, and San Salvador from PDF page 4. The deck now uses city names the program page states: Lima, San Martín, and Trujillo for Perú, and San José for Costa Rica. Guatemala City and San Salvador are still not added.
 18. **Central America one-pager `[PENDING]` fields were not copied.** The inventory says the file has them. Their text was not in the inventory.
-19. **CCE is not expanded** in the recorded boilerplate. This package does not fill that expansion.
+19. **The inventory boilerplate ellipsis is still unfilled on the pages.** The 23 May 2025 launch post expands CCE as Coalition for Climate Entrepreneurship and gives a longer origin paragraph. Those sentences are in `PVBLIC-SITE-CHECK.md`. They are not pasted over the inventory sentence.
 20. **No logo files were embedded.** The media kit lists Drive links from the inventory only.
 
 ## Where each placeholder is printed
@@ -85,11 +84,11 @@ This package uses the closed label and cites both files. It does not add a fifth
 | Placeholder | Pages |
 |---|---|
 | 100+ or 200+ entrepreneurs | `overview.html`, `deck/index.html` slide 7, `proof-sheet.html`, `inserts/university.html`, `inserts/corporate.html` |
-| 2+ or 5+ partner universities | same pages |
 | what 200+ refers to | `proof-sheet.html` |
 | stage durations | `deck/index.html` slide 6, `proof-sheet.html` |
 | founding year | `proof-sheet.html` |
-| brand orange | `media-kit/index.html` |
+
+Resolved and no longer printed as a choice: university count (five named partners on the program page), and brand orange (`#FF6633`).
 
 ## HITL
 

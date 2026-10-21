@@ -5,27 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REIN Hubs — General deck</title>
 <style>
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Lora;
+  src: url("../fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
   :root {
-    --green: #335D4F;
-    --orange: #FF6633;
-    --ink: #222A27;
-    --muted: #5F6663;
-    --mist: #C9D6D1;
-    --paper: #F1F5F3;
+    --green: #335d4f;
+    --orange: #ff6633;
+    --body: #666666;
     --white: #ffffff;
   }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: #dfe7e3;
-    color: var(--ink);
-    font-family: Georgia, "Times New Roman", serif;
+    background: #fff;
+    color: var(--body);
+    font-family: Lora, Georgia, serif;
     font-size: 15px;
     line-height: 1.35;
   }
   h1, h2, h3, .sans, .kicker, .decision, footer, .num {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
   }
   .slide {
     width: 297mm;
@@ -58,7 +67,7 @@
   .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
   .grid-5 { grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
   .card, .hub, .stat {
-    background: var(--paper);
+    background: #fff;
     border-top: 3px solid var(--green);
     padding: 3mm 3.5mm;
   }
@@ -77,7 +86,7 @@
     padding: 2.5mm 3mm;
     margin: 0 0 3mm;
   }
-  .src { color: var(--muted); font-size: 11px; margin-top: auto; }
+  .src { color: var(--body); font-size: 11px; margin-top: auto; }
   footer {
     display: flex;
     justify-content: space-between;
@@ -100,16 +109,25 @@
     .slide { margin: 0; }
   }
   @page { size: A4 landscape; margin: 0; }
+.lockup .word, .lockup .tag { font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); margin: 0; }
+  .lockup .word { font-size: 18px; letter-spacing: 0.04em; line-height: 1; }
+  .lockup .tag { font-size: 11px; letter-spacing: 0.01em; line-height: 1.25; margin-top: 1.2mm; max-width: 118mm; }
+  .cover .lockup .word, .cover .lockup .tag, .cover .kicker, .cover .src, .cover footer { color: #fff; }
+  .cover { box-shadow: inset 0 7px 0 var(--orange); }
+  .cover .tag { max-width: 220mm; font-size: 16px; }
 </style>
 </head>
 <body>
 
 <section class="slide cover">
+  <div class="lockup">
+    <p class="word">REIN HUBS</p>
+    <p class="tag">RESILIENCE, ENTREPRENEURSHIP, INNOVATION &amp; ENVIRONMENT</p>
+  </div>
   <p class="kicker">Slide 1 of 9 · Comms package v1 · English</p>
-  <h1>REIN Hubs</h1>
   <p class="lede">A Global Platform for Resilient, Inclusive, Nature-Based Innovation.</p>
   <p>Led by PVBLIC Foundation and CleantechHUB.</p>
-  <p class="src" style="color:#E2E2E2">Source: inventory boilerplate, 21 Oct 2026. The same opening is recorded for the Webinar REIN Hubs Latam, the REIN LIVE 2026 Partner Deck, and the REIN Hub Colombia deck. https://www.canva.com/d/bjdyUgNdsrTiFZo · https://www.canva.com/d/Zx2UYb54yP8o-IH · https://www.canva.com/d/EjlxAXOWdu659rs</p>
+  <p class="src">Source: inventory boilerplate, 21 Oct 2026. The same opening is recorded for the Webinar REIN Hubs Latam, the REIN LIVE 2026 Partner Deck, and the REIN Hub Colombia deck. https://www.canva.com/d/bjdyUgNdsrTiFZo · https://www.canva.com/d/Zx2UYb54yP8o-IH · https://www.canva.com/d/EjlxAXOWdu659rs</p>
   <footer>
     <span>REIN Hubs · PVBLIC × CleantechHUB</span>
     <span>Awaiting Gideon's approval · REIN HOLD · Not for send</span>
@@ -155,12 +173,12 @@
   <p class="kicker">Slide 4 of 9 · Hub model</p>
   <h2>Three names, plus the host line</h2>
   <div class="grid-3">
-    <article class="card"><h3>Regional Hubs</h3><p>The webinar inventory names this part. It does not quote a definition.</p></article>
-    <article class="card"><h3>National Alignment</h3><p>The webinar inventory names this part. It does not quote a definition.</p></article>
-    <article class="card"><h3>Capital Infrastructure</h3><p>The webinar inventory names this part. It does not quote a definition.</p></article>
+    <article class="card"><h3>Country &amp; Regional Hubs</h3><p>The local and regional infrastructure where ideas are developed, ventures are built, and high-potential solutions are accelerated.</p></article>
+    <article class="card"><h3>National Alignment</h3><p>Integration with national development and resilience strategies to ensure ventures respond to country priorities and have pathways for adoption and scale.</p></article>
+    <article class="card"><h3>Capital Infrastructure</h3><p>Blended finance pathways connecting investment-ready ventures with multilateral, public, and private capital partners.</p></article>
   </div>
   <p style="margin-top:6mm">Model, April 2026 proposal: public–private partnership with local university / corporate hosts.</p>
-  <p class="src">Names: Webinar REIN Hubs Latam, inventory 21 Oct 2026, https://www.canva.com/d/bjdyUgNdsrTiFZo. Host line: decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html#overview</p>
+  <p class="src">Definitions: https://www.pvblic.org/rein-hubs — checked 21 Oct 2026. Host line: decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html#overview</p>
   <footer>
     <span>REIN Hubs · PVBLIC × CleantechHUB</span>
     <span>Awaiting Gideon's approval</span>
@@ -172,15 +190,15 @@
   <p class="kicker">Slide 5 of 9 · Active network</p>
   <h2>Five active hubs</h2>
   <div class="grid-5">
-    <article class="hub"><strong>Colombia</strong><span>Universidad Externado · Bogotá · Active</span></article>
-    <article class="hub"><strong>Perú</strong><span>Ecosystem partners · Lima · Active</span></article>
-    <article class="hub"><strong>Guatemala</strong><span>Ecosystem partners · Active</span></article>
-    <article class="hub"><strong>Costa Rica</strong><span>Ecosystem partners · Active</span></article>
-    <article class="hub"><strong>El Salvador</strong><span>Ecosystem partners · Active</span></article>
+    <article class="hub"><strong>Colombia</strong><span>Universidad Externado · Anchor hub since 2019</span></article>
+    <article class="hub"><strong>Perú</strong><span>Universidad del Pacífico · Lima, San Martín, Trujillo</span></article>
+    <article class="hub"><strong>Guatemala</strong><span>Universidad Rafael Landívar</span></article>
+    <article class="hub"><strong>Costa Rica</strong><span>Universidad LCI Veritas · San José</span></article>
+    <article class="hub"><strong>El Salvador</strong><span>Universidad Tecnológica (UTEC)</span></article>
   </div>
   <p style="margin-top:6mm">The April 2026 proposal also names Academic City, Accra, as a proposed West African node. That node is not one of the five active hubs.</p>
   <p>REIN Hub Colombia is hosted by Universidad Externado (CEE). Partnership history since 2020. Formally recognised as a REIN Hub in 2024.</p>
-  <p class="src">Network lines: decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html#network. Externado dates: inventory slot 3, REIN Hub Colombia Canva, https://www.canva.com/d/EjlxAXOWdu659rs. Stable list of five: inventory, 21 Oct 2026.</p>
+  <p class="src">University names and “Anchor hub since 2019”: https://www.pvblic.org/rein-hubs, checked 21 Oct 2026. Externado recognition dates: inventory slot 3, https://www.canva.com/d/EjlxAXOWdu659rs. Five countries also in the April 2026 proposal network block.</p>
   <footer>
     <span>REIN Hubs · PVBLIC × CleantechHUB</span>
     <span>Awaiting Gideon's approval</span>
@@ -217,7 +235,7 @@
   </div>
   <p style="margin-top:5mm"><strong>270+ Applications | 181 Pitched | 27 Accelerated</strong></p>
   <p class="decision">[DECISION: 100+ or 200+ entrepreneurs]</p>
-  <p class="decision">[DECISION: 2+ or 5+ partner universities]</p>
+  <p>Five university partners named on https://www.pvblic.org/rein-hubs: Universidad Externado, Universidad del Pacífico, Universidad Rafael Landívar, Universidad LCI Veritas, and Universidad Tecnológica de El Salvador (UTEC).</p>
   <p class="src">Stable trio: inventory, 21 Oct 2026, and academic-city-ghana-2026-04-23.html impact and overview. Funnel: 02_Central_America_Pvblic_Universities_OnePager, https://docs.google.com/document/d/14Aoyll1dtu-wkUbYjnPY1nAtQVatG6GCdtd5rdKMaRc/edit (HITL pack only. Not sent.). Conflicts: inventory metric table and PENDIENTES.md items 1–2. See DECISIONS.md.</p>
   <footer>
     <span>REIN Hubs · PVBLIC × CleantechHUB</span>

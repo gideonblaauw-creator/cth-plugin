@@ -5,19 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>REIN Hubs — Funder insert</title>
 <style>
+@font-face {
+  font-family: Poppins;
+  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Lora;
+  src: url("../fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
   :root {
-    --green: #335D4F;
-    --orange: #FF6633;
-    --ink: #222A27;
-    --muted: #5F6663;
-    --mist: #C9D6D1;
-    --paper: #F1F5F3;
+    --green: #335d4f;
+    --orange: #ff6633;
+    --body: #666666;
+    --white: #ffffff;
   }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { margin: 0; padding: 0; }
-  body { background: #e7eeea; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 11.5pt; line-height: 1.38; }
-  h1, h2, .sans, .decision, .brand, .gate { font-family: Arial, Helvetica, sans-serif; }
+  body { background: #fff; color: var(--body); font-family: Lora, Georgia, serif; font-size: 11.5pt; line-height: 1.38; }
+  h1, h2, .sans, .decision, .brand, .gate { font-family: Poppins, Arial, sans-serif; }
   .page {
     width: 210mm; height: 297mm; margin: 12px auto; background: #fff;
     padding: 14mm 14mm 12mm; display: flex; flex-direction: column; gap: 4mm; overflow: hidden;
@@ -28,19 +38,26 @@
   h1 { margin: 0; color: var(--green); font-size: 28px; }
   h2 { margin: 0; color: var(--green); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
   p { margin: 0; }
-  .quote { background: var(--paper); border-left: 4px solid var(--green); padding: 3.5mm 4mm; }
-  .missing { border: 1.5px dashed var(--orange); color: var(--ink); padding: 3mm 4mm; }
-  .missing strong { color: var(--orange); font-family: Arial, Helvetica, sans-serif; }
-  .src { color: var(--muted); font-size: 9pt; }
-  footer { margin-top: auto; border-top: 2px solid var(--green); padding-top: 2.5mm; display: flex; justify-content: space-between; color: var(--muted); font-size: 9pt; }
+  .quote { background: #fff; border-left: 4px solid var(--green); padding: 3.5mm 4mm; }
+  .missing { border: 1.5px dashed var(--orange); color: var(--body); padding: 3mm 4mm; }
+  .missing strong { color: var(--orange); font-family: Poppins, Arial, sans-serif; }
+  .src { color: var(--body); font-size: 9pt; }
+  footer { margin-top: auto; border-top: 2px solid var(--green); padding-top: 2.5mm; display: flex; justify-content: space-between; color: var(--body); font-size: 9pt; }
   @page { size: A4; margin: 0; }
   @media print { body { background: #fff; } .page { margin: 0; } }
+.lockup .word, .lockup .tag { font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); margin: 0; }
+  .lockup .word { font-size: 18px; letter-spacing: 0.04em; line-height: 1; }
+  .lockup .tag { font-size: 11px; letter-spacing: 0.01em; line-height: 1.25; margin-top: 1.2mm; max-width: 118mm; }
+  .cover .lockup .word, .cover .lockup .tag { color: #fff; }
 </style>
 </head>
 <body>
 <article class="page">
   <header>
-    <p class="brand">REIN Hubs · Insert · Funder · English</p>
+    <div class="lockup">
+      <p class="word">REIN HUBS</p>
+      <p class="tag">RESILIENCE, ENTREPRENEURSHIP, INNOVATION &amp; ENVIRONMENT</p>
+    </div>
     <p class="gate">Awaiting Gideon's approval<br>REIN HOLD · Not for send</p>
   </header>
   <h1>Funder</h1>
