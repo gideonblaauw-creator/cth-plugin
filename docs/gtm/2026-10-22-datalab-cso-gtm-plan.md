@@ -19,7 +19,7 @@
 
 1. Sell the supply side from a counted export. The file `/opt/cth-nexus/static/ecosystem/data/actors.json` holds **381** rows. Types are org **373** and policy **8**. Category `startup` is **8**. Country Colombia is **6** orgs: FENOGE, Bancóldex, MinEnergía, CREG, UPME, IPSE. Those 381 rows are actors. They are not 381 mentors. A startup count of 174 is not in that file. The 19 Oct Nexus session records a CLP26 mentor directory at ids M077–M127, which is a different object. [VPS `/opt/cth-nexus/static/ecosystem/data/actors.json`; `/opt/claude-files/Projects/Nexus/sessions/2026-10-19-nexus-origo.md`]
 
-2. Keep two different "77" figures apart. Wave 1 below is **21 companies** and **77 warm contacts**. Gideon also cited "21 of 77 company groups already profiled" on cth-datalab `main` at `7db91b1`. This clone's HEAD is `51c55a2`. `7db91b1` is not in the local object store. `git fetch` of `gideonblaauw-creator/cth-datalab` returned "Repository not found." The local tree has **84** `co-profile-*.js` files. The 13 Oct Datalab desk brief records **93** corporate profiles in showcase index v4.1.0. Use the profile files you can open. Treat 21/77 and commit `7db91b1` as **PENDIENTE**. [VPS `/home/debian/cth-datalab`; `/opt/claude-files/datalab/desk-brief/Datalab-Desk-Brief-2026-10-13.md`]
+2. Keep two different "77" figures apart. Wave 1 below is **21 companies** and **77 warm contacts**. Gideon also cited "21 of 77 company groups already profiled" on cth-datalab `main` at `7db91b1`. This clone's HEAD is `51c55a2`. It has **84** `co-profile-*.js` files. On that tree, every Wave 1 company has a profile except GEB (loose, via TGI). Wave 2 has none. `7db91b1` is not in the local object store. `git fetch` of `gideonblaauw-creator/cth-datalab` returned "Repository not found." The overlap CSV versus `7db91b1` was not verified. That repo-access gap goes to Infrastructure. The 13 Oct Datalab desk brief records **93** corporate profiles in showcase index v4.1.0. Use the profile files you can open. Treat the 21-of-77 claim and commit `7db91b1` as **PENDIENTE**. [VPS `/home/debian/cth-datalab`; `/opt/claude-files/datalab/desk-brief/Datalab-Desk-Brief-2026-10-13.md`]
 
 3. Call GEB demo-ready only after a GEB profile exists. No `co-profile` file is named for Grupo Energía Bogotá. The nearby profile is TGI. Gideon marked the seven GEB contacts as loose, via TGI. A teaser that shows TGI evidence under a GEB name mis-states the buyer. [VPS `/home/debian/cth-datalab/app/app/js/co-profile-transportadora-de-gas-internacional-s-a-e-s-p-tgi.js`]
 
@@ -27,7 +27,7 @@
 
 5. Cite the export from the path this VPS can read. Gideon asked for box `/workspace/linkedin-connections-sync/2026-10-20/`. That folder is not on this VPS. The readable copy is `/home/debian/linkedin-connections-sync/2026-10-20/`. The processed CSV has **9,863** data rows. The figure 169 is a cut of that export. It is not the file length. [VPS `/home/debian/linkedin-connections-sync/2026-10-20/SUMMARY.md`]
 
-6. Keep Air4U and APC as method proof, not as a paid CSO win. Air4U is a startup data workshop: a read-only taller dated 6 Oct, an in-person session at Externado on 14 Oct, and a closed sandbox with synthetic data. APC is a cooperation broker. Aval is not funding. Epic Angels is an investor intro. No file in this sweep shows a CSO invoice. [VPS `/opt/claude-files/datalab/desk-brief/Datalab-Desk-Brief-2026-10-13.md`; `/opt/claude-files/Projects/Datalab/sessions/2026-10-14-datalab.md`; `/opt/claude-files/Projects/Datalab/sessions/2026-10-16-datalab.md`; `/opt/claude-files/Projects/APC-Colombia/desk-brief/2026-10-13-apc-colombia-desk-brief.md`]
+6. Keep Air4U and APC as method proof, not as a paid CSO win. Air4U is a startup data workshop. It was a read-only taller on 6 Oct, an in-person session at Externado on 14 Oct, and a closed sandbox with synthetic data. APC is a cooperation broker. Aval is not funding. Epic Angels is an investor intro. No file in this sweep shows a CSO invoice. [VPS `/opt/claude-files/datalab/desk-brief/Datalab-Desk-Brief-2026-10-13.md`; `/opt/claude-files/Projects/Datalab/sessions/2026-10-14-datalab.md`; `/opt/claude-files/Projects/Datalab/sessions/2026-10-16-datalab.md`; `/opt/claude-files/Projects/APC-Colombia/desk-brief/2026-10-13-apc-colombia-desk-brief.md`]
 
 7. Keep fee shapes on their own products. The Teclogi corretaje is success-fee only. Sunco is a monthly cash invoice. The Bucaramanga Datathon packs are event prices in USD. None of those is a CSO gap report. Copying a fee across products will confuse the next buyer. [VPS `/opt/claude-files/Projects/CTH Growth Services/2026-10-13-gtm-strategy-desk-brief.md`; `/home/debian/archive/sunco/2026-10-13/drive.md`; `/home/debian/archive/ccb-bucaramanga/2026-10-13/Chamber_Bucaramanga_Desk_Brief.md`]
 
@@ -35,7 +35,7 @@
 
 9. Send LinkedIn only on the route Gideon named. Skills also describe Buffer and a LinkedIn workbench. This plan uses neither for a send. The harness text describes n8n-li as a verifier on 18 pilots, not as a LinkedIn sender. The CSO wiring of n8n-li is **PENDIENTE**. No box browser. [VPS `/home/debian/work/cth-plugin/skills/harness/references/harness-engineering.md`; `/opt/claude-files/Projects/cth-plugin-pinned/skills/socials-comms/SKILL.md`; `/home/debian/work/cth-plugin/skills/social-media-campaign/SKILL.md`]
 
-10. Leave the Bucaramanga chamber thread on the Chamber desk. The 8 Oct socialización was cancelled. The cluster director asked whether the initiative is still strategic. Do not borrow that list for CSO sales. Cámara de Comercio de Bogotá is a different chamber. [VPS `/home/debian/archive/ccb-bucaramanga/2026-10-13/Chamber_Bucaramanga_Desk_Brief.md`]
+10. Leave the Bucaramanga chamber thread on the Chamber desk. The 8 Oct socialización was cancelled. The 8 Oct reply questions pertinence and whether real interest exists. Do not borrow that list for CSO sales. Cámara de Comercio de Bogotá is a different chamber. [VPS `/home/debian/archive/ccb-bucaramanga/2026-10-13/Chamber_Bucaramanga_Desk_Brief.md`]
 
 11. The Mac GTM playbook and `CTH - 2026 Sales` were already missing on 13 Oct. This run did not find a folder named `CTH - 2026 Strategy`, a climate venture-studio memo, or an AHK or ANDI brief. The corporate playbook pptx was not opened. Those items stay **PENDIENTE**. [VPS `/opt/claude-files/Projects/CTH Growth Services/2026-10-13-vps-gtm-inventory.md`]
 
@@ -58,7 +58,7 @@ The buyer is the corporate sustainability lead (CSO or head of sustainability) a
 **Buying trigger, issuers and banks.**
 
 - Superintendencia Financiera de Colombia, Circular Externa **031** of 22 Dec 2021, instructs disclosure of social and environmental matters, including climate. [https://www.superfinanciera.gov.co/publicaciones/10106589/normativanormativa-generalcirculares-externas-cartas-circulares-y-resoluciones-desde-el-ano-circulares-externascirculares-externas-10106589/] Direct fetch from this VPS returned HTTP 403 on 22 Oct 2026. The public index text was retrieved the same day.
-- The same SFC finanzas-sostenibles index lists Circular Externa **005** of 2022 (Taxonomía Verde), Circular Externa **031** of 2021, Circular Externa **015** of 2025 (environmental and social risk, including climate, for supervised entities), and a concept of 10 Oct 2023 on NIIF S1 and NIIF S2 versus Circular 031. [https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/] Direct fetch returned HTTP 403. The concept PDF was not opened. **PENDIENTE.**
+- The same SFC finanzas-sostenibles index lists Circular Externa **005** of 2022 (Taxonomía Verde). It also lists Circular Externa **031** of 2021 and Circular Externa **015** of 2025. Circular 015 covers environmental and social risk, including climate, for supervised entities. The index also lists a concept of 10 Oct 2023 on NIIF S1 and NIIF S2 versus Circular 031. [https://www.superfinanciera.gov.co/publicaciones/10104699/industrias-supervisadasfinanzas-sosteniblesdocumentos-tecnicos-y-normativa-10104699/] Direct fetch returned HTTP 403. The concept PDF was not opened. **PENDIENTE.**
 - Circular Externa **005** of 8 Apr 2022 adopts the Taxonomía Verde de Colombia. The PDF returned HTTP 200. [https://www.irc.gov.co/documents/d/taxonomia-verde/circular_externa_005_de_2022]
 - The taxonomy site returned HTTP 200. [https://www.taxonomiaverde.gov.co/]
 - IFRS S1 and IFRS S2 primary pages returned HTTP 200. [https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/] [https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/]
@@ -74,7 +74,7 @@ Wave 1 contact sum is **77**. Wave 2 contact sum is **41**. Together that is **1
 
 ### Wave 1 — warm contact and a Datalab profile
 
-Demo order inside the wave: banks before energy, except ISA stays in the first call set because it has the most warm contacts and a profile.
+Demo order inside the wave: banks before energy. ISA stays in the first call set. It has the most warm contacts and a profile.
 
 | Company | Warm contacts | Sector | Public source | Datalab profile this run opened |
 |---|---:|---|---|---|
@@ -90,7 +90,7 @@ Demo order inside the wave: banks before energy, except ISA stays in the first c
 | Enel | 3 | Power | https://www.superfinanciera.gov.co/SIMEV2/rnve/finejercicio/261/034/0 | `co-profile-enel-colombia-s-a-e-s-p.js` |
 | Nutresa | 3 | Food | https://data.gruponutresa.com/informes/2025/Informe-de-sostenibilidad-grupo-nutresa.pdf | `co-profile-grupo-nutresa-s-a.js` |
 | Juan Valdez | 3 | Food | https://juanvaldez.com/wp-content/uploads/2026/03/Informe-de-Sostenibilidad-2025-Procafecol-S.A.pdf | `co-profile-procafecol-s-a-juan-valdez-cafe.js` |
-| Alpina | 2 | Food | https://alpina.com/static/version1785512955/frontend/Omnipro/alpina/default/docs/sostenibilidad/informes/Informe-de-Sostenibilidad-Alpina-2022.pdf | `co-profile-alpina-productos-alimenticios-s-a-s-bic.js`. The file title says 2021. The URL filename says 2022. Year is **PENDIENTE**. Do not use Alpina as the sample. |
+| Alpina | 2 | Food | https://alpina.com/static/version1785512955/frontend/Omnipro/alpina/default/docs/sostenibilidad/informes/Informe-de-Sostenibilidad-Alpina-2022.pdf | `co-profile-alpina-productos-alimenticios-s-a-s-bic.js`. The file title says 2021. The stored `report.period` is 2022. The URL filename says 2022. Year is **PENDIENTE**. Do not use Alpina as the sample. |
 | Banco Popular | 2 | Bank | https://www.superfinanciera.gov.co/SIMEV2/rnve/finejercicio/001/002/0 | `co-profile-banco-popular-s-a.js` |
 | Celsia | 2 | Power | https://www.superfinanciera.gov.co/SIMEV2/rnve/finejercicio/261/026/0 | `co-profile-celsia-colombia-s-a-e-s-p.js`. Legal name in the file: CELSIA COLOMBIA S.A. E.S.P. The holding site https://www.celsia.com/es/sostenibilidad/ is a different page. Do not mix the two entities. |
 | EPM | 2 | Utility | https://www.superfinanciera.gov.co/SIMEV2/rnve/finejercicio/260/033/0 | `co-profile-empresas-publicas-de-medellin-e-s-p.js`. A broad string pass hit subsidiary names and missed a parent string "EPM". Confirm the two contacts. **PENDIENTE.** |
@@ -113,7 +113,7 @@ No `co-profile-*.js` for these names was found in the local tree. Build the prof
 | Colsubsidio | 4 | Compensation fund | https://www.colsubsidio.com/ (HTTP 200). Sustainability-report URL **PENDIENTE.** |
 | Fedepalma | 4 | Agriculture | https://fedepalma.org/ (HTTP 200). Sustainability-report URL **PENDIENTE.** |
 | Sodimac | 4 | Retail | https://images.sodimac.com/v3/assets/blt2f8082df109cfbfb/blt6097f783152ca57f/rs-sodimac-2024-tabla-gri (GRI table, Sodimac Colombia S.A., period 1 Jan–31 Dec 2024). Full report PDF **PENDIENTE.** |
-| Avianca | 4 | Airline | https://www.avianca.com/es/sobre-nosotros/sostenibilidad/ (page lists Informe de Responsabilidad Corporativa 2024). Direct PDF URL **PENDIENTE.** |
+| Avianca | 4 | Airline | https://publish-p176854-e1910391.adobeaemcloud.com/content/dam/avianca/Web%20Actual/PDF%20y%20Documentos/Sostenibilidad/Informe%20de%20Responsabilidad%20Corporativa%202025.pdf (Informe de Responsabilidad Corporativa 2025, linked from https://www.avianca.com/es/sobre-nosotros/sostenibilidad/) |
 | Aris Mining | 3 | Mining | https://www.aris-mining.com/ (HTTP 200). Sustainability-report URL **PENDIENTE.** |
 | Bavaria | 3 | Beverages | https://www.bavaria.co/ (HTTP 200). Sustainability-report URL **PENDIENTE.** |
 | Banco de Occidente | 2 | Bank | https://www.bancodeoccidente.com.co/sostenibilidad and https://portalpublico.bancodeoccidente.com.co/documents/d/guest/periodic-year-end-report-2024 (report text cites Circular 031 of 2021, GRI, SASB, and TCFD for 1 Jan–31 Dec 2024). |
@@ -140,7 +140,7 @@ Nexus desk `920925f2` owns the gap-to-match link and the Colombia map.
 
 **Teaser.** Price **0**. It uses the public report already in the Datalab profile. It shows the source URL, up to three gaps, and a match row that may say **PENDIENTE**. It is not a proposal and it is not an invoice.
 
-**HYPOTHESIS — workshop price.** COP **4,000,000** before tax for one half-day working session on the teaser. Reasoning: the only paid advisory cash figure on file is the Sunco growth-services invoice. The invoice text says the peso amount of COP 4 million was converted into euros. The invoice line is €850. Those are one invoice, not two prices. The hypothesis uses the peso figure. Sunco is a different product (door-opening, six monthly invoices, three found on Drive). This is not a market comp. [VPS `/home/debian/archive/sunco/2026-10-13/drive.md`]
+**HYPOTHESIS — workshop price.** COP **4,000,000** before tax for one half-day working session on the teaser. Reasoning: the Sunco growth-services invoice line is COP 4 million. The invoice text says that peso amount was converted into euros. The invoice line is €850. Those are one invoice, not two prices. The same note also records a contract of USD 1,000 plus USD 1,000, plus a success fee. The hypothesis uses the peso invoice line. Sunco is a different product (door-opening, six monthly invoices, three found on Drive). This is not a market comp. [VPS `/home/debian/archive/sunco/2026-10-13/drive.md`]
 
 **HYPOTHESIS — retainer.** The same COP **4,000,000** per month for **three** months after the workshop, if the buyer wants help closing the ranked gaps. Sunco's term was six invoices. This hypothesis is shorter because no CSO contract exists. Term is **PENDIENTE** until Gideon locks it.
 
@@ -228,7 +228,7 @@ Alpina was the other candidate. Its profile title says 2021 and its URL filename
 |---|---|---|
 | Legal name | CELSIA COLOMBIA S.A. E.S.P. | `co-profile-celsia-colombia-s-a-e-s-p.js` |
 | Profile id | `celsia-colombia-s-a-e-s-p` | Same file |
-| Why line | RNVE/BVC profile checked against the year-end filing (SIMEV, Oct 2026) | Same file, `why` |
+| Why line | RNVE/BVC profile verified against fin-de-ejercicio filing (SIMEV, Oct 2026). | Same file, `why.en` |
 | Filing title | Informe periódico de fin de ejercicio 2025, in compliance with Circular Externa 012 of 2022 | Same file, `report.title` |
 | Period stored | 2025 | Same file, `report.period` |
 | Pages stored | 398 | Same file, `report.pagesTotal` |
@@ -242,9 +242,9 @@ Alpina was the other candidate. Its profile title says 2021 and its URL filename
 
 **Air quote, page 356, flag `air`, status R.** "NOX Ton N/A N/A N/A SOX Ton N/A N/A N/A SF6 Ton 0,12". NOx and SOx are stored as N/A. SF6 is stored as 0,12. Unit context beyond the quote is **PENDIENTE**. [Same file]
 
-**Climate quote, page 313, flag `climate`, status R.** The extract mentions a Colombian mechanism in which companies can pay up to **50%** of declared income tax through investment works ("Obras por impuestos"). The sentence in the file is cut off. Do not extend it. [Same file]
+**Climate quote, page 313, flag `climate`, status R.** The stored quote says companies can pay up to **50%** of declared income tax through investment works. The quote ends at "Obras por soci". Do not complete the label. [Same file]
 
-**Energy flag `energy`, page 314, status R.** The stored quote is about the public-utilities legal regime and a 1997 share sale. It is not an energy KPI. Do not draw an energy bar from this quote. **PENDIENTE** a real energy figure. [Same file]
+**Energy flag `energy`, page 314, status R.** The stored quote is a 5 June 1997 purchase-sale contract. It is cut off at "de las a". It is not an energy KPI. Do not draw an energy bar from this quote. **PENDIENTE** a real energy figure. [Same file]
 
 **Flags stored as P (seven).** These are the candidate gaps. This plan does not rank them. Impact × effort is **PENDIENTE**.
 
@@ -322,14 +322,14 @@ Mail Finder craft, when it is ever used, goes to Hands. It does not run as a loc
 
 ## 8. Who does what
 
-Coordination only on the desk chats. File work is a Hands ticket. Maker and checker are different. No bc-id exists for this plan. **PENDIENTE** when a ticket is opened.
+Coordination only on the desk chats. File work is a Hands ticket. Maker and checker are different. The maker run for this plan is `bc-f31a71df-153d-528b-b967-433f64bc13c3`. The checker run is `bc-4018954f-f28d-51ec-a744-e7badef709d9`. No Hands ticket is open. The Presentations ticket is **PENDIENTE**.
 
 | Work | Maker | Checker | Ticket |
 |---|---|---|---|
-| This plan, offer boundary, wave order | GTM Strategy 462857ec | Gideon | None. This file is the plan. |
+| This plan, offer boundary, wave order | Maker run `bc-f31a71df-153d-528b-b967-433f64bc13c3` (GTM Strategy 462857ec) | Checker run `bc-4018954f-f28d-51ec-a744-e7badef709d9` | No Hands ticket. This file is the plan. |
 | Re-read Celsia pages and year labels | Hands on cth-datalab, model `gemini-3.7-flash` | Datalab desk 76808b5e | Lane `github-pr`. Not opened. |
 | Gap-to-match cards and map pin | Hands on cth-nexus | Nexus desk 920925f2 | Lane `github-pr`. Not opened. Map stays on the Nexus desk. |
-| SAMPLE HTML, PDF, 10 slides | Hands for Presentations 499a82bc, model `composer-2.5` Fast ON | A second Presentations reviewer | Lane `github-pr`. Host write needs a separate GO. No new Vercel project. |
+| SAMPLE HTML, PDF, 10 slides | Hands for Presentations 499a82bc, model `composer-2.5` Fast ON | A second Presentations reviewer | Presentations ticket **PENDIENTE**. Lane `github-pr`. Host write needs a separate GO. No new Vercel project. |
 | Phone calls | Gideon | Gideon | No ticket. |
 | LinkedIn | Socials desk, n8n-li route only | Gideon, before any send | Wiring **PENDIENTE**. |
 | Chamber thread | Chamber Bucaramanga desk | Gideon | Do not open from this plan. |
@@ -364,7 +364,7 @@ Every send, every post, every price, every contact list, and every use of client
 
 ## PENDIENTE
 
-- Commit `7db91b1` and the list of 77 company groups. Local HEAD is `51c55a2`. Fetch of cth-datalab failed.
+- Commit `7db91b1` and `datalab-overlap.csv`. Not verified. Local HEAD is `51c55a2` (84 profile files). On that tree, every Wave 1 company has a profile except GEB. Wave 2 has none. Repo access for cth-datalab goes to Infrastructure.
 - The exact rule that cuts the 20 Oct export to 169 sustainability/ESG contacts, and the location estimate. Sqlite has no location column.
 - Count deltas: SURA 4, EPM 2, Sodimac 4, Avianca 4.
 - GEB profile. Argos legal entity. Alpina report year. Celsia Scope 1 year labels. Celsia energy KPI. Celsia maturity level. Peer set. Impact × effort weights.
@@ -373,7 +373,7 @@ Every send, every post, every price, every contact list, and every use of client
 - EU-buyer exposure for any wave company.
 - Company-size rule.
 - The other 51 contacts in the 169.
-- Sustainability-report URLs still missing in Wave 2: Amarilo, Colsubsidio, Fedepalma, Sodimac full PDF, Avianca PDF, Aris Mining, Bavaria, Comfama, Cafam, Claro, GeoPark.
+- Sustainability-report URLs still missing in Wave 2: Amarilo, Colsubsidio, Fedepalma, Sodimac full PDF, Aris Mining, Bavaria, Comfama, Cafam, Claro, GeoPark.
 - n8n-li wiring for CSO outreach.
 - AHK, ANDI, Cámara de Comercio de Bogotá.
 - CTH - 2026 Strategy folder, Mac playbook, climate venture-studio memo. Corporate playbook pptx not opened.
@@ -382,7 +382,7 @@ Every send, every post, every price, every contact list, and every use of client
 - Nexus cards and Colombia map pins for these companies.
 - Startup count 174 and mentor count 381, until an export says so.
 - Google Doc. This run could not create it. See below.
-- Hands bc-ids. None opened.
+- Hands tickets. None opened. Maker run: `bc-f31a71df-153d-528b-b967-433f64bc13c3`. Checker run: `bc-4018954f-f28d-51ec-a744-e7badef709d9`. The Presentations ticket is **PENDIENTE**.
 - Box path `/workspace/linkedin-connections-sync/2026-10-20/` on the machine Gideon named. Not present here.
 
 ---
