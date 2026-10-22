@@ -87,18 +87,18 @@ The program page names Ideation, Incubation, Acceleration, and Investment Readin
 | Placeholder | Pages |
 |---|---|
 | what 200+ refers to | `proof-sheet.html` |
-| stage durations | `deck/index.html` slide 6, `proof-sheet.html`, `two-pager.html` |
-| fourth stage name | `two-pager.html` — site name Investment Readiness, Ghana label Growth. Order not locked. |
-| founding year | `proof-sheet.html`, `two-pager.html` |
-| bios | `media-kit/index.html`, `two-pager.html` — Missing — to supply |
-| photos | `media-kit/index.html`, `two-pager.html` — Missing — to supply |
-| funder ask | `inserts/funder.html`, `two-pager.html` — Missing — to supply |
-| contact line | `two-pager.html` — Missing — to supply |
-| showcase stories | `two-pager.html` — one Colombia host line on record. Two example slots empty. |
+| stage durations | `deck/index.html` slide 6, `proof-sheet.html`, `two-pagers/*.html` |
+| fourth stage name | `two-pagers/*.html` — site name Investment Readiness, Ghana label Growth. Order not locked. |
+| founding year | `proof-sheet.html`, `two-pagers/rein-overview.html` |
+| bios | `media-kit/index.html`, `two-pagers/rein-universities.html` — Missing — to supply |
+| photos | `media-kit/index.html` — Missing — to supply. Hero photos on two-pagers come from Pvblic (see `two-pagers/ASSETS.md`). |
+| funder ask | `inserts/funder.html`, `two-pagers/rein-overview.html` — Missing — to supply |
+| contact line | `two-pagers/*.html` — Missing — to supply |
+| pathway illustration pairing | `two-pagers/*.html` — four PNGs from the program page. Number-to-name pairing not locked on the site. |
 
 Resolved and no longer printed as a choice: the four By the Numbers lead figures (22 Oct 2026), the 100+ or 200+ entrepreneurs placeholder, university count (five named partners on the program page), and brand orange (`#FF6633`).
 
-`two-pager.html` is an A4 front and back in the Akvo sheet format. It prints the four By the Numbers figures, the five hubs, the five named universities, and the four pathway sentences from https://www.pvblic.org/rein-hubs. Cohort counts, jobs, CO₂, the 20+ partner line, and dollar amounts are not on it.
+`two-pagers/` holds three A4 front-and-back sheets in the Akvo layout (`rein-overview`, `rein-universities`, `rein-startups`). Hero photos and footer logos are in `two-pagers/assets/` with sources in `two-pagers/ASSETS.md`. Each sheet prints the four By the Numbers figures where relevant, the five hubs, the five named universities, and the four pathway sentences from https://www.pvblic.org/rein-hubs. Cohort counts, jobs, CO₂, the 20+ partner line, and dollar amounts are not on them.
 
 ## HITL
 
