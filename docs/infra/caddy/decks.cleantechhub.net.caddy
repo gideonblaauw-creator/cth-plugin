@@ -1,0 +1,320 @@
+# decks.cleantechhub.net — CTH client decks.
+# Same Appwrite upstream as wiki /decks/<slug>/ (Host <slug>.sites.localhost -> 127.0.0.1:9080).
+# / /index.html /decks.json are the public dashboard. /<slug>/ stays open.
+# Rollback of dashboard auth: restore the timestamped backup of this file, caddy validate, systemctl reload caddy.
+
+decks.cleantechhub.net {
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	@dashboard path / /index.html /decks.json /thumbs/*
+	handle @dashboard {
+		root * /opt/cth-decks/index-dashboard
+		header X-Robots-Tag "noindex, nofollow"
+		header Cache-Control "no-store"
+		file_server
+	}
+
+	handle /rein {
+		redir * /rein/ 308
+	}
+	handle_path /rein/* {
+		basic_auth {
+			REIN $2a$14$UEAkrKVm.05H5ogjRki/z.WImQk1VEdk.fVUBzPXhw6qlVRsZbTGa
+		}
+		root * /opt/cth-decks/rein-index
+		header X-Robots-Tag "noindex, nofollow"
+		header Cache-Control "no-store"
+		file_server
+	}
+
+handle /cth-clp26 {
+	redir * /cth-clp26/ 308
+}
+handle_path /cth-clp26/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-clp26.sites.localhost
+	}
+}
+handle /cth-clp26-rein {
+	redir * /cth-clp26-rein/ 308
+}
+handle_path /cth-clp26-rein/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-clp26-rein.sites.localhost
+	}
+}
+handle /teclogi-jose-arrebol {
+	redir * /teclogi-jose-arrebol/ 308
+}
+handle_path /teclogi-jose-arrebol/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host teclogi-jose-arrebol.sites.localhost
+	}
+}
+handle /cpi-juntos-cth {
+	redir * /cpi-juntos-cth/ 308
+}
+handle_path /cpi-juntos-cth/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cpi-juntos-cth.sites.localhost
+	}
+}
+handle /cth-rein-funding-oct2026 {
+	redir * /cth-rein-funding-oct2026/ 308
+}
+handle_path /cth-rein-funding-oct2026/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-rein-funding-oct2026.sites.localhost
+	}
+}
+handle /cth-epic-angels-2026-10-15 {
+	redir * /cth-epic-angels-2026-10-15/ 308
+}
+handle_path /cth-epic-angels-2026-10-15/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-epic-angels-2026-10-15.sites.localhost
+	}
+}
+handle /matamala-brief-2026-10-13 {
+	redir * /matamala-brief-2026-10-13/ 308
+}
+handle_path /matamala-brief-2026-10-13/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host matamala-brief-2026-10-13.sites.localhost
+	}
+}
+handle /b4b-cth-2026-10-13 {
+	redir * /b4b-cth-2026-10-13/ 308
+}
+handle_path /b4b-cth-2026-10-13/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host b4b-cth-2026-10-13.sites.localhost
+	}
+}
+handle /teclogi-brief-2026-10-13 {
+	redir * /teclogi-brief-2026-10-13/ 308
+}
+handle_path /teclogi-brief-2026-10-13/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host teclogi-brief-2026-10-13.sites.localhost
+	}
+}
+handle /aic-q1-2027-packages {
+	redir * /aic-q1-2027-packages/ 308
+}
+handle_path /aic-q1-2027-packages/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host aic-q1-2027-packages.sites.localhost
+	}
+}
+handle /cee-cth-2026-10-14 {
+	redir * /cee-cth-2026-10-14/ 308
+}
+handle_path /cee-cth-2026-10-14/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cee-cth-2026-10-14.sites.localhost
+	}
+}
+handle /apc-cth-2026-10-07 {
+	redir * /apc-cth-2026-10-07/ 308
+}
+handle_path /apc-cth-2026-10-07/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host apc-cth-2026-10-07.sites.localhost
+	}
+}
+handle /cpi-lab-backbone-cth {
+	redir * /cpi-lab-backbone-cth/ 308
+}
+handle_path /cpi-lab-backbone-cth/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cpi-lab-backbone-cth.sites.localhost
+	}
+}
+
+handle /cth-energy-sandbox-deck {
+	redir * /cth-energy-sandbox-deck/ 308
+}
+handle_path /cth-energy-sandbox-deck/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-energy-sandbox-deck.sites.localhost
+	}
+}
+
+handle /cth-energy-sandbox-deck-vanti {
+	redir * /cth-energy-sandbox-deck-vanti/ 308
+}
+handle_path /cth-energy-sandbox-deck-vanti/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host cth-energy-sandbox-deck-vanti.sites.localhost
+	}
+}
+
+handle /aic-ai-conference-host {
+	redir * /aic-ai-conference-host/ 308
+}
+handle_path /aic-ai-conference-host/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host aic-ai-conference-host.sites.localhost
+	}
+}
+
+handle /teclogi-jose-2026-10-13 {
+	redir * /teclogi-jose-2026-10-13/ 308
+}
+handle_path /teclogi-jose-2026-10-13/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host teclogi-jose-2026-10-13.sites.localhost
+	}
+}
+
+handle /epic-angels-cth-2026-10-16 {
+	redir * /epic-angels-cth-2026-10-16/ 308
+}
+handle_path /epic-angels-cth-2026-10-16/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host epic-angels-cth-2026-10-16.sites.localhost
+	}
+}
+
+handle /apc-bangers-cth {
+	redir * /apc-bangers-cth/ 308
+}
+handle_path /apc-bangers-cth/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host apc-bangers-cth.sites.localhost
+	}
+}
+
+handle /air4u-sandbox {
+	redir * /air4u-sandbox/ 308
+}
+handle_path /air4u-sandbox/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host air4u-sandbox.sites.localhost
+	}
+}
+
+handle /earth-observatory {
+	redir * /earth-observatory/ 308
+}
+handle_path /earth-observatory/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host earth-observatory.sites.localhost
+	}
+}
+
+handle /air4u-sandbox-proposal {
+	redir * /air4u-sandbox-proposal/ 308
+}
+handle_path /air4u-sandbox-proposal/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host air4u-sandbox-proposal.sites.localhost
+	}
+}
+
+handle /air4u-sandbox-proposal-v4 {
+	redir * /air4u-sandbox-proposal-v4/ 308
+}
+handle_path /air4u-sandbox-proposal-v4/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host air4u-sandbox-proposal-v4.sites.localhost
+	}
+}
+
+handle /air4u-sandbox-proposal-v5 {
+	redir * /air4u-sandbox-proposal-v5/ 308
+}
+handle_path /air4u-sandbox-proposal-v5/* {
+	header X-Robots-Tag "noindex, nofollow"
+	reverse_proxy 127.0.0.1:9080 {
+		header_up Host air4u-sandbox-proposal-v5.sites.localhost
+	}
+}
+
+handle /rein-funding {
+	redir * /rein-funding/ 308
+}
+handle_path /rein-funding/* {
+	header X-Robots-Tag "noindex, nofollow"
+	# Public deck only. Working files stay on disk and 404.
+	@funding_nondeck not path / /index.html /shell/*.css /shell/*.js /fonts/* /slides/*.html
+	handle @funding_nondeck {
+		respond "Not found" 404
+	}
+	root * /opt/cth-decks/rein-funding
+	file_server
+}
+
+handle /rein-academic-city-ghana {
+	redir * /rein-academic-city-ghana/ 308
+}
+handle_path /rein-academic-city-ghana/* {
+	header X-Robots-Tag "noindex, nofollow"
+	# Public deck only: index, shell css/js, fonts, slides. index.html also loads fonts/*.woff2.
+	@ghana_nondeck not path / /index.html /shell/*.css /shell/*.js /fonts/* /slides/*.html
+	handle @ghana_nondeck {
+		respond "Not found" 404
+	}
+	root * /opt/cth-decks/rein-academic-city-ghana
+	file_server
+}
+
+handle /fibra/fibra-wireframe {
+	redir * /fibra/fibra-wireframe/ 308
+}
+handle_path /fibra/fibra-wireframe/* {
+	header X-Robots-Tag "noindex, nofollow"
+	root * /opt/cth-decks/fibra/fibra-wireframe
+	file_server
+}
+
+handle /fibra/fibra-proposal {
+	redir * /fibra/fibra-proposal/ 308
+}
+handle_path /fibra/fibra-proposal/* {
+	header X-Robots-Tag "noindex, nofollow"
+	root * /opt/cth-decks/fibra/fibra-proposal
+	file_server
+}
+
+handle /fibra/fibra-deploy {
+	redir * /fibra/fibra-deploy/ 308
+}
+handle_path /fibra/fibra-deploy/* {
+	header X-Robots-Tag "noindex, nofollow"
+	root * /opt/cth-decks/fibra/fibra-deploy
+	file_server
+}
+
+	handle {
+		respond "Not found" 404
+	}
+}
