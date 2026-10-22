@@ -1,0 +1,872 @@
+{
+  "meta": {
+    "slug": "pavimentos-colombia-snapshot",
+    "company_key": "pavimentos-colombia",
+    "title": {
+      "en": "Pavimentos Colombia · gap snapshot · CleantechHUB",
+      "es": "Pavimentos Colombia · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/pavimentos-colombia-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+    "listing_url": "",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Pavimentos Colombia · gap snapshot",
+      "hero.title": "Pavimentos Colombia · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Pavimentos Colombia, Colombia",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 3)",
+      "snap.bvc": "",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Pavimentos Colombia · panorama de brechas",
+      "hero.title": "Pavimentos Colombia · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Pavimentos Colombia, Colombia",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 3)",
+      "snap.bvc": "",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "En Pavimentos Colombia S.A.S. Nos enorgullece presentar por segunda vez nuestro informe de sostenibilidad, correspondiente al período del 1 de enero al 31 de diciembre de 2024, utilizando como referencia los Estándares GRI 2021 del Global Reporting Initiative.",
+      "quote_en": "At Pavimentos Colombia S.A.S., we are proud to present our sustainability report for the second time, corresponding to the period from January 1 to December 31, 2024, using the 2021 GRI Standards of the Global Reporting Initiative as a reference.",
+      "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+      "page": 3
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Glasst": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Materials startup developing sustainable construction coatings and peelable films (UNPAINT) replacing plastics and reducing chemical waste across four LATAM countries.",
+      "ds": "Startup de materiales que desarrolla recubrimientos de construcción sostenibles y películas desprendibles (UNPAINT) que reemplazan plásticos y reducen residuos químicos en cuatro países de LATAM."
+    },
+    "Zhana Solutions": {
+      "p": "CLAC21",
+      "t": "CE",
+      "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.",
+      "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel."
+    },
+    "Reemade": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Upcycling design brand transforming industrial textile, plastic, tire, and agricultural waste into premium furniture and accessories using craft techniques and community artisans.",
+      "ds": "Marca de diseño upcycling que transforma residuos industriales textiles, plásticos, llantas y agrícolas en muebles y accesorios premium usando técnicas artesanales y artesanos comunitarios."
+    },
+    "Proplanet": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Medellín pioneer in Tetra Pak recycling, separating post-consumer cartons into cardboard pulp and plastic components, partnering with 10,000+ waste pickers.",
+      "ds": "Pionera en Medellín en el reciclaje de Tetra Pak, separando envases post-consumo en pulpa de cartón y componentes plásticos, en alianza con más de 10.000 recicladores."
+    },
+    "Natupin": {
+      "p": "CLP",
+      "t": "BIO",
+      "d": "Raises awareness of native species and biodiversity through merchandise and digital content, connecting consumers with Colombia's natural heritage to promote conservation.",
+      "ds": "Crea conciencia sobre especies nativas y biodiversidad a través de merchandising y contenido digital, conectando a consumidores con el patrimonio natural de Colombia para promover la conservación."
+    },
+    "PLEIA": {
+      "p": "CLAC24",
+      "t": "BIO",
+      "d": "B Corp pioneering biotechnology-based pet funeral services, transforming pet remains into nutrient-rich compost and planting trees at reforestation centers across Colombia.",
+      "ds": "B Corp pionera en servicios funerarios para mascotas basados en biotecnología, transformando los restos en compost rico en nutrientes y plantando árboles en centros de reforestación."
+    },
+    "Monte Jazmín": {
+      "p": "CLAC22",
+      "t": "BIO",
+      "d": "Three-generation agroecological coffee farm offering specialty coffee and regenerative agritourism, with civil society nature reserve certification in Pereira.",
+      "ds": "Finca cafetera agroecológica multigeneracional que ofrece café especialidad y agroturismo regenerativo, con certificación de reserva natural de la sociedad civil en Pereira."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. GHG inventory dominated by fuels and refrigerants",
+        "es": "1. Inventario de GEI dominado por combustibles y refrigerantes"
+      },
+      "context": {
+        "en": "2024 carbon footprint shows most climate impact from diesel, natural gas, and refrigerants across fleet and asphalt plants.",
+        "es": "La huella de carbono de 2024 muestra la mayor parte del impacto climático del diésel, el gas natural y los refrigerantes en la flota y las plantas de asfalto."
+      },
+      "report_evidence": {
+        "quote_es": "Las actividades de mayor impacto al cambio climático están asociados con el consumo de combustibles: (99,57%) de la alcance 1.",
+        "quote_en": "The activities with the greatest impact on climate change are associated with fuel consumption: (99.57%) of scope 1.",
+        "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+        "page": 63
+      },
+      "matches": [
+        {
+          "match_id": "pav-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "GHG inventory tooling",
+          "why_es": "Herramientas de inventario de GEI; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Footprint calculation",
+          "why_es": "Cálculo de la huella; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Comienza a calcular y compensar tu huella de carbono con nuestras herramientas",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g1-glasst",
+          "name": "Glasst",
+          "stage": "Pre-Series A",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Lower-carbon construction materials",
+          "why_es": "Materiales de construcción bajos en carbono",
+          "public_quote": "Glasstommer® parte de polímeros de fuentes renovables. Su balance de carbono es negativo desde la obtención de materias primas hasta la fabricación y el envasado.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "2024 carbon footprint shows most climate impact from diesel, natural gas, and refrigerants across fleet and asphalt plants. Report evidence is on PDF page 63 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. GHG inventory dominated by fuels and refrigerants”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La huella de carbono de 2024 muestra la mayor parte del impacto climático del diésel, el gas natural y los refrigerantes en la flota y las plantas de asfalto. La evidencia del reporte está en la página 63 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Inventario de GEI dominado por combustibles y refrigerantes», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "2. Projects face proactive response to water scarcity",
+        "es": "2. Los proyectos se enfrentan a una respuesta proactiva a la escasez de agua"
+      },
+      "context": {
+        "en": "Water management includes reuse on jobsites and proactive responses to scarcity conditions called out for 2024.",
+        "es": "La gestión del agua incluye la reutilización en los sitios de trabajo y las respuestas proactivas a las condiciones de escasez requeridas para 2024."
+      },
+      "report_evidence": {
+        "quote_es": "Al reducir la dependencia del agua potable, esta iniciativa no solo mejora la eficiencia hídrica del proyecto, sino que también responde de manera proactiva a la situación de escasez de agua en Bogotá y otros municipios dentro de nuestra área de influencia, demostrando una gestión responsable y contextualizada del recurso.",
+        "quote_en": "By reducing dependence on drinking water, this initiative not only improves the water efficiency of the project, but also proactively responds to the water scarcity situation in Bogotá and other municipalities within our area of influence, demonstrating responsible and contextualized management of the resource.",
+        "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+        "page": 58
+      },
+      "matches": [
+        {
+          "match_id": "pav-g2-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Seed",
+          "website": "https://zhanasolutions.com",
+          "why": "Water treatment services",
+          "why_es": "Servicios de tratamiento de agua; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g2-glasst",
+          "name": "Glasst",
+          "stage": "Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Efficiency design on sites",
+          "why_es": "Diseño de eficiencia en sitios; cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Diseñamos para usar mejor la energía.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Water management includes reuse on jobsites and proactive responses to scarcity conditions called out for 2024. Report evidence is on PDF page 58 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://zhanasolutions.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Projects face proactive response to water scarcity”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La gestión del agua incluye la reutilización en los sitios de trabajo y las respuestas proactivas a las condiciones de escasez requeridas para 2024. La evidencia del reporte está en la página 58 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://zhanasolutions.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. Los proyectos se enfrentan a una respuesta proactiva a la escasez de agua», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "3. 440+ tonnes of construction waste still generated in 2024",
+        "es": "3. Más de 440 toneladas de residuos de construcción aún generados en 2024"
+      },
+      "context": {
+        "en": "Waste dashboards show hundreds of tonnes of construction waste generated in 2024 with composting and diversion streams.",
+        "es": "Los paneles de residuos muestran cientos de toneladas de residuos de construcción generados en 2024 con corrientes de compostaje y desvío."
+      },
+      "report_evidence": {
+        "quote_es": "Total de Residuos Generados 2024: 440.554",
+        "quote_en": "Total Waste Generated 2024: 440,554",
+        "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+        "page": 65
+      },
+      "matches": [
+        {
+          "match_id": "pav-g3-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Upcycling construction discards",
+          "why_es": "Desechos de construcción de Upcycling; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Transformamos residuos en diseño de alto valor",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g3-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Recycled-content products",
+          "why_es": "Productos de contenido reciclado",
+          "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g3-glasst",
+          "name": "Glasst",
+          "stage": "Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Construction-phase pollution control",
+          "why_es": "Control de la contaminación en fase de construcción",
+          "public_quote": "Los desmoldantes GLASST pueden apoyar el control de fuentes de contaminación dentro del plan de calidad del aire durante la construcción.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Waste dashboards show hundreds of tonnes of construction waste generated in 2024 with composting and diversion streams. Report evidence is on PDF page 65 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Reemade",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://proplanet.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Air pollutant concentrations",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. 440+ tonnes of construction waste still generated in 2024”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Los paneles de residuos muestran cientos de toneladas de residuos de construcción generados en 2024 con corrientes de compostaje y desvío. La evidencia del reporte está en la página 65 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://proplanet.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Concentraciones de contaminantes del aire",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. Más de 440 toneladas de residuos de construcción aún generados en 2024», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "4. Fauna interactions require rescue on active projects",
+        "es": "4. Las interacciones con la fauna requieren rescate en proyectos activos"
+      },
+      "context": {
+        "en": "Biodiversity management includes identifying and rescuing fauna interacting with road projects, with dozens of species recorded to 2024.",
+        "es": "La gestión de la biodiversidad incluye la identificación y el rescate de fauna que interactúa con proyectos de carreteras, con docenas de especies registradas hasta 2024."
+      },
+      "report_evidence": {
+        "quote_es": "reportando 66 especies distribuidas en doce (12)",
+        "quote_en": "reporting 66 species distributed in twelve (12)",
+        "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+        "page": 59
+      },
+      "matches": [
+        {
+          "match_id": "pav-g4-natupin",
+          "name": "Natupin",
+          "stage": "Pre-Seed",
+          "website": "https://natupin.bio",
+          "why": "Biodiversity education products",
+          "why_es": "Productos de educación para la biodiversidad",
+          "public_quote": "Conoce sobre la biodiversidad colombiana",
+          "public_source_url": "https://natupin.bio",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g4-pleia",
+          "name": "PLEIA",
+          "stage": "Pre-Seed",
+          "website": "https://pleia.co",
+          "why": "Natural cycles narrative; weak tie",
+          "why_es": "Narrativa de ciclos naturales; lazo débil; cita no nombra a Pavimentos Colombia.",
+          "public_quote": "Cuando la mascota fallece, aplicamos los principios naturales para acelerar su proceso de reincorporación a la naturaleza.",
+          "public_source_url": "https://pleia.co",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g4-monte",
+          "name": "Monte Jazmín",
+          "stage": "Pre-Seed",
+          "website": "https://montejazmin.com/nosotros/",
+          "why": "Ecosystem restoration language",
+          "why_es": "Lenguaje de restauración de ecosistemas",
+          "public_quote": "rodeado por cafetales que guardan nacimientos de agua, guaduales y bosque",
+          "public_source_url": "https://montejazmin.com/nosotros/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Biodiversity management includes identifying and rescuing fauna interacting with road projects, with dozens of species recorded to 2024. Report evidence is on PDF page 59 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Natupin",
+              "metric": "Biodiversity or species relocation indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://natupin.bio",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "PLEIA",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "trees",
+              "frequency": "Not stated on the public page",
+              "method": "IoT",
+              "source": "https://pleia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Monte Jazmín",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://montejazmin.com/nosotros/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Fauna interactions require rescue on active projects”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La gestión de la biodiversidad incluye la identificación y el rescate de fauna que interactúa con proyectos de carreteras, con docenas de especies registradas hasta 2024. La evidencia del reporte está en la página 59 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Natupin",
+              "metric": "Indicadores de biodiversidad o reubicación de especies",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://natupin.bio",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "PLEIA",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "árboles",
+              "frequency": "No indicado en la página pública",
+              "method": "IoT",
+              "source": "https://pleia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Monte Jazmín",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://montejazmin.com/nosotros/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. Las interacciones con la fauna requieren rescate en proyectos activos», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "5. Only 47% of new suppliers met environmental filters",
+        "es": "5. Solo el 47% de los nuevos proveedores cumplieron con los filtros ambientales"
+      },
+      "context": {
+        "en": "Supplier onboarding in 2024 shows less than half of new vendors clearing environmental requirements while 133 suppliers generated negative environmental impacts.",
+        "es": "La incorporación de proveedores en 2024 muestra que menos de la mitad de los nuevos proveedores superaron los requisitos ambientales, mientras que 133 proveedores generaron impactos ambientales negativos."
+      },
+      "report_evidence": {
+        "quote_es": "En el año 2024 se registraron 225 proveedores nuevos, de los cuales a 106 cuentan con requisitos ambientales y corresponden al 47,11%. 133 proveedores generan impactos negativos ambientales",
+        "quote_en": "In 2024, 225 new suppliers were registered, of which 106 have environmental requirements and correspond to 47.11%. 133 suppliers generate negative environmental impacts",
+        "pdf_url": "https://pavimentoscolombia.com/wp-content/uploads/2025/07/Pavimentos-Colombia_Informe-de-Sostenibilidad-2024.pdf",
+        "page": 78
+      },
+      "matches": [
+        {
+          "match_id": "pav-g5-glasst",
+          "name": "Glasst",
+          "stage": "Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Cleaner supplier SKUs for sites",
+          "why_es": "SKU de proveedores de productos de limpieza para sitios; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Sustituimos las películas plásticas convencionales usadas para proteger superficies durante la obra por alternativas removibles.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g5-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Circular suppliers",
+          "why_es": "Proveedores circulares; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "Estudio de diseño especializado en suprareciclaje (upcycling) y economía circular.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "pav-g5-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Environmental supplier framing",
+          "why_es": "Enmarcado de proveedores ambientales; la cotización no nombra a Pavimentos Colombia.",
+          "public_quote": "con un enfoque social y ambiental.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Supplier onboarding in 2024 shows less than half of new vendors clearing environmental requirements while 133 suppliers generated negative environmental impacts. Report evidence is on PDF page 78 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Glasst",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://proplanet.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Only 47% of new suppliers met environmental filters”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La incorporación de proveedores en 2024 muestra que menos de la mitad de los nuevos proveedores superaron los requisitos ambientales, mientras que 133 proveedores generaron impactos ambientales negativos. La evidencia del reporte está en la página 78 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Glasst",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://proplanet.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. Solo el 47% de los nuevos proveedores cumplieron con los filtros ambientales», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}

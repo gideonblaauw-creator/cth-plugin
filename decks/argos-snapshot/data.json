@@ -1,0 +1,854 @@
+{
+  "meta": {
+    "slug": "argos-snapshot",
+    "company_key": "argos",
+    "title": {
+      "en": "Argos · gap snapshot · CleantechHUB",
+      "es": "Argos · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/argos-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+    "listing_url": "",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Argos · gap snapshot",
+      "hero.title": "Argos · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Argos (Cementos Argos), Colombia",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 13)",
+      "snap.bvc": "BVC: Argos is listed on the Bolsa de Valores de Colombia",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Argos · panorama de brechas",
+      "hero.title": "Argos · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Argos (Cementos Argos), Colombia. Lote de la onda 1 ranura 16–20",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 13)",
+      "snap.bvc": "BVC: Argos cotiza en la Bolsa de Valores de Colombia",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Utilizamos como referencia los estándares GRI 1: fundamentos 2021.",
+      "quote_en": "We use the GRI 1 standards: fundamentals 2021 as a reference.",
+      "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+      "page": 13
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "Glasst": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Materials startup developing sustainable construction coatings and peelable films (UNPAINT) replacing plastics and reducing chemical waste across four LATAM countries.",
+      "ds": "Startup de materiales que desarrolla recubrimientos de construcción sostenibles y películas desprendibles (UNPAINT) que reemplazan plásticos y reducen residuos químicos en cuatro países de LATAM."
+    },
+    "Reemade": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Upcycling design brand transforming industrial textile, plastic, tire, and agricultural waste into premium furniture and accessories using craft techniques and community artisans.",
+      "ds": "Marca de diseño upcycling que transforma residuos industriales textiles, plásticos, llantas y agrícolas en muebles y accesorios premium usando técnicas artesanales y artesanos comunitarios."
+    },
+    "Zhana Solutions": {
+      "p": "CLAC21",
+      "t": "CE",
+      "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.",
+      "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel."
+    },
+    "Proplanet": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Medellín pioneer in Tetra Pak recycling, separating post-consumer cartons into cardboard pulp and plastic components, partnering with 10,000+ waste pickers.",
+      "ds": "Pionera en Medellín en el reciclaje de Tetra Pak, separando envases post-consumo en pulpa de cartón y componentes plásticos, en alianza con más de 10.000 recicladores."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "journey_step": "policy",
+      "match_count": 3,
+      "title": {
+        "en": "1. SBTi targets must be recalculated after USA divestiture",
+        "es": "1. Los objetivos SBTi deben recalcularse después de la desinversión en EE. UU."
+      },
+      "context": {
+        "en": "After the Argos USA transaction, Cementos Argos must recalculate science-based targets and pursue 1.5°C alignment.",
+        "es": "Después de la transacción de Argos usa, Cementos Argos debe recalcular los objetivos basados en la ciencia y buscar una alineación de 1.5° C."
+      },
+      "report_evidence": {
+        "quote_es": "Debido a la combinación de las operaciones de Argos USA con Summit Materials estos objetivos de reducción deberán ser recalculados y buscaremos alinearnos a la ambición climática de 1,5°C.",
+        "quote_en": "Due to the combination of Argos USA's operations with Summit Materials, these reduction targets will have to be recalculated and we will seek to align ourselves with the 1.5°C climate ambition.",
+        "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+        "page": 102
+      },
+      "matches": [
+        {
+          "match_id": "arg-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Series B+",
+          "website": "https://c-neutral.co",
+          "why": "Decarbonization consulting",
+          "why_es": "Consultoría de descarbonización",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Series B+",
+          "website": "https://carbonbox.app",
+          "why": "Inventory for recalibrated targets",
+          "why_es": "Inventario para objetivos recalibrados; la cotización no nombra a Argos.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g1-glasst",
+          "name": "Glasst",
+          "stage": "Series B+",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Lower-carbon materials for construction sites",
+          "why_es": "Materiales bajos en carbono para sitios de construcción",
+          "public_quote": "Glasstommer® parte de polímeros de fuentes renovables. Su balance de carbono es negativo desde la obtención de materias primas hasta la fabricación y el envasado.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "After the Argos USA transaction, Cementos Argos must recalculate science-based targets and pursue 1.5°C alignment. Report evidence is on PDF page 102 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. SBTi targets must be recalculated after USA divestiture”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Después de la transacción de Argos usa, Cementos Argos debe recalcular los objetivos basados en la ciencia y buscar una alineación de 1.5° C. La evidencia del reporte está en la página 102 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Los objetivos SBTi deben recalcularse después de la desinversión en EE. UU.», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Several Scope 3 categories still marked not available",
+        "es": "2. Varias categorías de Alcance 3 aún marcadas como no disponibles"
+      },
+      "context": {
+        "en": "2024 Scope 3 disclosure quantifies nine categories but leaves downstream transport and other buckets as not available.",
+        "es": "2024 La divulgación del Alcance 3 cuantifica nueve categorías, pero deja el transporte aguas abajo y otros depósitos como no disponibles."
+      },
+      "report_evidence": {
+        "quote_es": " 9 Transporte y distribución aguas abajo: No disponible",
+        "quote_en": "9 Downstream transportation and distribution: Not available",
+        "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+        "page": 108
+      },
+      "matches": [
+        {
+          "match_id": "arg-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "Data platform for value-chain emissions",
+          "why_es": "Plataforma de datos para las emisiones de la cadena de valor",
+          "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g2-reemade",
+          "name": "Reemade",
+          "stage": "Pre-Series A",
+          "website": "https://reemade.com.co",
+          "why": "Verified impact certificates for reporting",
+          "why_es": "Certificados de impacto verificados para informes; la cotización no nombra a Argos.",
+          "public_quote": "Al elegir productos suprareciclados de Reemade recibirás, junto con tu pedido, un Certificado de Suprareciclaje que documenta el CO₂ evitado y transfiere a tu empresa el cumplimiento práctico de políticas y estándares (CONPES, ODS relevantes y puntos GRI) para uso en reportes de RSE y sostenibilidad.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g2-glasst",
+          "name": "Glasst",
+          "stage": "Pre-Series A",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Site links waste prevention on construction sites",
+          "why_es": "El sitio enlaza la prevención de residuos en los sitios de construcción",
+          "public_quote": "Protector Universal sustituye películas plásticas convencionales y puede integrarse a estrategias de prevención y gestión de residuos.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "2024 Scope 3 disclosure quantifies nine categories but leaves downstream transport and other buckets as not available. Report evidence is on PDF page 108 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Several Scope 3 categories still marked not available”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "2024 La divulgación del Alcance 3 cuantifica nueve categorías, pero deja el transporte aguas abajo y otros depósitos como no disponibles. La evidencia del reporte está en la página 108 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. Varias categorías de Alcance 3 aún marcadas como no disponibles», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "3. 2030 cement CO2 intensity target still at 514 kg/t",
+        "es": "3. El objetivo de intensidad de CO2 del cemento 2030 sigue siendo de 514 kg/t"
+      },
+      "context": {
+        "en": "Updated climate roadmap targets 514 kg CO2 per tonne of cementitious material by 2030 after rebaselining without USA operations.",
+        "es": "La hoja de ruta climática actualizada apunta a 514 kg de CO2 por tonelada de material cementoso para 2030 después de la reestructuración sin operaciones en EE. UU."
+      },
+      "report_evidence": {
+        "quote_es": "es nuestra meta de reducción de emisiones alcance 1 en el negocio cemento. Esta meta fue aprobada por el Comité de Sostenibilidad y Gobierno Corporativo de la Junta Directiva.",
+        "quote_en": "is our Scope 1 emissions reduction goal in the cement business. This goal was approved by the Sustainability and Corporate Governance Committee of the Board of Directors.",
+        "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+        "page": 102
+      },
+      "matches": [
+        {
+          "match_id": "arg-g3-glasst",
+          "name": "Glasst",
+          "stage": "Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Energy-efficiency materials",
+          "why_es": "Materiales de eficiencia energética",
+          "public_quote": "Innovamos para reducir la transferencia de calor y contribuir a espacios más confortables y eficientes.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g3-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Carbon savings from upcycling",
+          "why_es": "Ahorro de carbono por el upcycling",
+          "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Seed",
+          "website": "https://c-neutral.co",
+          "why": "Compensation while reducing clinker",
+          "why_es": "Compensación mientras se reduce el clínker",
+          "public_quote": "Encuentra productos y proyectos específicos, que te van a ayudar a compensar tu huella de carbono.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Updated climate roadmap targets 514 kg CO2 per tonne of cementitious material by 2030 after rebaselining without USA operations. Report evidence is on PDF page 102 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Glasst",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. 2030 cement CO2 intensity target still at 514 kg/t”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La hoja de ruta climática actualizada apunta a 514 kg de CO2 por tonelada de material cementoso para 2030 después de la reestructuración sin operaciones en EE. UU. La evidencia del reporte está en la página 102 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Glasst",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. El objetivo de intensidad de CO2 del cemento 2030 sigue siendo de 514 kg/t», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "4. Freshwater capture must keep falling in aggregates",
+        "es": "4. La captura de agua dulce debe seguir cayendo en agregados"
+      },
+      "context": {
+        "en": "Argos prioritizes alternative water sources and circular practices to cut freshwater competition, reporting lower specific freshwater capture in aggregates in 2024.",
+        "es": "Argos prioriza las fuentes alternativas de agua y las prácticas circulares para reducir la competencia de agua dulce, informando una menor captura específica de agua dulce en agregados en 2024."
+      },
+      "report_evidence": {
+        "quote_es": "Nuestras acciones están enfocadas en reducir el uso de agua dulce promoviendo fuentes alternativas y prácticas circulares para minimizar la competencia con el consumo humano y asegurar un uso más eficiente y sostenible.",
+        "quote_en": "Our actions are focused on reducing the use of freshwater by promoting alternative sources and circular practices to minimize competition with human consumption and ensure more efficient and sustainable use.",
+        "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+        "page": 114
+      },
+      "matches": [
+        {
+          "match_id": "arg-g4-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Seed",
+          "website": "https://zhanasolutions.com",
+          "why": "Water-savings metrics",
+          "why_es": "Métricas de ahorro de agua",
+          "public_quote": "socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g4-glasst",
+          "name": "Glasst",
+          "stage": "Pre-Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Project-level resource efficiency",
+          "why_es": "Eficiencia de recursos a nivel de proyecto",
+          "public_quote": "El aporte depende del diseño, la aplicación y las condiciones de cada proyecto.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Argos prioritizes alternative water sources and circular practices to cut freshwater competition, reporting lower specific freshwater capture in aggregates in 2024. Report evidence is on PDF page 114 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://zhanasolutions.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Freshwater capture must keep falling in aggregates”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Argos prioriza las fuentes alternativas de agua y las prácticas circulares para reducir la competencia de agua dulce, informando una menor captura específica de agua dulce en agregados en 2024. La evidencia del reporte está en la página 114 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://zhanasolutions.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. La captura de agua dulce debe seguir cayendo en agregados», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "5. Circular waste strategy still scaling CDR and co-processing",
+        "es": "5. Estrategia de residuos circulares que sigue escalando CDR y coprocesamiento"
+      },
+      "context": {
+        "en": "Argos commits to circular waste principles across prevention, reduction, reuse, and recycling in operations.",
+        "es": "Argos se compromete con los principios de residuos circulares a través de la prevención, reducción, reutilización y reciclaje en las operaciones."
+      },
+      "report_evidence": {
+        "quote_es": "Permanecemos firmes en nuestro compromiso de implementar acciones que reflejan los principios de la economía circular: prevención, reducción, reutilización y reciclaje de residuos.",
+        "quote_en": "We remain firm in our commitment to implement actions that reflect the principles of the circular economy: prevention, reduction, reuse and recycling of waste.",
+        "pdf_url": "https://files.grupoargos.com/uploads-grupo-argos/2025/03/Reporte-Integrado-cementos-argos-2024.pdf",
+        "page": 115
+      },
+      "matches": [
+        {
+          "match_id": "arg-g5-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Industrial waste upcycling",
+          "why_es": "Reciclaje de residuos industriales",
+          "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g5-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Post-consumer material recovery",
+          "why_es": "Recuperación de material posconsumo; la cotización no nombra a Argos.",
+          "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "arg-g5-glasst",
+          "name": "Glasst",
+          "stage": "Seed",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Circular principles on site",
+          "why_es": "Principios circulares en el sitio",
+          "public_quote": "Permanecemos firmes en nuestro compromiso de implementar acciones que reflejan los principios de la economía circular: prevención, reducción, reutilización y reciclaje de residuos.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Argos commits to circular waste principles across prevention, reduction, reuse, and recycling in operations. Report evidence is on PDF page 115 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Reemade",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://proplanet.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Circular waste strategy still scaling CDR and co-processing”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Argos se compromete con los principios de residuos circulares a través de la prevención, reducción, reutilización y reciclaje en las operaciones. La evidencia del reporte está en la página 115 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://proplanet.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Glasst",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://glasst.co/es/sostenibilidad/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. Estrategia de residuos circulares que sigue escalando CDR y coprocesamiento», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}
