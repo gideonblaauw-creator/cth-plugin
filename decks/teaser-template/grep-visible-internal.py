@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simulate visible teaser copy and grep for internal/harness wording."""
+"""Simulate visible teaser copy and grep for internal/harness wording (not HTML meta)."""
 from __future__ import annotations
 
 import json
@@ -12,7 +12,9 @@ PAT = re.compile(
     r"shortfall|csoReady|checker|theme-only|déficit|"
     r"matches:\s*\d|dropped|not a startup|"
     r"journey step|paso del journey|\bjourney\b|"
-    r"paso del recorrido|etapa del recorrido",
+    r"paso del recorrido|etapa del recorrido|"
+    r"\bGTM\b|\bdraft\b|\bborrador\b|CSO delivery|entrega CSO|"
+    r"\bAccessed\b|\bConsultado\b",
     re.I,
 )
 
@@ -20,9 +22,18 @@ PAT = re.compile(
 def visible_lines(data: dict, lang: str) -> list[str]:
     lines: list[str] = []
     ui = data.get("ui", {}).get(lang) or {}
-    skip = {"snap.shortfall", "snap.themeNote"}
+    skip = {
+        "snap.shortfall",
+        "snap.themeNote",
+        "cta.title",
+        "cta.body",
+        "foot.line",
+        "hero.lead",
+    }
     for k, v in ui.items():
         if k in skip:
+            continue
+        if not str(v).strip():
             continue
         lines.append(str(v))
     for g in data.get("gaps") or []:
@@ -32,12 +43,10 @@ def visible_lines(data: dict, lang: str) -> list[str]:
         if lang == "en" and ev.get("quote_en"):
             lines.append(ev["quote_en"])
         for m in dedupe_names(g.get("matches") or []):
-            if lang == "es":
-                nx = (data.get("nexus") or {}).get(m.get("name", ""), {})
-                lines.append(nx.get("ds") or m.get("description") or "")
-            else:
-                nx = (data.get("nexus") or {}).get(m.get("name", ""), {})
-                lines.append(nx.get("d") or m.get("description") or "")
+            nx = (data.get("nexus") or {}).get(m.get("name", ""), {})
+            lines.append(nx.get("ds" if lang == "es" else "d") or m.get("description") or "")
+    for person in data.get("team") or []:
+        lines.append(person.get("role", {}).get(lang, "") or "")
     return [ln for ln in lines if ln.strip()]
 
 

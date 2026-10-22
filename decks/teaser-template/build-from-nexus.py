@@ -289,7 +289,6 @@ def build_ui(company: dict, src: dict, md: dict, slug: str, n_gaps: int) -> dict
         report_en_parts.append(f'linked from <a href="{listing}">{host}</a>')
     if prof_page:
         report_en_parts.append(f"PDF page {prof_page}.")
-    report_en_parts.append(f"Accessed {accessed}.")
     report_en = " ".join(report_en_parts)
     report_es_parts = []
     if pdf:
@@ -299,7 +298,6 @@ def build_ui(company: dict, src: dict, md: dict, slug: str, n_gaps: int) -> dict
         report_es_parts.append(f'enlazado desde <a href="{listing}">{host}</a>')
     if prof_page:
         report_es_parts.append(f"PDF página {prof_page}.")
-    report_es_parts.append(f"Consultado {accessed}.")
     report_es = " ".join(report_es_parts)
 
     hero_title_en = (
@@ -332,8 +330,8 @@ def build_ui(company: dict, src: dict, md: dict, slug: str, n_gaps: int) -> dict
     )
     shortfall_es = translate_en_to_es(shortfall_en) or shortfall_en
 
-    foot_en = f"{name} gap snapshot — draft GTM hypothesis. Accessed {accessed}."
-    foot_es = translate_en_to_es(foot_en) or foot_en
+    foot_en = ""
+    foot_es = ""
 
     def block(lang: str) -> dict:
         is_en = lang == "en"
