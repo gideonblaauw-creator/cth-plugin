@@ -21,11 +21,12 @@ html[lang="es"] .l-en{display:none}
   position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:16px;padding:12px 24px;
   background:var(--white);border-bottom:3px solid var(--cyan);flex-wrap:wrap;
 }
-.logo-shield{
-  display:inline-flex;align-items:center;padding:8px 12px;background:var(--blue);
-  border-radius:10px;border:2px solid var(--cyan);
-}
-.brand.logo-shield img{height:36px;width:auto}
+.logo-shield{display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px}
+.topbar .logo-shield{background:var(--cyan);border:0}
+.topbar .logo-shield img{height:36px;width:auto}
+.hero-shield,.cta-shield{background:var(--white);border:2px solid var(--cyan)}
+.hero-shield img,.cta-shield img{height:52px;width:auto}
+.cta-shield img{height:48px}
 .nav{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto}
 .nav a{text-decoration:none;font-size:.88rem;color:var(--blue);padding:4px 0;border-bottom:2px solid transparent}
 .nav a:hover{border-color:var(--green)}
@@ -61,7 +62,6 @@ html[lang="es"] .l-en{display:none}
 .hero.bleed{min-height:min(70vh,620px);display:flex;align-items:flex-end;padding:96px 0 56px;color:var(--white)}
 .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:8px}
 .hero-shield{margin-bottom:20px}
-.hero-logo{height:52px;width:auto}
 .hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 16px;line-height:1.12;max-width:20ch;color:var(--white)}
 .hero-eyebrow{color:var(--cyan)!important}
 .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--green);margin:0 0 12px}
@@ -207,7 +207,6 @@ h2{font-size:clamp(1.45rem,3vw,2rem);margin:0 0 20px;color:var(--blue)}
 .cta-sec{text-align:center;padding:88px 0;color:var(--white)}
 .cta-inner{position:relative;z-index:2}
 .cta-shield{margin:0 auto 16px;display:inline-flex}
-.cta-shield img{height:48px;width:auto}
 .cta-tagline{font-family:var(--font-title);font-size:clamp(1.35rem,3vw,1.85rem);color:var(--cyan);margin:0 0 12px}
 .cta-copy{color:var(--cyan);max-width:720px;margin:0 auto 20px}
 .btn-book{
