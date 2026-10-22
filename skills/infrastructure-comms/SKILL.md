@@ -65,13 +65,15 @@ When ticketing Hands for a desk, optional fields `cursor_project` + `cursor_work
 
 ## 5. Lowest-tier model
 
+**Token budget protocol (22 Oct 2026):** every Cloud Hands job runs on Composer 2.5 Fast (`composer-2.5`, `fast=true`). Do not fill Flash. Do not HOLD a review job for a missing model. The table below is the 13 Sep record. It is not the launch fill-in. Canonical: `skills/harness/SKILL.md` § Token budget protocol and `docs/hands-model-routing.md`.
+
 | Job | Model | Notes |
 |-----|-------|-------|
-| Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | Empty mechanical model → Flash |
-| Repo / code / build Hands (Signal Radar, LexiScan, scanner, harness, LangGraph) | `composer-2.5` (`fast=true`) | Fast ON for builds (t1263u). No silent Fast off |
-| Review / eval / brand with no model | **HOLD** | Flag Gideon. No auto-Sonnet/Opus/Grok |
+| Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | 13 Sep record. Retired as launch fill-in on 22 Oct 2026 |
+| Repo / code / build Hands (Signal Radar, LexiScan, scanner, harness, LangGraph) | `composer-2.5` (`fast=true`) | Fast ON. After 22 Oct 2026 this model covers every Cloud Hands job |
+| Review / eval / brand with no model | **HOLD** | 13 Sep record. Retired 22 Oct 2026. Launch Composer 2.5 Fast |
 
-Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Repo/code builds use Composer 2.5 Fast ON (t1263u); mechanical/tiny stay Flash. `composer-2.5 (fast=false)` on a build → miss: remap to `fast=true` and flag.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Every Cloud Hands job uses Composer 2.5 Fast ON (Token budget protocol, 22 Oct 2026). `composer-2.5 (fast=false)` on a build → miss: remap to `fast=true` and flag.
 
 ## 6. Workbench exception
 

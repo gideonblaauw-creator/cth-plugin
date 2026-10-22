@@ -4,6 +4,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Token budget protocol (22 Oct 2026)
+
+- Gideon approved a spend cut for Cloud Hands. One content job per wave (about 10 to 20 items). Checker by risk. Scoped tickets with a read budget. Do not read files over 200 KB into the job. No duplicate launches. Stop at about 60 steps. At most 40 launches a day. Every Cloud Hands job runs on Composer 2.5 Fast.
+- Updated: `skills/harness/SKILL.md`, `skills/harness/references/hands-ticket-hard.md`, `skills/harness/references/harness-engineering.md`, `docs/hands-model-routing.md`, `tickets/TEMPLATE.md`, `AGENTS.md`, `CLAUDE.md`, `skills/infrastructure-comms/SKILL.md`, harness test bench
+- Desk comms §5 Flash tables stay as the 13 Sep record. The harness section is the launch rule.
+- HITL: Gideon merges. Hands does not merge.
+
 ### Rakazo Plan B craft lock t1465u (2026-09-17)
 
 - Updated: `docs/rakazo-plan-b-pointer.md`, `skills/rakazo-failover-comms/SKILL.md` — Plan B Rakazo = Orchestrator + Desks only; Cursor Cloud Hands craft always (Lane A/B); stripped craft→Rakazo wording; Babo channels unchanged

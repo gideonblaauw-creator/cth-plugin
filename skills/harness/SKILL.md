@@ -3,10 +3,10 @@ name: harness
 description: >
   CTH Harness rulebook — Workbench, Tools, Tickets, Cloud Hands, Desks. Use when:
   harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab
-  tier. Read before any Cloud Hands ticket.
+  tier, token budget. Read before any Cloud Hands ticket.
 license: MIT
 metadata:
-  version: "3.8.2"
+  version: "3.9.0"
   category: infrastructure
   adopted: "2026-08-16"
 ---
@@ -58,7 +58,9 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `model:` `gemini-3.7-flash` | `composer-2.5` (`fast=true`) — Cloud Hands only (Token lock 2026-08-26; BUILDING t1263u)
+- `model:` `composer-2.5` (`fast=true`) — every Cloud Hands job (Token budget protocol 22 Oct 2026)
+- `files:` exact files and paths the job may open
+- `read-budget:` read cap for the job (file count, or a byte cap)
 - `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
@@ -77,6 +79,8 @@ Optional Lane A field: `eve: yes` — **product-agent-loop** on the owning Lane 
 Cloud Hands model lanes (Cursor cloud agents — **Token lock 2026-08-26**; repo/code **Fast ON** — BUILDING lock **t1263u 2026-09-13**):
 - `gemini-3.7-flash` — mechanical copy, file packs, inventories, research grind, unspecified mechanical
 - `composer-2.5` (`fast=true`) — repo / code / build Hands (**Fast ON**)
+
+**Token budget protocol (22 Oct 2026):** launch every Cloud Hands job on `composer-2.5` (`fast=true`). Do not launch Flash. Do not HOLD a review job for a missing model. The two bullets above are the 26 Aug and 13 Sep record.
 
 That is the whole Cloud Hands model list. Anything more advanced (Sonnet, Opus, Haiku as Hands, etc.) → HOLD and flag Gideon. Do not silently fill.
 
@@ -166,9 +170,29 @@ Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not 
 
 **Narrow exception:** channel connector I/O (Gmail, Calendar, LinkedIn, Instagram, Facebook, Ads, WhatsApp/Babo, Monday stamps) **only when Hands cannot** — never to run crawl, research, or pack grind locally. **HITL** before send / post / pay / activate / cutover.
 
-**Orchestrator verify:** on miss, stop local grind, re-ticket Hands, patch profile/skill if needed; ready-ping Gideon only for HITL or blockers. Ready-ping carries PR/URL/**bc-id**/paths, not process notes. **Plan first + parallel jobs (MANDATORY, Gideon 12 Oct 2026):** before any Hands launch the desk writes an ASD-STE100 plan in the ticket (Goal / Audience / Deliverable / Done when / Constraints / Out of scope / Open questions; context check; smallest independent jobs; risks + mandatory push back). More than one job = one Hands per independent job, launched at once, each with a bc-id; never work one and queue the rest; above ~8 live per desk, ping Orchestrator. Protocol changes ship as a PR to main in cth-plugin (HITL merge by Gideon). Lane A = owning repo PR; Lane B = `{type: machine, name: vps}` for Archive/Drive/packs (no `repo_url` when packs-only).
+**Orchestrator verify:** on miss, stop local grind, re-ticket Hands, patch profile/skill if needed; ready-ping Gideon only for HITL or blockers. Ready-ping carries PR/URL/**bc-id**/paths, not process notes. **Plan first + parallel jobs (MANDATORY, Gideon 12 Oct 2026):** before any Hands launch the desk writes an ASD-STE100 plan in the ticket (Goal / Audience / Deliverable / Done when / Constraints / Out of scope / Open questions; context check; smallest independent jobs; risks + mandatory push back). More than one code job = one Hands per independent code job, launched at once, each with a bc-id; content work uses one job per wave under Token budget protocol (22 Oct 2026); never work one code job and queue the rest; above ~8 live per desk, ping Orchestrator. Protocol changes ship as a PR to main in cth-plugin (HITL merge by Gideon). Lane A = owning repo PR; Lane B = `{type: machine, name: vps}` for Archive/Drive/packs (no `repo_url` when packs-only).
 
 Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id).
+
+**Content waves amend the 12 Oct parallel-jobs rule.** Batch Nexus pages, wiki entries, and Datalab tasks into one job per wave. Do not open one Hands job per content item. Code builds may still split. The seven rules are in **Token budget protocol (22 Oct 2026)** below.
+
+## Token budget protocol (22 Oct 2026)
+
+**Locked:** Gideon **22 Oct 2026**
+**Goal:** Cut Cloud Hands token spend.
+**Canonical:** this section. Repeat it in the Hands-ticket, harness-engineering, and model-routing files. Do not drift.
+
+This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record. This section is the launch rule.
+
+**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+
+1. **One job per wave, not per item.** Batch content work into one job per wave. Put about 10 to 20 items in one wave. Content work means Nexus pages, wiki entries, and Datalab tasks. This replaces "one Hands per smallest independent job" for content work. Code builds may still split.
+2. **Checker by risk.** Launch a separate read-only checker job only for high-risk work. High-risk work is a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content job checks its own result. A low-risk file job checks its own result. Attach proof on that job. Use a hash, an HTTP status code, or test output.
+3. **Scoped tickets.** Name the exact files to open on every ticket. Name the exact paths to open on every ticket. Name a read budget on every ticket. Do not crawl the VPS with an open-ended search. Do not crawl a whole repo.
+4. **Big-file rule.** Do not read a file larger than 200 KB into the job. Decks, PDFs, transcripts, and dumps follow this rule. Verify a large file by its hash. Verify it by its size. Verify it with grep.
+5. **No duplicate launches.** Check for a running job with the same title before you launch. Do not relaunch a failed job until you fix its blocker.
+6. **Step cap.** Stop the job at about 60 steps. Report the result at that stop. Split long work into planned phases.
+7. **Daily budget.** Launch at most 40 jobs a day across all desks. The Orchestrator counts each launch. Gideon sets the Cursor dashboard spend limit. Gideon sets the spend alert.
 
 ### Hands-shift lock — Gideon 2026-08-17 (hard gate)
 
@@ -286,9 +310,11 @@ Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: py
 
 **Grok Bot is coordination only.** No craft, first-draft, long research, or file grind in Grok chats. Route, HITL, go/no-go, browser judgment, channel I/O escalation.
 
-**File / research / code / copy → Cloud Hands.** Desk tickets. Desk reviews (maker ≠ checker). Grok does not write the pack.
+**File / research / code / copy → Cloud Hands.** Desk tickets. A separate checker job is for high-risk work only (maker ≠ checker). A low-risk content or file job checks its own result. See **Token budget protocol (22 Oct 2026)**. Grok does not write the pack.
 
-**Allowed Cloud Hands models (whole list):**
+**Launch model after 22 Oct 2026:** every Cloud Hands job runs on `composer-2.5` (`fast=true`). See **Token budget protocol (22 Oct 2026)**. The table below records the 26 Aug lock. It is not the launch fill-in after 22 Oct 2026.
+
+**Allowed Cloud Hands models (26 Aug record):**
 | Job | Model id | Notes |
 |---|---|---|
 | Mechanical copy, file packs, inventories, research grind, unspecified mechanical | `gemini-3.7-flash` | Empty mechanical model still fills here |
@@ -296,15 +322,15 @@ Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: py
 
 **Anything more advanced** (Sonnet, Opus, Haiku as Hands, Fable, Sol, Grok, second cloud Kimi) → **HOLD and flag Gideon.** Do not silently fill Sonnet, Haiku, Auto, Grok, or Kimi-cloud.
 
-**Forbidden on Cloud Hands** (remap or hold; miss if used on **pack writes**): Grok, Grok Fast, Composer Fast on pack writes, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor.
+**Forbidden on Cloud Hands** (remap or hold): Grok, Grok Fast, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor. Composer 2.5 Fast is the launch model for every job after 22 Oct 2026, including content packs. Do not remap it to Flash.
 
-**Review / eval / brand** with no model → **HOLD and flag Gideon.** Do not auto-fill Sonnet. (Supersedes review-auto-Sonnet from 19 Aug.)
+**Review / eval / brand** with no model → `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Do not HOLD for a missing model. Do not auto-fill Sonnet. (22 Oct 2026 replaces the 26 Aug review HOLD. 26 Aug had replaced review-auto-Sonnet from 19 Aug.)
 
 **Repo / code / build** with no model → `composer-2.5` (`fast=true`). Do **not** default builds to Flash. Do not silent-fill OpenCode or Sonnet.
 
 Canonical fill-in copy: `docs/hands-model-routing.md`.
 
-**Private residency** (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. If it does not fit 3B, hold for Gideon. Private overrides Flash.
+**Private residency** (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. If it does not fit 3B, hold for Gideon. Private overrides Composer 2.5 Fast.
 
 Machine-readable skill inventory: `skills/harness/references/skill-toolkit.json` (canonical + Cursor stub paths, skip list).
 
@@ -314,21 +340,24 @@ Do not weaken Lane A repo lock, Hands-shift lock, Tools-session lock, media-gene
 
 **BUILDING = Composer 2.5 Fast ON.** Never silently launch a build with Fast off. HITL: no silent model swap to Fast off.
 
+**Amended 22 Oct 2026:** every Cloud Hands job, including mechanical work and review, launches `composer-2.5` (`fast=true`). Fast ON stays. Flash is not the launch fill-in. See **Token budget protocol (22 Oct 2026)**.
+
 **Explicit build surfaces:** repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner** (e.g. `cth-data-room-scanner`), harness code (`skills/harness/`, `tickets/`, desk routing), skill plant, app graph.
 
 | Job class | Model | Empty `model:` fill-in |
 |---|---|---|
-| Mechanical / tiny (pack writes, inventories, copy grind) | `gemini-3.7-flash` | Empty **mechanical** ticket |
-| Repo / code / build (Lane A PR, app, graph, skill plant, Signal Radar, LexiScan, scanner, harness) | `composer-2.5` (`fast=true`) | Empty **build** ticket — **not** Flash |
-| Review / eval / brand | — | **HOLD** — flag Gideon |
+| Every Cloud Hands job (mechanical, content, review, repo/code/build) | `composer-2.5` (`fast=true`) | Empty ticket → Fast ON (22 Oct 2026) |
+| Private residency | local Ollama `LFM2.5-VL-3B` | Overrides Composer. Must stay on 127.0.0.1 |
 
-Mechanical/tiny still Flash when named. High-tier still HOLD. Composer Fast on **pack writes** is still a miss (remap to Flash). `composer-2.5 (fast=false)` on a build, or any silent Fast-off swap → **miss** — remap to `fast=true` and flag. Canonical: `docs/hands-model-routing.md`.
+The 13 Sep rows named `gemini-3.7-flash` for mechanical work and HOLD for review. **Token budget protocol (22 Oct 2026)** replaces both.
+
+**22 Oct 2026:** do not fill Flash, including when the ticket says mechanical. High-tier models still HOLD. Composer 2.5 Fast on content jobs is allowed. Do not remap it to Flash. `composer-2.5 (fast=false)` on any Cloud Hands job → **miss** — remap to `fast=true` and flag. Canonical: `docs/hands-model-routing.md`.
 
 ### Model routing — Gideon 2026-08-19 (hard gate; $ table and usage scrape — historical)
 
 **Cloud Hands model fill-in** is governed by Token lock 2026-08-26 above. Table rows below that name Sonnet, Haiku, or Auto as Hands defaults are superseded for fill-in.
 
-Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty model on a mechanical job = `gemini-3.7-flash`. One complete Hands ticket, no second pass for the same artifact.
+Cursor usage is not efficient unless the Desk names the model on the Hands ticket. Empty `model:` after 22 Oct 2026 = `composer-2.5` (`fast=true`). The 19 Aug mechanical fill-in was `gemini-3.7-flash`. One complete Hands ticket per code artifact. Content work uses one ticket per wave. Do not run a second pass for the same artifact.
 
 Historical note (19 Aug): Ultra pools and never-list context below. Do not spend Opus, Grok 4.6, or GPT 5.6 Sol on pack writes. Do not run a second Kimi as a cloud agent.
 
@@ -336,7 +365,7 @@ Historical note (19 Aug): Ultra pools and never-list context below. Do not spend
 - **Cursor Models** = Grok 4.6 / Grok 4.5 / Composer 2.5 (generous included)
 - **Other Models** = $400/mo at API rate (Ultra included Other Models usage)
 
-Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. Do not invent prices. Empty model on a mechanical job = `gemini-3.7-flash`.
+Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. Do not invent prices. The 19 Aug mechanical fill-in was `gemini-3.7-flash`. After 22 Oct 2026, empty `model:` launches `composer-2.5` (`fast=true`).
 
 | Job type | Model id | $ in / $ out | Notes |
 |---|---|---|---|
@@ -358,18 +387,18 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 | Forbidden on pack writes | `grok-4.6` | $2 / $6 | Orchestrator chat only. Not pack Hands. |
 | Forbidden on pack writes | `grok-4.6` Fast | $4 / $12 | Especially never Fast on packs. Miss if used. |
 | Forbidden on pack writes | `grok-4.5` Fast | $4 / $12 | Official table $4/$12 (not the help-page $18 out). Miss if used. |
-| Forbidden on pack writes | `composer-2.5` Fast | $3 / $15 | Fast ON is for **builds** only (t1263u). Miss if used on mechanical pack writes. |
+| Cloud Hands launch model (22 Oct 2026) | `composer-2.5` Fast | $3 / $15 | Every Cloud Hands job, including mechanical packs. The 13 Sep "miss on pack writes" line is retired. |
 | Forbidden on pack writes | any Opus | $5 / $25 | Opus 5 official rate. Miss if used. |
 | Forbidden on pack writes | `claude-fable-5` | $10 / $50 | Miss if used. |
 | Forbidden on pack writes | `gpt-5.6-sol` | $5 / $30 | Miss if used. |
 | Forbidden unless the ticket says so | thinking=high / 1M context | — | Miss unless the ticket says so. |
 | Tools (Lovable, HeyGen, WhatsApp, Vercel) | session Tool (not a model slot) | — | Launch allowed when the session exists. No-access / NEED_LOGIN / blocked auth → escalate to the Desk (HITL login), then the same Hands run (same bc-id) continues. Not a Flash fill-in. |
 
-**MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model; Flash is the safety net, not an excuse to omit it.
+**MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model. After 22 Oct 2026 the fill-in is Composer 2.5 Fast, not Flash.
 
-- Empty model on a mechanical / unspecified Hands ticket → launch `gemini-3.7-flash` ($0.75 / $3.50). Do not refuse. Do not fall through to Sonnet or Grok.
-- Ticket names a forbidden pack model (`grok-4.6` / Fast, `composer-2.5` Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to the job’s allowed model. If job type is missing, remap to `gemini-3.7-flash`.
-- Review / eval / brand with no model → HOLD and flag Gideon. Do not auto-fill Sonnet. (Token lock 2026-08-26 supersedes review-auto-Sonnet.)
+- Empty `model:` on any Cloud Hands ticket → launch `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Do not refuse. Do not fall through to Sonnet, Grok, or Flash.
+- Ticket names a forbidden model (`grok-4.6` / Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to `composer-2.5` (`fast=true`). Do not remap Composer 2.5 Fast to Flash.
+- Review / eval / brand with no model → `composer-2.5` (`fast=true`). Do not HOLD for a missing model. (22 Oct 2026 replaces the 26 Aug review HOLD.)
 - Repo / code / build with no model → `composer-2.5` (`fast=true`). **Fast ON** (t1263u). Never a second Kimi cloud agent. Do not silent-fill OpenCode, Sonnet, or Flash on builds. Never silently launch with Fast off. (BUILDING lock t1263u 2026-09-13 supersedes t1242u and 26 Aug `fast=false` default for builds.)
 - Private residency (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. Do not fill Flash. If it does not fit 3B, hold for Gideon.
 
@@ -416,15 +445,15 @@ Feature: no UI group. Cloud Agent column = 228,601,182 raw; rest 1,414,608,998 u
 
 Never-list already burning: Opus 5, Opus 4.8 thinking-high, GPT-5.6 Sol. `composer-2.5-fast` and `default` appear in the chart legend but have zero export rows.
 
-**Lock from that fact (usage context; Cloud Hands fill-in governed by Token lock 2026-08-26):**
-- `grok-4.6-high-fast` is Orchestrator coordination chat, not pack Hands. Empty model on a mechanical job = `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap; do not refuse).
-- Mechanical Cloud Hands = `gemini-3.7-flash` only (Haiku/Luna/Nano in the table are historical $ context, not fill-in).
-- Review/eval/brand with no model → HOLD and flag Gideon. Do not auto-fill Sonnet.
+**Lock from that fact (usage context; Cloud Hands launch model is Token budget protocol 22 Oct 2026):**
+- `grok-4.6-high-fast` is Orchestrator coordination chat, not pack Hands. Empty `model:` after 22 Oct 2026 = `composer-2.5` (`fast=true`). The 19 Aug mechanical fill-in was `gemini-3.7-flash`. NEVER Opus / Grok 4.6 Fast / GPT-5.6 Sol on pack writes (remap to Composer 2.5 Fast; do not refuse).
+- Mechanical Cloud Hands after 22 Oct 2026 = `composer-2.5` (`fast=true`). Haiku/Luna/Nano in the table are historical $ context, not fill-in. The string `gemini-3.7-flash` stays in this file as that 19 Aug record.
+- Review/eval/brand with no model → `composer-2.5` (`fast=true`). Do not HOLD for a missing model (22 Oct 2026). Do not auto-fill Sonnet.
 - Repo / code / build Cloud Hands = `composer-2.5` (`fast=true`). **Fast ON** (t1263u). No second Kimi cloud agent. Never Muse Spark 1.2 Contributor.
-- One Hands ticket per artifact.
+- One Hands ticket per code artifact. Content work uses one ticket per wave of about 10 to 20 items (**Token budget protocol, 22 Oct 2026**). Do not open one ticket per Nexus page, wiki entry, or Datalab task.
 - Lovable, HeyGen, WhatsApp, Vercel: Tools Hands uses when the session exists. No-access → escalate to Desk (HITL login), same bc-id continues. Not a model slot. Presenter video stays HeyGen primary. Do not invert HeyGen to fallback.
 
-Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 Fast ($3/$15): **BUILDING lock t1263u** — repo/code/build Hands launch **Fast ON**; mechanical pack writes still Flash. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
+Live docs check (19 Aug 2026): ticket $ match official `models-and-pricing` for every named model. Two disagreements, live docs win where they publish $: (1) official page does **not** publish an Auto Cost dollar rate — do not invent one (a help page lists $1.25/$6; not planted). (2) official Grok 4.5 Fast is $4/$12; a help page listed $18 out — table uses official $4/$12. Composer 2.5 Fast ($3/$15): **BUILDING lock t1263u** launched repo/code/build Hands **Fast ON**. **Token budget protocol (22 Oct 2026)** launches every Cloud Hands job Fast ON, including mechanical packs. The 19 Aug line "mechanical pack writes still Flash" is retired. Cloud Agent API List Models example uses `composer-2` + `fast` and `claude-4.6-sonnet-thinking`. This run's launch catalog includes `composer-2.5`, `composer-2.5-fast`, `cursor-grok-4.6-high-fast`, `gemini-3.7-flash-high`, `gpt-5.6-luna-high`, `default`. Ticket model ids in the table are the Hands `model` field.
 
 ### Secrets SoT — Gideon 2026-09-07 (hard gate)
 
@@ -446,18 +475,18 @@ Full protocol: `skills/secrets/SKILL.md`. Desk pointer: `skills/infisical/SKILL.
 
 ### OSS-first + tiny/private — Gideon 2026-08-20 (Orchestrator) (hard gate)
 
-Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, the Flash fill-in (empty mechanical = `gemini-3.7-flash`), or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
+Do not weaken Lane A, the official $ table, the billed-vs-raw scrape, or the Tools-session lock (Lovable / HeyGen / WhatsApp / Vercel escalate to Desk, same bc-id). **Token budget protocol (22 Oct 2026)** replaces the Flash fill-in. Empty `model:` on a Cloud Hands job = `composer-2.5` (`fast=true`). The 20 Aug Flash fill-in was `gemini-3.7-flash`. Official prices stay `https://cursor.com/docs/models-and-pricing`. Do not invent prices.
 
-**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=true`) is the Cursor Hands fallback when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. **Fast ON for builds** (t1263u); not on mechanical pack writes. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
+**1. Coding is OSS-first.** OpenCode Go default is `opencode-go/kimi-k2.7-code`. `composer-2.5` (`fast=true`) is the Cursor Hands path when Go is blocked (current VPS CF 1010), over quota, hung, or Gideon says Hands. **Fast ON for every Cloud Hands job** (22 Oct 2026), including mechanical packs. Never a second Kimi cloud agent. Never Muse Spark 1.2 Contributor (trains on prompts — official Go privacy table, `https://opencode.ai/docs/go/`).
 
 **2. Go has no image/video/voice generation weights.** Official list is coding-only (verified 20 Aug 2026, `https://opencode.ai/docs/go/`). Do not invent models. Current official list: Grok 4.5, GLM-5.3, GLM-5.2, GLM-5.1, GPT 5.6 Luna, Kimi K3, Kimi K2.7 Code, Kimi K2.6, MiMo-V2.5, MiMo-V2.5-Pro, MiniMax M3, MiniMax M2.7, Muse Spark 1.2 Contributor (limited regions — forbidden), Qwen3.8 Max, Qwen3.7 Max, Qwen3.7 Plus, Qwen3.6 Plus, DeepSeek V4 Pro, DeepSeek V4 Flash, Hy3. MiniMax M3 / MiMo / Kimi may read image/video (text out). Presenter video stays HeyGen primary. Image generate stays Images desk. Do not invert HeyGen to fallback.
 
 **3. tiny vs private are two axes.** They are not the same gate.
-- **Tiny** = job size: one artifact, mechanical, no architecture, no grant/eval/brand → `gemini-3.7-flash` or local 3B.
+- **Tiny** = job size: one artifact, mechanical, no architecture, no grant/eval/brand. On Cloud Hands, tiny jobs use `composer-2.5` (`fast=true`) (22 Oct 2026). The 20 Aug Cloud Hands fill-in was `gemini-3.7-flash`.
 - **Private** = residency: must not leave 127.0.0.1 (client raw, unsigned, QBO staging, credentials, unpublished packs) → local Ollama `LFM2.5-VL-3B` only. If private does not fit 3B, hold for Gideon.
 - **Tiny + private** = local 3B.
 
-Empty model on a mechanical job still = `gemini-3.7-flash` (19 Aug fill-in). Private residency overrides Flash — private does not leave 127.0.0.1.
+Empty `model:` on a Cloud Hands job = `composer-2.5` (`fast=true`) (22 Oct 2026). Private residency overrides Composer — private does not leave 127.0.0.1.
 
 ### Media generation routing — Gideon 2026-08-21 (HITL lock)
 
@@ -524,7 +553,7 @@ Stay on Orchestrator / Box: route, HITL, QR, logged-in browser, GO/NO-GO, tone, 
 
 Cloud Hands or script: inventories, folder maps, docx/HTML/SVG drafts, Lucio-style guides, session dumps, disk sweep, 2am sync.
 
-About 70% of 13–15 Aug work is Hands/script.
+About 70% of 13–15 Aug work is Hands/script. Token spend follows **Token budget protocol (22 Oct 2026)**.
 
 ## 9. Gates and blockers
 
@@ -572,7 +601,9 @@ Facts from the first week. Do not repeat these mistakes.
 desk:
 folder:
 done-when:
-model: gemini-3.7-flash | composer-2.5 (fast=true)
+model: composer-2.5 (fast=true)
+files:
+read-budget:
 lane: github-pr | drive-folder
 tier: 0 | 1 | 2
 escalate:
@@ -585,6 +616,12 @@ hitl: nothing sent/posted/paid
 reviewer:
 context:
 ```
+
+`model` — every Cloud Hands job uses `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+
+`files` — exact files and paths the job may open. Do not leave this open.
+
+`read-budget` — how much the job may read. Use a file count or a byte cap. Stop at the cap.
 
 `tier` — Lane A Understanding Lab. Omit or `0` = default Ship (no lab, no CTA). `1` or `2` requires `escalate:` one-liner. Tier 2 must be named. See `docs/understanding-lab-tiers.md`.
 

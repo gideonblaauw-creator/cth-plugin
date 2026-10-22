@@ -33,11 +33,29 @@ CTH runs **graph-first** orchestration (LangGraph on product repos; Grok + ticke
 |---|---|---|
 | **Heartbeat** | Periodic health / stall detection (Doctor_Bot, Infra pings, automation watch) | `skills/doctor-bot/SKILL.md`; Desk ready-ping after Hands PR |
 | **Skill** | Domain playbook loaded when the task matches | `skills/harness/references/skill-toolkit.json`; read `skills/harness/SKILL.md` before every Hands ticket |
-| **Maker ≠ checker** | Hands plants; Desk (or Infra) reviews; Gideon merges | Never merge on Hands self-approval alone |
+| **Maker ≠ checker** | High-risk work gets a separate read-only checker. Low-risk content and file jobs self-verify and attach proof. Gideon still merges. | Checker job only for a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. See **Token budget protocol (22 Oct 2026)** |
 | **Connectors** | Tools with clear schemas; escalate auth to Desk | Tools-session lock — NEED_LOGIN → Desk HITL, same bc-id continues |
 | **Verifier** | Mechanical proof before “done” | See §4 — repo validation, Software Factory Prove/Ship, n8n-li on live pilots |
 
 Fix failures by **strengthening the loop**, not by re-prompting the same mistake (Hashimoto principle — §6).
+
+## Token budget protocol (22 Oct 2026)
+
+**Locked:** Gideon **22 Oct 2026**
+**Goal:** Cut Cloud Hands token spend.
+**Canonical:** `skills/harness/SKILL.md` § Token budget protocol. This copy must match that section.
+
+This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record. This section is the launch rule.
+
+**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+
+1. **One job per wave, not per item.** Batch content work into one job per wave. Put about 10 to 20 items in one wave. Content work means Nexus pages, wiki entries, and Datalab tasks. This replaces "one Hands per smallest independent job" for content work. Code builds may still split.
+2. **Checker by risk.** Launch a separate read-only checker job only for high-risk work. High-risk work is a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content job checks its own result. A low-risk file job checks its own result. Attach proof on that job. Use a hash, an HTTP status code, or test output.
+3. **Scoped tickets.** Name the exact files to open on every ticket. Name the exact paths to open on every ticket. Name a read budget on every ticket. Do not crawl the VPS with an open-ended search. Do not crawl a whole repo.
+4. **Big-file rule.** Do not read a file larger than 200 KB into the job. Decks, PDFs, transcripts, and dumps follow this rule. Verify a large file by its hash. Verify it by its size. Verify it with grep.
+5. **No duplicate launches.** Check for a running job with the same title before you launch. Do not relaunch a failed job until you fix its blocker.
+6. **Step cap.** Stop the job at about 60 steps. Report the result at that stop. Split long work into planned phases.
+7. **Daily budget.** Launch at most 40 jobs a day across all desks. The Orchestrator counts each launch. Gideon sets the Cursor dashboard spend limit. Gideon sets the spend alert.
 
 ---
 
@@ -86,7 +104,7 @@ Canonical: `docs/software-factory.md`, `skills/software-factory/SKILL.md`.
 | Level | Check | CTH example |
 |---|---|---|
 | Schema | Required fields, types, non-empty | Ticket seven-field contract; `jq` on manifests |
-| Semantic | Output matches `done-when` | Desk review (maker ≠ checker) |
+| Semantic | Output matches `done-when` | High-risk: separate read-only checker (maker ≠ checker). Low-risk: the job attaches a hash, an HTTP status code, or test output |
 | Behavioral | End-to-end smoke | Factory smoke, headless Chrome on HTML artifacts, LangGraph eval hooks |
 
 ### 4.4 SMART goals + n8n-li verifiers (18 live pilots)
@@ -127,7 +145,7 @@ When Cloud Hands or a Desk sees a **repeatable** mistake:
    - Policy → `skills/harness/SKILL.md` or domain skill (minimal diff)  
    - Workflow → Desk ticket template tip or Infra automation (not ad-hoc chat rules)  
 3. **Do not** add speculative rules — only after observed failure.  
-4. **Maker ≠ checker:** Hands patches; Desk/Infra confirms; Gideon merges rulebook changes on Lane A.
+4. **Maker ≠ checker:** On a rulebook change, Hands patches and a separate read-only checker confirms. Gideon merges. Low-risk file jobs self-verify. See **Token budget protocol (22 Oct 2026)**.
 
 ---
 

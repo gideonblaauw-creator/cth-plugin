@@ -282,11 +282,12 @@ def run_bench():
         and "fast=true" in routing_text
         and "Fast ON" in routing_text
         and "fast=false" in routing_text  # documented as miss/remap, not default
+        and "Token budget protocol (22 Oct 2026)" in routing_text
     )
     results.append((
         "7. Composer 2.5 Fast ON",
         "PASS" if fast_on_ok else "FAIL",
-        "docs/hands-model-routing.md: repo/code/build Hands launch composer-2.5 (fast=true) — BUILDING lock t1263u."
+        "docs/hands-model-routing.md: Composer 2.5 (fast=true) Fast ON, including Token budget protocol (22 Oct 2026)."
         if fast_on_ok
         else "Missing BUILDING Fast ON clauses in docs/hands-model-routing.md."
     ))
@@ -338,6 +339,7 @@ def run_bench():
         ("OSS-first coding default", "opencode-go/kimi-k2.7-code" in harness_text),
         ("BUILDING Fast ON", "BUILDING model lock" in harness_text and "`fast=true`" in harness_text),
         ("Mechanical Flash fill-in", "gemini-3.7-flash" in harness_text),
+        ("Token budget protocol 22 Oct 2026", "Token budget protocol (22 Oct 2026)" in harness_text and "one job per wave" in harness_text.lower()),
         ("Private 3B residency", "LFM2.5-VL-3B" in harness_text),
         ("HeyGen presenter", "HeyGen" in harness_text and "presenter" in harness_text.lower()),
         ("OpenRouter video bus", "OpenRouter" in harness_text and "POST /api/v1/videos" in harness_text),

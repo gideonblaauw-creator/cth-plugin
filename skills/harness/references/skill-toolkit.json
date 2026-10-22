@@ -345,8 +345,8 @@
       "claude_desktop": true,
       "cursor": "stub",
       "license": "MIT",
-      "version": "3.8.1",
-      "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier. Read before any Cloud Hands ticket."
+      "version": "3.9.0",
+      "description": "CTH Harness rulebook \u2014 Workbench, Tools, Tickets, Cloud Hands, Desks. Use when: harness, ticket, Cloud Hands, lane, Desk/Hands boundary, Understanding Lab tier, token budget. Read before any Cloud Hands ticket."
     },
     {
       "name": "html-to-pdf",
