@@ -38,8 +38,19 @@ def visible_lines(data: dict, lang: str) -> list[str]:
         if not str(v).strip():
             continue
         lines.append(str(v))
+    hist = data.get("cth_history") or {}
+    for item in hist.get("timeline") or []:
+        lines.append((item.get("text") or {}).get(lang, "") or (item.get("text") or {}).get("en", ""))
+    for m in hist.get("metrics") or []:
+        lines.append(m.get("value", ""))
+        lines.append((m.get("label") or {}).get(lang, ""))
     for g in data.get("gaps") or []:
         lines.append(g.get("title", {}).get(lang, ""))
+        lines.append((g.get("headline") or {}).get(lang, ""))
+        ch = g.get("chart") or {}
+        lines.append((ch.get("note") or {}).get(lang, "") if isinstance(ch.get("note"), dict) else "")
+        for b in ch.get("bars") or []:
+            lines.append((b.get("label") or {}).get(lang, ""))
         lines.append(g.get("context", {}).get(lang, ""))
         ev = g.get("report_evidence") or {}
         if lang == "en" and ev.get("quote_en"):
