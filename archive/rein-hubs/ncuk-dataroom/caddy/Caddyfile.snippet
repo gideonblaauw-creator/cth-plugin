@@ -1,0 +1,39 @@
+# Snippet for the VPS main Caddyfile (merge or import on the host).
+# Run scripts/deploy-prep.sh before reload (Infisical → caddy.env + .env.generated).
+#
+# Env (from caddy.env, never committed):
+#   NCUK_BASIC_AUTH_USER=rein
+#   NCUK_BASIC_AUTH_HASH=<bcrypt from NCUK_DATAROOM_BASIC_AUTH_PASSWORD>
+#   NCUK_ROOM_MODE=docmost|fallback
+#   NCUK_FALLBACK_ROOT=/opt/claude-files/Projects/REIN-Hubs/ncuk-dataroom/fallback/build
+
+dataroom.cleantechhub.net {
+	@mode_fallback expression {env.NCUK_ROOM_MODE} == "fallback"
+
+	handle @mode_fallback {
+		basic_auth /ncuk* {
+			{env.NCUK_BASIC_AUTH_USER} {env.NCUK_BASIC_AUTH_HASH}
+		}
+		redir /ncuk /ncuk/ permanent
+		handle_path /ncuk/* {
+			root * {env.NCUK_FALLBACK_ROOT}
+			try_files {path} {path}/ /index.html
+			file_server
+		}
+		respond / "NCUK data room (fallback). Open /ncuk/" 200
+	}
+
+	handle {
+		basic_auth {
+			{env.NCUK_BASIC_AUTH_USER} {env.NCUK_BASIC_AUTH_HASH}
+		}
+
+		redir /ncuk / 302
+		redir /ncuk/ / 302
+
+		reverse_proxy ncuk-dataroom-docmost:3000 {
+			header_up X-Forwarded-Proto {scheme}
+			header_up X-Forwarded-Host {host}
+		}
+	}
+}
