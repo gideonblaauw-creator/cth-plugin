@@ -137,6 +137,24 @@ body {
   flex: 1;
   min-height: 0;
 }
+.split.balanced-cols {
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.split.balanced-cols .main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.split.balanced-cols .main .rows {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-content: space-evenly;
+  height: 100%;
+}
+.split.balanced-cols .main > .src {
+  margin-top: 2mm;
+}
 .main { padding: 4mm 5mm 4mm 8mm; min-height: 0; }
 .side {
   background: var(--panel);
@@ -285,6 +303,8 @@ body {
   background: var(--green);
   color: var(--white);
   padding: 3.5mm 8mm 4mm;
+  overflow: visible;
+  flex-shrink: 0;
 }
 .logobar .lbl {
   margin: 0 0 2mm;
@@ -295,17 +315,73 @@ body {
   text-transform: uppercase;
 }
 .logos {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 2mm;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
   align-items: center;
+  gap: 2mm;
   background: rgba(255,255,255,.94);
-  padding: 2.5mm 2mm;
+  padding: 3mm 3mm;
+  overflow: visible;
 }
-.logos img {
+.logos-lead .logo-slot,
+.logos-support .logo-slot {
+  flex: 1 1 0;
+  max-width: 46%;
+}
+.logobar .lbl-support {
+  margin: 2.5mm 0 1.5mm;
+  font-size: 8px;
+  opacity: 0.92;
+}
+.logos .logo-slot {
+  flex: 1 1 0;
+  width: 0;
+  height: 14mm;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0 1mm;
+  box-sizing: border-box;
+}
+.chartbox {
+  margin: 3mm 0 0;
+}
+.chartbox .band { margin-bottom: 2mm; }
+.chartbox svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.chartbox .svg-lbl {
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 8px;
+  fill: #666666;
+  font-weight: 700;
+}
+.chartbox .svg-val {
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 9px;
+  fill: #335d4f;
+  font-weight: 700;
+}
+.chartbox .svg-note {
+  font-family: Lora, Georgia, serif;
+  font-size: 7px;
+  fill: #666666;
+}
+.chartbox figcaption { margin-top: 1.5mm; }
+.logos .logo-slot img {
+  display: block;
+  width: auto;
+  height: auto;
   max-width: 100%;
-  max-height: 10mm;
+  max-height: 100%;
   object-fit: contain;
+  object-position: center center;
 }
 .logos .ph {
   border: 1px dashed rgba(255,255,255,.55);

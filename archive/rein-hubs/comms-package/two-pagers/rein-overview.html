@@ -27,7 +27,7 @@
     <p class="src">https://www.pvblic.org/rein-hubs — checked 21 Oct 2026</p>
   </section>
   <div class="body">
-    <div class="split">
+    <div class="split balanced-cols">
       <section class="main">
         <p class="band">Three foundations</p>
         <div class="rows">
@@ -53,7 +53,21 @@
             </div>
           </article>
         </div>
-        <p class="src" style="margin-top:3mm">Built on these three foundations, REIN moves innovators through a structured pathway from early-stage ideas to scalable, investment-ready ventures.</p>
+        <div class="chartbox">
+          <p class="band">Pipeline funnel</p>
+          <svg viewBox="0 0 340 108" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of locked By the Numbers figures">
+            <text class="svg-lbl" x="0" y="10">Applications received</text><text class="svg-val" x="292" y="10">3,000+</text>
+            <rect x="0" y="13" width="340" height="14" fill="#335d4f"/>
+            <text class="svg-lbl" x="0" y="36">Entrepreneurs supported</text><text class="svg-val" x="292" y="36">1,200+</text>
+            <rect x="0" y="39" width="136" height="14" fill="#335d4f"/>
+            <text class="svg-lbl" x="0" y="62">Startups incubated</text><text class="svg-val" x="310" y="62">222</text>
+            <rect x="0" y="65" width="25.2" height="14" fill="#ff6633"/>
+            <text class="svg-lbl" x="0" y="88">Startups accelerated</text><text class="svg-val" x="310" y="88">100</text>
+            <rect x="0" y="91" width="11.3" height="14" fill="#ff6633"/>
+          </svg>
+          <figcaption class="src">Bar widths use minimum stated counts (3,000, 1,200, 222, 100). https://www.pvblic.org/rein-hubs, By the Numbers. Gideon, 22 Oct 2026.</figcaption>
+        </div>
+        <p class="src" style="margin-top:2mm">Built on these three foundations, REIN moves innovators through a structured pathway from early-stage ideas to scalable, investment-ready ventures.</p>
       </section>
       <aside class="side">
         <p class="band">By the Numbers</p>
@@ -64,7 +78,18 @@
           <p class="stat"><span class="num">100</span><span class="lbl">Startups accelerated</span></p>
         </div>
         <p class="src" style="margin:3mm 0">https://www.pvblic.org/rein-hubs, By the Numbers. Gideon, 22 Oct 2026.</p>
-        <p class="band" style="margin-top:4mm">Five active hubs</p>
+        <div class="chartbox">
+          <p class="band">Five active hubs</p>
+          <svg viewBox="0 0 340 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five REIN hub countries">
+            <rect x="0" y="18" width="60" height="36" fill="#335d4f"/><text class="svg-val" x="30" y="40" text-anchor="middle" fill="#fff" font-size="8">CO</text>
+            <rect x="68" y="18" width="60" height="36" fill="#335d4f"/><text class="svg-val" x="98" y="40" text-anchor="middle" fill="#fff" font-size="8">PE</text>
+            <rect x="136" y="18" width="60" height="36" fill="#335d4f"/><text class="svg-val" x="166" y="40" text-anchor="middle" fill="#fff" font-size="8">CR</text>
+            <rect x="204" y="18" width="60" height="36" fill="#335d4f"/><text class="svg-val" x="234" y="40" text-anchor="middle" fill="#fff" font-size="8">GT</text>
+            <rect x="272" y="18" width="68" height="36" fill="#ff6633"/><text class="svg-val" x="306" y="40" text-anchor="middle" fill="#fff" font-size="8">SV</text>
+            <text class="svg-lbl" x="0" y="11">Colombia · Perú · Costa Rica · Guatemala · El Salvador</text>
+            <text class="svg-note" x="0" y="66">One fully active hub per country on the program page.</text>
+          </svg>
+        </div>
         <ul class="hubs">
           <li><strong>Colombia</strong> · Universidad Externado de Colombia. Anchor hub since 2019.</li>
           <li><strong>Perú</strong> · Universidad del Pacífico. Lima, San Martín, and Trujillo.</li>
@@ -76,15 +101,15 @@
     </div>
   </div>
   <footer class="logobar">
-    <p class="lbl">Organisations behind REIN</p>
-    <div class="logos">
-      <img src="assets/logos/pvblic-foundation.png" alt="PVBLIC Foundation">
-      <img src="assets/logos/cleantechhub.png" alt="CleantechHUB">
-      <img src="assets/logos/universidad-externado-colombia.png" alt="Universidad Externado">
-      <img src="assets/logos/universidad-del-pacifico-peru.png" alt="Universidad del Pacífico">
-      <img src="assets/logos/universidad-rafael-landivar-guatemala.png" alt="Universidad Rafael Landívar">
-      <img src="assets/logos/universidad-lci-veritas-costa-rica.png" alt="Universidad LCI Veritas">
-      <img src="assets/logos/utec-el-salvador.png" alt="Universidad Tecnológica de El Salvador (UTEC)">
+    <p class="lbl">Lead organisations behind REIN</p>
+    <div class="logos logos-lead">
+      <span class="logo-slot"><img src="assets/logos/pvblic-foundation.png" alt="PVBLIC Foundation"></span>
+      <span class="logo-slot"><img src="assets/logos/cleantechhub.png" alt="CleantechHUB"></span>
+    </div>
+    <p class="lbl lbl-support">Supporting partners</p>
+    <div class="logos logos-support">
+      <span class="logo-slot"><img src="assets/logos/fosd.png" alt="Family Office for Sustainable Development (FOSD)"></span>
+      <span class="logo-slot"><img src="assets/logos/ubs.png" alt="UBS"></span>
     </div>
     <p class="footline"><strong>https://www.pvblic.org/rein-hubs</strong> · Phone and street address: Missing — to supply · Awaiting Gideon's approval · Not for send · 1 / 2</p>
   </footer>
@@ -99,6 +124,19 @@
       <p>From early-stage ideas to investment-ready ventures</p>
     </div>
   </header>
+  <div class="chartbox" style="padding:0 8mm 2mm">
+    <p class="band">Four-stage pathway</p>
+    <svg viewBox="0 0 520 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Program pathway stages">
+      <rect x="0" y="8" width="110" height="32" rx="2" fill="#335d4f"/><text x="55" y="28" text-anchor="middle" fill="#fff" font-family="Poppins,Arial,sans-serif" font-size="9" font-weight="700">1 · Ideation</text>
+      <polygon points="118,24 128,24 123,18" fill="#ff6633"/><polygon points="118,24 128,24 123,30" fill="#ff6633"/>
+      <rect x="130" y="8" width="110" height="32" rx="2" fill="#335d4f"/><text x="185" y="28" text-anchor="middle" fill="#fff" font-family="Poppins,Arial,sans-serif" font-size="9" font-weight="700">2 · Incubation</text>
+      <polygon points="248,24 258,24 253,18" fill="#ff6633"/><polygon points="248,24 258,24 253,30" fill="#ff6633"/>
+      <rect x="260" y="8" width="110" height="32" rx="2" fill="#335d4f"/><text x="315" y="28" text-anchor="middle" fill="#fff" font-family="Poppins,Arial,sans-serif" font-size="9" font-weight="700">3 · Acceleration</text>
+      <polygon points="378,24 388,24 383,18" fill="#ff6633"/><polygon points="378,24 388,24 383,30" fill="#ff6633"/>
+      <rect x="390" y="8" width="130" height="32" rx="2" fill="#ff6633"/><text x="455" y="28" text-anchor="middle" fill="#fff" font-family="Poppins,Arial,sans-serif" font-size="8" font-weight="700">4 · Investment Readiness</text>
+      <text class="svg-note" x="0" y="52">Stage names and sentences: https://www.pvblic.org/rein-hubs</text>
+    </svg>
+  </div>
   <div class="cols4">
     <article class="card"><img src="assets/icons/pathway-4.png" alt=""><h3>Ideation</h3><p>Early-stage idea development for innovators and students exploring environmental solutions.</p></article>
     <article class="card"><img src="assets/icons/pathway-3.png" alt=""><h3>Incubation</h3><p>National incubation programs within each university hub, building viable ventures.</p></article>
@@ -124,15 +162,15 @@
     </article>
   </div>
   <footer class="logobar">
-    <p class="lbl">Organisations behind REIN</p>
-    <div class="logos">
-      <img src="assets/logos/pvblic-foundation.png" alt="PVBLIC Foundation">
-      <img src="assets/logos/cleantechhub.png" alt="CleantechHUB">
-      <img src="assets/logos/universidad-externado-colombia.png" alt="Universidad Externado">
-      <img src="assets/logos/universidad-del-pacifico-peru.png" alt="Universidad del Pacífico">
-      <img src="assets/logos/universidad-rafael-landivar-guatemala.png" alt="Universidad Rafael Landívar">
-      <img src="assets/logos/universidad-lci-veritas-costa-rica.png" alt="Universidad LCI Veritas">
-      <img src="assets/logos/utec-el-salvador.png" alt="Universidad Tecnológica de El Salvador (UTEC)">
+    <p class="lbl">Lead organisations behind REIN</p>
+    <div class="logos logos-lead">
+      <span class="logo-slot"><img src="assets/logos/pvblic-foundation.png" alt="PVBLIC Foundation"></span>
+      <span class="logo-slot"><img src="assets/logos/cleantechhub.png" alt="CleantechHUB"></span>
+    </div>
+    <p class="lbl lbl-support">Supporting partners</p>
+    <div class="logos logos-support">
+      <span class="logo-slot"><img src="assets/logos/fosd.png" alt="Family Office for Sustainable Development (FOSD)"></span>
+      <span class="logo-slot"><img src="assets/logos/ubs.png" alt="UBS"></span>
     </div>
     <p class="footline"><strong>https://www.pvblic.org/rein-hubs</strong> · Awaiting Gideon's approval · Not for send · 2 / 2</p>
   </footer>
