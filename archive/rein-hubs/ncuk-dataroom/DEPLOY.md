@@ -89,7 +89,11 @@ Docmost setup UI (after DNS + Caddy): `https://dataroom.cleantechhub.net/` with 
 sudo cp caddy/dataroom.cleantechhub.net.caddy /etc/caddy/Caddyfile.d/
 ```
 
-2. Ensure main `/etc/caddy/Caddyfile` imports `Caddyfile.d/*.caddy` (standard CTH layout).
+2. Add an explicit import to `/etc/caddy/Caddyfile` (there is no glob import on this host):
+
+```
+import /etc/caddy/Caddyfile.d/dataroom.cleantechhub.net.caddy
+```
 3. Point `caddy.service` at `caddy.env` (from `deploy-prep.sh`), e.g. `EnvironmentFile=/opt/claude-files/Projects/REIN-Hubs/ncuk-dataroom/caddy.env`.
 4. Validate and reload:
 

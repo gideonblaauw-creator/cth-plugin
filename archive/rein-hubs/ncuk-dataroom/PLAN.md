@@ -129,7 +129,7 @@ Use this list for the **follow-on build ticket** after Gideon approves this plan
 4. Confirm which metrics are snapshot vs live links.  
 5. Open Infrastructure ticket for VPS capacity check.  
 6. Record current free RAM and disk on OVH VPS.  
-7. Confirm Docker network name used by Caddy and BookStack.  
+7. Confirm host **systemd** `caddy.service` layout (Caddy is not in Docker); note BookStack Docker network if needed.  
 8. Choose Docmost compose directory on VPS under `/opt/claude-files/…` (not this git repo).  
 9. Generate `APP_SECRET` with `openssl rand -hex 32`.  
 10. Generate strong Basic Auth password; store in Infisical `cth-agents`.  
