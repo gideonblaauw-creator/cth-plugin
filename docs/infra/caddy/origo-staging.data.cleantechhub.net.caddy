@@ -1,0 +1,21 @@
+origo-staging.data.cleantechhub.net {
+	import oauth2_proxy_handle_unauth
+	encode gzip
+	handle {
+		import oauth2_proxy_forward_auth
+		root * /opt/claude-files/Clients/paso-colombia/origo-staging/app
+		try_files {path} /index.html
+		file_server
+	}
+	header {
+		X-Content-Type-Options nosniff
+		X-Robots-Tag "noindex, nofollow"
+	}
+	log {
+		output file /var/log/caddy/origo-staging.data.cleantechhub.net.log {
+			roll_size 20mb
+			roll_keep 5
+		}
+		format json
+	}
+}

@@ -1,0 +1,17 @@
+# Shared Google SSO via oauth2-proxy on 127.0.0.1:4180.
+# Site block: import oauth2_proxy_handle_unauth
+# Protected handle/route: import oauth2_proxy_forward_auth before the upstream.
+
+(oauth2_proxy_forward_auth) {
+	forward_auth 127.0.0.1:4180 {
+		uri /oauth2/auth
+		copy_headers X-Auth-Request-Email
+	}
+}
+
+(oauth2_proxy_handle_unauth) {
+	handle_errors {
+		@oauth401 expression {http.error.status_code} == 401
+		redir @oauth401 "https://auth.cleantechhub.net/oauth2/start?rd={scheme}://{host}{uri}" 302
+	}
+}
