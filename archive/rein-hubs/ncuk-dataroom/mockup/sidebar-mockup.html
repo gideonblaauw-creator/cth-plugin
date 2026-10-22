@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCUK Data Room — Sidebar mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rein-green: #335d4f;
+      --rein-green-dark: #2a4d42;
+      --rein-orange: #ff6633;
+      --text-body: #666666;
+      --text-muted: #999999;
+      --text-sidebar: rgba(255, 255, 255, 0.88);
+      --text-sidebar-muted: rgba(255, 255, 255, 0.55);
+      --bg-content: #fafafa;
+      --bg-white: #ffffff;
+      --border-light: #e8e8e8;
+      --sidebar-width: 320px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Lora", Georgia, serif;
+      font-size: 15px;
+      color: var(--text-body);
+      background: var(--bg-content);
+    }
+
+    .app {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 1440px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      box-shadow: 0 0 0 1px var(--border-light);
+    }
+
+    /* Top header bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 24px;
+      background: var(--rein-green);
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .topbar-brand h1 {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .topbar-brand p {
+      font-family: "Lora", Georgia, serif;
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .topbar-actions .pill {
+      font-family: "Lora", Georgia, serif;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+      min-height: calc(900px - 56px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      background: var(--rein-green);
+      color: var(--text-sidebar);
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--rein-green-dark);
+    }
+
+    .sidebar-search {
+      padding: 14px 16px 10px;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      padding: 8px 12px 8px 32px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-family: "Lora", Georgia, serif;
+      font-size: 13px;
+    }
+
+    .sidebar-search input::placeholder {
+      color: var(--text-sidebar-muted);
+    }
+
+    .sidebar-label {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-sidebar-muted);
+      padding: 8px 16px 6px;
+    }
+
+    .tree {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 8px 24px;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      cursor: default;
+      color: var(--text-sidebar);
+    }
+
+    .tree-item.muted {
+      color: var(--text-sidebar-muted);
+    }
+
+    .tree-item.active {
+      background: rgba(255, 102, 51, 0.22);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .tree-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 3px;
+      height: 20px;
+      background: var(--rein-orange);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .tree-item-wrap {
+      position: relative;
+    }
+
+    .tree-item-wrap.active-wrap .tree-item.active {
+      padding-left: 11px;
+    }
+
+    .chevron {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      opacity: 0.6;
+      font-size: 10px;
+      text-align: center;
+      line-height: 14px;
+    }
+
+    .chevron.expanded::before {
+      content: "▾";
+    }
+
+    .chevron.collapsed::before {
+      content: "▸";
+    }
+
+    .chevron.leaf {
+      visibility: hidden;
+    }
+
+    .page-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      opacity: 0.5;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+    }
+
+    .tree-title {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .badge-internal {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: var(--rein-orange);
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .lock {
+      flex-shrink: 0;
+      font-size: 11px;
+      opacity: 0.85;
+      color: var(--rein-orange);
+    }
+
+    .indent-0 { padding-left: 8px; }
+    .indent-1 { padding-left: 22px; }
+    .indent-2 { padding-left: 36px; }
+    .indent-3 { padding-left: 50px; }
+    .indent-4 { padding-left: 64px; }
+
+    /* Content */
+    .content {
+      flex: 1;
+      background: var(--bg-content);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-toolbar {
+      height: 48px;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      gap: 16px;
+    }
+
+    .content-toolbar span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .content-body {
+      flex: 1;
+      padding: 40px 48px;
+      max-width: 880px;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .breadcrumb a {
+      color: var(--rein-green);
+      text-decoration: none;
+    }
+
+    .breadcrumb .sep {
+      margin: 0 6px;
+      opacity: 0.5;
+    }
+
+    .page-title {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #333;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .empty-state {
+      background: var(--bg-white);
+      border: 1px dashed var(--border-light);
+      border-radius: 8px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .empty-state p {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .empty-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 8px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <h1>NCUK Data Room</h1>
+        <p>REIN Hubs · Pvblic × CleantechHUB</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="pill">View only</span>
+      </div>
+    </header>
+
+    <div class="main">
+      <aside class="sidebar" aria-label="Page tree">
+        <div class="sidebar-search">
+          <input type="search" placeholder="Search pages…" disabled aria-label="Search" />
+        </div>
+        <div class="sidebar-label">Workspace</div>
+        <nav class="tree" aria-label="Navigation">
+          <div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">01 Energy</span></div>
+          <div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">02 Health</span></div>
+          <div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">03 Education</span></div>
+
+          <div class="tree-item indent-0"><span class="chevron expanded"></span><span class="page-icon">📁</span><span class="tree-title">04 REIN</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">00 Read me &amp; index</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">01 Overview &amp; governance</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="lock" aria-hidden="true">🔒</span><span class="tree-title">02 Agreements</span><span class="badge-internal">Internal</span></div>
+          <div class="tree-item indent-1"><span class="chevron expanded"></span><span class="page-icon">📁</span><span class="tree-title">03 Hubs</span></div>
+
+          <div class="tree-item indent-2"><span class="chevron expanded"></span><span class="page-icon">📁</span><span class="tree-title">Colombia · Externado</span></div>
+          <div class="tree-item-wrap active-wrap">
+            <div class="tree-item indent-3 active"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">Programme</span></div>
+          </div>
+          <div class="tree-item indent-3 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">Calendar</span></div>
+          <div class="tree-item indent-3 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">Cohorts</span></div>
+          <div class="tree-item indent-3 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">Results</span></div>
+
+          <div class="tree-item indent-2 muted"><span class="chevron collapsed"></span><span class="page-icon">📁</span><span class="tree-title">Peru · Universidad del Pacífico</span></div>
+          <div class="tree-item indent-2 muted"><span class="chevron collapsed"></span><span class="page-icon">📁</span><span class="tree-title">Guatemala · Rafael Landívar</span></div>
+          <div class="tree-item indent-2 muted"><span class="chevron collapsed"></span><span class="page-icon">📁</span><span class="tree-title">Costa Rica · LCI Veritas</span></div>
+          <div class="tree-item indent-2 muted"><span class="chevron collapsed"></span><span class="page-icon">📁</span><span class="tree-title">El Salvador · UTEC</span></div>
+
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">04 Programme design</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">05 Reports &amp; results</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="lock" aria-hidden="true">🔒</span><span class="tree-title">06 Finance</span><span class="badge-internal">Internal</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">07 Media &amp; brand</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">08 Partners &amp; funders</span></div>
+          <div class="tree-item indent-1 muted"><span class="chevron leaf"></span><span class="lock" aria-hidden="true">🔒</span><span class="tree-title">09 Pipeline</span><span class="badge-internal">Internal</span></div>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <div class="content-toolbar">
+          <span>Last edited —</span>
+        </div>
+        <article class="content-body">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            04 REIN <span class="sep">/</span> 03 Hubs <span class="sep">/</span> Colombia · Externado <span class="sep">/</span> Programme
+          </nav>
+          <h2 class="page-title">Programme</h2>
+          <div class="empty-state">
+            <div class="empty-icon" aria-hidden="true">📝</div>
+            <p>Content pending</p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
