@@ -25,4 +25,8 @@ Local verification (22 Oct 2026): subpath `reverse_proxy` with `handle_path` was
 
 ## Fallback
 
-Build Docusaurus with `baseUrl: '/ncuk/'`, rsync `build/` to `NCUK_FALLBACK_ROOT` on the VPS, set `NCUK_ROOM_MODE=fallback`, reload Caddy.
+Build Docusaurus with `baseUrl: '/ncuk/'`, rsync `build/` to `NCUK_FALLBACK_ROOT` on the VPS, set `NCUK_ROOM_MODE=fallback`, reload host Caddy (`systemctl reload caddy`).
+
+## Host Caddy (not Docker)
+
+Caddy runs as **`systemd caddy.service`** on the VPS. Site file: `/etc/caddy/Caddyfile.d/dataroom.cleantechhub.net.caddy`. Docmost listens on **`127.0.0.1:3076`** only; Caddy `reverse_proxy {env.NCUK_DOCMOST_UPSTREAM}`. PostgreSQL and Redis have no published host ports.

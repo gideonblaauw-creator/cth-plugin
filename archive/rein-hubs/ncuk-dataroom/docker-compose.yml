@@ -1,5 +1,6 @@
 # NCUK REIN data room — Docmost stack (VPS). Secrets via .env.generated (Infisical).
-# Pin tags; do not use unpinned latest in production (PLAN step 16).
+# Caddy runs on the HOST (systemd caddy.service), not in Docker.
+# Docmost binds localhost only; host Caddy reverse_proxies to 127.0.0.1:3076.
 
 name: ncuk-dataroom
 
@@ -17,11 +18,12 @@ services:
       APP_SECRET: ${APP_SECRET:?Set APP_SECRET via Infisical / deploy-prep.sh}
       DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL via deploy-prep.sh}
       REDIS_URL: redis://ncuk-dataroom-redis:6379
+    ports:
+      - "127.0.0.1:${DOCMOST_HOST_PORT:-3076}:3000"
     volumes:
       - docmost_storage:/app/data/storage
     networks:
       - ncuk_internal
-      - caddy_edge
     restart: unless-stopped
     mem_limit: 1g
     memswap_limit: 1g
@@ -74,9 +76,6 @@ services:
 networks:
   ncuk_internal:
     name: ncuk-dataroom-internal
-  caddy_edge:
-    external: true
-    name: ${CADDY_DOCKER_NETWORK:-caddy}
 
 volumes:
   docmost_storage:
