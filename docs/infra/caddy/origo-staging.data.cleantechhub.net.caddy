@@ -1,5 +1,4 @@
 origo-staging.data.cleantechhub.net {
-	import oauth2_proxy_handle_unauth
 	encode gzip
 	handle {
 		import oauth2_proxy_forward_auth
