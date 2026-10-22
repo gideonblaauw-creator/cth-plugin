@@ -54,27 +54,29 @@ CleantechHUB n8n
 
 **Paste:**
 
-FUNDACION CLEANTECH HUB S.A.S.
+FUNDACIÓN CLEANTECH HUB
+
+Entidad sin ánimo de lucro (ESAL), régimen tributario especial.
 
 NIT (Número de Identificación Tributaria) 901.523.941-9.
 
-Bogotá, D.C., Colombia.
+Bogotá D.C., Colombia.
 
-Legal representative named in the public data policy: Gideon Blaauw.
+Legal representative: Gideon Blaauw, Representante Legal de la Fundación CleantechHUB.
 
-**Where this comes from:** the public “Política y tratamiento de datos” PDF linked from [the governance page](https://cleantechhub.net/governance/). The introduction calls the entity FUNDACION CLEANTECH HUB S.A.S., domiciled in Bogotá, D.C., NIT 901.523.941-9. The contact block names Gideon Blaauw, cargo Representante legal, address CALLE 90 No. 19-41 OF 801, Bogotá.
+**Where this comes from:** Gideon confirmed this legal name, this non-profit form, and this tax number on 22 October 2026 for the public privacy policy. The NIT matches the public “Política y tratamiento de datos” PDF linked from [the governance page](https://cleantechhub.net/governance/). That page also says “Fundación”. The PDF contact block names Gideon Blaauw, cargo Representante legal.
 
-**Confirm before paste:** the governance page also says “Fundación” and links a RUT (Registro Único Tributario) file. If the RUT legal name differs from FUNDACION CLEANTECH HUB S.A.S., paste the RUT name instead. A mismatch is a known cause of **Fail Organization Verification**. `[GIDEON TO FILL]` if the RUT name differs.
+**Paste this name.** Do not add a simplified-stock-company suffix. The 2022 PDF used a commercial company form. Do not copy that form into this field. A name that does not match the registry is a known cause of **Fail Organization Verification**.
 
 ### 1.4 Registered address
 
 **Paste:**
 
-CALLE 90 No. 19-41 OF 801, Bogotá, D.C., Colombia.
+Calle 90 No. 19-41 Of. 801, Bogotá D.C., Colombia.
 
-**Where this comes from:** the same public data policy, and the site footer at `https://cleantechhub.net/`, which prints “Cll 90 #19 - 41 Office 801”. The policy adds the city.
+**Where this comes from:** Gideon confirmed this address on 22 October 2026. It matches the public data policy (CALLE 90 No. 19-41 OF 801, Bogotá) and the site footer at `https://cleantechhub.net/`, which prints “Cll 90 #19 - 41 Office 801”.
 
-**Confirm before paste:** if the RUT shows a different registered address, paste the RUT address. `[GIDEON TO FILL]` the address that matches the registry. Do not paste Calle 45 #9-42 from the worker authorization PDF.
+Do not paste Calle 45 #9-42 from the worker authorization PDF.
 
 ### 1.5 Business email
 
@@ -82,7 +84,7 @@ CALLE 90 No. 19-41 OF 801, Bogotá, D.C., Colombia.
 
 gideon.blaauw@cleantechhub.net
 
-**Where this comes from:** Gideon’s published address on [the About page](https://cleantechhub.net/about/). The site contact address is info@cleantechhub.net.
+**Where this comes from:** Gideon’s published address on [the About page](https://cleantechhub.net/about/). The public privacy contact is a different mailbox, admin@cleantechhub.net. Use that mailbox here only if he can open it and LinkedIn accepts it for verification. Prefer the mailbox he actually reads.
 
 **Rules from the docs:** the address must be a business email. A personal mailbox will not pass. LinkedIn sends a verification message. Check spam, junk, the social tab, and the promotions tab. `[GIDEON TO FILL]` if he cannot receive mail at gideon.blaauw@cleantechhub.net. Use another @cleantechhub.net mailbox he can open. The data-policy PDF email line is not clean enough to copy. The extracted text shows a space inside the local part.
 
@@ -188,7 +190,7 @@ We request only the member data required to show that a comment exists. We do no
 
 **Paste:**
 
-Data stays inside CleantechHUB’s own n8n workflow. Host, country of the server, and the deletion job: [GIDEON TO FILL].
+Data stays inside CleantechHUB’s own n8n workflow. OVH hosts that workflow in Germany, the same host and country as https://cleantechhub.net. OVH’s data processing terms cover that hosting. Deletion follows the periods below.
 
 Storage follows the LinkedIn Marketing API data storage requirements.
 
@@ -287,7 +289,7 @@ Do not send these with the first Development request. They are required only whe
 
 ## 2. Prerequisites
 
-1. **A registered legal organization, for a commercial use case.** Community Management is not open to personal projects. The public data policy identifies FUNDACION CLEANTECH HUB S.A.S. Confirm that name on the RUT before you submit.
+1. **A registered legal organization, for a commercial use case.** Community Management is not open to personal projects. Paste FUNDACIÓN CLEANTECH HUB, a non-profit (ESAL) under the régimen tributario especial, NIT 901.523.941-9. Gideon confirmed that name on 22 October 2026. Do not add a simplified-stock-company suffix.
 2. **A business email on the organization domain.** Personal mail fails vetting. Use section 1.5.
 3. **Verify the app with the CleantechHUB Page super admin before you submit.** The Page’s organization must be the same organization as the legal entity.
 4. **A separate app, because this one already has other products.** The supplied scopes `email`, `openid`, and `profile` are Sign In with LinkedIn using OpenID Connect. `w_member_social` is Share on LinkedIn, which posts as a member. Partner Support says Community Management must be the only product on the app, for legal and security reasons. Share is one of the examples that grays out the button. Create a new app with no other product. Keep it. n8n will use that new Client ID for the Page.
@@ -348,7 +350,7 @@ The list below is the published rejection table. Source: [Developer application 
 | Incomplete Access Request Form | A required answer was thin or blank. Paste section 1 in full, and replace every `[GIDEON TO FILL]` that the live form requires. |
 | Unapproved Use Case | Social feeds, ads, sales, recruiting, lead lists, and member scraping are refused. This request stays on Page Management and Page Analytics for CleantechHUB’s own Page. |
 | Fail Email Verification | A personal mailbox, or a business mailbox nobody opened. Use section 1.5 and check spam. |
-| Fail Organization Verification | The legal name or address does not match a registered, active entity. Confirm the RUT before paste. |
+| Fail Organization Verification | The legal name or address does not match a registered, active entity. Paste section 1.3 and section 1.4. |
 | Invalid Company Website | The website or domain could not be verified. Use https://cleantechhub.net. |
 | Invalid Company Page | The Page on the app belongs to a different organization. Verify the CleantechHUB Page only. |
 | Organization doesn’t meet our access requirements | LinkedIn could not verify that the organization qualifies. Community Management is for registered legal organizations in commercial use. |
@@ -389,12 +391,10 @@ All of these were public pages, read on 22 October 2026.
 ## 7. Unknowns left for Gideon
 
 - Privacy-policy URL on cleantechhub.net. The draft exists. The live URL is still missing until he publishes `https://cleantechhub.net/politica-de-privacidad/`.
-- RUT legal name, if it differs from FUNDACION CLEANTECH HUB S.A.S.
-- Registered address, if the RUT differs from CALLE 90 No. 19-41 OF 801, Bogotá.
-- Business mailbox, if he cannot receive mail at gideon.blaauw@cleantechhub.net.
+- Business mailbox, if he cannot receive mail at gideon.blaauw@cleantechhub.net. The privacy contact admin@cleantechhub.net is already filled in the public policy.
 - LinkedIn Page URL and organization id.
 - Page super admin name, and the member who will grant the token.
 - Posts per month, and API calls per day.
-- Where n8n stores the data, including country and the deletion job.
+- Confirm the live n8n workflow deletes on the periods in section 1.13. Host and country are OVH in Germany.
 - The new app’s Client ID, after he creates it.
 - Standard-tier test credentials, later.
