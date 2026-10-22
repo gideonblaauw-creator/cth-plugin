@@ -1,0 +1,9 @@
+.env
+.env.generated
+.env.local
+caddy.env
+*.log
+fallback/docusaurus/node_modules/
+fallback/docusaurus/build/
+fallback/docusaurus/.docusaurus/
+fallback/docusaurus/package-lock.json
