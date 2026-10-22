@@ -37,6 +37,8 @@ dataroom.cleantechhub.net {
 		redir /ncuk / 302
 		redir /ncuk/ / 302
 
-		reverse_proxy {env.NCUK_DOCMOST_UPSTREAM}
+		reverse_proxy {env.NCUK_DOCMOST_UPSTREAM} {
+			header_up -Authorization
+		}
 	}
 }

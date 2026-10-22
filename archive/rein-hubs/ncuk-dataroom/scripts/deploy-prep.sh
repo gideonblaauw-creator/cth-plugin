@@ -5,7 +5,8 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-INFISICAL_PROJECT="${INFISICAL_PROJECT:-cth-agents}"
+# Infisical CLI --projectId must be the project UUID (slug alone can return wrong/missing secrets).
+INFISICAL_PROJECT="${INFISICAL_PROJECT:-c84fe8b3-d64e-485a-82d7-250dc57a6453}"
 INFISICAL_ENV="${INFISICAL_ENV:-prod}"
 DOCMOST_HOST_PORT="${DOCMOST_HOST_PORT:-3076}"
 
@@ -21,8 +22,7 @@ fetch_secret() {
 echo "==> Fetching secrets from Infisical (${INFISICAL_PROJECT} / ${INFISICAL_ENV})"
 BASIC_PASS="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_PASSWORD)"
 BASIC_USER="rein"
-OPTIONAL_USER="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_USER 2>/dev/null || true)"
-if [[ -n "${OPTIONAL_USER}" ]]; then
+if OPTIONAL_USER="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_USER 2>/dev/null)" && [[ -n "${OPTIONAL_USER}" ]]; then
   BASIC_USER="${OPTIONAL_USER}"
 fi
 APP_SECRET="$(fetch_secret NCUK_DOCMOST_APP_SECRET)"
