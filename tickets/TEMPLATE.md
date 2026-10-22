@@ -6,7 +6,7 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 
 When opening Hands from a Cursor Project, name the Project and workspace lane so the agent lands on the correct repo or pack store.
 
-Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). Desk reviews Hands output (maker ≠ checker); n8n-li verifiers on live pilots supplement evidence — they do not replace Desk review or Gideon merge.
+Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). **Token budget protocol (22 Oct 2026):** a separate read-only checker is mandatory only for a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content or file job checks its own result and attaches proof (a hash, an HTTP status code, or test output). n8n-li verifiers on live pilots supplement evidence. They do not replace Gideon merge. Full rules: `skills/harness/SKILL.md` § Token budget protocol.
 
 ---
 
@@ -16,7 +16,9 @@ folder:
 cursor_project:
 cursor_workspace:
 done-when:
-model: gemini-3.7-flash | composer-2.5 (fast=true)
+model: composer-2.5 (fast=true)
+files:
+read-budget:
 lane: github-pr | drive-folder
 factory: yes
 ship_review: pr-agent
@@ -55,6 +57,10 @@ context:
 
 `eve` — optional. Set `eve: yes` on **product-agent-loop** tickets (Signal Radar, dataroom-scanner agent loops, LexiScan runner, Origo agent loops, new Lane A “app is an agent” products). Hands plants under locked `agent/` paths per `docs/eve-convention.md`. **Not** Vercel Agent Runs. Desk / pack / channel jobs **must not** invent Eve trees — omit `eve: yes`. Playground UI (Tier 1–2) stays LexiScan house-tour HTML — Eve is agent runtime files only.
 
-`model` — Cloud Hands only. Allowed: `gemini-3.7-flash` (mechanical/tiny) or `composer-2.5` with **Fast ON** (`fast=true`) for repo/code/builds (Signal Radar, LexiScan, scanner, harness, LangGraph). Empty build ticket → Composer Fast ON (not Flash). Never silently launch a build with Fast off. Review/eval/brand with no model → HOLD and flag Gideon. See BUILDING lock t1263u in `docs/hands-model-routing.md` and `skills/harness/SKILL.md` §5.
+`model` — every Cloud Hands job uses `composer-2.5` with **Fast ON** (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Empty `model:` fills Fast ON. Do not fill Flash. Do not HOLD a review job for a missing model. `fast=false` is a miss. Private data that must stay on 127.0.0.1 uses local Ollama `LFM2.5-VL-3B`. Canonical: `docs/hands-model-routing.md`.
+
+`files` — exact files and paths the job may open. Do not leave this blank. Do not permit an open-ended crawl of the VPS or a whole repo.
+
+`read-budget` — file count or byte cap. Stop at the cap. Do not read a file larger than 200 KB into the job. Verify decks, PDFs, transcripts, and dumps by hash, size, and grep.
 
 **Hands-ticket HARD (24 Sep 2026):** Desks and Workbenches ticket craft to Cloud Hands — not local Grok executor grind. In `context:`, name **exclusive write paths** and acceptance; ready-ping must include **bc-id** + PR/URL when Hands finishes. Full lock: `skills/harness/references/hands-ticket-hard.md`.
