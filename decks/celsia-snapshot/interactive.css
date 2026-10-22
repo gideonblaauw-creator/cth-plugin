@@ -41,6 +41,11 @@ html[lang="es"] .l-en{display:none}
 .sec-inner{position:relative;z-index:2}
 
 .sec-head{background:var(--blue);color:var(--white);padding:28px 32px;margin:0 0 28px}
+.sec-head-tight{margin-top:36px}
+.datalab-what-copy{font-size:1rem;line-height:1.6;max-width:720px;margin:0;color:var(--blue)}
+.phase-link{color:var(--blue);font-weight:400;text-decoration:underline;text-underline-offset:3px}
+.phase-link:hover{color:var(--green)}
+#datalab-flow{scroll-margin-top:88px}
 .sec-head h2{font-size:clamp(1.45rem,3vw,2rem);margin:0;color:var(--white)}
 .sec-head .eyebrow{color:var(--cyan);margin:0 0 8px}
 .sec-body-panel{background:var(--white);padding:24px 28px}

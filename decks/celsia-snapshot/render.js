@@ -281,6 +281,28 @@
     update();
   }
 
+  function renderWhatDatalab() {
+    const title = document.getElementById("datalab-what-title");
+    const body = document.getElementById("datalab-what-body");
+    if (title) title.textContent = t("datalab.whatTitle");
+    if (!body) return;
+    const raw = t("datalab.whatBody");
+    const phases = t("datalab.whatPhases");
+    const marker = "{{phases}}";
+    const idx = raw.indexOf(marker);
+    if (idx === -1) {
+      body.textContent = raw;
+      return;
+    }
+    body.innerHTML =
+      esc(raw.slice(0, idx)) +
+      `<a href="#datalab-flow" class="phase-link">${esc(phases)}</a>` +
+      esc(raw.slice(idx + marker.length));
+    body.querySelectorAll(".phase-link").forEach((a) => {
+      a.addEventListener("click", () => setGapTab(0));
+    });
+  }
+
   function renderHistory() {
     const hist = DATA.cth_history || {};
     const metricsEl = document.getElementById("history-metrics");
@@ -359,6 +381,7 @@
     document.getElementById("history-eyebrow").textContent = "CleantechHUB";
     document.getElementById("history-title").textContent = t("history.title");
     document.getElementById("history-lead").textContent = t("history.lead");
+    renderWhatDatalab();
     document.getElementById("datalab-eyebrow").textContent = t("datalab.eyebrow");
     document.getElementById("datalab-title").textContent = t("datalab.title");
     document.getElementById("datalab-intro").textContent = t("datalab.intro");
@@ -408,6 +431,8 @@
     renderCoverage();
     renderTeam();
     bindFlowClicks();
+    const firstFlow = document.querySelector(".flow-diagram");
+    if (firstFlow) firstFlow.id = "datalab-flow";
   }
 
   document.querySelectorAll(".lang button").forEach((btn) => {
