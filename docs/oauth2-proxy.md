@@ -5,8 +5,9 @@ Central Google SSO for VPS-hosted Caddy apps via [oauth2-proxy](https://oauth2-p
 ## Scope
 
 - **In scope:** VPS Caddy sites under `*.cleantechhub.net` that you explicitly gate with the snippets.
-- **Out of scope:** Vercel-hosted decks, **dataroom**, **decks**, and **mubon** (do not enable shared SSO on those without a separate decision).
-- **NCUK data room guests:** If dataroom were gated with this stack, guests would need Google accounts on the allowlist or `@cleantechhub.net` — plan accordingly before any dataroom rollout.
+- **Out of scope:** Vercel-hosted decks and **mubon** (unless explicitly gated).
+- **Dataroom (`dataroom.cleantechhub.net`):** Gated 22 Oct 2026 — see `docs/infra/caddy/dataroom.cleantechhub.net.caddy`. Guests need Google on the oauth2-proxy allowlist or `@cleantechhub.net`.
+- **Decks (`decks.cleantechhub.net`):** Gated separately; same oauth2-proxy stack.
 
 ## Prerequisites
 
