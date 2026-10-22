@@ -36,6 +36,41 @@
     return map[lang][key] || "";
   }
 
+  const ACCENTS = ["accent-sky", "accent-green", "accent-lgreen"];
+
+  function barDisplay(b) {
+    if (b.display) return b.display;
+    const u = b.unit || "";
+    if (u === "%") return `${b.value}${u}`;
+    if (b.value >= 1e6) return `${(b.value / 1e6).toFixed(1)}M`;
+    if (b.value >= 1e3) return b.value.toLocaleString(lang === "es" ? "es-CO" : "en-US");
+    return `${b.value}${u}`;
+  }
+
+  function renderGapMetricTiles(gap) {
+    const bars = gap.chart?.bars || [];
+    if (!bars.length) return "";
+    return `<div class="gap-metrics">${bars
+      .map((b, i) => {
+        const lab = b.label?.[lang] || b.label?.en || "";
+        return `<div class="metric-tile ${ACCENTS[i % 3]}"><div class="num">${esc(barDisplay(b))}</div><div class="lbl">${esc(lab)}</div></div>`;
+      })
+      .join("")}</div>`;
+  }
+
+  function renderDonut(gap) {
+    const bars = gap.chart?.bars || [];
+    if (!bars.length) return "";
+    const b0 = bars[0];
+    const max = b0.max || 100;
+    const val = b0.value || 0;
+    const pct = Math.min(100, Math.round((val / max) * 100));
+    const colors = ["#69B5FA", "#669348", "#9DC384"];
+    const color = colors[(gap.rank - 1) % 3];
+    const lab = b0.label?.[lang] || b0.label?.en || "";
+    return `<div class="donut-wrap" style="--pct:${pct};--donut-color:${color}"><div class="donut" role="img" aria-label="${esc(barDisplay(b0))}"></div><div class="donut-center"><span class="donut-num">${esc(barDisplay(b0))}</span><span class="donut-lbl">${esc(lab)}</span></div></div>`;
+  }
+
   function renderBarChart(gap) {
     const ch = gap.chart || {};
     const bars = ch.bars || [];
@@ -45,31 +80,46 @@
     }
     const max = Math.max(...bars.map((b) => b.max || b.value || 1), 1);
     const rows = bars
-      .map((b) => {
+      .map((b, i) => {
         const pct = Math.min(100, Math.round(((b.value || 0) / max) * 100));
         const lab = b.label?.[lang] || b.label?.en || "";
-        const disp =
-          b.display ||
-          `${b.value}${b.unit || ""}`;
-        return `<div class="bar-row"><span>${esc(lab)}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><span class="bar-val">${esc(disp)}</span></div>`;
+        return `<div class="bar-row"><span>${esc(lab)}</span><div class="bar-track"><div class="bar-fill c${i % 3}" style="width:${pct}%"></div></div><span class="bar-val">${esc(barDisplay(b))}</span></div>`;
       })
       .join("");
     const src = ch.source?.[lang] || ch.source?.en || "";
     return `<div class="bar-chart">${rows}<p class="pdf-link">${esc(src)}</p></div>`;
   }
 
+  function renderChartBlock(gap) {
+    const bars = gap.chart?.bars || [];
+    const note = gap.chart?.note?.[lang] || gap.chart?.note?.en || "";
+    if (!bars.length) return note ? `<p class="one-line">${esc(note)}</p>` : "";
+    return `${renderGapMetricTiles(gap)}<div class="viz-row">${renderDonut(gap)}<div>${renderBarChart(gap)}</div></div>`;
+  }
+
   function renderMetricsTable(gap) {
-    const rows = (gap.datalab?.[lang]?.startup_metrics || [])
-      .map(
-        (r) =>
-          `<tr><td>${esc(r.startup)}</td><td>${esc(r.metric)}</td><td>${cell(r.unit)}</td><td>${cell(r.frequency)}</td><td>${cell(r.method)}</td><td><a href="${esc(r.source)}" target="_blank" rel="noopener">${esc(r.source)}</a></td></tr>`
-      )
-      .join("");
     const head =
       lang === "es"
         ? "<tr><th>Startup</th><th>Métrica</th><th>Unidad</th><th>Frecuencia</th><th>Método</th><th>Fuente</th></tr>"
         : "<tr><th>Startup</th><th>Metric</th><th>Unit</th><th>Frequency</th><th>Method</th><th>Source</th></tr>";
-    return `<table class="data-table"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+    const labels =
+      lang === "es"
+        ? ["Startup", "Métrica", "Unidad", "Frecuencia", "Método", "Fuente"]
+        : ["Startup", "Metric", "Unit", "Frequency", "Method", "Source"];
+    const body = (gap.datalab?.[lang]?.startup_metrics || [])
+      .map((r) => {
+        const cells = [
+          esc(r.startup),
+          esc(r.metric),
+          cell(r.unit),
+          cell(r.frequency),
+          cell(r.method),
+          `<a href="${esc(r.source)}" target="_blank" rel="noopener">${esc(r.source)}</a>`,
+        ];
+        return `<tr>${cells.map((c, i) => `<td data-label="${labels[i]}">${c}</td>`).join("")}</tr>`;
+      })
+      .join("");
+    return `<table class="data-table metrics-table"><thead>${head}</thead><tbody>${body}</tbody></table>`;
   }
 
   function renderFlow(gap) {
@@ -92,7 +142,8 @@
         const desc = lang === "es" ? nx.ds || "" : nx.d || "";
         const host = (m.website || "").replace(/^https?:\/\//, "").split("/")[0];
         const theme = nx.t ? themeLabel(nx.t) : "";
-        return `<article class="nx-card"><div class="top"><img class="th" src="${favicon(host)}" alt="" width="40" height="40"><strong>${esc(m.name)}</strong></div><p class="one-line">${esc(desc)}</p><div>${theme ? `<span class="chip">${esc(theme)}</span>` : ""}<span class="chip">${t("nav.g1").replace(/\d+/, gapRank)}</span>${nx.p ? `<span class="chip">${esc(nx.p)}</span>` : ""}<a class="chip" href="${esc(m.website)}" target="_blank" rel="noopener">${lang === "es" ? "Visitar" : "Visit"}</a></div></article>`;
+        const gapLbl = (DATA.ui[lang][`nav.g${gapRank}`] || `Gap ${gapRank}`).replace(/^\d+\.\s*/, "");
+        return `<article class="nx-card"><div class="top"><img class="th" src="${favicon(host)}" alt="" width="48" height="48" loading="lazy"><strong>${esc(m.name)}</strong></div><p class="one-line">${esc(desc)}</p><div class="tags">${theme ? `<span class="chip">${esc(theme)}</span>` : ""}<span class="gap-tag gap-tag-${gapRank}">${esc(gapLbl)}</span>${nx.p ? `<span class="chip">${esc(nx.p)}</span>` : ""}<a class="chip chip-link" href="${esc(m.website)}" target="_blank" rel="noopener">${lang === "es" ? "Visitar" : "Visit"}</a></div></article>`;
       })
       .join("");
   }
@@ -105,7 +156,7 @@
       <div class="gap-card">
         <h3>${esc(title)}</h3>
         <p class="one-line">${esc(head)}</p>
-        ${renderBarChart(g)}
+        ${renderChartBlock(g)}
         <h4>${t("datalab.bLabel")}</h4>
         ${renderMetricsTable(g)}
         <h4>${t("datalab.cLabel")}</h4>
@@ -182,11 +233,21 @@
         lang === "es"
           ? "<tr><th>Startup</th><th>Brecha</th><th>Tema</th><th>Etapa</th><th>Web</th></tr>"
           : "<tr><th>Startup</th><th>Gap</th><th>Theme</th><th>Stage</th><th>Web</th></tr>";
+      const lbl =
+        lang === "es"
+          ? ["Startup", "Brecha", "Tema", "Etapa", "Web"]
+          : ["Startup", "Gap", "Theme", "Stage", "Web"];
       tbody.innerHTML = filtered
-        .map(
-          (r) =>
-            `<tr><td>${esc(r.name)}</td><td>${r.gap}</td><td>${r.theme ? esc(themeLabel(r.theme)) : DASH}</td><td>${r.stage ? esc(r.stage) : DASH}</td><td>${r.website ? `<a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(r.website)}</a>` : DASH}</td></tr>`
-        )
+        .map((r) => {
+          const cells = [
+            esc(r.name),
+            String(r.gap),
+            r.theme ? esc(themeLabel(r.theme)) : DASH,
+            r.stage ? esc(r.stage) : DASH,
+            r.website ? `<a href="${esc(r.website)}" target="_blank" rel="noopener">${esc(r.website)}</a>` : DASH,
+          ];
+          return `<tr>${cells.map((c, i) => `<td data-label="${lbl[i]}">${c}</td>`).join("")}</tr>`;
+        })
         .join("");
     }
     filters.querySelectorAll("select,input").forEach((el) => el.addEventListener("input", draw));
@@ -224,19 +285,25 @@
     const hist = DATA.cth_history || {};
     const metricsEl = document.getElementById("history-metrics");
     const tlEl = document.getElementById("history-timeline");
+    const tlIcons = [
+      `<svg viewBox="0 0 24 24"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 8v8M8 10v4M16 10v4"/></svg>`,
+      `<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg>`,
+      `<svg viewBox="0 0 24 24"><path d="M6 20l6-16 6 16"/><path d="M8.5 14h7"/></svg>`,
+    ];
     if (metricsEl) {
+      metricsEl.className = "history-metrics gap-metrics";
       metricsEl.innerHTML = (hist.metrics || [])
         .map(
-          (m) =>
-            `<div class="metric-tile"><div class="num">${esc(m.value)}</div><div>${esc(m.label[lang] || m.label.en)}</div><div class="src"><a href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.source_label)}</a></div></div>`
+          (m, i) =>
+            `<div class="metric-tile ${ACCENTS[i % 3]}"><div class="num">${esc(m.value)}</div><div class="lbl">${esc(m.label[lang] || m.label.en)}</div><div class="src"><a href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.source_label)}</a></div></div>`
         )
         .join("");
     }
     if (tlEl) {
       tlEl.innerHTML = (hist.timeline || [])
         .map(
-          (item) =>
-            `<div class="tl-item">${item.year ? `<strong>${esc(item.year)}</strong> — ` : ""}${esc(item.text[lang] || item.text.en)} <a href="${esc(item.source_url)}" target="_blank" rel="noopener">(${esc(item.source_label)})</a></div>`
+          (item, i) =>
+            `<div class="tl-step"><div class="tl-icon">${tlIcons[i % tlIcons.length]}</div>${item.year ? `<div class="tl-year">${esc(item.year)}</div>` : ""}<div class="tl-text">${esc(item.text[lang] || item.text.en)} <a href="${esc(item.source_url)}" target="_blank" rel="noopener">${esc(item.source_label)}</a></div></div>`
         )
         .join("");
     }
@@ -271,7 +338,10 @@
     }
     canonical.href = `${PUBLIC_ORIGIN}/${slug}/`;
 
-    document.getElementById("brand-logo").src = DATA.brand?.logo || "img/cth-logo.png";
+    const logoSrc = DATA.brand?.logo || "img/cth-logo.png";
+    document.getElementById("brand-logo").src = logoSrc;
+    const heroLogo = document.getElementById("hero-logo");
+    if (heroLogo) heroLogo.src = logoSrc;
     document.getElementById("hero-eyebrow").textContent = t("hero.eyebrow");
     document.getElementById("hero-title").textContent = t("hero.title");
     document.getElementById("hero-meta").innerHTML = [
