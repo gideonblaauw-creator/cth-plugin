@@ -2,21 +2,24 @@
 
 **Status:** Awaiting Gideon's approval. REIN HOLD. Not for send, post, or deploy.
 
-**Date:** 21 Oct 2026.
+**Date:** 21 Oct 2026. Figure lock added 22 Oct 2026.
 
-**Rule for this pack:** every line is a quote, a trim of a quote, or a source label. Conflicting figures are printed as placeholders. No value is chosen.
+**Rule for this pack:** every line is a quote, a trim of a quote, or a source label. Conflicting figures stay as placeholders until Gideon locks a source.
 
 ## Placeholders
 
-Render these strings as written. Do not replace them until Gideon locks a source.
+Render open strings as written. Do not replace them until Gideon locks a source.
 
-1. **`[DECISION: 100+ or 200+ entrepreneurs]`**
-   - **100+** — “Supported across 5 countries since program inception” (`REIN_AcademicCityGhana_Deck_v1`, Apr 2026). Also **100+** in Circularis v2. **100** “Entrepreneurs Supported across 5 countries” in DivInc v1. Inventory, 21 Oct 2026, metric conflicts.
-   - **100+** — proposal PDF page 10, recorded in `decks/rein-academic-city-ghana/PENDIENTES.md` item 1.
-   - **200+** “Entrepreneurs Supported” — live `decks.cleantechhub.net/rein-academic-city-ghana` page, inventory 21 Oct 2026.
-   - **200+** “Entrepreneurs Supported” — `decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html` impact block, and `PENDIENTES.md` item 1.
-   - **1,200+** “Entrepreneurs supported” — https://www.pvblic.org/rein-hubs, By the Numbers, checked 21 Oct 2026. A third figure. It does not select 100+ or 200+.
-   - **300 entrepreneurs engaged** — FOSD Nordic post, https://www.pvblic.org/post/pvblic-foundation-launches-fosd-nordic-to-mobilize-capital-for-global-impact. Not a program page. Not a selection of 100+ or 200+.
+1. **Lead figures — resolved.** Gideon, 22 Oct 2026. Use the live program page, https://www.pvblic.org/rein-hubs, By the Numbers:
+   - **1,200+** Entrepreneurs supported
+   - **3,000+** Applications received
+   - **222** Startups incubated
+   - **100** Startups accelerated
+   - These four replace **270+ Applications | 181 Pitched | 27 Accelerated** on the overview, the deck, the proof sheet, the inserts, and the media kit. That older line is the 23 May 2025 launch post, for the CCE Hubs initiative over three years, including Panama. It is no longer printed.
+   - The **100+ or 200+ entrepreneurs** placeholder is removed. Older **100+** and **200+** entrepreneur lines stay on record in the inventory, in `PENDIENTES.md` item 1, and in `academic-city-ghana-2026-04-23.html`. They are not printed as a choice.
+   - **300 entrepreneurs engaged** on the FOSD Nordic post is not a program-page figure and is not printed.
+   - **222** is printed from the live page. The Central America one-pager said not to use 222 on that page. This package does not take 222 from that one-pager.
+   - Other By the Numbers lines (tons of CO₂, ecosystem actors, green jobs, mentors) are not in this lock and are not added.
 
 2. **University count — resolved by the live program page, 21 Oct 2026.**
    - https://www.pvblic.org/rein-hubs names five university partners: Universidad Externado (Colombia), Universidad del Pacífico (Perú), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica), and Universidad Tecnológica de El Salvador (UTEC).
@@ -27,7 +30,7 @@ Render these strings as written. Do not replace them until Gideon locks a source
    - The inventory says the **200+** figures may be crossed.
    - **200+** = “international mentors / industry leaders” (Ghana Drive deck).
    - **200+** = Circularis “cooperative partnerships.”
-   - **200+** = entrepreneurs on the live Ghana page (same conflict as item 1).
+   - **200+** = entrepreneurs on the live Ghana page. That use is closed by item 1. The entrepreneur count in this package is 1,200+.
    - **200+ students/educators/year** — “Mentorship at scale” line in `academic-city-ghana-2026-04-23.html` (fit). The live page also uses “200+ students/educators/year” for mentorship.
    - Printed on `proof-sheet.html`. Not used as a clean stat anywhere else.
 
@@ -68,7 +71,7 @@ The program page names Ideation, Incubation, Acceleration, and Investment Readin
 8. **Showcase names and success stories were not in the inventory.** The webinar “covers an entrepreneur showcase.” The Partner Deck “covers success stories, a 2026 outlook, and an SDG Fund partnership announcement.” The announcement wording was not quoted. No story, outlook line, or founder name was added.
 9. **DivInc figures were not copied.** The inventory calls that deck an accelerator / peer proxy and mentions a grants/SAFE model plus DivInc stats. The stats are not in a repo file here. Dollar amounts are omitted under the REIN Hubs rule.
 10. **Dollar amounts are omitted everywhere in this package.** Source decks contain budget and capital figures. They are not repeated here.
-11. **The Central America one-pager forbids three figures on that page.** The inventory quotes the one-pager: do not use a stated dollar total, the figure 222, or a stated jobs total. Those three are not copied.
+11. **Dollar amounts and a jobs total stay out.** The Central America one-pager said not to use a stated dollar total, the figure 222, or a stated jobs total on that page. Dollar amounts and a jobs total are still omitted. Gideon, 22 Oct 2026, locked **222 Startups incubated** from https://www.pvblic.org/rein-hubs, By the Numbers. That is the figure this package prints.
 12. **`1,000+ ventures, 5 countries` is sourced and not stable.** It appears as the one-pager “REIN line (this one only)” and in the `rein-funding` header. It is on the proof sheet with that limit. It is not on the overview.
 13. **Spanish copy was not added.** The Spanish Central America one-pager and the Spanish Circularis doc exist. This package is English only.
 14. **Canva brand kit `kAF0z6UigbE` has no URL in the inventory.** It is not confirmed as REIN. Marked unconfirmed in the media kit.
@@ -83,12 +86,13 @@ The program page names Ideation, Incubation, Acceleration, and Investment Readin
 
 | Placeholder | Pages |
 |---|---|
-| 100+ or 200+ entrepreneurs | `overview.html`, `deck/index.html` slide 7, `proof-sheet.html`, `inserts/university.html`, `inserts/corporate.html` |
 | what 200+ refers to | `proof-sheet.html` |
 | stage durations | `deck/index.html` slide 6, `proof-sheet.html` |
 | founding year | `proof-sheet.html` |
+| bios | `media-kit/index.html` — Missing — to supply |
+| funder ask | `inserts/funder.html` — Missing — to supply |
 
-Resolved and no longer printed as a choice: university count (five named partners on the program page), and brand orange (`#FF6633`).
+Resolved and no longer printed as a choice: the four By the Numbers lead figures (22 Oct 2026), the 100+ or 200+ entrepreneurs placeholder, university count (five named partners on the program page), and brand orange (`#FF6633`).
 
 ## HITL
 

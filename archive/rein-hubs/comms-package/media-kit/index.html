@@ -38,9 +38,13 @@
   .brand { margin: 0; color: var(--green); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
   .gate { margin: 0; color: var(--orange); font-size: 10px; font-weight: 700; text-align: right; }
   h1 { margin: 0 0 2mm; color: var(--green); font-size: 28px; }
-  h2 { margin: 5mm 0 2mm; color: var(--green); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+  h2 { margin: 5mm 0 2mm; color: var(--green); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; break-after: avoid; page-break-after: avoid; }
+  h3 { break-after: avoid; page-break-after: avoid; }
+  .lead, .swatches, .box, .missing { break-inside: avoid; page-break-inside: avoid; }
   p { margin: 0 0 2mm; }
   .box { background: #fff; padding: 3mm 4mm; margin: 0 0 2mm; }
+  .lead { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2.5mm; margin: 0 0 2mm; }
+  .lead p { margin: 0; border-top: 3px solid var(--green); padding: 2mm 2.5mm; font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); font-size: 12px; line-height: 1.25; }
   .swatches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5mm; }
   .swatch { border: 1px solid var(--green); }
   .chip { height: 14mm; }
@@ -71,6 +75,15 @@
   </header>
   <h1>Media kit</h1>
   <p class="src">Draft for review. Logo files are linked, not embedded. Bios and photos are empty on purpose.</p>
+
+  <h2>By the Numbers</h2>
+  <div class="lead">
+    <p>1,200+<br>Entrepreneurs supported</p>
+    <p>3,000+<br>Applications received</p>
+    <p>222<br>Startups incubated</p>
+    <p>100<br>Startups accelerated</p>
+  </div>
+  <p class="src">https://www.pvblic.org/rein-hubs, By the Numbers. Gideon, 22 Oct 2026.</p>
 
   <h2>Boilerplate</h2>
   <p class="src">Long is the inventory paragraph. Medium and short drop words from the end. No new wording.</p>
