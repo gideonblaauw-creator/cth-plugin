@@ -15,4 +15,6 @@ Re-run `sync-branded-shell.sh` after Docmost upgrades (asset hash in `index.html
 
 ## Caddy
 
-Site file: `docs/infra/caddy/dataroom.cleantechhub.net.caddy` — serves branded shell for `/` and `/login`, overrides `/icons/*`, and serves `rein-debrand.js` (MutationObserver text/title patch). No `replace_response` module required.
+Site file: `docs/infra/caddy/dataroom.cleantechhub.net.caddy` — serves the branded SPA shell for all HTML routes including `/share/*` (Docmost assets still proxied), overrides `/icons/*`, and serves `rein-brand.css` + `rein-debrand.js` (REIN colors, logo header, hide “Powered by Docmost”). No `replace_response` module required.
+
+After deploy, re-run `sync-branded-shell.sh` so `www/index.html` picks up new asset hashes if Docmost was upgraded.

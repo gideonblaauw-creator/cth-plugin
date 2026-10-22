@@ -21,10 +21,19 @@ raw = re.sub(
     'content="REIN Hubs Data Room"',
     raw,
 )
+inject = ""
+if "/rein-brand.css" not in raw:
+    inject += '  <link rel="stylesheet" href="/rein-brand.css" />\n'
 if "/rein-debrand.js" not in raw:
-    raw = raw.replace("</head>", '  <script src="/rein-debrand.js" defer></script>\n  </head>')
+    inject += '  <script src="/rein-debrand.js" defer></script>\n'
+if inject:
+    raw = raw.replace("</head>", inject + "  </head>")
 open(sys.argv[2], "w", encoding="utf-8").write(raw)
 PY
+
+if [[ -f "$SCRIPT_DIR/rein-brand.css" ]]; then
+  cp "$SCRIPT_DIR/rein-brand.css" "$BRAND_ROOT/rein-brand.css"
+fi
 
 if [[ -f "$REIN_LOGO" ]]; then
   cp "$REIN_LOGO" "$ICON_DIR/favicon-32x32.png"

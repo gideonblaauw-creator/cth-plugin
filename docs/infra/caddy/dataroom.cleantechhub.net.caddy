@@ -28,13 +28,19 @@ dataroom.cleantechhub.net {
 			file_server
 		}
 
+		handle /rein-brand.css {
+			root * /opt/cth-dataroom-branding
+			file_server
+		}
+
 		handle_path /icons/* {
 			root * /opt/cth-dataroom-branding/icons
 			file_server
 		}
 
+		# Branded Docmost shell for app routes + /share/* (assets still proxied).
 		@spa_shell {
-			not path /api/* /assets/* /attachments/* /files/* /icons/* /rein-debrand.js
+			not path /api/* /assets/* /attachments/* /files/* /icons/* /rein-debrand.js /rein-brand.css /manifest.json
 		}
 		handle @spa_shell {
 			root * /opt/cth-dataroom-branding/www
