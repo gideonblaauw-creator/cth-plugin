@@ -1,6 +1,6 @@
 # decks.cleantechhub.net — CTH client decks.
 # Same Appwrite upstream as wiki /decks/<slug>/ (Host <slug>.sites.localhost -> 127.0.0.1:9080).
-# / /index.html /decks.json are the public dashboard. /<slug>/ stays open.
+# All paths gated by Google SSO (oauth2-proxy) except /rein, which keeps REIN basic_auth.
 # Rollback of dashboard auth: restore the timestamped backup of this file, caddy validate, systemctl reload caddy.
 
 decks.cleantechhub.net {
@@ -8,6 +8,19 @@ decks.cleantechhub.net {
 	header {
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# Google SSO via oauth2-proxy on everything except /rein (keeps REIN basic_auth). Gideon GO 22 Oct 2026.
+	@gated not path /rein /rein/*
+	route @gated {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Auth-Request-Email
+			@unauth status 401
+			handle_response @unauth {
+				redir * https://auth.cleantechhub.net/oauth2/start?rd={scheme}://{host}{uri} 302
+			}
+		}
 	}
 
 	@dashboard path / /index.html /decks.json /thumbs/*
