@@ -4,31 +4,25 @@ Prepared 22 October 2026 for Gideon Blaauw. He submits this himself, from his ow
 
 The existing app was supplied as **n8n-li CleantechHUB**, app id **266511324**, Client ID **782xlcklyvbakg**. Its current scopes were supplied as `email`, `openid`, `profile`, and `w_member_social`. Those facts were not re-checked inside LinkedIn.
 
-LinkedIn does not publish the live survey’s exact question labels. A survey is generated in the Developer Portal after you request the product. The paste blocks below cover every item the current docs say the form must contain. If a live question does not match a block, leave it as `[GIDEON TO FILL]`. Do not guess.
+LinkedIn does not publish the live survey’s exact question labels. A survey is generated in the Developer Portal after you request the product. The paste blocks below cover every item the current docs say the form must contain. Resolved fields are filled below. Anything only Gideon knows stays as `[GIDEON TO FILL]`. Do not guess.
 
 Internal working draft. Gideon reviews every paste block before it leaves his device.
 
 ## Stop before you submit
 
-**A privacy-policy URL on cleantechhub.net is missing.**
+**Privacy-policy URL: not live.** There is no URL to paste yet. Do not submit the access form until a private window returns 200 on a page that is this privacy policy, with valid TLS, and without a login. LinkedIn’s rejection for a missing page is **Invalid Privacy Policy**. A Development-tier rejection cannot be retried on the same app.
 
-Checked on 22 October 2026:
+Checked on 22 October 2026, without a login:
 
-- `https://cleantechhub.net/privacy` returns 404.
-- `https://cleantechhub.net/privacy-policy` returns 404.
-- `https://cleantechhub.net/privacy-policy/` returns 404.
-- `https://cleantechhub.net/politica-de-privacidad` returns 404.
-- `https://cleantechhub.net/politica-de-privacidad/` returns 404.
-- The public page sitemap has no privacy, legal, or cookie page. Source: `https://cleantechhub.net/page-sitemap.xml`.
-- The homepage footer has contact details only. It has no privacy link. Source: `https://cleantechhub.net/`.
+- `https://cleantechhub.net/politica-de-privacidad/` returns 404. WordPress is not the publish path. There is no WordPress admin access.
+- `https://jobs.cleantechhub.net/privacidad/` and `https://jobs.cleantechhub.net/privacy` return 200, but the body is the jobs homepage, not this policy. Do not paste those URLs.
+- `https://agents.cleantechhub.net/privacidad/` and `https://agents.cleantechhub.net/privacy` return 200 with an empty body. Do not paste those URLs.
 
-The governance page does link a Google Drive PDF titled “Política y tratamiento de datos”.
+The approved draft is `artifacts/cleantechhub-privacy-policy.html`. It was not deployed. Both candidate hostnames resolve to the OVH VPS `51.195.45.77` and answer with Caddy. Writing a file there needs a secret from Infisical. This environment has no Infisical CLI, no Infisical identity variables, and no Infisical config file. Vercel is connected, but neither hostname points at Vercel, and a new DNS record was not allowed.
 
-The page is `https://cleantechhub.net/governance/`. The file is `https://drive.google.com/file/d/1CdLIitekr5MSZJ-kUlHzvJGJh-lwfyHP/view`.
+The `/diagnostico` green-finance checkbox is still an open item. A fresh fetch of `https://cleantechhub.net/diagnostico/` still contains `<input type="checkbox" id="newsletter-consent" checked>`. It was not changed. Fixing it needs WordPress admin, which is not available.
 
-That PDF is a Colombian Law 1581 internal data-treatment policy. It is not a page on cleantechhub.net. Do not paste the Drive link into the privacy-policy field. LinkedIn’s rejection message for this failure is **Invalid Privacy Policy**. The published meaning is that LinkedIn could not verify the organization’s privacy policy. A Development-tier rejection cannot be retried on the same app.
-
-A draft public page is ready in `artifacts/cleantechhub-privacy-policy.html`. It is not on the site. Publish it at `https://cleantechhub.net/politica-de-privacidad/` and redirect `/privacy` there. The page must open without a login. Then paste that URL. Until the live URL returns 200, the field stays `[GIDEON TO FILL]`.
+Do not paste the Google Drive policy PDF into the privacy-policy field. That file is not a page on cleantechhub.net.
 
 The worker authorization PDF is also the wrong document. Do not use `https://cleantechhub.net/wp-content/uploads/2026/07/Autorizacion-Tratamiento-Datos-Trabajadores.pdf`. It is a consent form for workers and contractors. Its street line also disagrees with the website and with the data policy.
 
@@ -64,6 +58,8 @@ Bogotá D.C., Colombia.
 
 Legal representative: Gideon Blaauw, Representante Legal de la Fundación CleantechHUB.
 
+Phone: +57 313 715 5965.
+
 **Where this comes from:** Gideon confirmed this legal name, this non-profit form, and this tax number on 22 October 2026 for the public privacy policy. The NIT matches the public “Política y tratamiento de datos” PDF linked from [the governance page](https://cleantechhub.net/governance/). That page also says “Fundación”. The PDF contact block names Gideon Blaauw, cargo Representante legal.
 
 **Paste this name.** Do not add a simplified-stock-company suffix. The 2022 PDF used a commercial company form. Do not copy that form into this field. A name that does not match the registry is a known cause of **Fail Organization Verification**.
@@ -82,11 +78,11 @@ Do not paste Calle 45 #9-42 from the worker authorization PDF.
 
 **Paste:**
 
-gideon.blaauw@cleantechhub.net
+admin@cleantechhub.net
 
-**Where this comes from:** Gideon’s published address on [the About page](https://cleantechhub.net/about/). The public privacy contact is a different mailbox, admin@cleantechhub.net. Use that mailbox here only if he can open it and LinkedIn accepts it for verification. Prefer the mailbox he actually reads.
+**Where this comes from:** Gideon set this as the public contact on 22 October 2026. It is the address in the privacy policy.
 
-**Rules from the docs:** the address must be a business email. A personal mailbox will not pass. LinkedIn sends a verification message. Check spam, junk, the social tab, and the promotions tab. `[GIDEON TO FILL]` if he cannot receive mail at gideon.blaauw@cleantechhub.net. Use another @cleantechhub.net mailbox he can open. The data-policy PDF email line is not clean enough to copy. The extracted text shows a space inside the local part.
+**Rules from the docs:** the address must be a business email. A personal mailbox will not pass. LinkedIn sends a verification message to this address. Check spam, junk, the social tab, and the promotions tab. He must be able to open admin@cleantechhub.net.
 
 ### 1.6 Website
 
@@ -98,15 +94,9 @@ The organization website and the domain must match this site. Review checks a ve
 
 ### 1.7 Privacy policy URL
 
-**Paste only after the live page returns 200:**
+**Status: not live. Do not paste a URL yet.**
 
-https://cleantechhub.net/politica-de-privacidad/
-
-**Until that page is public, paste:**
-
-[GIDEON TO FILL]
-
-The draft is `artifacts/cleantechhub-privacy-policy.html`. It is bilingual, Spanish first. It is not deployed. See “Stop before you submit” above.
+The approved page is `artifacts/cleantechhub-privacy-policy.html`. It is not on a public URL. See the stop notice. Paste the URL only after it returns 200 without a login and the body is this policy.
 
 ### 1.8 LinkedIn Page
 
@@ -294,7 +284,7 @@ Do not send these with the first Development request. They are required only whe
 3. **Verify the app with the CleantechHUB Page super admin before you submit.** The Page’s organization must be the same organization as the legal entity.
 4. **A separate app, because this one already has other products.** The supplied scopes `email`, `openid`, and `profile` are Sign In with LinkedIn using OpenID Connect. `w_member_social` is Share on LinkedIn, which posts as a member. Partner Support says Community Management must be the only product on the app, for legal and security reasons. Share is one of the examples that grays out the button. Create a new app with no other product. Keep it. n8n will use that new Client ID for the Page.
 5. **Do not discard the new app.** The “discard the new app” line in the docs belongs to a different path. That path starts with an app that already has the Advertising API. Community Management is vetted on a clean app. Standard access is then added back onto the Advertising app. CleantechHUB is not requesting the Advertising API. The new app is the Page app.
-6. **A public privacy-policy URL on cleantechhub.net.** This is missing today. See the stop notice.
+6. **A public privacy-policy URL.** Not live. See the stop notice. Do not submit while the only responses are a WordPress 404, the jobs homepage, or an empty agents response.
 7. **The signed-in member is an ADMINISTRATOR of the Page** if you want analytics. A content-admin token can post. It cannot call the reporting endpoints that require `rw_organization_admin`.
 8. **Read these before you submit.**
    - [LinkedIn Marketing API terms](https://www.linkedin.com/legal/l/marketing-api-terms)
@@ -388,13 +378,33 @@ All of these were public pages, read on 22 October 2026.
 - [Associate an app with a Page](https://www.linkedin.com/help/linkedin/answer/a548360)
 - [cleantechhub.net](https://cleantechhub.net/), [About](https://cleantechhub.net/about/), [Governance](https://cleantechhub.net/governance/), and the data-policy PDF linked there
 
-## 7. Unknowns left for Gideon
+## 7. Still only Gideon knows
 
-- Privacy-policy URL on cleantechhub.net. The draft exists. The live URL is still missing until he publishes `https://cleantechhub.net/politica-de-privacidad/`.
-- Business mailbox, if he cannot receive mail at gideon.blaauw@cleantechhub.net. The privacy contact admin@cleantechhub.net is already filled in the public policy.
-- LinkedIn Page URL and organization id.
-- Page super admin name, and the member who will grant the token.
+These stay as `[GIDEON TO FILL]`. They are not on the public site, and they were not in the approval of 22 October 2026.
+
+- LinkedIn Page URL.
+- LinkedIn organization id.
+- Page super admin who will open the verification URL.
+- LinkedIn member who will sign in and grant the token, if that person is not the super admin. The legal-representative title does not prove the Page role.
 - Posts per month, and API calls per day.
-- Confirm the live n8n workflow deletes on the periods in section 1.13. Host and country are OVH in Germany.
-- The new app’s Client ID, after he creates it.
-- Standard-tier test credentials, later.
+- The new app’s Client ID, after he creates **CleantechHUB n8n**.
+- Standard-tier test credentials, later. Do not put a live password in this file.
+
+Already filled, so no longer blank: legal name FUNDACIÓN CLEANTECH HUB (ESAL), NIT 901.523.941-9, Calle 90 No. 19-41 Of. 801, Bogotá D.C., admin@cleantechhub.net, +57 313 715 5965, and website https://cleantechhub.net. n8n host country is Germany, on OVH. The privacy URL is not filled, because no page is live.
+
+Open item, not fixed: the `/diagnostico` checkbox still loads checked. That change needs WordPress admin.
+
+## 8. Final submit steps
+
+Do these on Gideon’s own device. Do not submit until the privacy URL returns 200 without a login and the body is this policy.
+
+1. Publish the approved HTML on an existing host (`jobs.cleantechhub.net` or `agents.cleantechhub.net`) at `/privacidad/`, with `/privacy` redirecting there. That publish did not happen from this run. It needs an Infisical secret that can write to the Caddy host `51.195.45.77`. Set the effective date on the day it actually goes live.
+2. Open the live URL in a private window. Confirm HTTP 200, valid TLS, and no login wall.
+3. Open https://www.linkedin.com/developers/apps and sign in with Gideon’s own LinkedIn account.
+4. Create the app **CleantechHUB n8n**. Select the CleantechHUB Page. Paste the live privacy URL. Add no other product.
+5. Settings → Verify → Generate URL → send it to the Page super admin. The super admin approves within 30 days.
+6. Products → Request access for the Community Management API. Paste section 1. Use admin@cleantechhub.net. Fill only the blanks in section 7.
+7. Finish the survey within 21 days. Watch Access Form Review, then Identity Vetting.
+8. After Development approval, build within 12 months, then apply for Standard tier with the screencast in section 1.17.
+
+The numbered portal detail, with the doc links, is section 3.

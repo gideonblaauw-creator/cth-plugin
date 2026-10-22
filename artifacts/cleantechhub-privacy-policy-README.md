@@ -56,7 +56,13 @@ Checked on 22 October 2026, without opening wp-admin or the server.
 
 ## Where to publish
 
-Final URL: `https://cleantechhub.net/politica-de-privacidad/`.
+WordPress is not the publish path. There is no WordPress admin access.
+
+The intended host is an existing DNS name on the OVH VPS `51.195.45.77` (Caddy): `jobs.cleantechhub.net` or `agents.cleantechhub.net`, at `/privacidad/`, with `/privacy` redirecting there. That publish did not run. This environment has no Infisical credential that can write a file on that server. Do not treat `https://jobs.cleantechhub.net/privacidad/` as the policy: on 22 October 2026 it returned the jobs homepage. `https://agents.cleantechhub.net/privacidad/` returned an empty body.
+
+The WordPress steps below are kept only as a record of the earlier plan. Do not follow them.
+
+Final URL, if WordPress were used: `https://cleantechhub.net/politica-de-privacidad/`.
 
 `/privacy` and `/privacy/` should 301 to that URL.
 
