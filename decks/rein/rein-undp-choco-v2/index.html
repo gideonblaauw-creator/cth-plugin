@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Energy Strategy for Chocó | REIN Hubs</title>
+<meta name="description" content="A strategy for deploying community-owned energy cooperatives in Chocó, Colombia — proof-of-concept for a national model.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #335d4f;
+  --green-dark: #274739;
+  --green-soft: #eef4f1;
+  --green-mid: #a6c3b6;
+  --orange: #ff6633;
+  --orange-soft: #ffe8df;
+  --gray: #666666;
+  --white: #ffffff;
+  --ink: #1d2b25;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(29,43,37,.08);
+  --shadow-hover: 0 8px 32px rgba(29,43,37,.14);
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, h4, h5, h6, .nav, .eyebrow, .btn, .metric-value, .metric-label, .table th, .badge {
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; color: var(--green-dark); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 600; line-height: 1.3; color: var(--green-dark); }
+h4 { font-size: 1.1rem; font-weight: 600; color: var(--green); }
+
+p { margin-bottom: 1rem; }
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--orange);
+  margin-bottom: .5rem;
+  display: block;
+}
+
+/* ── NAVIGATION ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(39,71,57,.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(166,195,182,.15);
+  transition: var(--transition);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .65rem 2rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.nav-logo svg { width: 32px; height: 32px; }
+
+.nav-links {
+  display: flex;
+  gap: .15rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: .35rem .65rem;
+  border-radius: 6px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--white);
+  background: rgba(255,255,255,.1);
+}
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: .5rem;
+}
+
+/* ── CONTAINER ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+section { padding: 5rem 0; }
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--green-mid), var(--orange), var(--green-mid));
+  border: none;
+  border-radius: 2px;
+  max-width: 200px;
+  margin: 0 auto 2rem;
+  opacity: .5;
+}
+
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { margin-bottom: .75rem; }
+.section-header p { max-width: 720px; margin: 0 auto; color: var(--gray); font-size: 1.05rem; }
+
+/* ── COVER SECTION ── */
+.cover {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, rgba(15,46,31,.88) 0%, rgba(39,71,57,.82) 40%, rgba(58,122,100,.78) 100%),
+              url('https://images.unsplash.com/photo-1570348447499-95d8d3b38ae3?w=1920&q=80&auto=format') center/cover no-repeat;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+/* ── PHOTO SECTION ── */
+.section-photo {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--white);
+}
+.section-photo .eyebrow { color: var(--orange); }
+.section-photo h2 { color: var(--white); }
+.section-photo h3 { color: var(--white); }
+.section-photo h4 { color: var(--orange); }
+.section-photo p, .section-photo td, .section-photo li { color: rgba(255,255,255,.88); }
+.section-photo .section-divider { background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+.section-photo .card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.section-photo .card h3, .section-photo .card h4 { color: var(--white); }
+.section-photo .card p { color: rgba(255,255,255,.82); }
+.section-photo .card:hover { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.12); }
+.section-photo .card-icon { background: rgba(255,102,51,.15); }
+.section-photo table th { background: rgba(255,255,255,.12); color: var(--white); }
+.section-photo table td { border-bottom-color: rgba(255,255,255,.1); color: rgba(255,255,255,.88); background: transparent; }
+.section-photo table tr:nth-child(even) td { background: rgba(255,255,255,.06); }
+.section-photo table tr:hover td { background: rgba(255,255,255,.10); }
+.section-photo table tfoot td { background: rgba(255,255,255,.10); color: var(--white); }
+.section-photo .table-wrap { border-color: rgba(255,255,255,.15); }
+.section-photo .callout { background: rgba(255,255,255,.08); border-left-color: var(--orange); color: rgba(255,255,255,.9); }
+.section-photo .metric-card { background: rgba(0,0,0,.25); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.1); }
+
+.cover-circles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cover-circles .circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(166,195,182,.12);
+}
+
+.cover-circles .c1 { width: 600px; height: 600px; top: -200px; right: -150px; }
+.cover-circles .c2 { width: 400px; height: 400px; bottom: -100px; left: -100px; }
+.cover-circles .c3 { width: 250px; height: 250px; top: 30%; left: 15%; border-color: rgba(255,102,51,.08); }
+.cover-circles .c4 { width: 180px; height: 180px; bottom: 20%; right: 20%; background: rgba(255,102,51,.04); }
+.cover-circles .c5 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(166,195,182,.06); }
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  max-width: 860px;
+}
+
+.cover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 50px;
+  padding: .45rem 1.4rem;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(6px);
+}
+
+.cover-content h1 {
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,.15);
+}
+
+.cover-subtitle {
+  font-family: 'Lora', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: .85;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.cover-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cover-metric {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.cover-metric .value {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1.1;
+}
+
+.cover-metric .label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: .7;
+  margin-top: .3rem;
+}
+
+.cover-presented {
+  font-size: .9rem;
+  opacity: .6;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+.cover-presented strong { opacity: .85; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--green-mid);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--green);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: .75rem;
+  display: block;
+}
+
+.card h3 { margin-bottom: .5rem; }
+.card h4 { margin-bottom: .5rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ── METRIC CARDS ── */
+.metric-card {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.metric-card .metric-value {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--orange);
+  line-height: 1.1;
+}
+
+.metric-card .metric-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: .7;
+  margin-top: .35rem;
+}
+
+/* ── TABLES ── */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; border-radius: var(--radius); border: 1.5px solid var(--green-mid); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .92rem;
+}
+
+thead th {
+  background: var(--green-dark);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: .85rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: .75rem 1rem;
+  border-bottom: 1px solid rgba(166,195,182,.25);
+}
+
+tbody tr:nth-child(even) { background: var(--green-soft); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(166,195,182,.15); }
+
+tfoot td {
+  padding: .85rem 1rem;
+  font-weight: 700;
+  background: var(--green-soft);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dark-section table overrides — must target tr to beat base tr rules */
+.section-photo tbody tr { background: transparent; }
+.section-photo tbody tr:nth-child(even) { background: rgba(255,255,255,.06); }
+.section-photo tbody tr:hover { background: rgba(255,255,255,.10); }
+.section-photo tfoot td { background: rgba(255,255,255,.10); }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .75rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.btn-primary:hover { background: #e55a2b; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,102,51,.3); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.3);
+}
+
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+/* ── STACKED BAR (capital stack) ── */
+.stack-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 56px;
+  margin: 1.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stack-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  padding: 0 .75rem;
+  text-align: center;
+  line-height: 1.2;
+  transition: var(--transition);
+}
+
+.stack-segment:hover { filter: brightness(1.1); }
+.stack-segment span { display: block; font-size: 10px; font-weight: 400; opacity: .8; }
+
+/* ── TIMELINE / ROADMAP ── */
+.roadmap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.roadmap-phase {
+  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--green-mid);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: var(--transition);
+}
+
+.roadmap-phase:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+.roadmap-phase .phase-tag {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: .3rem .8rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.phase-design .phase-tag { background: var(--orange-soft); color: var(--orange); }
+.phase-catalytic .phase-tag { background: rgba(51,93,79,.1); color: var(--green); }
+.phase-scale .phase-tag { background: rgba(29,43,37,.08); color: var(--ink); }
+
+/* ── GATE CARDS ── */
+.gate-card {
+  background: var(--white);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.gate-card:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+
+.gate-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--orange);
+  margin-bottom: .35rem;
+}
+
+.gate-card h4 { margin-bottom: .5rem; }
+.gate-card p { margin-bottom: 0; color: var(--gray); font-size: .95rem; }
+
+/* ── KILL BOX ── */
+.kill-box {
+  background: linear-gradient(135deg, #fff5f2, var(--orange-soft));
+  border: 1.5px solid rgba(255,102,51,.25);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-top: 2rem;
+}
+
+.kill-box h4 { color: var(--orange); margin-bottom: .5rem; }
+
+/* ── SDG PILLS ── */
+.sdg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin: 1rem 0;
+}
+
+.sdg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: .4rem .9rem;
+  border-radius: 50px;
+  color: var(--white);
+}
+
+.sdg-7 { background: #fcc30b; color: var(--ink); }
+.sdg-13 { background: #3f7e44; }
+.sdg-10 { background: #dd1367; }
+.sdg-1 { background: #e5243b; }
+.sdg-16 { background: #00689d; }
+
+/* ── ALIGNMENT GRID ── */
+.align-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.align-item {
+  display: flex;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+  background: var(--green-soft);
+  border-radius: var(--radius);
+  align-items: flex-start;
+}
+
+.align-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+.align-item h4 { font-size: .95rem; margin-bottom: .15rem; }
+.align-item p { font-size: .88rem; color: var(--gray); margin-bottom: 0; }
+
+/* ── BLOCKQUOTE / CALLOUT ── */
+.callout {
+  background: var(--green-soft);
+  border-left: 4px solid var(--green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.callout-orange {
+  background: var(--orange-soft);
+  border-left-color: var(--orange);
+}
+
+/* ── INSIGHT BOX ── */
+.insight-box {
+  background: linear-gradient(135deg, rgba(15,46,31,.92), rgba(39,71,57,.88)),
+              url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80&auto=format') center/cover no-repeat;
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin: 2rem 0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.insight-box strong { color: var(--orange); }
+
+/* ── TWO COLUMNS ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ── NUMBERED LIST ── */
+.numbered-list { counter-reset: nl; list-style: none; }
+
+.numbered-list li {
+  counter-increment: nl;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.numbered-list li::before {
+  content: counter(nl);
+  position: absolute;
+  left: 0;
+  top: .1rem;
+  width: 2rem;
+  height: 2rem;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.numbered-list li h4 { margin-bottom: .25rem; }
+
+/* ── TEAM ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.team-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--white);
+  border: 1.5px solid var(--green-mid);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+
+.team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 auto .75rem;
+}
+
+.team-card h4 { font-size: .95rem; margin-bottom: .15rem; }
+.team-card .role { font-size: .82rem; color: var(--gray); font-family: 'Poppins', sans-serif; }
+
+.section-photo .team-card { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.15); backdrop-filter: blur(8px); }
+.section-photo .team-card:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
+.section-photo .team-card h4 { color: var(--white); }
+.section-photo .team-card .role { color: rgba(255,255,255,.7); }
+.section-photo .team-card p { color: rgba(255,255,255,.75); }
+.section-photo .partner-tag { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); color: var(--white); }
+.section-photo .roadmap-phase { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.15); backdrop-filter: blur(6px); }
+.section-photo .roadmap-phase:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
+.section-photo .roadmap-phase h3, .section-photo .roadmap-phase h4 { color: var(--white); }
+.section-photo .roadmap-phase p, .section-photo .roadmap-phase li { color: rgba(255,255,255,.8); }
+.section-photo .gate-card { background: rgba(255,255,255,.07); box-shadow: none; border-left-color: var(--orange); backdrop-filter: blur(6px); }
+.section-photo .gate-card:hover { background: rgba(255,255,255,.12); }
+.section-photo .gate-card h4 { color: var(--white); }
+.section-photo .gate-card p { color: rgba(255,255,255,.82); }
+.section-photo .kill-box { background: rgba(255,60,20,.1); border-color: var(--orange); }
+.section-photo .kill-box h4 { color: var(--orange); }
+.section-photo .kill-box p { color: rgba(255,255,255,.85); }
+.section-photo .table-wrap { background: rgba(0,0,0,.15); border-radius: var(--radius); padding: .5rem; backdrop-filter: blur(4px); }
+.section-photo .phase-design .phase-tag { background: rgba(255,102,51,.2); }
+.section-photo .phase-catalytic .phase-tag { background: rgba(166,195,182,.15); color: var(--green-mid); }
+.section-photo .phase-scale .phase-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+
+/* ── PARTNER LOGOS ── */
+.partner-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.partner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  background: var(--green-soft);
+  border: 1px solid var(--green-mid);
+  border-radius: 50px;
+  color: var(--green-dark);
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: linear-gradient(160deg, rgba(15,46,31,.93), rgba(39,71,57,.88)),
+              url('https://images.unsplash.com/photo-1633627388746-8cd271f7d526?w=1920&q=80&auto=format') center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.cta-section h2 { color: var(--white); margin-bottom: 1rem; }
+.cta-section p { opacity: .85; max-width: 640px; margin: 0 auto 2rem; font-size: 1.1rem; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.5);
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: .8rem;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(39,71,57,.98);
+    padding: 1rem;
+    gap: .25rem;
+  }
+  .nav-hamburger { display: block; }
+  .cover-metrics { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .card-grid-3, .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  .align-grid { grid-template-columns: 1fr; }
+  .roadmap { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 3.5rem 0; }
+}
+
+@media (max-width: 560px) {
+  .container { padding: 0 1.25rem; }
+  .nav-inner { padding: .6rem 1.25rem; }
+  .cover { padding: 5rem 1.25rem 3rem; min-height: auto; }
+  .cover-metrics { grid-template-columns: 1fr; gap: .75rem; }
+  .card-grid, .card-grid-3, .card-grid-2, .card-grid-4 { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .stack-bar { flex-direction: column; height: auto; }
+  .stack-segment { padding: .75rem; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#cover" class="nav-logo">
+      <svg viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg" style="height:34px;width:auto;">
+        <!-- REIN Icon: plant-plug hybrid -->
+        <g transform="translate(6,0)">
+          <!-- Plug pins (4 vertical lines from bottom of monitor) -->
+          <rect x="20" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="31" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="42" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="53" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <!-- Monitor body (rounded square, outline) -->
+          <rect x="12" y="48" width="54" height="34" rx="8" fill="none" stroke="white" stroke-width="5.5"/>
+          <!-- Orange drop inside monitor -->
+          <path d="M39 56c-3.5 5-7 9-7 12.5a7 7 0 0014 0c0-3.5-3.5-7.5-7-12.5z" fill="#ff6633"/>
+          <!-- Stem (vertical from monitor top to leaf junction) -->
+          <rect x="36" y="12" width="6" height="40" rx="3" fill="white"/>
+          <!-- Left leaf -->
+          <path d="M39 30 C30 24 16 12 10 2 C12 18 24 30 38 34Z" fill="white"/>
+          <!-- Right leaf -->
+          <path d="M39 30 C48 24 62 12 68 2 C66 18 54 30 40 34Z" fill="white"/>
+          <!-- Right tendril with bud -->
+          <path d="M44 34 C50 30 56 24 60 16" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="60" cy="15" r="3.5" fill="white"/>
+        </g>
+        <!-- REIN text in Poppins Black -->
+        <text x="86" y="72" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="900" font-size="62" fill="white" letter-spacing="1">REIN</text>
+        <!-- Tagline -->
+        <text x="87" y="88" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="500" font-size="8.5" fill="white" letter-spacing="2.2" opacity=".7">RESILIENCE ENTREPRENEURSHIP INNOVATION &amp; NATURE</text>
+      </svg>
+    </a>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#rein">REIN Hubs</a></li>
+      <li><a href="#context">Context</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#barriers">Barriers</a></li>
+      <li><a href="#tried">Precedents</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#finance">Finance</a></li>
+      <li><a href="#pilot">Pilot</a></li>
+      <li><a href="#implementation">Implementation</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════ COVER ════════════════ -->
+<section class="cover" id="cover">
+  <div class="cover-circles">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+    <div class="circle c4"></div>
+    <div class="circle c5"></div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-badge">
+      <svg viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;vertical-align:middle;">
+        <g transform="translate(6,0)">
+          <rect x="20" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="31" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="42" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="53" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+          <rect x="12" y="48" width="54" height="34" rx="8" fill="none" stroke="white" stroke-width="5.5"/>
+          <path d="M39 56c-3.5 5-7 9-7 12.5a7 7 0 0014 0c0-3.5-3.5-7.5-7-12.5z" fill="#ff6633"/>
+          <rect x="36" y="12" width="6" height="40" rx="3" fill="white"/>
+          <path d="M39 30 C30 24 16 12 10 2 C12 18 24 30 38 34Z" fill="white"/>
+          <path d="M39 30 C48 24 62 12 68 2 C66 18 54 30 40 34Z" fill="white"/>
+          <path d="M44 34 C50 30 56 24 60 16" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="60" cy="15" r="3.5" fill="white"/>
+        </g>
+        <text x="86" y="72" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="900" font-size="62" fill="white" letter-spacing="1">REIN</text>
+        <text x="87" y="88" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="500" font-size="8.5" fill="white" letter-spacing="2.2" opacity=".7">RESILIENCE ENTREPRENEURSHIP INNOVATION &amp; NATURE</text>
+      </svg>
+      &nbsp;&middot;&nbsp; Strategy Presentation &nbsp;&middot;&nbsp; 2026
+    </div>
+    <h1>Community Energy Strategy<br>for Choc&oacute;, Colombia</h1>
+    <p class="cover-subtitle">A strategy for deploying community-owned energy cooperatives in Colombia&rsquo;s most underserved territory</p>
+
+    <div class="cover-metrics">
+      <div class="cover-metric">
+        <div class="value">509</div>
+        <div class="label">ZNI Localities in Choc&oacute;</div>
+      </div>
+      <div class="cover-metric">
+        <div class="value">60</div>
+        <div class="label">Cooperative Microgrids Planned</div>
+      </div>
+      <div class="cover-metric">
+        <div class="value">~45K</div>
+        <div class="label">People Gaining Clean Power</div>
+      </div>
+    </div>
+
+    <div class="cover-presented">
+      <strong>Prepared for:</strong> The incoming Colombian administration<br>
+      <strong>By:</strong> REIN Hubs &mdash; PVBLIC Foundation &amp; Fundaci&oacute;n CleantechHUB<br>
+      <strong>In coordination with:</strong> UN Resident Coordinator&rsquo;s Office (RCO), Colombia
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WHAT IS REIN ════════════════ -->
+<section id="rein">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2>REIN Hubs: Renewable Energy Innovation Network</h2>
+      <hr class="section-divider">
+      <p>REIN Hubs is a partnership between PVBLIC Foundation and CleantechHUB that operates as a venture builder for climate solutions across five countries.</p>
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3>The REIN Partnership</h3>
+        <p><strong>PVBLIC Foundation</strong> brings institutional relationships with the UN system, the GISD Alliance (Global Investors for Sustainable Development), and multilateral development banks. Their expertise in SDG financing, blended finance structuring, and public-private partnerships provides the institutional architecture.</p>
+        <p><strong>Fundaci&oacute;n CleantechHUB</strong> (NIT [redacted]) has been operating in Colombia since 2020. CleantechHUB runs ClimateLaunchpad Colombia &mdash; the world&rsquo;s largest green business ideas competition &mdash; and has built the <strong>Energ&iacute;a Coop</strong> platform, a digital toolkit for deploying community energy cooperatives. Across the region, the organisation has supported 222 startups and helped raise over $23 million in climate capital.</p>
+        <p>Together, REIN Hubs combines CleantechHUB&rsquo;s on-the-ground venture-building methodology with PVBLIC&rsquo;s institutional access and financing expertise. The result is a platform that can take a community energy concept from cooperative formation through to bankable project.</p>
+      </div>
+      <div>
+        <h3>The Energ&iacute;a Coop Platform</h3>
+        <p>CleantechHUB has built <a href="https://energiacoop.cleantechhub.net" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600;">energiacoop.cleantechhub.net</a> &mdash; <strong>Cooperativa Energ&eacute;tica en Caja</strong> (Energy Cooperative in a Box). It is a complete deployment system for community-owned renewable energy, featuring:</p>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>4-Phase Deployment Process</h4>
+          <p style="margin-bottom:0;"><strong>Diagn&oacute;stico</strong> (2&ndash;4 weeks) &rarr; <strong>Formaci&oacute;n/Training</strong> (8&ndash;12 weeks, 60-hour cooperative curriculum) &rarr; <strong>Proyecto/Development</strong> (12&ndash;20 weeks) &rarr; <strong>Operaci&oacute;n</strong> (ongoing)</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Playbooks for 3 Audiences</h4>
+          <p style="margin-bottom:0;">Tailored guides for <strong>Investors</strong> (financial structuring, risk profiles), <strong>Municipalities</strong> (regulatory compliance, impact metrics), and <strong>Communities</strong> (cooperative formation, governance training).</p>
+        </div>
+        <div class="card">
+          <h4>Digital Tools</h4>
+          <p style="margin-bottom:0;">Solar simulator, municipal impact calculator, operator comparator, and a comprehensive knowledge base on BookStack wiki. All designed for the Colombian regulatory framework.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid card-grid-4 reveal" style="margin-top:2rem;">
+      <div class="metric-card">
+        <div class="metric-value">222</div>
+        <div class="metric-label">Startups Supported</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$23M+</div>
+        <div class="metric-label">Capital Raised</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Countries Active</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">Since 2020</div>
+        <div class="metric-label">Operating in Colombia</div>
+      </div>
+    </div>
+
+    <div class="callout reveal" style="margin-top:2rem;">
+      CleantechHUB has existing relationships with CAF, Bancolombia, and Colombian government institutions. The organisation is not entering Colombia &mdash; it has been building here for six years, with a registered legal entity, a national network of partners, and a proven track record in climate venture building.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ STRATEGIC CONTEXT ════════════════ -->
+<section id="context" style="background:var(--green-soft);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Strategic Context</span>
+      <h2>Why Choc&oacute;, Why Now</h2>
+      <hr class="section-divider">
+      <p>Colombia&rsquo;s policy environment has never been more aligned for community energy. The incoming administration inherits a set of regulatory tools and political commitments that make Choc&oacute; the ideal proof-of-concept for a national model.</p>
+    </div>
+
+    <div class="align-grid reveal">
+      <div class="align-item">
+        <span class="align-icon">📋</span>
+        <div>
+          <h4>Plan Nacional de Desarrollo (PND)</h4>
+          <p>The PND prioritises productive transformation in conflict-affected and ethnic territories, with explicit energy access targets for the Pacific and Amazonian regions.</p>
+        </div>
+      </div>
+      <div class="align-item">
+        <span class="align-icon">🕊</span>
+        <div>
+          <h4>PDET Post-Conflict Programme</h4>
+          <p>Nine of Choc&oacute;&rsquo;s municipalities are in the PDET territorial transformation programme &mdash; giving them priority access to public investment and institutional support.</p>
+        </div>
+      </div>
+      <div class="align-item">
+        <span class="align-icon">⚡</span>
+        <div>
+          <h4>CREG 101,072/2025</h4>
+          <p>Colombia&rsquo;s new energy communities regulation creates, for the first time, a legal framework for the cooperative structures this strategy proposes. The regulatory gap that blocked previous efforts is closing.</p>
+        </div>
+      </div>
+      <div class="align-item">
+        <span class="align-icon">🌍</span>
+        <div>
+          <h4>Just Energy Transition</h4>
+          <p>Colombia&rsquo;s commitment to a Just Energy Transition explicitly includes territorial equity and energy sovereignty for historically marginalised communities.</p>
+        </div>
+      </div>
+      <div class="align-item">
+        <span class="align-icon">🏛</span>
+        <div>
+          <h4>CONPES &amp; DNP Strategy</h4>
+          <p>CONPES documents on energy transition and DNP&rsquo;s strategy for productive transformation provide the policy backbone for deploying community-owned infrastructure in underserved territories.</p>
+        </div>
+      </div>
+      <div class="align-item">
+        <span class="align-icon">🇺🇳</span>
+        <div>
+          <h4>UN Resident Coordinator&rsquo;s Office</h4>
+          <p>The RCO has identified energy poverty in conflict-affected territories as a national priority. Their coordination role across the UN system in Colombia provides institutional backing for territorial interventions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-box reveal" style="margin-top:2rem;">
+      The incoming administration will inherit the strongest regulatory and institutional alignment for community energy that Colombia has ever had. What is missing is not policy &mdash; it is a <strong>deployment mechanism</strong> that converts these commitments into working infrastructure in the territories that need it most. This strategy provides that mechanism, with Choc&oacute; as the proof-of-concept.
+    </div>
+
+    <div class="reveal" style="margin-top:2rem;">
+      <h3 style="margin-bottom:.75rem;">SDG Alignment</h3>
+      <div class="sdg-row">
+        <span class="sdg-pill sdg-7">SDG 7 &mdash; Affordable &amp; Clean Energy</span>
+        <span class="sdg-pill sdg-13">SDG 13 &mdash; Climate Action</span>
+        <span class="sdg-pill sdg-10">SDG 10 &mdash; Reduced Inequalities</span>
+        <span class="sdg-pill sdg-1">SDG 1 &mdash; No Poverty</span>
+        <span class="sdg-pill sdg-16">SDG 16 &mdash; Peace &amp; Institutions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THE PROBLEM ════════════════ -->
+<section id="problem" class="section-photo" style="background-image: linear-gradient(160deg, rgba(15,46,31,.92) 0%, rgba(26,74,50,.85) 100%), url('https://images.unsplash.com/photo-1568489711036-9c94a7d5aea6?w=1920&q=80&auto=format');">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Challenge</span>
+      <h2>Two Energy Realities, One Country</h2>
+      <hr class="section-divider">
+    </div>
+
+    <div class="callout reveal">
+      Colombia generates 70% of its electricity from renewables. But 1.33 million households &mdash; spread across half the country&rsquo;s territory &mdash; receive less than 8 hours of power per day. These are two different countries sharing one flag.
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3>What Are ZNI?</h3>
+        <p><strong>Zonas No Interconectadas</strong> (Non-Interconnected Zones) are areas of Colombia that are not connected to the national electricity grid. They represent 52% of the country&rsquo;s territory but receive only 7% of energy investment. These communities rely on expensive, unreliable diesel generators &mdash; when they have power at all.</p>
+        <p>Most ZNI localities are in remote Pacific and Amazonian regions, home to Afro-Colombian and Indigenous communities who hold collective land rights. Building transmission lines to reach them is economically unviable. The solution must be distributed: self-contained microgrids powered by solar and small hydro, located where the communities are.</p>
+      </div>
+      <div>
+        <h3>The Investment Gap</h3>
+        <p>Colombia&rsquo;s renewable energy investment is almost entirely concentrated in grid-connected projects: large wind farms in La Guajira, utility-scale solar in C&eacute;sar and Santander. These attract international capital because they are big enough to justify the transaction costs.</p>
+        <p>The 93% vs. 7% investment split between grid-connected and distributed energy is not an oversight &mdash; it is a structural failure. There is no mechanism that makes small community projects visible to institutional investors. A $500K microgrid in Quibd&oacute; costs the same to structure as a $500M wind farm in La Guajira, but returns a fraction of the fee. No bank will do the work.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:1.25rem;">Why Choc&oacute;</h3>
+      <p style="text-align:center;max-width:720px;margin:0 auto 1.5rem;">Choc&oacute; is Colombia&rsquo;s most energy-poor department, and the place where every barrier to energy access converges. If a model can work here, it can work anywhere in the country.</p>
+
+      <div class="card-grid card-grid-4 reveal">
+        <div class="metric-card">
+          <div class="metric-value">509</div>
+          <div class="metric-label">ZNI Localities</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">82%</div>
+          <div class="metric-label">Ethnic Territories</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">65.5%</div>
+          <div class="metric-label">Multidimensional Poverty</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">9</div>
+          <div class="metric-label">PDET Municipalities</div>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal" style="margin-top:1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Choc&oacute;</th>
+              <th>National Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Multidimensional poverty</td><td><strong>65.5%</strong></td><td>12.9%</td></tr>
+            <tr><td>Energy access (SIN coverage)</td><td><strong>&lt;40%</strong></td><td>96%</td></tr>
+            <tr><td>Average daily power supply (ZNI)</td><td><strong>&lt;8 hrs</strong></td><td>24 hrs</td></tr>
+            <tr><td>Households without electricity</td><td><strong>~45,000</strong></td><td>&mdash;</td></tr>
+            <tr><td>PDET post-conflict municipalities</td><td><strong>9 of 30</strong></td><td>&mdash;</td></tr>
+            <tr><td>Ethnic territory coverage</td><td><strong>82%</strong></td><td>~30%</td></tr>
+            <tr><td>Average diesel cost for generation</td><td><strong>$0.45/kWh</strong></td><td>$0.05/kWh (grid)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ BARRIERS ════════════════ -->
+<section id="barriers">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Root Causes</span>
+      <h2>Six Barriers That Keep Communities in the Dark</h2>
+      <hr class="section-divider">
+      <p>Understanding why the problem persists is the first step toward solving it. Each barrier reinforces the others, creating a system that no single intervention can break.</p>
+    </div>
+
+    <div class="card-grid card-grid-3 reveal">
+      <div class="card">
+        <span class="card-icon">💰</span>
+        <h4>1. Transaction Cost Mismatch</h4>
+        <p>Structuring a $500K community project costs the same in legal, financial, and technical due diligence as a $500M utility-scale project. No bank will absorb those costs for the returns a microgrid generates. The economics of project finance are built for scale that these communities will never reach individually.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📜</span>
+        <h4>2. Regulatory Fragmentation</h4>
+        <p>Colombia&rsquo;s energy regulation was designed for the national grid. ZNI communities must navigate CREG 174, CREG 091, Ley 1715, and Decreto 2236 &mdash; overlapping frameworks that were never harmonised for distributed energy. CREG 101,072/2025 begins to address this, but implementation lags.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔌</span>
+        <h4>3. No Grid to Connect To</h4>
+        <p>These are not grid-extension problems. There is no grid within economic reach. Every installation must be a self-contained microgrid: generation, storage, and distribution. This requires different engineering, different business models, and different risk profiles than grid-connected solar.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🤝</span>
+        <h4>4. Consulta Previa Complexity</h4>
+        <p>82% of Choc&oacute; is ethnic territory. Colombian constitutional law (and ILO Convention 169) requires <em>consulta previa</em> &mdash; free, prior, and informed consent &mdash; for any project on collective lands. This is not a bureaucratic formality; it is a right. But it requires cultural competency, long timelines, and genuine partnership.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🏢</span>
+        <h4>5. Weak Local Institutions</h4>
+        <p>IPSE (the government agency for ZNI energy solutions) has limited execution capacity and budget. There are no local EPC contractors with microgrid experience in Choc&oacute;. Municipal governments lack the technical staff to evaluate proposals. The institutional infrastructure for energy deployment simply does not exist.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📈</span>
+        <h4>6. No Aggregation Vehicle</h4>
+        <p>This is the core gap. Individual projects are too small for institutional capital. There is no mechanism that bundles community-scale energy projects into a portfolio that pension funds, development banks, or green bond buyers can underwrite. That is precisely what this strategy addresses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WHAT'S BEEN TRIED ════════════════ -->
+<section id="tried" style="background:var(--green-soft);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Learning from Precedent</span>
+      <h2>What Hasn&rsquo;t Worked &mdash; and Why</h2>
+      <hr class="section-divider">
+      <p>Colombia is not starting from zero. Several approaches have been tried. Understanding why they fell short clarifies what a successful model must do differently.</p>
+    </div>
+
+    <div class="reveal">
+      <ol class="numbered-list">
+        <li>
+          <h4>Colombia&rsquo;s Minigranja Programme</h4>
+          <p>Created 151 registered small-scale solar installations across ZNI regions. But each installation was structured as a one-off project with bespoke legal, technical, and financial arrangements. No standardised structure meant no ability to aggregate. Each project reinvented the wheel, and the programme could not scale beyond donor-funded deployments.</p>
+        </li>
+        <li>
+          <h4>IPSE Direct Implementation</h4>
+          <p>The Institute for Planning and Promotion of Energy Solutions (IPSE) is the government agency responsible for ZNI energy. It has built solar installations and diesel-hybrid systems, but with limited budget and execution capacity. IPSE operates as a project implementer, not a market builder. It cannot attract private capital at the scale required.</p>
+        </li>
+        <li>
+          <h4>La Guajira Wind Projects</h4>
+          <p>Colombia&rsquo;s largest renewable energy initiative attracted international attention and billions in committed investment. But the <em>consulta previa</em> process with Wayuu communities has taken over 2,000 days in some cases, with projects still not operational. The lesson is clear: trust cannot be shortcut. Community engagement is not a box to check &mdash; it is the foundation of any project on collective land.</p>
+        </li>
+        <li>
+          <h4>International DFI Financing</h4>
+          <p>The IDB, World Bank, and EIB have deployed $100M+ per project into grid-connected renewable energy in Colombia. But none will touch a $500K community microgrid. The overhead of due diligence, environmental and social safeguards, and portfolio management simply does not justify the ticket size. DFI capital flows to where the infrastructure already exists.</p>
+        </li>
+        <li>
+          <h4>The Gap</h4>
+          <p>What is missing is not money, technology, or political will. It is a <strong>mechanism that bundles small community projects into something institutional investors can underwrite</strong>. A standardised deployment system that handles cooperative formation, training, financial structuring, and operation &mdash; all in a replicable package. That is what Energ&iacute;a Coop provides.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THE SOLUTION: ENERGÍA COOP ════════════════ -->
+<section id="solution">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Solution</span>
+      <h2>Energ&iacute;a Coop: Energy Cooperative in a Box</h2>
+      <hr class="section-divider">
+      <p>CleantechHUB has built <a href="https://energiacoop.cleantechhub.net" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600;">energiacoop.cleantechhub.net</a> &mdash; a complete deployment system for community-owned renewable energy cooperatives, adapted for Colombia&rsquo;s regulatory framework and inspired by European models that have produced 438 energy cooperatives in the Netherlands alone.</p>
+    </div>
+
+    <div class="insight-box reveal">
+      The solution is not more one-off projects. It is a <strong>standardised deployment system</strong> that takes communities from initial diagnosis through cooperative formation, project development, and ongoing operation &mdash; bundling small projects into a portfolio large enough for institutional capital, with <strong>communities owning 30% of every project</strong> they host.
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:1.25rem;">Four-Phase Deployment Process</h3>
+      <div class="card-grid card-grid-4">
+        <div class="card">
+          <span class="card-icon">🔍</span>
+          <h3>1. Diagn&oacute;stico</h3>
+          <h4>2&ndash;4 Weeks</h4>
+          <p>Community assessment, solar resource mapping, governance capacity evaluation, consulta previa scoping. Determines readiness and identifies the productive uses that will generate revenue.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">📚</span>
+          <h3>2. Formaci&oacute;n</h3>
+          <h4>8&ndash;12 Weeks</h4>
+          <p>60-hour cooperative curriculum covering governance, financial management, technical operations, and regulatory compliance. Communities learn to own and operate their energy systems.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🏗</span>
+          <h3>3. Proyecto</h3>
+          <h4>12&ndash;20 Weeks</h4>
+          <p>Cooperative legal formation, financial structuring, equipment procurement, installation, and grid commissioning. Each project follows a standardised template enabling portfolio aggregation.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚙</span>
+          <h3>4. Operaci&oacute;n</h3>
+          <h4>Ongoing</h4>
+          <p>Community-managed operations with remote monitoring, scheduled maintenance, revenue collection, and progressive ownership transfer. Supported by the Energ&iacute;a Coop digital tools and knowledge base.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col reveal" style="margin-top:2.5rem;">
+      <div>
+        <h3>European Lessons, Colombian Adaptation</h3>
+        <p>The Energ&iacute;a Coop model draws on proven European cooperative energy systems, adapted for Colombia&rsquo;s unique regulatory and social context:</p>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>🇩🇰 Denmark: Mandatory Community Participation</h4>
+          <p style="margin-bottom:0;">Danish law requires 20% community ownership in all wind and solar projects. This principle is embedded in the Energ&iacute;a Coop model, with 30% community equity as the floor.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>🇳🇱 Netherlands: Development Fund Model</h4>
+          <p style="margin-bottom:0;">Energie Samen (Netherlands) uses a pre-project development fund to de-risk community projects before they seek institutional capital. 438 cooperatives have been formed using this approach.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>🇩🇪 Germany: Second-Tier Cooperative</h4>
+          <p style="margin-bottom:0;">B&uuml;rgerwerke&rsquo;s model of a second-tier cooperative enables joint commercialisation of energy across many small cooperatives &mdash; the aggregation principle at the heart of this strategy.</p>
+        </div>
+        <div class="card">
+          <h4>🇨🇴 Colombia: Micro-Investment Access</h4>
+          <p style="margin-bottom:0;">Community Participation Certificates from COP 200,000 (~$50 USD) allow even the lowest-income households to become cooperative members and equity holders.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Cooperative Ownership Structure</h3>
+        <p>Each community energy project uses a <strong>patrimonio aut&oacute;nomo</strong> (autonomous trust) structure, with dual-class participation certificates:</p>
+        <div class="card" style="margin-bottom:1rem;border-color:var(--orange);">
+          <h4 style="color:var(--orange);">Class A &mdash; Community Certificates (30%)</h4>
+          <p style="margin-bottom:0;">Held collectively by the community cooperative. Cannot be sold to external parties. Carry voting rights on operational decisions. Valued through non-cash equity: land access, construction labour, social license, and local data collection.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;border-color:var(--green);">
+          <h4 style="color:var(--green);">Class B &mdash; Investor Certificates (70%)</h4>
+          <p style="margin-bottom:0;">Held by the portfolio vehicle. Carry preferential financial returns. Gradually convert to community ownership over 15&ndash;20 years as assets depreciate and community capacity grows.</p>
+        </div>
+        <h4 style="margin-top:1.5rem;">Financial Instruments</h4>
+        <p>The model leverages Colombia&rsquo;s existing incentive framework:</p>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Ley 1715 Tax Incentives</h4>
+          <p style="margin-bottom:0;">Income tax deduction (50% of investment), accelerated depreciation, VAT exclusion, and customs duty exemption for renewable energy equipment.</p>
+        </div>
+        <div class="card">
+          <h4>FENOGE Co-Financing</h4>
+          <p style="margin-bottom:0;">The national energy fund (Fondo de Energ&iacute;as No Convencionales y Gesti&oacute;n Eficiente de la Energ&iacute;a) provides up to 60% project co-financing for community-scale installations in ZNI territories.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-orange callout reveal" style="margin-top:2rem;">
+      <strong>Why this matters:</strong> In Choc&oacute;&rsquo;s ethnic territories, land is collectively held under Colombian constitutional protections (Art. 63, 329). Individual ownership models conflict with Afro-Colombian and Indigenous communal governance. The patrimonio aut&oacute;nomo structure bridges Colombian financial law with collective rights &mdash; giving communities real equity in an institutional-grade legal structure, compliant with Decreto 2236 and CREG 101,072/2025.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FINANCIAL ARCHITECTURE ════════════════ -->
+<section id="finance" style="background:var(--green-soft);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Financial Architecture</span>
+      <h2>How Public Money Unlocks Private Capital</h2>
+      <hr class="section-divider">
+    </div>
+
+    <div class="insight-box reveal" style="font-size:1.05rem;">
+      Multilateral institutions take the first loss. Commercial banks enter at reduced risk. Communities own 30%. This is not a funding request &mdash; it is the <strong>investment architecture</strong> that makes community energy bankable.
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:1rem;">Capital Stack: $50M Target Vehicle</h3>
+      <div class="stack-bar">
+        <div class="stack-segment" style="flex:15;background:var(--orange);">15%<span>First Loss &mdash; CAF / DFIs</span></div>
+        <div class="stack-segment" style="flex:25;background:#e55a2b;">25%<span>Mezzanine &mdash; GISD / Green Bonds</span></div>
+        <div class="stack-segment" style="flex:30;background:var(--green);">30%<span>Senior Debt &mdash; Bancolombia</span></div>
+        <div class="stack-segment" style="flex:30;background:var(--green-dark);">30%<span>GOC Subsidy &mdash; FENOGE / FAZNI</span></div>
+      </div>
+    </div>
+
+    <div class="two-col reveal" style="margin-top:2.5rem;">
+      <div>
+        <h3>Per-Project Unit Economics</h3>
+        <p>Each community microgrid follows the same financial template. Standardisation is what makes aggregation &mdash; and therefore institutional investment &mdash; possible.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Component</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Average project cost</td><td><strong>$100,000</strong></td></tr>
+              <tr><td>GOC subsidy (FENOGE/FAZNI)</td><td>$60,000 (60%)</td></tr>
+              <tr><td>Net equity required</td><td>$40,000</td></tr>
+              <tr><td>Community equity (30%)</td><td>$12,000 (non-cash)</td></tr>
+              <tr><td>Investor equity (70%)</td><td>$28,000</td></tr>
+              <tr><td>Estimated payback period</td><td><strong>2.5 years</strong></td></tr>
+              <tr><td>Project IRR (post-subsidy)</td><td><strong>18&ndash;22%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>Revenue Streams</h3>
+        <p>Microgrids generate revenue from multiple sources, reducing dependence on any single income stream and improving the risk profile for investors.</p>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Tariff Collection</h4>
+          <p style="margin-bottom:0;">Regulated electricity tariffs paid by households and businesses. Even at below-national-average rates, solar microgrids cost less than diesel.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Carbon Credits</h4>
+          <p style="margin-bottom:0;">Each kWh of solar replacing diesel generates verifiable emission reductions. Bundled across the portfolio, these are tradeable at voluntary market rates.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Productive Use Surplus</h4>
+          <p style="margin-bottom:0;">Cold chain for fisheries, water purification, and agricultural processing create economic value that raises ability &mdash; and willingness &mdash; to pay.</p>
+        </div>
+        <div class="card">
+          <h4>Data Services</h4>
+          <p style="margin-bottom:0;">Grid monitoring and usage data has commercial value for energy planning, climate modelling, and ESG reporting by institutional investors.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:1.25rem;">Institutional Roles</h3>
+      <div class="card-grid card-grid-4">
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">🏦</span>
+          <h4>CAF</h4>
+          <p style="font-size:.9rem;">Takes the first-loss position as Lender of Record. Their A/B loan structure allows commercial banks to participate under multilateral umbrella.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">🏛</span>
+          <h4>Bancolombia (GISD)</h4>
+          <p style="font-size:.9rem;">Deploys green credit lines into the mezzanine tranche. CEO sits on UN&rsquo;s GISD Alliance board &mdash; this vehicle is purpose-built for their SDG mandate.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">🇨🇴</span>
+          <h4>FENOGE / FAZNI</h4>
+          <p style="font-size:.9rem;">Government co-financing provides up to 60% of project costs, dramatically reducing the equity requirement and de-risking private investment.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">👥</span>
+          <h4>Communities</h4>
+          <p style="font-size:.9rem;">30% equity via non-cash contributions: land access, construction labour, social license, local data collection. Ownership, not charity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THE CHOCÓ PILOT ════════════════ -->
+<section id="pilot" class="section-photo" style="background-image: linear-gradient(170deg, rgba(15,46,31,.93) 0%, rgba(26,74,50,.85) 50%, rgba(15,46,31,.9) 100%), url('https://images.unsplash.com/photo-1666990988005-2911dfe2abb8?w=1920&q=80&auto=format');">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Choc&oacute; Proof-of-Concept</span>
+      <h2>15 Municipalities, 60 Cooperative Microgrids</h2>
+      <hr class="section-divider">
+      <p>The Choc&oacute; pilot targets three subregions representing the department&rsquo;s geographic, ethnic, and economic diversity. Each subregion is selected because it combines high energy need with identifiable productive uses that generate revenue.</p>
+    </div>
+
+    <div class="card-grid card-grid-4 reveal" style="margin-bottom:2rem;">
+      <div class="metric-card">
+        <div class="metric-value">8.8 MW</div>
+        <div class="metric-label">Pipeline Capacity</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$5.2M</div>
+        <div class="metric-label">Total Investment</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">~45K</div>
+        <div class="metric-label">People Gaining Power</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">2.5 yr</div>
+        <div class="metric-label">Average Payback</div>
+      </div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Subregion</th>
+            <th>Municipalities</th>
+            <th>Projects</th>
+            <th>Capacity</th>
+            <th>Population</th>
+            <th>Key Productive Uses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pacific Coast</strong></td>
+            <td>Bah&iacute;a Solano, Nuqu&iacute;, Jurad&oacute;, Bajo Baud&oacute;, Litoral del San Juan</td>
+            <td>25</td>
+            <td>3.6 MW</td>
+            <td>~18,000</td>
+            <td>Fisheries cold chain, ecotourism, water purification</td>
+          </tr>
+          <tr>
+            <td><strong>Atrato River Basin</strong></td>
+            <td>Quibd&oacute;, Medio Atrato, R&iacute;o Quito, C&eacute;rtegui, Uni&oacute;n Panamericana</td>
+            <td>20</td>
+            <td>3.0 MW</td>
+            <td>~16,000</td>
+            <td>Agricultural processing, timber drying, small manufacturing</td>
+          </tr>
+          <tr>
+            <td><strong>San Juan River</strong></td>
+            <td>Istmina, Medio San Juan, Sip&iacute;, N&oacute;vita, Condoto</td>
+            <td>15</td>
+            <td>2.2 MW</td>
+            <td>~11,000</td>
+            <td>Mining communities transition, cacao processing, health clinics</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>15 municipalities</strong></td>
+            <td><strong>60</strong></td>
+            <td><strong>8.8 MW</strong></td>
+            <td><strong>~45,000</strong></td>
+            <td>&mdash;</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="reveal" style="margin-top:1.5rem;">
+      <p style="max-width:720px;margin:0 auto;text-align:center;font-size:.95rem;">Each subregion was selected to test a different productive-use thesis. Pacific coast fisheries generate the highest immediate revenue. Atrato basin agriculture has the largest population. San Juan mining communities represent the most complex socioeconomic transition. Together, they validate the model across Choc&oacute;&rsquo;s full diversity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ IMPLEMENTATION ════════════════ -->
+<section id="implementation" class="section-photo" style="background-image: linear-gradient(160deg, rgba(15,46,31,.95) 0%, rgba(26,74,50,.9) 100%), url('https://images.unsplash.com/photo-1633627388746-8cd271f7d526?w=1920&q=80&auto=format');">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What Deployment Requires</span>
+      <h2>Implementation: Work Packages &amp; Investment</h2>
+      <hr class="section-divider">
+      <p>Deploying community energy cooperatives in Choc&oacute; requires structured work across six interconnected packages. Here is what it takes.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Work Package</th>
+            <th>Description</th>
+            <th>Months</th>
+            <th>Investment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>WP1:</strong> Territorial Assessment</td>
+            <td>Solar resource mapping, community governance assessment, consulta previa scoping across 15 municipalities</td>
+            <td>1&ndash;4</td>
+            <td>$45,000</td>
+          </tr>
+          <tr>
+            <td><strong>WP2:</strong> Cooperative Design</td>
+            <td>Community cooperative legal structure, participation certificates, non-cash equity valuation methodology, Energ&iacute;a Coop curriculum adaptation</td>
+            <td>2&ndash;6</td>
+            <td>$35,000</td>
+          </tr>
+          <tr>
+            <td><strong>WP3:</strong> Financial Vehicle</td>
+            <td>Portfolio SPV structuring, patrimonio aut&oacute;nomo design, capital stack finalisation, GISD engagement, CAF A/B loan feasibility</td>
+            <td>3&ndash;8</td>
+            <td>$40,000</td>
+          </tr>
+          <tr>
+            <td><strong>WP4:</strong> Pipeline Development</td>
+            <td>60 project profiles, bankability scoring, technical specifications, revenue modelling per the Energ&iacute;a Coop methodology</td>
+            <td>4&ndash;10</td>
+            <td>$35,000</td>
+          </tr>
+          <tr>
+            <td><strong>WP5:</strong> Investment Thesis</td>
+            <td>Full thesis documentation, risk allocation, return projections, catalytic phase concept note</td>
+            <td>9&ndash;12</td>
+            <td>$25,000</td>
+          </tr>
+          <tr>
+            <td><strong>WP6:</strong> Programme Management</td>
+            <td>Coordination, stakeholder engagement, reporting, travel, decision gate reviews</td>
+            <td>1&ndash;12</td>
+            <td>$20,000</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><strong>Total Design Phase</strong></td>
+            <td><strong>$200,000</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="reveal" style="margin-top:2rem;">
+      <h3 style="text-align:center;margin-bottom:1rem;">Decision Gates</h3>
+      <div class="gate-card">
+        <div class="gate-number">Gate 1 &mdash; Month 4</div>
+        <h4>Territorial Readiness</h4>
+        <p>At least 10 of 15 target municipalities assessed. Consulta previa scoping confirms community willingness in at least 8 municipalities. If fewer than 8 engage, pilot geography is restructured.</p>
+      </div>
+      <div class="gate-card">
+        <div class="gate-number">Gate 2 &mdash; Month 8</div>
+        <h4>Financial Vehicle Validated</h4>
+        <p>Portfolio SPV legal structure completed. At least one GISD Alliance member issues a Letter of Intent. CAF confirms A/B loan applicability. If no institutional investor signals intent, the financial architecture requires revision.</p>
+      </div>
+      <div class="gate-card">
+        <div class="gate-number">Gate 3 &mdash; Month 10</div>
+        <h4>Pipeline Quality</h4>
+        <p>At least 40 of 60 candidate projects score bankable under the standardised scoring methodology. Each bankable project has a complete profile for independent investor review.</p>
+      </div>
+      <div class="gate-card">
+        <div class="gate-number">Gate 4 &mdash; Month 12</div>
+        <h4>Investment Thesis Complete</h4>
+        <p>Full investment thesis documented. Capital stack, risk allocation, return projections, and governance structure finalised. If all prior gates are met, the vehicle is ready for capitalisation.</p>
+      </div>
+    </div>
+
+    <div class="kill-box reveal" style="margin-top:1.5rem;">
+      <h4>Kill Criteria</h4>
+      <p>If fewer than 30 projects score bankable, or if no institutional investor issues a Letter of Intent by month 10, the catalytic phase does not proceed. The design phase will have produced valuable learning &mdash; a territorial assessment, a community engagement methodology, and a financial model &mdash; but the vehicle is not ready for capitalisation.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:1.25rem;">Three-Phase Roadmap</h3>
+      <div class="roadmap">
+        <div class="roadmap-phase phase-design">
+          <div class="phase-tag">Phase 1 &mdash; Design</div>
+          <h4>$200K &middot; 12 Months</h4>
+          <p style="font-size:.92rem;">Structure the vehicle, assess communities, build the pipeline. Deliverable: investable thesis and catalytic phase concept note.</p>
+        </div>
+        <div class="roadmap-phase phase-catalytic">
+          <div class="phase-tag">Phase 2 &mdash; Catalytic</div>
+          <h4>Up to $10M &middot; 24 Months</h4>
+          <p style="font-size:.92rem;">Deploy first-loss capital, launch 60 pilot microgrids, prove the revenue model across three subregions. Deliverable: operating cooperative portfolio.</p>
+        </div>
+        <div class="roadmap-phase phase-scale">
+          <div class="phase-tag">Phase 3 &mdash; Scale</div>
+          <h4>$50M Target &middot; 36+ Months</h4>
+          <p style="font-size:.92rem;">Expand to 500+ projects across ZNI regions nationally. Green bond issuance. Carbon credit portfolio. Community ownership reaches 51% as assets mature.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2rem;">
+      <h3 style="text-align:center;margin-bottom:1rem;">Leverage Ratios</h3>
+      <div class="card-grid card-grid-2" style="max-width:600px;margin:0 auto;">
+        <div class="metric-card">
+          <div class="metric-value">1 : 25</div>
+          <div class="metric-label">Design &rarr; Pilot</div>
+          <p style="font-size:.8rem;opacity:.7;margin-top:.3rem;margin-bottom:0;">$200K design structures $5.2M pilot deployment</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">1 : 5</div>
+          <div class="metric-label">Catalytic &rarr; Private</div>
+          <p style="font-size:.8rem;opacity:.7;margin-top:.3rem;margin-bottom:0;">$10M catalytic unlocks $50M private capital</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ THE TEAM ════════════════ -->
+<section id="team" class="section-photo" style="background-image: linear-gradient(145deg, rgba(15,46,31,.94) 0%, rgba(26,74,50,.88) 100%), url('https://images.unsplash.com/photo-1612447019622-f1815b649444?w=1920&q=80&auto=format');">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Team</span>
+      <h2>Built by Operators, Backed by Institutions</h2>
+      <hr class="section-divider">
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3>REIN Hubs = PVBLIC + CleantechHUB</h3>
+        <p>REIN Hubs &mdash; Renewable Energy Innovation Network &mdash; is a partnership between PVBLIC Foundation and Fundaci&oacute;n CleantechHUB. Together, they operate as a venture builder for climate solutions, combining institutional access with on-the-ground deployment capacity.</p>
+        <div class="card-grid card-grid-2" style="margin-top:1rem;">
+          <div class="metric-card">
+            <div class="metric-value">3,000+</div>
+            <div class="metric-label">Applications Received</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">222</div>
+            <div class="metric-label">Startups Supported</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">$23M+</div>
+            <div class="metric-label">Capital Raised</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">5</div>
+            <div class="metric-label">Countries Active</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>An Honest Assessment</h3>
+        <p>REIN Hubs has built the operational platform and country presence across five countries. The venture-builder methodology &mdash; sourcing, accelerating, and de-risking early-stage climate ventures &mdash; is proven across 222 companies and $23 million in raised capital.</p>
+        <p>This strategy extends that infrastructure into community energy. The cooperative ownership model and the Energ&iacute;a Coop deployment system are the innovations being brought to Choc&oacute; &mdash; tested in design, now ready for field deployment. The Choc&oacute; pilot is where the model proves itself.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2.5rem;">
+      <h3 style="text-align:center;margin-bottom:.5rem;">Core Partners</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">PF</div>
+          <h4>PVBLIC Foundation</h4>
+          <div class="role">Institutional Strategy</div>
+          <p style="font-size:.85rem;margin-top:.5rem;">SDG financing, UN partnerships, GISD Alliance relationships, blended finance structuring.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">CT</div>
+          <h4>CleantechHUB</h4>
+          <div class="role">Colombia Operations</div>
+          <p style="font-size:.85rem;margin-top:.5rem;">Venture-builder operations, Energ&iacute;a Coop platform, ClimateLaunchpad Colombia, programme design and execution.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">FS</div>
+          <h4>FOSD</h4>
+          <div class="role">Finance Structuring</div>
+          <p style="font-size:.85rem;margin-top:.5rem;">Blended finance vehicle design, CAF and GISD Alliance engagement, investment thesis development.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">SA</div>
+          <h4>Strategic Advisory</h4>
+          <div class="role">GISD Architecture</div>
+          <p style="font-size:.85rem;margin-top:.5rem;">GISD Alliance architecture, UN institutional navigation, investment thesis design.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:2rem;">
+      <h3 style="text-align:center;margin-bottom:.75rem;">UN Coordination</h3>
+      <p style="text-align:center;max-width:640px;margin:0 auto .75rem;">The UN Resident Coordinator&rsquo;s Office (RCO) in Colombia provides coordination across the UN system, bringing PDET programme access, government relationships, and community trust built over decades of territorial work.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:1.5rem;">
+      <h3 style="text-align:center;margin-bottom:.75rem;">Institutional Ecosystem</h3>
+      <div class="partner-row">
+        <span class="partner-tag">🏦 CAF</span>
+        <span class="partner-tag">🏛 Bancolombia (GISD)</span>
+        <span class="partner-tag">⚡ IPSE</span>
+        <span class="partner-tag">🌿 FENOGE</span>
+        <span class="partner-tag">🏭 MinEnerg&iacute;a</span>
+        <span class="partner-tag">🕊 ART (PDET)</span>
+        <span class="partner-tag">🇺🇳 RCO Colombia</span>
+        <span class="partner-tag">🌍 DNP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA ════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" style="color:rgba(255,255,255,.5);">Next Steps</span>
+      <h2>Let&rsquo;s Build This Together</h2>
+      <p>Choc&oacute;&rsquo;s communities do not need another study. They need a deployment mechanism that converts policy commitments into working infrastructure &mdash; owned by the communities themselves, financed by institutional capital, and replicable across every ZNI territory in Colombia. The architecture is ready. The question is who deploys it.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <a href="mailto:[redacted]" class="btn btn-primary">Contact PVBLIC Foundation</a>
+        <a href="mailto:[redacted]" class="btn btn-outline">Contact CleantechHUB</a>
+      </div>
+      <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://energiacoop.cleantechhub.net" target="_blank" rel="noopener" class="btn btn-outline">Explore Energ&iacute;a Coop Platform</a>
+      </div>
+      <div style="margin-top:2.5rem;opacity:.6;font-size:.9rem;">
+        <p style="margin-bottom:.25rem;"><strong>PVBLIC Foundation</strong> &middot; [redacted]</p>
+        <p style="margin-bottom:.25rem;"><strong>Fundaci&oacute;n CleantechHUB</strong> &middot; [redacted]</p>
+        <p><strong>UN Resident Coordinator&rsquo;s Office</strong> &middot; Colombia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <svg viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg" style="height:20px;width:auto;vertical-align:middle;opacity:.6;">
+      <g transform="translate(6,0)">
+        <rect x="20" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+        <rect x="31" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+        <rect x="42" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+        <rect x="53" y="78" width="4.5" height="14" rx="1.5" fill="white"/>
+        <rect x="12" y="48" width="54" height="34" rx="8" fill="none" stroke="white" stroke-width="5.5"/>
+        <path d="M39 56c-3.5 5-7 9-7 12.5a7 7 0 0014 0c0-3.5-3.5-7.5-7-12.5z" fill="#ff6633"/>
+        <rect x="36" y="12" width="6" height="40" rx="3" fill="white"/>
+        <path d="M39 30 C30 24 16 12 10 2 C12 18 24 30 38 34Z" fill="white"/>
+        <path d="M39 30 C48 24 62 12 68 2 C66 18 54 30 40 34Z" fill="white"/>
+        <path d="M44 34 C50 30 56 24 60 16" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="60" cy="15" r="3.5" fill="white"/>
+      </g>
+      <text x="86" y="72" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="900" font-size="62" fill="white" letter-spacing="1">REIN</text>
+      <text x="87" y="88" font-family="'Poppins','Helvetica Neue',sans-serif" font-weight="500" font-size="8.5" fill="white" letter-spacing="2.2" opacity=".7">RESILIENCE ENTREPRENEURSHIP INNOVATION &amp; NATURE</text>
+    </svg> &nbsp;&middot;&nbsp; PVBLIC Foundation &amp; CleantechHUB &middot; 2026 &middot; Confidential
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Active nav link
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(39,71,57,.99)';
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,.15)';
+  } else {
+    nav.style.background = 'rgba(39,71,57,.97)';
+    nav.style.boxShadow = 'none';
+  }
+});
+
+// Close mobile menu on click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
