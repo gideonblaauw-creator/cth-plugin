@@ -78,12 +78,19 @@ def clean_ui_block(block: dict, data: dict, lang: str) -> None:
 
 
 def clean_nexus(data: dict) -> None:
+    repl = (
+        ("customer journey", "customer experience"),
+        ("end-to-end customer experience", "digital customer experience"),
+        ("viaje digital de extremo a extremo", "experiencia digital de extremo a extremo"),
+    )
     for entry in (data.get("nexus") or {}).values():
         for field in ("d", "ds"):
             if not entry.get(field):
                 continue
             entry[field] = re.sub(r";\s*quote does not name [^.]+\.?", "", entry[field], flags=re.I)
             entry[field] = re.sub(r";\s*La cita no nombra [^.]+\.?", "", entry[field], flags=re.I)
+            for old, new in repl:
+                entry[field] = re.sub(re.escape(old), new, entry[field], flags=re.I)
             entry[field] = entry[field].strip().rstrip(";")
 
 
@@ -102,6 +109,15 @@ def process(path: Path) -> None:
                 m["why"] = clean_why(m["why"], "en")
             if m.get("why_es"):
                 m["why_es"] = clean_why(m["why_es"], "es")
+            for field in ("why", "why_es"):
+                if not m.get(field):
+                    continue
+                m[field] = re.sub(
+                    r"\s*(FENOGE is a funder[^.]*\.|not a startup[^.]*\.|no startup stage[^.]*\.)",
+                    "",
+                    m[field],
+                    flags=re.I,
+                ).strip()
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 
 

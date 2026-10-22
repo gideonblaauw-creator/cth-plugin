@@ -6,26 +6,18 @@
       reportVerbatim: "Sustainability report (verbatim, Spanish)",
       translation: "Translation (English)",
       pdfPage: "Open report PDF — page",
-      publicQuote: "Public quote (verbatim, Spanish)",
-      journey: "Journey step",
       matches: "Matches",
-      how: "How this match relates to the gap",
       theme: "Theme",
       visit: "Visit",
-      funder: "Funder",
       gapLabel: "Gap",
     },
     es: {
       reportVerbatim: "Reporte de sostenibilidad (literal, español)",
       translation: "Traducción (inglés)",
       pdfPage: "Abrir PDF del reporte — página",
-      publicQuote: "Cita pública (literal, español)",
-      journey: "Paso del journey",
       matches: "Coincidencias",
-      how: "Cómo se relaciona con la brecha",
       theme: "Tema",
       visit: "Visitar",
-      funder: "Financiador",
       gapLabel: "Brecha",
     },
   };
@@ -109,7 +101,7 @@
       <div class="cd">${esc(desc)}</div>
       <div class="cbot">
       ${theme ? `<span class="chip">${t("theme")}: ${theme}</span>` : ""}
-      ${m.funder ? `<span class="chip funder">${t("funder")}</span>` : `<span class="chip stage">${esc(m.stage || "")}</span>`}
+      ${!m.funder && m.stage ? `<span class="chip stage">${esc(m.stage)}</span>` : ""}
       <span class="chip gap">${t("gapLabel")} ${gapRank}</span>
       ${nx.p ? `<span class="chip">${esc(nx.p)}</span>` : ""}
       <a class="chip" href="${esc(m.website)}" target="_blank" rel="noopener">${t("visit")}</a>
