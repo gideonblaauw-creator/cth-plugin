@@ -1,0 +1,47 @@
+# dataroom.cleantechhub.net — NCUK REIN Hubs data room (Docmost upstream on 127.0.0.1:3076).
+# Google SSO via oauth2-proxy (shared login, Gideon GO 22 Oct 2026).
+# Branding: host-level shell + /icons/* + /rein-debrand.js (see docs/infra/dataroom-branding/).
+# Rollback: restore /root/dataroom.cleantechhub.net.caddy.bak-oauth-<ts>, caddy validate, systemctl reload caddy.
+
+dataroom.cleantechhub.net {
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	route {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Auth-Request-Email
+			@unauth status 401
+			handle_response @unauth {
+				redir * https://auth.cleantechhub.net/oauth2/start?rd={scheme}://{host}{uri} 302
+			}
+		}
+
+		redir /ncuk / 302
+		redir /ncuk/ / 302
+
+		handle /rein-debrand.js {
+			root * /opt/cth-dataroom-branding
+			file_server
+		}
+
+		handle_path /icons/* {
+			root * /opt/cth-dataroom-branding/icons
+			file_server
+		}
+
+		@spa_shell path / /login
+		handle @spa_shell {
+			root * /opt/cth-dataroom-branding/www
+			rewrite * /index.html
+			file_server
+		}
+
+		reverse_proxy 127.0.0.1:3076 {
+			header_up -Authorization
+		}
+	}
+}
