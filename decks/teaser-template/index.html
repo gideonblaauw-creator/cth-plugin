@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gap snapshot · CleantechHUB</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=PT+Sans:wght@400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%230C498A%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22%239DC384%22/%3E%3C/svg%3E">
+<style>
+:root{--blue:#0C498A;--cyan:#B2EEFA;--lgreen:#9DC384;--green:#669348;--sky:#69B5FA;--white:#fff;--page-bg:#EEF6FF;--text:#0C498A;--border:#D1E3F8;--font:'Open Sans','PT Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;font-weight:400}
+html{scroll-behavior:smooth;scroll-padding-top:118px}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--white);line-height:1.55}
+a{color:var(--blue)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4,p,li,span,button,a{font-weight:400}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(1.55rem,3vw,2.25rem)}
+h3{font-size:1.05rem;margin-top:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.sec{padding:72px 0}
+.sec.light{background:var(--cyan)}
+.sec.page{background:var(--page-bg)}
+.intro{font-size:1.05rem;max-width:820px;margin:0 0 24px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--cyan);margin:0 0 12px}
+.eyebrow.dark{color:var(--green)}
+.draft-bar{position:sticky;top:0;z-index:60;background:var(--green);color:var(--white);text-align:center;padding:8px 16px;font-size:.88rem}
+.topbar{position:sticky;top:36px;z-index:50;display:flex;align-items:center;gap:16px;padding:10px 22px;background:var(--white);border-bottom:3px solid var(--cyan);flex-wrap:wrap}
+.brand svg{height:32px;width:auto}
+.nav{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
+.nav a{text-decoration:none;font-size:.88rem;padding:4px 0;border-bottom:2px solid transparent;color:var(--blue)}
+.nav a:hover{border-color:var(--green)}
+.lang{display:flex;border:2px solid var(--blue);border-radius:30px;overflow:hidden;margin-left:auto}
+.lang button{border:0;background:var(--white);color:var(--blue);font:400 .85rem var(--font);padding:6px 12px;cursor:pointer}
+.lang button.on{background:var(--blue);color:var(--white)}
+.hero{position:relative;background:var(--blue);color:var(--white);overflow:hidden}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:72px 22px 64px}
+.hero h1{font-size:clamp(1.85rem,4.5vw,3.2rem);max-width:920px;color:var(--white)}
+.hero .lead{font-size:clamp(1rem,1.5vw,1.15rem);max-width:820px;color:var(--white)}
+.hero-block{position:absolute;right:-230px;top:-90px;width:520px;height:520px;background:var(--green);transform:rotate(18deg);opacity:.9;z-index:1;border-radius:40px}
+.hero-block::after{content:"";position:absolute;left:-140px;bottom:-60px;width:300px;height:300px;background:var(--sky);border-radius:30px}
+.meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:22px 0}
+.meta-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px 18px}
+.meta-card .lbl{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);margin-bottom:6px}
+.box{background:var(--white);color:var(--blue);border-radius:16px;padding:22px 24px;border-left:8px solid var(--lgreen);margin:18px 0}
+.box.sky{border-left-color:var(--sky)}
+.box.blue{border-left-color:var(--blue)}
+.gap-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-bottom:18px}
+.badge{display:inline-block;font-size:.78rem;padding:6px 12px;border-radius:20px;background:var(--blue);color:var(--white)}
+.badge.warn{background:var(--sky);color:var(--blue)}
+.badge.ok{background:var(--lgreen);color:var(--blue)}
+.quote-box{background:var(--white);border-radius:16px;padding:24px;margin:16px 0;color:var(--blue);border-top:8px solid var(--green)}
+.quote-box p{margin:0 0 10px;font-size:1.02rem}
+.quote-box p:last-child{margin-bottom:0}
+.quote-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--green);margin:0 0 8px}
+.verbatim{font-style:normal}
+.pdf-link{font-size:.88rem;margin-top:8px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:20px 0}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:11px;padding:13px;display:flex;flex-direction:column;gap:8px;position:relative}
+.card .cb{position:absolute;top:0;left:0;right:0;height:3px;background:var(--lgreen)}
+.card .ct{display:flex;gap:10px;margin-top:5px}
+.card .thumb{width:40px;height:40px;border-radius:8px;border:1px solid var(--border);object-fit:contain;background:var(--page-bg)}
+.card .cn{font-size:.95rem;flex:1}
+.card .cd{font-size:.88rem;line-height:1.45;opacity:.92}
+.card .cbot{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.chip{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.72rem;background:var(--cyan);color:var(--blue);text-decoration:none}
+.chip.stage{background:var(--page-bg);border:1px solid var(--border)}
+.chip.gap{background:var(--blue);color:var(--white)}
+.match-detail{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:18px 20px;margin:14px 0}
+.match-detail h4{margin:0 0 8px}
+.match-detail .why{margin:0 0 12px;font-size:.92rem}
+.match-detail .src{font-size:.78rem;color:var(--green)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+.team-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.team-card img{width:100%;height:min(420px,52vw);min-height:280px;object-fit:cover;object-position:top center;border-radius:12px}
+.team-card .kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin:0}
+.cta-sec{background:var(--blue);color:var(--white);text-align:center}
+.cta-sec h2{color:var(--white)}
+.cta-sec p{max-width:640px;margin:0 auto 24px;color:var(--cyan)}
+.btn-book{display:inline-block;text-decoration:none;background:var(--lgreen);color:var(--blue);padding:14px 28px;border-radius:40px;font-size:1rem}
+.foot{background:var(--blue);color:var(--white);padding:48px 0 56px}
+.foot p{margin:.4em 0;color:var(--cyan);font-size:.95rem}
+.l-es{display:none}
+html[lang="es"] .l-en{display:none}
+html[lang="es"] .l-es{display:block}
+@media(max-width:760px){.nav{width:100%;order:3;margin-left:0}}
+</style>
+</head>
+<body>
+
+<p class="draft-bar l-en" role="status">DRAFT · GTM hypothesis · not a CSO delivery</p>
+<p class="draft-bar l-es" role="status">BORRADOR · hipótesis GTM · no es una entrega CSO</p>
+
+<header class="topbar">
+  <a href="#hero" class="brand" aria-label="CleantechHUB">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" aria-hidden="true">
+      <text x="0" y="34" font-family="Open Sans, PT Sans, sans-serif" font-size="28" fill="#0C498A">Cleantech</text>
+      <text x="138" y="34" font-family="Open Sans, PT Sans, sans-serif" font-size="28" fill="#9DC384">HUB</text>
+    </svg>
+  </a>
+  <nav class="nav" id="nav-gaps" aria-label="Sections"></nav>
+  <nav class="nav" aria-label="More">
+    <a href="#snapshot" data-i18n="nav.snapshot"></a>
+    <a href="#team" data-i18n="nav.team"></a>
+    <a href="#cta" data-i18n="nav.cta"></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" class="on">EN</button>
+    <button type="button" data-lang="es">ES</button>
+  </div>
+</header>
+
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+    <h1 data-i18n="hero.title"></h1>
+    <p class="lead" data-i18n="hero.lead"></p>
+    <div class="meta-grid">
+      <div class="meta-card"><span class="lbl" data-i18n="hero.companyLbl"></span><span data-i18n="hero.company"></span></div>
+      <div class="meta-card"><span class="lbl" data-i18n="hero.scopeLbl"></span><span data-i18n="hero.scope"></span></div>
+      <div class="meta-card"><span class="lbl" data-i18n="hero.reportLbl"></span><span data-i18n="hero.report"></span></div>
+    </div>
+  </div>
+  <div class="hero-block" aria-hidden="true"></div>
+</section>
+
+<section id="snapshot" class="sec light">
+  <div class="wrap">
+    <p class="eyebrow dark" data-i18n="snap.eyebrow"></p>
+    <h2 data-i18n="snap.title"></h2>
+    <div id="snapshot-report-quote"></div>
+    <div class="box"><p data-i18n="snap.bvc"></p><p data-i18n="snap.themeNote"></p></div>
+    <div class="box sky"><p data-i18n="snap.shortfall"></p></div>
+  </div>
+</section>
+
+<div id="gaps-root"></div>
+
+<section id="team" class="sec">
+  <div class="wrap">
+    <p class="eyebrow dark" data-i18n="team.eyebrow"></p>
+    <h2 data-i18n="team.title"></h2>
+    <p class="intro" data-i18n="team.intro"></p>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+</section>
+
+<section id="cta" class="sec cta-sec">
+  <div class="wrap">
+    <h2 data-i18n="cta.title"></h2>
+    <p data-i18n="cta.body"></p>
+    <a class="btn-book" id="cta-btn" href="#" rel="noopener" target="_blank" data-i18n="cta.btn"></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" aria-hidden="true" style="margin-bottom:16px">
+      <text x="0" y="34" font-family="Open Sans, PT Sans, sans-serif" font-size="28" fill="#FFFFFF">Cleantech</text>
+      <text x="138" y="34" font-family="Open Sans, PT Sans, sans-serif" font-size="28" fill="#9DC384">HUB</text>
+    </svg>
+    <p>Inspira. Actúa. Transforma.</p>
+    <p data-i18n="foot.line"></p>
+    <p><a href="https://cleantechhub.net" style="color:var(--cyan)">cleantechhub.net</a></p>
+  </div>
+</footer>
+
+<script src="render.js"></script>
+</body>
+</html>
