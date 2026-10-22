@@ -1,6 +1,6 @@
 # CleantechHUB gap teaser template
 
-Reusable scroll teaser (CLP26-style) for Datalab GTM gap snapshots. Each company lives in its own folder under `decks/{company}-teaser/`.
+Reusable scroll teaser (CLP26-style) for Datalab GTM gap snapshots. Each company lives in its own folder under `decks/{company}-teaser/` in this repo and is served at **`https://proposals.cleantechhub.net/{company}-teaser/`** (not `decks.cleantechhub.net`).
 
 ## Folder layout (per company)
 
@@ -22,7 +22,7 @@ decks/{company}-teaser/
    ./sync-shell.sh ../{company}-teaser
    ```
 3. Copy `decks/celsia-teaser/data.json` as a schema reference, then replace content from the MD/JSON sources only (no invented numbers).
-4. Fill **`report_evidence`** on the snapshot and on **each gap**:
+4. Fill **`report_evidence`** on **each gap** (gap sections show verbatim report quotes; the snapshot / transparency frame does not):
 
    | Field | Source |
    |-------|--------|
@@ -35,8 +35,9 @@ decks/{company}-teaser/
 
 5. **Matches:** copy `why`, `public_quote`, `public_source_url`, stage, and website from `{company}-teaser.json`. Add **`nexus`** entries (short EN/ES descriptions + theme `CE`/`BIO`/`EN`) from Nexus startup portfolio public data.
 6. **`ui`:** bilingual strings for hero, snapshot, nav, team, CTA, footer (see Celsia instance).
-7. **Team:** reuse `team` block and photos from Air4U proposal (`decks.cleantechhub.net/air4u-sandbox-proposal-v5/`, `art/*.jpg`) unless the ticket says otherwise.
+7. **Team:** reuse `team` block and photos from Air4U proposal (`https://proposals.cleantechhub.net/air4u-sandbox-proposal-v5/`, `art/*.jpg`) unless the ticket says otherwise.
 8. **CTA:** set `cta.url` (Google Calendar or other public link).
+9. **Canonical:** `render.js` sets `<link rel="canonical">` to `https://proposals.cleantechhub.net/{slug}/` from `meta.slug` in `data.json`.
 
 ## Preview locally
 
@@ -57,10 +58,14 @@ python3 -m json.tool decks/{company}-teaser/data.json > /dev/null
 
 ## Brand / policy
 
-- Sticky **DRAFT · GTM hypothesis · not a CSO delivery** bar and `noindex,nofollow`.
+- `noindex,nofollow` on every teaser (no green DRAFT top bar; draft status is in hero copy only).
 - Manual de Marca palette; regular font weight only.
-- CleantechHUB wordmark is inline SVG in `index.html` (no published official SVG on cleantechhub.net; live decks use PNG).
+- CleantechHUB wordmark is inline SVG in `index.html` (no published official SVG on cleantechhub.net; live pages on proposals.cleantechhub.net use PNG).
+
+## Hosting
+
+Deploy each built folder to the proposals site root, e.g. `https://proposals.cleantechhub.net/celsia-teaser/`. Keep repo paths as `decks/{company}-teaser/`; only the public URL uses the proposals domain.
 
 ## First instance
 
-`decks/celsia-teaser/` — Celsia S.A., Wave 1 CSO persona.
+`decks/celsia-teaser/` — Celsia S.A., Wave 1 CSO persona. Public URL: `https://proposals.cleantechhub.net/celsia-teaser/`.

@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "slug": "terpel-teaser",
+    "company_key": "terpel",
+    "title": {
+      "en": "Terpel · gap snapshot · CleantechHUB",
+      "es": "Terpel · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/terpel-teaser/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+    "listing_url": "https://www.terpel.com/en/who-we-are/sustainability/sustainability-reports",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Terpel · gap snapshot",
+      "hero.title": "Terpel · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Organización Terpel S.A., Colombia. Fuels and convenience retail. Wave 1 rank 13. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "[https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf](https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf). PDF page 3. Accessed 2026-10-22. > En la Organización Terpel, tenemos el compromiso de actuar con transparencia de cara a todos nuestros grupos de interés y rendir cuentas sobre los avances, desafíos y logros de nuestra Organización. Environment, climate and nature only. Social and governance topics in the same report are out of scope. Full quotes for every match are in `terpel-teaser.json`. Every match is a theme match. None names Terpel. ## 1. Carbon neutrality path depends on scopes 1 and 2 measurement Terpel targets 50% carbon neutrality by 2030 and full neutrality by 2050 for scopes 1 and 2 from a 2021 baseline, with ongoing GHG measurement. > En el marco de esta meta llevamos la medición de los gases de efecto invernadero (GEI) de los alcances 1, 2 y 3. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 3. Shortfall: false. ## 2. 50% carbon neutrality milestone by 2030 Terpel committed to reach 50% of its carbon neutrality goal by 2030 through GHG cuts and renewable energy. > Nos hemos propuesto lograr el 50% de esta meta para 2030, implementando acciones concretas como la reducción de emisiones de gases de efecto invernadero (GEI) en nuestras operaciones y la transición hacia fuentes de energía renovable, incluyendo sistemas | Match | Stage | Link | | --- | --- | --- | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: challenge. Matches: 2. Shortfall: false. ## 3. Aspiration to eliminate plastic in Altoque food packaging by 2030 Terpel aspires to eliminate plastic in Altoque food packaging by 2030 with innovative eco-friendly alternatives. > Además, para el año 2030, nuestra aspiración es eliminar completamente el uso de plástico en estos empaques, adoptando soluciones innovadoras y eco amigables que marquen la pauta en la industria de las tiendas de conveniencia | Match | Stage | Link | | --- | --- | --- | | Compostpack | Seed | [https://compostpack.com](https://compostpack.com) | | Xiclo | Seed | [https://xiclo.app](https://xiclo.app) | | Wero | Seed | [https://wero.com.co](https://wero.com.co) | Journey step: challenge. Matches: 3. Shortfall: false. ## 4. Scope 3 consolidation and recalculation still evolving Terpel recalculated its carbon footprint and flagged scope 3 consolidation improvements, including affiliated service stations. > Identificamos oportunidades de mejora en la consolidación de las emisiones en el alcance 3. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 2. Shortfall: false. ## 5. Biodiversity impacts from spills and habitat disturbance Terpel analyzes biodiversity risks from spills and operations that can harm soils, water bodies and habitats. > En Terpel, comprendemos la relevancia de gestionar los impactos sobre la biodiversidad que puedan surgir de nuestras actividades. | Match | Stage | Link | | --- | --- | --- | | BioAmbientar | Seed | [https://bioambientar.com](https://bioambientar.com) | | Ciclorgánicos | Seed | [https://ciclorganicos.com](https://ciclorganicos.com) | Journey step: challenge. Matches: 2. Shortfall: false.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 3)",
+      "snap.bvc": "BVC: Terpel is listed on the Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Terpel gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Terpel · panorama de brechas",
+      "hero.title": "Terpel · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Organización Terpel S.A., Colombia. Fuels and convenience retail. Wave 1 rank 13. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Temas sociales y de gobernanza quedan fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "[https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf](https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf). PDF page 3. Accessed 2026-10-22. > En la Organización Terpel, tenemos el compromiso de actuar con transparencia de cara a todos nuestros grupos de interés y rendir cuentas sobre los avances, desafíos y logros de nuestra Organización. Environment, climate and nature only. Social and governance topics in the same report are out of scope. Full quotes for every match are in `terpel-teaser.json`. Every match is a theme match. None names Terpel. ## 1. Carbon neutrality path depends on scopes 1 and 2 measurement Terpel targets 50% carbon neutrality by 2030 and full neutrality by 2050 for scopes 1 and 2 from a 2021 baseline, with ongoing GHG measurement. > En el marco de esta meta llevamos la medición de los gases de efecto invernadero (GEI) de los alcances 1, 2 y 3. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 3. Shortfall: false. ## 2. 50% carbon neutrality milestone by 2030 Terpel committed to reach 50% of its carbon neutrality goal by 2030 through GHG cuts and renewable energy. > Nos hemos propuesto lograr el 50% de esta meta para 2030, implementando acciones concretas como la reducción de emisiones de gases de efecto invernadero (GEI) en nuestras operaciones y la transición hacia fuentes de energía renovable, incluyendo sistemas | Match | Stage | Link | | --- | --- | --- | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: challenge. Matches: 2. Shortfall: false. ## 3. Aspiration to eliminate plastic in Altoque food packaging by 2030 Terpel aspires to eliminate plastic in Altoque food packaging by 2030 with innovative eco-friendly alternatives. > Además, para el año 2030, nuestra aspiración es eliminar completamente el uso de plástico en estos empaques, adoptando soluciones innovadoras y eco amigables que marquen la pauta en la industria de las tiendas de conveniencia | Match | Stage | Link | | --- | --- | --- | | Compostpack | Seed | [https://compostpack.com](https://compostpack.com) | | Xiclo | Seed | [https://xiclo.app](https://xiclo.app) | | Wero | Seed | [https://wero.com.co](https://wero.com.co) | Journey step: challenge. Matches: 3. Shortfall: false. ## 4. Scope 3 consolidation and recalculation still evolving Terpel recalculated its carbon footprint and flagged scope 3 consolidation improvements, including affiliated service stations. > Identificamos oportunidades de mejora en la consolidación de las emisiones en el alcance 3. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 2. Shortfall: false. ## 5. Biodiversity impacts from spills and habitat disturbance Terpel analyzes biodiversity risks from spills and operations that can harm soils, water bodies and habitats. > En Terpel, comprendemos la relevancia de gestionar los impactos sobre la biodiversidad que puedan surgir de nuestras actividades. | Match | Stage | Link | | --- | --- | --- | | BioAmbientar | Seed | [https://bioambientar.com](https://bioambientar.com) | | Ciclorgánicos | Seed | [https://ciclorganicos.com](https://ciclorganicos.com) | Journey step: challenge. Matches: 2. Shortfall: false.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 3)",
+      "snap.bvc": "",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Terpel gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "En la Organización Terpel, tenemos el compromiso de actuar con transparencia de cara a todos nuestros grupos de interés y rendir cuentas sobre los avances, desafíos y logros de nuestra Organización.",
+      "quote_en": "",
+      "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+      "page": 3
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 11. Contact details omitted.",
+    "es": "Conteo de coincidencias: 11."
+  },
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "sinCarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Compostpack": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Manufactures certified compostable bioplastic packaging that decomposes without microplastics, offering a circular packaging alternative for the Colombian food and retail industry.",
+      "ds": "Fabrica empaques bioplásticos compostables certificados que se descomponen sin microplásticos, ofreciendo una alternativa circular de embalaje para la industria colombiana."
+    },
+    "Xiclo": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Replaces single-use packaging with a reusable container ecosystem for restaurants and events, tracked via app and collected for washing and reuse over 1,000 cycles.",
+      "ds": "Reemplaza los empaques desechables con un ecosistema de envases reutilizables para restaurantes y eventos, rastreados por app y recolectados para lavado y reutilización más de 1.000 veces."
+    },
+    "Wero": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Creates end-to-end industrial and post-consumer waste utilization chains, integrating vulnerable communities as suppliers and partnering with Coca-Cola FEMSA and Tetra Pak.",
+      "ds": "Crea cadenas de valorización de residuos industriales y post-consumo, integrando comunidades vulnerables como proveedoras y aliándose con Coca-Cola FEMSA y Tetra Pak."
+    },
+    "BioAmbientar": {
+      "p": "CLP",
+      "t": "CE",
+      "d": "Accelerates organic waste composting from six months to ten days using plant extracts, selling home composting kits and training rural women through community programs.",
+      "ds": "Acelera el compostaje de residuos orgánicos de seis meses a diez días mediante extractos vegetales, vendiendo kits de compostaje y formando a mujeres rurales en programas comunitarios."
+    },
+    "Ciclorgánicos": {
+      "p": "CLAC22",
+      "t": "BIO",
+      "d": "Collects 200 tonnes of organic residues monthly from food industry, composting them into certified biofertilizers with traceable waste reduction data.",
+      "ds": "Recolecta 200 toneladas mensuales de residuos orgánicos de la industria alimentaria y los compostan en biofertilizantes certificados con datos trazables de reducción de residuos."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "1. Carbon neutrality path depends on scopes 1 and 2 measurement",
+        "es": "1. Carbon neutrality path depends on scopes 1 and 2 measurement"
+      },
+      "context": {
+        "en": "PDF page 121. Terpel targets 50% carbon neutrality by 2030 and full neutrality by 2050 for scopes 1 and 2 from a 2021 baseline, with ongoing GHG measurement.",
+        "es": "PDF página 121. Terpel targets 50% carbon neutrality by 2030 and full neutrality by 2050 for scopes 1 and 2 from a 2021 baseline, with ongoing GHG measurement."
+      },
+      "report_evidence": {
+        "quote_es": "En el marco de esta meta llevamos la medición de los gases de efecto invernadero (GEI) en nuestros alcances 1, 2 y 3 que nos permiten monitorear",
+        "quote_en": "",
+        "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+        "page": 121
+      },
+      "matches": [
+        {
+          "match_id": "terpel-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox covers scopes 1, 2 and 3 with auditable methodology.",
+          "why_es": "CarbonBox covers scopes 1, 2 and 3 with auditable methodology.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g1-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono delivers GHG Protocol inventories for reporting.",
+          "why_es": "sinCarbono delivers GHG Protocol inventories for reporting.",
+          "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "2. 50% carbon neutrality milestone by 2030",
+        "es": "2. 50% carbon neutrality milestone by 2030"
+      },
+      "context": {
+        "en": "PDF page 95. Terpel committed to reach 50% of its carbon neutrality goal by 2030 through GHG cuts and renewable energy.",
+        "es": "PDF página 95. Terpel committed to reach 50% of its carbon neutrality goal by 2030 through GHG cuts and renewable energy."
+      },
+      "report_evidence": {
+        "quote_es": "Nos hemos propuesto lograr el 50% de esta meta para 2030, implementando acciones concretas como la reducción de emisiones de gases de efecto invernadero (GEI) en nuestras operaciones y la transición hacia fuentes de energía renovable, incluyendo sistemas",
+        "quote_en": "",
+        "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+        "page": 95
+      },
+      "matches": [
+        {
+          "match_id": "terpel-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "C-neutral builds reduction and neutrality plans after quantification.",
+          "why_es": "C-neutral builds reduction and neutrality plans after quantification.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g2-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono defines measurable reduction actions after diagnosis.",
+          "why_es": "sinCarbono defines measurable reduction actions after diagnosis.",
+          "public_quote": "Definimos tus objetivos claros y medibles para que pongas en marcha acciones reales de eficiencia y circularidad.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "3. Aspiration to eliminate plastic in Altoque food packaging by 2030",
+        "es": "3. Aspiration to eliminate plastic in Altoque food packaging by 2030"
+      },
+      "context": {
+        "en": "PDF page 129. Terpel aspires to eliminate plastic in Altoque food packaging by 2030 with innovative eco-friendly alternatives.",
+        "es": "PDF página 129. Terpel aspires to eliminate plastic in Altoque food packaging by 2030 with innovative eco-friendly alternatives."
+      },
+      "report_evidence": {
+        "quote_es": "Además, para el año 2030, nuestra aspiración es eliminar completamente el uso de plástico en estos",
+        "quote_en": "",
+        "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+        "page": 129
+      },
+      "matches": [
+        {
+          "match_id": "terpel-g3-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Compostpack supplies compostable bioplastics for food packaging.",
+          "why_es": "Compostpack supplies compostable bioplastics for food packaging.",
+          "public_quote": "Somos especialistas en el desarrollo y comercialización de bioplásticos compostables.",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g3-xiclo",
+          "name": "Xiclo",
+          "stage": "Seed",
+          "website": "https://xiclo.app",
+          "why": "Xiclo implements reusable packaging systems with measurable waste cuts.",
+          "why_es": "Xiclo implements reusable packaging systems with measurable waste cuts.",
+          "public_quote": "Activa la reutilización con resultados e impacto medibles, sin desarrollos ni consultorías.",
+          "public_source_url": "https://xiclo.app",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g3-wero",
+          "name": "Wero",
+          "stage": "Seed",
+          "website": "https://wero.com.co",
+          "why": "Wero designs circular logistics and post-consumer recovery programs.",
+          "why_es": "Wero designs circular logistics and post-consumer recovery programs.",
+          "public_quote": "Impulsamos la transición hacia modelos regenerativos,circulares e inclusivos en LATAM.",
+          "public_source_url": "https://wero.com.co",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "4. Scope 3 consolidation and recalculation still evolving",
+        "es": "4. Scope 3 consolidation and recalculation still evolving"
+      },
+      "context": {
+        "en": "PDF page 329. Terpel recalculated its carbon footprint and flagged scope 3 consolidation improvements, including affiliated service stations.",
+        "es": "PDF página 329. Terpel recalculated its carbon footprint and flagged scope 3 consolidation improvements, including affiliated service stations."
+      },
+      "report_evidence": {
+        "quote_es": "Identificamos oportunidades de mejora en la consolidación de las emisiones en el alcance 3.",
+        "quote_en": "",
+        "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+        "page": 329
+      },
+      "matches": [
+        {
+          "match_id": "terpel-g4-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox consolidates scope 3 with traceability for value chains.",
+          "why_es": "CarbonBox consolidates scope 3 with traceability for value chains.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g4-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono notes most footprint often sits in scope 3 across value chains.",
+          "why_es": "sinCarbono notes most footprint often sits in scope 3 across value chains.",
+          "public_quote": "De acuerdo con el Foro Económico Mundial, aproximadamente el​ 80 Proviene de la cadena de valor.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "5. Biodiversity impacts from spills and habitat disturbance",
+        "es": "5. Biodiversity impacts from spills and habitat disturbance"
+      },
+      "context": {
+        "en": "PDF page 132. Terpel analyzes biodiversity risks from spills and operations that can harm soils, water bodies and habitats.",
+        "es": "PDF página 132. Terpel analyzes biodiversity risks from spills and operations that can harm soils, water bodies and habitats."
+      },
+      "report_evidence": {
+        "quote_es": "En Terpel, comprendemos la relevancia de gestionar los impactos sobre la biodiversidad que puedan surgir de nuestras actividades.",
+        "quote_en": "",
+        "pdf_url": "https://www.terpel.com/var/site/storage/original/application/5dbb9c09fcd46cc179b7caa3e7eb9e63.pdf",
+        "page": 132
+      },
+      "matches": [
+        {
+          "match_id": "terpel-g5-bioambientar",
+          "name": "BioAmbientar",
+          "stage": "Seed",
+          "website": "https://bioambientar.com",
+          "why": "BioAmbientar regenerates soils affected by organic waste streams.",
+          "why_es": "BioAmbientar regenerates soils affected by organic waste streams.",
+          "public_quote": "Transformamos residuos orgánicos en compost de alta calidad mediante un proceso avanzado biotecnológico.",
+          "public_source_url": "https://bioambientar.com",
+          "funder": false
+        },
+        {
+          "match_id": "terpel-g5-ciclorganicos",
+          "name": "Ciclorgánicos",
+          "stage": "Seed",
+          "website": "https://ciclorganicos.com",
+          "why": "Ciclorgánicos closes the loop on organic waste with composting and certificates.",
+          "why_es": "Ciclorgánicos closes the loop on organic waste with composting and certificates.",
+          "public_quote": "Sus residuos orgánicos, fuera de su negocio y de vuelta al suelo.",
+          "public_source_url": "https://ciclorganicos.com",
+          "funder": false
+        }
+      ]
+    }
+  ]
+}

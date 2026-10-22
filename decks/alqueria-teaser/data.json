@@ -1,0 +1,438 @@
+{
+  "meta": {
+    "slug": "alqueria-teaser",
+    "company_key": "alqueria",
+    "title": {
+      "en": "Alquería · gap snapshot · CleantechHUB",
+      "es": "Alquería · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/alqueria-teaser/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+    "listing_url": "https://www.alqueria.com.co/sostenibilidad/informes-de-sostenibilidad",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Alquería · gap snapshot",
+      "hero.title": "Alquería · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Productos Naturales de la Sabana S.A.S. BIC, Colombia. Food and dairy. Wave 1 rank 14. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf\">PDF</a>) linked from <a href=\"https://www.alqueria.com.co/sostenibilidad/informes-de-sostenibilidad\">www.alqueria.com.co</a> PDF page 5. Accessed 2026-10-22.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 5)",
+      "snap.bvc": "",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Alquería gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Alquería · panorama de brechas",
+      "hero.title": "Alquería · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Productos Naturales de la Sabana S.A.S. BIC, Colombia. Comida y lácteos. Ola 1 rango 14. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf\">PDF</a>) enlazado desde <a href=\"https://www.alqueria.com.co/sostenibilidad/informes-de-sostenibilidad\">www.alqueria.com.co</a> PDF página 5. Consultado 2026-10-22.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 5)",
+      "snap.bvc": "",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Alquería Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Este informe está elaborado conforme a los estándares del Global Reporting Initiative (GRI) y presenta nuestra gestión económica, social y ambiental entre el 1 de enero y el 31 de diciembre de 2024, además destaca los avances, aprendizajes y retos que en ese sentido asumimos a lo largo del año.",
+      "quote_en": "This report is prepared in accordance with the standards of the Global Reporting Initiative (GRI) and presents our economic, social and environmental management between January 1 and December 31, 2024, in addition to highlighting the progress, learning and challenges that we assumed throughout the year.",
+      "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+      "page": 5
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 11. Contact details omitted.",
+    "es": "Número de coincidencias"
+  },
+  "nexus": {
+    "Compostpack": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Manufactures certified compostable bioplastic packaging that decomposes without microplastics, offering a circular packaging alternative for the Colombian food and retail industry.",
+      "ds": "Fabrica empaques bioplásticos compostables certificados que se descomponen sin microplásticos, ofreciendo una alternativa circular de embalaje para la industria colombiana."
+    },
+    "Xiclo": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Replaces single-use packaging with a reusable container ecosystem for restaurants and events, tracked via app and collected for washing and reuse over 1,000 cycles.",
+      "ds": "Reemplaza los empaques desechables con un ecosistema de envases reutilizables para restaurantes y eventos, rastreados por app y recolectados para lavado y reutilización más de 1.000 veces."
+    },
+    "Galaxy Pack": {
+      "p": "CLAC25",
+      "t": "CE",
+      "d": "Designs and manufactures reusable pallet covers replacing single-use stretch plastic wrap, eliminating industrial packaging waste for logistics clients across the Americas.",
+      "ds": "Diseña y fabrica cobertores de palés reutilizables que reemplazan el plástico stretch desechable, eliminando residuos de embalaje industrial para clientes logísticos en las Américas."
+    },
+    "Fluvia": {
+      "p": "CLAC23",
+      "t": "BIO",
+      "d": "Uses fluorescent tracer technology and a proprietary app to provide real-time hydrological data — flow rates and velocities — for water resource management.",
+      "ds": "Usa tecnología de trazadores fluorescentes y una app propia para proporcionar datos hidrológicos en tiempo real — caudales y velocidades — para la gestión de recursos hídricos."
+    },
+    "BioAmbientar": {
+      "p": "CLP",
+      "t": "CE",
+      "d": "Accelerates organic waste composting from six months to ten days using plant extracts, selling home composting kits and training rural women through community programs.",
+      "ds": "Acelera el compostaje de residuos orgánicos de seis meses a diez días mediante extractos vegetales, vendiendo kits de compostaje y formando a mujeres rurales en programas comunitarios."
+    },
+    "Novatio": {
+      "p": "CLAC23",
+      "t": "EN",
+      "d": "Social enterprise designing and building biodigesters for rural farming families, converting organic waste into biogas energy and biofertilizer while displacing wood fuel.",
+      "ds": "Empresa social que diseña y construye biodigestores para familias campesinas, convirtiendo residuos orgánicos en energía de biogás y biofertilizante, desplazando el uso de leña."
+    },
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "Wero": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Creates end-to-end industrial and post-consumer waste utilization chains, integrating vulnerable communities as suppliers and partnering with Coca-Cola FEMSA and Tetra Pak.",
+      "ds": "Crea cadenas de valorización de residuos industriales y post-consumo, integrando comunidades vulnerables como proveedoras y aliándose con Coca-Cola FEMSA y Tetra Pak."
+    },
+    "sinCarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "1. Virgin plastic use only down 13% versus circular goals",
+        "es": "1. El uso de plástico virgen solo bajó un 13% en comparación con los objetivos circulares"
+      },
+      "context": {
+        "en": "PDF page 27. Alquería reported 13% reduction in virgin plastic use while pursuing ecodesign and collection targets.",
+        "es": "PDF página 27. Alquería informó una reducción del 13% en el uso de plástico virgen mientras perseguía los objetivos de ecodiseño y recolección."
+      },
+      "report_evidence": {
+        "quote_es": "13% de reducción de uso plástico virgen.",
+        "quote_en": "13% reduction in virgin plastic use.",
+        "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+        "page": 27
+      },
+      "matches": [
+        {
+          "match_id": "alqueria-g1-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Compostpack replaces conventional plastic with compostable bioplastics.",
+          "why_es": "Compostpack sustituye el plástico convencional por bioplásticos compostables.",
+          "public_quote": "Somos especialistas en el desarrollo y comercialización de bioplásticos compostables.",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g1-xiclo",
+          "name": "Xiclo",
+          "stage": "Seed",
+          "website": "https://xiclo.app",
+          "why": "Xiclo cuts single-use packaging through reuse systems.",
+          "why_es": "Xiclo corta envases de un solo uso mediante sistemas de reutilización.",
+          "public_quote": "Activa la reutilización con resultados e impacto medibles, sin desarrollos ni consultorías.",
+          "public_source_url": "https://xiclo.app",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g1-galaxy",
+          "name": "Galaxy Pack",
+          "stage": "Seed",
+          "website": "https://galaxypack.co",
+          "why": "Galaxy Pack designs sustainable packaging.",
+          "why_es": "Galaxy Pack diseña envases sostenibles.",
+          "public_quote": "Creamos soluciones de embalaje de pallets que son reutilizables y amigables con el medio ambiente, reemplazando los plásticos de un solo uso como el plástico stretch o vinipel.",
+          "public_source_url": "https://galaxypack.co",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "2. Páramo dairy suppliers still short of full water-source protection",
+        "es": "2. Los proveedores de lácteos de Páramo aún carecen de una protección total de las fuentes de agua"
+      },
+      "context": {
+        "en": "PDF page 34. In páramo zones Alquería reached 75% protection of water springs and 75% of riparian buffers among direct suppliers.",
+        "es": "PDF página 34. En las zonas de páramo, Alquería alcanzó el 75% de protección de manantiales de agua y el 75% de amortiguadores ribereños entre los proveedores directos."
+      },
+      "report_evidence": {
+        "quote_es": "• 75% de las rondas hídricas protegidas. • 75% de los nacimientos de agua bajo medidas de conservación.",
+        "quote_en": "• 75% of protected water rounds. • 75% of water births under conservation measures.",
+        "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+        "page": 34
+      },
+      "matches": [
+        {
+          "match_id": "alqueria-g2-fluvia",
+          "name": "Fluvia",
+          "stage": "Pre-Seed",
+          "website": "https://fluvia.co",
+          "why": "Fluvia traces water flows in basins and production catchments.",
+          "why_es": "Fluvia rastrea los flujos de agua en las cuencas y cuencas de producción.",
+          "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
+          "public_source_url": "https://fluvia.co",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g2-bioambientar",
+          "name": "BioAmbientar",
+          "stage": "Seed",
+          "website": "https://bioambientar.com",
+          "why": "BioAmbientar restores soils and watershed productivity via compost.",
+          "why_es": "BioAmbientar restaura los suelos y la productividad de las cuencas hidrográficas a través del compost.",
+          "public_quote": "En BioAmbientar, nos destacamos como pioneros en la ciencia aplicada e innovación para la regeneración de los suelos de Colombia.",
+          "public_source_url": "https://bioambientar.com",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "partnerships",
+      "match_count": 2,
+      "title": {
+        "en": "3. Supply-chain GHG cuts via Vaca Madrina and on-farm practices",
+        "es": "3. Cortes de GEI en la cadena de suministro a través de Vaca Madrina y prácticas en la granja"
+      },
+      "context": {
+        "en": "PDF page 37. Vaca Madrina aims to cut net GHG from dairy suppliers through trees, pasture management and biodigesters.",
+        "es": "PDF página 37. Vaca Madrina tiene como objetivo reducir los GEI netos de los proveedores de productos lácteos a través de árboles, manejo de pastos y biodigestores."
+      },
+      "report_evidence": {
+        "quote_es": "contribuyendo a la reducción de emisiones netas de GEI mediante acciones concretas como la siembra de árboles para incrementar la captura de carbono, una gestión más eficiente del pastoreo y la implementación de biodigestores que transforman residuos en energía limpia.",
+        "quote_en": "contributing to the reduction of net GHG emissions through concrete actions such as planting trees to increase carbon capture, more efficient grazing management and the implementation of biodigesters that transform waste into clean energy.",
+        "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+        "page": 37
+      },
+      "matches": [
+        {
+          "match_id": "alqueria-g3-novatio",
+          "name": "Novatio",
+          "stage": "Seed",
+          "website": "https://novatio.com.co",
+          "why": "Novatio builds biodigesters that turn farm waste into biogas.",
+          "why_es": "Novatio fabrica biodigestores que convierten los residuos agrícolas en biogás.",
+          "public_quote": "Brindamos soluciones de ingeniería y consultoría para valorizar sus residuos orgánicos y transformarlos en energía limpia y fertilizante, a través de tecnologías conocidas como biodigestores.",
+          "public_source_url": "https://novatio.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g3-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox quantifies scope 3 farm and logistics emissions for food companies.",
+          "why_es": "CarbonBox cuantifica las emisiones agrícolas y logísticas de alcance 3 para las empresas alimentarias.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": false,
+      "journey_step": "hubs",
+      "match_count": 2,
+      "title": {
+        "en": "4. Post-consumer collection at 105% of plastic placed on market",
+        "es": "4. Recogida postconsumo al 105% del plástico comercializado"
+      },
+      "context": {
+        "en": "PDF page 47. Retorna reached 105% collection of plastic packaging versus material placed on the market, relying on recycler partnerships.",
+        "es": "PDF página 47. Retorna alcanzó el 105% de recolección de envases de plástico frente al material puesto en el mercado, contando con asociaciones de recicladores."
+      },
+      "report_evidence": {
+        "quote_es": "Alcanzamos un 105% de cumplimiento de recolección de envases y empaques de plástico y 100% en multimaterial frente a lo que se dejó en el mercado.",
+        "quote_en": "We achieved 105% compliance with the collection of plastic containers and packaging and 100% in multi-material compared to what was left on the market.",
+        "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+        "page": 47
+      },
+      "matches": [
+        {
+          "match_id": "alqueria-g4-wero",
+          "name": "Wero",
+          "stage": "Seed",
+          "website": "https://wero.com.co",
+          "why": "Wero runs circular recovery and reverse logistics with brands.",
+          "why_es": "Wero ejecuta recuperación circular y logística inversa con marcas.",
+          "public_quote": "Impulsamos la transición hacia modelos regenerativos,circulares e inclusivos en LATAM.",
+          "public_source_url": "https://wero.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g4-xiclo",
+          "name": "Xiclo",
+          "stage": "Seed",
+          "website": "https://xiclo.app",
+          "why": "Xiclo automates return logistics for reusable packaging.",
+          "why_es": "Xiclo automatiza la logística de devolución de envases reutilizables.",
+          "public_quote": "Buzones de devolución seguros y disponibles 24/7 que automatizan el proceso de cobro y reembolso.",
+          "public_source_url": "https://xiclo.app",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "5. Scope 3 covers full product life cycle beyond plants",
+        "es": "5. El Alcance 3 cubre el ciclo de vida completo del producto más allá de las plantas"
+      },
+      "context": {
+        "en": "PDF page 49. GRI 305-3. Alquería states scope 3 includes transport, inputs, distribution and end-of-life across the product life cycle.",
+        "es": "PDF página 49. GRI 305-3. El alcance 3 de los estados de Alquería incluye el transporte, los insumos, la distribución y el final de la vida útil a lo largo del ciclo de vida del producto."
+      },
+      "report_evidence": {
+        "quote_es": "Las emisiones de alcance 3 incluyen aquellas generadas de forma indirecta a lo largo del ciclo de vida de nuestros productos, como el transporte, el uso de insumos, la distribución y la gestión de residuos.",
+        "quote_en": "Scope 3 emissions include those generated indirectly throughout the life cycle of our products, such as transport, use of inputs, distribution and waste management.",
+        "pdf_url": "https://alqueriauploads.s3.us-east-1.amazonaws.com/prod/Informe_sostenibilidad_Alqueria_2024_2_1_3201ec07d5.pdf",
+        "page": 49
+      },
+      "matches": [
+        {
+          "match_id": "alqueria-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox models life-cycle and scope 3 emissions.",
+          "why_es": "CarbonBox modela el ciclo de vida y las emisiones de alcance 3.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "alqueria-g5-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono measures corporate footprints including value-chain categories.",
+          "why_es": "sinCarbono mide las huellas corporativas, incluidas las categorías de la cadena de valor.",
+          "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    }
+  ]
+}

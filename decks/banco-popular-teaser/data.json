@@ -1,0 +1,439 @@
+{
+  "meta": {
+    "slug": "banco-popular-teaser",
+    "company_key": "banco-popular",
+    "title": {
+      "en": "Banco Popular · gap snapshot · CleantechHUB",
+      "es": "Banco Popular · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/banco-popular-teaser/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+    "listing_url": "https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/para-ti/sostenibilidad/informe-de-gestion-y-sostenibilidad/",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Banco Popular · gap snapshot",
+      "hero.title": "Banco Popular · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Banco Popular S.A., Colombia. Banking and insurance. Wave 1. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "Linked from [https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/para-ti/sostenibilidad/informe-de-gestion-y-sostenibilidad/](https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/para-ti/sostenibilidad/informe-de-gestion-y-sostenibilidad/). PDF page 5. Accessed 2026-10-22. > La periodicidad de los Informes Financieros y de Sostenibilidad de fin de ejercicio es anual, el actual informe presenta la gestión realizada por el Banco Popular S.A., del 1 de enero de 2024 al 31 de diciembre de 2024. Scope: environment, climate and nature only. Full quotes in JSON. ## 1. Corporate carbon footprint measurement started in 2024 PDF page 17. Shortfall: false. Matches: 3. > Huella de Carbono Corporativa: Desde 2024, se inició la medición de la huella de carbono, considerando tanto las emisiones directas como las indirectas. ## 2. Group footprint was 2,099 tCO2e after first full GHG inventory year PDF page 113. Shortfall: false. Matches: 3. > En el año 2024 la huella de carbono corporativa del Banco fue de 2.099,1 tCO2e, representando una reducción del 22% respecto al año 2023. ## 3. Climate risk policies and metrics are still maturing PDF page 114. Shortfall: false. Matches: 3. > En cuanto a los asuntos relacionados con el cambio climático, el Banco Popular continúa avanzando en la implementación de las acciones contempladas en su estrategia, a la vez que se encuentra en un proceso de maduración e implementación de políticas y procedimientos relacionados con el riesgo climático. ## 4. 2025 roadmap promises richer climate risk disclosure PDF page 114. Shortfall: true. Matches: 2. > Para el 2025, el Banco Popular, en línea con el proceso de diseño de la Estrategia Climática Corporativa de Grupo Aval, implementará mejoras en la construcción de información a revelar relacionada con el clima, proporcionando mayor detalle sobre cómo los riesgos asociados al cambio climático se abordan en el marco de gestión de riesgos empresariales y su impacto en las categorías tradicionales de riesgo, tanto financieros como no financieros. ## 5. SARAS enriches credit decisions but financed climate metrics are emerging PDF page 114. Shortfall: false. Matches: 3. > El Banco Popular cuenta con el diseño y desarrollo del Sistema de Administración de Riesgos Ambientales y Sociales (SARAS) como una herramienta de análisis en el proceso de otorgamiento de crédito, enriqueciendo la información para la toma de decisiones, mediante la identificación, evaluación, administración y reporte de factores sociales, ambientales y climáticos de las operaciones financiadas.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 5)",
+      "snap.bvc": "BVC: Banco Popular is listed on the Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: True. Every match is a theme match. None names the company.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Banco Popular gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Banco Popular · panorama de brechas",
+      "hero.title": "Banco Popular · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Banco Popular S.A., Colombia. Banking and insurance. Wave 1. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Temas sociales y de gobernanza quedan fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Linked from [https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/para-ti/sostenibilidad/informe-de-gestion-y-sostenibilidad/](https://www.bancopopular.com.co/wps/portal/bancopopular/inicio/para-ti/sostenibilidad/informe-de-gestion-y-sostenibilidad/). PDF page 5. Accessed 2026-10-22. > La periodicidad de los Informes Financieros y de Sostenibilidad de fin de ejercicio es anual, el actual informe presenta la gestión realizada por el Banco Popular S.A., del 1 de enero de 2024 al 31 de diciembre de 2024. Scope: environment, climate and nature only. Full quotes in JSON. ## 1. Corporate carbon footprint measurement started in 2024 PDF page 17. Shortfall: false. Matches: 3. > Huella de Carbono Corporativa: Desde 2024, se inició la medición de la huella de carbono, considerando tanto las emisiones directas como las indirectas. ## 2. Group footprint was 2,099 tCO2e after first full GHG inventory year PDF page 113. Shortfall: false. Matches: 3. > En el año 2024 la huella de carbono corporativa del Banco fue de 2.099,1 tCO2e, representando una reducción del 22% respecto al año 2023. ## 3. Climate risk policies and metrics are still maturing PDF page 114. Shortfall: false. Matches: 3. > En cuanto a los asuntos relacionados con el cambio climático, el Banco Popular continúa avanzando en la implementación de las acciones contempladas en su estrategia, a la vez que se encuentra en un proceso de maduración e implementación de políticas y procedimientos relacionados con el riesgo climático. ## 4. 2025 roadmap promises richer climate risk disclosure PDF page 114. Shortfall: true. Matches: 2. > Para el 2025, el Banco Popular, en línea con el proceso de diseño de la Estrategia Climática Corporativa de Grupo Aval, implementará mejoras en la construcción de información a revelar relacionada con el clima, proporcionando mayor detalle sobre cómo los riesgos asociados al cambio climático se abordan en el marco de gestión de riesgos empresariales y su impacto en las categorías tradicionales de riesgo, tanto financieros como no financieros. ## 5. SARAS enriches credit decisions but financed climate metrics are emerging PDF page 114. Shortfall: false. Matches: 3. > El Banco Popular cuenta con el diseño y desarrollo del Sistema de Administración de Riesgos Ambientales y Sociales (SARAS) como una herramienta de análisis en el proceso de otorgamiento de crédito, enriqueciendo la información para la toma de decisiones, mediante la identificación, evaluación, administración y reporte de factores sociales, ambientales y climáticos de las operaciones financiadas.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 5)",
+      "snap.bvc": "",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: True. Every match is a theme match. None names the company.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Banco Popular gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "La periodicidad de los Informes Financieros y de Sostenibilidad de fin de ejercicio es anual, el actual informe presenta la gestión realizada por el Banco Popular S.A., del 1 de enero de 2024 al 31 de diciembre de 2024.",
+      "quote_en": "",
+      "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+      "page": 5
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 14. Contact details omitted.",
+    "es": "Conteo de coincidencias: 14."
+  },
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Sincarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. Corporate carbon footprint measurement started in 2024",
+        "es": "1. Corporate carbon footprint measurement started in 2024"
+      },
+      "context": {
+        "en": "PDF page 17. GRI 305 (group reporting). Fiduciaria Popular notes that corporate carbon-footprint measurement began in 2024, covering direct and indirect emissions as the bank builds its operational inventory.",
+        "es": "PDF página 17. GRI 305 (group reporting). Fiduciaria Popular notes that corporate carbon-footprint measurement began in 2024, covering direct and indirect emissions as the bank builds its operational inventory."
+      },
+      "report_evidence": {
+        "quote_es": "Huella de Carbono Corporativa: Desde 2024, se inició la medición de la huella de carbono, considerando tanto las emisiones directas como las indirectas.",
+        "quote_en": "",
+        "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+        "page": 17
+      },
+      "matches": [
+        {
+          "match_id": "bpopular-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g1-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Group footprint was 2,099 tCO2e after first full GHG inventory year",
+        "es": "2. Group footprint was 2,099 tCO2e after first full GHG inventory year"
+      },
+      "context": {
+        "en": "PDF page 113. GRI 305-1 to 305-5. The 2024 corporate footprint totalled 2,099.1 tCO2e, a 22% reduction versus 2023, with scope 2 cuts from electricity efficiency and scope 3 cuts from paper and digitalization.",
+        "es": "PDF página 113. GRI 305-1 to 305-5. The 2024 corporate footprint totalled 2,099.1 tCO2e, a 22% reduction versus 2023, with scope 2 cuts from electricity efficiency and scope 3 cuts from paper and digitalization."
+      },
+      "report_evidence": {
+        "quote_es": "En el año 2024 la huella de carbono corporativa del Banco fue de 2.099,1 tCO2e, representando una reducción del 22% respecto al año 2023.",
+        "quote_en": "",
+        "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+        "page": 113
+      },
+      "matches": [
+        {
+          "match_id": "bpopular-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g2-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "policy",
+      "match_count": 3,
+      "title": {
+        "en": "3. Climate risk policies and metrics are still maturing",
+        "es": "3. Climate risk policies and metrics are still maturing"
+      },
+      "context": {
+        "en": "PDF page 114. The bank states it is still maturing climate-risk policies and procedures, defining mechanisms to identify and evaluate climate risks and developing specific metrics and stress-test methodologies.",
+        "es": "PDF página 114. The bank states it is still maturing climate-risk policies and procedures, defining mechanisms to identify and evaluate climate risks and developing specific metrics and stress-test methodologies."
+      },
+      "report_evidence": {
+        "quote_es": "En cuanto a los asuntos relacionados con el cambio climático, el Banco Popular continúa avanzando en la implementación de las acciones contempladas en su estrategia, a la vez que se encuentra en un proceso de maduración e implementación de políticas y procedimientos relacionados con el riesgo climático.",
+        "quote_en": "",
+        "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+        "page": 114
+      },
+      "matches": [
+        {
+          "match_id": "bpopular-g3-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g3-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": true,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "4. 2025 roadmap promises richer climate risk disclosure",
+        "es": "4. 2025 roadmap promises richer climate risk disclosure"
+      },
+      "context": {
+        "en": "PDF page 114. For 2025 the bank plans improvements in climate information aligned with Grupo Aval’s corporate climate strategy, including how climate risks map into traditional financial and non-financial risk categories.",
+        "es": "PDF página 114. For 2025 the bank plans improvements in climate information aligned with Grupo Aval’s corporate climate strategy, including how climate risks map into traditional financial and non-financial risk categories."
+      },
+      "report_evidence": {
+        "quote_es": "Para el 2025, el Banco Popular, en línea con el proceso de diseño de la Estrategia Climática Corporativa de Grupo Aval, implementará mejoras en la construcción de información a revelar relacionada con el clima, proporcionando mayor detalle sobre cómo los riesgos asociados al cambio climático se abordan en el marco de gestión de riesgos empresariales y su impacto en las categorías tradicionales de riesgo, tanto financieros como no financieros.",
+        "quote_en": "",
+        "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+        "page": 114
+      },
+      "matches": [
+        {
+          "match_id": "bpopular-g4-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "Scope 1–3 tooling supports the richer climate metrics the 2025 roadmap expects.",
+          "why_es": "Scope 1–3 tooling supports the richer climate metrics the 2025 roadmap expects.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g4-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "GHG Protocol SaaS aligns with the bank’s stated GHG Protocol / ISO 14064 inventory method.",
+          "why_es": "GHG Protocol SaaS aligns with the bank’s stated GHG Protocol / ISO 14064 inventory method.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "note": {
+        "en": "Matches: 2.",
+        "es": "Matches: 2."
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": false,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "5. SARAS enriches credit decisions but financed climate metrics are emerging",
+        "es": "5. SARAS enriches credit decisions but financed climate metrics are emerging"
+      },
+      "context": {
+        "en": "PDF page 114. The Environmental and Social Risk Administration System (SARAS) adds ESG and climate factors into credit analysis while the bank is still defining climate objectives and metrics for financed exposures.",
+        "es": "PDF página 114. The Environmental and Social Risk Administration System (SARAS) adds ESG and climate factors into credit analysis while the bank is still defining climate objectives and metrics for financed exposures."
+      },
+      "report_evidence": {
+        "quote_es": "El Banco Popular cuenta con el diseño y desarrollo del Sistema de Administración de Riesgos Ambientales y Sociales (SARAS) como una herramienta de análisis en el proceso de otorgamiento de crédito, enriqueciendo la información para la toma de decisiones, mediante la identificación, evaluación, administración y reporte de factores sociales, ambientales y climáticos de las operaciones financiadas.",
+        "quote_en": "",
+        "pdf_url": "https://www.bancopopular.com.co/wps/wcm/connect/bancopopular/510c1b57-b98b-4b56-8afe-e0b67ff1377e/Informe-de-Gestion-Sostenible-2024.pdf",
+        "page": 114
+      },
+      "matches": [
+        {
+          "match_id": "bpopular-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g5-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bpopular-g5-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    }
+  ]
+}

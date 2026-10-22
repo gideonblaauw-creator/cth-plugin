@@ -1,5 +1,6 @@
 /* CleantechHUB gap teaser — loads ./data.json from the instance folder. */
 (function () {
+  const PUBLIC_ORIGIN = "https://proposals.cleantechhub.net";
   const UI_STATIC = {
     en: {
       reportVerbatim: "Sustainability report (verbatim, Spanish)",
@@ -184,6 +185,17 @@
       b.classList.toggle("on", b.dataset.lang === lang)
     );
     if (DATA.meta?.title) document.title = DATA.meta.title[lang] || DATA.meta.title.en;
+    const slug = DATA.meta?.slug || DATA.meta?.company_key;
+    if (slug) {
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.appendChild(canonical);
+      }
+      const path = slug.endsWith("-teaser") ? slug : `${slug}-teaser`;
+      canonical.href = `${PUBLIC_ORIGIN}/${path}/`;
+    }
     const logoPath = DATA.brand?.logo || "img/logo.png";
     document.querySelectorAll(".brand-logo").forEach((img) => {
       img.src = logoPath;
@@ -191,10 +203,6 @@
     renderNav();
     renderGaps();
     renderTeam();
-    const snapQuote = document.getElementById("snapshot-report-quote");
-    if (snapQuote && DATA.snapshot?.report_evidence) {
-      snapQuote.innerHTML = renderReportQuote(DATA.snapshot.report_evidence);
-    }
     const ctaBtn = document.getElementById("cta-btn");
     if (ctaBtn && DATA.cta?.url) ctaBtn.href = DATA.cta.url;
   }

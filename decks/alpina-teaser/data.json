@@ -1,0 +1,463 @@
+{
+  "meta": {
+    "slug": "alpina-teaser",
+    "company_key": "alpina",
+    "title": {
+      "en": "Alpina · gap snapshot · CleantechHUB",
+      "es": "Alpina · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/alpina-teaser/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+    "listing_url": "",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Alpina · gap snapshot",
+      "hero.title": "Alpina · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Alpina, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf\">PDF</a>) Accessed 2026-10-22.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 2)",
+      "snap.bvc": "BVC: Alpina is listed on the Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: n/a. Every match is a theme match. None names the company.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Alpina gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Alpina · panorama de brechas",
+      "hero.title": "Alpina · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Alpina, Colombia, tanda Wave 1 slot 16–20. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf\">PDF</a>) Consultado 2026-10-22.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 2)",
+      "snap.bvc": "BVC: Alpina cotiza en la Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Déficit: verdadero en la (s) brecha(s) 4; falso en otros. csoReady: n/a. Cada partido es un partido temático. Ninguno nombra a la empresa.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Alpina Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Este informe presenta los asuntos materiales y la gestión de la sostenibilidad de Alpina Productos Alimenticios S.A.S. BIC en Colombia durante el año 2025.",
+      "quote_en": "This report presents the material issues and sustainability management of Alpina Productos Alimenticios S.A.S. BIC in Colombia during 2025.",
+      "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+      "page": 2
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 14. Contact details omitted.",
+    "es": "Número de coincidencias"
+  },
+  "nexus": {
+    "Compostpack": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Manufactures certified compostable bioplastic packaging that decomposes without microplastics, offering a circular packaging alternative for the Colombian food and retail industry.",
+      "ds": "Fabrica empaques bioplásticos compostables certificados que se descomponen sin microplásticos, ofreciendo una alternativa circular de embalaje para la industria colombiana."
+    },
+    "Proplanet": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Medellín pioneer in Tetra Pak recycling, separating post-consumer cartons into cardboard pulp and plastic components, partnering with 10,000+ waste pickers.",
+      "ds": "Pionera en Medellín en el reciclaje de Tetra Pak, separando envases post-consumo en pulpa de cartón y componentes plásticos, en alianza con más de 10.000 recicladores."
+    },
+    "Reemade": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Upcycling design brand transforming industrial textile, plastic, tire, and agricultural waste into premium furniture and accessories using craft techniques and community artisans.",
+      "ds": "Marca de diseño upcycling que transforma residuos industriales textiles, plásticos, llantas y agrícolas en muebles y accesorios premium usando técnicas artesanales y artesanos comunitarios."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "Zhana Solutions": {
+      "p": "CLAC21",
+      "t": "CE",
+      "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.",
+      "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel."
+    },
+    "Natupin": {
+      "p": "CLP",
+      "t": "BIO",
+      "d": "Raises awareness of native species and biodiversity through merchandise and digital content, connecting consumers with Colombia's natural heritage to promote conservation.",
+      "ds": "Crea conciencia sobre especies nativas y biodiversidad a través de merchandising y contenido digital, conectando a consumidores con el patrimonio natural de Colombia para promover la conservación."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. Recyclability index reached 57% but portfolio gaps remain",
+        "es": "1. El índice de reciclabilidad alcanzó el 57%, pero siguen existiendo brechas en la cartera"
+      },
+      "context": {
+        "en": "Alpina reports a 57% recyclability index after reviewing 54 product families, up 6.48 points year on year, showing progress but room to lift packaging circularity.",
+        "es": "Alpina informa un índice de reciclabilidad del 57% después de revisar 54 familias de productos, un aumento de 6,48 puntos año tras año, lo que muestra un progreso pero un margen para levantar la circularidad de los envases."
+      },
+      "report_evidence": {
+        "quote_es": "Se llevó a cabo la evaluación del Índice de Reciclabilidad (IR), analizando 54 familias de producto. Como resultado de este ejercicio, el índice alcanzó un 57%, lo que representa un incremento de 6,48% frente al resultado del año anterior.",
+        "quote_en": "The evaluation of the Recyclability Index (RI) was carried out, analyzing 54 product families. As a result of this year, the index reached 57%, which represents an increase of 6.48% compared to the result of the previous year.",
+        "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+        "page": 47
+      },
+      "matches": [
+        {
+          "match_id": "alp-g1-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Compostable materials raise recyclability; quote does not name Alpina.",
+          "why_es": "Los materiales compostables aumentan la reciclabilidad; la cita no nombra a Alpina.",
+          "public_quote": "Nuestros materiales son genuinos compostables, están disponibles para una variedad de productos, cumplen con las normas internacionales y nacionales para ser reconocidos como verdaderamente compostables y libres de microplásticos.",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g1-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Recycled furniture line reduces waste to landfill; quote does not name Alpina.",
+          "why_es": "La línea de muebles reciclados reduce los residuos a vertederos; la cita no nombra a Alpina.",
+          "public_quote": "Ayudamos con la disminución de residuos en vías, aguas, parques y rellenos sanitarios.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g1-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Circular materials thesis matches packaging index work; quote does not name Alpina.",
+          "why_es": "La tesis de materiales circulares coincide con el trabajo de índice de empaque; la cita no nombra a Alpina.",
+          "public_quote": "Los materiales, al igual que en la naturaleza, deben circular.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Carbon neutrality still relies on compensating residual emissions",
+        "es": "2. La neutralidad de carbono todavía depende de compensar las emisiones residuales"
+      },
+      "context": {
+        "en": "Alpina kept carbon-neutral status in 2025 by compensating emissions that operations could not eliminate yet.",
+        "es": "Alpina mantuvo el estado neutro en carbono en 2025 al compensar las emisiones que las operaciones aún no podían eliminar."
+      },
+      "report_evidence": {
+        "quote_es": "En 2025, Alpina mantuvo su condición de compañía carbono neutro, compensando las emisiones residuales de su operación",
+        "quote_en": "In 2025, Alpina maintained its carbon-neutral company status, offsetting residual emissions from its operation",
+        "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+        "page": 29
+      },
+      "matches": [
+        {
+          "match_id": "alp-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Neutralization consulting aligns with residual-emissions gap; quote does not name Alpina.",
+          "why_es": "La consultoría de neutralización se alinea con la brecha de emisiones residuales; la cita no nombra a Alpina.",
+          "public_quote": "Guiando el camino hacia la carbono neutralidad",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "Measurement platform supports reduction before offsets; quote does not name Alpina.",
+          "why_es": "La plataforma de medición admite la reducción antes de las compensaciones; la cita no nombra a Alpina.",
+          "public_quote": "Mide, reduce y reporta tu huella de carbono con rigor científico.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g2-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Series A",
+          "website": "https://zhanasolutions.com",
+          "why": "Operational CO2 metrics reporting; quote does not name Alpina.",
+          "why_es": "Informes de métricas de CO2 operacionales; la cita no nombra a Alpina.",
+          "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "3. Plastic-neutral status still chases 100% of market plastic",
+        "es": "3. El estado neutral al plástico sigue persiguiendo el 100% del plástico del mercado"
+      },
+      "context": {
+        "en": "Alpina commits to recover and transform plastic equivalent to 100% of plastic placed on the market while expanding recycler wellbeing programs.",
+        "es": "Alpina se compromete a recuperar y transformar el plástico equivalente al 100% del plástico comercializado, al tiempo que amplía los programas de bienestar de los recicladores."
+      },
+      "report_evidence": {
+        "quote_es": "Por eso, asumimos el compromiso de recuperar y transformar el equivalente al 100% del plástico que ponemos en el mercado, avanzando hacia una cadena de valor cada vez más circular.",
+        "quote_en": "Therefore, we are committed to recovering and transforming the equivalent of 100% of the plastic we put on the market, moving towards an increasingly circular value chain.",
+        "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+        "page": 48
+      },
+      "matches": [
+        {
+          "match_id": "alp-g3-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Bioplastics reduce virgin plastic placement; quote does not name Alpina.",
+          "why_es": "Los bioplásticos reducen la colocación de plástico virgen; la cita no nombra a Alpina.",
+          "public_quote": "Hoy se ha convertido en una empresa colombiana líder especializada en bioplásticos compostables, con un dominio completo de las tecnologías clave para la polimerización, modificación y aplicaciones finales.",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g3-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Recycler-network support aligns with plastic recovery; quote does not name Alpina.",
+          "why_es": "El soporte de la red de recicladores se alinea con la recuperación de plástico; la cita no nombra a Alpina.",
+          "public_quote": "Fortalecemos las redes cooperativas de recicladores.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g3-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Upcycling captures hard-to-recycle plastics; quote does not name Alpina.",
+          "why_es": "Upcycling captura plásticos difíciles de reciclar; la cita no nombra a Alpina.",
+          "public_quote": "Transformamos residuos en diseño de alto valor",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": true,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "4. Shared water stewardship extends into 2026 basin work",
+        "es": "4. La administración compartida del agua se extiende al trabajo de la cuenca de 2026"
+      },
+      "context": {
+        "en": "Water stewardship goes beyond plants; 2025 basin care initiatives continue into 2026 with local partners.",
+        "es": "La administración del agua va más allá de las plantas; las iniciativas de cuidado de la cuenca de 2025 continúan en 2026 con socios locales."
+      },
+      "report_evidence": {
+        "quote_es": "Reconociendo que la gestión del recurso hídrico va más allá de nuestras operaciones y que el cuidado del agua es una responsabilidad compartida, Alpina también trabaja de manera articulada con actores locales en sus zonas de influencia.",
+        "quote_en": "Recognizing that water resource management goes beyond our operations and that water care is a shared responsibility, Alpina also works in an articulated manner with local actors in their areas of influence.",
+        "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+        "page": 33
+      },
+      "matches": [
+        {
+          "match_id": "alp-g4-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Seed",
+          "website": "https://zhanasolutions.com",
+          "why": "Water treatment offering; quote does not name Alpina.",
+          "why_es": "Oferta de tratamiento de agua; la cita no nombra a Alpina.",
+          "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g4-natupin",
+          "name": "Natupin",
+          "stage": "Seed",
+          "website": "https://natupin.bio",
+          "why": "Biodiversity preservation complements basin work; quote does not name Alpina.",
+          "why_es": "La protección de la biodiversidad complementa el trabajo de las cuencas; la cita no nombra a Alpina.",
+          "public_quote": "Conoce de todos nuestros nuevos lanzamientos, productos y formas en las que puedes preservar la biodiversidad.",
+          "public_source_url": "https://natupin.bio",
+          "funder": false
+        }
+      ],
+      "note": {
+        "en": "Matches: 2.",
+        "es": "2."
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": false,
+      "journey_step": "capital",
+      "match_count": 3,
+      "title": {
+        "en": "5. Large-scale emission cuts depend on new solar and TMS projects",
+        "es": "5. Los recortes de emisiones a gran escala dependen de nuevos proyectos solares y de TMS"
+      },
+      "context": {
+        "en": "2025 advanced two photovoltaic projects and a transport-management system expected to cut distribution emissions.",
+        "es": "2025 avanzó dos proyectos fotovoltaicos y un sistema de gestión del transporte que se espera reduzca las emisiones de distribución."
+      },
+      "report_evidence": {
+        "quote_es": "Durante 2025, Alpina avanzó en la definición y puesta en marcha de proyectos de mayor escala orientados a la reducción de emisiones, que serán desarrollados y profundizados como parte de nuestro camino hacia una operación cada vez más responsable con los recursos naturales.",
+        "quote_en": "During 2025, Alpina made progress in the definition and implementation of larger-scale projects aimed at reducing emissions, which will be developed and deepened as part of our path towards an increasingly responsible operation with natural resources.",
+        "pdf_url": "https://azstachubdigitalprd01.blob.core.windows.net/hubdigitalcontainer01/2026/Informes/Informe_Sostenibilidad_Alpina_2025.pdf",
+        "page": 28
+      },
+      "matches": [
+        {
+          "match_id": "alp-g5-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Reduction planning; quote does not name Alpina.",
+          "why_es": "Planificación de la reducción; la cita no nombra a Alpina.",
+          "public_quote": "Descubre los planes de reducción de CO2 e minuciosamente escogidos por profesionales, para tu producto o empresa.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "Emissions management SaaS; quote does not name Alpina.",
+          "why_es": "SaaS de gestión de emisiones; la cita no nombra a Alpina.",
+          "public_quote": "Empresas de distintos sectores ya gestionan sus emisiones con CarbonBox.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "alp-g5-compostpack",
+          "name": "Compostpack",
+          "stage": "Pre-Series A",
+          "website": "https://compostpack.com",
+          "why": "Brand commitment to cleaner planet; weak operational tie; quote does not name Alpina.",
+          "why_es": "Compromiso de la marca con un planeta más limpio; lazo operativo débil; la cita no nombra a Alpina.",
+          "public_quote": "Por un planeta más limpio",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "slug": "ecopetrol-teaser",
+    "company_key": "ecopetrol",
+    "title": {
+      "en": "Ecopetrol · gap snapshot · CleantechHUB",
+      "es": "Ecopetrol · panorama de brechas · CleantechHUB"
+    }
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+    "listing_url": "https://www.ecopetrol.com.co/wps/portal/Home/es/Inversionistas/informeanual/informeanual/",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Ecopetrol · gap snapshot",
+      "hero.title": "Ecopetrol · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Ecopetrol S.A., Colombia. Oil and gas. Wave 1 rank 11. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf\">PDF</a>) linked from <a href=\"https://www.ecopetrol.com.co/wps/portal/Home/es/Inversionistas/informeanual/informeanual/\">www.ecopetrol.com.co</a> PDF page 10. Accessed 2026-10-22.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 10)",
+      "snap.bvc": "BVC: Ecopetrol is listed on the Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Shortfall: true on gap(s) 2, 4, 5; false on others. csoReady: True. Every match is a theme match. None names the company.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Ecopetrol gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Ecopetrol · panorama de brechas",
+      "hero.title": "Ecopetrol · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Ecopetrol S.A., Colombia. Petróleo y gas. Ola 1 rango 11. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf\">PDF</a>) enlazado desde <a href=\"https://www.ecopetrol.com.co/wps/portal/Home/es/Inversionistas/informeanual/informeanual/\">www.ecopetrol.com.co</a> PDF página 10. Consultado 2026-10-22.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 10)",
+      "snap.bvc": "BVC: Ecopetrol cotiza en la Bolsa de Valores de Colombia.",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Déficit: verdadero en los huecos2, 4, 5; falso en los demás. csoReady: Verdadero. Cada partido es un partido temático. Ninguno nombra a la empresa.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Ecopetrol Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "(GRI 2-2) La información publicada tiene alcance Ecopetrol S.A. (en adelante Ecopetrol o la Compañía).",
+      "quote_en": "(GRI 2-2) The published information has the scope of Ecopetrol S.A. (hereinafter Ecopetrol or the Company).",
+      "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+      "page": 10
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 8. Contact details omitted.",
+    "es": "Número de coincidencias"
+  },
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "sinCarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    },
+    "Novatio": {
+      "p": "CLAC23",
+      "t": "EN",
+      "d": "Social enterprise designing and building biodigesters for rural farming families, converting organic waste into biogas energy and biofertilizer while displacing wood fuel.",
+      "ds": "Empresa social que diseña y construye biodigestores para familias campesinas, convirtiendo residuos orgánicos en energía de biogás y biofertilizante, desplazando el uso de leña."
+    },
+    "Fluvia": {
+      "p": "CLAC23",
+      "t": "BIO",
+      "d": "Uses fluorescent tracer technology and a proprietary app to provide real-time hydrological data — flow rates and velocities — for water resource management.",
+      "ds": "Usa tecnología de trazadores fluorescentes y una app propia para proporcionar datos hidrológicos en tiempo real — caudales y velocidades — para la gestión de recursos hídricos."
+    },
+    "BioAmbientar": {
+      "p": "CLP",
+      "t": "CE",
+      "d": "Accelerates organic waste composting from six months to ten days using plant extracts, selling home composting kits and training rural women through community programs.",
+      "ds": "Acelera el compostaje de residuos orgánicos de seis meses a diez días mediante extractos vegetales, vendiendo kits de compostaje y formando a mujeres rurales en programas comunitarios."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. Scope 3 still drives a 50% Group target by 2050",
+        "es": "1. Alcance 3 sigue impulsando un objetivo del 50% del Grupo para 2050"
+      },
+      "context": {
+        "en": "PDF page 134. GRI 305-3. Ecopetrol set net-zero for scopes 1 and 2 by 2050 and a 50% cut in scopes 1, 2 and 3 versus 2019 by 2050. Scope 3 remains material across purchased goods, transport and product use.",
+        "es": "PDF página 134. GRI 305-3. Ecopetrol estableció cero neto para los alcances 1 y 2 para 2050 y un recorte del 50% en los alcances 1, 2 y 3 en comparación con 2019 para 2050. El Alcance 3 sigue siendo material en los bienes comprados, el transporte y el uso del producto."
+      },
+      "report_evidence": {
+        "quote_es": "y del 50% de sus emisiones de los alcances 1, 2 y 3 para 2050, en comparación con los niveles de 2019.",
+        "quote_en": "and 50% of its Scope 1, 2 and 3 emissions by 2050, compared to 2019 levels.",
+        "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+        "page": 134
+      },
+      "matches": [
+        {
+          "match_id": "ecopetrol-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox names scopes 1, 2 and 3 inventory work across the value chain.",
+          "why_es": "CarbonBox nombra el trabajo de inventario de los alcances 1, 2 y 3 en toda la cadena de valor.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "ecopetrol-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "C-neutral quantifies emissions for oil and gas and other sectors on the decarbonization path.",
+          "why_es": "C-neutral cuantifica las emisiones de petróleo y gas y otros sectores en el camino de la descarbonización.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "ecopetrol-g1-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono measures corporate footprints under GHG Protocol and ISO 14064-1.",
+          "why_es": "sinCarbono mide las huellas corporativas bajo el Protocolo de GEI e ISO 14064-1.",
+          "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": true,
+      "journey_step": "challenge",
+      "match_count": 1,
+      "title": {
+        "en": "2. Zero methane by 2030 while upstream methane remains large",
+        "es": "2. Cero metano para 2030, mientras que el metano aguas arriba sigue siendo grande"
+      },
+      "context": {
+        "en": "PDF page 105. GRI 305: Emissions 2016. Ecopetrol committed to zero routine flaring, zero methane emissions by 2030, and a 55% methane cut in upstream production by 2030.",
+        "es": "PDF página 105. GRI 305: Emissions 2016. Ecopetrol se comprometió a cero quemas rutinarias, cero emisiones de metano para 2030 y un 55% de reducción de metano en la producción aguas arriba para 2030."
+      },
+      "report_evidence": {
+        "quote_es": "a eliminar las quemas rutinarias de gas en teas y lograr cero emisiones de metano para 2030.",
+        "quote_en": "to eliminate routine gas flares on teas and achieve zero methane emissions by 2030.",
+        "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+        "page": 105
+      },
+      "matches": [
+        {
+          "match_id": "ecopetrol-g2-novatio",
+          "name": "Novatio",
+          "stage": "Seed",
+          "website": "https://novatio.com.co",
+          "why": "Novatio names metanization projects and methane-rich biogas from organic residues.",
+          "why_es": "Novatio nombra proyectos de metanización y biogás rico en metano a partir de residuos orgánicos.",
+          "public_quote": "Los acompañamos en todas las etapas de su proyecto de metanización de residuos orgánicos: el diseño, la construcción, la operación y mantenimiento, los trámites administrativos y la cuantificación de los beneficios de su inversión.",
+          "public_source_url": "https://novatio.com.co",
+          "funder": false
+        }
+      ],
+      "note": {
+        "en": "Matches: 1.",
+        "es": "Coincidencias: 1."
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "policy",
+      "match_count": 2,
+      "title": {
+        "en": "3. Enterprise risk ties climate, water and biodiversity response gaps",
+        "es": "3. El riesgo empresarial vincula las brechas de respuesta al clima, el agua y la biodiversidad"
+      },
+      "context": {
+        "en": "PDF page 134. GRI 3: Material Topics 2021. Ecopetrol flags ineffective response to climate, water and biodiversity expectations as a material enterprise risk.",
+        "es": "PDF página 134. GRI 3: Material Topics 2021. Ecopetrol señala la respuesta ineficaz a las expectativas climáticas, hídricas y de biodiversidad como un riesgo material para la empresa."
+      },
+      "report_evidence": {
+        "quote_es": "Ecopetrol definió el riesgo empresarial “inadecuada respuesta ante desafíos del cambio climático, agua y biodiversidad”, que analiza la exposición a impactos negativos derivados de una respuesta ineficaz o inoportuna frente a las expectativas y compromisos asociados al clima.",
+        "quote_en": "Ecopetrol defined business risk as \"inadequate response to climate change, water and biodiversity challenges\", which analyzes exposure to negative impacts derived from an ineffective or inopportune response to climate-related expectations and commitments.",
+        "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+        "page": 134
+      },
+      "matches": [
+        {
+          "match_id": "ecopetrol-g3-fluvia",
+          "name": "Fluvia",
+          "stage": "Pre-Seed",
+          "website": "https://fluvia.co",
+          "why": "Fluvia traces water movement and losses in industrial and basin systems.",
+          "why_es": "Fluvia rastrea el movimiento del agua y las pérdidas en los sistemas industriales y de cuencas.",
+          "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
+          "public_source_url": "https://fluvia.co",
+          "funder": false
+        },
+        {
+          "match_id": "ecopetrol-g3-bioambientar",
+          "name": "BioAmbientar",
+          "stage": "Seed",
+          "website": "https://bioambientar.com",
+          "why": "BioAmbientar links soil regeneration and compost to lowering greenhouse gases.",
+          "why_es": "BioAmbientar vincula la regeneración del suelo y el compost con la reducción de los gases de efecto invernadero.",
+          "public_quote": "Al adicionar este compost en el suelo, contribuimos a eliminar los gases de efecto invernadero y revitalizar la tierra, generando un entorno propicio para producir alimentos agroecológicos, muy sanos, libres de fertilizantes químicos.",
+          "public_source_url": "https://bioambientar.com",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": true,
+      "journey_step": "challenge",
+      "match_count": 1,
+      "title": {
+        "en": "4. 55% upstream methane reduction target by 2030",
+        "es": "4. Objetivo de reducción de metano aguas arriba del 55% para 2030"
+      },
+      "context": {
+        "en": "PDF page 127. Production segment targets a 55% cut in direct methane emissions by 2030.",
+        "es": "PDF página 127. El segmento de producción apunta a una reducción del 55% en las emisiones directas de metano para 2030."
+      },
+      "report_evidence": {
+        "quote_es": "Reducción del 55% de las emisiones de metano en las operaciones directas del segmento de producción a 2030",
+        "quote_en": "55% reduction of methane emissions in direct production segment operations by 2030",
+        "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+        "page": 127
+      },
+      "matches": [
+        {
+          "match_id": "ecopetrol-g4-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono supports reduction plans after GHG Protocol-based measurement.",
+          "why_es": "sinCarbono apoya los planes de reducción después de la medición basada en el protocolo de GEI.",
+          "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "note": {
+        "en": "Matches: 1.",
+        "es": "Coincidencias: 1."
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": true,
+      "journey_step": "partnerships",
+      "match_count": 1,
+      "title": {
+        "en": "5. Biodiversity needs coordinated action with stakeholders",
+        "es": "5. La biodiversidad necesita una acción coordinada con las partes interesadas"
+      },
+      "context": {
+        "en": "PDF page 160. GRI 304: Biodiversity 2016. Ecopetrol states biodiversity management requires joint action and nature-based solutions with communities.",
+        "es": "PDF página 160. GRI 304: Biodiversity 2016. Ecopetrol afirma que la gestión de la biodiversidad requiere acciones conjuntas y soluciones basadas en la naturaleza con las comunidades."
+      },
+      "report_evidence": {
+        "quote_es": "Para Ecopetrol, gestionar la biodiversidad requiere de acciones conjuntas.",
+        "quote_en": "For Ecopetrol, managing biodiversity requires joint actions.",
+        "pdf_url": "https://files.ecopetrol.com.co/web/esp/aga2025/IIG-Ecopetrol-2024.pdf",
+        "page": 160
+      },
+      "matches": [
+        {
+          "match_id": "ecopetrol-g5-bioambientar",
+          "name": "BioAmbientar",
+          "stage": "Seed",
+          "website": "https://bioambientar.com",
+          "why": "BioAmbientar runs community compost programs that restore soils and ecosystems.",
+          "why_es": "BioAmbientar ejecuta programas comunitarios de compostaje que restauran suelos y ecosistemas.",
+          "public_quote": "En BioAmbientar, estamos comprometidos con nuestro propósito de trabajar con mujeres rurales para empoderarlas y generar un impacto positivos en sus comunidades a través de nuestro programa Mujeres A Compostar Colombia.",
+          "public_source_url": "https://bioambientar.com",
+          "funder": false
+        }
+      ],
+      "note": {
+        "en": "Matches: 1.",
+        "es": "Coincidencias: 1."
+      }
+    }
+  ]
+}

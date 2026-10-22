@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "slug": "interaseo-teaser",
+    "company_key": "interaseo",
+    "title": {
+      "en": "Interaseo · gap snapshot · CleantechHUB",
+      "es": "Interaseo · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/interaseo-teaser/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+    "listing_url": "",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Interaseo · gap snapshot",
+      "hero.title": "Interaseo · environment, climate and nature — 5 material gaps from the latest sustainability report.",
+      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.companyLbl": "Company",
+      "hero.company": "Interaseo, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf\">PDF</a>) Accessed 2026-10-22.",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 23)",
+      "snap.bvc": "",
+      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
+      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
+      "cta.title": "Discuss this gap snapshot",
+      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.btn": "Book a call",
+      "foot.line": "Interaseo gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Interaseo · panorama de brechas",
+      "hero.title": "Interaseo · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Interaseo, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf\">PDF</a>) Consultado 2026-10-22.",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 23)",
+      "snap.bvc": "",
+      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
+      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién llevó este teaser",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
+      "cta.title": "Conversemos este panorama de brechas",
+      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "Interaseo Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Hemos decidido establecer el año 2024 como nuestra línea base para las futuras mediciones, consolidando así un hito clave en nuestro compromiso con una gestión ambiental más responsable y orientada a la mejora continua.",
+      "quote_en": "We have decided to establish the year 2024 as our baseline for future measurements, thus consolidating a key milestone in our commitment to more responsible and continuous improvement-oriented environmental management.",
+      "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+      "page": 23
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Lead Tech",
+        "es": "Lead Tech"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "footer_note": {
+    "en": "Match count: 15. Contact details omitted.",
+    "es": "Número de coincidencias"
+  },
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Zhana Solutions": {
+      "p": "CLAC21",
+      "t": "CE",
+      "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.",
+      "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel."
+    },
+    "Reemade": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Upcycling design brand transforming industrial textile, plastic, tire, and agricultural waste into premium furniture and accessories using craft techniques and community artisans.",
+      "ds": "Marca de diseño upcycling que transforma residuos industriales textiles, plásticos, llantas y agrícolas en muebles y accesorios premium usando técnicas artesanales y artesanos comunitarios."
+    },
+    "Proplanet": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Medellín pioneer in Tetra Pak recycling, separating post-consumer cartons into cardboard pulp and plastic components, partnering with 10,000+ waste pickers.",
+      "ds": "Pionera en Medellín en el reciclaje de Tetra Pak, separando envases post-consumo en pulpa de cartón y componentes plásticos, en alianza con más de 10.000 recicladores."
+    },
+    "Natupin": {
+      "p": "CLP",
+      "t": "BIO",
+      "d": "Raises awareness of native species and biodiversity through merchandise and digital content, connecting consumers with Colombia's natural heritage to promote conservation.",
+      "ds": "Crea conciencia sobre especies nativas y biodiversidad a través de merchandising y contenido digital, conectando a consumidores con el patrimonio natural de Colombia para promover la conservación."
+    },
+    "Compostpack": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Manufactures certified compostable bioplastic packaging that decomposes without microplastics, offering a circular packaging alternative for the Colombian food and retail industry.",
+      "ds": "Fabrica empaques bioplásticos compostables certificados que se descomponen sin microplásticos, ofreciendo una alternativa circular de embalaje para la industria colombiana."
+    },
+    "Glasst": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Materials startup developing sustainable construction coatings and peelable films (UNPAINT) replacing plastics and reducing chemical waste across four LATAM countries.",
+      "ds": "Startup de materiales que desarrolla recubrimientos de construcción sostenibles y películas desprendibles (UNPAINT) que reemplazan plásticos y reducen residuos químicos en cuatro países de LATAM."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. 2024 is the first GHG baseline year",
+        "es": "1. 2024 es el primer año de referencia de GEI"
+      },
+      "context": {
+        "en": "Interaseo set 2024 as the GHG baseline after building internal capacity to estimate footprint under GHG Protocol.",
+        "es": "Interaseo estableció 2024 como la línea de base de GEI después de desarrollar la capacidad interna para estimar la huella bajo el Protocolo de GEI."
+      },
+      "report_evidence": {
+        "quote_es": "Hemos decidido establecer el año 2024 como nuestra línea base para las futuras mediciones, consolidando así un hito clave en nuestro compromiso con una gestión ambiental más responsable y orientada a la mejora continua.",
+        "quote_en": "We have decided to establish the year 2024 as our baseline for future measurements, thus consolidating a key milestone in our commitment to more responsible and continuous improvement-oriented environmental management.",
+        "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+        "page": 23
+      },
+      "matches": [
+        {
+          "match_id": "int-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "Baseline-to-action tooling; quote does not name Interaseo.",
+          "why_es": "Herramientas de línea de base a acción; la cita no nombra a Interaseo.",
+          "public_quote": "Mide, reduce y reporta tu huella de carbono con rigor científico.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "int-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Measurement services; quote does not name Interaseo.",
+          "why_es": "Servicios de medición; la cotización no nombra a Interaseo.",
+          "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g1-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Series A",
+          "website": "https://zhanasolutions.com",
+          "why": "Environmental KPI reporting; quote does not name Interaseo.",
+          "why_es": "Informes de KPI ambientales; la cita no nombra a Interaseo.",
+          "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "capital",
+      "match_count": 3,
+      "title": {
+        "en": "2. Eight landfills still lack biogas burners",
+        "es": "2. Ocho vertederos aún carecen de quemadores de biogás"
+      },
+      "context": {
+        "en": "Biogas burners operate in five of thirteen landfills, with a three-to-five-year plan to address the rest and cut methane.",
+        "es": "Los quemadores de biogás funcionan en cinco de los trece vertederos, con un plan de tres a cinco años para abordar el resto y reducir el metano."
+      },
+      "report_evidence": {
+        "quote_es": "Instalamos quemadores de biogás en 5 de los 13 rellenos sanitarios operados, con plan de intervención de los restantes en 3 a 5 años, evitando emisiones directas de CO2 y metano",
+        "quote_en": "We installed biogas burners in 5 of the 13 landfills operated, with an intervention plan for the rest in 3 to 5 years, avoiding direct CO2 and methane emissions",
+        "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+        "page": 24
+      },
+      "matches": [
+        {
+          "match_id": "int-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Series B+",
+          "website": "https://c-neutral.co",
+          "why": "Methane-reduction projects portfolio; quote does not name Interaseo.",
+          "why_es": "Cartera de proyectos de reducción de metano; la cita no nombra a Interaseo.",
+          "public_quote": "Invierte en una amplia gama de proyectos sustentables. Desde recuperación de bosques, selvas, corales y manglares hasta energías renovables.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g2-reemade",
+          "name": "Reemade",
+          "stage": "Series B+",
+          "website": "https://reemade.com.co",
+          "why": "Air-quality co-benefits; quote does not name Interaseo.",
+          "why_es": "Co-beneficios de calidad del aire; la cita no nombra a Interaseo.",
+          "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g2-proplanet",
+          "name": "Proplanet",
+          "stage": "Series B+",
+          "website": "https://proplanet.com.co",
+          "why": "Landfill diversion via recycled products; quote does not name Interaseo.",
+          "why_es": "Desvío de vertederos a través de productos reciclados; la cita no nombra a Interaseo.",
+          "public_quote": "Ayudamos con la disminución de residuos en vías, aguas, parques y rellenos sanitarios.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "3. Surface water contamination from leachate remains a top risk",
+        "es": "3. La contaminación del agua superficial por lixiviados sigue siendo un riesgo importante"
+      },
+      "context": {
+        "en": "Water risk assessment highlights surface-water contamination from wastewater and leachate discharges alongside resource depletion.",
+        "es": "La evaluación del riesgo del agua destaca la contaminación de las aguas superficiales por las descargas de aguas residuales y lixiviados junto con el agotamiento de los recursos."
+      },
+      "report_evidence": {
+        "quote_es": "Entre los principales riesgos ambientales identificados se encuentran la contaminación de fuentes hídricas superficiales por vertimientos de aguas residuales y lixiviados, así como el agotamiento del recurso.",
+        "quote_en": "Among the main environmental risks identified are contamination of surface water sources by wastewater and leachate discharges, as well as resource depletion.",
+        "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+        "page": 24
+      },
+      "matches": [
+        {
+          "match_id": "int-g3-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Series A",
+          "website": "https://zhanasolutions.com",
+          "why": "Wastewater treatment offering; quote does not name Interaseo.",
+          "why_es": "Oferta de tratamiento de aguas residuales; la cotización no nombra a Interaseo.",
+          "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "int-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Environmental project pipeline; weak tie; quote does not name Interaseo.",
+          "why_es": "Oleoducto de proyectos ambientales; lazo débil; la cita no nombra a Interaseo.",
+          "public_quote": "Encuentra productos y proyectos específicos, que te van a ayudar a compensar tu huella de carbono.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g3-natupin",
+          "name": "Natupin",
+          "stage": "Pre-Series A",
+          "website": "https://natupin.bio",
+          "why": "Watershed biodiversity; quote does not name Interaseo.",
+          "why_es": "Biodiversidad de las cuencas hidrográficas; la cita no nombra a Interaseo.",
+          "public_quote": "formas en las que puedes preservar la biodiversidad.",
+          "public_source_url": "https://natupin.bio",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": false,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "4. Non-recovered waste still 15% of generated tonnage",
+        "es": "4. Los residuos no recuperados siguen siendo el 15% del tonelaje generado"
+      },
+      "context": {
+        "en": "Waste matrix shows most material recovered but thousands of tonnes still go to ordinary or special disposal streams.",
+        "es": "La matriz de residuos muestra la mayor parte del material recuperado, pero miles de toneladas todavía van a corrientes de eliminación ordinarias o especiales."
+      },
+      "report_evidence": {
+        "quote_es": "Entendemos que la gestión de residuos trasciende la simple disposición final, por lo que asumimos un compromiso integral en cada etapa de nuestras operaciones.",
+        "quote_en": "We understand that waste management transcends the simple final disposition, so we assume a comprehensive commitment at every stage of our operations.",
+        "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+        "page": 26
+      },
+      "matches": [
+        {
+          "match_id": "int-g4-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Hard-to-recycle diversion; quote does not name Interaseo.",
+          "why_es": "Desvío difícil de reciclar; la cita no nombra a Interaseo.",
+          "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g4-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Recycler networks; quote does not name Interaseo.",
+          "why_es": "Redes del reciclador; la cita no nombra a Interaseo.",
+          "public_quote": "Fortalecemos las redes cooperativas de recicladores.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "int-g4-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Organic waste bags; quote does not name Interaseo.",
+          "why_es": "Bolsas de residuos orgánicos; la cita no nombra a Interaseo.",
+          "public_quote": "Bolsas compostables para desechos orgánicos",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        }
+      ]
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": false,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "5. Scope 1 still dominates total GHG footprint",
+        "es": "5. El alcance 1 aún domina la huella total de GEI"
+      },
+      "context": {
+        "en": "Despite a 19.5% total GHG drop since 2022, Scope 1 remains the largest share and needs fuel and fleet efficiency.",
+        "es": "A pesar de una caída total de GEI del 19,5% desde 2022, el Alcance 1 sigue siendo la mayor proporción y necesita eficiencia de combustible y flota."
+      },
+      "report_evidence": {
+        "quote_es": "Entre 2022 y 2024, las emisiones totales de gases de efecto invernadero (GEI) de Interaseo presentan una tendencia decreciente, ya que pasó de 54.802 ton CO₂e en 2022 a 44.138 ton CO₂e en 2024, lo que representa una reducción del 19,5%.",
+        "quote_en": "Between 2022 and 2024, Interaseo's total greenhouse gas (GHG) emissions show a decreasing trend, going from 54,802 tons of CO₂e in 2022 to 44,138 tons of CO₂e in 2024, representing a reduction of 19.5%.",
+        "pdf_url": "https://interaseo.com.co/wp-content/uploads/2026/05/Informe-Sostenibilidad-InterAseo-2024-Baja.pdf",
+        "page": 23
+      },
+      "matches": [
+        {
+          "match_id": "int-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "Fleet/operations emissions tracking; quote does not name Interaseo.",
+          "why_es": "Seguimiento de emisiones de flotas/operaciones; la cotización no nombra a Interaseo.",
+          "public_quote": "Empresas de distintos sectores ya gestionan sus emisiones con CarbonBox.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "int-g5-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Series A",
+          "website": "https://zhanasolutions.com",
+          "why": "CO2 reduction KPIs; quote does not name Interaseo.",
+          "why_es": "KPI de reducción de CO2; la cita no nombra a Interaseo.",
+          "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "int-g5-glasst",
+          "name": "Glasst",
+          "stage": "Pre-Series A",
+          "website": "https://glasst.co/es/sostenibilidad/",
+          "why": "Measurement culture; quote does not name Interaseo.",
+          "why_es": "Cultura de medición; la cita no nombra a Interaseo.",
+          "public_quote": "Medir nos permite entender dónde aportamos valor y cómo seguir mejorando.",
+          "public_source_url": "https://glasst.co/es/sostenibilidad/",
+          "funder": false
+        }
+      ]
+    }
+  ]
+}
