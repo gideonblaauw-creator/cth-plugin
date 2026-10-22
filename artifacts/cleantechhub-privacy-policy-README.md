@@ -14,7 +14,7 @@ One set. The values below are already written into the public text. They stay he
 | CONTACT_EMAIL | admin@cleantechhub.net |
 | CONTACT_PHONE | +57 313 715 5965 |
 | RESPONSIBLE_AREA | Representante Legal de la Fundación CleantechHUB |
-| EFFECTIVE_DATE | `Vigente desde: [fecha de publicación]` / `Effective from: [publication date]`. This is the only unfilled public field. |
+| EFFECTIVE_DATE | `Vigente desde: 22 de octubre de 2026` / `Effective from: 22 October 2026`. This matches the live page. |
 | ADS_TAG_KEEP | yes. Section 9 discloses Google Ads `AW-10974720045` as advertising measurement. Opt-out is Google Ads settings (https://adssettings.google.com) and the browser’s cookie controls. |
 | N8N_HOST_COUNTRY | Germany. The website and the n8n workflow are both hosted by OVH in Germany. OVH’s data processing terms cover both. The page makes no SIC adequacy claim. |
 | RNBD_NUMBER | Omitted from the public text. |
@@ -58,7 +58,7 @@ Checked on 22 October 2026, without opening wp-admin or the server.
 
 WordPress is not the publish path. There is no WordPress admin access.
 
-The intended host is an existing DNS name on the OVH VPS `51.195.45.77` (Caddy): `jobs.cleantechhub.net` or `agents.cleantechhub.net`, at `/privacidad/`, with `/privacy` redirecting there. That publish did not run. This environment has no Infisical credential that can write a file on that server. Do not treat `https://jobs.cleantechhub.net/privacidad/` as the policy: on 22 October 2026 it returned the jobs homepage. `https://agents.cleantechhub.net/privacidad/` returned an empty body.
+The live page is `https://jobs.cleantechhub.net/privacidad/`. `/privacy` redirects there. The VPS paths are in `artifacts/jobs-privacidad-deploy.md`. A jobs-board `rsync --delete` can remove the file unless the jobs build source includes it.
 
 The WordPress steps below are kept only as a record of the earlier plan. Do not follow them.
 

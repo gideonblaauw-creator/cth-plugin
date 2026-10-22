@@ -4,7 +4,7 @@ Spanish prevails. Si el texto en español y el texto en inglés difieren, preval
 
 Esta página explica cómo FUNDACIÓN CLEANTECH HUB trata los datos personales. Cubre cleantechhub.net, el boletín, las convocatorias de empleo, y la página de LinkedIn de CleantechHUB.
 
-Vigente desde: [fecha de publicación]
+Vigente desde: 22 de octubre de 2026
 
 ## 1. Responsable del tratamiento
 
@@ -244,7 +244,7 @@ Spanish prevails. Si el texto en español y el texto en inglés difieren, preval
 
 This page explains how FUNDACIÓN CLEANTECH HUB handles personal data. It covers cleantechhub.net, the newsletter, job openings, and the CleantechHUB LinkedIn Page.
 
-Effective from: [publication date]
+Effective from: 22 October 2026
 
 ## 1. Data controller
 

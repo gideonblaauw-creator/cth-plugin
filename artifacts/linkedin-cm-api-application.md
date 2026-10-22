@@ -10,17 +10,15 @@ Internal working draft. Gideon reviews every paste block before it leaves his de
 
 ## Stop before you submit
 
-**Privacy-policy URL: not live.** There is no URL to paste yet. Do not submit the access form until a private window returns 200 on a page that is this privacy policy, with valid TLS, and without a login. LinkedIn’s rejection for a missing page is **Invalid Privacy Policy**. A Development-tier rejection cannot be retried on the same app.
+**Privacy-policy URL: live.** Paste `https://jobs.cleantechhub.net/privacidad/`.
 
-Checked on 22 October 2026, without a login:
+Checked on 22 October 2026, without a login. The page returns HTTP 200. The body is the CleantechHUB privacy policy, with `Vigente desde: 22 de octubre de 2026` and `Effective from: 22 October 2026`. `https://jobs.cleantechhub.net/privacy` and `https://jobs.cleantechhub.net/privacy/` redirect to that URL. TLS is valid. There is no login wall.
 
-- `https://cleantechhub.net/politica-de-privacidad/` returns 404. WordPress is not the publish path. There is no WordPress admin access.
-- `https://jobs.cleantechhub.net/privacidad/` and `https://jobs.cleantechhub.net/privacy` return 200, but the body is the jobs homepage, not this policy. Do not paste those URLs.
-- `https://agents.cleantechhub.net/privacidad/` and `https://agents.cleantechhub.net/privacy` return 200 with an empty body. Do not paste those URLs.
+The organization website stays `https://cleantechhub.net`. Do not paste the jobs host into the website field.
 
-The approved draft is `artifacts/cleantechhub-privacy-policy.html`. It was not deployed. Both candidate hostnames resolve to the OVH VPS `51.195.45.77` and answer with Caddy. Writing a file there needs a secret from Infisical. This environment has no Infisical CLI, no Infisical identity variables, and no Infisical config file. Vercel is connected, but neither hostname points at Vercel, and a new DNS record was not allowed.
+The page was published on the VPS. The file and the redirect are noted in `artifacts/jobs-privacidad-deploy.md`. A later jobs-board `rsync --delete` can remove the page unless the jobs build source includes it.
 
-The `/diagnostico` green-finance checkbox is still an open item. A fresh fetch of `https://cleantechhub.net/diagnostico/` still contains `<input type="checkbox" id="newsletter-consent" checked>`. It was not changed. Fixing it needs WordPress admin, which is not available.
+The `/diagnostico` green-finance checkbox is still an open item. It was not changed. Fixing it needs WordPress admin.
 
 Do not paste the Google Drive policy PDF into the privacy-policy field. That file is not a page on cleantechhub.net.
 
@@ -94,9 +92,11 @@ The organization website and the domain must match this site. Review checks a ve
 
 ### 1.7 Privacy policy URL
 
-**Status: not live. Do not paste a URL yet.**
+**Paste (live):**
 
-The approved page is `artifacts/cleantechhub-privacy-policy.html`. It is not on a public URL. See the stop notice. Paste the URL only after it returns 200 without a login and the body is this policy.
+https://jobs.cleantechhub.net/privacidad/
+
+Checked on 22 October 2026. HTTP 200, no login, and the body is this privacy policy. `/privacy` redirects there. The website field stays `https://cleantechhub.net`.
 
 ### 1.8 LinkedIn Page
 
@@ -284,7 +284,7 @@ Do not send these with the first Development request. They are required only whe
 3. **Verify the app with the CleantechHUB Page super admin before you submit.** The Page’s organization must be the same organization as the legal entity.
 4. **A separate app, because this one already has other products.** The supplied scopes `email`, `openid`, and `profile` are Sign In with LinkedIn using OpenID Connect. `w_member_social` is Share on LinkedIn, which posts as a member. Partner Support says Community Management must be the only product on the app, for legal and security reasons. Share is one of the examples that grays out the button. Create a new app with no other product. Keep it. n8n will use that new Client ID for the Page.
 5. **Do not discard the new app.** The “discard the new app” line in the docs belongs to a different path. That path starts with an app that already has the Advertising API. Community Management is vetted on a clean app. Standard access is then added back onto the Advertising app. CleantechHUB is not requesting the Advertising API. The new app is the Page app.
-6. **A public privacy-policy URL.** Not live. See the stop notice. Do not submit while the only responses are a WordPress 404, the jobs homepage, or an empty agents response.
+6. **A public privacy-policy URL.** Live at `https://jobs.cleantechhub.net/privacidad/`. The website field stays `https://cleantechhub.net`.
 7. **The signed-in member is an ADMINISTRATOR of the Page** if you want analytics. A content-admin token can post. It cannot call the reporting endpoints that require `rw_organization_admin`.
 8. **Read these before you submit.**
    - [LinkedIn Marketing API terms](https://www.linkedin.com/legal/l/marketing-api-terms)
@@ -390,21 +390,20 @@ These stay as `[GIDEON TO FILL]`. They are not on the public site, and they were
 - The new app’s Client ID, after he creates **CleantechHUB n8n**.
 - Standard-tier test credentials, later. Do not put a live password in this file.
 
-Already filled, so no longer blank: legal name FUNDACIÓN CLEANTECH HUB (ESAL), NIT 901.523.941-9, Calle 90 No. 19-41 Of. 801, Bogotá D.C., admin@cleantechhub.net, +57 313 715 5965, and website https://cleantechhub.net. n8n host country is Germany, on OVH. The privacy URL is not filled, because no page is live.
+Already filled, so no longer blank: legal name FUNDACIÓN CLEANTECH HUB (ESAL), NIT 901.523.941-9, Calle 90 No. 19-41 Of. 801, Bogotá D.C., admin@cleantechhub.net, +57 313 715 5965, website https://cleantechhub.net, and privacy URL https://jobs.cleantechhub.net/privacidad/ (live). n8n host country is Germany, on OVH.
 
 Open item, not fixed: the `/diagnostico` checkbox still loads checked. That change needs WordPress admin.
 
 ## 8. Final submit steps
 
-Do these on Gideon’s own device. Do not submit until the privacy URL returns 200 without a login and the body is this policy.
+Do these on Gideon’s own device.
 
-1. Publish the approved HTML on an existing host (`jobs.cleantechhub.net` or `agents.cleantechhub.net`) at `/privacidad/`, with `/privacy` redirecting there. That publish did not happen from this run. It needs an Infisical secret that can write to the Caddy host `51.195.45.77`. Set the effective date on the day it actually goes live.
-2. Open the live URL in a private window. Confirm HTTP 200, valid TLS, and no login wall.
-3. Open https://www.linkedin.com/developers/apps and sign in with Gideon’s own LinkedIn account.
-4. Create the app **CleantechHUB n8n**. Select the CleantechHUB Page. Paste the live privacy URL. Add no other product.
-5. Settings → Verify → Generate URL → send it to the Page super admin. The super admin approves within 30 days.
-6. Products → Request access for the Community Management API. Paste section 1. Use admin@cleantechhub.net. Fill only the blanks in section 7.
-7. Finish the survey within 21 days. Watch Access Form Review, then Identity Vetting.
-8. After Development approval, build within 12 months, then apply for Standard tier with the screencast in section 1.17.
+1. Open `https://jobs.cleantechhub.net/privacidad/` in a private window. Confirm HTTP 200 and that the date reads 22 October 2026. This was checked on 22 October 2026.
+2. Open https://www.linkedin.com/developers/apps and sign in with Gideon’s own LinkedIn account.
+3. Create the app **CleantechHUB n8n**. Select the CleantechHUB Page. Paste `https://jobs.cleantechhub.net/privacidad/`. The website field stays `https://cleantechhub.net`. Add no other product.
+4. Settings → Verify → Generate URL → send it to the Page super admin. The super admin approves within 30 days.
+5. Products → Request access for the Community Management API. Paste section 1. Use admin@cleantechhub.net. Fill only the blanks in section 7.
+6. Finish the survey within 21 days. Watch Access Form Review, then Identity Vetting.
+7. After Development approval, build within 12 months, then apply for Standard tier with the screencast in section 1.17.
 
 The numbered portal detail, with the doc links, is section 3.
