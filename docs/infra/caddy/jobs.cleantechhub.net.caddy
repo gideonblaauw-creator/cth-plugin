@@ -1,0 +1,15 @@
+# jobs.cleantechhub.net — CTH Jobs Board (public static SPA, no oauth2-proxy).
+# Build: cth-jobs-board → rsync dist/ to /opt/cth-jobs-board/
+# Rollback: remove import from main Caddyfile, restore site backup, reload caddy.
+
+jobs.cleantechhub.net {
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	root * /opt/cth-jobs-board
+	try_files {path} {path}/ /index.html
+	file_server
+}
