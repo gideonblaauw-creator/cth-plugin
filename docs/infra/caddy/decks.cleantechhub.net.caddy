@@ -323,6 +323,15 @@ handle_path /fibra/fibra-deploy/* {
 	file_server
 }
 
+	handle /celsia-teaser {
+		redir * /celsia-teaser/ 308
+	}
+	handle_path /celsia-teaser/* {
+		root * /opt/cth-decks/celsia-teaser
+		header X-Robots-Tag "noindex, nofollow"
+		file_server
+	}
+
 	handle {
 		respond "Not found" 404
 	}
