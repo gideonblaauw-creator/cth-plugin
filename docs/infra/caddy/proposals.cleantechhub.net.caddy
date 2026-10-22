@@ -27,6 +27,16 @@ proposals.cleantechhub.net {
 		file_server
 	}
 
+	# Celsia snapshot — public (no SSO); source decks/celsia-snapshot @ 5cb833f (Gideon GO 22 Oct 2026).
+	handle /celsia-snapshot {
+		redir * /celsia-snapshot/ 308
+	}
+	handle_path /celsia-snapshot/* {
+		root * /opt/cth-proposals/celsia-snapshot
+		header X-Robots-Tag "noindex, nofollow"
+		file_server
+	}
+
 	import /etc/caddy/Caddyfile.d/proposals.cleantechhub.net.slugs.caddy
 
 	handle {

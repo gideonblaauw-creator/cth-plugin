@@ -13,6 +13,14 @@ decks.cleantechhub.net {
 	# Google SSO via oauth2-proxy on every path incl. /rein (REIN password removed, Gideon 22 Oct 2026).
 	# Whole site wrapped in route so the gate runs before the handle blocks.
 	route {
+		# Celsia lives on proposals (public); 301 before OAuth so old deck links redirect without login.
+		handle /celsia-teaser {
+			redir https://proposals.cleantechhub.net/celsia-snapshot/ permanent
+		}
+		handle_path /celsia-teaser/* {
+			redir https://proposals.cleantechhub.net/celsia-snapshot/{path} permanent
+		}
+
 		forward_auth 127.0.0.1:4180 {
 			uri /oauth2/auth
 			copy_headers X-Auth-Request-Email
@@ -322,15 +330,6 @@ handle_path /fibra/fibra-deploy/* {
 	root * /opt/cth-decks/fibra/fibra-deploy
 	file_server
 }
-
-	handle /celsia-teaser {
-		redir * /celsia-teaser/ 308
-	}
-	handle_path /celsia-teaser/* {
-		root * /opt/cth-decks/celsia-teaser
-		header X-Robots-Tag "noindex, nofollow"
-		file_server
-	}
 
 	handle {
 		respond "Not found" 404
