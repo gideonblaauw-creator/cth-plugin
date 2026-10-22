@@ -43,7 +43,23 @@
       "cta.title": "",
       "cta.body": "",
       "cta.btn": "Book a call",
-      "foot.line": ""
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -72,7 +88,23 @@
       "cta.title": "",
       "cta.body": "",
       "cta.btn": "Agenda una llamada",
-      "foot.line": ""
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
     }
   },
   "snapshot": {
@@ -224,7 +256,87 @@
           "public_source_url": "https://sincarbono.io",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 134. GRI 305-3. Ecopetrol set net-zero for scopes 1 and 2 by 2050 and a 50% cut in scopes 1, 2 and 3 versus 2019 by 2050. Scope 3 remains material across purchased goods, transport and product use. Report evidence is on PDF page 134 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 305 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Scope 3 still drives a 50% Group target by 2050”, mapped to GRI 305, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 134. GRI 305-3. Ecopetrol estableció cero neto para los alcances 1 y 2 para 2050 y un recorte del 50% en los alcances 1, 2 y 3 en comparación con 2019 para 2050. El Alcance 3 sigue siendo material en los bienes comprados, el transporte y el uso del producto. La evidencia del reporte está en la página 134 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 305 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Alcance 3 sigue impulsando un objetivo del 50% del Grupo para 2050», mapeadas a GRI 305, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-2",
@@ -257,7 +369,51 @@
           "public_source_url": "https://novatio.com.co",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 105. GRI 305: Emissions 2016. Ecopetrol committed to zero routine flaring, zero methane emissions by 2030, and a 55% methane cut in upstream production by 2030. Report evidence is on PDF page 105 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Novatio",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://novatio.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 305 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Zero methane by 2030 while upstream methane remains large”, mapped to GRI 305, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 105. GRI 305: Emissions 2016. Ecopetrol se comprometió a cero quemas rutinarias, cero emisiones de metano para 2030 y un 55% de reducción de metano en la producción aguas arriba para 2030. La evidencia del reporte está en la página 105 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Novatio",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://novatio.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 305 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. Cero metano para 2030, mientras que el metano aguas arriba sigue siendo grande», mapeadas a GRI 305, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-3",
@@ -301,7 +457,69 @@
           "public_source_url": "https://bioambientar.com",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 134. GRI 3: Material Topics 2021. Ecopetrol flags ineffective response to climate, water and biodiversity expectations as a material enterprise risk. Report evidence is on PDF page 134 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "field sensors or tracers",
+              "source": "https://fluvia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "BioAmbientar",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://bioambientar.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 3 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Enterprise risk ties climate, water and biodiversity response gaps”, mapped to GRI 3, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 134. GRI 3: Material Topics 2021. Ecopetrol señala la respuesta ineficaz a las expectativas climáticas, hídricas y de biodiversidad como un riesgo material para la empresa. La evidencia del reporte está en la página 134 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "sensores o trazadores de campo",
+              "source": "https://fluvia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "BioAmbientar",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://bioambientar.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 3 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. El riesgo empresarial vincula las brechas de respuesta al clima, el agua y la biodiversidad», mapeadas a GRI 3, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-4",
@@ -334,7 +552,51 @@
           "public_source_url": "https://sincarbono.io",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 127. Production segment targets a 55% cut in direct methane emissions by 2030. Report evidence is on PDF page 127 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "sinCarbono",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. 55% upstream methane reduction target by 2030”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 127. El segmento de producción apunta a una reducción del 55% en las emisiones directas de metano para 2030. La evidencia del reporte está en la página 127 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "sinCarbono",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. Objetivo de reducción de metano aguas arriba del 55% para 2030», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-5",
@@ -367,7 +629,51 @@
           "public_source_url": "https://bioambientar.com",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 160. GRI 304: Biodiversity 2016. Ecopetrol states biodiversity management requires joint action and nature-based solutions with communities. Report evidence is on PDF page 160 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "BioAmbientar",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://bioambientar.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 304 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Biodiversity needs coordinated action with stakeholders”, mapped to GRI 304, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 160. GRI 304: Biodiversity 2016. Ecopetrol afirma que la gestión de la biodiversidad requiere acciones conjuntas y soluciones basadas en la naturaleza con las comunidades. La evidencia del reporte está en la página 160 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "BioAmbientar",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://bioambientar.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 304 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. La biodiversidad necesita una acción coordinada con las partes interesadas», mapeadas a GRI 304, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     }
   ]
 }

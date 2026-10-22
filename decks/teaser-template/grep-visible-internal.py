@@ -42,6 +42,19 @@ def visible_lines(data: dict, lang: str) -> list[str]:
         ev = g.get("report_evidence") or {}
         if lang == "en" and ev.get("quote_en"):
             lines.append(ev["quote_en"])
+        dl = (g.get("datalab") or {}).get(lang) or {}
+        lines.append(dl.get("reported_missing", ""))
+        lines.append(dl.get("deliverable", ""))
+        for row in dl.get("startup_metrics") or []:
+            lines.append(
+                " ".join(
+                    str(row.get(k, ""))
+                    for k in ("startup", "metric", "unit", "frequency", "method", "note")
+                )
+            )
+        flow = dl.get("flow") or {}
+        for fk in ("intro", "l1", "l2", "l3"):
+            lines.append(flow.get(fk, ""))
         for m in dedupe_names(g.get("matches") or []):
             nx = (data.get("nexus") or {}).get(m.get("name", ""), {})
             lines.append(nx.get("ds" if lang == "es" else "d") or m.get("description") or "")

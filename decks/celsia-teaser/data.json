@@ -44,7 +44,23 @@
       "cta.title": "",
       "cta.body": "",
       "cta.btn": "Book a call",
-      "foot.line": ""
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -73,7 +89,23 @@
       "cta.title": "",
       "cta.body": "",
       "cta.btn": "Agenda una llamada",
-      "foot.line": ""
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
     }
   },
   "snapshot": {
@@ -251,7 +283,69 @@
           "public_source_url": "https://c-neutral.co",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Material topic 5, climate mitigation. PDF page 60 (printed 118). GRI 305: Emissions 2016 (the report cites GRI 305-3). Progress on the SBTi approval indicator: 20 percent. Report evidence is on PDF page 60 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 305 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Scope 3 inventory and a science-based target”, mapped to GRI 305, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Tema material 5, mitigación climática. PDF página 60 (impreso 118). GRI 305: Emissions 2016 (el reporte cita GRI 305-3). Avance en el indicador de aprobación SBTi: 20 por ciento. La evidencia del reporte está en la página 60 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 305 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Inventario de alcance 3 y meta basada en la ciencia», mapeadas a GRI 305, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-2",
@@ -284,7 +378,51 @@
           "public_source_url": "https://apicultoresyrescatistas.com",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Material topic 7, biodiversity and ecosystem services. PDF page 60 (printed 119). GRI 304: Biodiversity 2016 (the report cites GRI 304-2). Net-positive indicator: 23 percent. The 2025 no-net-loss statement is still in the future tense. ReverdeC: 18,005,015 trees against 50 million by 2030. Report evidence is on PDF page 60 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Apicultores y Rescatistas SAS BIC",
+              "metric": "Biodiversity or species relocation indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://apicultoresyrescatistas.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 304 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Net-positive nature impact”, mapped to GRI 304, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Tema material 7, biodiversidad y servicios ecosistémicos. PDF página 60 (impreso 119). GRI 304: Biodiversity 2016 (el reporte cita GRI 304-2). Indicador neto positivo: 23 por ciento. La meta de no pérdida neta de 2025 sigue en futuro. ReverdeC: 18.005.015 árboles frente a 50 millones para 2030. La evidencia del reporte está en la página 60 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Apicultores y Rescatistas SAS BIC",
+              "metric": "Indicadores de biodiversidad o reubicación de especies",
+              "unit": "colonias",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://apicultoresyrescatistas.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 304 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. Impacto neto positivo en naturaleza», mapeadas a GRI 304, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-3",
@@ -317,7 +455,51 @@
           "public_source_url": "https://fluvia.co",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Material topic 9, climate adaptation. PDF page 22 (printed 42–43). GRI 303: Water and Effluents 2018 (the water section cites GRI 303-1). The report maps the adaptation topic itself with GRI 3-3, which is a universal standard, not a topic standard. Report evidence is on PDF page 22 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "field sensors or tracers",
+              "source": "https://fluvia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 303; GRI 3 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Drought, floods and water stress on assets”, mapped to GRI 303; GRI 3, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Tema material 9, adaptación climática. PDF página 22 (impreso 42–43). GRI 303: Water and Effluents 2018 (la sección de agua cita GRI 303-1). El reporte mapea el tema de adaptación con GRI 3-3, estándar universal, no temático. La evidencia del reporte está en la página 22 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "sensores o trazadores de campo",
+              "source": "https://fluvia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 303; GRI 3 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. Sequía, inundaciones y estrés hídrico en activos», mapeadas a GRI 303; GRI 3, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-4",
@@ -383,7 +565,105 @@
           "public_source_url": "https://fenoge.gov.co",
           "funder": true
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 61 (printed 120). GRI 302: Energy 2016 (the indicator index cites GRI 302-1). Target for 2025: 25 percent of installed capacity from non-conventional renewables. 2024 result: 19 percent. The report’s 2030 expectation is 35 percent, subject to UPME authorizations. Report evidence is on PDF page 61 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Griin",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://griin.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "O3 Smart Cities",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://o3smartcities.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "SEOS Energy",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "Not stated on the public page",
+              "source": "https://seosenergy.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "FENOGE",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://fenoge.gov.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 302 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Non-conventional renewable capacity”, mapped to GRI 302, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 61 (impreso 120). GRI 302: Energy 2016 (el índice cita GRI 302-1). Meta 2025: 25 por ciento de capacidad instalada de renovables no convencionales. Resultado 2024: 19 por ciento. Expectativa 2030: 35 por ciento, sujeta a autorizaciones UPME. La evidencia del reporte está en la página 61 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Griin",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://griin.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "O3 Smart Cities",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://o3smartcities.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "SEOS Energy",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "No indicado en la página pública",
+              "source": "https://seosenergy.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "FENOGE",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://fenoge.gov.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 302 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. Capacidad renovable no convencional», mapeadas a GRI 302, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     },
     {
       "id": "gap-5",
@@ -449,7 +729,103 @@
           "public_source_url": "https://wero.com.co",
           "funder": false
         }
-      ]
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 61 (printed 121). GRI 306: Waste 2020 (the indicator index cites GRI 306-3). Own-brand packaging that is reusable, compostable or recyclable: 10 percent against 100 percent by 2030. Circular-economy policy: 20 percent, with the policy still being written for 2025. On PDF page 29 the report says the circular bet is a strategy still being consolidated. Report evidence is on PDF page 61 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Compostpack",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "ha",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://compostpack.com"
+            },
+            {
+              "startup": "Xiclo",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://xiclo.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Galaxy Pack",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://galaxypack.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "WERO",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://wero.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 306 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Own-brand packaging and the circular policy”, mapped to GRI 306, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 61 (impreso 121). GRI 306: Waste 2020 (el índice cita GRI 306-3). Empaque de marca propia reutilizable, compostable o reciclable: 10 por ciento frente a 100 por ciento en 2030. Política de economía circular: 20 por ciento; la política aún se escribe para 2025. En PDF página 29 la apuesta circular sigue consolidándose. La evidencia del reporte está en la página 61 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Compostpack",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "ha",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://compostpack.com"
+            },
+            {
+              "startup": "Xiclo",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://xiclo.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Galaxy Pack",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://galaxypack.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "WERO",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://wero.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 306 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. Empaque de marca propia y política circular», mapeadas a GRI 306, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
     }
   ]
 }

@@ -10,6 +10,11 @@
       theme: "Theme",
       visit: "Visit",
       gapLabel: "Gap",
+      datalabGapHeading: "How the Datalab closes this gap",
+      datalabA: "Reported indicator and missing data",
+      datalabB: "Data from matched startup deployments",
+      datalabC: "Datalab data flow",
+      datalabD: "Deliverable for the next report",
     },
     es: {
       reportVerbatim: "Reporte de sostenibilidad (literal, español)",
@@ -19,6 +24,11 @@
       theme: "Tema",
       visit: "Visitar",
       gapLabel: "Brecha",
+      datalabGapHeading: "Cómo el Datalab cierra esta brecha",
+      datalabA: "Indicador reportado y dato faltante",
+      datalabB: "Datos de los despliegues de las startups coincidentes",
+      datalabC: "Flujo de datos del Datalab",
+      datalabD: "Entregable para el próximo reporte",
     },
   };
 
@@ -51,6 +61,43 @@
   }
 
   /** Gap sections: EN shows English translation only; ES shows PDF link only (no verbatim Spanish block). */
+  function renderDatalab(g) {
+    const dl = g.datalab && g.datalab[lang];
+    if (!dl) return "";
+    const metrics = (dl.startup_metrics || [])
+      .map((row) => {
+        const note = row.note ? ` · ${esc(row.note)}` : "";
+        return `<li><strong>${esc(row.startup)}</strong> — ${esc(row.metric)} · ${esc(row.unit)} · ${esc(
+          row.frequency
+        )} · ${esc(row.method)} · <span class="src">${esc(row.source)}</span>${note}</li>`;
+      })
+      .join("");
+    const flow = dl.flow || {};
+    const flowList = [flow.intro, flow.l1, flow.l2, flow.l3]
+      .filter(Boolean)
+      .map((line) => `<li>${esc(line)}</li>`)
+      .join("");
+    return `<div class="datalab-block">
+      <h3>${t("datalab.gapHeading") || UI_STATIC[lang].datalabGapHeading}</h3>
+      <div class="box sky">
+        <p class="dl-label">${t("datalab.aLabel") || UI_STATIC[lang].datalabA}</p>
+        <p>${esc(dl.reported_missing || "")}</p>
+      </div>
+      <div class="box">
+        <p class="dl-label">${t("datalab.bLabel") || UI_STATIC[lang].datalabB}</p>
+        <ul class="dl-metrics">${metrics}</ul>
+      </div>
+      <div class="box blue">
+        <p class="dl-label">${t("datalab.cLabel") || UI_STATIC[lang].datalabC}</p>
+        <ul class="dl-flow">${flowList}</ul>
+      </div>
+      <div class="box">
+        <p class="dl-label">${t("datalab.dLabel") || UI_STATIC[lang].datalabD}</p>
+        <p>${esc(dl.deliverable || "")}</p>
+      </div>
+    </div>`;
+  }
+
   function renderGapReportEvidence(ev) {
     const href = pdfLink(ev);
     const enQ = ev.quote_en ? `"${esc(ev.quote_en)}"` : "";
@@ -130,10 +177,12 @@
         const matches = dedupeMatches(g.matches);
         const cards = matches.map((m) => startupCard(m, g.rank)).join("");
         const evidence = renderGapReportEvidence(g.report_evidence);
+        const datalab = renderDatalab(g);
         return `<section id="${g.id}" class="${secClass}"><div class="wrap">
           <div class="gap-head"><h2>${esc(title)}</h2></div>
           <div class="box"><p>${esc(ctx)}</p></div>
           ${evidence}
+          ${datalab}
           <h3>${t("matches")}</h3>
           <div class="card-grid">${cards}</div>
         </div></section>`;
