@@ -136,7 +136,7 @@
         const evidence = renderReportQuote(g.report_evidence);
         return `<section id="${g.id}" class="${secClass}"><div class="wrap">
           <div class="gap-head"><h2>${esc(title)}</h2><span class="${badgeClass}">${sf}</span></div>
-          <div class="box"><p>${ctx}</p></div>
+          <div class="box"><p>${esc(ctx)}</p></div>
           ${evidence}
           <h3>${t("matches")}</h3>
           <div class="card-grid">${cards}</div>
@@ -184,6 +184,10 @@
       b.classList.toggle("on", b.dataset.lang === lang)
     );
     if (DATA.meta?.title) document.title = DATA.meta.title[lang] || DATA.meta.title.en;
+    const logoPath = DATA.brand?.logo || "img/logo.png";
+    document.querySelectorAll(".brand-logo").forEach((img) => {
+      img.src = logoPath;
+    });
     renderNav();
     renderGaps();
     renderTeam();

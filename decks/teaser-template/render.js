@@ -184,6 +184,10 @@
       b.classList.toggle("on", b.dataset.lang === lang)
     );
     if (DATA.meta?.title) document.title = DATA.meta.title[lang] || DATA.meta.title.en;
+    const logoPath = DATA.brand?.logo || "img/logo.png";
+    document.querySelectorAll(".brand-logo").forEach((img) => {
+      img.src = logoPath;
+    });
     renderNav();
     renderGaps();
     renderTeam();

@@ -7,6 +7,9 @@
       "es": "Celsia · panorama de brechas · CleantechHUB"
     }
   },
+  "brand": {
+    "logo": "img/logo.png"
+  },
   "report": {
     "pdf_url": "https://www.celsia.com/wp-content/uploads/2025/05/RI-Celsia-2024-final_13052025.pdf",
     "listing_url": "https://www.celsia.com/es/sostenibilidad/",
@@ -24,7 +27,7 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Celsia · gap snapshot",
       "hero.title": "Environment, climate and nature — five material gaps from the 2024 integrated report.",
-      "hero.lead": "Draft. Contract status: to agree with the Datalab desk. GTM status: GTM hypothesis. Not a CSO delivery. Do not merge. Do not deploy.",
+      "hero.lead": "Draft. Not a CSO delivery.",
       "hero.companyLbl": "Company",
       "hero.company": "Celsia S.A., Colombia. Energy and utilities. Wave 1. Persona: CSO.",
       "hero.scopeLbl": "Scope",
@@ -55,7 +58,7 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Celsia · panorama de brechas",
       "hero.title": "Medio ambiente, clima y naturaleza — cinco brechas materiales del reporte integrado 2024.",
-      "hero.lead": "Borrador. Estado del contrato: por acordar con el desk Datalab. Estado GTM: hipótesis GTM. No es una entrega CSO. No fusionar. No desplegar.",
+      "hero.lead": "Borrador. No es una entrega CSO.",
       "hero.companyLbl": "Empresa",
       "hero.company": "Celsia S.A., Colombia. Energía y servicios públicos. Ola 1. Persona: CSO.",
       "hero.scopeLbl": "Alcance",

@@ -7,6 +7,7 @@ Reusable scroll teaser (CLP26-style) for Datalab GTM gap snapshots. Each company
 ```
 decks/{company}-teaser/
   data.json       # all copy, gaps, matches, Nexus blurbs (required)
+  brand.logo      # path to official CTH PNG wordmark (e.g. img/logo.png)
   index.html      # shell (copy from teaser-template)
   render.js       # shell (copy from teaser-template)
   img/            # team photos, optional assets
