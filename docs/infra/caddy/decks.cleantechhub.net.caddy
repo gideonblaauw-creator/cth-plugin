@@ -1,6 +1,6 @@
 # decks.cleantechhub.net — CTH client decks.
 # Same Appwrite upstream as wiki /decks/<slug>/ (Host <slug>.sites.localhost -> 127.0.0.1:9080).
-# All paths gated by Google SSO (oauth2-proxy) except /rein, which keeps REIN basic_auth.
+# All paths gated by Google SSO (oauth2-proxy), including /rein.
 # Rollback of dashboard auth: restore the timestamped backup of this file, caddy validate, systemctl reload caddy.
 
 decks.cleantechhub.net {
@@ -10,11 +10,10 @@ decks.cleantechhub.net {
 		Referrer-Policy strict-origin-when-cross-origin
 	}
 
-	# Google SSO via oauth2-proxy on everything except /rein (keeps REIN basic_auth). Gideon GO 22 Oct 2026.
+	# Google SSO via oauth2-proxy on every path incl. /rein (REIN password removed, Gideon 22 Oct 2026).
 	# Whole site wrapped in route so the gate runs before the handle blocks.
-	@gated not path /rein /rein/*
 	route {
-		forward_auth @gated 127.0.0.1:4180 {
+		forward_auth 127.0.0.1:4180 {
 			uri /oauth2/auth
 			copy_headers X-Auth-Request-Email
 			@unauth status 401
@@ -35,9 +34,6 @@ decks.cleantechhub.net {
 		redir * /rein/ 308
 	}
 	handle_path /rein/* {
-		basic_auth {
-			REIN $2a$14$UEAkrKVm.05H5ogjRki/z.WImQk1VEdk.fVUBzPXhw6qlVRsZbTGa
-		}
 		root * /opt/cth-decks/rein-index
 		header X-Robots-Tag "noindex, nofollow"
 		header Cache-Control "no-store"

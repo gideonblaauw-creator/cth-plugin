@@ -33,7 +33,7 @@ Central Google SSO for VPS-hosted Caddy apps via [oauth2-proxy](https://oauth2-p
 7. `caddy validate --config /etc/caddy/Caddyfile` then **`systemctl reload caddy`** (never restart).
 8. Pilot: `origo-staging.data.cleantechhub.net` (see `origo-staging.data.cleantechhub.net.caddy`).
 9. Roll additional hosts one at a time: site-level `import oauth2_proxy_handle_unauth`, protected `handle` with `import oauth2_proxy_forward_auth`.
-- proposals dashboard gated 22 Oct 2026 (slugs stay open); decks gated 22 Oct 2026 (all paths except /rein, which keeps REIN basic_auth); allowlist adds 8 pvblic.org addresses (Gideon override of REIN hold, 22 Oct 2026)
+- proposals dashboard gated 22 Oct 2026 (slugs stay open); decks gated 22 Oct 2026 (all paths incl. /rein gated; REIN basic_auth removed 22 Oct 2026); allowlist adds 8 pvblic.org addresses (Gideon override of REIN hold, 22 Oct 2026)
 
 ## Allowlist how-to
 
