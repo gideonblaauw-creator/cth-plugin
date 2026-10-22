@@ -72,7 +72,7 @@ Gideon, or whoever administers WordPress, publishes. This draft does not deploy 
 4. Title: `Política de privacidad`.
 5. Slug: `politica-de-privacidad`. The site already uses slugs such as `/governance/`, so the URL is `https://cleantechhub.net/politica-de-privacidad/`.
 6. In Polylang, set the language to Spanish. The page must not sit under `/en/`. English stays inside the same page, after the Spanish text.
-7. Edit with Elementor. Add an HTML widget. Paste only the contents of `<main>` from `artifacts/cleantechhub-privacy-policy.html`. Do not paste `<style>` or the header comment.
+7. Edit with Elementor. Add an HTML widget. Paste the whole `<main>` from `artifacts/cleantechhub-privacy-policy.html`, including the `<style>` inside it. Do not paste the header comment. The style is scoped to `.cth-privacy`.
 8. If the new page opens in the block editor, use a Custom HTML block and paste the same `<main>`.
 9. Publish. Open the URL in a private window. It must load without a login.
 10. In Rank Math → Redirections, add a 301 from `/privacy` to `https://cleantechhub.net/politica-de-privacidad/`. Repeat the 301 for `/privacy/`.

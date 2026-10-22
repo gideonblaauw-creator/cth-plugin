@@ -5,77 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de privacidad — CleantechHUB</title>
 <!--
-  Paste only the contents of <main> into the WordPress HTML widget.
+  Paste the whole <main>, including its <style>, into the WordPress HTML widget.
   Publish steps: artifacts/cleantechhub-privacy-policy-README.md
   Target URL: https://cleantechhub.net/politica-de-privacidad/
   Redirect /privacy and /privacy/ to that URL with a 301.
 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<main class="cth-privacy">
 <style>
-:root {
-  --cth-primary: #2D6A4F;
-  --cth-dark: #1B4332;
-  --cth-accent: #95D5B2;
-  --cth-light: #D8F3DC;
-  --cth-white: #FFFFFF;
-  --cth-text: #333333;
-  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: var(--font-family);
+.cth-privacy {
+  box-sizing: border-box;
+  max-width: 44rem;
+  margin: 0 auto;
+  font-family: "Open Sans", "PT Sans", sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: var(--cth-text);
-  background: var(--cth-white);
+  color: #0C498A;
+  background: #FFFFFF;
 }
-header {
-  background: var(--cth-dark);
-  color: var(--cth-white);
-  padding: 1.25rem 1.25rem 1rem;
+.cth-privacy *,
+.cth-privacy *::before,
+.cth-privacy *::after { box-sizing: border-box; }
+.cth-privacy .cth-title {
+  background: #0C498A;
+  color: #FFFFFF;
+  padding: 1.5rem 1.5rem 1.25rem;
 }
-header p { margin: 0.25rem 0 0; }
-header a { color: var(--cth-accent); }
-.wordmark { font-weight: 400; letter-spacing: 0; font-size: 1.25rem; }
-.wordmark strong { font-weight: 700; }
-main { max-width: 44rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
-h1 { color: var(--cth-primary); font-size: 2rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { color: var(--cth-primary); font-size: 1.35rem; margin: 2rem 0 0.5rem; }
-a { color: var(--cth-primary); }
-.jump a {
+.cth-privacy .cth-title p { margin: 0.25rem 0 0; }
+.cth-privacy .wordmark { font-weight: 400; letter-spacing: 0; font-size: 1.35rem; margin: 0; }
+.cth-privacy .wordmark strong { font-weight: 700; }
+.cth-privacy .cth-body { padding: 1.5rem 1.5rem 2.5rem; }
+.cth-privacy h1 {
+  color: #0C498A;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+.cth-privacy h2 {
+  color: #0C498A;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 2rem 0 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid #669348;
+}
+.cth-privacy a { color: #0C498A; }
+.cth-privacy .jump a {
   display: inline-block;
-  background: var(--cth-light);
-  color: var(--cth-dark);
+  background: #69B5FA;
+  color: #0C498A;
   text-decoration: none;
   border-radius: 999px;
   padding: 0.2rem 0.75rem;
   font-weight: 600;
 }
-code { font-size: 0.95em; }
-ul { padding-left: 1.2rem; }
-li { margin: 0.35rem 0; }
-section + section {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 4px solid var(--cth-accent);
+.cth-privacy code {
+  font-size: 0.95em;
+  background: #B2EEFA;
+  color: #0C498A;
+  padding: 0.05rem 0.3rem;
 }
-footer {
-  background: var(--cth-light);
-  color: var(--cth-dark);
-  padding: 1rem 1.25rem 2rem;
+.cth-privacy ul { padding-left: 1.2rem; }
+.cth-privacy li { margin: 0.35rem 0; }
+.cth-privacy section + section {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 4px solid #9DC384;
+}
+.cth-privacy .cth-band {
+  background: #B2EEFA;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding: 1.5rem;
+}
+.cth-privacy .cth-foot {
+  background: #669348;
+  color: #FFFFFF;
+  margin: 2rem -1.5rem -2.5rem;
+  padding: 1rem 1.5rem 1.5rem;
   font-size: 0.9rem;
 }
+.cth-privacy .cth-foot a { color: #FFFFFF; }
 </style>
-</head>
-<body>
-<header>
+<header class="cth-title">
   <p class="wordmark">Cleantech<strong>HUB</strong></p>
   <p>Política de privacidad · Privacy policy</p>
 </header>
-<main>
+<div class="cth-body">
 <section id="espanol" lang="es">
 <h1>Política de privacidad</h1>
 <p class="jump"><a href="#english">English version</a></p>
@@ -181,7 +198,7 @@ footer {
 <p>Área: Representante Legal de la Fundación CleantechHUB</p>
 <p>Sitio: <a href="https://cleantechhub.net">https://cleantechhub.net</a></p>
 </section>
-<section id="english" lang="en">
+<section id="english" class="cth-band" lang="en">
 <h1>Privacy policy</h1>
 <p class="jump"><a href="#espanol">Versión en español</a></p>
 <p>Spanish prevails. Si el texto en español y el texto en inglés difieren, prevalece el español.</p>
@@ -286,9 +303,10 @@ footer {
 <p>Area: Representante Legal de la Fundación CleantechHUB</p>
 <p>Website: <a href="https://cleantechhub.net">https://cleantechhub.net</a></p>
 </section>
-</main>
-<footer>
+<footer class="cth-foot">
   <p>CleantechHUB · Calle 90 No. 19-41 Of. 801, Bogotá D.C., Colombia · <a href="https://cleantechhub.net">cleantechhub.net</a></p>
 </footer>
+</div>
+</main>
 </body>
 </html>
