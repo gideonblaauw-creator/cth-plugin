@@ -21,7 +21,8 @@ fetch_secret() {
 echo "==> Fetching secrets from Infisical (${INFISICAL_PROJECT} / ${INFISICAL_ENV})"
 BASIC_PASS="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_PASSWORD)"
 BASIC_USER="rein"
-if OPTIONAL_USER="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_USER 2>/dev/null)"; then
+OPTIONAL_USER="$(fetch_secret NCUK_DATAROOM_BASIC_AUTH_USER 2>/dev/null || true)"
+if [[ -n "${OPTIONAL_USER}" ]]; then
   BASIC_USER="${OPTIONAL_USER}"
 fi
 APP_SECRET="$(fetch_secret NCUK_DOCMOST_APP_SECRET)"

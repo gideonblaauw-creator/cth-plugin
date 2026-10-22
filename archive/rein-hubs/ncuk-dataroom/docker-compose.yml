@@ -28,7 +28,8 @@ services:
     mem_limit: 1g
     memswap_limit: 1g
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/api/health"]
+      # docmost/docmost:0.96.0 image includes curl (Dockerfile installer stage)
+      test: ["CMD", "curl", "-f", "-sS", "http://127.0.0.1:3000/api/health"]
       interval: 30s
       timeout: 10s
       retries: 3
