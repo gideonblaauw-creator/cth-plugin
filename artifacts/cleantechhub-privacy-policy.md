@@ -177,9 +177,7 @@ Una transmisión es un envío a un encargado que trata los datos por instruccion
 
 **Google.** Las etiquetas de la sección 9 envían datos de medición a Google para que los trate por cuenta de CleantechHUB. Es una transmisión. La cubren las condiciones de tratamiento de datos de Google.
 
-**LinkedIn.** Al publicar, el contenido va a LinkedIn. LinkedIn decide los fines del servicio de LinkedIn. Es una transferencia. La cubren las condiciones de tratamiento de datos de LinkedIn.
-
-Esta página no afirma que un país esté en una lista de adecuación de la Superintendencia de Industria y Comercio.
+**LinkedIn.** Al publicar, el contenido va a LinkedIn. LinkedIn decide los fines del servicio de LinkedIn. Es una transferencia. El contenido son las publicaciones públicas de la propia CleantechHUB, y los comentarios los publican las personas mismas en LinkedIn, bajo los términos y la política de privacidad de LinkedIn. Los límites sobre datos de miembros de la sección 6 siguen aplicando.
 
 ## 13. Derechos de las personas
 
@@ -419,9 +417,7 @@ A transmission is a send to a processor that handles the data on CleantechHUB’
 
 **Google.** The tags in section 9 send measurement data to Google to process on CleantechHUB’s behalf. This is a transmission. Google’s data processing terms cover it.
 
-**LinkedIn.** When we publish, the content goes to LinkedIn. LinkedIn decides the purposes of the LinkedIn service. This is a transfer. LinkedIn’s data processing terms cover it.
-
-This page does not claim that any country is on an adequacy list of the Superintendence of Industry and Commerce.
+**LinkedIn.** When we publish, the content goes to LinkedIn. LinkedIn decides the purposes of the LinkedIn service. This is a transfer. The content is CleantechHUB’s own public posts, and the comments are published by the people themselves on LinkedIn under LinkedIn’s terms and privacy policy. The member-data limits in section 6 still apply.
 
 ## 13. People’s rights
 
