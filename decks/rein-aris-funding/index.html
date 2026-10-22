@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REIN Hubs funding pipeline, call with Aris Woodyear, 21 Oct 2026</title>
+  <style>
+    :root {
+      --green: #335D4F;
+      --orange: #FF6633;
+      --ink: #1C1916;
+      --muted: #5C564E;
+      --paper: #F3F0EA;
+      --card: #FFFdfA;
+      --line: #DDD6CB;
+      --flag: #8C3B12;
+      --flag-bg: #FFF1E8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    h1, h2, .btn, .kicker, .badge, .section-no, .placeholder, .meta, footer {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .sheet {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 22px 16px;
+    }
+
+    header {
+      border-bottom: 4px solid var(--green);
+      padding-bottom: 10px;
+    }
+
+    .kicker {
+      margin: 0 0 4px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .rule {
+      margin: 10px 0 0;
+      padding: 8px 12px;
+      background: var(--green);
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 10px 0 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 9px 14px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: #E25522;
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+
+    .placeholder {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--flag);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .placeholder code {
+      padding: 2px 6px;
+      border: 1px dashed var(--orange);
+      background: var(--flag-bg);
+      color: var(--flag);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--green);
+      padding: 8px 12px 6px;
+    }
+
+    section.publish { border-top-color: var(--orange); }
+    section.watch { border-top-color: #8A8175; }
+    section.asks { border-top-color: var(--orange); }
+
+    h2 {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 0 0 6px;
+      color: var(--green);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .section-no {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul { list-style: none; }
+
+    li + li {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid var(--line);
+    }
+
+    .name {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .meta, .note {
+      display: block;
+      margin-top: 1px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .note { color: var(--ink); }
+
+    .flag {
+      display: inline-block;
+      margin-left: 4px;
+      padding: 0 5px;
+      background: var(--flag-bg);
+      color: var(--flag);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      vertical-align: 1px;
+    }
+
+    ol {
+      padding-left: 1.2em;
+    }
+
+    ol li {
+      padding-top: 0;
+      border-top: 0;
+      margin-top: 5px;
+      font-size: 14.5px;
+    }
+
+    ol li + li { border-top: 0; }
+
+    footer {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 860px) {
+      .sheet { padding: 14px; }
+      h1 { font-size: 22px; }
+      main { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .sheet { max-width: none; padding: 0; }
+      .btn { color: #fff; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div>
+        <p class="kicker">REIN Hubs</p>
+        <h1>REIN Hubs funding pipeline, call with Aris Woodyear, 21 Oct 2026</h1>
+      </div>
+    </header>
+
+    <p class="rule">REIN pursues tickets of US$100K or more; anything smaller is published to REIN startups.</p>
+
+    <p class="actions">
+      <a class="btn" href="#MONDAY_LINK">Open Monday REIN grant tracker</a>
+      <span class="placeholder" id="MONDAY_LINK">Placeholder. Gideon will supply the URL. Current target <code>#MONDAY_LINK</code></span>
+    </p>
+
+    <main>
+      <section aria-labelledby="pursue">
+        <h2 id="pursue"><span class="section-no">01</span> REIN pursues (US$100K+)</h2>
+        <ul>
+          <li>
+            <span class="name">Adaptation Fund innovation small grants</span>
+            <span class="meta">Up to US$250K. Rolling. 31 Jan 2027 <em class="flag">Unconfirmed</em></span>
+            <span class="note">Via the national accredited entity (Fondo Acción in Colombia), hub by hub.</span>
+          </li>
+          <li>
+            <span class="name">IKI Small Grants</span>
+            <span class="meta">EUR 60K–200K. Next call not announced.</span>
+            <span class="note">Multi-country REIN proposal.</span>
+          </li>
+          <li>
+            <span class="name">Global EbA Fund medium grants</span>
+            <span class="meta">Up to US$500K. Deadline 16 Nov 2026. <em class="flag">Low fit</em></span>
+            <span class="note">Nature-based adaptation. REIN as partner only.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="publish" aria-labelledby="publish">
+        <h2 id="publish"><span class="section-no">02</span> Publish to startups (&lt;US$100K)</h2>
+        <ul>
+          <li>
+            <span class="name">MIT Solve 2027 Global Climate Challenge</span>
+            <span class="meta">~US$10K, ~US$40K with prizes. 2 Nov 2026, 12:00 COT.</span>
+            <span class="note">Startup direct application likely. <em class="flag">Unverified</em></span>
+          </li>
+          <li>
+            <span class="name">Ashden Awards 2027</span>
+            <span class="meta">Up to GBP 25K. 15 Feb 2027 <em class="flag">Unconfirmed</em></span>
+            <span class="note">Aggregator date.</span>
+          </li>
+          <li>
+            <span class="name">People Powered Climate Democracy Accelerator</span>
+            <span class="meta">Up to US$25K. 27 Nov 2026, 18:59 COT.</span>
+            <span class="note">Needs a city co-applicant, not a direct startup route.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="watch" aria-labelledby="watch">
+        <h2 id="watch"><span class="section-no">03</span> Watch / no cash / unknown</h2>
+        <ul>
+          <li>
+            <span class="name">ICLEI TAP 2026</span>
+            <span class="note">No cash. 15 Nov. Needs a city council resolution.</span>
+          </li>
+          <li>
+            <span class="name">EU Global Gateway / EUROCLIMA</span>
+            <span class="note">No open CSO call.</span>
+          </li>
+          <li>
+            <span class="name">Seeding The Future</span>
+            <span class="note">15 Feb 2027. <em class="flag">Low fit</em></span>
+          </li>
+          <li>
+            <span class="name">GEF SGP Colombia</span>
+            <span class="note">No open call. Last closed 21 Sep 2026.</span>
+          </li>
+          <li>
+            <span class="name">IDB Lab RG-T5040</span>
+            <span class="note">6-country university entrepreneurship campus. In preparation. Owner unknown.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="asks" aria-labelledby="asks">
+        <h2 id="asks"><span class="section-no">04</span> Asks for Aris</h2>
+        <ol>
+          <li>Who owns IDB Lab RG-T5040, and what size?</li>
+          <li>Go or no-go on the EbA partner role by 16 Nov.</li>
+          <li>PVBLIC intros to Fondo Acción, ICLEI, and People Powered.</li>
+          <li>Put the US$100K+ items on the joint Monday tracker with owners and dates.</li>
+          <li>Publish MIT Solve to startups this week.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      Source: Gideon's 15 Oct 2026 email to Stephen 'REIN Hubs: 11 funding opportunities'. Unconfirmed dates are marked.
+    </footer>
+  </div>
+</body>
+</html>
