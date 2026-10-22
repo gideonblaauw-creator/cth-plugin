@@ -2,199 +2,91 @@
   "isa": {
     "gaps": 5,
     "matches": 15,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "geb": {
     "gaps": 5,
     "matches": 15,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "enel": {
     "gaps": 5,
     "matches": 15,
-    "omitted": [
-      "gap 1: Spanish report quote unavailable (EN source)",
-      "gap 2: quote_en translation failed",
-      "gap 3: Spanish report quote unavailable (EN source)",
-      "gap 4: Spanish report quote unavailable (EN source)",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "epm": {
     "gaps": 5,
     "matches": 15,
-    "omitted": [
-      "gap 1: Spanish report quote unavailable (EN source)",
-      "gap 2: Spanish report quote unavailable (EN source)",
-      "gap 3: Spanish report quote unavailable (EN source)",
-      "gap 4: quote_en translation failed",
-      "gap 5: Spanish report quote unavailable (EN source)"
-    ]
+    "omitted": []
   },
   "alqueria": {
     "gaps": 5,
     "matches": 11,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "nutresa": {
     "gaps": 5,
     "matches": 11,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "juan-valdez": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "alpina": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "argos": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "pavimentos-colombia": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "interaseo": {
     "gaps": 5,
     "matches": 15,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "ecopetrol": {
     "gaps": 5,
     "matches": 8,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "parex": {
     "gaps": 5,
     "matches": 10,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "terpel": {
     "gaps": 5,
     "matches": 11,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "promigas": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "bancolombia": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "banco-popular": {
     "gaps": 5,
     "matches": 14,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   },
   "sura": {
     "gaps": 5,
     "matches": 10,
-    "omitted": [
-      "gap 1: quote_en translation failed",
-      "gap 2: quote_en translation failed",
-      "gap 3: quote_en translation failed",
-      "gap 4: quote_en translation failed",
-      "gap 5: quote_en translation failed"
-    ]
+    "omitted": []
   }
 }

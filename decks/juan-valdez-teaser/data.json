@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Juan Valdez · gap snapshot",
       "hero.title": "Juan Valdez · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Juan Valdez (Procafecol), Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Juan Valdez (Procafecol), Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 3)",
       "snap.bvc": "",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: n/a. Every match is a theme match. None names the company.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Juan Valdez gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Juan Valdez sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Juan Valdez · panorama de brechas",
       "hero.title": "Juan Valdez · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Juan Valdez (Procafecol), Colombia. Lote de la onda 1 ranura 16–20. Persona: CSO.",
+      "hero.company": "Juan Valdez (Procafecol), Colombia. Lote de la onda 1 ranura 16–20.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 3)",
       "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Déficit: verdadero en la (s) brecha(s) 4; falso en otros. csoReady: n/a. Cada partido es un partido temático. Ninguno nombra a la empresa.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Juan Valdez Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Juan Valdez sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 14. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -201,7 +193,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -224,8 +215,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
-          "why": "Public site names scopes 1–3 inventory work; quote does not name Procafecol.",
-          "why_es": "El sitio público nombra los alcances 1–3 del trabajo de inventario; la cita no nombra a Procafecol.",
+          "why": "Public site names scopes 1–3 inventory work",
+          "why_es": "El sitio público nombra los alcances 1–3 del trabajo de inventario",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -235,8 +226,8 @@
           "name": "C-neutral",
           "stage": "Pre-Seed",
           "website": "https://c-neutral.co",
-          "why": "Consulting page targets quantification of emissions from operations; quote does not name Procafecol.",
-          "why_es": "La página de consultoría apunta a la cuantificación de las emisiones de las operaciones; la cita no nombra a Procafecol.",
+          "why": "Consulting page targets quantification of emissions from operations",
+          "why_es": "La página de consultoría apunta a la cuantificación de las emisiones de las operaciones",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -246,8 +237,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Service page commits to CO2 reduction metrics reporting; quote does not name Procafecol.",
-          "why_es": "La página de servicio se compromete a informar las métricas de reducción de CO2; la cita no nombra a Procafecol.",
+          "why": "Service page commits to CO2 reduction metrics reporting",
+          "why_es": "La página de servicio se compromete a informar las métricas de reducción de CO2",
           "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -257,7 +248,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -280,8 +270,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "SaaS positioning matches Scope 3 data-quality gap; quote does not name Procafecol.",
-          "why_es": "El posicionamiento SaaS coincide con la brecha de calidad de datos de Alcance 3; la cita no nombra a Procafecol.",
+          "why": "SaaS positioning matches Scope 3 data-quality gap",
+          "why_es": "El posicionamiento SaaS coincide con la brecha de calidad de datos de Alcance 3",
           "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -291,8 +281,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Public page offers measurement and reporting; quote does not name Procafecol.",
-          "why_es": "La página pública ofrece mediciones e informes; la cita no nombra a Procafecol.",
+          "why": "Public page offers measurement and reporting",
+          "why_es": "La página pública ofrece mediciones e informes",
           "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -302,8 +292,8 @@
           "name": "Compostpack",
           "stage": "Pre-Series A",
           "website": "https://compostpack.com",
-          "why": "Packaging materials shift supports upstream Scope 3 categories; quote does not name Procafecol.",
-          "why_es": "El cambio de materiales de embalaje es compatible con las categorías anteriores de Alcance 3; la cita no nombra a Procafecol.",
+          "why": "Packaging materials shift supports upstream Scope 3 categories",
+          "why_es": "El cambio de materiales de embalaje es compatible con las categorías anteriores de Alcance 3",
           "public_quote": "Desde 2016, Compostpack (una filial de Carpios Investment Group) ha estado desarrollando e industrializando bioplásticos compostables y biodegradables (materiales extraídos usando fuentes biológicas).",
           "public_source_url": "https://compostpack.com",
           "funder": false
@@ -313,7 +303,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -336,8 +325,8 @@
           "name": "Compostpack",
           "stage": "Seed",
           "website": "https://compostpack.com",
-          "why": "Compostable packaging R&D aligns with packaging transition; quote does not name Procafecol.",
-          "why_es": "La I + D de empaques compostables se alinea con la transición del empaque; la cita no nombra a Procafecol.",
+          "why": "Compostable packaging R&D aligns with packaging transition",
+          "why_es": "La I + D de empaques compostables se alinea con la transición del empaque",
           "public_quote": "Somos especialistas en el desarrollo y comercialización de bioplásticos compostables.",
           "public_source_url": "https://compostpack.com",
           "funder": false
@@ -347,8 +336,8 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Recycled-material products fit circular packaging goals; quote does not name Procafecol.",
-          "why_es": "Los productos de material reciclado se ajustan a los objetivos de empaque circular; la cita no nombra a Procafecol.",
+          "why": "Recycled-material products fit circular packaging goals",
+          "why_es": "Los productos de material reciclado se ajustan a los objetivos de empaque circular",
           "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
           "public_source_url": "https://proplanet.com.co",
           "funder": false
@@ -358,8 +347,8 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Upcycling studio addresses hard-to-recycle streams; quote does not name Procafecol.",
-          "why_es": "Upcycling Studio aborda flujos difíciles de reciclar; la cita no nombra a Procafecol.",
+          "why": "Upcycling studio addresses hard-to-recycle streams",
+          "why_es": "Upcycling Studio aborda flujos difíciles de reciclar",
           "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados, merchandising corporativo sostenible, espacios y biomateriales para empresas que quieren transformar sus estrategias de sostenibilidad en soluciones reales, funcionales y deseables.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -369,7 +358,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 2,
       "title": {
@@ -392,8 +380,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Waste-treatment service line addresses operational waste streams; quote does not name Procafecol.",
-          "why_es": "La línea de servicio de tratamiento de residuos aborda los flujos de residuos operativos; la cita no nombra a Procafecol.",
+          "why": "Waste-treatment service line addresses operational waste streams",
+          "why_es": "La línea de servicio de tratamiento de residuos aborda los flujos de residuos operativos",
           "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -403,22 +391,17 @@
           "name": "Reemade",
           "stage": "Pre-Seed",
           "website": "https://reemade.com.co",
-          "why": "Circular design reduces waste impacts; quote does not name Procafecol.",
-          "why_es": "El diseño circular reduce los impactos de los residuos; la cita no nombra a Procafecol.",
+          "why": "Circular design reduces waste impacts",
+          "why_es": "El diseño circular reduce los impactos de los residuos",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 2.",
-        "es": "2."
-      }
+      ]
     },
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -441,8 +424,8 @@
           "name": "Natupin",
           "stage": "Pre-Seed",
           "website": "https://natupin.bio",
-          "why": "Public biodiversity storytelling aligns with coffee ecosystem awareness; quote does not name Procafecol.",
-          "why_es": "La narración pública de la biodiversidad se alinea con la conciencia del ecosistema cafetero; la cita no nombra a Procafecol.",
+          "why": "Public biodiversity storytelling aligns with coffee ecosystem awareness",
+          "why_es": "La narración pública de la biodiversidad se alinea con la conciencia del ecosistema cafetero",
           "public_quote": "En NatuPin nos enorgullecemos de ofrecer pines que representan las especies colombianas de una manera auténtica y significativa.",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -452,8 +435,8 @@
           "name": "Monte Jazmín",
           "stage": "Pre-Seed",
           "website": "https://montejazmin.com/nosotros/",
-          "why": "Agrotourism coffee farm narrative matches biodiversity in coffee zones; quote does not name Procafecol.",
-          "why_es": "La narrativa de la finca cafetera de agroturismo coincide con la biodiversidad en las zonas cafeteras; la cita no nombra a Procafecol.",
+          "why": "Agrotourism coffee farm narrative matches biodiversity in coffee zones",
+          "why_es": "La narrativa de la finca cafetera de agroturismo coincide con la biodiversidad en las zonas cafeteras",
           "public_quote": "Enclavado en la montaña y rodeado por cafetales que guardan nacimientos de agua, guaduales y bosque, se encuentra nuestro proyecto agroturístico, producción de café especial, experiencia que compartimos con todos nuestros visitantes amantes del café y la naturaleza.",
           "public_source_url": "https://montejazmin.com/nosotros/",
           "funder": false
@@ -463,8 +446,8 @@
           "name": "PLEIA",
           "stage": "Pre-Seed",
           "website": "https://pleia.co",
-          "why": "Natural cycle process avoids atmospheric contamination; weak tie to coffee biodiversity but addresses ecosystem impact; quote does not name Procafecol.",
-          "why_es": "El proceso del ciclo natural evita la contaminación atmosférica; débil vínculo con la biodiversidad del café, pero aborda el impacto en el ecosistema; la cita no nombra a Procafecol.",
+          "why": "Natural cycle process avoids atmospheric contamination; weak tie to coffee biodiversity but addresses ecosystem impact",
+          "why_es": "El proceso del ciclo natural evita la contaminación atmosférica; débil vínculo con la biodiversidad del café, pero aborda el impacto en el ecosistema",
           "public_quote": "Nuestro proceso de Biotransformación es 100% Natural, sin contaminación atmosférica y lleno de mucho amor.",
           "public_source_url": "https://pleia.co",
           "funder": false

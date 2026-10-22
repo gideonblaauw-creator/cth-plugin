@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Interaseo · gap snapshot",
       "hero.title": "Interaseo · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Interaseo, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Interaseo, Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 23)",
       "snap.bvc": "",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Interaseo gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Interaseo sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Interaseo · panorama de brechas",
       "hero.title": "Interaseo · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Interaseo, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Interaseo, Colombia.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 23)",
       "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Interaseo Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Interaseo sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 15. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -195,7 +187,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -218,8 +209,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Baseline-to-action tooling; quote does not name Interaseo.",
-          "why_es": "Herramientas de línea de base a acción; la cita no nombra a Interaseo.",
+          "why": "Baseline-to-action tooling",
+          "why_es": "Herramientas de línea de base a acción",
           "public_quote": "Mide, reduce y reporta tu huella de carbono con rigor científico.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -229,7 +220,7 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Measurement services; quote does not name Interaseo.",
+          "why": "Measurement services",
           "why_es": "Servicios de medición; la cotización no nombra a Interaseo.",
           "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
           "public_source_url": "https://c-neutral.co",
@@ -240,8 +231,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Series A",
           "website": "https://zhanasolutions.com",
-          "why": "Environmental KPI reporting; quote does not name Interaseo.",
-          "why_es": "Informes de KPI ambientales; la cita no nombra a Interaseo.",
+          "why": "Environmental KPI reporting",
+          "why_es": "Informes de KPI ambientales",
           "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -251,7 +242,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -274,8 +264,8 @@
           "name": "C-neutral",
           "stage": "Series B+",
           "website": "https://c-neutral.co",
-          "why": "Methane-reduction projects portfolio; quote does not name Interaseo.",
-          "why_es": "Cartera de proyectos de reducción de metano; la cita no nombra a Interaseo.",
+          "why": "Methane-reduction projects portfolio",
+          "why_es": "Cartera de proyectos de reducción de metano",
           "public_quote": "Invierte en una amplia gama de proyectos sustentables. Desde recuperación de bosques, selvas, corales y manglares hasta energías renovables.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -285,8 +275,8 @@
           "name": "Reemade",
           "stage": "Series B+",
           "website": "https://reemade.com.co",
-          "why": "Air-quality co-benefits; quote does not name Interaseo.",
-          "why_es": "Co-beneficios de calidad del aire; la cita no nombra a Interaseo.",
+          "why": "Air-quality co-benefits",
+          "why_es": "Co-beneficios de calidad del aire",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -296,8 +286,8 @@
           "name": "Proplanet",
           "stage": "Series B+",
           "website": "https://proplanet.com.co",
-          "why": "Landfill diversion via recycled products; quote does not name Interaseo.",
-          "why_es": "Desvío de vertederos a través de productos reciclados; la cita no nombra a Interaseo.",
+          "why": "Landfill diversion via recycled products",
+          "why_es": "Desvío de vertederos a través de productos reciclados",
           "public_quote": "Ayudamos con la disminución de residuos en vías, aguas, parques y rellenos sanitarios.",
           "public_source_url": "https://proplanet.com.co",
           "funder": false
@@ -307,7 +297,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -330,7 +319,7 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Series A",
           "website": "https://zhanasolutions.com",
-          "why": "Wastewater treatment offering; quote does not name Interaseo.",
+          "why": "Wastewater treatment offering",
           "why_es": "Oferta de tratamiento de aguas residuales; la cotización no nombra a Interaseo.",
           "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
           "public_source_url": "https://zhanasolutions.com",
@@ -341,8 +330,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Environmental project pipeline; weak tie; quote does not name Interaseo.",
-          "why_es": "Oleoducto de proyectos ambientales; lazo débil; la cita no nombra a Interaseo.",
+          "why": "Environmental project pipeline; weak tie",
+          "why_es": "Oleoducto de proyectos ambientales; lazo débil",
           "public_quote": "Encuentra productos y proyectos específicos, que te van a ayudar a compensar tu huella de carbono.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -352,8 +341,8 @@
           "name": "Natupin",
           "stage": "Pre-Series A",
           "website": "https://natupin.bio",
-          "why": "Watershed biodiversity; quote does not name Interaseo.",
-          "why_es": "Biodiversidad de las cuencas hidrográficas; la cita no nombra a Interaseo.",
+          "why": "Watershed biodiversity",
+          "why_es": "Biodiversidad de las cuencas hidrográficas",
           "public_quote": "formas en las que puedes preservar la biodiversidad.",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -363,7 +352,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -386,8 +374,8 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Hard-to-recycle diversion; quote does not name Interaseo.",
-          "why_es": "Desvío difícil de reciclar; la cita no nombra a Interaseo.",
+          "why": "Hard-to-recycle diversion",
+          "why_es": "Desvío difícil de reciclar",
           "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -397,8 +385,8 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Recycler networks; quote does not name Interaseo.",
-          "why_es": "Redes del reciclador; la cita no nombra a Interaseo.",
+          "why": "Recycler networks",
+          "why_es": "Redes del reciclador",
           "public_quote": "Fortalecemos las redes cooperativas de recicladores.",
           "public_source_url": "https://proplanet.com.co",
           "funder": false
@@ -408,8 +396,8 @@
           "name": "Compostpack",
           "stage": "Seed",
           "website": "https://compostpack.com",
-          "why": "Organic waste bags; quote does not name Interaseo.",
-          "why_es": "Bolsas de residuos orgánicos; la cita no nombra a Interaseo.",
+          "why": "Organic waste bags",
+          "why_es": "Bolsas de residuos orgánicos",
           "public_quote": "Bolsas compostables para desechos orgánicos",
           "public_source_url": "https://compostpack.com",
           "funder": false
@@ -419,7 +407,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -442,7 +429,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Fleet/operations emissions tracking; quote does not name Interaseo.",
+          "why": "Fleet/operations emissions tracking",
           "why_es": "Seguimiento de emisiones de flotas/operaciones; la cotización no nombra a Interaseo.",
           "public_quote": "Empresas de distintos sectores ya gestionan sus emisiones con CarbonBox.",
           "public_source_url": "https://carbonbox.app",
@@ -453,8 +440,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Series A",
           "website": "https://zhanasolutions.com",
-          "why": "CO2 reduction KPIs; quote does not name Interaseo.",
-          "why_es": "KPI de reducción de CO2; la cita no nombra a Interaseo.",
+          "why": "CO2 reduction KPIs",
+          "why_es": "KPI de reducción de CO2",
           "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -464,8 +451,8 @@
           "name": "Glasst",
           "stage": "Pre-Series A",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Measurement culture; quote does not name Interaseo.",
-          "why_es": "Cultura de medición; la cita no nombra a Interaseo.",
+          "why": "Measurement culture",
+          "why_es": "Cultura de medición",
           "public_quote": "Medir nos permite entender dónde aportamos valor y cómo seguir mejorando.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false

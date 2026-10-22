@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Grupo Energía Bogotá (GEB) · gap snapshot",
       "hero.title": "Grupo Energía Bogotá (GEB) · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Grupo Energía Bogotá (GEB), Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "Grupo Energía Bogotá (GEB), Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 3)",
       "snap.bvc": "BVC: Grupo Energía Bogotá (GEB) is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Grupo Energía Bogotá (GEB) gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Grupo Energía Bogotá (GEB) sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Grupo Energía Bogotá (GEB) · panorama de brechas",
       "hero.title": "Grupo Energía Bogotá (GEB) · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Grupo Energía Bogotá (GEB), Colombia. Ola 1 (6–10, fabricante B). Persona: CSO.",
+      "hero.company": "Grupo Energía Bogotá (GEB), Colombia.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 3)",
       "snap.bvc": "BVC: Grupo Energía Bogotá (GEB) cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Grupo Energía Bogotá (GEB) Gap snapshot — draft GTM hypothesis, consultado el 22-10-2026."
+      "foot.line": "Grupo Energía Bogotá (GEB) sustainability snapshot, consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 15. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "C-neutral": {
       "p": "CLAC21",
@@ -201,7 +193,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 3,
       "title": {
@@ -224,8 +215,8 @@
           "name": "C-neutral",
           "stage": "Series B+",
           "website": "https://c-neutral.co",
-          "why": "Climate strategy support; quote does not name GEB.",
-          "why_es": "Apoyo a la estrategia climática; la cita no nombra a GEB.",
+          "why": "Climate strategy support",
+          "why_es": "Apoyo a la estrategia climática",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -235,7 +226,7 @@
           "name": "CarbonBox",
           "stage": "Series B+",
           "website": "https://carbonbox.app",
-          "why": "Emissions data; quote does not name GEB.",
+          "why": "Emissions data",
           "why_es": "Datos de emisiones; la cotización no nombra GEB.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -246,8 +237,8 @@
           "name": "O3 Smart Cities",
           "stage": "Series B+",
           "website": "https://o3smartcities.com.co",
-          "why": "Industrial decarbonization; quote does not name GEB.",
-          "why_es": "Descarbonización industrial; la cita no nombra a GEB.",
+          "why": "Industrial decarbonization",
+          "why_es": "Descarbonización industrial",
           "public_quote": "Diseñamos, financiamos y operamos plantas solares para la industria colombiana.",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -257,7 +248,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 3,
       "title": {
@@ -280,8 +270,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Net-zero pathway consulting; quote does not name GEB.",
-          "why_es": "Consultoría de ruta neta cero; la cita no nombra GEB.",
+          "why": "Net-zero pathway consulting",
+          "why_es": "Consultoría de ruta neta cero",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -291,8 +281,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Series A",
           "website": "https://sincarbono.io",
-          "why": "Reporting; quote does not name GEB.",
-          "why_es": "Informes; la cita no nombra GEB.",
+          "why": "Reporting",
+          "why_es": "Informes",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -302,7 +292,7 @@
           "name": "Reemade",
           "stage": "Pre-Series A",
           "website": "https://reemade.com.co",
-          "why": "Impact certificates; quote does not name GEB.",
+          "why": "Impact certificates",
           "why_es": "Certificados de impacto; la cotización no nombra GEB.",
           "public_quote": "Al elegir productos suprareciclados de Reemade recibirás, junto con tu pedido, un Certificado de Suprareciclaje que documenta el CO₂ evitado y transfiere a tu empresa el cumplimiento práctico de políticas y estándares (CONPES, ODS relevantes y puntos GRI) para uso en reportes de RSE y sostenibilidad.",
           "public_source_url": "https://reemade.com.co",
@@ -313,7 +303,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -336,8 +325,8 @@
           "name": "Fluvia",
           "stage": "Seed",
           "website": "https://fluvia.co",
-          "why": "Climate/hydrology data; quote does not name GEB.",
-          "why_es": "Datos climáticos/hidrología; la cita no nombra GEB.",
+          "why": "Climate/hydrology data",
+          "why_es": "Datos climáticos/hidrología",
           "public_quote": "Climatech & Deeptech para comprender mejor el comportamiento de los flujos.",
           "public_source_url": "https://fluvia.co",
           "funder": false
@@ -347,8 +336,8 @@
           "name": "Zhana Solutions",
           "stage": "Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Water stress adaptation; quote does not name GEB.",
-          "why_es": "Adaptación al estrés hídrico; la cita no nombra GEB.",
+          "why": "Water stress adaptation",
+          "why_es": "Adaptación al estrés hídrico",
           "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -358,8 +347,8 @@
           "name": "O3 Smart Cities",
           "stage": "Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "Solar/water/carbon stack; quote does not name GEB.",
-          "why_es": "Pila solar/agua/carbono; la cita no nombra GEB.",
+          "why": "Solar/water/carbon stack",
+          "why_es": "Pila solar/agua/carbono",
           "public_quote": "ENERGÍA SOLAR · AGUA · CARBONO",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -369,7 +358,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -392,7 +380,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Scope inventory; quote does not name GEB.",
+          "why": "Scope inventory",
           "why_es": "Inventario de alcance; la cotización no nombra GEB.",
           "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
           "public_source_url": "https://carbonbox.app",
@@ -403,8 +391,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Series A",
           "website": "https://sincarbono.io",
-          "why": "GHG Protocol; quote does not name GEB.",
-          "why_es": "Protocolo de GEI; la cita no nombra GEB.",
+          "why": "GHG Protocol",
+          "why_es": "Protocolo de GEI",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -414,7 +402,7 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "External certification; quote does not name GEB.",
+          "why": "External certification",
           "why_es": "Certificación externa; la cotización no nombra GEB.",
           "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
           "public_source_url": "https://c-neutral.co",
@@ -425,7 +413,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -448,8 +435,8 @@
           "name": "Compostpack",
           "stage": "Seed",
           "website": "https://compostpack.com",
-          "why": "Circular materials; quote does not name GEB.",
-          "why_es": "Materiales circulares; la cita no nombra GEB.",
+          "why": "Circular materials",
+          "why_es": "Materiales circulares",
           "public_quote": "Bolsas compostables para desechos orgánicos",
           "public_source_url": "https://compostpack.com",
           "funder": false
@@ -459,8 +446,8 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Suprarecycling; quote does not name GEB.",
-          "why_es": "Suprarreciclaje; la cita no nombra GEB.",
+          "why": "Suprarecycling",
+          "why_es": "Suprarreciclaje",
           "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -470,7 +457,7 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Waste diversion; quote does not name GEB.",
+          "why": "Waste diversion",
           "why_es": "Desvío de residuos; la cotización no nombra GEB.",
           "public_quote": "Ayudamos con la disminución de residuos en vías, aguas, parques y rellenos sanitarios.",
           "public_source_url": "https://proplanet.com.co",

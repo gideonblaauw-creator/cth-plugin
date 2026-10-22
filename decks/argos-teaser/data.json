@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Argos · gap snapshot",
       "hero.title": "Argos · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Argos (Cementos Argos), Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Argos (Cementos Argos), Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 13)",
       "snap.bvc": "BVC: Argos is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: n/a. Every match is a theme match. None names the company.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Argos gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Argos sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Argos · panorama de brechas",
       "hero.title": "Argos · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Argos (Cementos Argos), Colombia. Lote de la onda 1 ranura 16–20. Persona: CSO.",
+      "hero.company": "Argos (Cementos Argos), Colombia. Lote de la onda 1 ranura 16–20.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 13)",
       "snap.bvc": "BVC: Argos cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Déficit: verdadero en la (s) brecha(s) 4; falso en otros. csoReady: n/a. Cada partido es un partido temático. Ninguno nombra a la empresa.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Argos Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Argos sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 14. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "C-neutral": {
       "p": "CLAC21",
@@ -183,7 +175,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 3,
       "title": {
@@ -206,8 +197,8 @@
           "name": "C-neutral",
           "stage": "Series B+",
           "website": "https://c-neutral.co",
-          "why": "Decarbonization consulting; quote does not name Argos.",
-          "why_es": "Consultoría de descarbonización; la cita no nombra a Argos.",
+          "why": "Decarbonization consulting",
+          "why_es": "Consultoría de descarbonización",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -217,7 +208,7 @@
           "name": "CarbonBox",
           "stage": "Series B+",
           "website": "https://carbonbox.app",
-          "why": "Inventory for recalibrated targets; quote does not name Argos.",
+          "why": "Inventory for recalibrated targets",
           "why_es": "Inventario para objetivos recalibrados; la cotización no nombra a Argos.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -228,8 +219,8 @@
           "name": "Glasst",
           "stage": "Series B+",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Lower-carbon materials for construction sites; quote does not name Argos.",
-          "why_es": "Materiales bajos en carbono para sitios de construcción; la cita no nombra a Argos.",
+          "why": "Lower-carbon materials for construction sites",
+          "why_es": "Materiales bajos en carbono para sitios de construcción",
           "public_quote": "Glasstommer® parte de polímeros de fuentes renovables. Su balance de carbono es negativo desde la obtención de materias primas hasta la fabricación y el envasado.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
@@ -239,7 +230,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -262,8 +252,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Data platform for value-chain emissions; quote does not name Argos.",
-          "why_es": "Plataforma de datos para las emisiones de la cadena de valor; la cita no nombra a Argos.",
+          "why": "Data platform for value-chain emissions",
+          "why_es": "Plataforma de datos para las emisiones de la cadena de valor",
           "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -273,7 +263,7 @@
           "name": "Reemade",
           "stage": "Pre-Series A",
           "website": "https://reemade.com.co",
-          "why": "Verified impact certificates for reporting; quote does not name Argos.",
+          "why": "Verified impact certificates for reporting",
           "why_es": "Certificados de impacto verificados para informes; la cotización no nombra a Argos.",
           "public_quote": "Al elegir productos suprareciclados de Reemade recibirás, junto con tu pedido, un Certificado de Suprareciclaje que documenta el CO₂ evitado y transfiere a tu empresa el cumplimiento práctico de políticas y estándares (CONPES, ODS relevantes y puntos GRI) para uso en reportes de RSE y sostenibilidad.",
           "public_source_url": "https://reemade.com.co",
@@ -284,8 +274,8 @@
           "name": "Glasst",
           "stage": "Pre-Series A",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Site links waste prevention on construction sites; quote does not name Argos.",
-          "why_es": "El sitio enlaza la prevención de residuos en los sitios de construcción; la cita no nombra a Argos.",
+          "why": "Site links waste prevention on construction sites",
+          "why_es": "El sitio enlaza la prevención de residuos en los sitios de construcción",
           "public_quote": "Protector Universal sustituye películas plásticas convencionales y puede integrarse a estrategias de prevención y gestión de residuos.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
@@ -295,7 +285,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -318,8 +307,8 @@
           "name": "Glasst",
           "stage": "Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Energy-efficiency materials; quote does not name Argos.",
-          "why_es": "Materiales de eficiencia energética; la cita no nombra a Argos.",
+          "why": "Energy-efficiency materials",
+          "why_es": "Materiales de eficiencia energética",
           "public_quote": "Innovamos para reducir la transferencia de calor y contribuir a espacios más confortables y eficientes.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
@@ -329,8 +318,8 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Carbon savings from upcycling; quote does not name Argos.",
-          "why_es": "Ahorro de carbono por el upcycling; la cita no nombra a Argos.",
+          "why": "Carbon savings from upcycling",
+          "why_es": "Ahorro de carbono por el upcycling",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -340,8 +329,8 @@
           "name": "C-neutral",
           "stage": "Seed",
           "website": "https://c-neutral.co",
-          "why": "Compensation while reducing clinker; quote does not name Argos.",
-          "why_es": "Compensación mientras se reduce el clínker; la cita no nombra a Argos.",
+          "why": "Compensation while reducing clinker",
+          "why_es": "Compensación mientras se reduce el clínker",
           "public_quote": "Encuentra productos y proyectos específicos, que te van a ayudar a compensar tu huella de carbono.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -351,7 +340,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 2,
       "title": {
@@ -374,8 +362,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Water-savings metrics; quote does not name Argos.",
-          "why_es": "Métricas de ahorro de agua; la cita no nombra a Argos.",
+          "why": "Water-savings metrics",
+          "why_es": "Métricas de ahorro de agua",
           "public_quote": "socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -385,22 +373,17 @@
           "name": "Glasst",
           "stage": "Pre-Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Project-level resource efficiency; quote does not name Argos.",
-          "why_es": "Eficiencia de recursos a nivel de proyecto; la cita no nombra a Argos.",
+          "why": "Project-level resource efficiency",
+          "why_es": "Eficiencia de recursos a nivel de proyecto",
           "public_quote": "El aporte depende del diseño, la aplicación y las condiciones de cada proyecto.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 2.",
-        "es": "2."
-      }
+      ]
     },
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -423,8 +406,8 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Industrial waste upcycling; quote does not name Argos.",
-          "why_es": "Reciclaje de residuos industriales; la cita no nombra a Argos.",
+          "why": "Industrial waste upcycling",
+          "why_es": "Reciclaje de residuos industriales",
           "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -434,7 +417,7 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Post-consumer material recovery; quote does not name Argos.",
+          "why": "Post-consumer material recovery",
           "why_es": "Recuperación de material posconsumo; la cotización no nombra a Argos.",
           "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
           "public_source_url": "https://proplanet.com.co",
@@ -445,8 +428,8 @@
           "name": "Glasst",
           "stage": "Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Circular principles on site; quote does not name Argos.",
-          "why_es": "Principios circulares en el sitio; la cita no nombra a Argos.",
+          "why": "Circular principles on site",
+          "why_es": "Principios circulares en el sitio",
           "public_quote": "Permanecemos firmes en nuestro compromiso de implementar acciones que reflejan los principios de la economía circular: prevención, reducción, reutilización y reciclaje de residuos.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false

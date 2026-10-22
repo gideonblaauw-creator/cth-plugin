@@ -5,8 +5,7 @@
     "title": {
       "en": "Promigas · gap snapshot · CleantechHUB",
       "es": "Promigas · panorama de brechas · CleantechHUB"
-    },
-    "public_url": "https://proposals.cleantechhub.net/promigas-teaser/"
+    }
   },
   "brand": {
     "logo": "img/cth-logo.png"
@@ -28,25 +27,23 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Promigas · gap snapshot",
       "hero.title": "Promigas · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Promigas, Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "Promigas, Colombia.",
       "hero.scopeLbl": "Scope",
-      "hero.scope": "Scope: environment, climate and nature only. Full match quotes are in the JSON.",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
-      "hero.report": "[https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf](https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf). Accessed 2026-10-22. > Nuestro Informe Integrado de Gestión Promigas 2024, brinda a nuestros grupos de interés información clara y verídica sobre la gestión y los hechos relevantes en los capitales financiero, humano, social y reputacional, natural, industrial e intelectual. Scope: environment, climate and nature only. Full match quotes are in the JSON. ## 1. Carbon neutrality commitment set for 2040 > hemos asumido el compromiso de alcanzar la carbono neutralidad en 2040, integrando prácticas responsables que reduzcan las emisiones, protejan los recursos naturales y promuevan una transición energética justa. | Match | Link | | --- | --- | | C-neutral | [c-neutral.co](https://c-neutral.co) | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | Journey step: policy. Matches: 3. Shortfall: false. ## 2. Decarbonization roadmap rests on four pillars > Nuestra estrategia climática es un compromiso integral con la reducción de las emisiones de Gases de Efecto Invernadero (GEI) y la preparación de nuestras infraestructuras frente a los desafíos del cambio climático. | Match | Link | | --- | --- | | O3 Smart Cities | [o3smartcities.com.co](https://o3smartcities.com.co) | | FENOGE | [fenoge.gov.co/preguntas-frecuentes/](https://fenoge.gov.co/preguntas-frecuentes/) | | Griin | [griin.com.co](https://griin.com.co) | Journey step: data. Matches: 3. Shortfall: false. ## 3. 2021 baseline review still anchors mitigation actions > En 2022, realizamos una revisión de la línea base de emisiones de carbono de 2021 para identificar las principales fuentes de emisión en nuestros negocios y definir acciones concretas de mitigación. | Match | Link | | --- | --- | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | C-neutral | [c-neutral.co](https://c-neutral.co) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 3. Shortfall: false. ## 4. No net loss biodiversity policy drives dry-forest corridors > cumplir con nuestro compromiso de “no pérdida neta de biodiversidad” según nuestra política ambiental. | Match | Link | | --- | --- | | Natupin | [natupin.bio](https://natupin.bio) | | Apicultores y Rescatistas SAS BIC | [apicultoresyrescatistas.com](https://apicultoresyrescatistas.com) | | Reemade | [reemade.com.co](https://reemade.com.co) | Journey step: challenge. Matches: 3. Shortfall: false. ## 5. 2024 ASG maturity roadmap still maturing data systems > Realizamos un diagnóstico a partir de las calificaciones ASG externas y una autoevaluación que nos ayudó a consolidar una hoja de ruta a través de la cual nos hemos propuesto madurar los procesos y sistemas de información que soportan la gestión, y las capacidades en la organización. | Match | Link | | --- | --- | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | | Zhana Solutions | [zhanasolutions.com](https://zhanasolutions.com) | Journey step: data. Matches: 3. Shortfall: false.",
+      "hero.report": "Sustainability report (<a href=\"https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf\">PDF</a>) Accessed 2026-10-22.",
       "snap.eyebrow": "Transparency frame",
-      "snap.title": "Reporting frame (PDF page 1)",
+      "snap.title": "Reporting frame (PDF page 134)",
       "snap.bvc": "BVC: Promigas is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Promigas gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Promigas sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,33 +56,31 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Promigas · panorama de brechas",
       "hero.title": "Promigas · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Promigas, Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "Promigas, Colombia.",
       "hero.scopeLbl": "Alcance",
-      "hero.scope": "Medio ambiente, clima y naturaleza. Temas sociales y de gobernanza quedan fuera de alcance.",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
-      "hero.report": "[https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf](https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf). Accessed 2026-10-22. > Nuestro Informe Integrado de Gestión Promigas 2024, brinda a nuestros grupos de interés información clara y verídica sobre la gestión y los hechos relevantes en los capitales financiero, humano, social y reputacional, natural, industrial e intelectual. Scope: environment, climate and nature only. Full match quotes are in the JSON. ## 1. Carbon neutrality commitment set for 2040 > hemos asumido el compromiso de alcanzar la carbono neutralidad en 2040, integrando prácticas responsables que reduzcan las emisiones, protejan los recursos naturales y promuevan una transición energética justa. | Match | Link | | --- | --- | | C-neutral | [c-neutral.co](https://c-neutral.co) | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | Journey step: policy. Matches: 3. Shortfall: false. ## 2. Decarbonization roadmap rests on four pillars > Nuestra estrategia climática es un compromiso integral con la reducción de las emisiones de Gases de Efecto Invernadero (GEI) y la preparación de nuestras infraestructuras frente a los desafíos del cambio climático. | Match | Link | | --- | --- | | O3 Smart Cities | [o3smartcities.com.co](https://o3smartcities.com.co) | | FENOGE | [fenoge.gov.co/preguntas-frecuentes/](https://fenoge.gov.co/preguntas-frecuentes/) | | Griin | [griin.com.co](https://griin.com.co) | Journey step: data. Matches: 3. Shortfall: false. ## 3. 2021 baseline review still anchors mitigation actions > En 2022, realizamos una revisión de la línea base de emisiones de carbono de 2021 para identificar las principales fuentes de emisión en nuestros negocios y definir acciones concretas de mitigación. | Match | Link | | --- | --- | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | C-neutral | [c-neutral.co](https://c-neutral.co) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 3. Shortfall: false. ## 4. No net loss biodiversity policy drives dry-forest corridors > cumplir con nuestro compromiso de “no pérdida neta de biodiversidad” según nuestra política ambiental. | Match | Link | | --- | --- | | Natupin | [natupin.bio](https://natupin.bio) | | Apicultores y Rescatistas SAS BIC | [apicultoresyrescatistas.com](https://apicultoresyrescatistas.com) | | Reemade | [reemade.com.co](https://reemade.com.co) | Journey step: challenge. Matches: 3. Shortfall: false. ## 5. 2024 ASG maturity roadmap still maturing data systems > Realizamos un diagnóstico a partir de las calificaciones ASG externas y una autoevaluación que nos ayudó a consolidar una hoja de ruta a través de la cual nos hemos propuesto madurar los procesos y sistemas de información que soportan la gestión, y las capacidades en la organización. | Match | Link | | --- | --- | | CarbonBox | [carbonbox.app](https://carbonbox.app) | | sinCarbono | [sincarbono.io](https://sincarbono.io) | | Zhana Solutions | [zhanasolutions.com](https://zhanasolutions.com) | Journey step: data. Matches: 3. Shortfall: false.",
+      "hero.report": "Sustainability report (<a href=\"https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf\">PDF</a>) Consultado 2026-10-22.",
       "snap.eyebrow": "Marco de transparencia",
-      "snap.title": "Marco de reporte (PDF página 1)",
-      "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
+      "snap.title": "Marco de reporte (PDF página 134)",
+      "snap.bvc": "BVC: Promigas cotiza en la Bolsa de Valores de Colombia.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Promigas gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Promigas sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
     "report_evidence": {
       "quote_es": "Nuestro Informe Integrado de Gestión Promigas 2024, brinda a nuestros grupos de interés información clara y verídica sobre la gestión y los hechos relevantes en los capitales financiero, humano, social y reputacional, natural, industrial e intelectual.",
-      "quote_en": "",
+      "quote_en": "Our Promigas 2024 Integrated Management Report provides our stakeholders with clear and truthful information on management and relevant events in financial, human, social and reputational, natural, industrial and intellectual capital.",
       "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
-      "page": 1
+      "page": 134
     }
   },
   "cta": {
@@ -137,10 +132,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 14. Contact details omitted.",
-    "es": "Conteo de coincidencias: 14."
-  },
   "nexus": {
     "C-neutral": {
       "p": "CLAC21",
@@ -162,9 +153,10 @@
     },
     "FENOGE": {
       "p": "",
-      "t": "",
-      "d": "Clean energy finance; quote does not name Promigas.",
-      "ds": "Clean energy finance; quote does not name Promigas."
+      "t": "EN",
+      "d": "Clean energy finance",
+      "ds": "Financiación de energía limpia; cita no nombra a Promigas.",
+      "funder": true
     },
     "Griin": {
       "p": "CLAC25",
@@ -179,10 +171,10 @@
       "ds": "Crea conciencia sobre especies nativas y biodiversidad a través de merchandising y contenido digital, conectando a consumidores con el patrimonio natural de Colombia para promover la conservación."
     },
     "Apicultores y Rescatistas SAS BIC": {
-      "p": "",
-      "t": "",
-      "d": "Pollinators; quote does not name Promigas.",
-      "ds": "Pollinators; quote does not name Promigas."
+      "p": "CLP",
+      "t": "BIO",
+      "d": "Pollinators",
+      "ds": "Polinizadores"
     },
     "Reemade": {
       "p": "CLAC23",
@@ -201,20 +193,19 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 3,
       "title": {
         "en": "1. Carbon neutrality commitment set for 2040",
-        "es": "1. Carbon neutrality commitment set for 2040"
+        "es": "1. Compromiso de neutralidad de carbono establecido para 2040"
       },
       "context": {
         "en": "Carbon neutrality commitment set for 2040",
-        "es": "Carbon neutrality commitment set for 2040"
+        "es": "Compromiso de neutralidad de carbono establecido para 2040"
       },
       "report_evidence": {
         "quote_es": "hemos asumido el compromiso de alcanzar la carbono neutralidad en 2040, integrando prácticas responsables que reduzcan las emisiones, protejan los recursos naturales y promuevan una transición energética justa.",
-        "quote_en": "",
+        "quote_en": "we are committed to achieving carbon neutrality by 2040, integrating responsible practices that reduce emissions, protect natural resources and promote a just energy transition.",
         "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
         "page": 118
       },
@@ -224,8 +215,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Decarbonization; quote does not name Promigas.",
-          "why_es": "Decarbonization; quote does not name Promigas.",
+          "why": "Decarbonization",
+          "why_es": "Descarbonización",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -235,8 +226,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "GEI inventory; quote does not name Promigas.",
-          "why_es": "GEI inventory; quote does not name Promigas.",
+          "why": "GEI inventory",
+          "why_es": "Inventario GEI; la cotización no nombra a Promigas.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -246,8 +237,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Series A",
           "website": "https://sincarbono.io",
-          "why": "Reporting; quote does not name Promigas.",
-          "why_es": "Reporting; quote does not name Promigas.",
+          "why": "Reporting",
+          "why_es": "Informes",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -257,20 +248,19 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 2,
       "title": {
         "en": "2. Decarbonization roadmap rests on four pillars",
-        "es": "2. Decarbonization roadmap rests on four pillars"
+        "es": "2. La hoja de ruta de la descarbonización se basa en cuatro pilares"
       },
       "context": {
         "en": "Decarbonization roadmap rests on four pillars",
-        "es": "Decarbonization roadmap rests on four pillars"
+        "es": "La hoja de ruta de la descarbonización se basa en cuatro pilares"
       },
       "report_evidence": {
         "quote_es": "Nuestra estrategia climática es un compromiso integral con la reducción de las emisiones de Gases de Efecto Invernadero (GEI) y la preparación de nuestras infraestructuras frente a los desafíos del cambio climático.",
-        "quote_en": "",
+        "quote_en": "Our climate strategy is a comprehensive commitment to reducing greenhouse gas (GHG) emissions and preparing our infrastructure for the challenges of climate change.",
         "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
         "page": 120
       },
@@ -280,8 +270,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "Clean energy finance; quote does not name Promigas.",
-          "why_es": "Clean energy finance; quote does not name Promigas.",
+          "why": "Clean energy finance",
+          "why_es": "Financiación de energía limpia; cita no nombra a Promigas.",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
           "funder": true
@@ -291,8 +281,8 @@
           "name": "Griin",
           "stage": "Seed",
           "website": "https://griin.com.co",
-          "why": "Solar finance; quote does not name Promigas.",
-          "why_es": "Solar finance; quote does not name Promigas.",
+          "why": "Solar finance",
+          "why_es": "Finanzas solares",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -302,20 +292,19 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
         "en": "3. 2021 baseline review still anchors mitigation actions",
-        "es": "3. 2021 baseline review still anchors mitigation actions"
+        "es": "3. La revisión de la línea de base de 2021 aún ancla las acciones de mitigación"
       },
       "context": {
         "en": "2021 baseline review still anchors mitigation actions",
-        "es": "2021 baseline review still anchors mitigation actions"
+        "es": "La revisión de la línea de base de 2021 aún ancla las acciones de mitigación"
       },
       "report_evidence": {
         "quote_es": "En 2022, realizamos una revisión de la línea base de emisiones de carbono de 2021 para identificar las principales fuentes de emisión en nuestros negocios y definir acciones concretas de mitigación.",
-        "quote_en": "",
+        "quote_en": "In 2022, we conducted a review of the 2021 carbon emissions baseline to identify the main sources of emissions in our businesses and define concrete mitigation actions.",
         "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
         "page": 119
       },
@@ -325,8 +314,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
-          "why": "Baseline-to-action; quote does not name Promigas.",
-          "why_es": "Baseline-to-action; quote does not name Promigas.",
+          "why": "Baseline-to-action",
+          "why_es": "Línea de base a la acción",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -336,8 +325,8 @@
           "name": "C-neutral",
           "stage": "Pre-Seed",
           "website": "https://c-neutral.co",
-          "why": "Measurement; quote does not name Promigas.",
-          "why_es": "Measurement; quote does not name Promigas.",
+          "why": "Measurement",
+          "why_es": "Medición",
           "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -347,8 +336,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Seed",
           "website": "https://sincarbono.io",
-          "why": "GEI inventory; quote does not name Promigas.",
-          "why_es": "GEI inventory; quote does not name Promigas.",
+          "why": "GEI inventory",
+          "why_es": "Inventario GEI; la cotización no nombra a Promigas.",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -358,20 +347,19 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
         "en": "4. No net loss biodiversity policy drives dry-forest corridors",
-        "es": "4. No net loss biodiversity policy drives dry-forest corridors"
+        "es": "4. Ninguna política de pérdida neta de biodiversidad impulsa los corredores de bosques secos"
       },
       "context": {
         "en": "No net loss biodiversity policy drives dry-forest corridors",
-        "es": "No net loss biodiversity policy drives dry-forest corridors"
+        "es": "Ninguna política de pérdida neta de biodiversidad impulsa los corredores de bosques secos"
       },
       "report_evidence": {
         "quote_es": "cumplir con nuestro compromiso de “no pérdida neta de biodiversidad” según nuestra política ambiental.",
-        "quote_en": "",
+        "quote_en": "comply with our commitment of “no net loss of biodiversity” according to our environmental policy.",
         "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
         "page": 124
       },
@@ -381,8 +369,8 @@
           "name": "Natupin",
           "stage": "Pre-Seed",
           "website": "https://natupin.bio",
-          "why": "Biodiversity; quote does not name Promigas.",
-          "why_es": "Biodiversity; quote does not name Promigas.",
+          "why": "Biodiversity",
+          "why_es": "Biodiversidad; cita no nombra a Promigas.",
           "public_quote": "formas en las que puedes preservar la biodiversidad.",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -392,8 +380,8 @@
           "name": "Apicultores y Rescatistas SAS BIC",
           "stage": "Pre-Seed",
           "website": "https://apicultoresyrescatistas.com",
-          "why": "Pollinators; quote does not name Promigas.",
-          "why_es": "Pollinators; quote does not name Promigas.",
+          "why": "Pollinators",
+          "why_es": "Polinizadores",
           "public_quote": "Rescatamos colmenas y enjambres de abejas de forma segura y profesional, garantizando la conservación de estos importantes polinizadores.",
           "public_source_url": "https://apicultoresyrescatistas.com",
           "funder": false
@@ -403,8 +391,8 @@
           "name": "Reemade",
           "stage": "Pre-Seed",
           "website": "https://reemade.com.co",
-          "why": "Land/water co-benefits; quote does not name Promigas.",
-          "why_es": "Land/water co-benefits; quote does not name Promigas.",
+          "why": "Land/water co-benefits",
+          "why_es": "Co-beneficios de tierra/agua",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -414,20 +402,19 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
         "en": "5. 2024 ASG maturity roadmap still maturing data systems",
-        "es": "5. 2024 ASG maturity roadmap still maturing data systems"
+        "es": "5. La hoja de ruta de madurez de ASG de 2024 aún está madurando los sistemas de datos"
       },
       "context": {
         "en": "2024 ASG maturity roadmap still maturing data systems",
-        "es": "2024 ASG maturity roadmap still maturing data systems"
+        "es": "La hoja de ruta de madurez de ASG de 2024 aún está madurando los sistemas de datos"
       },
       "report_evidence": {
         "quote_es": "Realizamos un diagnóstico a partir de las calificaciones ASG externas y una autoevaluación que nos ayudó a consolidar una hoja de ruta a través de la cual nos hemos propuesto madurar los procesos y sistemas de información que soportan la gestión, y las capacidades en la organización.",
-        "quote_en": "",
+        "quote_en": "We made a diagnosis based on external ESG ratings and a self-assessment that helped us consolidate a roadmap through which we have set out to mature the processes and information systems that support management, and capabilities in the organization.",
         "pdf_url": "https://gestion2024.promigas.com/recursos/docs/informe-integrado-gestion-2024.pdf",
         "page": 33
       },
@@ -437,8 +424,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Data platform; quote does not name Promigas.",
-          "why_es": "Data platform; quote does not name Promigas.",
+          "why": "Data platform",
+          "why_es": "Plataforma de datos",
           "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -448,8 +435,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Series A",
           "website": "https://sincarbono.io",
-          "why": "Reporting systems; quote does not name Promigas.",
-          "why_es": "Reporting systems; quote does not name Promigas.",
+          "why": "Reporting systems",
+          "why_es": "Sistemas de informes",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -459,8 +446,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Series A",
           "website": "https://zhanasolutions.com",
-          "why": "KPI dashboards; quote does not name Promigas.",
-          "why_es": "KPI dashboards; quote does not name Promigas.",
+          "why": "KPI dashboards",
+          "why_es": "Paneles de KPI",
           "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false

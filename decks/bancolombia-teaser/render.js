@@ -12,8 +12,6 @@
       how: "How this match relates to the gap",
       theme: "Theme",
       visit: "Visit",
-      shortfallTrue: "shortfall: true",
-      shortfallFalse: "shortfall: false",
       funder: "Funder",
       gapLabel: "Gap",
     },
@@ -27,8 +25,6 @@
       how: "Cómo se relaciona con la brecha",
       theme: "Tema",
       visit: "Visitar",
-      shortfallTrue: "shortfall: true",
-      shortfallFalse: "shortfall: false",
       funder: "Financiador",
       gapLabel: "Brecha",
     },
@@ -62,20 +58,43 @@
     return `${base}#page=${page}`;
   }
 
-  function renderReportQuote(ev) {
+  /** Gap sections: EN shows English translation only; ES shows PDF link only (no verbatim Spanish block). */
+  function renderGapReportEvidence(ev) {
     const href = pdfLink(ev);
-    const esQ = `"${esc(ev.quote_es)}"`;
     const enQ = ev.quote_en ? `"${esc(ev.quote_en)}"` : "";
+    const translationBlock =
+      lang === "en" && enQ
+        ? `<p class="quote-label">${t("translation")}</p><p class="verbatim">${enQ}</p>`
+        : "";
     return `<div class="quote-box report-evidence">
-      <p class="quote-label">${t("reportVerbatim")}</p>
-      <p lang="es" class="verbatim">${esQ}</p>
-      ${enQ ? `<p class="quote-label l-en">${t("translation")}</p><p class="l-en verbatim">${enQ}</p>` : ""}
+      ${translationBlock}
       <p class="pdf-link"><a href="${href}" target="_blank" rel="noopener">${t("pdfPage")} ${ev.page}</a></p>
     </div>`;
   }
 
   function favicon(domain) {
     return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`;
+  }
+
+  function normalizeMatchName(name) {
+    return String(name || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  /** First occurrence wins; prevents duplicate cards/details per startup within a gap. */
+  function dedupeMatches(matches) {
+    const seen = new Set();
+    const out = [];
+    for (const m of matches || []) {
+      const key = normalizeMatchName(m.name);
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      out.push(m);
+    }
+    return out;
   }
 
   function startupCard(m, gapRank) {
@@ -97,17 +116,6 @@
       </div></article>`;
   }
 
-  function matchDetail(m) {
-    const why = lang === "es" ? m.why_es || m.why : m.why;
-    const pubQ = `"${esc(m.public_quote)}"`;
-    return `<div class="match-detail"><h4>${esc(m.name)}</h4>
-      <p class="why">${t("how")}: ${esc(why)}</p>
-      <p class="quote-label">${t("publicQuote")}</p>
-      <div class="quote-box"><p lang="es" class="verbatim">${pubQ}</p></div>
-      <p class="src"><a href="${esc(m.public_source_url || m.website)}" target="_blank" rel="noopener">${esc(m.public_source_url || m.website)}</a></p>
-    </div>`;
-  }
-
   function renderNav() {
     const nav = document.getElementById("nav-gaps");
     if (!nav || !DATA.gaps) return;
@@ -125,33 +133,20 @@
     root.innerHTML = DATA.gaps
       .map((g, i) => {
         const secClass = i % 2 ? "sec page" : "sec light";
-        const sf = g.shortfall ? t("shortfallTrue") : t("shortfallFalse");
-        const badgeClass = g.shortfall ? "badge warn" : "badge ok";
         const title = g.title[lang];
         const ctx = g.context[lang];
-        const cards = g.matches.map((m) => startupCard(m, g.rank)).join("");
-        const details = g.matches.map(matchDetail).join("");
-        const journeyLine = `${t("journey")}: ${g.journey_step}. ${
-          g.note ? g.note[lang] : `${t("matches")}: ${g.match_count}.`
-        }`;
-        const evidence = renderReportQuote(g.report_evidence);
+        const matches = dedupeMatches(g.matches);
+        const cards = matches.map((m) => startupCard(m, g.rank)).join("");
+        const evidence = renderGapReportEvidence(g.report_evidence);
         return `<section id="${g.id}" class="${secClass}"><div class="wrap">
-          <div class="gap-head"><h2>${esc(title)}</h2><span class="${badgeClass}">${sf}</span></div>
+          <div class="gap-head"><h2>${esc(title)}</h2></div>
           <div class="box"><p>${esc(ctx)}</p></div>
           ${evidence}
           <h3>${t("matches")}</h3>
           <div class="card-grid">${cards}</div>
-          ${details}
-          <p class="intro journey-line">${esc(journeyLine)}</p>
         </div></section>`;
       })
       .join("");
-    const foot = DATA.footer_note;
-    if (foot) {
-      root.innerHTML += `<section class="sec"><div class="wrap"><div class="box blue">
-        <p class="l-en">${foot.en}</p><p class="l-es">${foot.es}</p>
-      </div></div></section>`;
-    }
   }
 
   function renderTeam() {

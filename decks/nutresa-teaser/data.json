@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Nutresa · gap snapshot",
       "hero.title": "Nutresa · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Grupo Nutresa S.A., Colombia. Food and consumer goods. Wave 1 rank 15. Persona: CSO.",
+      "hero.company": "Grupo Nutresa S.A., Colombia. Food and consumer goods.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 9)",
       "snap.bvc": "BVC: Nutresa is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Nutresa gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Nutresa sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Nutresa · panorama de brechas",
       "hero.title": "Nutresa · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Grupo Nutresa S.A., Colombia. Alimentos y bienes de consumo. Ola 1 rango 15. Persona: CSO.",
+      "hero.company": "Grupo Nutresa S.A., Colombia. Alimentos y bienes de consumo.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 9)",
       "snap.bvc": "BVC: Nutresa cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Nutresa Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Nutresa sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 11. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "Compostpack": {
       "p": "CLAC23",
@@ -201,7 +193,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -257,7 +248,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 2,
       "title": {
@@ -302,7 +292,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 2,
       "title": {
@@ -347,7 +336,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 2,
       "title": {
@@ -392,7 +380,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 2,
       "title": {

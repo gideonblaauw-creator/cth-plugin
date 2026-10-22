@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Pavimentos Colombia · gap snapshot",
       "hero.title": "Pavimentos Colombia · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Pavimentos Colombia, Colombia. Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Pavimentos Colombia, Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 3)",
       "snap.bvc": "",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Shortfall: true on gap(s) 2; false on others. csoReady: n/a. Every match is a theme match. None names the company.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Pavimentos Colombia gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Pavimentos Colombia sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Pavimentos Colombia · panorama de brechas",
       "hero.title": "Pavimentos Colombia · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Pavimentos Colombia, Colombia Wave 1 slot 16–20 batch. Persona: CSO.",
+      "hero.company": "Pavimentos Colombia, Colombia",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 3)",
       "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Déficit: verdadero en gap(s) 2; falso en otros. csoReady: n/a. Cada partido es un partido temático. Ninguno nombra a la empresa.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Pavimentos Colombia Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Pavimentos Colombia sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 14. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -201,7 +193,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -224,7 +215,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "GHG inventory tooling; quote does not name Pavimentos Colombia.",
+          "why": "GHG inventory tooling",
           "why_es": "Herramientas de inventario de GEI; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -235,7 +226,7 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Footprint calculation; quote does not name Pavimentos Colombia.",
+          "why": "Footprint calculation",
           "why_es": "Cálculo de la huella; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Comienza a calcular y compensar tu huella de carbono con nuestras herramientas",
           "public_source_url": "https://c-neutral.co",
@@ -246,8 +237,8 @@
           "name": "Glasst",
           "stage": "Pre-Series A",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Lower-carbon construction materials; quote does not name Pavimentos Colombia.",
-          "why_es": "Materiales de construcción bajos en carbono; la cita no nombra a Pavimentos Colombia.",
+          "why": "Lower-carbon construction materials",
+          "why_es": "Materiales de construcción bajos en carbono",
           "public_quote": "Glasstommer® parte de polímeros de fuentes renovables. Su balance de carbono es negativo desde la obtención de materias primas hasta la fabricación y el envasado.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
@@ -257,7 +248,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 2,
       "title": {
@@ -280,7 +270,7 @@
           "name": "Zhana Solutions",
           "stage": "Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Water treatment services; quote does not name Pavimentos Colombia.",
+          "why": "Water treatment services",
           "why_es": "Servicios de tratamiento de agua; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
           "public_source_url": "https://zhanasolutions.com",
@@ -291,22 +281,17 @@
           "name": "Glasst",
           "stage": "Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Efficiency design on sites; quote does not name Pavimentos Colombia.",
+          "why": "Efficiency design on sites",
           "why_es": "Diseño de eficiencia en sitios; cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Diseñamos para usar mejor la energía.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 2.",
-        "es": "2."
-      }
+      ]
     },
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -329,7 +314,7 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Upcycling construction discards; quote does not name Pavimentos Colombia.",
+          "why": "Upcycling construction discards",
           "why_es": "Desechos de construcción de Upcycling; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Transformamos residuos en diseño de alto valor",
           "public_source_url": "https://reemade.com.co",
@@ -340,8 +325,8 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Recycled-content products; quote does not name Pavimentos Colombia.",
-          "why_es": "Productos de contenido reciclado; la cita no nombra a Pavimentos Colombia.",
+          "why": "Recycled-content products",
+          "why_es": "Productos de contenido reciclado",
           "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
           "public_source_url": "https://proplanet.com.co",
           "funder": false
@@ -351,8 +336,8 @@
           "name": "Glasst",
           "stage": "Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Construction-phase pollution control; quote does not name Pavimentos Colombia.",
-          "why_es": "Control de la contaminación en fase de construcción; la cita no nombra a Pavimentos Colombia.",
+          "why": "Construction-phase pollution control",
+          "why_es": "Control de la contaminación en fase de construcción",
           "public_quote": "Los desmoldantes GLASST pueden apoyar el control de fuentes de contaminación dentro del plan de calidad del aire durante la construcción.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
           "funder": false
@@ -362,7 +347,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -385,8 +369,8 @@
           "name": "Natupin",
           "stage": "Pre-Seed",
           "website": "https://natupin.bio",
-          "why": "Biodiversity education products; quote does not name Pavimentos Colombia.",
-          "why_es": "Productos de educación para la biodiversidad; la cita no nombra a Pavimentos Colombia.",
+          "why": "Biodiversity education products",
+          "why_es": "Productos de educación para la biodiversidad",
           "public_quote": "Conoce sobre la biodiversidad colombiana",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -396,7 +380,7 @@
           "name": "PLEIA",
           "stage": "Pre-Seed",
           "website": "https://pleia.co",
-          "why": "Natural cycles narrative; weak tie; quote does not name Pavimentos Colombia.",
+          "why": "Natural cycles narrative; weak tie",
           "why_es": "Narrativa de ciclos naturales; lazo débil; cita no nombra a Pavimentos Colombia.",
           "public_quote": "Cuando la mascota fallece, aplicamos los principios naturales para acelerar su proceso de reincorporación a la naturaleza.",
           "public_source_url": "https://pleia.co",
@@ -407,8 +391,8 @@
           "name": "Monte Jazmín",
           "stage": "Pre-Seed",
           "website": "https://montejazmin.com/nosotros/",
-          "why": "Ecosystem restoration language; quote does not name Pavimentos Colombia.",
-          "why_es": "Lenguaje de restauración de ecosistemas; la cita no nombra a Pavimentos Colombia.",
+          "why": "Ecosystem restoration language",
+          "why_es": "Lenguaje de restauración de ecosistemas",
           "public_quote": "rodeado por cafetales que guardan nacimientos de agua, guaduales y bosque",
           "public_source_url": "https://montejazmin.com/nosotros/",
           "funder": false
@@ -418,7 +402,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -441,7 +424,7 @@
           "name": "Glasst",
           "stage": "Seed",
           "website": "https://glasst.co/es/sostenibilidad/",
-          "why": "Cleaner supplier SKUs for sites; quote does not name Pavimentos Colombia.",
+          "why": "Cleaner supplier SKUs for sites",
           "why_es": "SKU de proveedores de productos de limpieza para sitios; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Sustituimos las películas plásticas convencionales usadas para proteger superficies durante la obra por alternativas removibles.",
           "public_source_url": "https://glasst.co/es/sostenibilidad/",
@@ -452,7 +435,7 @@
           "name": "Reemade",
           "stage": "Seed",
           "website": "https://reemade.com.co",
-          "why": "Circular suppliers; quote does not name Pavimentos Colombia.",
+          "why": "Circular suppliers",
           "why_es": "Proveedores circulares; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "Estudio de diseño especializado en suprareciclaje (upcycling) y economía circular.",
           "public_source_url": "https://reemade.com.co",
@@ -463,7 +446,7 @@
           "name": "Proplanet",
           "stage": "Seed",
           "website": "https://proplanet.com.co",
-          "why": "Environmental supplier framing; quote does not name Pavimentos Colombia.",
+          "why": "Environmental supplier framing",
           "why_es": "Enmarcado de proveedores ambientales; la cotización no nombra a Pavimentos Colombia.",
           "public_quote": "con un enfoque social y ambiental.",
           "public_source_url": "https://proplanet.com.co",

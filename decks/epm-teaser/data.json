@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "EPM · gap snapshot",
       "hero.title": "EPM · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "EPM, Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "EPM, Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 307)",
       "snap.bvc": "BVC: EPM is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "EPM gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "EPM sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "EPM · panorama de brechas",
       "hero.title": "EPM · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "EPM, Colombia. Ola 1 (6–10, fabricante B). Persona: CSO.",
+      "hero.company": "EPM, Colombia.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 307)",
       "snap.bvc": "BVC: EPM cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "EPM Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "EPM sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 15. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -181,7 +173,7 @@
     "FENOGE": {
       "p": "",
       "t": "EN",
-      "d": "ERNC finance; quote does not name EPM.",
+      "d": "ERNC finance",
       "ds": "ERNC Finance; la cotización no nombra a EPM.",
       "funder": true
     },
@@ -196,7 +188,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -219,7 +210,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Scope 3 inventory; quote does not name EPM.",
+          "why": "Scope 3 inventory",
           "why_es": "Inventario de alcance 3; la cotización no nombra a EPM.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -230,8 +221,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Series A",
           "website": "https://sincarbono.io",
-          "why": "Value-chain reporting; quote does not name EPM.",
-          "why_es": "Informes de la cadena de valor; la cita no nombra a EPM.",
+          "why": "Value-chain reporting",
+          "why_es": "Informes de la cadena de valor",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -241,8 +232,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Decarbonization; quote does not name EPM.",
-          "why_es": "Descarbonización; la cita no nombra a EPM.",
+          "why": "Decarbonization",
+          "why_es": "Descarbonización",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -252,7 +243,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -275,7 +265,7 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "Solar installs; quote does not name EPM.",
+          "why": "Solar installs",
           "why_es": "Instalaciones solares; la cotización no nombra a EPM.",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
@@ -286,7 +276,7 @@
           "name": "O3 Smart Cities",
           "stage": "Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "Industrial solar; quote does not name EPM.",
+          "why": "Industrial solar",
           "why_es": "Solar industrial; la cotización no nombra a EPM.",
           "public_quote": "Diseñamos, financiamos y operamos plantas solares para la industria colombiana.",
           "public_source_url": "https://o3smartcities.com.co",
@@ -297,8 +287,8 @@
           "name": "Griin",
           "stage": "Seed",
           "website": "https://griin.com.co",
-          "why": "Solar finance; quote does not name EPM.",
-          "why_es": "Finanzas solares; la cita no nombra a EPM.",
+          "why": "Solar finance",
+          "why_es": "Finanzas solares",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -308,7 +298,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -331,7 +320,7 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "ERNC finance; quote does not name EPM.",
+          "why": "ERNC finance",
           "why_es": "ERNC Finance; la cotización no nombra a EPM.",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
@@ -342,8 +331,8 @@
           "name": "Griin",
           "stage": "Pre-Seed",
           "website": "https://griin.com.co",
-          "why": "Project finance; quote does not name EPM.",
-          "why_es": "Financiación de proyectos; la cita no nombra a EPM.",
+          "why": "Project finance",
+          "why_es": "Financiación de proyectos",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -353,8 +342,8 @@
           "name": "SEOS Energy",
           "stage": "Pre-Seed",
           "website": "https://seosenergy.co",
-          "why": "Deployment; quote does not name EPM.",
-          "why_es": "Implementación; la cita no nombra a EPM.",
+          "why": "Deployment",
+          "why_es": "Implementación",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
           "funder": false
@@ -364,7 +353,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 3,
       "title": {
@@ -387,8 +375,8 @@
           "name": "C-neutral",
           "stage": "Series B+",
           "website": "https://c-neutral.co",
-          "why": "Climate consulting; quote does not name EPM.",
-          "why_es": "Consultoría climática; la cita no nombra a EPM.",
+          "why": "Climate consulting",
+          "why_es": "Consultoría climática",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -398,7 +386,7 @@
           "name": "CarbonBox",
           "stage": "Series B+",
           "website": "https://carbonbox.app",
-          "why": "Measurement; quote does not name EPM.",
+          "why": "Measurement",
           "why_es": "Medición; la cotización no nombra a EPM.",
           "public_quote": "Mide, reduce y reporta tu huella de carbono con rigor científico.",
           "public_source_url": "https://carbonbox.app",
@@ -409,8 +397,8 @@
           "name": "Reemade",
           "stage": "Series B+",
           "website": "https://reemade.com.co",
-          "why": "Circularity; quote does not name EPM.",
-          "why_es": "Circularidad; la cita no nombra a EPM.",
+          "why": "Circularity",
+          "why_es": "Circularidad",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -420,7 +408,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -443,7 +430,7 @@
           "name": "O3 Smart Cities",
           "stage": "Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "Customer solar; quote does not name EPM.",
+          "why": "Customer solar",
           "why_es": "Cliente solar; la cotización no nombra a EPM.",
           "public_quote": "Diseñamos, financiamos y operamos plantas solares para la industria colombiana.",
           "public_source_url": "https://o3smartcities.com.co",
@@ -454,7 +441,7 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "Residential/commercial solar; quote does not name EPM.",
+          "why": "Residential/commercial solar",
           "why_es": "Solar residencial/comercial; la cotización no nombra a EPM.",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
@@ -465,8 +452,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "Public clean energy finance; quote does not name EPM.",
-          "why_es": "Financiación pública de energía limpia; la cita no nombra a EPM.",
+          "why": "Public clean energy finance",
+          "why_es": "Financiación pública de energía limpia",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
           "funder": true

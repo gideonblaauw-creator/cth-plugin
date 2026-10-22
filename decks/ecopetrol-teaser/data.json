@@ -27,9 +27,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Ecopetrol · gap snapshot",
       "hero.title": "Ecopetrol · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Ecopetrol S.A., Colombia. Oil and gas. Wave 1 rank 11. Persona: CSO.",
+      "hero.company": "Ecopetrol S.A., Colombia. Oil and gas.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
       "hero.reportLbl": "Report",
@@ -37,15 +37,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 10)",
       "snap.bvc": "BVC: Ecopetrol is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Shortfall: true on gap(s) 2, 4, 5; false on others. csoReady: True. Every match is a theme match. None names the company.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Ecopetrol gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Ecopetrol sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -58,9 +56,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Ecopetrol · panorama de brechas",
       "hero.title": "Ecopetrol · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Ecopetrol S.A., Colombia. Petróleo y gas. Ola 1 rango 11. Persona: CSO.",
+      "hero.company": "Ecopetrol S.A., Colombia. Petróleo y gas.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -68,15 +66,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 10)",
       "snap.bvc": "BVC: Ecopetrol cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Déficit: verdadero en los huecos2, 4, 5; falso en los demás. csoReady: Verdadero. Cada partido es un partido temático. Ninguno nombra a la empresa.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Ecopetrol Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Ecopetrol sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -136,10 +132,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 8. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -182,7 +174,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -238,7 +229,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 1,
       "title": {
@@ -267,16 +257,11 @@
           "public_source_url": "https://novatio.com.co",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1.",
-        "es": "Coincidencias: 1."
-      }
+      ]
     },
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 2,
       "title": {
@@ -321,7 +306,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 1,
       "title": {
@@ -350,16 +334,11 @@
           "public_source_url": "https://sincarbono.io",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1.",
-        "es": "Coincidencias: 1."
-      }
+      ]
     },
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": true,
       "journey_step": "partnerships",
       "match_count": 1,
       "title": {
@@ -388,11 +367,7 @@
           "public_source_url": "https://bioambientar.com",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1.",
-        "es": "Coincidencias: 1."
-      }
+      ]
     }
   ]
 }

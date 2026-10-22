@@ -5,8 +5,7 @@
     "title": {
       "en": "Parex · gap snapshot · CleantechHUB",
       "es": "Parex · panorama de brechas · CleantechHUB"
-    },
-    "public_url": "https://proposals.cleantechhub.net/parex-teaser/"
+    }
   },
   "brand": {
     "logo": "img/cth-logo.png"
@@ -28,25 +27,23 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Parex · gap snapshot",
       "hero.title": "Parex · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Parex Resources Inc., Colombia. Oil and gas. Wave 1 rank 12. Persona: CSO.",
+      "hero.company": "Parex Resources Inc., Colombia. Oil and gas.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope.",
       "hero.reportLbl": "Report",
-      "hero.report": "[https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf](https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf). PDF page 3. Accessed 2026-10-22. > El informe anual de sostenibilidad de Parex presenta un resumen de la estrategia Ambiental, Social y de Gobernanza (ASG) de la Compañía, sus actividades y desempeño del período de reporte que va desde el primero de enero hasta diciembre 31 de 2024. Environment, climate and nature only. Social and governance topics in the same report are out of scope. Full quotes for every match are in `parex-teaser.json`. Every match is a theme match. None names Parex. **Shortfall.** Gap(s) 4 have fewer than two strong gap-specific matches. **csoReady: true** on the shortfall gate only. ## 1. Water management objectives were still being set in 2024 Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review. > Meta 2024: Establecer objetivos de gestión del agua y planes de acción asociados. | Match | Stage | Link | | --- | --- | --- | | Fluvia | Pre-Seed | [https://fluvia.co](https://fluvia.co) | | TOBO | Pre-Seed | [https://tobo.com.co](https://tobo.com.co) | Journey step: policy. Matches: 2. Shortfall: false. ## 2. Scope 3 understanding and supplier engagement still expanding Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement. > Si bien las prioridades de Parex se centran en la gestión de la intensidad de las emisiones de GEI dentro de nuestro propio negocio (alcances 1 y 2), seguimos trabajando para ampliar nuestra comprensión de las emisiones indirectas (alcance 3) y buscamos oportunidades para interactuar con nuestra cadena de suministro. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | Journey step: data. Matches: 3. Shortfall: false. ## 3. Routine flaring reduction still requires technology spend Parex continues investing in technology and infrastructure to reduce routine flaring across operations. > Además, seguimos invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas nuestras operaciones. | Match | Stage | Link | | --- | --- | --- | | Novatio | Seed | [https://novatio.com.co](https://novatio.com.co) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | Journey step: challenge. Matches: 2. Shortfall: false. ## 4. Water is vital across operations and neighboring communities Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal. > Parex está comprometida con la conservación, el uso eficiente y sostenible de los recursos naturales y considera el agua un recurso vital y un punto de interacción entre el medio ambiente, las comunidades y las actividades operativas de la Compañía. | Match | Stage | Link | | --- | --- | --- | | Fluvia | Pre-Seed | [https://fluvia.co](https://fluvia.co) | Journey step: challenge. Matches: 1. Shortfall: true. ## 5. Direct methane emissions still reported alongside intensity goals Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2. > 39% reducción interanual de las emisiones directas de metano | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 2. Shortfall: false.",
+      "hero.report": "Sustainability report (<a href=\"https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf\">PDF</a>) linked from <a href=\"https://www.parexresources.com/sustainability/reporting/sustainability-reports/\">www.parexresources.com</a> PDF page 3. Accessed 2026-10-22.",
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 3)",
       "snap.bvc": "BVC: Parex is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: True. Every match is a theme match. None names the company.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Parex gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Parex sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,31 +56,29 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Parex · panorama de brechas",
       "hero.title": "Parex · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Parex Resources Inc., Colombia. Oil and gas. Wave 1 rank 12. Persona: CSO.",
+      "hero.company": "Parex Resources Inc., Colombia. Petróleo y gas.",
       "hero.scopeLbl": "Alcance",
-      "hero.scope": "Medio ambiente, clima y naturaleza. Temas sociales y de gobernanza quedan fuera de alcance.",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance.",
       "hero.reportLbl": "Reporte",
-      "hero.report": "[https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf](https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf). PDF page 3. Accessed 2026-10-22. > El informe anual de sostenibilidad de Parex presenta un resumen de la estrategia Ambiental, Social y de Gobernanza (ASG) de la Compañía, sus actividades y desempeño del período de reporte que va desde el primero de enero hasta diciembre 31 de 2024. Environment, climate and nature only. Social and governance topics in the same report are out of scope. Full quotes for every match are in `parex-teaser.json`. Every match is a theme match. None names Parex. **Shortfall.** Gap(s) 4 have fewer than two strong gap-specific matches. **csoReady: true** on the shortfall gate only. ## 1. Water management objectives were still being set in 2024 Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review. > Meta 2024: Establecer objetivos de gestión del agua y planes de acción asociados. | Match | Stage | Link | | --- | --- | --- | | Fluvia | Pre-Seed | [https://fluvia.co](https://fluvia.co) | | TOBO | Pre-Seed | [https://tobo.com.co](https://tobo.com.co) | Journey step: policy. Matches: 2. Shortfall: false. ## 2. Scope 3 understanding and supplier engagement still expanding Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement. > Si bien las prioridades de Parex se centran en la gestión de la intensidad de las emisiones de GEI dentro de nuestro propio negocio (alcances 1 y 2), seguimos trabajando para ampliar nuestra comprensión de las emisiones indirectas (alcance 3) y buscamos oportunidades para interactuar con nuestra cadena de suministro. | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | Journey step: data. Matches: 3. Shortfall: false. ## 3. Routine flaring reduction still requires technology spend Parex continues investing in technology and infrastructure to reduce routine flaring across operations. > Además, seguimos invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas nuestras operaciones. | Match | Stage | Link | | --- | --- | --- | | Novatio | Seed | [https://novatio.com.co](https://novatio.com.co) | | C-neutral | Pre-Series A | [https://c-neutral.co](https://c-neutral.co) | Journey step: challenge. Matches: 2. Shortfall: false. ## 4. Water is vital across operations and neighboring communities Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal. > Parex está comprometida con la conservación, el uso eficiente y sostenible de los recursos naturales y considera el agua un recurso vital y un punto de interacción entre el medio ambiente, las comunidades y las actividades operativas de la Compañía. | Match | Stage | Link | | --- | --- | --- | | Fluvia | Pre-Seed | [https://fluvia.co](https://fluvia.co) | Journey step: challenge. Matches: 1. Shortfall: true. ## 5. Direct methane emissions still reported alongside intensity goals Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2. > 39% reducción interanual de las emisiones directas de metano | Match | Stage | Link | | --- | --- | --- | | CarbonBox | Pre-Seed | [https://carbonbox.app](https://carbonbox.app) | | sinCarbono | Seed | [https://sincarbono.io](https://sincarbono.io) | Journey step: data. Matches: 2. Shortfall: false.",
+      "hero.report": "Sustainability report (<a href=\"https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf\">PDF</a>) enlazado desde <a href=\"https://www.parexresources.com/sustainability/reporting/sustainability-reports/\">www.parexresources.com</a> PDF página 3. Consultado 2026-10-22.",
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 3)",
-      "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Shortfall: true on gap(s) 4; false on others. csoReady: True. Every match is a theme match. None names the company.",
+      "snap.bvc": "BVC: Parex cotiza en la Bolsa de Valores de Colombia.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Parex gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Parex sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
     "report_evidence": {
       "quote_es": "El informe anual de sostenibilidad de Parex presenta un resumen de la estrategia Ambiental, Social y de Gobernanza (ASG) de la Compañía, sus actividades y desempeño del período de reporte que va desde el primero de enero hasta diciembre 31 de 2024.",
-      "quote_en": "",
+      "quote_en": "Parex's annual sustainability report presents a summary of the Company's Environmental, Social and Governance (ESG) strategy, its activities and performance for the reporting period from January 1 to December 31, 2024.",
       "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
       "page": 3
     }
@@ -137,10 +132,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 10. Contact details omitted.",
-    "es": "Conteo de coincidencias: 10."
-  },
   "nexus": {
     "Fluvia": {
       "p": "CLAC23",
@@ -183,20 +174,19 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "policy",
       "match_count": 2,
       "title": {
         "en": "1. Water management objectives were still being set in 2024",
-        "es": "1. Water management objectives were still being set in 2024"
+        "es": "1. Los objetivos de gestión del agua aún se estaban estableciendo en 2024"
       },
       "context": {
         "en": "PDF page 11. Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review.",
-        "es": "PDF página 11. Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review."
+        "es": "PDF página 11. Parex planeó establecer objetivos de gestión del agua y planes de acción en 2024, con actualizaciones después de la doble revisión de materialidad de 2025."
       },
       "report_evidence": {
         "quote_es": "Meta 2024: Establecer objetivos de gestión del agua y planes de acción asociados.",
-        "quote_en": "",
+        "quote_en": "Target 2024: Establish water management objectives and associated action plans.",
         "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
         "page": 11
       },
@@ -207,7 +197,7 @@
           "stage": "Pre-Seed",
           "website": "https://fluvia.co",
           "why": "Fluvia maps water movement and losses in operational water systems.",
-          "why_es": "Fluvia maps water movement and losses in operational water systems.",
+          "why_es": "Fluvia mapea el movimiento del agua y las pérdidas en los sistemas de agua operativos.",
           "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
           "public_source_url": "https://fluvia.co",
           "funder": false
@@ -218,7 +208,7 @@
           "stage": "Pre-Seed",
           "website": "https://tobo.com.co",
           "why": "TOBO names operational efficiency and environmental responsibility in water and renewable systems.",
-          "why_es": "TOBO names operational efficiency and environmental responsibility in water and renewable systems.",
+          "why_es": "TOBO nombra la eficiencia operativa y la responsabilidad ambiental en sistemas de agua y renovables.",
           "public_quote": "Estamos comprometidos con la mejora continua, la eficiencia operativa y la responsabilidad ambiental.",
           "public_source_url": "https://tobo.com.co",
           "funder": false
@@ -228,20 +218,19 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
         "en": "2. Scope 3 understanding and supplier engagement still expanding",
-        "es": "2. Scope 3 understanding and supplier engagement still expanding"
+        "es": "2. La comprensión del alcance 3 y el compromiso de los proveedores aún se están expandiendo"
       },
       "context": {
         "en": "PDF page 20. GRI 305-3. Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement.",
-        "es": "PDF página 20. GRI 305-3. Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement."
+        "es": "PDF página 20. GRI 305-3. Parex prioriza la intensidad de los alcances 1 y 2, pero aún está ampliando la comprensión del Alcance 3 y la participación en la cadena de suministro."
       },
       "report_evidence": {
         "quote_es": "Si bien las prioridades de Parex se centran en la gestión de la intensidad de las emisiones de GEI dentro de nuestro propio negocio (alcances 1 y 2), seguimos trabajando para ampliar nuestra comprensión de las emisiones indirectas (alcance 3) y buscamos oportunidades para interactuar con nuestra cadena de suministro.",
-        "quote_en": "",
+        "quote_en": "While Parex's priorities focus on managing the intensity of GHG emissions within our own business (scopes 1 and 2), we continue to work to broaden our understanding of indirect emissions (scope 3) and look for opportunities to engage with our supply chain.",
         "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
         "page": 20
       },
@@ -252,7 +241,7 @@
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
           "why": "CarbonBox measures scope 3 across suppliers and logistics.",
-          "why_es": "CarbonBox measures scope 3 across suppliers and logistics.",
+          "why_es": "CarbonBox mide el alcance 3 entre proveedores y logística.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -263,7 +252,7 @@
           "stage": "Seed",
           "website": "https://sincarbono.io",
           "why": "sinCarbono connects suppliers on footprint measurement and reduction.",
-          "why_es": "sinCarbono connects suppliers on footprint measurement and reduction.",
+          "why_es": "sinCarbono conecta a los proveedores en la medición y reducción de la huella.",
           "public_quote": "Las empresas líderes ya exigen acción climática a sus proveedores y clientes.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -274,7 +263,7 @@
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
           "why": "C-neutral quantifies emissions along the decarbonization path.",
-          "why_es": "C-neutral quantifies emissions along the decarbonization path.",
+          "why_es": "C-neutral cuantifica las emisiones a lo largo de la ruta de descarbonización.",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -284,20 +273,19 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 2,
       "title": {
         "en": "3. Routine flaring reduction still requires technology spend",
-        "es": "3. Routine flaring reduction still requires technology spend"
+        "es": "3. La reducción rutinaria de la quema aún requiere gasto en tecnología"
       },
       "context": {
         "en": "PDF page 18. Parex continues investing in technology and infrastructure to reduce routine flaring across operations.",
-        "es": "PDF página 18. Parex continues investing in technology and infrastructure to reduce routine flaring across operations."
+        "es": "PDF página 18. Parex continúa invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas las operaciones."
       },
       "report_evidence": {
         "quote_es": "Además, seguimos invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas nuestras operaciones.",
-        "quote_en": "",
+        "quote_en": "In addition, we continue to invest in technology and infrastructure to reduce routine burning across our operations.",
         "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
         "page": 18
       },
@@ -308,7 +296,7 @@
           "stage": "Seed",
           "website": "https://novatio.com.co",
           "why": "Novatio valorizes gas-rich organic residues through biogas plants.",
-          "why_es": "Novatio valorizes gas-rich organic residues through biogas plants.",
+          "why_es": "Novatio valoriza los residuos orgánicos ricos en gas a través de plantas de biogás.",
           "public_quote": "Transforme sus residuos en energía.",
           "public_source_url": "https://novatio.com.co",
           "funder": false
@@ -319,7 +307,7 @@
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
           "why": "C-neutral supports oil and gas clients on emissions quantification.",
-          "why_es": "C-neutral supports oil and gas clients on emissions quantification.",
+          "why_es": "C-neutral apoya a los clientes de petróleo y gas en la cuantificación de emisiones.",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -329,20 +317,19 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 1,
       "title": {
         "en": "4. Water is vital across operations and neighboring communities",
-        "es": "4. Water is vital across operations and neighboring communities"
+        "es": "4. El agua es vital en todas las operaciones y comunidades vecinas"
       },
       "context": {
         "en": "PDF page 28. GRI 303-1. Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal.",
-        "es": "PDF página 28. GRI 303-1. Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal."
+        "es": "PDF página 28. GRI 303-1. Parex considera que el agua es vital para las operaciones y las comunidades y se compromete con el uso responsable, la gestión eficiente y la eliminación."
       },
       "report_evidence": {
         "quote_es": "Parex está comprometida con la conservación, el uso eficiente y sostenible de los recursos naturales y considera el agua un recurso vital y un punto de interacción entre el medio ambiente, las comunidades y las actividades operativas de la Compañía.",
-        "quote_en": "",
+        "quote_en": "Parex is committed to the conservation, efficient and sustainable use of natural resources and considers water a vital resource and a point of interaction between the environment, communities and the Company's operational activities.",
         "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
         "page": 28
       },
@@ -353,34 +340,29 @@
           "stage": "Pre-Seed",
           "website": "https://fluvia.co",
           "why": "Fluvia helps locate water losses in industrial networks.",
-          "why_es": "Fluvia helps locate water losses in industrial networks.",
+          "why_es": "Fluvia ayuda a localizar las pérdidas de agua en las redes industriales.",
           "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
           "public_source_url": "https://fluvia.co",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1.",
-        "es": "Matches: 1."
-      }
+      ]
     },
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 2,
       "title": {
         "en": "5. Direct methane emissions still reported alongside intensity goals",
-        "es": "5. Direct methane emissions still reported alongside intensity goals"
+        "es": "5. Las emisiones directas de metano aún se informan junto con los objetivos de intensidad"
       },
       "context": {
         "en": "PDF page 7. Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2.",
-        "es": "PDF página 7. Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2."
+        "es": "PDF página 7. Parex informó una reducción interanual del 39% en las emisiones directas de metano mientras continuaba el trabajo de intensidad de GEI en los alcances 1 y 2."
       },
       "report_evidence": {
         "quote_es": "Logramos una reducción del 39 % en las emisiones directas de metano, aunque las emisiones absolutas y la intensidad de emisiones de GEI aumentaron;",
-        "quote_en": "",
+        "quote_en": "We achieved a 39% reduction in direct methane emissions, although absolute emissions and GHG emission intensity increased;",
         "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
         "page": 7
       },
@@ -391,7 +373,7 @@
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
           "why": "CarbonBox tracks scope 1 emissions including methane in auditable inventories.",
-          "why_es": "CarbonBox tracks scope 1 emissions including methane in auditable inventories.",
+          "why_es": "CarbonBox realiza un seguimiento de las emisiones de alcance 1, incluido el metano en los inventarios auditables.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -402,7 +384,7 @@
           "stage": "Seed",
           "website": "https://sincarbono.io",
           "why": "sinCarbono builds GHG inventories ready for verification.",
-          "why_es": "sinCarbono builds GHG inventories ready for verification.",
+          "why_es": "sinCarbono crea inventarios de GEI listos para su verificación.",
           "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
           "public_source_url": "https://sincarbono.io",
           "funder": false

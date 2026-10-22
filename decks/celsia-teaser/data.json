@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Celsia · gap snapshot",
       "hero.title": "Environment, climate and nature — five material gaps from the 2024 integrated report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Celsia S.A., Colombia. Energy and utilities. Wave 1. Persona: CSO.",
+      "hero.company": "Celsia S.A., Colombia. Energy and utilities.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting standards cited on page 2",
       "snap.bvc": "BVC: the report records the Sello IR of the Bolsa de Valores de Colombia since 2013 (PDF page 62).",
-      "snap.themeNote": "Every match below is a theme match. None names Celsia. None is a graph relation.",
-      "snap.shortfall": "Shortfall: gaps 2 and 3 fall below three strong gap-specific matches after checker review (NatuPin, KIMSA, O3 Agua and TOBO removed as theme-only). shortfall: true on gaps 2 and 3; false on gaps 1, 4 and 5. csoReady: true on the shortfall gate only. The taxonomy is still a draft.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Celsia gap snapshot — draft GTM hypothesis. Data from Celsia Reporte Integrado 2024. Accessed 2026-10-22."
+      "foot.line": "Celsia sustainability snapshot Data from Celsia Reporte Integrado 2024. Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Celsia · panorama de brechas",
       "hero.title": "Medio ambiente, clima y naturaleza — cinco brechas materiales del reporte integrado 2024.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Celsia S.A., Colombia. Energía y servicios públicos. Ola 1. Persona: CSO.",
+      "hero.company": "Celsia S.A., Colombia. Energía y servicios públicos.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Temas sociales y de gobernanza quedan fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Estándares de reporte citados en la página 2",
       "snap.bvc": "BVC: el reporte registra el Sello IR de la Bolsa de Valores de Colombia desde 2013 (PDF página 62).",
-      "snap.themeNote": "Cada coincidencia es una coincidencia temática. Ninguna nombra a Celsia. Ninguna es una relación de grafo.",
-      "snap.shortfall": "Déficit: las brechas 2 y 3 quedan por debajo de tres coincidencias sólidas específicas tras revisión (NatuPin, KIMSA, O3 Agua y TOBO retirados por ser solo temáticos). shortfall: true en brechas 2 y 3; false en 1, 4 y 5. csoReady: true solo en la puerta de déficit. La taxonomía sigue en borrador.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Panorama de brechas Celsia — hipótesis GTM en borrador. Datos del Reporte Integrado 2024 de Celsia. Consultado 2026-10-22."
+      "foot.line": "panorama de sostenibilidad Celsia — Datos del Reporte Integrado 2024 de Celsia. Consultado 2026-10-22."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 13. The waste-hierarchy target (90 percent by 2025, already 99 percent) is not used as a gap. Contact details and file-share links are left out.",
-    "es": "Conteo de coincidencias: 13. La meta de jerarquía de residuos (90 por ciento en 2025, ya 99 por ciento) no se usa como brecha. Datos de contacto y enlaces de archivos compartidos quedan fuera."
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -153,12 +145,6 @@
       "t": "EN",
       "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
       "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
-    },
-    "KIMSA": {
-      "p": "CLAC21",
-      "t": "EN",
-      "d": "Digitizes carbon measurement and traceability for companies, reducing time and cost of tracking reduction goals while connecting businesses to Colombian offset projects.",
-      "ds": "Digitaliza la medición y trazabilidad de carbono para empresas, reduciendo tiempo y costos en el seguimiento de metas y conectando negocios con proyectos de compensación colombianos."
     },
     "Apicultores y Rescatistas SAS BIC": {
       "p": "CLP",
@@ -226,9 +212,8 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "data",
-      "match_count": 3,
+      "match_count": 2,
       "title": {
         "en": "1. Scope 3 inventory and a science-based target",
         "es": "1. Inventario de alcance 3 y meta basada en la ciencia"
@@ -249,8 +234,8 @@
           "name": "CarbonBox",
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
-          "why": "The public page names CarbonBox and scopes 1, 2 and 3, which is the inventory Celsia says it is still completing. The quote does not name Celsia.",
-          "why_es": "La página pública nombra CarbonBox y los alcances 1, 2 y 3, que es el inventario que Celsia dice que aún está completando. La cita no nombra a Celsia.",
+          "why": "The public page names CarbonBox and scopes 1, 2 and 3, which is the inventory Celsia says it is still completing.",
+          "why_es": "La página pública nombra CarbonBox y los alcances 1, 2 y 3, que es el inventario que Celsia dice que aún está completando.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
           "funder": false
@@ -260,21 +245,10 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "The public page names C-neutral and the quantification of emissions on the decarbonization path. The quote does not name Celsia.",
-          "why_es": "La página pública nombra C-neutral y la cuantificación de emisiones en la ruta de descarbonización. La cita no nombra a Celsia.",
+          "why": "The public page names C-neutral and the quantification of emissions on the decarbonization path.",
+          "why_es": "La página pública nombra C-neutral y la cuantificación de emisiones en la ruta de descarbonización.",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
-          "funder": false
-        },
-        {
-          "match_id": "celsia-g1-kimsa",
-          "name": "KIMSA",
-          "stage": "Seed",
-          "website": "https://kimsa.co",
-          "why": "The public page names KIMSA and climate-action implementation. The same page presents CarbonBox as its footprint tool. The quote does not name Celsia.",
-          "why_es": "La página pública nombra KIMSA e implementación de acciones climáticas. La misma página presenta CarbonBox como herramienta de huella. La cita no nombra a Celsia.",
-          "public_quote": "Somos KIMSA una empresa de consultoría en gestión e implementación de acciones en cambio climático.",
-          "public_source_url": "https://kimsa.co",
           "funder": false
         }
       ]
@@ -282,7 +256,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": true,
       "journey_step": "challenge",
       "match_count": 1,
       "title": {
@@ -305,22 +278,17 @@
           "name": "Apicultores y Rescatistas SAS BIC",
           "stage": "Pre-Seed",
           "website": "https://apicultoresyrescatistas.com",
-          "why": "Celsia reports relocating 63 bee and wasp colonies on its electrical operations. This page names the firm and bee rescue. The quote does not name Celsia.",
-          "why_es": "Celsia reporta reubicación de 63 colonias de abejas y avispas en sus operaciones eléctricas. Esta página nombra la firma y el rescate de abejas. La cita no nombra a Celsia.",
+          "why": "Celsia reports relocating 63 bee and wasp colonies on its electrical operations. This page names the firm and bee rescue.",
+          "why_es": "Celsia reporta reubicación de 63 colonias de abejas y avispas en sus operaciones eléctricas. Esta página nombra la firma y el rescate de abejas.",
           "public_quote": "Apicultores y Rescatistas SAS BIC cuenta con el Centro Experimental Apícola LaLuz ( https://maps.app.goo.gl/dmqvJXVUWGDYpPpy6 ) en el Departamento del Valle del Cauca para alojar las abejas rescatadas.",
           "public_source_url": "https://apicultoresyrescatistas.com",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1 (NatuPin and KIMSA dropped as theme-only).",
-        "es": "Coincidencias: 1 (NatuPin y KIMSA retirados por ser solo temáticos)."
-      }
+      ]
     },
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": true,
       "journey_step": "data",
       "match_count": 1,
       "title": {
@@ -343,22 +311,17 @@
           "name": "Fluvia",
           "stage": "Pre-Seed",
           "website": "https://fluvia.co",
-          "why": "The public page names Fluvia and measurement of water movement in reservoirs, which is the physical setting of Celsia's hydro assets. The quote does not name Celsia.",
-          "why_es": "La página pública nombra Fluvia y la medición del movimiento del agua en embalses, entorno físico de los activos hidro de Celsia. La cita no nombra a Celsia.",
+          "why": "The public page names Fluvia and measurement of water movement in reservoirs, which is the physical setting of Celsia's hydro assets.",
+          "why_es": "La página pública nombra Fluvia y la medición del movimiento del agua en embalses, entorno físico de los activos hidro de Celsia.",
           "public_quote": "En ríos, quebradas, embalses, plantas de tratamiento, sistemas industriales y redes hidráulicas, gran parte de la información importante no se puede ver a simple vista. En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
           "public_source_url": "https://fluvia.co",
           "funder": false
         }
-      ],
-      "note": {
-        "en": "Matches: 1 (O3 Agua and TOBO dropped as theme-only).",
-        "es": "Coincidencias: 1 (O3 Agua y TOBO retirados por ser solo temáticos)."
-      }
+      ]
     },
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 4,
       "title": {
@@ -381,8 +344,8 @@
           "name": "Griin",
           "stage": "Pre-Seed",
           "website": "https://griin.com.co",
-          "why": "The public page names Griin and solar projects that speed the energy transition. The quote does not name Celsia.",
-          "why_es": "La página pública nombra Griin y proyectos solares que aceleran la transición energética. La cita no nombra a Celsia.",
+          "why": "The public page names Griin and solar projects that speed the energy transition.",
+          "why_es": "La página pública nombra Griin y proyectos solares que aceleran la transición energética.",
           "public_quote": "En Griin creemos que el acceso a la energía solar debe ser simple, accesible y transformador. Somos una empresa de soluciones financieras y técnicas para proyectos solares, creada con el propósito de acelerar la transición energética en Latinoamérica.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -392,8 +355,8 @@
           "name": "O3 Smart Cities",
           "stage": "Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "The public page names O3 and solar capacity the customer does not have to fund up front. The quote does not name Celsia.",
-          "why_es": "La página pública nombra O3 y capacidad solar que el cliente no debe financiar por adelantado. La cita no nombra a Celsia.",
+          "why": "The public page names O3 and solar capacity the customer does not have to fund up front.",
+          "why_es": "La página pública nombra O3 y capacidad solar que el cliente no debe financiar por adelantado.",
           "public_quote": "Con nuestro PPA “Pague lo Generado”, O3 financia, instala, opera y mantiene la planta. Tu empresa paga únicamente por la energía producida, a una tarifa pactada.",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -403,8 +366,8 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "The public page names SEOS and solar energy. The quote does not name Celsia.",
-          "why_es": "La página pública nombra SEOS y energía solar. La cita no nombra a Celsia.",
+          "why": "The public page names SEOS and solar energy.",
+          "why_es": "La página pública nombra SEOS y energía solar.",
           "public_quote": "SEOS diseña el sistema y lo instala con sus SOLvers, instaladores evaluados y certificados por SEOS.",
           "public_source_url": "https://seosenergy.co",
           "funder": false
@@ -414,8 +377,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co",
-          "why": "The public page names the fund and financing of non-conventional energy and energy efficiency. The quote does not name Celsia. FENOGE is a funder, so it has no startup stage.",
-          "why_es": "La página pública nombra el fondo y el financiamiento de energía no convencional y eficiencia. La cita no nombra a Celsia. FENOGE es financiador, sin etapa startup.",
+          "why": "The public page names the fund and financing of non-conventional energy and energy efficiency.",
+          "why_es": "La página pública nombra el fondo y el financiamiento de energía no convencional y eficiencia.",
           "public_quote": "Somos el Fondo de Energías No Convencionales y Gestión Eficiente de la Energía. Un Fondo donde financiamos, gestionamos, ejecutamos planes, programas y proyectos alineados con el propósito de mejorar la eficiencia energética y el uso de Fuentes No Convencionales de Energía en el país.",
           "public_source_url": "https://fenoge.gov.co",
           "funder": true
@@ -425,7 +388,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 4,
       "title": {
@@ -448,8 +410,8 @@
           "name": "Compostpack",
           "stage": "Seed",
           "website": "https://compostpack.com",
-          "why": "The public page names Compostpack and compostable bioplastics, which is one of the three packaging outcomes in the Celsia target. The quote does not name Celsia.",
-          "why_es": "La página pública nombra Compostpack y bioplásticos compostables, uno de los tres resultados de empaque en la meta de Celsia. La cita no nombra a Celsia.",
+          "why": "The public page names Compostpack and compostable bioplastics, which is one of the three packaging outcomes in the Celsia target.",
+          "why_es": "La página pública nombra Compostpack y bioplásticos compostables, uno de los tres resultados de empaque en la meta de Celsia.",
           "public_quote": "Desde 2016, Compostpack (una filial de Carpios Investment Group) ha estado desarrollando e industrializando bioplásticos compostables y biodegradables (materiales extraídos usando fuentes biológicas).",
           "public_source_url": "https://compostpack.com",
           "funder": false
@@ -459,8 +421,8 @@
           "name": "Xiclo",
           "stage": "Seed",
           "website": "https://xiclo.app",
-          "why": "The public page names Xiclo and reusable items. The quote does not name Celsia.",
-          "why_es": "La página pública nombra Xiclo y artículos reutilizables. La cita no nombra a Celsia.",
+          "why": "The public page names Xiclo and reusable items.",
+          "why_es": "La página pública nombra Xiclo y artículos reutilizables.",
           "public_quote": "Activa la reutilización en tu organización con resultados e impacto medibles, sin desarrollos ni consultorías.",
           "public_source_url": "https://xiclo.app",
           "funder": false
@@ -470,8 +432,8 @@
           "name": "Galaxy Pack",
           "stage": "Seed",
           "website": "https://galaxypack.co",
-          "why": "The public page names Galaxy Pack and reusable pallet covers as a substitute for single-use plastic packaging. The quote does not name Celsia.",
-          "why_es": "La página pública nombra Galaxy Pack y cubiertas reutilizables como sustituto de empaque plástico de un solo uso. La cita no nombra a Celsia.",
+          "why": "The public page names Galaxy Pack and reusable pallet covers as a substitute for single-use plastic packaging.",
+          "why_es": "La página pública nombra Galaxy Pack y cubiertas reutilizables como sustituto de empaque plástico de un solo uso.",
           "public_quote": "En Galaxy Pack ofrecemos cubre pallets reutilizables como una alternativa sostenible y rentable para reducir costos recurrentes, dependencia del plástico de un solo uso y riesgos regulatorios.",
           "public_source_url": "https://galaxypack.co",
           "funder": false
@@ -481,8 +443,8 @@
           "name": "WERO",
           "stage": "Seed",
           "website": "https://wero.com.co",
-          "why": "The public page names WERO and the circular economy. The quote does not name Celsia.",
-          "why_es": "La página pública nombra WERO y economía circular. La cita no nombra a Celsia.",
+          "why": "The public page names WERO and the circular economy.",
+          "why_es": "La página pública nombra WERO y economía circular.",
           "public_quote": "La economía circular no se construye en solitario; requiere aliados comprometidos que compartan un propósito común. Con WERO, hemos encontrado precisamente ese compañero de camino.",
           "public_source_url": "https://wero.com.co",
           "funder": false

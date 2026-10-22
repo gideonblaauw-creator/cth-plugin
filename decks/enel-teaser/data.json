@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "Enel Colombia · gap snapshot",
       "hero.title": "Enel Colombia · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "Enel Colombia, Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "Enel Colombia, Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 1)",
       "snap.bvc": "",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "Enel Colombia gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "Enel Colombia sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "Enel Colombia · panorama de brechas",
       "hero.title": "Enel Colombia · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "Enel Colombia, Colombia. Ola 1 (6–10, fabricante B). Persona: CSO.",
+      "hero.company": "Enel Colombia, Colombia.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 1)",
       "snap.bvc": "",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "Enel Colombia Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "Enel Colombia sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 15. Enel Colombia’s 2024 sustainability PDF on enel.com.co returned HTTP 403 from this environment; gaps use the Enel Américas Integrated Annual Report 2024 sections that name Enel Colombia.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "Fluvia": {
       "p": "CLAC23",
@@ -175,8 +167,8 @@
     "FENOGE": {
       "p": "",
       "t": "EN",
-      "d": "Renewable funding; quote does not name Enel.",
-      "ds": "Financiación renovable; la cita no nombra a Enel.",
+      "d": "Renewable funding",
+      "ds": "Financiación renovable",
       "funder": true
     },
     "CarbonBox": {
@@ -202,7 +194,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -225,8 +216,8 @@
           "name": "Fluvia",
           "stage": "Pre-Seed",
           "website": "https://fluvia.co",
-          "why": "Water/climate analytics; quote does not name Enel.",
-          "why_es": "Análisis de agua/clima; la cita no nombra a Enel.",
+          "why": "Water/climate analytics",
+          "why_es": "Análisis de agua/clima",
           "public_quote": "Climatech & Deeptech para comprender mejor el comportamiento de los flujos.",
           "public_source_url": "https://fluvia.co",
           "funder": false
@@ -236,8 +227,8 @@
           "name": "O3 Smart Cities",
           "stage": "Pre-Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "Water access co-benefits; quote does not name Enel.",
-          "why_es": "Co-beneficios de acceso al agua; la cita no nombra a Enel.",
+          "why": "Water access co-benefits",
+          "why_es": "Co-beneficios de acceso al agua",
           "public_quote": "5 comunidades con agua",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -247,8 +238,8 @@
           "name": "Zhana Solutions",
           "stage": "Pre-Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Water treatment; quote does not name Enel.",
-          "why_es": "Tratamiento del agua; la cita no nombra a Enel.",
+          "why": "Water treatment",
+          "why_es": "Tratamiento del agua",
           "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -258,7 +249,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -281,7 +271,7 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "Distributed solar; quote does not name Enel.",
+          "why": "Distributed solar",
           "why_es": "Energía solar distribuida; el presupuesto no nombra a Enel.",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
@@ -292,8 +282,8 @@
           "name": "Griin",
           "stage": "Seed",
           "website": "https://griin.com.co",
-          "why": "Solar finance; quote does not name Enel.",
-          "why_es": "Financiación solar; la cita no nombra a Enel.",
+          "why": "Solar finance",
+          "why_es": "Financiación solar",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -303,8 +293,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "Renewable funding; quote does not name Enel.",
-          "why_es": "Financiación renovable; la cita no nombra a Enel.",
+          "why": "Renewable funding",
+          "why_es": "Financiación renovable",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
           "funder": true
@@ -314,7 +304,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -337,8 +326,8 @@
           "name": "Fluvia",
           "stage": "Pre-Series A",
           "website": "https://fluvia.co",
-          "why": "Hydrology; quote does not name Enel.",
-          "why_es": "Hidrología; la cita no nombra a Enel.",
+          "why": "Hydrology",
+          "why_es": "Hidrología",
           "public_quote": "Climatech & Deeptech para comprender mejor el comportamiento de los flujos.",
           "public_source_url": "https://fluvia.co",
           "funder": false
@@ -348,8 +337,8 @@
           "name": "O3 Smart Cities",
           "stage": "Pre-Series A",
           "website": "https://o3smartcities.com.co",
-          "why": "Solar operations monitoring; quote does not name Enel.",
-          "why_es": "Monitoreo de operaciones solares; la cita no nombra a Enel.",
+          "why": "Solar operations monitoring",
+          "why_es": "Monitoreo de operaciones solares",
           "public_quote": "Monitoreo 24/7",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -359,7 +348,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Series A",
           "website": "https://carbonbox.app",
-          "why": "Emissions tracking when thermal dispatch rises; quote does not name Enel.",
+          "why": "Emissions tracking when thermal dispatch rises",
           "why_es": "Seguimiento de emisiones cuando aumenta el despacho térmico; la cotización no nombra a Enel.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -370,7 +359,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -383,7 +371,7 @@
       },
       "report_evidence": {
         "quote_es": "Los gastos de operación también aumentan durante estos períodos de sequía cuando las plantas termoeléctricas se utilizan con mayor frecuencia, y sus costos de operación son más altos en comparación con los de las centrales hidroeléctricas para compensar el déficit en la generación de electricidad por la reducción de la generación hidroeléctrica.",
-        "quote_en": "Operating expenses also increase during these periods of drought when thermoelectric plants are more frequently used, and their operating costs are higher compared to those of hydroelectric plants to compensate for the shortfall in electricity generation from the reduction in hydroelectric generation.",
+        "quote_en": "Operating expenses also increase during these periods of drought when thermoelectric plants are more frequently used, and their operating costs are higher compared to those of hydroelectric plants to compensate for the reduction in electricity generation from lower hydroelectric output.",
         "pdf_url": "https://www.enelamericas.com/content/dam/enel-americas/en/investor/annual_reports/annual_reports/2024/Integrated-Annual-Report-Enel-Americas-2024.pdf",
         "page": 362
       },
@@ -393,8 +381,8 @@
           "name": "C-neutral",
           "stage": "Series B+",
           "website": "https://c-neutral.co",
-          "why": "Mitigation consulting; quote does not name Enel.",
-          "why_es": "Consultoría de mitigación; la cita no nombra a Enel.",
+          "why": "Mitigation consulting",
+          "why_es": "Consultoría de mitigación",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -404,8 +392,8 @@
           "name": "O3 Smart Cities",
           "stage": "Series B+",
           "website": "https://o3smartcities.com.co",
-          "why": "Clean generation; quote does not name Enel.",
-          "why_es": "Generación limpia; la cita no nombra a Enel.",
+          "why": "Clean generation",
+          "why_es": "Generación limpia",
           "public_quote": "Diseñamos, financiamos y operamos plantas solares para la industria colombiana.",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -415,8 +403,8 @@
           "name": "Reemade",
           "stage": "Series B+",
           "website": "https://reemade.com.co",
-          "why": "Lower-carbon materials; quote does not name Enel.",
-          "why_es": "Materiales con bajo contenido de carbono; la cita no nombra a Enel.",
+          "why": "Lower-carbon materials",
+          "why_es": "Materiales con bajo contenido de carbono",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -426,7 +414,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -449,8 +436,8 @@
           "name": "Griin",
           "stage": "Seed",
           "website": "https://griin.com.co",
-          "why": "Solar finance; quote does not name Enel.",
-          "why_es": "Financiación solar; la cita no nombra a Enel.",
+          "why": "Solar finance",
+          "why_es": "Financiación solar",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -460,8 +447,8 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "Solar EPC; quote does not name Enel.",
-          "why_es": "Solar EPC; la cita no nombra a Enel.",
+          "why": "Solar EPC",
+          "why_es": "Solar EPC",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
           "funder": false
@@ -471,8 +458,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "Public ERNC channel; quote does not name Enel.",
-          "why_es": "Canal público ERNC; la cita no nombra a Enel.",
+          "why": "Public ERNC channel",
+          "why_es": "Canal público ERNC",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
           "funder": true

@@ -28,9 +28,9 @@
       "nav.cta": "Next step",
       "hero.eyebrow": "ISA · gap snapshot",
       "hero.title": "ISA · environment, climate and nature — 5 material gaps from the latest sustainability report.",
-      "hero.lead": "Draft. Not a CSO delivery.",
+      "hero.lead": "",
       "hero.companyLbl": "Company",
-      "hero.company": "ISA, Colombia. Wave 1 (6–10, maker B). Persona: CSO.",
+      "hero.company": "ISA, Colombia.",
       "hero.scopeLbl": "Scope",
       "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope.",
       "hero.reportLbl": "Report",
@@ -38,15 +38,13 @@
       "snap.eyebrow": "Transparency frame",
       "snap.title": "Reporting frame (PDF page 9)",
       "snap.bvc": "BVC: ISA is listed on the Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Every match below is a theme match. None names the company. None is a graph relation.",
-      "snap.shortfall": "Every match is a theme match. None names the company. No shortfall gaps flagged in source.",
       "team.eyebrow": "CleantechHUB team",
       "team.title": "Who shaped this teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck.",
       "cta.title": "Discuss this gap snapshot",
-      "cta.body": "This page is a draft GTM hypothesis. Book a short call with the CleantechHUB team to explore next steps.",
+      "cta.body": "Book a short call with the CleantechHUB team to explore next steps.",
       "cta.btn": "Book a call",
-      "foot.line": "ISA gap snapshot — draft GTM hypothesis. Accessed 2026-10-22."
+      "foot.line": "ISA sustainability snapshot Accessed 2026-10-22."
     },
     "es": {
       "nav.snapshot": "Panorama",
@@ -59,9 +57,9 @@
       "nav.cta": "Siguiente paso",
       "hero.eyebrow": "ISA · panorama de brechas",
       "hero.title": "ISA · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad.",
-      "hero.lead": "Borrador. No es una entrega CSO.",
+      "hero.lead": "",
       "hero.companyLbl": "Empresa",
-      "hero.company": "ISA, Colombia. Ola 1 (6–10, fabricante B). Persona: CSO.",
+      "hero.company": "ISA, Colombia.",
       "hero.scopeLbl": "Alcance",
       "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance.",
       "hero.reportLbl": "Reporte",
@@ -69,15 +67,13 @@
       "snap.eyebrow": "Marco de transparencia",
       "snap.title": "Marco de reporte (PDF página 9)",
       "snap.bvc": "BVC: Isa cotiza en la Bolsa de Valores de Colombia.",
-      "snap.themeNote": "Cada coincidencia es temática. Ninguna nombra a la empresa. Ninguna es relación de grafo.",
-      "snap.shortfall": "Cada partido es un partido temático. Ninguno nombra a la empresa. No hay brechas de déficit marcadas en la fuente.",
       "team.eyebrow": "Equipo CleantechHUB",
       "team.title": "Quién llevó este teaser",
       "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U.",
       "cta.title": "Conversemos este panorama de brechas",
-      "cta.body": "Esta página es una hipótesis GTM en borrador. Agende una llamada breve con el equipo CleantechHUB.",
+      "cta.body": "Agende una llamada breve con el equipo CleantechHUB para explorar siguientes pasos.",
       "cta.btn": "Agenda una llamada",
-      "foot.line": "ISA Gap snapshot — draft GTM hypothesis. Consultado el 22-10-2026."
+      "foot.line": "ISA sustainability snapshot Consultado el 22-10-2026."
     }
   },
   "snapshot": {
@@ -137,10 +133,6 @@
       }
     }
   ],
-  "footer_note": {
-    "en": "Match count: 15. Contact details omitted.",
-    "es": "Número de coincidencias"
-  },
   "nexus": {
     "CarbonBox": {
       "p": "CLP",
@@ -193,8 +185,8 @@
     "Apicultores y Rescatistas SAS BIC": {
       "p": "CLP",
       "t": "BIO",
-      "d": "Pollinator rescue on energy assets; quote does not name ISA.",
-      "ds": "Rescate de polinizadores en activos energéticos; la cita no nombra a ISA."
+      "d": "Pollinator rescue on energy assets",
+      "ds": "Rescate de polinizadores en activos energéticos"
     },
     "KIMSA": {
       "p": "CLAC21",
@@ -217,8 +209,8 @@
     "FENOGE": {
       "p": "",
       "t": "EN",
-      "d": "Public ERNC funder; quote does not name ISA.",
-      "ds": "Financiador público de ERNC; la cita no nombra a ISA.",
+      "d": "Public ERNC funder",
+      "ds": "Financiador público de ERNC",
       "funder": true
     }
   },
@@ -226,7 +218,6 @@
     {
       "id": "gap-1",
       "rank": 1,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -249,7 +240,7 @@
           "name": "CarbonBox",
           "stage": "Pre-Seed",
           "website": "https://carbonbox.app",
-          "why": "GEI inventory; quote does not name ISA.",
+          "why": "GEI inventory",
           "why_es": "Inventario GEI; la cotización no nombra ISA.",
           "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
           "public_source_url": "https://carbonbox.app",
@@ -260,8 +251,8 @@
           "name": "C-neutral",
           "stage": "Pre-Seed",
           "website": "https://c-neutral.co",
-          "why": "Decarbonization consulting; quote does not name ISA.",
-          "why_es": "Consultoría de descarbonización; la cita no nombra a ISA.",
+          "why": "Decarbonization consulting",
+          "why_es": "Consultoría de descarbonización",
           "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -271,8 +262,8 @@
           "name": "sinCarbono",
           "stage": "Pre-Seed",
           "website": "https://sincarbono.io",
-          "why": "GHG Protocol tooling; quote does not name ISA.",
-          "why_es": "Herramientas del Protocolo de GEI; la cita no nombra ISA.",
+          "why": "GHG Protocol tooling",
+          "why_es": "Herramientas del Protocolo de GEI",
           "public_quote": "Cumple con la medición de huella de carbono con base al Protocolo de GEI y reporta con base a NIS, CSRD y CBAM en semanas, no meses.",
           "public_source_url": "https://sincarbono.io",
           "funder": false
@@ -282,7 +273,6 @@
     {
       "id": "gap-2",
       "rank": 2,
-      "shortfall": false,
       "journey_step": "data",
       "match_count": 3,
       "title": {
@@ -305,8 +295,8 @@
           "name": "Fluvia",
           "stage": "Seed",
           "website": "https://fluvia.co",
-          "why": "Hydrology analytics; quote does not name ISA.",
-          "why_es": "Análisis de hidrología; la cita no nombra a ISA.",
+          "why": "Hydrology analytics",
+          "why_es": "Análisis de hidrología",
           "public_quote": "Climatech & Deeptech para comprender mejor el comportamiento de los flujos.",
           "public_source_url": "https://fluvia.co",
           "funder": false
@@ -316,8 +306,8 @@
           "name": "O3 Smart Cities",
           "stage": "Seed",
           "website": "https://o3smartcities.com.co",
-          "why": "Industrial solar; quote does not name ISA.",
-          "why_es": "Solar industrial; la cita no nombra ISA.",
+          "why": "Industrial solar",
+          "why_es": "Solar industrial",
           "public_quote": "Diseñamos, financiamos y operamos plantas solares para la industria colombiana. Bajas tu factura, proteges tu operación y cumples tus metas ESG con un solo aliado.",
           "public_source_url": "https://o3smartcities.com.co",
           "funder": false
@@ -327,8 +317,8 @@
           "name": "Zhana Solutions",
           "stage": "Seed",
           "website": "https://zhanasolutions.com",
-          "why": "Environmental KPIs; quote does not name ISA.",
-          "why_es": "KPI ambientales; la cita no nombra a ISA.",
+          "why": "Environmental KPIs",
+          "why_es": "KPI ambientales",
           "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
           "public_source_url": "https://zhanasolutions.com",
           "funder": false
@@ -338,7 +328,6 @@
     {
       "id": "gap-3",
       "rank": 3,
-      "shortfall": false,
       "journey_step": "partnerships",
       "match_count": 3,
       "title": {
@@ -361,8 +350,8 @@
           "name": "C-neutral",
           "stage": "Pre-Series A",
           "website": "https://c-neutral.co",
-          "why": "Offset projects; quote does not name ISA.",
-          "why_es": "Compensar proyectos; la cita no nombra ISA.",
+          "why": "Offset projects",
+          "why_es": "Compensar proyectos",
           "public_quote": "Invierte en una amplia gama de proyectos sustentables. Desde recuperación de bosques, selvas, corales y manglares hasta energías renovables.",
           "public_source_url": "https://c-neutral.co",
           "funder": false
@@ -372,8 +361,8 @@
           "name": "Natupin",
           "stage": "Pre-Series A",
           "website": "https://natupin.bio",
-          "why": "Nature-based solutions; quote does not name ISA.",
-          "why_es": "Soluciones basadas en la naturaleza; la cita no nombra a ISA.",
+          "why": "Nature-based solutions",
+          "why_es": "Soluciones basadas en la naturaleza",
           "public_quote": "formas en las que puedes preservar la biodiversidad.",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -383,8 +372,8 @@
           "name": "Reemade",
           "stage": "Pre-Series A",
           "website": "https://reemade.com.co",
-          "why": "Verified impact; quote does not name ISA.",
-          "why_es": "Impacto verificado; la cita no nombra a ISA.",
+          "why": "Verified impact",
+          "why_es": "Impacto verificado",
           "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
           "public_source_url": "https://reemade.com.co",
           "funder": false
@@ -394,7 +383,6 @@
     {
       "id": "gap-4",
       "rank": 4,
-      "shortfall": false,
       "journey_step": "challenge",
       "match_count": 3,
       "title": {
@@ -417,8 +405,8 @@
           "name": "Apicultores y Rescatistas SAS BIC",
           "stage": "Pre-Seed",
           "website": "https://apicultoresyrescatistas.com",
-          "why": "Pollinator rescue on energy assets; quote does not name ISA.",
-          "why_es": "Rescate de polinizadores en activos energéticos; la cita no nombra a ISA.",
+          "why": "Pollinator rescue on energy assets",
+          "why_es": "Rescate de polinizadores en activos energéticos",
           "public_quote": "Rescatamos colmenas y enjambres de abejas de forma segura y profesional, garantizando la conservación de estos importantes polinizadores.",
           "public_source_url": "https://apicultoresyrescatistas.com",
           "funder": false
@@ -428,8 +416,8 @@
           "name": "Natupin",
           "stage": "Pre-Seed",
           "website": "https://natupin.bio",
-          "why": "Biodiversity; quote does not name ISA.",
-          "why_es": "Biodiversidad; la cita no nombra a ISA.",
+          "why": "Biodiversity",
+          "why_es": "Biodiversidad",
           "public_quote": "formas en las que puedes preservar la biodiversidad.",
           "public_source_url": "https://natupin.bio",
           "funder": false
@@ -439,8 +427,8 @@
           "name": "KIMSA",
           "stage": "Pre-Seed",
           "website": "https://kimsa.co",
-          "why": "Climate/biodiversity consulting; quote does not name ISA.",
-          "why_es": "Consultoría de clima/biodiversidad; la cita no nombra a ISA.",
+          "why": "Climate/biodiversity consulting",
+          "why_es": "Consultoría de clima/biodiversidad",
           "public_quote": "Somos KIMSA una empresa de consultoría en gestión e implementación de acciones en cambio climático.",
           "public_source_url": "https://kimsa.co",
           "funder": false
@@ -450,7 +438,6 @@
     {
       "id": "gap-5",
       "rank": 5,
-      "shortfall": false,
       "journey_step": "capital",
       "match_count": 3,
       "title": {
@@ -473,8 +460,8 @@
           "name": "Griin",
           "stage": "Seed",
           "website": "https://griin.com.co",
-          "why": "Solar finance; quote does not name ISA.",
-          "why_es": "Finanzas solares; la cita no nombra a ISA.",
+          "why": "Solar finance",
+          "why_es": "Finanzas solares",
           "public_quote": "Financiamiento solar para empresas en América Latina.",
           "public_source_url": "https://griin.com.co",
           "funder": false
@@ -484,8 +471,8 @@
           "name": "SEOS Energy",
           "stage": "Seed",
           "website": "https://seosenergy.co",
-          "why": "Solar deployment; quote does not name ISA.",
-          "why_es": "Despliegue solar; la cita no nombra ISA.",
+          "why": "Solar deployment",
+          "why_es": "Despliegue solar",
           "public_quote": "Tu plataforma de energía solar: diseñamos tu sistema, lo instalamos, hacemos los trámites y lo monitoreamos.",
           "public_source_url": "https://seosenergy.co",
           "funder": false
@@ -495,8 +482,8 @@
           "name": "FENOGE",
           "stage": "",
           "website": "https://fenoge.gov.co/preguntas-frecuentes/",
-          "why": "Public ERNC funder; quote does not name ISA.",
-          "why_es": "Financiador público de ERNC; la cita no nombra a ISA.",
+          "why": "Public ERNC funder",
+          "why_es": "Financiador público de ERNC",
           "public_quote": "¿Cuáles son los mecanismos para presentar las propuestas al FENOGE? 1. De forma directa: Ante el IPSE o la UPME, según corresponda para planes, programas o proyectos de personas jurídicas.",
           "public_source_url": "https://fenoge.gov.co/preguntas-frecuentes/",
           "funder": true
