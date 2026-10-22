@@ -31,5 +31,7 @@ if [[ -f "$REIN_LOGO" ]]; then
   cp "$REIN_LOGO" "$ICON_DIR/favicon-16x16.png"
 fi
 
-cp "$SCRIPT_DIR/rein-debrand.js" "$BRAND_ROOT/rein-debrand.js"
+if [[ "$(readlink -f "$SCRIPT_DIR/rein-debrand.js")" != "$(readlink -f "$BRAND_ROOT/rein-debrand.js")" ]]; then
+  cp "$SCRIPT_DIR/rein-debrand.js" "$BRAND_ROOT/rein-debrand.js"
+fi
 echo "Branded shell written to $WWW_DIR/index.html"
