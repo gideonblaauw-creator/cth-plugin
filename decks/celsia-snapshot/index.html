@@ -11,12 +11,12 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=PT+Sans:wght@400&family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="interactive.css">
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="#hero"><img id="brand-logo" src="" alt="CleantechHUB"></a>
+  <a class="brand logo-shield" href="#hero"><img id="brand-logo" src="" alt="CleantechHUB"></a>
   <nav class="nav" id="main-nav"></nav>
   <div class="lang" role="group" aria-label="Language">
     <button type="button" data-lang="en" class="on">EN</button>
@@ -28,101 +28,107 @@
   <div class="band-photo hero-photo" aria-hidden="true"></div>
   <div class="scrim hero-scrim"></div>
   <div class="wrap hero-inner">
-    <img class="hero-logo" id="hero-logo" src="" alt="CleantechHUB">
+    <div class="logo-shield hero-shield">
+      <img class="hero-logo" id="hero-logo" src="" alt="CleantechHUB">
+    </div>
     <p class="eyebrow hero-eyebrow" id="hero-eyebrow"></p>
     <h1 id="hero-title"></h1>
-    <div class="meta glass-chips" id="hero-meta"></div>
+    <div class="meta hero-meta" id="hero-meta"></div>
   </div>
   <p class="photo-credit hero-credit">Photo: <a href="https://unsplash.com/photos/solar-panels-on-green-grass-field-under-blue-sky-2e959784a276" target="_blank" rel="noopener">Andreas Gücklhorn</a> / Unsplash</p>
 </section>
 
-<section id="history" class="sec sec-tint band">
-  <div class="band-photo history-photo" aria-hidden="true"></div>
-  <div class="scrim band-scrim"></div>
-  <div class="wrap sec-inner">
-    <div class="glass-panel">
+<section id="history" class="sec sec-cyan">
+  <div class="wrap">
+    <div class="sec-head">
       <p class="eyebrow" id="history-eyebrow"></p>
       <h2 id="history-title"></h2>
+    </div>
+    <div class="sec-body">
       <p class="one-line" id="history-lead"></p>
       <div id="history-metrics"></div>
       <div class="timeline-h" id="history-timeline"></div>
     </div>
   </div>
-  <p class="photo-credit">Photo: <a href="https://unsplash.com/photos/wind-turbines-on-grass-field-during-golden-hour-5317675" target="_blank" rel="noopener">Karsten Würth</a> / Unsplash</p>
 </section>
 
-<section id="datalab" class="sec sec-deep band">
-  <div class="band-photo datalab-photo" aria-hidden="true"></div>
-  <div class="scrim band-scrim deep"></div>
-  <div class="wrap sec-inner">
-    <div class="glass-panel glass-on-dark">
-      <p class="eyebrow on-dark" id="datalab-eyebrow"></p>
-      <h2 class="on-dark" id="datalab-title"></h2>
-      <p class="one-line on-dark" id="datalab-intro"></p>
+<section id="datalab" class="sec sec-white">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" id="datalab-eyebrow"></p>
+      <h2 id="datalab-title"></h2>
+    </div>
+    <div class="sec-body">
+      <p class="one-line" id="datalab-intro"></p>
     </div>
   </div>
-  <p class="photo-credit on-dark">Photo: <a href="https://unsplash.com/photos/high-voltage-power-lines-9714aaf1722e" target="_blank" rel="noopener">American Public Power Association</a> / Unsplash</p>
 </section>
 
-<section id="gaps" class="sec sec-white band">
-  <div class="band-photo gaps-photo" aria-hidden="true"></div>
-  <div class="scrim band-scrim light"></div>
-  <div class="wrap sec-inner">
-    <div class="glass-panel">
+<section id="gaps" class="sec sec-white">
+  <div class="wrap">
+    <div class="sec-head">
       <h2 id="gaps-title"></h2>
+    </div>
+    <div class="sec-body">
       <div class="tab-row" id="gap-tabs" role="tablist"></div>
       <div id="gap-panels"></div>
     </div>
   </div>
-  <p class="photo-credit">Photo: <a href="https://unsplash.com/photos/solar-panel-array-1593977" target="_blank" rel="noopener">American Public Power Association</a> / Unsplash</p>
 </section>
 
-<section id="compare" class="sec sec-tint band">
-  <div class="band-photo compare-photo" aria-hidden="true"></div>
-  <div class="scrim band-scrim"></div>
-  <div class="wrap sec-inner">
-    <div class="glass-panel">
+<section id="compare" class="sec sec-cyan">
+  <div class="wrap">
+    <div class="sec-head">
       <h2 id="compare-title"></h2>
+    </div>
+    <div class="sec-body sec-body-panel">
       <div class="filter-row" id="compare-filters"></div>
       <div class="table-scroll">
         <table class="data-table compare-table" id="compare-table"><thead></thead><tbody></tbody></table>
       </div>
     </div>
   </div>
-  <p class="photo-credit">Photo: <a href="https://unsplash.com/photos/white-and-blue-solar-panels-1592988" target="_blank" rel="noopener">American Public Power Association</a> / Unsplash</p>
 </section>
 
-<section id="coverage" class="sec sec-deep band">
-  <div class="band-photo coverage-photo" aria-hidden="true"></div>
-  <div class="scrim band-scrim deep"></div>
-  <div class="wrap sec-inner">
-    <div class="glass-panel glass-on-dark">
-      <h2 class="on-dark" id="coverage-title"></h2>
-      <p class="one-line on-dark" id="coverage-hint"></p>
-      <div class="coverage-wrap glass-inner">
-        <label for="coverage-slider" id="coverage-label" class="on-dark"></label>
+<section id="coverage" class="sec sec-white">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="coverage-title"></h2>
+    </div>
+    <div class="sec-body">
+      <p class="one-line" id="coverage-hint"></p>
+      <div class="coverage-wrap">
+        <label for="coverage-slider" id="coverage-label"></label>
         <input type="range" id="coverage-slider" min="0" max="4" step="1" value="0">
         <div id="coverage-output"></div>
       </div>
     </div>
   </div>
-  <p class="photo-credit on-dark">Photo: <a href="https://unsplash.com/photos/aerial-view-of-dam-5317675" target="_blank" rel="noopener">Karsten Würth</a> / Unsplash</p>
 </section>
 
-<section id="team" class="sec sec-white">
+<section id="team" class="sec sec-cyan">
   <div class="wrap">
-    <p class="eyebrow" id="team-eyebrow"></p>
-    <h2 id="team-title"></h2>
-    <p class="one-line" id="team-intro"></p>
-    <div class="nx-grid team-grid" id="team-grid"></div>
+    <div class="sec-head">
+      <p class="eyebrow" id="team-eyebrow"></p>
+      <h2 id="team-title"></h2>
+    </div>
+    <div class="sec-body">
+      <p class="one-line" id="team-intro"></p>
+      <div class="nx-grid team-grid" id="team-grid"></div>
+    </div>
   </div>
 </section>
 
-<section id="cta" class="sec cta-sec band">
+<section id="cta" class="sec cta-sec bleed">
   <div class="band-photo cta-photo" aria-hidden="true"></div>
   <div class="scrim hero-scrim"></div>
   <div class="wrap sec-inner cta-inner">
-    <p class="one-line on-dark" id="cta-sandbox"></p>
+    <div class="logo-shield cta-shield">
+      <img id="cta-logo" src="img/cth-logo.png" alt="CleantechHUB">
+    </div>
+    <p class="cta-tagline l-en">Inspire. Act. Transform.</p>
+    <p class="cta-tagline l-es">Inspira. Actúa. Transforma.</p>
+    <p class="one-line cta-copy" id="cta-sandbox"></p>
     <a class="btn-book" id="cta-btn" href="#" rel="noopener" target="_blank"></a>
   </div>
   <p class="photo-credit hero-credit">Photo: <a href="https://unsplash.com/photos/solar-panels-on-green-grass-field-under-blue-sky-2e959784a276" target="_blank" rel="noopener">Andreas Gücklhorn</a> / Unsplash</p>
@@ -130,7 +136,8 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p>Inspira. Actúa. Transforma.</p>
+    <p class="l-en">Inspire. Act. Transform.</p>
+    <p class="l-es">Inspira. Actúa. Transforma.</p>
     <p><a href="https://cleantechhub.net">cleantechhub.net</a></p>
   </div>
 </footer>
