@@ -28,7 +28,7 @@ The page is `https://cleantechhub.net/governance/`. The file is `https://drive.g
 
 That PDF is a Colombian Law 1581 internal data-treatment policy. It is not a page on cleantechhub.net. Do not paste the Drive link into the privacy-policy field. LinkedIn’s rejection message for this failure is **Invalid Privacy Policy**. The published meaning is that LinkedIn could not verify the organization’s privacy policy. A Development-tier rejection cannot be retried on the same app.
 
-Publish a public page on cleantechhub.net first. It must open without a login. Then replace `[GIDEON TO FILL]` in the privacy field with that URL.
+A draft public page is ready in `artifacts/cleantechhub-privacy-policy.html`. It is not on the site. Publish it at `https://cleantechhub.net/politica-de-privacidad/` and redirect `/privacy` there. The page must open without a login. Then paste that URL. Until the live URL returns 200, the field stays `[GIDEON TO FILL]`.
 
 The worker authorization PDF is also the wrong document. Do not use `https://cleantechhub.net/wp-content/uploads/2026/07/Autorizacion-Tratamiento-Datos-Trabajadores.pdf`. It is a consent form for workers and contractors. Its street line also disagrees with the website and with the data policy.
 
@@ -96,11 +96,15 @@ The organization website and the domain must match this site. Review checks a ve
 
 ### 1.7 Privacy policy URL
 
-**Paste today:**
+**Paste only after the live page returns 200:**
+
+https://cleantechhub.net/politica-de-privacidad/
+
+**Until that page is public, paste:**
 
 [GIDEON TO FILL]
 
-Do not submit this field until a public cleantechhub.net URL exists. See “Stop before you submit” above.
+The draft is `artifacts/cleantechhub-privacy-policy.html`. It is bilingual, Spanish first. It is not deployed. See “Stop before you submit” above.
 
 ### 1.8 LinkedIn Page
 
@@ -384,7 +388,7 @@ All of these were public pages, read on 22 October 2026.
 
 ## 7. Unknowns left for Gideon
 
-- Privacy-policy URL on cleantechhub.net. Missing until he publishes one.
+- Privacy-policy URL on cleantechhub.net. The draft exists. The live URL is still missing until he publishes `https://cleantechhub.net/politica-de-privacidad/`.
 - RUT legal name, if it differs from FUNDACION CLEANTECH HUB S.A.S.
 - Registered address, if the RUT differs from CALLE 90 No. 19-41 OF 801, Bogotá.
 - Business mailbox, if he cannot receive mail at gideon.blaauw@cleantechhub.net.
