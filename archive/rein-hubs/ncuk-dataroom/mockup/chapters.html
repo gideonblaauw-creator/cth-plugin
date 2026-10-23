@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCUK Data Room — 04 REIN chapters (structure mockup)</title>
+  <style>
+    @font-face {
+      font-family: Poppins;
+      src: url("../../comms-package/fonts/Poppins-Bold.ttf") format("truetype");
+      font-weight: 600 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: Lora;
+      src: url("../../comms-package/fonts/Lora-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    :root {
+      --rein-green: #335d4f;
+      --rein-green-dark: #2a4d42;
+      --rein-orange: #ff6633;
+      --text-body: #666666;
+      --text-muted: #999999;
+      --text-dark: #333333;
+      --text-sidebar: rgba(255, 255, 255, 0.88);
+      --text-sidebar-muted: rgba(255, 255, 255, 0.55);
+      --bg-content: #fafafa;
+      --bg-white: #ffffff;
+      --border-light: #e8e8e8;
+      --sidebar-width: 320px;
+      --callout-bg: #f7f6f3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: Lora, Georgia, serif;
+      font-size: 15px;
+      color: var(--text-body);
+      background: var(--bg-content);
+    }
+    .app {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 1440px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      box-shadow: 0 0 0 1px var(--border-light);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 24px;
+      background: var(--rein-green);
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .topbar-brand img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .topbar-brand h1 {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .topbar-brand p {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+    .topbar-actions .pill {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .main {
+      display: flex;
+      flex: 1;
+      min-height: calc(900px - 56px);
+    }
+    .sidebar {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      background: var(--rein-green);
+      color: var(--text-sidebar);
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--rein-green-dark);
+    }
+    .sidebar-label {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-sidebar-muted);
+      padding: 14px 16px 6px;
+    }
+    .tree {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 8px 24px;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .tree-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--text-sidebar);
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font: inherit;
+    }
+    .tree-item.muted { color: var(--text-sidebar-muted); cursor: default; }
+    .tree-item:hover:not(.muted) { background: rgba(255, 255, 255, 0.08); }
+    .tree-item.active {
+      background: rgba(255, 102, 51, 0.22);
+      color: #fff;
+      font-weight: 500;
+    }
+    .chevron {
+      width: 14px;
+      flex-shrink: 0;
+      opacity: 0.6;
+      font-size: 10px;
+      text-align: center;
+    }
+    .chevron.expanded::before { content: "▾"; }
+    .chevron.collapsed::before { content: "▸"; }
+    .chevron.leaf { visibility: hidden; }
+    .page-icon { width: 16px; flex-shrink: 0; opacity: 0.85; font-size: 12px; text-align: center; }
+    .tree-title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .badge-internal {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: var(--rein-orange);
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .lock { flex-shrink: 0; font-size: 11px; color: var(--rein-orange); }
+    .indent-0 { padding-left: 8px; }
+    .indent-1 { padding-left: 22px; }
+    .indent-2 { padding-left: 36px; }
+    .indent-3 { padding-left: 50px; }
+    .content {
+      flex: 1;
+      background: var(--bg-content);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .content-toolbar {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 8px 24px 10px;
+    }
+    .chapter-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .chapter-switcher button {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-white);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .chapter-switcher button.active {
+      background: var(--rein-green);
+      border-color: var(--rein-green);
+      color: #fff;
+    }
+    .chapter-switcher button.internal-flag::after {
+      content: " · Internal";
+      font-weight: 400;
+      opacity: 0.85;
+    }
+    .toolbar-meta { font-size: 12px; color: var(--text-muted); }
+    .content-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 32px 48px 64px;
+    }
+    .notion-page { max-width: 900px; }
+    .page-cover {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .cover-icon {
+      font-size: 52px;
+      line-height: 1;
+      margin-top: 4px;
+    }
+    .page-h1 {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      padding-top: 8px;
+    }
+    .property-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin: 16px 0 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .prop {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .prop strong {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      color: var(--text-dark);
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
+    }
+    .prop .val-empty {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .tag-access {
+      display: inline-block;
+      font-family: Poppins, system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .tag-access.shared { background: #e8f0ed; color: var(--rein-green); }
+    .tag-access.internal { background: #ffe8df; color: var(--rein-orange); }
+    .callout {
+      background: var(--callout-bg);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 14px;
+      display: flex;
+      gap: 10px;
+    }
+    .callout-icon { opacity: 0.7; flex-shrink: 0; }
+    .callout-title {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .link-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      margin: 8px 0 20px;
+      color: var(--rein-green);
+      font-size: 14px;
+      text-decoration: underline;
+      text-decoration-color: rgba(51, 93, 79, 0.35);
+    }
+    .section { margin-top: 28px; }
+    .section h2 {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section h3 {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-dark);
+      margin: 14px 0 6px;
+    }
+    .section ul.structure-list {
+      list-style: none;
+      margin: 8px 0 0 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .section ul.structure-list li::before {
+      content: "· ";
+      color: var(--rein-orange);
+    }
+    .db-wrap {
+      margin: 12px 0 8px;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-white);
+    }
+    .db-label {
+      font-family: Poppins, system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding: 8px 12px;
+      background: #f5f5f5;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .db-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .db-table th {
+      text-align: left;
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-light);
+      background: #fafafa;
+      white-space: nowrap;
+    }
+    .db-table td {
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+      color: transparent;
+      user-select: none;
+    }
+    .db-table tbody tr { height: 36px; }
+    .subpage-ref {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--rein-orange);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: block; }
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <img src="../../comms-package/two-pagers/assets/logos/rein-white-orange.png" alt="REIN Hubs" width="120" height="28" />
+        <div>
+          <h1>NCUK Data Room</h1>
+          <p>04 REIN · Structure mockup (no content)</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="pill">View only</span>
+      </div>
+    </header>
+
+    <div class="main">
+      <aside class="sidebar" aria-label="Page tree">
+        <div class="sidebar-label">Workspace</div>
+        <nav class="tree" id="sidebar-tree" aria-label="Navigation"></nav>
+      </aside>
+
+      <main class="content">
+        <div class="content-toolbar">
+          <div class="chapter-switcher" id="chapter-switcher" aria-label="Chapter switcher"></div>
+          <div class="toolbar-meta">Structure only · 23 Oct 2026 · Last edited —</div>
+        </div>
+        <div class="content-scroll">
+          <div id="view-root"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const HUBS = [
+      { id: "colombia", label: "Colombia (Externado)", sidebar: "Colombia · Externado" },
+      { id: "peru", label: "Peru", sidebar: "Peru" },
+      { id: "guatemala", label: "Guatemala (Landívar)", sidebar: "Guatemala · Landívar" },
+      { id: "costa-rica", label: "Costa Rica (Véritas)", sidebar: "Costa Rica · Véritas" },
+      { id: "el-salvador", label: "El Salvador (UTEC)", sidebar: "El Salvador · UTEC" },
+    ];
+
+    const CHAPTERS = [
+      {
+        id: "01",
+        icon: "🌐",
+        title: "Overview & governance",
+        access: "Shared",
+        internal: false,
+        sections: [
+          { h2: "Overview", h3: ["What REIN Hubs is", "Programme components (Outreach · Implementation · Networks & ecosystem)"] },
+          {
+            h2: "Active hubs",
+            h3: ["Country dashboard index (table)"],
+            db: { name: "Country dashboard index", cols: ["Hub", "Country", "University partner", "Status", "Hub lead", "Page"] },
+          },
+          {
+            h2: "Governance",
+            h3: ["Hub owners & operators", "Coordination rhythm (monthly sync · quarterly review · annual summit)"],
+          },
+          {
+            h2: "Spaces for hub operators",
+            list: ["Hub Playbook", "Country Dashboards", "Shared Templates", "Inter-Hub Comms", "Programme Alignment"],
+          },
+          { h2: "Powered by" },
+        ],
+      },
+      {
+        id: "02",
+        icon: "📋",
+        title: "Agreements",
+        access: "Internal",
+        internal: true,
+        sections: [
+          { h2: "Agreement register (database)", db: { name: "Agreement register", cols: ["Agreement", "Counterparty", "Type", "Status", "Signed date", "Hub", "Drive file", "Review owner"] } },
+          { h2: "Network-level agreements", h3: ["Pvblic MOUs, framework 2026–28"] },
+          { h2: "University agreements (per hub)" },
+          { h2: "Earlier award documents (title only)" },
+        ],
+      },
+      {
+        id: "03",
+        icon: "🏛",
+        title: "Hubs",
+        access: "Shared",
+        internal: false,
+        sections: [
+          {
+            h2: "Hub index",
+            note: "Linked view of the Country dashboard DB",
+            db: { name: "Country dashboard index", cols: ["Hub", "Country", "University partner", "Status", "Hub lead", "Page"] },
+          },
+          {
+            h2: "Hub subpages",
+            list: HUBS.map((h) => h.label),
+            note: "One template per hub (see sidebar)",
+          },
+        ],
+      },
+      {
+        id: "04",
+        icon: "📐",
+        title: "Programme design",
+        access: "Shared",
+        internal: false,
+        sections: [
+          {
+            h2: "Implementation guide",
+            h3: [
+              "Stage 1 – Call & selection",
+              "Stage 2 – Intensive bootcamp",
+              "Stage 3 – (third stage; untitled mention in source)",
+              "Stage 4 – Individual mentoring",
+              "Stage 5 – (fifth stage; untitled mention in source)",
+              "Stage 6 – Regional final",
+              "Hub calendar vs programme calendar",
+            ],
+          },
+          {
+            h2: "Bootcamp",
+            h3: [
+              "Key features",
+              "Logistics",
+              "Content structure (Module 0 · 1–3 · 4–6 · 7–9 · 10–12 · 13 follow-up)",
+              "Workbook & worksheets",
+              "Pitch competition conditions",
+            ],
+          },
+          {
+            h2: "Mentoring",
+            h3: [
+              "Mentor profile",
+              "Mentor protocol",
+              "Preparation · Kick-off · Content · Follow-up · Close",
+              "Mentor registration · Mentor–mentee match · Satisfaction survey",
+            ],
+          },
+          { h2: "Train-the-trainer (hub leads)" },
+          { h2: "Preparation checklist & task timeline" },
+        ],
+      },
+      {
+        id: "05",
+        icon: "📊",
+        title: "Reports & results",
+        access: "Shared",
+        internal: false,
+        sections: [
+          { h2: "Indicators (KPI framework)" },
+          {
+            h2: "Periodic reports (quarterly)",
+            h3: ["2024 Q1 Jan–Mar · 2024 Q2 Apr–Jun", "2025–26 (pending metrics)"],
+          },
+          { h2: "Network results summary" },
+          { db: { name: "Report library", cols: ["Report", "Period", "Type", "Hubs", "Access", "Drive file"] } },
+          { subpage: "05x State Dept reports", subAccess: "Internal", subNote: "Held for Pvblic OK" },
+        ],
+      },
+      {
+        id: "06",
+        icon: "💰",
+        title: "Finance",
+        access: "Internal",
+        internal: true,
+        sections: [
+          { h2: "Budget (per year)" },
+          { h2: "Funding sources" },
+          { h2: "Budget narrative" },
+          { h2: "Supporting notes" },
+          { db: { name: "Finance library", cols: ["Item", "Funder", "Year", "Type", "Drive file"] } },
+        ],
+      },
+      {
+        id: "07",
+        icon: "🎨",
+        title: "Media & brand",
+        access: "Shared",
+        internal: false,
+        sections: [
+          { h2: "Brand guidelines (REIN Hubs)" },
+          {
+            h2: "Logos & co-branding",
+            h3: [
+              "Network logos",
+              "Per hub: Costa Rica · Guatemala · Colombia · Peru · El Salvador (Logos folder · Canva file · Pieces folder)",
+            ],
+          },
+          { h2: "Communications strategy" },
+          { h2: "Photo library" },
+          { db: { name: "Asset library", cols: ["Asset", "Hub", "Type", "Link"] } },
+        ],
+      },
+      {
+        id: "08",
+        icon: "🤝",
+        title: "Partners & funders",
+        access: "Shared",
+        internal: false,
+        sections: [
+          { h2: "Founding partner (Pvblic)" },
+          { h2: "University partners" },
+          { h2: "Funders & supporters" },
+          { h2: "International network" },
+          { db: { name: "Partners", cols: ["Partner", "Type", "Country", "Hub", "Since", "Website"] } },
+        ],
+      },
+      {
+        id: "09",
+        icon: "📝",
+        title: "Pipeline & proposals",
+        access: "Internal",
+        internal: true,
+        sections: [
+          { h2: "Open opportunities" },
+          { h2: "Proposals in preparation" },
+          { h2: "Submitted / decided" },
+          { db: { name: "Pipeline", cols: ["Opportunity", "Funder", "Stage", "Deadline", "Hubs", "Owner", "Drive file"] } },
+        ],
+      },
+    ];
+
+    const HUB_TEMPLATE_SECTIONS = [
+      { h2: "About the hub", note: "Host university, centre / model" },
+      {
+        h2: "Programme",
+        h3: ["Ideation", "Incubation", "Acceleration (regional)"],
+      },
+      {
+        h2: "Calendar",
+        h3: ["Cohort calendar (database)"],
+        db: { name: "Cohort calendar", cols: ["Name", "Fecha de Inicio", "Fecha de Cierre", "Quienes", "Notas", "Hub", "Phase"] },
+      },
+      {
+        h2: "Cohorts",
+        h3: ["Selected startups (per cohort)"],
+        db: { name: "Cohorts", cols: ["Startup", "Hub", "Cohort year", "Sector", "Stage", "Status", "Deck"] },
+      },
+      {
+        h2: "Results",
+        h3: ["KPIs", "Highlights & events (e.g. Climathon)"],
+      },
+      { h2: "Media & assets", note: "Logos, Canva, pieces" },
+    ];
+
+    let activeChapter = "01";
+    let activeHub = null;
+
+    function parseView() {
+      const params = new URLSearchParams(window.location.search);
+      const ch = params.get("chapter");
+      const hub = params.get("hub");
+      if (ch && CHAPTERS.some((c) => c.id === ch)) activeChapter = ch;
+      if (hub && HUBS.some((h) => h.id === hub)) {
+        activeHub = hub;
+        activeChapter = "03";
+      } else if (!hub) {
+        activeHub = null;
+      }
+    }
+
+    function dbTable(db) {
+      const cols = db.cols.map((c) => `<th scope="col">${c}</th>`).join("");
+      return `
+        <div class="db-wrap">
+          <div class="db-label">Database: ${db.name}</div>
+          <table class="db-table" aria-label="${db.name}">
+            <thead><tr>${cols}</tr></thead>
+            <tbody><tr>${db.cols.map(() => "<td>—</td>").join("")}</tr></tbody>
+          </table>
+        </div>`;
+    }
+
+    function renderSections(sections) {
+      return sections
+        .map((sec) => {
+          let inner = sec.h2 ? `<h2>${sec.h2}</h2>` : "";
+          if (sec.note) inner += `<p class="structure-list" style="margin-top:6px;font-size:13px;color:var(--text-muted)">${sec.note}</p>`;
+          if (sec.h3) sec.h3.forEach((h) => (inner += `<h3>${h}</h3>`));
+          if (sec.list) {
+            inner += `<ul class="structure-list">${sec.list.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+          }
+          if (sec.db) inner += dbTable(sec.db);
+          if (sec.subpage) {
+            inner += `<div class="subpage-ref"><strong>Subpage ${sec.subpage}</strong> · Access: ${sec.subAccess}${sec.subNote ? " · " + sec.subNote : ""}</div>`;
+          }
+          return `<div class="section">${inner}</div>`;
+        })
+        .join("");
+    }
+
+    function chapterShell(ch, bodyExtra) {
+      const accessClass = ch.access === "Internal" ? "internal" : "shared";
+      return `
+        <article class="notion-page view-panel active" data-view="chapter">
+          <div class="breadcrumb" id="breadcrumb"></div>
+          <div class="page-cover">
+            <span class="cover-icon" aria-hidden="true">${ch.icon}</span>
+            <h1 class="page-h1">${ch.id} ${ch.title}</h1>
+          </div>
+          <div class="property-bar">
+            <div class="prop"><strong>Chapter #</strong><span>${parseInt(ch.id, 10)}</span></div>
+            <div class="prop"><strong>Access</strong><span class="tag-access ${accessClass}">${ch.access}</span></div>
+            <div class="prop"><strong>Owner</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Drive folder</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Status</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Last reviewed</strong><span class="val-empty">Empty</span></div>
+          </div>
+          <div class="callout">
+            <span class="callout-icon" aria-hidden="true">💡</span>
+            <div>
+              <div class="callout-title">About this chapter</div>
+              <p class="val-empty">Empty</p>
+            </div>
+          </div>
+          <div class="link-block"><span aria-hidden="true">🔗</span> Drive folder</div>
+          <p style="margin-bottom:8px;font-size:13px;">Access: <span class="tag-access ${accessClass}">${ch.access}</span></p>
+          ${bodyExtra || renderSections(ch.sections)}
+        </article>`;
+    }
+
+    function renderHubTemplate(hub) {
+      const ch = CHAPTERS.find((c) => c.id === "03");
+      return `
+        <article class="notion-page view-panel active" data-view="hub">
+          <div class="breadcrumb">04 REIN / 03 Hubs / ${hub.label}</div>
+          <div class="page-cover">
+            <span class="cover-icon" aria-hidden="true">🏛</span>
+            <h1 class="page-h1">${hub.label}</h1>
+          </div>
+          <div class="property-bar">
+            <div class="prop"><strong>Chapter #</strong><span>3</span></div>
+            <div class="prop"><strong>Access</strong><span class="tag-access shared">Shared</span></div>
+            <div class="prop"><strong>Owner</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Drive folder</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Status</strong><span class="val-empty">Empty</span></div>
+            <div class="prop"><strong>Last reviewed</strong><span class="val-empty">Empty</span></div>
+          </div>
+          <div class="callout">
+            <span class="callout-icon" aria-hidden="true">💡</span>
+            <div>
+              <div class="callout-title">About this chapter</div>
+              <p class="val-empty">Empty</p>
+            </div>
+          </div>
+          <div class="link-block"><span aria-hidden="true">🔗</span> Drive folder</div>
+          <p style="margin-bottom:8px;font-size:13px;">Access: <span class="tag-access shared">Shared</span></p>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:20px;">Hub subpage template (shared structure for all hubs)</p>
+          ${renderSections(HUB_TEMPLATE_SECTIONS)}
+        </article>`;
+    }
+
+    function renderMain() {
+      parseView();
+      const root = document.getElementById("view-root");
+      if (activeHub) {
+        const hub = HUBS.find((h) => h.id === activeHub);
+        root.innerHTML = renderHubTemplate(hub);
+      } else {
+        const ch = CHAPTERS.find((c) => c.id === activeChapter);
+        root.innerHTML = chapterShell(ch);
+        const bc = document.getElementById("breadcrumb");
+        if (bc) bc.textContent = `04 REIN / ${ch.id} ${ch.title}`;
+      }
+    }
+
+    function renderSwitcher() {
+      const el = document.getElementById("chapter-switcher");
+      el.innerHTML = CHAPTERS.map(
+        (c) =>
+          `<button type="button" title="${c.id} ${c.title}" class="${c.id === activeChapter && !activeHub ? "active" : ""}${c.internal ? " internal-flag" : ""}" data-chapter="${c.id}">${c.id}</button>`
+      ).join("");
+      el.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeHub = null;
+          activeChapter = btn.dataset.chapter;
+          history.replaceState(null, "", `?chapter=${activeChapter}`);
+          renderAll();
+        });
+      });
+    }
+
+    function renderSidebar() {
+      const tree = document.getElementById("sidebar-tree");
+      let html = "";
+      html += `<div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">01 Energy</span></div>`;
+      html += `<div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">02 Health</span></div>`;
+      html += `<div class="tree-item indent-0 muted"><span class="chevron collapsed"></span><span class="page-icon">📄</span><span class="tree-title">03 Education</span></div>`;
+      html += `<div class="tree-item indent-0"><span class="chevron expanded"></span><span class="page-icon">📁</span><span class="tree-title">04 REIN</span></div>`;
+
+      CHAPTERS.forEach((ch) => {
+        const isHubParent = ch.id === "03";
+        const active = !activeHub && ch.id === activeChapter;
+        if (ch.internal) {
+          html += `<button type="button" class="tree-item indent-1${active ? " active" : " muted"}" data-chapter="${ch.id}"><span class="chevron ${isHubParent ? "expanded" : "leaf"}"></span><span class="lock" aria-hidden="true">🔒</span><span class="tree-title">${ch.id} ${ch.title}</span><span class="badge-internal">Internal</span></button>`;
+        } else if (isHubParent) {
+          html += `<button type="button" class="tree-item indent-1${active && !activeHub ? " active" : ""}" data-chapter="03"><span class="chevron expanded"></span><span class="page-icon">📁</span><span class="tree-title">${ch.id} ${ch.title}</span></button>`;
+          HUBS.forEach((hub) => {
+            const hubActive = activeHub === hub.id;
+            html += `<button type="button" class="tree-item indent-2${hubActive ? " active" : " muted"}" data-hub="${hub.id}"><span class="chevron collapsed"></span><span class="page-icon">📁</span><span class="tree-title">${hub.sidebar}</span></button>`;
+          });
+        } else {
+          html += `<button type="button" class="tree-item indent-1${active ? " active" : " muted"}" data-chapter="${ch.id}"><span class="chevron leaf"></span><span class="page-icon">📄</span><span class="tree-title">${ch.id} ${ch.title}</span></button>`;
+        }
+        if (ch.id === "05") {
+          html += `<div class="tree-item indent-2 muted"><span class="chevron leaf"></span><span class="lock">🔒</span><span class="tree-title">05x State Dept reports</span><span class="badge-internal">Internal</span></div>`;
+        }
+      });
+
+      tree.innerHTML = html;
+      tree.querySelectorAll("[data-chapter]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeHub = null;
+          activeChapter = btn.dataset.chapter;
+          history.replaceState(null, "", `?chapter=${activeChapter}`);
+          renderAll();
+        });
+      });
+      tree.querySelectorAll("[data-hub]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeHub = btn.dataset.hub;
+          activeChapter = "03";
+          history.replaceState(null, "", `?chapter=03&hub=${activeHub}`);
+          renderAll();
+        });
+      });
+    }
+
+    function renderAll() {
+      parseView();
+      renderSwitcher();
+      renderSidebar();
+      renderMain();
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
