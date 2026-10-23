@@ -19,82 +19,102 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       width: 210mm;
-      min-height: 297mm;
+      height: 297mm;
       font-family: 'Open Sans', sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.38;
+      font-size: 10.5pt;
+      line-height: 1.45;
       color: var(--deep);
       background: var(--white);
     }
     h1, h2, h3 { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
-    a { color: var(--deep); text-decoration: underline; text-underline-offset: 2px; }
+    a { color: var(--deep); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
     a:visited { color: var(--forest); }
-    .sheet { padding: 0; }
+    .sheet {
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
     .head {
       background: var(--deep);
       color: var(--white);
-      padding: 10mm 12mm 8mm;
+      padding: 11mm 14mm 10mm;
       display: flex;
-      gap: 10mm;
+      gap: 8mm;
       align-items: center;
+      flex-shrink: 0;
     }
-    .head img { width: 14mm; height: auto; flex-shrink: 0; }
-    .head-text h1 { font-size: 17pt; letter-spacing: 0.02em; }
-    .head-text .sub { font-size: 9pt; opacity: 0.95; margin-top: 2mm; }
-    .tagline { color: var(--cyan); font-weight: 600; font-size: 8.5pt; margin-top: 1mm; }
-    .body { padding: 7mm 12mm 8mm; }
+    .logo-shield {
+      background: var(--cyan);
+      border-radius: 6px;
+      padding: 3mm;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+    .logo-shield img { width: 16mm; height: auto; display: block; }
+    .head-text h1 { font-size: 19pt; letter-spacing: 0.02em; }
+    .head-text .sub { font-size: 10pt; margin-top: 2mm; opacity: 0.95; }
+    .tagline { color: var(--cyan); font-weight: 600; font-size: 9.5pt; margin-top: 2mm; }
+    .body {
+      flex: 1;
+      padding: 9mm 14mm 10mm;
+      display: flex;
+      flex-direction: column;
+    }
     .lead {
-      font-size: 10pt;
-      margin-bottom: 5mm;
-      border-left: 3px solid var(--forest);
-      padding-left: 4mm;
+      font-size: 11pt;
+      margin-bottom: 7mm;
+      border-left: 4px solid var(--forest);
+      padding-left: 5mm;
+      line-height: 1.5;
     }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
-    .block {
-      border-radius: 4px;
-      overflow: hidden;
-      page-break-inside: avoid;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin-bottom: 7mm;
     }
+    .block { border-radius: 5px; overflow: hidden; page-break-inside: avoid; }
     .block-h {
       background: var(--deep);
       color: var(--white);
-      padding: 2.5mm 4mm;
-      font-size: 10pt;
+      padding: 3.5mm 5mm;
+      font-size: 11.5pt;
     }
-    .block-b { padding: 3.5mm 4mm; }
+    .block-b { padding: 5mm 5mm 5.5mm; }
     .block.cyan .block-b { background: var(--cyan); }
     .block.green .block-b { background: var(--lg); }
-    .block.sky .block-b { background: var(--sky); }
-    ul { padding-left: 4mm; margin-top: 2mm; }
-    li { margin-bottom: 1.5mm; }
-    .tools { margin-top: 5mm; }
+    ul { padding-left: 5mm; margin-top: 1mm; }
+    li { margin-bottom: 2.5mm; }
+    li strong { font-weight: 600; }
+    .tools { flex: 1; display: flex; flex-direction: column; min-height: 0; }
     .tools-h {
       background: var(--forest);
       color: var(--white);
-      padding: 2.5mm 4mm;
-      font-size: 10pt;
-      border-radius: 4px 4px 0 0;
+      padding: 3.5mm 5mm;
+      font-size: 11.5pt;
+      border-radius: 5px 5px 0 0;
     }
     .tools-b {
       background: var(--cyan);
-      padding: 3.5mm 4mm 4mm;
-      border-radius: 0 0 4px 4px;
+      padding: 5mm 5mm 6mm;
+      border-radius: 0 0 5px 5px;
       columns: 2;
-      column-gap: 6mm;
+      column-gap: 8mm;
+      flex: 1;
     }
-    .tools-b p { margin-bottom: 2mm; break-inside: avoid; }
-    .tools-b strong { font-size: 8.5pt; display: block; }
+    .tools-b p { margin-bottom: 3.5mm; break-inside: avoid; line-height: 1.4; }
+    .tools-b strong { font-size: 9.5pt; display: block; margin-bottom: 0.5mm; }
     .foot {
-      margin-top: 4mm;
-      padding-top: 3mm;
-      border-top: 1px solid var(--sky);
-      font-size: 8pt;
+      margin-top: auto;
+      padding-top: 5mm;
+      border-top: 2px solid var(--sky);
+      font-size: 9pt;
       display: flex;
       justify-content: space-between;
       color: var(--deep);
     }
     @media print {
-      html, body { width: 210mm; min-height: 297mm; }
+      html, body { width: 210mm; height: 297mm; }
       body {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -106,7 +126,9 @@
 <body>
   <div class="sheet">
     <header class="head">
-      <img src="cth-globe-logo.png" alt="CleantechHUB globe logo" />
+      <div class="logo-shield">
+        <img src="cth-globe-logo.png" alt="CleantechHUB globe logo" />
+      </div>
       <div class="head-text">
         <h1>Gideon Blaauw</h1>
         <p class="sub">Research &amp; synthesis · CleantechHUB</p>
@@ -116,7 +138,7 @@
 
     <main class="body">
       <p class="lead">
-        I turn scattered climate and market signals into decision-ready briefs. I start from public CleantechHUB data and tools, cross-check against the knowledge base, then write short outputs with linked sources—so reviewers can verify every claim.
+        I turn scattered climate and market signals into decision-ready briefs. I start from CleantechHUB’s public data and tools, cross-check the knowledge base, and deliver short write-ups with live links so you can verify every claim yourself.
       </p>
 
       <div class="grid">
@@ -124,29 +146,29 @@
           <h2 class="block-h">How I work</h2>
           <div class="block-b">
             <ul>
-              <li><strong>Frame the question</strong> — audience, geography, and what “done” looks like.</li>
-              <li><strong>Pull live data</strong> — Nexus portfolio, HubMap, Climate Data Platform, and site tools.</li>
-              <li><strong>Triangulate</strong> — wiki pages, public APIs, and founder-facing profiles.</li>
-              <li><strong>Synthesize</strong> — one-page narrative, bullet risks, and explicit gaps.</li>
-              <li><strong>Leave a trail</strong> — clickable URLs, not screenshots alone.</li>
+              <li><strong>Frame the question</strong> — who needs the answer, which geography, and what “done” looks like.</li>
+              <li><strong>Pull live data</strong> — Nexus portfolio, HubMap, Climate Data Platform, and on-site diagnostics.</li>
+              <li><strong>Triangulate</strong> — wiki articles, public APIs, and founder-facing profiles.</li>
+              <li><strong>Synthesize</strong> — a tight narrative, clear risks, and honest gaps.</li>
+              <li><strong>Leave a trail</strong> — clickable URLs alongside the summary.</li>
             </ul>
           </div>
         </section>
 
         <section class="block green">
-          <h2 class="block-h">CleantechHUB context</h2>
+          <h2 class="block-h">What I build on</h2>
           <div class="block-b">
             <ul>
-              <li>Climate innovation accelerator active since <strong>2019</strong> (Colombia, LATAM footprint).</li>
-              <li><strong>US$50M+</strong> capital leveraged across programs and portfolio support.</li>
-              <li>Operating stack spans WordPress, BookStack wiki, Nexus, and open climate datasets.</li>
+              <li>CleantechHUB has been active since <strong>2019</strong>, rooted in Colombia with a LATAM footprint.</li>
+              <li>The foundation has helped unlock <strong>US$50M+</strong> in capital across programs and portfolio companies.</li>
+              <li>I work across the public website, knowledge wiki, Nexus portfolio, and open climate datasets.</li>
             </ul>
           </div>
         </section>
       </div>
 
       <section class="tools">
-        <h2 class="tools-h">Public research tools (live links)</h2>
+        <h2 class="tools-h">Public research tools I use (live links)</h2>
         <div class="tools-b">
           <p><strong>Nexus / Origo ecosystem</strong>
             <a href="https://nexus.cleantechhub.net/p/home">nexus.cleantechhub.net/p/home</a></p>
@@ -162,13 +184,13 @@
             <a href="https://cleantechhub.net/startups">cleantechhub.net/startups</a></p>
           <p><strong>Free diagnostics &amp; tools index</strong>
             <a href="https://cleantechhub.net/herramientas/">cleantechhub.net/herramientas/</a></p>
-          <p><strong>Knowledge base (BookStack)</strong>
+          <p><strong>Knowledge base</strong>
             <a href="https://wiki.cleantechhub.net/">wiki.cleantechhub.net</a></p>
         </div>
       </section>
 
       <footer class="foot">
-        <span>Climate Connectors · Independent Consultant Roster · Draft</span>
+        <span>Climate Connectors · Independent Consultant Roster</span>
         <span>cleantechhub.net</span>
       </footer>
     </main>
