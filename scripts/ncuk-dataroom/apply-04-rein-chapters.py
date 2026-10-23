@@ -29,7 +29,9 @@ REIN_ROOT_ID = "01a16500-0da7-7e62-9bd0-44110d202164"
 REIN_ROOT_TITLE = "04 REIN"
 DEFAULT_CHAPTERS_DIR = Path("/home/debian/oa/rein-chapters")
 DEFAULT_TREE_BACKUP = Path("/home/debian/oa/ncuk-tree-before-task-o.json")
-ADMIN_EMAIL = "gideon.blaauw@cleantechhub.net"
+AUTOMATION_EMAIL_KEY = "NCUK_DOCMOST_AUTOMATION_EMAIL"
+AUTOMATION_PASSWORD_KEY = "NCUK_DOCMOST_AUTOMATION_PASSWORD"
+DEFAULT_AUTOMATION_EMAIL = "automation@cleantechhub.net"
 
 TITLES_ONLY_CHAPTER_KEYS = frozenset({"02", "06", "09", "05x"})
 
@@ -97,10 +99,7 @@ class PlanRow:
     detail: str = ""
 
 
-def read_infisical_password() -> str:
-    password = os.environ.get("NCUK_DOCMOST_ADMIN_PASSWORD", "").strip()
-    if password:
-        return password
+def read_infisical_token() -> str:
     token_path = "/etc/gideon-tracker/infisical.env"
     if os.access(token_path, os.R_OK):
         env_text = Path(token_path).read_text(encoding="utf-8")
@@ -112,17 +111,23 @@ def read_infisical_password() -> str:
             text=True,
         )
         if proc.returncode != 0:
-            raise RuntimeError("cannot read Infisical token file for Docmost password")
+            raise RuntimeError("cannot read Infisical token file")
         env_text = proc.stdout
-    inf_token = ""
-    for line in env_text.splitlines():
-        if line.startswith("INFISICAL_TOKEN="):
-            inf_token = line.split("=", 1)[1].strip().strip('"').strip("'")
-            break
+    inf_token = os.environ.get("INFISICAL_TOKEN", "").strip()
+    if not inf_token:
+        for line in env_text.splitlines():
+            if line.startswith("INFISICAL_TOKEN="):
+                inf_token = line.split("=", 1)[1].strip().strip('"').strip("'")
+                break
     if not inf_token:
         raise RuntimeError("Infisical token missing")
+    return inf_token
+
+
+def fetch_infisical_secrets(keys: tuple[str, ...]) -> dict[str, str]:
     import urllib.parse
 
+    inf_token = read_infisical_token()
     project = os.environ.get(
         "INFISICAL_PROJECT_ID", "c84fe8b3-d64e-485a-82d7-250dc57a6453"
     )
@@ -135,21 +140,35 @@ def read_infisical_password() -> str:
     )
     with urllib.request.urlopen(req, timeout=60) as resp:
         payload = json.loads(resp.read())
+    found: dict[str, str] = {}
     for item in payload.get("secrets") or []:
-        if item.get("secretKey") == "NCUK_DOCMOST_ADMIN_PASSWORD":
-            value = item.get("secretValue")
-            if isinstance(value, str) and value:
-                return value
-    raise RuntimeError("NCUK_DOCMOST_ADMIN_PASSWORD not found in Infisical")
+        key = item.get("secretKey")
+        value = item.get("secretValue")
+        if key in keys and isinstance(value, str) and value:
+            found[key] = value
+    return found
+
+
+def read_docmost_credentials() -> tuple[str, str]:
+    email = os.environ.get(AUTOMATION_EMAIL_KEY, "").strip() or DEFAULT_AUTOMATION_EMAIL
+    password = os.environ.get(AUTOMATION_PASSWORD_KEY, "").strip()
+    if password:
+        return email, password
+    secrets = fetch_infisical_secrets((AUTOMATION_EMAIL_KEY, AUTOMATION_PASSWORD_KEY))
+    email = secrets.get(AUTOMATION_EMAIL_KEY, email)
+    password = secrets.get(AUTOMATION_PASSWORD_KEY, "")
+    if not password:
+        raise RuntimeError(f"{AUTOMATION_PASSWORD_KEY} not found in env or Infisical")
+    return email, password
 
 
 class DocmostClient:
-    def __init__(self, password: str) -> None:
+    def __init__(self, email: str, password: str) -> None:
         cj = CookieJar()
         self.opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
         req = urllib.request.Request(
             f"{API_BASE}/auth/login",
-            data=json.dumps({"email": ADMIN_EMAIL, "password": password}).encode(),
+            data=json.dumps({"email": email, "password": password}).encode(),
             headers={"Content-Type": "application/json"},
             method="POST",
         )
@@ -208,8 +227,8 @@ class DocmostClient:
 
 def export_tree(path: Path, client: DocmostClient | None = None) -> dict[str, Any]:
     if client is None:
-        password = read_infisical_password()
-        client = DocmostClient(password)
+        email, password = read_docmost_credentials()
+        client = DocmostClient(email, password)
     tree = client.fetch_rein_tree()
     doc = {"root": REIN_ROOT_TITLE, "id": REIN_ROOT_ID, "tree": tree, "exported_via": "live"}
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -494,8 +513,8 @@ def print_table(rows: list[PlanRow]) -> None:
 
 def cmd_export(args: argparse.Namespace) -> int:
     try:
-        export_tree(Path(args.tree_out))
-        print(f"exported: {args.tree_out}")
+        export_tree(Path(args.tree))
+        print(f"exported: {args.tree}")
         return 0
     except Exception as exc:
         print(f"export failed: {exc}", file=sys.stderr)
@@ -539,8 +558,8 @@ def main(argv: list[str] | None = None) -> int:
     client: DocmostClient | None = None
     if args.export_tree:
         try:
-            password = read_infisical_password()
-            client = DocmostClient(password)
+            email, password = read_docmost_credentials()
+            client = DocmostClient(email, password)
             export_tree(args.tree, client)
         except Exception as exc:
             print(f"live export failed: {exc}", file=sys.stderr)
@@ -567,8 +586,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if client is None:
-        password = read_infisical_password()
-        client = DocmostClient(password)
+        email, password = read_docmost_credentials()
+        client = DocmostClient(email, password)
     rows = apply_rows(args.chapters_dir, index, client, dry_run=False)
     print_table(rows)
     return 0
