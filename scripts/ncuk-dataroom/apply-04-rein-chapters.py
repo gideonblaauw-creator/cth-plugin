@@ -31,7 +31,7 @@ DEFAULT_CHAPTERS_DIR = Path("/home/debian/oa/rein-chapters")
 DEFAULT_TREE_BACKUP = Path("/home/debian/oa/ncuk-tree-before-task-o.json")
 AUTOMATION_EMAIL_KEY = "NCUK_DOCMOST_AUTOMATION_EMAIL"
 AUTOMATION_PASSWORD_KEY = "NCUK_DOCMOST_AUTOMATION_PASSWORD"
-DEFAULT_AUTOMATION_EMAIL = "automation@cleantechhub.net"
+DEFAULT_AUTOMATION_EMAIL = "admin@cleantechhub.net"
 
 TITLES_ONLY_CHAPTER_KEYS = frozenset({"02", "06", "09", "05x"})
 
@@ -212,6 +212,12 @@ class DocmostClient:
             return nodes
 
         return build(REIN_ROOT_ID)
+
+    def find_child_page_id(self, parent_page_id: str, title: str) -> str | None:
+        for item in self.sidebar(parent_page_id):
+            if (item.get("title") or "") == title:
+                return item.get("id")
+        return None
 
     def page_markdown(self, page_id: str) -> str:
         page = self.post("/pages/info", {"pageId": page_id})
@@ -409,8 +415,13 @@ def plan_apply(
         md = prepare_markdown(raw, filename)
         ref = resolve_page(path_suffix, index)
         label = " / ".join((REIN_ROOT_TITLE,) + ref.path)
+        page_id = ref.page_id
+        if page_id is None and client is not None and len(path_suffix) > 1:
+            parent_id = index.get(path_suffix[:-1])
+            if parent_id:
+                page_id = client.find_child_page_id(parent_id, path_suffix[-1])
 
-        if ref.page_id is None:
+        if page_id is None:
             missing_pages.append(label)
             rows.append(
                 PlanRow(
@@ -426,12 +437,14 @@ def plan_apply(
         detail = f"from {filename}"
         if client is not None:
             try:
-                current = client.page_markdown(ref.page_id)
+                current = client.page_markdown(page_id)
                 if normalize_for_compare(current) == normalize_for_compare(md):
                     action = "skip"
                     detail = "unchanged"
             except Exception as exc:  # noqa: BLE001 — dry-run continues
                 detail = f"compare failed: {exc.__class__.__name__}"
+        if ref.page_id is None and page_id is not None:
+            detail = (detail + "; " if detail else "") + "resolved existing child by title"
 
         rows.append(PlanRow(page_label=label, action=action, chars=len(md), detail=detail))
 
@@ -475,16 +488,22 @@ def apply_rows(
             parent_id = parent_cache.get(parent_path)
             if parent_id is None:
                 raise RuntimeError(f"cannot create page; missing parent {parent_path}")
-            created = client.post(
-                "/pages/create",
-                {
-                    "spaceId": SPACE_ID,
-                    "parentPageId": parent_id,
-                    "title": path_suffix[-1],
-                    "searchIndexing": False,
-                },
-            )
-            page_id = created["id"] if isinstance(created, dict) else created.get("pageId")
+            page_id = client.find_child_page_id(parent_id, path_suffix[-1])
+            if page_id is None:
+                created = client.post(
+                    "/pages/create",
+                    {
+                        "spaceId": SPACE_ID,
+                        "parentPageId": parent_id,
+                        "title": path_suffix[-1],
+                        "searchIndexing": False,
+                    },
+                )
+                page_id = (
+                    created["id"]
+                    if isinstance(created, dict)
+                    else created.get("pageId")
+                )
             parent_cache[path_suffix] = page_id
 
         client.post(
@@ -577,8 +596,8 @@ def main(argv: list[str] | None = None) -> int:
         # Compare with live content when login works.
         try:
             if client is None:
-                password = read_infisical_password()
-                client = DocmostClient(password)
+                email, password = read_docmost_credentials()
+                client = DocmostClient(email, password)
         except Exception:
             client = None
         rows = plan_apply(args.chapters_dir, index, client)
