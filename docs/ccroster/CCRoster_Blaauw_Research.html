@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CCRoster — Gideon Blaauw — Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep: #0C498A;
+      --cyan: #B2EEFA;
+      --lg: #9DC384;
+      --forest: #669348;
+      --sky: #69B5FA;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 210mm;
+      min-height: 297mm;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.38;
+      color: var(--deep);
+      background: var(--white);
+    }
+    h1, h2, h3 { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
+    a { color: var(--deep); text-decoration: underline; text-underline-offset: 2px; }
+    a:visited { color: var(--forest); }
+    .sheet { padding: 0; }
+    .head {
+      background: var(--deep);
+      color: var(--white);
+      padding: 10mm 12mm 8mm;
+      display: flex;
+      gap: 10mm;
+      align-items: center;
+    }
+    .head img { width: 14mm; height: auto; flex-shrink: 0; }
+    .head-text h1 { font-size: 17pt; letter-spacing: 0.02em; }
+    .head-text .sub { font-size: 9pt; opacity: 0.95; margin-top: 2mm; }
+    .tagline { color: var(--cyan); font-weight: 600; font-size: 8.5pt; margin-top: 1mm; }
+    .body { padding: 7mm 12mm 8mm; }
+    .lead {
+      font-size: 10pt;
+      margin-bottom: 5mm;
+      border-left: 3px solid var(--forest);
+      padding-left: 4mm;
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+    .block {
+      border-radius: 4px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .block-h {
+      background: var(--deep);
+      color: var(--white);
+      padding: 2.5mm 4mm;
+      font-size: 10pt;
+    }
+    .block-b { padding: 3.5mm 4mm; }
+    .block.cyan .block-b { background: var(--cyan); }
+    .block.green .block-b { background: var(--lg); }
+    .block.sky .block-b { background: var(--sky); }
+    ul { padding-left: 4mm; margin-top: 2mm; }
+    li { margin-bottom: 1.5mm; }
+    .tools { margin-top: 5mm; }
+    .tools-h {
+      background: var(--forest);
+      color: var(--white);
+      padding: 2.5mm 4mm;
+      font-size: 10pt;
+      border-radius: 4px 4px 0 0;
+    }
+    .tools-b {
+      background: var(--cyan);
+      padding: 3.5mm 4mm 4mm;
+      border-radius: 0 0 4px 4px;
+      columns: 2;
+      column-gap: 6mm;
+    }
+    .tools-b p { margin-bottom: 2mm; break-inside: avoid; }
+    .tools-b strong { font-size: 8.5pt; display: block; }
+    .foot {
+      margin-top: 4mm;
+      padding-top: 3mm;
+      border-top: 1px solid var(--sky);
+      font-size: 8pt;
+      display: flex;
+      justify-content: space-between;
+      color: var(--deep);
+    }
+    @media print {
+      html, body { width: 210mm; min-height: 297mm; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <img src="cth-globe-logo.png" alt="CleantechHUB globe logo" />
+      <div class="head-text">
+        <h1>Gideon Blaauw</h1>
+        <p class="sub">Research &amp; synthesis · CleantechHUB</p>
+        <p class="tagline">Inspire. Act. Transform.</p>
+      </div>
+    </header>
+
+    <main class="body">
+      <p class="lead">
+        I turn scattered climate and market signals into decision-ready briefs. I start from public CleantechHUB data and tools, cross-check against the knowledge base, then write short outputs with linked sources—so reviewers can verify every claim.
+      </p>
+
+      <div class="grid">
+        <section class="block cyan">
+          <h2 class="block-h">How I work</h2>
+          <div class="block-b">
+            <ul>
+              <li><strong>Frame the question</strong> — audience, geography, and what “done” looks like.</li>
+              <li><strong>Pull live data</strong> — Nexus portfolio, HubMap, Climate Data Platform, and site tools.</li>
+              <li><strong>Triangulate</strong> — wiki pages, public APIs, and founder-facing profiles.</li>
+              <li><strong>Synthesize</strong> — one-page narrative, bullet risks, and explicit gaps.</li>
+              <li><strong>Leave a trail</strong> — clickable URLs, not screenshots alone.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="block green">
+          <h2 class="block-h">CleantechHUB context</h2>
+          <div class="block-b">
+            <ul>
+              <li>Climate innovation accelerator active since <strong>2019</strong> (Colombia, LATAM footprint).</li>
+              <li><strong>US$50M+</strong> capital leveraged across programs and portfolio support.</li>
+              <li>Operating stack spans WordPress, BookStack wiki, Nexus, and open climate datasets.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <section class="tools">
+        <h2 class="tools-h">Public research tools (live links)</h2>
+        <div class="tools-b">
+          <p><strong>Nexus / Origo ecosystem</strong>
+            <a href="https://nexus.cleantechhub.net/p/home">nexus.cleantechhub.net/p/home</a></p>
+          <p><strong>HubMap (REIN &amp; partner hubs)</strong>
+            <a href="https://nexus.cleantechhub.net/hubs/">nexus.cleantechhub.net/hubs/</a></p>
+          <p><strong>Startup portfolio map</strong>
+            <a href="https://nexus.cleantechhub.net/p/startup-portfolio">nexus.cleantechhub.net/p/startup-portfolio</a></p>
+          <p><strong>Climate Data Platform (Origo)</strong>
+            <a href="https://data.cleantechhub.net/">data.cleantechhub.net</a></p>
+          <p><strong>Origo EUDR Taxonomy API docs</strong>
+            <a href="https://cleantechhub.net/api-docs/">cleantechhub.net/api-docs/</a></p>
+          <p><strong>Startup index (main site)</strong>
+            <a href="https://cleantechhub.net/startups">cleantechhub.net/startups</a></p>
+          <p><strong>Free diagnostics &amp; tools index</strong>
+            <a href="https://cleantechhub.net/herramientas/">cleantechhub.net/herramientas/</a></p>
+          <p><strong>Knowledge base (BookStack)</strong>
+            <a href="https://wiki.cleantechhub.net/">wiki.cleantechhub.net</a></p>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>Climate Connectors · Independent Consultant Roster · Draft</span>
+        <span>cleantechhub.net</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
