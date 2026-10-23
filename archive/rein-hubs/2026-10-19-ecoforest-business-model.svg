@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <rect width="1600" height="980" fill="#F4F7F5"/>
+  <text x="36" y="40" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1B4332">EcoForest  -  how the money moves</text>
+  <text x="36" y="66" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#335D4F">Internal diagram · 19 Oct 2026 · Blue arrows are credits and data · Gold arrows are cash · Orange badges are where a startup program fits</text>
+
+  <defs>
+    <marker id="blue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#1D6A96"/>
+    </marker>
+    <marker id="gold" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#8A6A12"/>
+    </marker>
+  </defs>
+
+  <!-- Credit flow -->
+  <line x1="292" y1="188" x2="352" y2="188" stroke="#1D6A96" stroke-width="3" marker-end="url(#blue)"/>
+  <line x1="652" y1="188" x2="712" y2="188" stroke="#1D6A96" stroke-width="3" marker-end="url(#blue)"/>
+  <line x1="972" y1="188" x2="1032" y2="188" stroke="#1D6A96" stroke-width="3" marker-end="url(#blue)"/>
+  <line x1="1292" y1="188" x2="1352" y2="188" stroke="#1D6A96" stroke-width="3" marker-end="url(#blue)"/>
+  <text x="322" y="176" text-anchor="middle" font-family="Arial" font-size="12" fill="#1D6A96">land data</text>
+  <text x="682" y="176" text-anchor="middle" font-family="Arial" font-size="12" fill="#1D6A96">project file</text>
+  <text x="1002" y="176" text-anchor="middle" font-family="Arial" font-size="12" fill="#1D6A96">CRTs</text>
+  <text x="1322" y="176" text-anchor="middle" font-family="Arial" font-size="12" fill="#1D6A96">delivery</text>
+
+  <!-- Nodes -->
+  <rect x="28" y="100" width="264" height="196" rx="12" fill="#335D4F"/>
+  <text x="44" y="128" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">Ejidos and communities</text>
+  <text x="44" y="154" font-family="Arial" font-size="14" fill="#E8F5EE">They own the land</text>
+  <text x="44" y="176" font-family="Arial" font-size="14" fill="#E8F5EE">CAR lists them as owner</text>
+  <text x="44" y="198" font-family="Arial" font-size="14" fill="#E8F5EE">San Bernardino · Tepehuanos</text>
+  <text x="44" y="220" font-family="Arial" font-size="14" fill="#E8F5EE">La Ciudad · La Florida</text>
+  <text x="44" y="250" font-family="Arial" font-size="13" fill="#95D5B2">REGISTRY owners</text>
+  <circle cx="268" cy="118" r="16" fill="#FF6633"/>
+  <text x="268" y="124" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">1</text>
+
+  <rect x="360" y="100" width="292" height="196" rx="12" fill="#335D4F"/>
+  <text x="376" y="128" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">EcoForest Group</text>
+  <text x="376" y="154" font-family="Arial" font-size="14" fill="#E8F5EE">Designs the project</text>
+  <text x="376" y="176" font-family="Arial" font-size="14" fill="#E8F5EE">Field MRV and listing</text>
+  <text x="376" y="198" font-family="Arial" font-size="14" fill="#E8F5EE">Then sells the credits</text>
+  <text x="376" y="220" font-family="Arial" font-size="14" fill="#E8F5EE">Durango · founded 2023</text>
+  <text x="376" y="250" font-family="Arial" font-size="13" fill="#95D5B2">Developer, not the landowner</text>
+  <circle cx="628" cy="118" r="16" fill="#FF6633"/>
+  <text x="628" y="124" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">2</text>
+
+  <rect x="720" y="100" width="252" height="196" rx="12" fill="#335D4F"/>
+  <text x="736" y="128" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">Registries</text>
+  <text x="736" y="154" font-family="Arial" font-size="14" fill="#E8F5EE">Climate Action Reserve</text>
+  <text x="736" y="176" font-family="Arial" font-size="14" fill="#E8F5EE">Mexico Forest Protocol</text>
+  <text x="736" y="198" font-family="Arial" font-size="14" fill="#E8F5EE">CAR1941 · 1847 · 1851</text>
+  <text x="736" y="220" font-family="Arial" font-size="14" fill="#E8F5EE">Verra, Gold Standard:</text>
+  <text x="736" y="250" font-family="Arial" font-size="13" fill="#F6E7A2">none found</text>
+
+  <rect x="1040" y="100" width="252" height="196" rx="12" fill="#335D4F"/>
+  <text x="1056" y="128" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">Sales channels</text>
+  <text x="1056" y="154" font-family="Arial" font-size="14" fill="#E8F5EE">Spot · forward · offtake</text>
+  <text x="1056" y="176" font-family="Arial" font-size="14" fill="#E8F5EE">Brokerage of other credits</text>
+  <text x="1056" y="198" font-family="Arial" font-size="14" fill="#E8F5EE">I-RECs and CELs claimed</text>
+  <text x="1056" y="220" font-family="Arial" font-size="14" fill="#E8F5EE">Trading desk: 16 projects</text>
+  <text x="1056" y="250" font-family="Arial" font-size="13" fill="#F6E7A2">REPORTED · volumes not public</text>
+  <circle cx="1268" cy="118" r="16" fill="#FF6633"/>
+  <text x="1268" y="124" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">3</text>
+
+  <rect x="1360" y="100" width="208" height="196" rx="12" fill="#335D4F"/>
+  <text x="1376" y="128" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">Corporate buyers</text>
+  <text x="1376" y="154" font-family="Arial" font-size="14" fill="#E8F5EE">Siemens, BBVA</text>
+  <text x="1376" y="176" font-family="Arial" font-size="14" fill="#F6E7A2">their claim only</text>
+  <text x="1376" y="206" font-family="Arial" font-size="14" fill="#E8F5EE">Carbon2Nature</text>
+  <text x="1376" y="228" font-family="Arial" font-size="14" fill="#E8F5EE">is a real partner</text>
+  <text x="1376" y="258" font-family="Arial" font-size="13" fill="#95D5B2">Iberdrola owns it</text>
+  <circle cx="1544" cy="118" r="16" fill="#FF6633"/>
+  <text x="1544" y="124" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">5</text>
+
+  <!-- Money return -->
+  <path d="M1464 296 L1464 348 L160 348" fill="none" stroke="#8A6A12" stroke-width="3" marker-end="url(#gold)"/>
+  <text x="800" y="338" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#8A6A12">Cash from credit sales returns to the community and to EcoForest</text>
+
+  <!-- Money boxes -->
+  <rect x="28" y="372" width="500" height="128" rx="10" fill="#FFF8E8" stroke="#8A6A12" stroke-width="2"/>
+  <text x="44" y="398" font-family="Arial" font-size="15" font-weight="700" fill="#6E5410">70% to communities  -  company claim</text>
+  <text x="44" y="422" font-family="Arial" font-size="14" fill="#3D3422">Website says 70% of originated-project revenue.</text>
+  <text x="44" y="442" font-family="Arial" font-size="14" fill="#3D3422">LinkedIn posts also say 79%. Not in the CAR record.</text>
+  <text x="44" y="468" font-family="Arial" font-size="14" fill="#3D3422">EcoForest keeps the residual. Contract not public.</text>
+
+  <rect x="548" y="372" width="470" height="128" rx="10" fill="#FFF8E8" stroke="#8A6A12" stroke-width="2"/>
+  <text x="568" y="398" font-family="Arial" font-size="15" font-weight="700" fill="#6E5410">Who pays before the first credit?</text>
+  <text x="568" y="422" font-family="Arial" font-size="14" fill="#3D3422">Inventories, listing, and verification cost cash</text>
+  <text x="568" y="442" font-family="Arial" font-size="14" fill="#3D3422">up front. The payer is not public.</text>
+  <text x="568" y="468" font-family="Arial" font-size="14" fill="#3D3422">No investor disclosed. No fee card found.</text>
+  <circle cx="994" cy="390" r="16" fill="#FF6633"/>
+  <text x="994" y="396" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#FFFFFF">4</text>
+
+  <rect x="1038" y="372" width="530" height="128" rx="10" fill="#FFF8E8" stroke="#8A6A12" stroke-width="2"/>
+  <text x="1054" y="398" font-family="Arial" font-size="15" font-weight="700" fill="#6E5410">Second cash line · DUA NetZero</text>
+  <text x="1054" y="422" font-family="Arial" font-size="14" fill="#3D3422">Corporate footprint, targets, compliance advice.</text>
+  <text x="1054" y="442" font-family="Arial" font-size="14" fill="#3D3422">Fatima co-founded it in 2026. About 3 people.</text>
+  <text x="1054" y="468" font-family="Arial" font-size="14" fill="#3D3422">Consulting fee. Not a priced software product.</text>
+
+  <!-- Scale check -->
+  <rect x="28" y="520" width="1540" height="168" rx="10" fill="#FFFFFF" stroke="#D5E0DA" stroke-width="1.5"/>
+  <text x="44" y="548" font-family="Arial" font-size="16" font-weight="700" fill="#1B4332">Scale check  -  their claims are not the registry</text>
+  <text x="44" y="576" font-family="Arial" font-size="14" fill="#24312C">538,216 ha and 1,749,302 t inventory are REPORTED. Three opened CAR areas are about 179,000 ha.</text>
+  <text x="44" y="600" font-family="Arial" font-size="14" fill="#24312C">CAR1941 issued 302,708 CRT at registration (REGISTRY, Nov 2024). The site says 260,000 CRT for the same project.</text>
+  <text x="44" y="624" font-family="Arial" font-size="14" fill="#24312C">215,000+ sold in 12 months is REPORTED. Retirements and buyer names for these IDs were not retrieved.</text>
+  <text x="44" y="648" font-family="Arial" font-size="14" fill="#24312C">Villa Ahumada CS-0007 is REPORTED only (71,000 and 260,000 CRT on the same site). No registry page found.</text>
+  <text x="44" y="672" font-family="Arial" font-size="14" fill="#24312C">Market prices are ESTIMATE, not theirs. Global IFM about USD 15/t. Latin America REDD+ about USD 2.80/t.</text>
+
+  <!-- Legend -->
+  <rect x="28" y="708" width="1540" height="196" rx="10" fill="#FFFFFF" stroke="#FF6633" stroke-width="1.5"/>
+  <text x="44" y="736" font-family="Arial" font-size="16" font-weight="700" fill="#C2410C">Where a startup program fits</text>
+  <circle cx="52" cy="764" r="11" fill="#FF6633"/>
+  <text x="52" y="768" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="74" y="768" font-family="Arial" font-size="14" fill="#24312C">Community ideation with the ejido that already owns the project.</text>
+  <circle cx="52" cy="792" r="11" fill="#FF6633"/>
+  <text x="52" y="796" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="74" y="796" font-family="Arial" font-size="14" fill="#24312C">dMRV and data startups at the field MRV step. Datalab is the data context. They publish no software product.</text>
+  <circle cx="52" cy="820" r="11" fill="#FF6633"/>
+  <text x="52" y="824" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="74" y="824" font-family="Arial" font-size="14" fill="#24312C">Startups as credit suppliers or small offtakers on the spot, forward, and brokerage desk.</text>
+  <circle cx="52" cy="848" r="11" fill="#FF6633"/>
+  <text x="52" y="852" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="74" y="852" font-family="Arial" font-size="14" fill="#24312C">Investor / FOSD link into upfront project cost. The payer is not in the public record.</text>
+  <circle cx="52" cy="876" r="11" fill="#FF6633"/>
+  <text x="52" y="880" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#FFFFFF">5</text>
+  <text x="74" y="880" font-family="Arial" font-size="14" fill="#24312C">COPARMEX mentor door. Fatima chaired its young-entrepreneurs commission. No COPARMEX offtake was found.</text>
+
+  <text x="36" y="942" font-family="Arial" font-size="13" fill="#5C6B64">Gold boxes are money. Blue arrows are credits and data. Orange is a fit, not a signed role. Do not send.</text>
+  <text x="36" y="964" font-family="Arial" font-size="13" fill="#5C6B64">CCP on the website is not the same as a CCP label on each tonne. Mexico emissions-trading pilot: no EcoForest trace found.</text>
+</svg>
