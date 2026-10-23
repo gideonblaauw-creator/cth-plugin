@@ -1,0 +1,45 @@
+# proposals.cleantechhub.net — CTH proposals index.
+# Appwrite upstream for slugs: Host <slug>.sites.localhost -> 127.0.0.1:9080.
+# / /index.html /index.json are the locked dashboard. /<slug>/ stays open.
+# Scaffold 20261019T215655Z. Per-project hands append slugs in the imported file.
+
+proposals.cleantechhub.net {
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	@dashboard path / /index.html /index.json
+	handle @dashboard {
+		# Google SSO via oauth2-proxy (Gideon GO 22 Oct 2026); replaces basic_auth
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Auth-Request-Email
+			@unauth status 401
+			handle_response @unauth {
+				redir * https://auth.cleantechhub.net/oauth2/start?rd={scheme}://{host}{uri} 302
+			}
+		}
+		root * /opt/cth-proposals/index-dashboard
+		header X-Robots-Tag "noindex, nofollow"
+		header Cache-Control "no-store"
+		file_server
+	}
+
+	# Celsia snapshot — public (no SSO); source decks/celsia-snapshot @ 5cb833f (Gideon GO 22 Oct 2026).
+	handle /celsia-snapshot {
+		redir * /celsia-snapshot/ 308
+	}
+	handle_path /celsia-snapshot/* {
+		root * /opt/cth-proposals/celsia-snapshot
+		header X-Robots-Tag "noindex, nofollow"
+		file_server
+	}
+
+	import /etc/caddy/Caddyfile.d/proposals.cleantechhub.net.slugs.caddy
+
+	handle {
+		respond "Not found" 404
+	}
+}
