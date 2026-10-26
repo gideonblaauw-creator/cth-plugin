@@ -1,0 +1,11 @@
+# Sample configuration reference — do NOT store secrets in this file.
+#
+# Runtime secrets (names only) live in Infisical project cth-agents:
+#   MOODLE_URL, MOODLE_WS_TOKEN
+#
+# Example (after Infisical login / machine identity on the VPS):
+#   infisical run --projectId=c84fe8b3-d64e-485a-82d7-250dc57a6453 -- \
+#     python moodle_ro.py site-info
+#
+# Expected Moodle base URL (no trailing slash):
+moodle_url: "https://academy.cleantechhub.net"
