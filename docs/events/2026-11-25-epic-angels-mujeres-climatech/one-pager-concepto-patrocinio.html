@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concepto de patrocinio · Mujeres en climatech · Bogotá</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cth-primary: #2D6A4F;
+      --cth-dark: #1B4332;
+      --cth-accent: #95D5B2;
+      --cth-light: #D8F3DC;
+      --cth-white: #FFFFFF;
+      --cth-text: #333333;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-family);
+      color: var(--cth-text);
+      background: var(--cth-white);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 14mm 16mm 18mm;
+    }
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid var(--cth-primary);
+      margin-bottom: 1.25rem;
+    }
+    .wordmark {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cth-dark);
+      letter-spacing: -0.02em;
+    }
+    .wordmark span { font-weight: 400; }
+    .doc-meta {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--cth-primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--cth-dark);
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--cth-primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .pendiente {
+      display: inline-block;
+      background: var(--cth-light);
+      color: var(--cth-dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--cth-accent);
+      vertical-align: middle;
+    }
+    .hosts {
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: var(--cth-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--cth-primary);
+    }
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cth-primary);
+      margin: 1.1rem 0 0.45rem;
+    }
+    p, li { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    ul { padding-left: 1.15rem; margin-bottom: 0.5rem; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .card {
+      background: var(--cth-light);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--cth-accent);
+    }
+    .card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cth-dark);
+      margin-bottom: 0.35rem;
+    }
+    .tiers { margin-top: 0.5rem; }
+    .tier {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(45, 106, 79, 0.2);
+    }
+    .tier:last-child { border-bottom: none; }
+    .tier strong { color: var(--cth-dark); font-size: 0.88rem; }
+    .proposal-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--cth-primary);
+      font-style: italic;
+    }
+    .contact {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      background: var(--cth-dark);
+      color: var(--cth-white);
+      border-radius: 8px;
+    }
+    .contact p { margin: 0; font-size: 0.88rem; }
+    .contact a { color: var(--cth-accent); text-decoration: none; }
+    .doc-footer {
+      margin-top: 1.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--cth-accent);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: #666;
+    }
+    @media print {
+      html, body { width: 210mm; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .page { padding: 12mm 14mm; }
+      @page { margin: 10mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="doc-header">
+      <div class="wordmark"><span>Cleantech</span>HUB</div>
+      <div class="doc-meta">Concepto de patrocinio · 2026</div>
+    </header>
+
+    <h1>Encuentro para fundadoras de startups climatech y mujeres inversionistas</h1>
+    <p class="subtitle">Bogotá (norte) · Coorganizado por Epic Angels, APC-Colombia y CleantechHUB</p>
+
+    <p class="hosts">
+      <strong>Convocantes:</strong> Epic Angels (red de mujeres inversionistas ángel), APC-Colombia (Agencia Presidencial de Cooperación, facilitadora que conecta a Epic Angels con startups) y CleantechHUB.
+    </p>
+
+    <p>
+      <strong>Fecha:</strong> miércoles 25 de noviembre de 2026 <span class="pendiente">PENDIENTE · por confirmar</span><br>
+      <strong>Hora:</strong> 17:00–20:00 <span class="pendiente">PENDIENTE · por confirmar</span><br>
+      <strong>Lugar:</strong> norte de Bogotá — opciones en evaluación: WeWork Calle 98 con 11 (capacidad aprox. 65 personas, sin costo de venue) u Holland House (capacidad aprox. 50 personas, venue con costo) <span class="pendiente">PENDIENTE · por confirmar</span>
+    </p>
+
+    <h2>Concepto</h2>
+    <p>Un espacio presencial para acercar a fundadoras de startups de tecnología climática y a mujeres inversionistas. El objetivo es visibilizar oportunidades de inversión con impacto climático, fortalecer redes de confianza y acelerar conexiones útiles para ambas partes.</p>
+
+    <h2>Por qué importa</h2>
+    <p>Las soluciones climáticas necesitan capital paciente y acompañamiento temprano. Las mujeres siguen subrepresentadas tanto como fundadoras en climatech como en mesas de inversión. Este encuentro reúne a quienes construyen y a quienes financian, con un enfoque explícito en género y en impacto climático.</p>
+
+    <div class="grid-2">
+      <div>
+        <h2>Público</h2>
+        <ul>
+          <li>Fundadoras de startups de tecnología climática (climatech).</li>
+          <li>Mujeres inversionistas (ángel y capital de riesgo temprano).</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Formato <span class="proposal-tag">(propuesta)</span></h2>
+        <ul>
+          <li>Pitches de startups presentados por fundadoras.</li>
+          <li>Panel con mujeres inversionistas.</li>
+          <li>Rueda de networking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Invitación a patrocinio</h2>
+    <p>El costo estimado de organización está entre <strong>20 y 40 millones de pesos colombianos (COP)</strong>. Buscamos aliados que cofinancien logística, producción y comunicaciones. Perfiles de patrocinio buscados (sin compromisos nombrados): agencias de cooperación y desarrollo, gobierno distrital, cámaras de comercio y universidades.</p>
+
+    <div class="card tiers avoid-break">
+      <h3>Niveles de apoyo (referencia)</h3>
+      <div class="tier">
+        <strong>Aliado principal</strong> — Visibilidad destacada en materiales y apertura del evento; participación en la bienvenida institucional (sujeto a agenda).
+      </div>
+      <div class="tier">
+        <strong>Aliado</strong> — Logo en piezas digitales e impresas del evento; mención durante el encuentro; espacio acotado para material institucional.
+      </div>
+      <div class="tier">
+        <strong>Colaborador</strong> — Mención en comunicaciones previas y agradecimiento público el día del evento.
+      </div>
+      <p style="margin-top:0.5rem;font-size:0.8rem;">Los montos por nivel se acuerdan según aportes en especie o en efectivo dentro del rango presupuestal del evento.</p>
+    </div>
+
+    <div class="contact avoid-break">
+      <p><strong>Contacto:</strong> Gideon Blaauw · CleantechHUB</p>
+      <p><a href="mailto:gideon.blaauw@cleantechhub.net">gideon.blaauw@cleantechhub.net</a></p>
+    </div>
+
+    <footer class="doc-footer">
+      <span>© 2026 CleantechHUB Foundation</span>
+      <span>Documento de trabajo · no para distribución pública sin revisión</span>
+    </footer>
+  </div>
+</body>
+</html>
