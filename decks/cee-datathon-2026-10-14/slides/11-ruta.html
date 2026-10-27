@@ -1,0 +1,30 @@
+<style>
+.s-11 .slide-inner{justify-content:flex-end}
+.s-11 .tl{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;margin-top:10px}
+.s-11 .tl::before{content:'';position:absolute;left:0;right:0;top:26px;height:4px;background:linear-gradient(90deg,#9DC384,#B2EEFA)}
+.s-11 .m{position:relative;padding-top:58px}
+.s-11 .m::before{content:'';position:absolute;top:14px;left:20px;width:28px;height:28px;border-radius:50%;background:#B2EEFA;border:4px solid #0C498A}
+.s-11 .m.done::before{background:#9DC384}
+.s-11 .glass{padding:18px 18px;background:rgba(5,26,51,.6);min-height:250px}
+.s-11 .d{font-size:28px;font-weight:700;color:var(--cyan);line-height:1.15;margin-bottom:8px}
+.s-11 .done .d{color:var(--green)}
+.s-11 p{font-size:26px;line-height:1.35;margin-bottom:6px}
+</style>
+<section class="slide has-photo s-11" style="--bg: url('img/p-ruta.jpg')">
+  <div class="slide-inner">
+    <span class="block-badge">Hoja de ruta</span>
+    <h2>De hoy a la Climate Data Week</h2>
+    <div class="tl">
+      <div class="m done"><div class="glass"><div class="d">1 oct 2026</div><p>GEN Global Startup Huddle, con el CEE como anfitrión; CTH invitado como mentor corporativo.</p></div></div>
+      <div class="m done"><div class="glass"><div class="d">6 oct 2026</div><p>Taller Air4U en el Datalab: experimento de calidad del aire definido.</p></div></div>
+      <div class="m"><div class="glass"><div class="d">14 oct · 10:00</div><p>Esta reunión: actores, alianza, Datathon y Otrosí.</p><p class="muted">14:00: Laboratorio Vivo Air4U.</p></div></div>
+      <div class="m"><div class="glass"><div class="d">nov 2026</div><p>Datathon en la Semana Global del Emprendimiento.</p><span class="pendiente">Día exacto (¿18 nov?)</span></div></div>
+      <div class="m"><div class="glass"><div class="d">1T 2027</div><p>Climate Data Week Bogotá.</p><span class="pendiente">Fecha y sede</span></div></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>CEE Externado × CleantechHUB · 14 oct 2026</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
