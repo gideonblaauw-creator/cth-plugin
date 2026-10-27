@@ -1,0 +1,870 @@
+{
+  "meta": {
+    "slug": "juan-valdez-snapshot",
+    "company_key": "juan-valdez",
+    "title": {
+      "en": "Juan Valdez · gap snapshot · CleantechHUB",
+      "es": "Juan Valdez · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/juan-valdez-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+    "listing_url": "",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Juan Valdez · gap snapshot",
+      "hero.title": "Juan Valdez · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Juan Valdez (Procafecol), Colombia",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature. Social and governance topics are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 3)",
+      "snap.bvc": "",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Juan Valdez · panorama de brechas",
+      "hero.title": "Juan Valdez · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Juan Valdez (Procafecol), Colombia. Lote de la onda 1 ranura 16–20",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf\">PDF</a>)",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 3)",
+      "snap.bvc": "",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "El presente informe de sostenibilidad recoge las principales acciones y resultados en materia ambiental, social y de gobernanza (ASG), realizados por Procafecol S.A.",
+      "quote_en": "This sustainability report includes the main actions and results in environmental, social and governance (ESG) matters, carried out by Procafecol S.A.",
+      "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+      "page": 3
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Zhana Solutions": {
+      "p": "CLAC21",
+      "t": "CE",
+      "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.",
+      "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel."
+    },
+    "Compostpack": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Manufactures certified compostable bioplastic packaging that decomposes without microplastics, offering a circular packaging alternative for the Colombian food and retail industry.",
+      "ds": "Fabrica empaques bioplásticos compostables certificados que se descomponen sin microplásticos, ofreciendo una alternativa circular de embalaje para la industria colombiana."
+    },
+    "Proplanet": {
+      "p": "CLAC22",
+      "t": "CE",
+      "d": "Medellín pioneer in Tetra Pak recycling, separating post-consumer cartons into cardboard pulp and plastic components, partnering with 10,000+ waste pickers.",
+      "ds": "Pionera en Medellín en el reciclaje de Tetra Pak, separando envases post-consumo en pulpa de cartón y componentes plásticos, en alianza con más de 10.000 recicladores."
+    },
+    "Reemade": {
+      "p": "CLAC23",
+      "t": "CE",
+      "d": "Upcycling design brand transforming industrial textile, plastic, tire, and agricultural waste into premium furniture and accessories using craft techniques and community artisans.",
+      "ds": "Marca de diseño upcycling que transforma residuos industriales textiles, plásticos, llantas y agrícolas en muebles y accesorios premium usando técnicas artesanales y artesanos comunitarios."
+    },
+    "Natupin": {
+      "p": "CLP",
+      "t": "BIO",
+      "d": "Raises awareness of native species and biodiversity through merchandise and digital content, connecting consumers with Colombia's natural heritage to promote conservation.",
+      "ds": "Crea conciencia sobre especies nativas y biodiversidad a través de merchandising y contenido digital, conectando a consumidores con el patrimonio natural de Colombia para promover la conservación."
+    },
+    "Monte Jazmín": {
+      "p": "CLAC22",
+      "t": "BIO",
+      "d": "Three-generation agroecological coffee farm offering specialty coffee and regenerative agritourism, with civil society nature reserve certification in Pereira.",
+      "ds": "Finca cafetera agroecológica multigeneracional que ofrece café especialidad y agroturismo regenerativo, con certificación de reserva natural de la sociedad civil en Pereira."
+    },
+    "PLEIA": {
+      "p": "CLAC24",
+      "t": "BIO",
+      "d": "B Corp pioneering biotechnology-based pet funeral services, transforming pet remains into nutrient-rich compost and planting trees at reforestation centers across Colombia.",
+      "ds": "B Corp pionera en servicios funerarios para mascotas basados en biotecnología, transformando los restos en compost rico en nutrientes y plantando árboles en centros de reforestación."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. Scope 1 rose 95% on refrigerant fugitive emissions",
+        "es": "1. El alcance 1 aumentó un 95% en las emisiones fugitivas de refrigerante"
+      },
+      "context": {
+        "en": "Procafecol reports that 2024 Scope 1 emissions rose 95% versus 2023, mainly from fugitive emissions in refrigeration equipment, linked to more maintenance events on stores and production assets.",
+        "es": "Procafecol informa que las emisiones del Alcance 1 2024 aumentaron un 95% frente a 2023, principalmente por emisiones fugitivas en equipos de refrigeración, vinculadas a más eventos de mantenimiento en tiendas y activos de producción."
+      },
+      "report_evidence": {
+        "quote_es": "Para el año 2024 en comparación al año 2023, se tuvo un aumento del alcance 1 del 95%, principalmente por emisiones fugitivas en los equipos de refrigeración.",
+        "quote_en": "By 2024 compared to 2023, there was a 95% increase in scope 1, mainly due to fugitive emissions in refrigeration equipment.",
+        "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+        "page": 31
+      },
+      "matches": [
+        {
+          "match_id": "jv-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "Public site names scopes 1–3 inventory work",
+          "why_es": "El sitio público nombra los alcances 1–3 del trabajo de inventario",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Seed",
+          "website": "https://c-neutral.co",
+          "why": "Consulting page targets quantification of emissions from operations",
+          "why_es": "La página de consultoría apunta a la cuantificación de las emisiones de las operaciones",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g1-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Seed",
+          "website": "https://zhanasolutions.com",
+          "why": "Service page commits to CO2 reduction metrics reporting",
+          "why_es": "La página de servicio se compromete a informar las métricas de reducción de CO2",
+          "public_quote": "A partir de la operación de nuestra tecnología socializaremos con tu equipo los indicadores y métricas de impacto ambiental (litros de agua salvados y reducción de emisiones de co2)",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Procafecol reports that 2024 Scope 1 emissions rose 95% versus 2023, mainly from fugitive emissions in refrigeration equipment, linked to more maintenance events on stores and production assets. Report evidence is on PDF page 31 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://zhanasolutions.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Scope 1 rose 95% on refrigerant fugitive emissions”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Procafecol informa que las emisiones del Alcance 1 2024 aumentaron un 95% frente a 2023, principalmente por emisiones fugitivas en equipos de refrigeración, vinculadas a más eventos de mantenimiento en tiendas y activos de producción. La evidencia del reporte está en la página 31 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://zhanasolutions.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. El alcance 1 aumentó un 95% en las emisiones fugitivas de refrigerante», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Scope 3 inventory still needs higher-quality data",
+        "es": "2. El inventario de alcance 3 aún necesita datos de mayor calidad"
+      },
+      "context": {
+        "en": "Climate action plan lists improving Scope 3 information quality in the carbon footprint as a 2024 priority under Race to Zero.",
+        "es": "El plan de acción climática enumera la mejora de la calidad de la información del Alcance 3 en la huella de carbono como una prioridad de 2024 en Race to Zero."
+      },
+      "report_evidence": {
+        "quote_es": "3. Mejora en la calidad de la información del Alcance 3 en la Huella de Carbono.",
+        "quote_en": "3. Improvement in the quality of Scope 3 information in the Carbon Footprint.",
+        "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+        "page": 8
+      },
+      "matches": [
+        {
+          "match_id": "jv-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Series A",
+          "website": "https://carbonbox.app",
+          "why": "SaaS positioning matches Scope 3 data-quality gap",
+          "why_es": "El posicionamiento SaaS coincide con la brecha de calidad de datos de Alcance 3",
+          "public_quote": "La plataforma SaaS de huellas de carbono diseñada para empresas latinoamericanas que necesitan datos confiables, expertos certificados y resultados medibles.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Public page offers measurement and reporting",
+          "why_es": "La página pública ofrece mediciones e informes",
+          "public_quote": "Comienza a medir y reportar tus emisiones de CO2 e con nuestra calculadora de huella de carbono y nuestros servicios habilitados para certificación externa.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g2-compostpack",
+          "name": "Compostpack",
+          "stage": "Pre-Series A",
+          "website": "https://compostpack.com",
+          "why": "Packaging materials shift supports upstream Scope 3 categories",
+          "why_es": "El cambio de materiales de embalaje es compatible con las categorías anteriores de Alcance 3",
+          "public_quote": "Desde 2016, Compostpack (una filial de Carpios Investment Group) ha estado desarrollando e industrializando bioplásticos compostables y biodegradables (materiales extraídos usando fuentes biológicas).",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Climate action plan lists improving Scope 3 information quality in the carbon footprint as a 2024 priority under Race to Zero. Report evidence is on PDF page 8 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Compostpack",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "ha",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://compostpack.com"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Scope 3 inventory still needs higher-quality data”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "El plan de acción climática enumera la mejora de la calidad de la información del Alcance 3 en la huella de carbono como una prioridad de 2024 en Race to Zero. La evidencia del reporte está en la página 8 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Compostpack",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "ha",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://compostpack.com"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. El inventario de alcance 3 aún necesita datos de mayor calidad», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "3. Five packaging SKUs still transitioning to 2025 results",
+        "es": "3. Cinco SKU de envases aún en transición a los resultados de 2025"
+      },
+      "context": {
+        "en": "Circular economy work moved five packaging references in 2024, but the report expects measurable results in 2025.",
+        "es": "El trabajo de economía circular movió cinco referencias de empaque en 2024, pero el informe espera resultados medibles en 2025."
+      },
+      "report_evidence": {
+        "quote_es": "En 2024, se avanzó en la transición de cinco referencias de envases y empaques, con resultados esperados para 2025.",
+        "quote_en": "In 2024, progress was made in the transition of five packaging references, with expected results by 2025.",
+        "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+        "page": 35
+      },
+      "matches": [
+        {
+          "match_id": "jv-g3-compostpack",
+          "name": "Compostpack",
+          "stage": "Seed",
+          "website": "https://compostpack.com",
+          "why": "Compostable packaging R&D aligns with packaging transition",
+          "why_es": "La I + D de empaques compostables se alinea con la transición del empaque",
+          "public_quote": "Somos especialistas en el desarrollo y comercialización de bioplásticos compostables.",
+          "public_source_url": "https://compostpack.com",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g3-proplanet",
+          "name": "Proplanet",
+          "stage": "Seed",
+          "website": "https://proplanet.com.co",
+          "why": "Recycled-material products fit circular packaging goals",
+          "why_es": "Los productos de material reciclado se ajustan a los objetivos de empaque circular",
+          "public_quote": "Nuestros productos son fabricados a partir de la transformación de materiales Tetrapak.",
+          "public_source_url": "https://proplanet.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g3-reemade",
+          "name": "Reemade",
+          "stage": "Seed",
+          "website": "https://reemade.com.co",
+          "why": "Upcycling studio addresses hard-to-recycle streams",
+          "why_es": "Upcycling Studio aborda flujos difíciles de reciclar",
+          "public_quote": "Convertimos residuos industriales de difícil reciclabilidad y residuos agrícolas en productos personalizados, merchandising corporativo sostenible, espacios y biomateriales para empresas que quieren transformar sus estrategias de sostenibilidad en soluciones reales, funcionales y deseables.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Circular economy work moved five packaging references in 2024, but the report expects measurable results in 2025. Report evidence is on PDF page 35 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Compostpack",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://compostpack.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://proplanet.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Packaging or waste circularity indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Five packaging SKUs still transitioning to 2025 results”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "El trabajo de economía circular movió cinco referencias de empaque en 2024, pero el informe espera resultados medibles en 2025. La evidencia del reporte está en la página 35 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Compostpack",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://compostpack.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Proplanet",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://proplanet.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de empaque o circularidad de residuos",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. Cinco SKU de envases aún en transición a los resultados de 2025», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "4. Hazardous waste from stores and plant still rising",
+        "es": "4. Los residuos peligrosos de las tiendas y la planta siguen aumentando"
+      },
+      "context": {
+        "en": "Solid-waste programs are mature, but hazardous waste from the production plant and Juan Valdez stores still requires dedicated management.",
+        "es": "Los programas de residuos sólidos están maduros, pero los residuos peligrosos de la planta de producción y las tiendas Juan Valdez aún requieren una gestión dedicada."
+      },
+      "report_evidence": {
+        "quote_es": "En 2024, se gestionaron 9,2 toneladas de residuos peligrosos de la planta de producción y de las tiendas Juan Valdez.",
+        "quote_en": "In 2024, 9.2 tons of hazardous waste were managed from the Juan Valdez production plant and stores.",
+        "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+        "page": 37
+      },
+      "matches": [
+        {
+          "match_id": "jv-g4-zhana",
+          "name": "Zhana Solutions",
+          "stage": "Pre-Seed",
+          "website": "https://zhanasolutions.com",
+          "why": "Waste-treatment service line addresses operational waste streams",
+          "why_es": "La línea de servicio de tratamiento de residuos aborda los flujos de residuos operativos",
+          "public_quote": "Tratamiento de aguas y gestión de residuos grasos",
+          "public_source_url": "https://zhanasolutions.com",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g4-reemade",
+          "name": "Reemade",
+          "stage": "Pre-Seed",
+          "website": "https://reemade.com.co",
+          "why": "Circular design reduces waste impacts",
+          "why_es": "El diseño circular reduce los impactos de los residuos",
+          "public_quote": "Al suprareciclar, reducimos la huella de carbono asociada a la extracción y transformación de materias primas, disminuyendo así la contaminación del aire, el agua y el suelo desde su origen.",
+          "public_source_url": "https://reemade.com.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Solid-waste programs are mature, but hazardous waste from the production plant and Juan Valdez stores still requires dedicated management. Report evidence is on PDF page 37 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://zhanasolutions.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://reemade.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Hazardous waste from stores and plant still rising”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "Los programas de residuos sólidos están maduros, pero los residuos peligrosos de la planta de producción y las tiendas Juan Valdez aún requieren una gestión dedicada. La evidencia del reporte está en la página 37 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Zhana Solutions",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://zhanasolutions.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Reemade",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://reemade.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. Los residuos peligrosos de las tiendas y la planta siguen aumentando», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "journey_step": "challenge",
+      "match_count": 3,
+      "title": {
+        "en": "5. Coffee biodiversity relies on long-horizon reforestation targets",
+        "es": "5. La biodiversidad del café depende de los objetivos de reforestación a largo plazo"
+      },
+      "context": {
+        "en": "Biodiversity strategy for coffee landscapes includes reforestation commitments that extend beyond a single reporting year.",
+        "es": "La estrategia de biodiversidad para los paisajes cafetaleros incluye compromisos de reforestación que se extienden más allá de un solo año de informe."
+      },
+      "report_evidence": {
+        "quote_es": "El trabajo conjunto con estas instituciones ha fortalecido el componente ambiental de la estrategia de sostenibilidad de la compañía, a partir del desarrollo de una caficultura que incluye procesos de adaptación climática como siembra de árboles, cercas vivas, áreas de conectividad ecológica, gestión hídrica, gestión de residuos orgánicos en beneficio, entre otros.",
+        "quote_en": "The joint work with these institutions has strengthened the environmental component of the company's sustainability strategy, starting with the development of coffee farming that includes climate adaptation processes such as tree planting, live fences, ecological connectivity areas, water management, organic waste management for benefit, among others.",
+        "pdf_url": "https://juanvaldez.com/wp-content/uploads/2025/03/Informe-de-Sostenibilidad-2024.pdf",
+        "page": 40
+      },
+      "matches": [
+        {
+          "match_id": "jv-g5-natupin",
+          "name": "Natupin",
+          "stage": "Pre-Seed",
+          "website": "https://natupin.bio",
+          "why": "Public biodiversity storytelling aligns with coffee ecosystem awareness",
+          "why_es": "La narración pública de la biodiversidad se alinea con la conciencia del ecosistema cafetero",
+          "public_quote": "En NatuPin nos enorgullecemos de ofrecer pines que representan las especies colombianas de una manera auténtica y significativa.",
+          "public_source_url": "https://natupin.bio",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g5-monte",
+          "name": "Monte Jazmín",
+          "stage": "Pre-Seed",
+          "website": "https://montejazmin.com/nosotros/",
+          "why": "Agrotourism coffee farm narrative matches biodiversity in coffee zones",
+          "why_es": "La narrativa de la finca cafetera de agroturismo coincide con la biodiversidad en las zonas cafeteras",
+          "public_quote": "Enclavado en la montaña y rodeado por cafetales que guardan nacimientos de agua, guaduales y bosque, se encuentra nuestro proyecto agroturístico, producción de café especial, experiencia que compartimos con todos nuestros visitantes amantes del café y la naturaleza.",
+          "public_source_url": "https://montejazmin.com/nosotros/",
+          "funder": false
+        },
+        {
+          "match_id": "jv-g5-pleia",
+          "name": "PLEIA",
+          "stage": "Pre-Seed",
+          "website": "https://pleia.co",
+          "why": "Natural cycle process avoids atmospheric contamination; weak tie to coffee biodiversity but addresses ecosystem impact",
+          "why_es": "El proceso del ciclo natural evita la contaminación atmosférica; débil vínculo con la biodiversidad del café, pero aborda el impacto en el ecosistema",
+          "public_quote": "Nuestro proceso de Biotransformación es 100% Natural, sin contaminación atmosférica y lleno de mucho amor.",
+          "public_source_url": "https://pleia.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "Biodiversity strategy for coffee landscapes includes reforestation commitments that extend beyond a single reporting year. Report evidence is on PDF page 40 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Natupin",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://natupin.bio",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Monte Jazmín",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://montejazmin.com/nosotros/",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "PLEIA",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "trees",
+              "frequency": "Not stated on the public page",
+              "method": "IoT",
+              "source": "https://pleia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Coffee biodiversity relies on long-horizon reforestation targets”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "La estrategia de biodiversidad para los paisajes cafetaleros incluye compromisos de reforestación que se extienden más allá de un solo año de informe. La evidencia del reporte está en la página 40 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Natupin",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://natupin.bio",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Monte Jazmín",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://montejazmin.com/nosotros/",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "PLEIA",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "árboles",
+              "frequency": "No indicado en la página pública",
+              "method": "IoT",
+              "source": "https://pleia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. La biodiversidad del café depende de los objetivos de reforestación a largo plazo», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}

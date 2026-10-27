@@ -1,0 +1,92 @@
+{
+  "isa": {
+    "gaps": 5,
+    "matches": 15,
+    "omitted": []
+  },
+  "geb": {
+    "gaps": 5,
+    "matches": 15,
+    "omitted": []
+  },
+  "enel": {
+    "gaps": 5,
+    "matches": 15,
+    "omitted": []
+  },
+  "epm": {
+    "gaps": 5,
+    "matches": 15,
+    "omitted": []
+  },
+  "alqueria": {
+    "gaps": 5,
+    "matches": 11,
+    "omitted": []
+  },
+  "nutresa": {
+    "gaps": 5,
+    "matches": 11,
+    "omitted": []
+  },
+  "juan-valdez": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "alpina": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "argos": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "pavimentos-colombia": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "interaseo": {
+    "gaps": 5,
+    "matches": 15,
+    "omitted": []
+  },
+  "ecopetrol": {
+    "gaps": 5,
+    "matches": 8,
+    "omitted": []
+  },
+  "parex": {
+    "gaps": 5,
+    "matches": 10,
+    "omitted": []
+  },
+  "terpel": {
+    "gaps": 5,
+    "matches": 11,
+    "omitted": []
+  },
+  "promigas": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "bancolombia": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "banco-popular": {
+    "gaps": 5,
+    "matches": 14,
+    "omitted": []
+  },
+  "sura": {
+    "gaps": 5,
+    "matches": 10,
+    "omitted": []
+  }
+}
