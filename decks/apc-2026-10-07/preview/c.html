@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<base href="../">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<title>Preview Hands C — APC 7 oct 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;font-family:'Open Sans','PT Sans',sans-serif;color:#fff;background:#0C498A}
+.deck-root{width:1920px;height:1080px;position:relative;overflow:hidden}
+.slide{
+  position:absolute;inset:0;display:none;flex-direction:column;
+  padding:56px 72px 88px;overflow:hidden;
+}
+.slide.active{display:flex}
+.slide-gradient{
+  background:linear-gradient(145deg,#0C498A 0%,#083558 55%,#062840 100%);
+}
+.slide.has-photo{background:#0C498A center/cover no-repeat}
+.slide.has-photo::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:var(--bg) center/cover no-repeat;
+}
+.slide.has-photo::after{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.4) 40%,rgba(0,0,0,0.85) 75%,rgba(0,0,0,0.95) 100%);
+}
+.slide.has-photo > *{position:relative;z-index:2}
+.block-badge{
+  display:inline-block;align-self:flex-start;
+  padding:8px 20px;border:2px solid #B2EEFA;border-radius:8px;
+  font-size:26px;font-weight:700;color:#B2EEFA;margin-bottom:20px;
+}
+.slide-title{font-size:72px;font-weight:700;line-height:1.12;color:#fff;margin-bottom:8px;max-width:92%}
+.glass{
+  background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(8px);border-radius:12px;
+}
+.chip-staging{
+  display:inline-block;padding:4px 14px;border:2px dashed #69B5FA;
+  border-radius:8px;font-size:24px;font-weight:700;color:#69B5FA;
+}
+.pendiente{
+  display:inline-block;padding:2px 14px;border:2px dashed #B2EEFA;
+  color:#B2EEFA;border-radius:8px;font-weight:700;font-size:28px;
+}
+.src{font-size:24px;color:rgba(178,238,250,0.8);margin-top:auto;padding-top:16px;line-height:1.4}
+.slide-footer{
+  margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;
+  font-size:24px;color:rgba(255,255,255,0.75);width:100%;
+}
+</style>
+</head>
+<body>
+<div class="deck-root" id="deck">
+<style>
+.s-09 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;flex:1;align-items:stretch;margin-top:24px}
+.s-09 .proj-card{padding:28px 32px;display:flex;flex-direction:column;gap:18px;min-height:0}
+.s-09 .shot-wrap{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.15);max-height:340px}
+.s-09 .shot-wrap img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
+.s-09 .proj-title{font-size:40px;font-weight:700;line-height:1.2;margin:0;color:#fff}
+.s-09 .proj-oneliner{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.92);margin:0}
+.s-09 .proj-url{font-size:24px;color:#B2EEFA;font-weight:600;margin-top:auto}
+.s-09 .chip-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+</style>
+<section class="slide has-photo s-09" style="--bg:url('img/c-cpi-solar.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">Proyectos · plataformas vivas</h2>
+  <div class="proj-grid">
+    <div class="glass proj-card">
+      <div class="shot-wrap">
+        <img src="img/c-energiacoop.webp" alt="Captura del sitio Cooperativa Energética en Caja (hero)" width="800" height="306" loading="eager">
+      </div>
+      <p class="proj-title">Energy Co-op</p>
+      <p class="proj-oneliner">Cooperativa Energética en Caja: todo lo que necesitas para crear, financiar y operar una cooperativa de energía comunitaria en Colombia.</p>
+      <p class="proj-url">energiacoop.cleantechhub.net</p>
+    </div>
+    <div class="glass proj-card">
+      <div class="shot-wrap">
+        <img src="img/c-origo.webp" alt="Captura del sitio Origo (staging)" width="800" height="450" loading="eager">
+      </div>
+      <div class="chip-row">
+        <p class="proj-title" style="margin:0">Origo</p>
+        <span class="chip-staging">STAGING</span>
+      </div>
+      <p class="proj-oneliner">Plataforma climática y territorial · CleantechHUB × PASO.</p>
+      <p class="proj-url">origo.data.cleantechhub.net</p>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+  </footer>
+</section>
+
+<style>
+.s-10 .afcia-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;margin-top:28px}
+.s-10 .round-card{padding:36px 40px;display:flex;flex-direction:column;gap:16px}
+.s-10 .round-label{font-size:28px;font-weight:700;color:#B2EEFA;text-transform:uppercase;letter-spacing:.06em}
+.s-10 .round-amt{font-size:88px;font-weight:700;line-height:1;color:#9DC384;margin:8px 0}
+.s-10 .round-meta{font-size:34px;line-height:1.45;color:rgba(255,255,255,0.95)}
+.s-10 .round-meta strong{color:#fff;font-weight:700}
+.s-10 .program-name{font-size:30px;color:rgba(255,255,255,0.88);margin-top:8px;line-height:1.35}
+</style>
+<section class="slide s-10 slide-gradient">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">PNUD · AFCIA</h2>
+  <p class="program-name">Adaptation Fund Climate Innovation Accelerator · plataforma AF-EU-UNDP Innovation Small Grants Aggregator</p>
+  <div class="afcia-grid">
+    <div class="glass round-card">
+      <span class="round-label">Ronda 1</span>
+      <p class="round-amt">US$60.000</p>
+      <p class="round-meta"><strong>Abr 2022 – sep 2023</strong><br>Fondo Acción como socio administrador<br><strong>52</strong> equipos fundadores</p>
+    </div>
+    <div class="glass round-card">
+      <span class="round-label">Ronda 2</span>
+      <p class="round-amt">US$110.000</p>
+      <p class="round-meta"><strong>2024–2025</strong> · convenio directo con PNUD<br><strong>5 hubs</strong> (CO · CR · GT · SV · PE)<br><strong>6.000+</strong> actores del ecosistema</p>
+    </div>
+  </div>
+  <p class="src">Fuentes: convenios LVGA firmados e informes PNUD (AF-EU-UNDP Innovation Small Grants Aggregator Platform)</p>
+  <footer class="slide-footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+  </footer>
+</section>
+
+<style>
+.s-11 .aura-panel{max-width:1500px;margin-top:32px;padding:44px 48px}
+.s-11 .aura-lead{font-size:38px;line-height:1.5;color:#fff;font-weight:600;margin-bottom:28px}
+.s-11 .aura-body{font-size:34px;line-height:1.55;color:rgba(255,255,255,0.94)}
+.s-11 .aura-body p{margin:0 0 20px}
+.s-11 .aura-eso{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
+</style>
+<section class="slide has-photo s-11" style="--bg:url('img/c-aura.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">AuRA</h2>
+  <div class="glass aura-panel">
+    <p class="aura-lead">AuRA · Aceleradora del Ecosistema de Inversión de Impacto — iniciativa de Fundación Bolívar Davivienda y BID Lab.</p>
+    <div class="aura-body">
+      <p>CleantechHUB participa como ESO de la Cohorte 2. Acuerdo de pago por resultados firmado en sep 2026.</p>
+      <div class="aura-eso">
+        <p><strong>Aporte como ESO:</strong> acompañamiento a startups climáticas para prepararlas para inversión de impacto — programas de aceleración, acceso a redes de inversionistas y fortalecimiento institucional (información pública del programa).</p>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+  </footer>
+</section>
+
+<style>
+.s-12 .cpi-panel{max-width:1580px;margin-top:24px;padding:40px 44px}
+.s-12 .status-chip{display:inline-block;padding:8px 22px;border:2px solid #B2EEFA;border-radius:10px;font-size:30px;font-weight:700;color:#B2EEFA;margin-bottom:24px}
+.s-12 .cpi-h3{font-size:40px;font-weight:700;color:#9DC384;margin:0 0 16px}
+.s-12 .cpi-body{font-size:34px;line-height:1.5;color:rgba(255,255,255,0.94);margin:0 0 20px}
+.s-12 .coprop-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:20px 0}
+.s-12 .coprop-name{font-size:36px;font-weight:700;color:#fff;padding:10px 20px;background:rgba(255,255,255,0.08);border-radius:8px;border:1px solid rgba(255,255,255,0.12)}
+.s-12 .chip-convo{display:inline-block;padding:6px 16px;border:2px dashed #69B5FA;border-radius:8px;font-size:26px;font-weight:700;color:#69B5FA}
+.s-12 .fecha-obj{font-size:36px;font-weight:700;color:#B2EEFA;margin-top:24px}
+</style>
+<section class="slide has-photo s-12" style="--bg:url('img/c-cpi-solar.webp')">
+  <span class="block-badge">Bloque 3 · Proyectos</span>
+  <h2 class="slide-title">Energy Coops × CPI Global Innovation Lab for Climate Finance 2026</h2>
+  <div class="glass cpi-panel">
+    <span class="status-chip">Postulación en preparación</span>
+    <p class="cpi-h3">Concepto · Cooperativa Energética en Caja</p>
+    <p class="cpi-body">Plataforma «energiacoop» para crear, financiar y operar cooperativas de energía comunitaria en Colombia (CleantechHUB).</p>
+    <p class="cpi-h3">Co-proponentes</p>
+    <div class="coprop-row">
+      <span class="coprop-name">DGRV</span>
+      <span class="coprop-name">Coogranada</span>
+      <span class="coprop-name">CFA</span>
+      <span class="chip-convo">en conversación — no confirmado</span>
+    </div>
+    <p class="cpi-body"><strong>Contexto público:</strong> DGRV ejecuta el programa LAC E-Coop financiado por el BID en Colombia (2024–2027), con CFA y Coogranada como socios en Medellín (dgrv.coop; BID CO-G1059).</p>
+    <p class="fecha-obj">Fecha objetivo de radicación: 16 oct 2026</p>
+  </div>
+  <footer class="slide-footer">
+    <span>CleantechHUB · Inspira. Actúa. Transforma.</span>
+    <span>APC Colombia · 7 oct 2026</span>
+  </footer>
+</section>
+
+</div>
+<script>
+const params = new URLSearchParams(location.search);
+const n = parseInt(params.get('n') || '1', 10) - 1;
+document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === n));
+</script>
+</body>
+</html>
