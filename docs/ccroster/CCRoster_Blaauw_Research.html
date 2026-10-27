@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CCRoster — Gideon Blaauw — Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep: #0C498A;
+      --cyan: #B2EEFA;
+      --lg: #9DC384;
+      --forest: #669348;
+      --sky: #69B5FA;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--deep);
+      background: var(--white);
+    }
+    h1, h2, h3 { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
+    a { color: var(--deep); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+    a:visited { color: var(--forest); }
+    .sheet {
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .head {
+      background: var(--deep);
+      color: var(--white);
+      padding: 11mm 14mm 10mm;
+      display: flex;
+      gap: 8mm;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .logo-shield {
+      background: var(--cyan);
+      border-radius: 6px;
+      padding: 3mm;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+    .logo-shield img { width: 16mm; height: auto; display: block; }
+    .head-text h1 { font-size: 19pt; letter-spacing: 0.02em; }
+    .head-text .sub { font-size: 10pt; margin-top: 2mm; opacity: 0.95; }
+    .tagline { color: var(--cyan); font-weight: 600; font-size: 9.5pt; margin-top: 2mm; }
+    .body {
+      flex: 1;
+      padding: 9mm 14mm 10mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .lead {
+      font-size: 11pt;
+      margin-bottom: 7mm;
+      border-left: 4px solid var(--forest);
+      padding-left: 5mm;
+      line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin-bottom: 7mm;
+    }
+    .block { border-radius: 5px; overflow: hidden; page-break-inside: avoid; }
+    .block-h {
+      background: var(--deep);
+      color: var(--white);
+      padding: 3.5mm 5mm;
+      font-size: 11.5pt;
+    }
+    .block-b { padding: 5mm 5mm 5.5mm; }
+    .block.cyan .block-b { background: var(--cyan); }
+    .block.green .block-b { background: var(--lg); }
+    ul { padding-left: 5mm; margin-top: 1mm; }
+    li { margin-bottom: 2.5mm; }
+    li strong { font-weight: 600; }
+    .tools { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+    .tools-h {
+      background: var(--forest);
+      color: var(--white);
+      padding: 3.5mm 5mm;
+      font-size: 11.5pt;
+      border-radius: 5px 5px 0 0;
+    }
+    .tools-b {
+      background: var(--cyan);
+      padding: 5mm 5mm 6mm;
+      border-radius: 0 0 5px 5px;
+      columns: 2;
+      column-gap: 8mm;
+      flex: 1;
+    }
+    .tools-b p { margin-bottom: 3.5mm; break-inside: avoid; line-height: 1.4; }
+    .tools-b strong { font-size: 9.5pt; display: block; margin-bottom: 0.5mm; }
+    .foot {
+      margin-top: auto;
+      padding-top: 5mm;
+      border-top: 2px solid var(--sky);
+      font-size: 9pt;
+      display: flex;
+      justify-content: space-between;
+      color: var(--deep);
+    }
+    @media print {
+      html, body { width: 210mm; height: 297mm; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <div class="logo-shield">
+        <img src="cth-globe-logo.png" alt="CleantechHUB globe logo" />
+      </div>
+      <div class="head-text">
+        <h1>Gideon Blaauw</h1>
+        <p class="sub">Research &amp; synthesis · CleantechHUB</p>
+        <p class="tagline">Inspire. Act. Transform.</p>
+      </div>
+    </header>
+
+    <main class="body">
+      <p class="lead">
+        I turn scattered climate and market signals into decision-ready briefs. I start from CleantechHUB’s public data and tools, cross-check the knowledge base, and deliver short write-ups with live links so you can verify every claim yourself.
+      </p>
+
+      <div class="grid">
+        <section class="block cyan">
+          <h2 class="block-h">How I work</h2>
+          <div class="block-b">
+            <ul>
+              <li><strong>Frame the question</strong> — who needs the answer, which geography, and what “done” looks like.</li>
+              <li><strong>Pull live data</strong> — Nexus portfolio, HubMap, Climate Data Platform, and on-site diagnostics.</li>
+              <li><strong>Triangulate</strong> — wiki articles, public APIs, and founder-facing profiles.</li>
+              <li><strong>Synthesize</strong> — a tight narrative, clear risks, and honest gaps.</li>
+              <li><strong>Leave a trail</strong> — clickable URLs alongside the summary.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="block green">
+          <h2 class="block-h">What I build on</h2>
+          <div class="block-b">
+            <ul>
+              <li>CleantechHUB has been active since <strong>2019</strong>, rooted in Colombia with a LATAM footprint.</li>
+              <li>The foundation has helped unlock <strong>US$50M+</strong> in capital across programs and portfolio companies.</li>
+              <li>I work across the public website, knowledge wiki, Nexus portfolio, and open climate datasets.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <section class="tools">
+        <h2 class="tools-h">Public research tools I use (live links)</h2>
+        <div class="tools-b">
+          <p><strong>Nexus / Origo ecosystem</strong>
+            <a href="https://nexus.cleantechhub.net/p/home">nexus.cleantechhub.net/p/home</a></p>
+          <p><strong>HubMap (REIN &amp; partner hubs)</strong>
+            <a href="https://nexus.cleantechhub.net/hubs/">nexus.cleantechhub.net/hubs/</a></p>
+          <p><strong>Startup portfolio map</strong>
+            <a href="https://nexus.cleantechhub.net/p/startup-portfolio">nexus.cleantechhub.net/p/startup-portfolio</a></p>
+          <p><strong>Climate Data Platform (Origo)</strong>
+            <a href="https://data.cleantechhub.net/">data.cleantechhub.net</a></p>
+          <p><strong>Origo EUDR Taxonomy API docs</strong>
+            <a href="https://cleantechhub.net/api-docs/">cleantechhub.net/api-docs/</a></p>
+          <p><strong>Startup index (main site)</strong>
+            <a href="https://cleantechhub.net/startups">cleantechhub.net/startups</a></p>
+          <p><strong>Free diagnostics &amp; tools index</strong>
+            <a href="https://cleantechhub.net/herramientas/">cleantechhub.net/herramientas/</a></p>
+          <p><strong>Knowledge base</strong>
+            <a href="https://wiki.cleantechhub.net/">wiki.cleantechhub.net</a></p>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>Climate Connectors · Independent Consultant Roster</span>
+        <span>cleantechhub.net</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
