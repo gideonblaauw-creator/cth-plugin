@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTH × Nova Hub: propuesta de colaboración</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --lg: #9DC384;
+  --fg: #669348;
+  --sky: #69B5FA;
+  --escuela: #C8102E;
+  --escuela-dark: #1a1a2e;
+  --white: #ffffff;
+  --stage-w: 1280px;
+  --stage-h: 720px;
+  --title: 'Titillium Web', 'Open Sans', sans-serif;
+  --body: 'Open Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; font-family: var(--body); background: var(--escuela-dark); color: var(--white); }
+.lang-en { display: none; }
+html[lang="en"] .lang-es { display: none; }
+html[lang="en"] .lang-en { display: revert; }
+html[lang="en"] li.lang-en, html[lang="en"] p.lang-en, html[lang="en"] h1.lang-en, html[lang="en"] h2.lang-en, html[lang="en"] h3.lang-en, html[lang="en"] span.lang-en { display: block; }
+html[lang="en"] li.lang-es, html[lang="en"] p.lang-es { display: none; }
+.lang-toggle {
+  position: fixed; top: 12px; right: 16px; z-index: 100;
+  display: flex; gap: 4px; font-size: 13px; font-weight: 700;
+}
+.lang-toggle button {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  font-family: var(--body);
+}
+.lang-toggle button.active { background: var(--escuela); border-color: var(--escuela); }
+.deck-viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding-top: 36px; }
+.deck-frame { position: relative; flex-shrink: 0; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.45); }
+.deck-stage { position: absolute; top: 0; left: 0; width: var(--stage-w); height: var(--stage-h); transform-origin: top left; }
+.deck { position: absolute; inset: 0; width: var(--stage-w); height: var(--stage-h); }
+.slide {
+  position: absolute; inset: 0; width: var(--stage-w); height: var(--stage-h);
+  display: none; flex-direction: column; padding: 40px 52px 36px; overflow: hidden;
+}
+.slide.active { display: flex; z-index: 2; }
+.slide::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.slide::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0.82) 72%, rgba(0,0,0,0.94) 100%);
+}
+.slide > * { position: relative; z-index: 2; }
+.slide[data-bg="cover"]::before { background-image: var(--bg-img); }
+.glass {
+  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(8px); border-radius: 12px; padding: 18px 22px;
+}
+.title-block {
+  background: linear-gradient(90deg, var(--escuela) 0%, var(--deep) 100%);
+  padding: 12px 20px; border-radius: 8px; display: inline-block;
+  border-left: 5px solid var(--lg); margin-bottom: 14px;
+}
+h1 { font-family: var(--title); font-size: 2.35rem; font-weight: 700; line-height: 1.12; }
+h2 { font-family: var(--title); font-size: 1.75rem; font-weight: 700; margin-bottom: 10px; color: var(--cyan); }
+h3 { font-family: var(--title); font-size: 1.15rem; font-weight: 600; color: var(--cyan); margin-bottom: 6px; }
+p, li { font-size: 1.02rem; line-height: 1.4; }
+.lead { font-size: 1.12rem; max-width: 46rem; }
+.eyebrow { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lg); font-weight: 700; margin-bottom: 8px; }
+.wordmark { font-family: var(--title); font-size: 0.95rem; color: var(--cyan); letter-spacing: 0.02em; }
+.logo-row { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; flex-shrink: 0; }
+.logo-row img { height: 56px; width: 56px; background: rgba(255,255,255,0.95); border-radius: 8px; padding: 4px; }
+.chip {
+  display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 5px;
+  background: rgba(200,16,46,0.35); border: 1px solid var(--escuela); color: #ffb4bc; margin-left: 6px; vertical-align: middle;
+}
+.chip.idea { background: rgba(178,238,250,0.15); border-color: var(--cyan); color: var(--cyan); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; min-height: 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.card { background: rgba(12,73,138,0.5); border: 1px solid rgba(178,238,250,0.22); border-radius: 10px; padding: 12px 14px; font-size: 0.92rem; }
+.card small { display: block; margin-top: 6px; opacity: 0.85; font-size: 0.78rem; line-height: 1.3; }
+.accent { color: var(--cyan); font-weight: 700; }
+.footer-tag { margin-top: auto; font-size: 0.78rem; opacity: 0.88; padding-top: 8px; }
+.source-fn { font-size: 0.68rem; opacity: 0.75; margin-top: 6px; word-break: break-all; }
+.source-fn a { color: var(--sky); }
+.nav-hint { position: fixed; bottom: 10px; right: 16px; z-index: 99; font-size: 11px; opacity: 0.45; color: var(--cyan); }
+a.cta { color: var(--cyan); text-decoration: underline; }
+ul.check { list-style: none; padding: 0; }
+ul.check li { padding-left: 1.3em; position: relative; margin-bottom: 6px; }
+ul.check li::before { content: '✓'; position: absolute; left: 0; color: var(--lg); font-weight: 700; }
+.timeline { display: flex; gap: 12px; flex: 1; min-height: 0; }
+.tl-item { flex: 1; }
+.tl-item .card { height: 100%; }
+.tl-date { font-size: 1.35rem; font-family: var(--title); color: var(--cyan); }
+.compact-list { columns: 2; column-gap: 20px; font-size: 0.95rem; }
+.compact-list li { break-inside: avoid; margin-bottom: 4px; }
+.slide.light-panel::after { background: linear-gradient(135deg, rgba(12,73,138,0.88) 0%, rgba(26,26,46,0.85) 100%); }
+.slide.light-panel[data-bg="cover"]::before { opacity: 0.4; }
+</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" aria-label="Language">
+  <button type="button" id="btnEs" class="active">ES</button>
+  <button type="button" id="btnEn">EN</button>
+</div>
+<div class="deck-viewport">
+<div class="deck-frame" id="deckFrame">
+<div class="deck-stage" id="deckStage">
+<div class="deck" id="deck">
+
+<section class="slide active" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1280&q=80');">
+  <div class="logo-row">
+    <img src="assets/cth-logo.png" alt="CleantechHUB">
+    <div>
+      <p class="wordmark">Escuela Colombiana de Ingeniería · Nova Hub</p>
+      <p class="eyebrow lang-es">Octubre 2026 · Borrador interno</p>
+      <p class="eyebrow lang-en">October 2026 · Internal draft</p>
+      <h1 class="lang-es">CTH × Nova Hub:<br>propuesta de colaboración</h1>
+      <h1 class="lang-en">CTH × Nova Hub:<br>collaboration proposal</h1>
+    </div>
+  </div>
+  <div class="glass">
+    <p class="lead lang-es">Para <strong>Iván López</strong> — relaciones con la industria · Revisión: <strong>Gideon Blaauw</strong>, CleantechHUB</p>
+    <p class="lead lang-en">For <strong>Iván López</strong> — industry relations · Review: <strong>Gideon Blaauw</strong>, CleantechHUB</p>
+  </div>
+  <p class="footer-tag lang-es">No enviar externamente</p>
+  <p class="footer-tag lang-en">Not for external distribution</p>
+  <p class="source-fn"><a href="https://www.escuelaing.edu.co/es/noticias/nova-hub-donde-el-conocimiento-se-convierte-en-impacto/">escuelaing.edu.co/…/nova-hub-donde-el-conocimiento-se-convierte-en-impacto</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Nova Hub hoy</h2><h2 class="lang-en">Nova Hub today</h2></div>
+  <p class="lang-es" style="margin-bottom:10px;">Hub de Emprendimiento e Innovación — ecosistema abierto que conecta academia, empresas y sociedad.</p>
+  <p class="lang-en" style="margin-bottom:10px;">Entrepreneurship and Innovation Hub — an open ecosystem linking academia, companies, and society.</p>
+  <div class="grid-2" style="flex:1;">
+    <div class="glass">
+      <h3 class="lang-es">Cinco núcleos estratégicos</h3>
+      <h3 class="lang-en">Five strategic focus areas</h3>
+      <ul class="compact-list">
+        <li class="lang-es">Inteligencia Digital</li><li class="lang-en">Digital Intelligence</li>
+        <li class="lang-es"><span class="accent">Energía y Sostenibilidad</span></li><li class="lang-en"><span class="accent">Energy &amp; Sustainability</span></li>
+        <li class="lang-es">Territorios Inteligentes</li><li class="lang-en">Smart Territories</li>
+        <li class="lang-es">Salud y Bioinnovación</li><li class="lang-en">Health &amp; Bioinnovation</li>
+        <li class="lang-es">Industria del Futuro</li><li class="lang-en">Industry of the Future</li>
+      </ul>
+    </div>
+    <div class="glass">
+      <h3 class="lang-es">Espacios de activación</h3>
+      <h3 class="lang-en">Activation spaces</h3>
+      <div class="grid-3" style="margin-top:8px;">
+        <div class="card">i+Lab<small class="lang-es">Ideación</small><small class="lang-en">Ideation</small></div>
+        <div class="card">Maker lab<small class="lang-es">Prototipado</small><small class="lang-en">Prototyping</small></div>
+        <div class="card">Human InsightLab<small class="lang-es">Validación</small><small class="lang-en">Validation</small></div>
+        <div class="card">Pitch &amp; Demo Room<small class="lang-es">Presentación</small><small class="lang-en">Pitching</small></div>
+        <div class="card" style="grid-column: span 2;">Nodo360<small class="lang-es">Conexión con aliados</small><small class="lang-en">Partner linkage</small></div>
+      </div>
+    </div>
+  </div>
+  <p class="source-fn"><a href="https://www.escuelaing.edu.co/es/noticias/la-escuela-abre-convocatoria-al-v-concurso-estrategias-pedagogicas-para-el-emprendimiento/">escuelaing.edu.co/…/estrategias-pedagogicas-emprendimiento (espacios)</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Trayectoria de la Escuela</h2><h2 class="lang-en">Escuela track record</h2></div>
+  <div class="grid-2">
+    <div class="card glass">
+      <h3>HELIX-A</h3>
+      <p class="lang-es">Campus de ciencia, tecnología e innovación: investigación, industria y emprendimiento; incubación, codesarrollo y convocatorias MinCiencias / SGR.</p>
+      <p class="lang-en">Science, technology and innovation campus: research, industry and entrepreneurship; incubation, co-development, and MinCiencias / SGR calls.</p>
+    </div>
+    <div class="card glass">
+      <h3>Ensamble U</h3>
+      <p class="lang-es">Red interuniversitaria con <span class="accent">8 universidades</span> — modelo de negocio, buyer persona y propiedad intelectual para I+D+i.</p>
+      <p class="lang-en">Inter-university network of <span class="accent">8 universities</span> — business model, buyer persona, and IP for R&amp;D+i ventures.</p>
+    </div>
+    <div class="card glass">
+      <h3 class="lang-es">Premio Fabio Chaparro 2024 · MEEP</h3>
+      <h3 class="lang-en">Fabio Chaparro Award 2024 · MEEP</h3>
+      <p class="lang-es">1.º lugar Innovación: optimización de almacenamiento de energía (grupo MEEP, Ingeniería Eléctrica).</p>
+      <p class="lang-en">1st place Innovation: energy storage optimization (MEEP research group, Electrical Engineering).</p>
+    </div>
+    <div class="card glass">
+      <h3>EcoVolt · Enactus 2024</h3>
+      <p class="lang-es">Estación de bus con paneles solares y gadgets para actores viales — <span class="accent">4.º lugar</span> National Expo 2024 (Barranquilla).</p>
+      <p class="lang-en">Solar-powered advanced bus station — <span class="accent">4th place</span> Enactus Colombia National Expo 2024 (Barranquilla).</p>
+    </div>
+  </div>
+  <p class="source-fn"><a href="https://www.escuelaing.edu.co/es/minisitios/helixa-donde-el-conocimiento-se-convierte-en-impacto-real/">HELIX-A</a> · <a href="https://www.escuelaing.edu.co/es/noticias/ensamble-u-el-desafio-de-innovar-para-transformar/">Ensamble U</a> · <a href="https://www.escuelaing.edu.co/es/noticias/la-escuela-colombiana-de-ingenieria-ganadora-del-premio-fabio-chaparro/">Fabio Chaparro</a> · <a href="https://www.escuelaing.edu.co/es/noticias/emprendimiento-de-estudiantes-de-la-escuela-obtiene-cuarto-lugar-en-la-national-expo-2024-de-enactus/">EcoVolt</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Qué aporta CleantechHUB</h2><h2 class="lang-en">What CleantechHUB brings</h2></div>
+  <div class="glass" style="flex:1;">
+    <p class="lead lang-es">Un <span class="accent">track cleantech</span> alineado al núcleo <strong>Energía y Sostenibilidad</strong> de Nova Hub, con <strong>ClimateLaunchpad Colombia</strong> como puerta de entrada al ecosistema verde.</p>
+    <p class="lead lang-en">A <span class="accent">cleantech track</span> aligned with Nova Hub’s <strong>Energy &amp; Sustainability</strong> focus, with <strong>ClimateLaunchpad Colombia</strong> as the entry point to the green ecosystem.</p>
+    <ul class="check" style="margin-top:14px;">
+      <li class="lang-es">National Lead de ClimateLaunchpad en Colombia desde 2019</li>
+      <li class="lang-en">National Lead for ClimateLaunchpad in Colombia since 2019</li>
+      <li class="lang-es">Boot camps, mentoría y ruta hacia final regional y global</li>
+      <li class="lang-en">Boot camps, mentoring, and path to regional and global finals</li>
+      <li class="lang-es">Conexión con emprendimientos climáticos de la región</li>
+      <li class="lang-en">Link to climate ventures across the region</li>
+    </ul>
+  </div>
+  <p class="source-fn"><a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Investor readiness y demo days</h2><h2 class="lang-en">Investor readiness &amp; demo days</h2></div>
+  <div class="glass">
+    <p class="lang-es">CTH puede articular preparación para inversión y espacios de pitch con redes de ángeles — incluido el vínculo con <strong>Epic Angels</strong> en LATAM.</p>
+    <p class="lang-en">CTH can connect investor readiness and pitch formats with angel networks — including the link with <strong>Epic Angels</strong> in LATAM.</p>
+    <p style="margin-top:12px;" class="lang-es">Evento referenciado: <strong>25 de noviembre</strong> <span class="chip">PENDIENTE</span> — sede, formato, cohorte y rol conjunto CTH × Nova Hub sin fuente pública verificada.</p>
+    <p style="margin-top:12px;" class="lang-en">Referenced event: <strong>25 November</strong> <span class="chip">PENDIENTE</span> — venue, format, cohort, and joint CTH × Nova Hub role not publicly verified.</p>
+  </div>
+  <p class="source-fn lang-es">Epic Angels (perfil público): <a href="https://www.linkedin.com/company/epic-angels">linkedin.com/company/epic-angels</a></p>
+  <p class="source-fn lang-en">Epic Angels (public profile): <a href="https://www.linkedin.com/company/epic-angels">linkedin.com/company/epic-angels</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Investigación → spin-out · convocatorias</h2><h2 class="lang-en">Research → spin-out · joint bids</h2></div>
+  <div class="glass" style="flex:1;">
+    <p class="lang-es">Scouting de proyectos con potencial de spin-off / deep tech, alineados a HELIX-A y al núcleo Energía y Sostenibilidad.</p>
+    <p class="lang-en">Scouting projects with spin-out / deep-tech potential, aligned with HELIX-A and the Energy &amp; Sustainability focus.</p>
+    <ul class="check" style="margin-top:12px;">
+      <li class="lang-es">Co-diseño de propuestas <strong>MinCiencias</strong></li>
+      <li class="lang-en">Co-design of <strong>MinCiencias</strong> proposals</li>
+      <li class="lang-es">Rutas <strong>SGR</strong> (Sistema General de Regalías)</li>
+      <li class="lang-en"><strong>SGR</strong> (General Royalties System) pathways</li>
+      <li class="lang-es">Ventana <strong>Atenea</strong> <span class="chip">PENDIENTE</span> — alcance y calendario con Escuela</li>
+      <li class="lang-en"><strong>Atenea</strong> window <span class="chip">PENDIENTE</span> — scope and timeline with Escuela</li>
+    </ul>
+  </div>
+  <p class="source-fn"><a href="https://www.escuelaing.edu.co/es/minisitios/helixa-donde-el-conocimiento-se-convierte-en-impacto-real/">HELIX-A — convocatorias MinCiencias / SGR</a></p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Retos de empresa para los labs</h2><h2 class="lang-en">Company challenges for the labs</h2></div>
+  <div class="glass">
+    <p class="lang-es">Formato de <strong>reto empresarial</strong> en i+Lab / Maker / InsightLab, con datos y entregables accionables.</p>
+    <p class="lang-en"><strong>Corporate challenge</strong> format across i+Lab / Maker / InsightLab, with actionable data deliverables.</p>
+    <p style="margin-top:12px;" class="lang-es">Ejemplo ilustrativo: cooperativas energéticas y sector gas — <strong>Promigas</strong> <span class="chip idea">IDEA</span> <span class="chip">PENDIENTE</span> no confirmado con la Escuela.</p>
+    <p style="margin-top:12px;" class="lang-en">Illustrative example: energy cooperatives and the gas sector — <strong>Promigas</strong> <span class="chip idea">IDEA</span> <span class="chip">PENDIENTE</span> not confirmed with Escuela.</p>
+  </div>
+  <p class="source-fn"><a href="https://www.escuelaing.edu.co/es/noticias/la-escuela-abre-convocatoria-al-v-concurso-estrategias-pedagogicas-para-el-emprendimiento/">Nova Hub espacios — escuelaing.edu.co</a></p>
+</section>
+
+<section class="slide light-panel" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1280&q=80');">
+  <div class="title-block"><h2 class="lang-es">Modelo de referencia · Javeriana Nov 2026</h2><h2 class="lang-en">Reference model · Javeriana Nov 2026</h2></div>
+  <div class="timeline" style="margin-bottom:10px;">
+    <div class="tl-item"><div class="card"><p class="eyebrow">1</p><h3 class="lang-es">Pre (virtual)</h3><h3 class="lang-en">Pre (virtual)</h3><p class="lang-es">6 h · 8 startups</p><p class="lang-en">6 h · 8 startups</p></div></div>
+    <div class="tl-item"><div class="card"><p class="eyebrow">2</p><h3 class="lang-es">Evento presencial</h3><h3 class="lang-en">In-person event</h3><p class="lang-es">8 h · demo day</p><p class="lang-en">8 h · demo day</p></div></div>
+    <div class="tl-item"><div class="card"><p class="eyebrow">3</p><h3 class="lang-es">Post (virtual)</h3><h3 class="lang-en">Post (virtual)</h3><p class="lang-es">2 h · cierre</p><p class="lang-en">2 h · close-out</p></div></div>
+  </div>
+  <div class="grid-2">
+    <div class="card glass">
+      <p class="lang-es"><span class="accent">1 reto</span> empresarial · <span class="accent">8 startups</span></p>
+      <p class="lang-en"><span class="accent">1 company challenge</span> · <span class="accent">8 startups</span></p>
+    </div>
+    <div class="card glass">
+      <p class="lang-es"><strong>Datalab CTH:</strong> flujos de datos, datasets y dashboards</p>
+      <p class="lang-en"><strong>CTH Datalab:</strong> data flows, datasets, and dashboards</p>
+    </div>
+  </div>
+  <p class="source-fn lang-es">Modelo interno CTH (referencia): decks/javeriana-2026-11 — fechas Javeriana <span class="chip">PENDIENTE</span> adaptar a Nova Hub</p>
+  <p class="source-fn lang-en">Internal CTH reference: decks/javeriana-2026-11 — Javeriana dates <span class="chip">PENDIENTE</span> to adapt for Nova Hub</p>
+</section>
+
+<section class="slide" data-bg="cover" style="--bg-img: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1280&q=80');">
+  <div class="logo-row">
+    <img src="assets/cth-logo.png" alt="CleantechHUB">
+    <h1 style="font-size:2rem;">Inspire. Act. Transform.</h1>
+  </div>
+  <div class="glass">
+    <h2 class="lang-es" style="color:var(--white);font-size:1.5rem;">Próximos pasos</h2>
+    <h2 class="lang-en" style="color:var(--white);font-size:1.5rem;">Next steps</h2>
+    <ul class="check">
+      <li class="lang-es">Piloto conjunto <strong>Q1 2027</strong> <span class="chip">PENDIENTE</span> alcance y presupuesto</li>
+      <li class="lang-en">Joint pilot <strong>Q1 2027</strong> <span class="chip">PENDIENTE</span> scope and budget</li>
+      <li class="lang-es">Concepto conjunto de 1–2 páginas para alineación institucional</li>
+      <li class="lang-en">1–2 page joint concept note for institutional alignment</li>
+    </ul>
+    <p style="margin-top:14px;"><a class="cta" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">calendar.app.google/kzEv6jKdT4RxVeVu6</a></p>
+    <p style="margin-top:8px;"><strong>Gideon Blaauw</strong> · CleantechHUB · cleantechhub.net</p>
+  </div>
+  <p class="source-fn"><a href="https://cleantechhub.net/">cleantechhub.net</a></p>
+</section>
+
+</div></div></div></div>
+<p class="nav-hint lang-es">← → o clic · ES | EN arriba a la derecha</p>
+<p class="nav-hint lang-en">← → or click · ES | EN top right</p>
+<script>
+(function () {
+  var html = document.documentElement;
+  var key = 'nova-hub-deck-lang';
+  function setLang(l) {
+    html.lang = l;
+    document.getElementById('btnEs').classList.toggle('active', l === 'es');
+    document.getElementById('btnEn').classList.toggle('active', l === 'en');
+    try { localStorage.setItem(key, l); } catch (e) {}
+  }
+  var saved = 'es';
+  try { saved = localStorage.getItem(key) || 'es'; } catch (e) {}
+  setLang(saved === 'en' ? 'en' : 'es');
+  document.getElementById('btnEs').onclick = function () { setLang('es'); };
+  document.getElementById('btnEn').onclick = function () { setLang('en'); };
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var idx = 0;
+  function show(i) {
+    idx = (i + slides.length) % slides.length;
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+  }
+  function scale() {
+    var frame = document.getElementById('deckFrame');
+    var stage = document.getElementById('deckStage');
+    var w = 1280, h = 720;
+    var s = Math.min(window.innerWidth / w, (window.innerHeight - 40) / h);
+    frame.style.width = (w * s) + 'px';
+    frame.style.height = (h * s) + 'px';
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(idx + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+  });
+  document.getElementById('deckFrame').addEventListener('click', function (e) {
+    if (e.target.closest('.lang-toggle')) return;
+    if (e.clientX > window.innerWidth / 2) show(idx + 1); else show(idx - 1);
+  });
+  window.addEventListener('resize', scale);
+  var slideParam = /[?&]slide=(\d+)/.exec(location.search);
+  if (slideParam) show(parseInt(slideParam[1], 10) - 1);
+  else show(0);
+  scale();
+})();
+</script>
+</body>
+</html>
