@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Hero photo credit: Kindel Media / Pexels (licence-free, EV charging station) -->
+<!-- Hero photo: Kindel Media / Pexels (EV charging). Model: fauxels / Pexels 3184292. Cooperation: RDNE / Pexels 7688336. Numbers: Pixabay via Pexels 414535. Call: Pixabay via Pexels 356036. -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -16,6 +16,7 @@
   --fg: #669348;
   --sky: #69B5FA;
   --white: #ffffff;
+  --ink: #083562;
   --title: 'Titillium Web', 'Open Sans', sans-serif;
   --body: 'Open Sans', sans-serif;
   --panel-min: 100vh;
@@ -33,8 +34,26 @@ body {
 html[lang="en"] .lang-es { display: none !important; }
 html[lang="en"] .lang-en { display: revert; }
 
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 150;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px clamp(1rem, 4vw, 2.5rem);
+  pointer-events: none;
+}
+.site-header a.brand {
+  pointer-events: auto; display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--white);
+}
+.site-header img.logo-mark {
+  width: 44px; height: 44px; object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+}
+.site-header .brand-text {
+  font-family: var(--title); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.14em;
+}
+
 .lang-toggle {
-  position: fixed; top: 16px; right: 20px; z-index: 200;
+  pointer-events: auto;
   display: flex; gap: 4px;
   background: rgba(12,73,138,0.92); border: 1px solid rgba(178,238,250,0.35);
   border-radius: 10px; padding: 4px;
@@ -49,7 +68,7 @@ html[lang="en"] .lang-en { display: revert; }
 .panel {
   position: relative; min-height: var(--panel-min);
   display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  padding: clamp(4.5rem, 10vw, 7rem) clamp(1.5rem, 6vw, 5rem);
   overflow: hidden;
 }
 .panel::before {
@@ -60,17 +79,35 @@ html[lang="en"] .lang-en { display: revert; }
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(165deg, rgba(5,26,51,0.55) 0%, rgba(5,26,51,0.78) 50%, rgba(5,26,51,0.92) 100%);
 }
-.panel.plain::before, .panel.plain::after { display: none; }
-.panel.plain { background: var(--deep); }
-.panel.band::after { background: rgba(5,26,51,0.15); }
-.panel.band::before { display: none; }
-.panel.band { background: linear-gradient(135deg, #0C498A 0%, #083562 55%, #051a33 100%); }
+.panel.dark::before { display: block; }
+.panel.dark::after { display: block; }
+.panel.light::before, .panel.light::after { display: none; }
+.panel.light {
+  background: var(--white); color: var(--ink);
+}
+.panel.light h2 { color: var(--ink); }
+.panel.light .eyebrow { color: var(--fg); }
+.panel.close-band::before, .panel.close-band::after { display: none; }
+.panel.close-band {
+  background: linear-gradient(160deg, var(--sky) 0%, var(--deep) 100%);
+  color: var(--white); text-align: center;
+}
 .panel[data-bg="hero"]::before { background-image: url('img/hero-ev.jpg'); }
-.panel[data-bg="infra"]::before { background-image: url('img/nexus-portfolio.jpg'); opacity: 0.35; }
+.panel[data-bg="model"]::before { background-image: url('img/model-bg.jpg'); }
+.panel[data-bg="coop"]::before { background-image: url('img/coop-bg.jpg'); }
+.panel[data-bg="numbers"]::before { background-image: url('img/numbers-bg.jpg'); }
+.panel[data-bg="call"]::before { background-image: url('img/call-bg.jpg'); }
+
 .panel > .inner { position: relative; z-index: 2; max-width: 72rem; margin: 0 auto; width: 100%; }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
+.eyebrow {
+  font-family: var(--title); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem;
+}
+.panel.light .eyebrow { color: var(--fg); }
 
 h1 {
   font-family: var(--title); font-weight: 700;
@@ -79,11 +116,17 @@ h1 {
 }
 h2 {
   font-family: var(--title); font-weight: 700;
-  font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.12; color: var(--cyan);
+  font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.12;
   margin-bottom: 1rem;
 }
+.panel.dark h2 { color: var(--cyan); }
 .lead { font-size: clamp(1.05rem, 2vw, 1.35rem); max-width: 42rem; opacity: 0.95; }
-.sub { font-size: clamp(1rem, 1.8vw, 1.2rem); max-width: 44rem; margin-top: 1rem; opacity: 0.92; }
+.sub { font-size: clamp(1rem, 1.8vw, 1.2rem); max-width: 44rem; margin-top: 0.75rem; opacity: 0.92; }
+
+.accent-bar {
+  width: 4rem; height: 5px; background: var(--fg); border-radius: 3px; margin: 1rem 0 1.5rem;
+}
+.panel.light .accent-bar { background: var(--fg); }
 
 .glass {
   background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
@@ -100,99 +143,174 @@ h2 {
   background: rgba(12,73,138,0.65); border: 1px solid rgba(178,238,250,0.35);
 }
 
+.pillar-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .pillar-grid { grid-template-columns: 1fr; } }
+.pillar {
+  border-left: 5px solid var(--cyan);
+  padding: 1.1rem 1.25rem;
+  background: rgba(255,255,255,0.09); border-radius: 0 12px 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.12); border-right: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.98rem; line-height: 1.45;
+}
+
 .tile-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 @media (max-width: 900px) { .tile-grid { grid-template-columns: 1fr; } }
 
 .tile {
-  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.16);
-  backdrop-filter: blur(12px); border-radius: 14px; overflow: hidden;
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12);
+  border-radius: 14px; overflow: hidden;
   display: flex; flex-direction: column; min-height: 100%;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 28px rgba(8,53,98,0.08);
 }
 .tile img {
   width: 100%; height: 160px; object-fit: cover; object-position: top;
-  border-bottom: 1px solid rgba(178,238,250,0.2);
+  border-bottom: 1px solid rgba(12,73,138,0.1);
 }
-.tile .tile-body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; }
+.tile .tile-body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; border-left: 5px solid var(--fg); margin-left: 0; }
 .tile h3 {
-  font-family: var(--title); font-size: 1rem; color: var(--cyan); margin-bottom: 0.5rem;
+  font-family: var(--title); font-size: 1rem; color: var(--deep); margin-bottom: 0.5rem;
 }
-.tile p { font-size: 0.92rem; line-height: 1.45; }
+.tile p { font-size: 0.92rem; line-height: 1.45; color: var(--ink); }
+
+.uni-row {
+  margin-top: 0.75rem; font-size: 0.72rem; line-height: 1.5; opacity: 0.85;
+  color: var(--ink); letter-spacing: 0.01em;
+}
+
+#map-panel { min-height: 0; padding: 0; display: none; }
+
+.coop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.25rem);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .coop-grid { grid-template-columns: 1fr; } }
+
+.coop-card {
+  text-align: left; cursor: pointer;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px); border-radius: 14px; padding: 1.25rem 1.35rem;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.coop-card:hover, .coop-card:focus-visible { border-color: var(--cyan); transform: translateY(-2px); outline: none; }
+.coop-card .org { font-family: var(--title); font-weight: 700; color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.5rem; }
+.coop-card .teaser-line { font-size: 0.95rem; line-height: 1.4; }
+.coop-card .more { font-size: 0.8rem; opacity: 0.75; margin-top: 0.65rem; }
+.coop-card[aria-expanded="true"] { background: rgba(255,255,255,0.16); border-color: var(--cyan); }
+.coop-detail {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.35s ease, margin 0.35s ease;
+  font-size: 0.9rem; line-height: 1.45;
+}
+.coop-card[aria-expanded="true"] .coop-detail {
+  max-height: 12rem; opacity: 1; margin-top: 0.85rem;
+}
+.coop-close {
+  display: none; margin-top: 0.75rem;
+  font-family: var(--body); font-size: 0.78rem; font-weight: 700;
+  background: transparent; border: 1px solid rgba(178,238,250,0.45); color: var(--cyan);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+}
+.coop-card[aria-expanded="true"] .coop-close { display: inline-block; }
 
 .team-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
   margin-top: 2rem;
 }
 @media (max-width: 800px) { .team-grid { grid-template-columns: 1fr; } }
-
 .team-card {
   text-align: center; padding: clamp(1rem, 2vw, 1.5rem);
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(178,238,250,0.22);
-  backdrop-filter: blur(12px); border-radius: 14px;
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12); border-radius: 14px;
 }
 .team-card img {
   width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px;
-  margin-bottom: 1rem; border: 2px solid var(--cyan);
+  margin-bottom: 1rem; border: 2px solid var(--sky);
 }
-.team-card .name {
-  font-family: var(--title); font-size: 1.15rem; color: var(--cyan); margin-bottom: 0.35rem;
-}
-.team-card .role { font-size: 0.95rem; opacity: 0.92; }
+.team-card .name { font-family: var(--title); font-size: 1.15rem; color: var(--deep); margin-bottom: 0.35rem; }
+.team-card .role { font-size: 0.95rem; color: var(--ink); opacity: 0.9; }
 
-.stats {
-  margin-top: 1.5rem;
-  font-family: var(--title); font-size: clamp(1.15rem, 2.5vw, 1.65rem); font-weight: 600;
-  line-height: 1.6; color: var(--white);
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-top: 2rem;
 }
-.stats .accent { color: var(--cyan); }
+@media (max-width: 1000px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .stat-grid { grid-template-columns: 1fr; } }
+.stat-tile {
+  border-radius: 12px; padding: clamp(1.25rem, 2.5vw, 2rem);
+  text-align: center; min-height: 140px; display: flex; flex-direction: column; justify-content: center;
+}
+.stat-tile:nth-child(1) { background: var(--deep); }
+.stat-tile:nth-child(2) { background: var(--fg); }
+.stat-tile:nth-child(3) { background: var(--sky); color: var(--ink); }
+.stat-tile:nth-child(4) { background: var(--lg); color: var(--ink); }
+.stat-tile .num {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1; margin-bottom: 0.5rem;
+}
+.stat-tile .label { font-size: clamp(0.78rem, 1.4vw, 0.92rem); line-height: 1.35; font-weight: 600; }
 
 .btn {
   display: inline-block; margin-top: 2rem;
   font-family: var(--title); font-weight: 700; font-size: 1rem;
   padding: 0.9rem 1.75rem; border-radius: 10px;
-  background: var(--cyan); color: var(--deep); text-decoration: none;
-  border: 2px solid var(--cyan);
+  background: var(--lg); color: var(--ink); text-decoration: none;
+  border: 2px solid var(--lg);
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
-.btn:hover { background: transparent; color: var(--cyan); transform: translateY(-2px); }
+.btn:hover { background: transparent; color: var(--lg); transform: translateY(-2px); }
 
-.close-panel { text-align: center; }
-.close-panel img.globe { width: clamp(120px, 18vw, 180px); height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35)); }
+.close-panel img.globe {
+  width: clamp(100px, 16vw, 160px); height: auto; margin-bottom: 1.5rem;
+  filter: brightness(0) invert(1) drop-shadow(0 8px 24px rgba(0,0,0,0.25));
+}
 .close-panel .tagline {
   font-family: var(--title); font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700;
-  color: var(--cyan); margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .close-panel a.site {
   font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: 0.02em;
-  border-bottom: 2px solid var(--sky);
+  border-bottom: 2px solid rgba(255,255,255,0.6);
 }
-.close-panel a.site:hover { color: var(--cyan); }
+.close-panel a.site:hover { opacity: 0.85; }
 
-body[data-preview] .lang-toggle { display: none; }
+body[data-preview] .site-header .lang-toggle { display: none; }
 body[data-preview] { overflow: hidden; }
-body[data-preview] .panel { display: none; min-height: 900px; padding: 4rem 5rem; }
+body[data-preview] .panel { display: none; min-height: 900px; padding: 4.5rem 5rem; }
 body[data-preview="1"] .panel[data-panel="1"],
 body[data-preview="2"] .panel[data-panel="2"],
 body[data-preview="3"] .panel[data-panel="3"],
 body[data-preview="4"] .panel[data-panel="4"],
 body[data-preview="5"] .panel[data-panel="5"],
 body[data-preview="6"] .panel[data-panel="6"],
-body[data-preview="7"] .panel[data-panel="7"] { display: flex; }
+body[data-preview="7"] .panel[data-panel="7"],
+body[data-preview="8"] .panel[data-panel="8"] { display: flex; }
+body[data-preview="coop-open"] .panel[data-panel="4"] { display: flex; }
 body[data-preview] .reveal { opacity: 1; transform: none; }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] { background: rgba(255,255,255,0.16); border-color: var(--cyan); }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] .coop-detail { max-height: 12rem; opacity: 1; margin-top: 0.85rem; }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] .coop-close { display: inline-block; }
 </style>
 </head>
 <body>
-<div class="lang-toggle" aria-label="Idioma">
-  <button type="button" id="btnEs" class="active">ES</button>
-  <button type="button" id="btnEn">EN</button>
-</div>
+<header class="site-header">
+  <a class="brand" href="https://cleantechhub.net/">
+    <img class="logo-mark" src="img/cth-globe-logo.svg" alt="CleantechHUB">
+    <span class="brand-text">CLEANTECHHUB</span>
+  </a>
+  <div class="lang-toggle" aria-label="Idioma">
+    <button type="button" id="btnEs" class="active">ES</button>
+    <button type="button" id="btnEn">EN</button>
+  </div>
+</header>
 
-<section class="panel" data-panel="1" data-bg="hero" id="p1">
+<section class="panel dark" data-panel="1" data-bg="hero" id="p1">
   <div class="inner">
-    <div class="reveal">
+    <div class="reveal glass" style="max-width: 46rem;">
       <h1 class="lang-es">De piloto a infraestructura nacional.</h1>
       <h1 class="lang-en">From pilot to national infrastructure.</h1>
       <p class="lead lang-es">MubOn empezó como una startup de carga para vehículos eléctricos. Con el apoyo de CleantechHUB y financiación P4G administrada por WRI, hoy es uno de los operadores de carga pública en Colombia.</p>
@@ -203,20 +321,31 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section class="panel band" data-panel="2" id="p2">
+<section class="panel dark" data-panel="2" data-bg="model" id="p2">
   <div class="inner reveal">
-    <h2 class="lang-es">Financiación combinada y filantropía de riesgo, atadas a resultados climáticos reales, no conceptuales.</h2>
-    <h2 class="lang-en">Blended finance and venture philanthropy, tied to real climate results, not concepts.</h2>
+    <p class="eyebrow lang-es">Nuestro modelo</p>
+    <p class="eyebrow lang-en">Our model</p>
+    <div class="glass">
+      <h2 class="lang-es" style="color: var(--white);">Financiación combinada y filantropía de riesgo, atadas a resultados climáticos reales.</h2>
+      <h2 class="lang-en" style="color: var(--white);">Blended finance and venture philanthropy, tied to real climate results.</h2>
+      <div class="accent-bar" style="background: var(--lg);"></div>
+      <div class="pillar-grid">
+        <div class="pillar"><span class="lang-es">Financiación combinada · de subvención a inversión</span><span class="lang-en">Blended finance · grant → investment</span></div>
+        <div class="pillar"><span class="lang-es">Filantropía de riesgo · apoyo que escala</span><span class="lang-en">Venture philanthropy · support that scales</span></div>
+        <div class="pillar"><span class="lang-es">Resultados medidos · no conceptos</span><span class="lang-en">Measured results · not concepts</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="panel" data-panel="3" data-bg="infra" id="p3">
+<section class="panel light" data-panel="3" id="p3">
   <div class="inner">
     <div class="reveal">
+      <p class="eyebrow lang-es">Cómo entregamos</p>
+      <p class="eyebrow lang-en">How we deliver</p>
       <h2 class="lang-es">La infraestructura que convierte compromisos en resultados.</h2>
       <h2 class="lang-en">The infrastructure that turns commitments into results.</h2>
-      <p class="sub lang-es">Operamos plataformas propias que ya están en uso: la base para ejecutar programas, no un catálogo.</p>
-      <p class="sub lang-en">Platforms we already run, the backbone of delivery, not a catalogue.</p>
+      <div class="accent-bar"></div>
       <div class="tile-grid">
         <article class="tile">
           <img src="img/nexus-portfolio.jpg" alt="">
@@ -230,8 +359,9 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
           <img src="img/academy.png" alt="">
           <div class="tile-body">
             <h3>CleantechHUB Academy</h3>
-            <p class="lang-es">Plataforma de formación propia con programas, cursos y MOOCs desarrollados junto a universidades de América Latina. 300+ personas certificadas.</p>
-            <p class="lang-en">Our own learning platform: programmes, courses and MOOCs built with universities across Latin America. 300+ people certified.</p>
+            <p class="lang-es">CleantechHUB Academy. Plataforma de formación propia con programas, cursos y MOOCs desarrollados junto a universidades de la región: Universidad Externado de Colombia, Universidad del Pacífico (Perú), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica) y Universidad Tecnológica de El Salvador (UTEC). 300+ personas certificadas.</p>
+            <p class="lang-en">CleantechHUB Academy. Our own learning platform: programmes, courses and MOOCs built with universities across the region: Universidad Externado de Colombia, Universidad del Pacífico (Peru), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica) and Universidad Tecnológica de El Salvador (UTEC). 300+ people certified.</p>
+            <p class="uni-row">Universidad Externado de Colombia · Universidad del Pacífico · Universidad Rafael Landívar · Universidad LCI Veritas · UTEC</p>
           </div>
         </article>
         <article class="tile">
@@ -247,10 +377,65 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section class="panel plain" data-panel="4" id="p4">
+<section id="map-panel" aria-hidden="true"></section>
+
+<section class="panel dark" data-panel="4" data-bg="coop" id="p4">
   <div class="inner reveal">
+    <h2 class="lang-es">Cooperación internacional</h2>
+    <h2 class="lang-en">International cooperation</h2>
+    <p class="sub lang-es">Proyectos ejecutados junto a organizaciones internacionales.</p>
+    <p class="sub lang-en">Projects delivered with international organisations.</p>
+    <div class="coop-grid" id="coopGrid">
+      <div class="coop-card" data-coop="giz" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">GIZ</p>
+        <p class="teaser-line lang-es">Climathons en Perú, octubre de 2024</p>
+        <p class="teaser-line lang-en">Climathons in Peru, October 2024</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Climathons en Callao, Trujillo y San Martín (Perú), octubre de 2024, organizados por CleantechHUB Perú con GIZ.</p>
+          <p class="lang-en">Climathons in Callao, Trujillo and San Martín, Peru, October 2024, organised by CleantechHUB Peru with GIZ.</p>
+        </div>
+        <button type="button" class="coop-close lang-es" aria-label="Cerrar">Cerrar</button>
+        <button type="button" class="coop-close lang-en" aria-label="Close">Close</button>
+      </div>
+      <div class="coop-card" data-coop="wri" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">WRI · P4G</p>
+        <p class="teaser-line lang-es">Carga eléctrica con MubOn</p>
+        <p class="teaser-line lang-en">EV charging with MubOn</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Subvención P4G administrada por WRI para escalar la infraestructura de carga de vehículos eléctricos con MubOn. [USD 339.000, 2024]</p>
+          <p class="lang-en">P4G grant administered by WRI to scale EV-charging infrastructure with MubOn. [USD 339,000, 2024]</p>
+        </div>
+        <button type="button" class="coop-close lang-es" aria-label="Cerrar">Cerrar</button>
+        <button type="button" class="coop-close lang-en" aria-label="Close">Close</button>
+      </div>
+      <div class="coop-card" data-coop="undp" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">UNDP · AFCIA</p>
+        <p class="teaser-line lang-es">Innovación para la adaptación</p>
+        <p class="teaser-line lang-en">Adaptation innovation</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Adaptation Fund Climate Innovation Accelerator (UNDP): programa de innovación en adaptación. Subvención de USD 60.000. Presentado en Adaptation Futures 2023, Montreal. [USD 110.000: programa por confirmar]</p>
+          <p class="lang-en">Adaptation Fund Climate Innovation Accelerator (UNDP): adaptation innovation programme. USD 60,000 grant. Presented at Adaptation Futures 2023, Montreal. [USD 110,000: programme to be confirmed]</p>
+        </div>
+        <button type="button" class="coop-close lang-es" aria-label="Cerrar">Cerrar</button>
+        <button type="button" class="coop-close lang-en" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel light" data-panel="5" id="p5">
+  <div class="inner reveal">
+    <p class="eyebrow lang-es">Equipo</p>
+    <p class="eyebrow lang-en">Team</p>
     <h2 class="lang-es">Las personas detrás de los resultados.</h2>
     <h2 class="lang-en">The people behind the results.</h2>
+    <div class="accent-bar"></div>
     <div class="team-grid">
       <div class="team-card">
         <img src="img/team-gideon.jpg" alt="Gideon Blaauw">
@@ -274,18 +459,42 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section class="panel band" data-panel="5" id="p5">
+<section class="panel dark" data-panel="6" data-bg="numbers" id="p6">
   <div class="inner reveal">
-    <h2 class="lang-es">Desde 2019</h2>
-    <h2 class="lang-en">Since 2019</h2>
-    <p class="stats lang-es"><span class="accent">8</span> países · <span class="accent">1.000+</span> soluciones climáticas apoyadas · <span class="accent">USD 50M+</span> en capital movilizado · <span class="accent">5+ Mt</span> CO2 evitadas</p>
-    <p class="stats lang-en"><span class="accent">8</span> countries · <span class="accent">1.000+</span> climate solutions supported · <span class="accent">USD 50M+</span> capital leveraged · <span class="accent">5+ Mt</span> CO2 saved</p>
+    <div class="glass">
+      <p class="eyebrow lang-es">Desde 2019</p>
+      <p class="eyebrow lang-en">Since 2019</p>
+      <h2 class="lang-es" style="color: var(--white);">Comprobado a escala.</h2>
+      <h2 class="lang-en" style="color: var(--white);">Proven at scale.</h2>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <p class="num">8</p>
+          <p class="label lang-es">países</p>
+          <p class="label lang-en">countries</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">1.000+</p>
+          <p class="label lang-es">soluciones climáticas apoyadas</p>
+          <p class="label lang-en">climate solutions supported</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">USD 50M+</p>
+          <p class="label lang-es">capital movilizado</p>
+          <p class="label lang-en">capital leveraged</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">5+ Mt</p>
+          <p class="label lang-es">CO2 evitadas</p>
+          <p class="label lang-en">CO2 saved</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="panel plain" data-panel="6" id="p6">
-  <div class="inner reveal">
-    <div class="glass" style="max-width: 40rem;">
+<section class="panel dark" data-panel="7" data-bg="call" id="p7">
+  <div class="inner reveal" style="text-align: center;">
+    <div class="glass" style="max-width: 44rem; margin: 0 auto;">
       <p class="lead lang-es">Si su fundación busca que cada peso genere impacto climático medible, conversemos.</p>
       <p class="lead lang-en">If your foundation wants every peso to deliver measurable climate impact, let's talk.</p>
       <a class="btn lang-es" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">Agendar una conversación</a>
@@ -294,7 +503,7 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
   </div>
 </section>
 
-<section class="panel band close-panel" data-panel="7" id="p7">
+<section class="panel close-band close-panel" data-panel="8" id="p8">
   <div class="inner reveal">
     <img class="globe" src="img/cth-globe-logo.svg" alt="CleantechHUB">
     <p class="tagline">Inspire. Act. Transform.</p>
@@ -306,10 +515,17 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
 (function () {
   var params = new URLSearchParams(window.location.search);
   var preview = params.get('preview');
-  if (preview && /^[1-7]$/.test(preview)) {
+  if (preview === 'coop-open') {
+    document.body.setAttribute('data-preview', 'coop-open');
+    var giz = document.querySelector('.coop-card[data-coop="giz"]');
+    if (giz) giz.setAttribute('aria-expanded', 'true');
+    return;
+  }
+  if (preview && /^[1-8]$/.test(preview)) {
     document.body.setAttribute('data-preview', preview);
     return;
   }
+
   document.getElementById('btnEs').addEventListener('click', function () {
     document.documentElement.lang = 'es';
     document.getElementById('btnEs').classList.add('active');
@@ -320,9 +536,42 @@ body[data-preview] .reveal { opacity: 1; transform: none; }
     document.getElementById('btnEn').classList.add('active');
     document.getElementById('btnEs').classList.remove('active');
   });
+
+  function collapseAll(except) {
+    document.querySelectorAll('.coop-card').forEach(function (card) {
+      if (card !== except) card.setAttribute('aria-expanded', 'false');
+    });
+  }
+  function toggleCard(card) {
+    var open = card.getAttribute('aria-expanded') === 'true';
+    collapseAll(null);
+    card.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+  document.querySelectorAll('.coop-card').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.coop-close')) return;
+      toggleCard(card);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
+      }
+    });
+    card.querySelectorAll('.coop-close').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        card.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') collapseAll(null);
+  });
+
   var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) e.target.classList.add('visible');
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
