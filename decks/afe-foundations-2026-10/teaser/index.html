@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- Hero photo credit: Kindel Media / Pexels (licence-free, EV charging station) -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleantechHUB — De piloto a infraestructura nacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --lg: #9DC384;
+  --fg: #669348;
+  --sky: #69B5FA;
+  --white: #ffffff;
+  --title: 'Titillium Web', 'Open Sans', sans-serif;
+  --body: 'Open Sans', sans-serif;
+  --panel-min: 100vh;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: #051a33;
+  color: var(--white);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+.lang-en { display: none; }
+html[lang="en"] .lang-es { display: none !important; }
+html[lang="en"] .lang-en { display: revert; }
+
+.lang-toggle {
+  position: fixed; top: 16px; right: 20px; z-index: 200;
+  display: flex; gap: 4px;
+  background: rgba(12,73,138,0.92); border: 1px solid rgba(178,238,250,0.35);
+  border-radius: 10px; padding: 4px;
+  backdrop-filter: blur(10px);
+}
+.lang-toggle button {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  border: none; background: transparent; color: var(--cyan); padding: 8px 12px; border-radius: 8px; cursor: pointer;
+}
+.lang-toggle button.active { background: var(--cyan); color: var(--deep); }
+
+.panel {
+  position: relative; min-height: var(--panel-min);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  overflow: hidden;
+}
+.panel::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.panel::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(165deg, rgba(5,26,51,0.55) 0%, rgba(5,26,51,0.78) 50%, rgba(5,26,51,0.92) 100%);
+}
+.panel.plain::before, .panel.plain::after { display: none; }
+.panel.plain { background: var(--deep); }
+.panel.band::after { background: rgba(5,26,51,0.15); }
+.panel.band::before { display: none; }
+.panel.band { background: linear-gradient(135deg, #0C498A 0%, #083562 55%, #051a33 100%); }
+.panel[data-bg="hero"]::before { background-image: url('img/hero-ev.jpg'); }
+.panel[data-bg="infra"]::before { background-image: url('img/nexus-portfolio.jpg'); opacity: 0.35; }
+.panel > .inner { position: relative; z-index: 2; max-width: 72rem; margin: 0 auto; width: 100%; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+h1 {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(2.2rem, 5.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+h2 {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.12; color: var(--cyan);
+  margin-bottom: 1rem;
+}
+.lead { font-size: clamp(1.05rem, 2vw, 1.35rem); max-width: 42rem; opacity: 0.95; }
+.sub { font-size: clamp(1rem, 1.8vw, 1.2rem); max-width: 44rem; margin-top: 1rem; opacity: 0.92; }
+
+.glass {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px; padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+}
+
+.proof-strip {
+  margin-top: 2rem; display: inline-block;
+  font-family: var(--title); font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 600;
+  letter-spacing: 0.04em; color: var(--cyan);
+  padding: 0.65rem 1.25rem; border-radius: 999px;
+  background: rgba(12,73,138,0.65); border: 1px solid rgba(178,238,250,0.35);
+}
+
+.tile-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2.5rem;
+}
+@media (max-width: 900px) { .tile-grid { grid-template-columns: 1fr; } }
+
+.tile {
+  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(12px); border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column; min-height: 100%;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.tile img {
+  width: 100%; height: 160px; object-fit: cover; object-position: top;
+  border-bottom: 1px solid rgba(178,238,250,0.2);
+}
+.tile .tile-body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; }
+.tile h3 {
+  font-family: var(--title); font-size: 1rem; color: var(--cyan); margin-bottom: 0.5rem;
+}
+.tile p { font-size: 0.92rem; line-height: 1.45; }
+
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+@media (max-width: 800px) { .team-grid { grid-template-columns: 1fr; } }
+
+.team-card {
+  text-align: center; padding: clamp(1rem, 2vw, 1.5rem);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(178,238,250,0.22);
+  backdrop-filter: blur(12px); border-radius: 14px;
+}
+.team-card img {
+  width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px;
+  margin-bottom: 1rem; border: 2px solid var(--cyan);
+}
+.team-card .name {
+  font-family: var(--title); font-size: 1.15rem; color: var(--cyan); margin-bottom: 0.35rem;
+}
+.team-card .role { font-size: 0.95rem; opacity: 0.92; }
+
+.stats {
+  margin-top: 1.5rem;
+  font-family: var(--title); font-size: clamp(1.15rem, 2.5vw, 1.65rem); font-weight: 600;
+  line-height: 1.6; color: var(--white);
+}
+.stats .accent { color: var(--cyan); }
+
+.btn {
+  display: inline-block; margin-top: 2rem;
+  font-family: var(--title); font-weight: 700; font-size: 1rem;
+  padding: 0.9rem 1.75rem; border-radius: 10px;
+  background: var(--cyan); color: var(--deep); text-decoration: none;
+  border: 2px solid var(--cyan);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:hover { background: transparent; color: var(--cyan); transform: translateY(-2px); }
+
+.close-panel { text-align: center; }
+.close-panel img.globe { width: clamp(120px, 18vw, 180px); height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35)); }
+.close-panel .tagline {
+  font-family: var(--title); font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700;
+  color: var(--cyan); margin-bottom: 0.75rem;
+}
+.close-panel a.site {
+  font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--sky);
+}
+.close-panel a.site:hover { color: var(--cyan); }
+
+body[data-preview] .lang-toggle { display: none; }
+body[data-preview] { overflow: hidden; }
+body[data-preview] .panel { display: none; min-height: 900px; padding: 4rem 5rem; }
+body[data-preview="1"] .panel[data-panel="1"],
+body[data-preview="2"] .panel[data-panel="2"],
+body[data-preview="3"] .panel[data-panel="3"],
+body[data-preview="4"] .panel[data-panel="4"],
+body[data-preview="5"] .panel[data-panel="5"],
+body[data-preview="6"] .panel[data-panel="6"],
+body[data-preview="7"] .panel[data-panel="7"] { display: flex; }
+body[data-preview] .reveal { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<div class="lang-toggle" aria-label="Idioma">
+  <button type="button" id="btnEs" class="active">ES</button>
+  <button type="button" id="btnEn">EN</button>
+</div>
+
+<section class="panel" data-panel="1" data-bg="hero" id="p1">
+  <div class="inner">
+    <div class="reveal">
+      <h1 class="lang-es">De piloto a infraestructura nacional.</h1>
+      <h1 class="lang-en">From pilot to national infrastructure.</h1>
+      <p class="lead lang-es">MubOn empezó como una startup de carga para vehículos eléctricos. Con el apoyo de CleantechHUB y financiación P4G administrada por WRI, hoy es uno de los operadores de carga pública en Colombia.</p>
+      <p class="lead lang-en">MubOn started as an EV-charging startup. With CleantechHUB's support and P4G funding administered by WRI, it is now one of the operators of public charging in Colombia.</p>
+      <p class="proof-strip lang-es">65 ubicaciones · 99 puntos · a 8 de octubre de 2026</p>
+      <p class="proof-strip lang-en">65 locations · 99 sites · as of 8 Oct 2026</p>
+    </div>
+  </div>
+</section>
+
+<section class="panel band" data-panel="2" id="p2">
+  <div class="inner reveal">
+    <h2 class="lang-es">Financiación combinada y filantropía de riesgo, atadas a resultados climáticos reales, no conceptuales.</h2>
+    <h2 class="lang-en">Blended finance and venture philanthropy, tied to real climate results, not concepts.</h2>
+  </div>
+</section>
+
+<section class="panel" data-panel="3" data-bg="infra" id="p3">
+  <div class="inner">
+    <div class="reveal">
+      <h2 class="lang-es">La infraestructura que convierte compromisos en resultados.</h2>
+      <h2 class="lang-en">The infrastructure that turns commitments into results.</h2>
+      <p class="sub lang-es">Operamos plataformas propias que ya están en uso: la base para ejecutar programas, no un catálogo.</p>
+      <p class="sub lang-en">Platforms we already run, the backbone of delivery, not a catalogue.</p>
+      <div class="tile-grid">
+        <article class="tile">
+          <img src="img/nexus-portfolio.jpg" alt="">
+          <div class="tile-body">
+            <h3>Nexus</h3>
+            <p class="lang-es">Plataforma de portafolio con 157 perfiles de startups climáticas, cada una con su trayectoria e impacto.</p>
+            <p class="lang-en">Portfolio platform with 157 climate-startup profiles, each with its track record and impact.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img src="img/academy.png" alt="">
+          <div class="tile-body">
+            <h3>CleantechHUB Academy</h3>
+            <p class="lang-es">Plataforma de formación propia con programas, cursos y MOOCs desarrollados junto a universidades de América Latina. 300+ personas certificadas.</p>
+            <p class="lang-en">Our own learning platform: programmes, courses and MOOCs built with universities across Latin America. 300+ people certified.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img src="img/datalab-site.jpg" alt="">
+          <div class="tile-body">
+            <h3>Datalab</h3>
+            <p class="lang-es">Inteligencia climática y productos de datos que hacen medible cada resultado.</p>
+            <p class="lang-en">Climate intelligence and data products that make every result measurable.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel plain" data-panel="4" id="p4">
+  <div class="inner reveal">
+    <h2 class="lang-es">Las personas detrás de los resultados.</h2>
+    <h2 class="lang-en">The people behind the results.</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="img/team-gideon.jpg" alt="Gideon Blaauw">
+        <p class="name">Gideon Blaauw</p>
+        <p class="role lang-es">Regional Lead</p>
+        <p class="role lang-en">Regional Lead</p>
+      </div>
+      <div class="team-card">
+        <img src="img/team-jenn.jpg" alt="Jennifer Gonzalez">
+        <p class="name">Jennifer Gonzalez</p>
+        <p class="role lang-es">Growth Lead</p>
+        <p class="role lang-en">Growth Lead</p>
+      </div>
+      <div class="team-card">
+        <img src="img/team-angie.jpg" alt="Angélica Díaz">
+        <p class="name">Angélica Díaz</p>
+        <p class="role lang-es">Operaciones y plataforma</p>
+        <p class="role lang-en">Operations and platform</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel band" data-panel="5" id="p5">
+  <div class="inner reveal">
+    <h2 class="lang-es">Desde 2019</h2>
+    <h2 class="lang-en">Since 2019</h2>
+    <p class="stats lang-es"><span class="accent">8</span> países · <span class="accent">1.000+</span> soluciones climáticas apoyadas · <span class="accent">USD 50M+</span> en capital movilizado · <span class="accent">5+ Mt</span> CO2 evitadas</p>
+    <p class="stats lang-en"><span class="accent">8</span> countries · <span class="accent">1.000+</span> climate solutions supported · <span class="accent">USD 50M+</span> capital leveraged · <span class="accent">5+ Mt</span> CO2 saved</p>
+  </div>
+</section>
+
+<section class="panel plain" data-panel="6" id="p6">
+  <div class="inner reveal">
+    <div class="glass" style="max-width: 40rem;">
+      <p class="lead lang-es">Si su fundación busca que cada peso genere impacto climático medible, conversemos.</p>
+      <p class="lead lang-en">If your foundation wants every peso to deliver measurable climate impact, let's talk.</p>
+      <a class="btn lang-es" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">Agendar una conversación</a>
+      <a class="btn lang-en" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">Book a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel band close-panel" data-panel="7" id="p7">
+  <div class="inner reveal">
+    <img class="globe" src="img/cth-globe-logo.svg" alt="CleantechHUB">
+    <p class="tagline">Inspire. Act. Transform.</p>
+    <a class="site" href="https://cleantechhub.net/">cleantechhub.net</a>
+  </div>
+</section>
+
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var preview = params.get('preview');
+  if (preview && /^[1-7]$/.test(preview)) {
+    document.body.setAttribute('data-preview', preview);
+    return;
+  }
+  document.getElementById('btnEs').addEventListener('click', function () {
+    document.documentElement.lang = 'es';
+    document.getElementById('btnEs').classList.add('active');
+    document.getElementById('btnEn').classList.remove('active');
+  });
+  document.getElementById('btnEn').addEventListener('click', function () {
+    document.documentElement.lang = 'en';
+    document.getElementById('btnEn').classList.add('active');
+    document.getElementById('btnEs').classList.remove('active');
+  });
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+})();
+</script>
+</body>
+</html>
