@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>BankPro de Atenea — CleantechHUB</title>
+  <!--
+    Atenea logo: https://agenciaatenea.gov.co/sites/default/files/inline-images/ATENEA520.png
+    (site header, alt "Logotipo entidad")
+    Hero: https://unsplash.com/photos/a-woman-working-on-a-circuit-board-with-a-magnifying-glass-lAbYmLWrT9o
+    Photo by ThisisEngineering. Unsplash License https://unsplash.com/license
+  -->
+  <style>
+    :root {
+      --cth-primary: #2D6A4F;
+      --cth-dark: #1B4332;
+      --cth-accent: #95D5B2;
+      --cth-light: #D8F3DC;
+      --cth-white: #FFFFFF;
+      --cth-text: #333333;
+      --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 1200px;
+      height: 1200px;
+      overflow: hidden;
+      background: var(--cth-dark);
+      color: var(--cth-white);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      width: 1200px;
+      height: 1200px;
+      display: flex;
+      flex-direction: column;
+      background: var(--cth-dark);
+    }
+
+    .topbar {
+      height: 14px;
+      background: var(--cth-accent);
+      flex: none;
+    }
+
+    .hero {
+      position: relative;
+      flex: none;
+      height: 520px;
+      background:
+        linear-gradient(180deg, rgba(27, 67, 50, 0.62) 0%, rgba(27, 67, 50, 0.12) 28%, rgba(27, 67, 50, 0.2) 58%, rgba(27, 67, 50, 0.98) 100%),
+        url("assets/hero-prototype.jpg") 68% 28% / cover no-repeat;
+    }
+
+    .brand {
+      position: absolute;
+      top: 36px;
+      left: 72px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand img {
+      width: 96px;
+      height: 92px;
+      object-fit: contain;
+      flex: none;
+    }
+
+    .wordmark {
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--cth-white);
+    }
+
+    .wordmark .clean { font-weight: 400; }
+    .wordmark .hub { font-weight: 700; }
+
+    .copy {
+      flex: 1;
+      padding: 8px 80px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .rule {
+      width: 112px;
+      height: 10px;
+      background: var(--cth-accent);
+      border-radius: 5px;
+      margin-bottom: 28px;
+    }
+
+    .q {
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--cth-white);
+      max-width: 980px;
+    }
+
+    .a {
+      margin-top: 24px;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.22;
+      letter-spacing: -0.025em;
+      color: var(--cth-accent);
+      max-width: 980px;
+    }
+
+    .credit {
+      flex: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      background: var(--cth-dark);
+      border-top: 1px solid rgba(149, 213, 178, 0.35);
+      color: var(--cth-white);
+      padding: 24px 80px 28px;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    .atenea {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      background: var(--cth-white);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+
+    .atenea img {
+      height: 58px;
+      width: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <div class="topbar" aria-hidden="true"></div>
+    <div class="hero" role="img" aria-label="Mujer armando un prototipo electrónico en un banco de trabajo">
+      <header class="brand">
+        <img src="cth-globe-logo.svg" alt="CleantechHUB" width="96" height="92">
+        <p class="wordmark"><span class="clean">Cleantech</span><span class="hub">HUB</span></p>
+      </header>
+    </div>
+    <div class="copy">
+      <div class="rule" aria-hidden="true"></div>
+      <p class="q">¿Tienes una idea<br>de ciencia o tecnología?</p>
+      <p class="a">BankPro de Atenea te ayuda<br>a llegar al financiamiento</p>
+    </div>
+    <footer class="credit">
+      <span class="atenea"><img src="assets/atenea-logo.png" alt="Agencia Atenea" height="58"></span>
+      <p>Programa BankPro · Agencia Atenea (Bogotá)</p>
+    </footer>
+  </article>
+</body>
+</html>
