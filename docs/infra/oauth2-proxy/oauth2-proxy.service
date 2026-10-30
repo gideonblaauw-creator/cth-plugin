@@ -1,0 +1,20 @@
+[Unit]
+Description=oauth2-proxy (Google SSO for Caddy forward_auth)
+Documentation=https://oauth2-proxy.github.io/oauth2-proxy/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/gideon-tracker/infisical.env
+WorkingDirectory=/var/lib/oauth2-proxy
+ExecStart=/usr/local/lib/oauth2-proxy/oauth2-proxy-start.sh
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/oauth2-proxy
+ReadOnlyPaths=/etc/oauth2-proxy /etc/gideon-tracker/infisical.env
+
+[Install]
+WantedBy=multi-user.target
