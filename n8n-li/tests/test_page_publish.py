@@ -49,6 +49,10 @@ def _approval(directory: Path, text: str = TEXT, **overrides) -> str:
     return approved_id
 
 
+PERSON_ID = "memberSub1"
+PERSON = f"urn:li:person:{PERSON_ID}"
+
+
 class _Response:
     def __init__(self, status: int = 201, post_urn: str | None = "urn:li:share:6844785523593134080"):
         self.status = status
@@ -67,12 +71,22 @@ class _Response:
         return False
 
 
+class _JsonResponse(_Response):
+    def __init__(self, payload: dict, status: int = 200):
+        super().__init__(status=status, post_urn=None)
+        self._raw = json.dumps(payload).encode("utf-8")
+
+    def read(self) -> bytes:
+        return self._raw
+
+
 class PagePublishTests(unittest.TestCase):
     def setUp(self) -> None:
         self._env = patch.dict(os.environ, {}, clear=False)
         self._env.start()
         os.environ.pop("CM_LIVE", None)
         os.environ.pop("LINKEDIN_ACCESS_TOKEN", None)
+        os.environ.pop("LINKEDIN_PERSON_ID", None)
         os.environ.pop("LINKEDIN_VERSION", None)
         self.addCleanup(self._env.stop)
 
@@ -348,6 +362,304 @@ class PagePublishTests(unittest.TestCase):
         self.assertNotIn("78cn54afhparm6", source)
 
 
+class PersonalAuthorTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self._env = patch.dict(os.environ, {}, clear=False)
+        self._env.start()
+        os.environ.pop("CM_LIVE", None)
+        os.environ.pop("LINKEDIN_ACCESS_TOKEN", None)
+        os.environ.pop("LINKEDIN_PERSON_ID", None)
+        os.environ.pop("LINKEDIN_VERSION", None)
+        self.addCleanup(self._env.stop)
+
+    def _run(self, argv: list[str], urlopen=None):
+        stdout = io.StringIO()
+        stderr = io.StringIO()
+        with patch("sys.stdout", stdout), patch("sys.stderr", stderr):
+            if urlopen is None:
+                with patch("urllib.request.urlopen") as mocked:
+                    code = page_publish.main(argv)
+                    return code, stdout.getvalue(), stderr.getvalue(), mocked
+            with patch("urllib.request.urlopen", urlopen):
+                code = page_publish.main(argv)
+                return code, stdout.getvalue(), stderr.getvalue(), urlopen
+
+    def test_person_dry_run_uses_env_id_and_skips_http(self) -> None:
+        os.environ["LINKEDIN_PERSON_ID"] = PERSON_ID
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        os.environ["CM_LIVE"] = "1"
+        code, out, err, mocked = self._run(["--text", TEXT, "--author", "person"])
+        self.assertEqual(code, 0, err)
+        mocked.assert_not_called()
+        payload = json.loads(out)
+        self.assertEqual(payload["status"], "dry_run")
+        self.assertEqual(payload["author_kind"], "person")
+        self.assertEqual(payload["person_urn"], PERSON)
+        self.assertEqual(payload["payload"]["author"], PERSON)
+        self.assertEqual(payload["payload"]["commentary"], TEXT)
+        self.assertNotIn("reshareContext", payload["payload"])
+        self.assertNotIn("organization_urn", payload)
+        self.assertFalse(payload["http_called"])
+        self.assertFalse(payload["linkedin_api"])
+        self.assertNotIn(TOKEN, out)
+
+    def test_person_dry_run_requires_id_without_calling_userinfo(self) -> None:
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        code, out, err, mocked = self._run(["--text", TEXT, "--author", "person"])
+        self.assertEqual(code, 2)
+        mocked.assert_not_called()
+        self.assertEqual(json.loads(out)["reason"], "person_id_required")
+        self.assertNotIn(TOKEN, out)
+        self.assertNotIn(TOKEN, err)
+
+    def test_person_bad_env_id_is_blocked(self) -> None:
+        os.environ["LINKEDIN_PERSON_ID"] = "urn:li:person:not-bare"
+        code, out, err, mocked = self._run(["--text", TEXT, "--author", "person"])
+        self.assertEqual(code, 2)
+        mocked.assert_not_called()
+        self.assertEqual(json.loads(out)["reason"], "bad_person_id")
+
+    def test_org_author_ignores_person_id(self) -> None:
+        os.environ["LINKEDIN_PERSON_ID"] = PERSON_ID
+        code, out, err, mocked = self._run(["--text", TEXT, "--author", "org"])
+        self.assertEqual(code, 0, err)
+        mocked.assert_not_called()
+        payload = json.loads(out)
+        self.assertEqual(payload["author_kind"], "org")
+        self.assertEqual(payload["payload"]["author"], ORG)
+        self.assertEqual(payload["organization_urn"], ORG)
+        self.assertNotIn("person_urn", payload)
+
+    def test_person_dry_run_reshare_keeps_parent_and_author(self) -> None:
+        os.environ["LINKEDIN_PERSON_ID"] = PERSON_ID
+        code, out, err, mocked = self._run(
+            ["--text", TEXT, "--author", "person", "--reshare-parent", PARENT]
+        )
+        self.assertEqual(code, 0, err)
+        mocked.assert_not_called()
+        body = json.loads(out)["payload"]
+        self.assertEqual(body["author"], PERSON)
+        self.assertEqual(body["reshareContext"], {"parent": PARENT})
+        self.assertNotIn("root", body["reshareContext"])
+
+    def test_person_gate_blocks_before_userinfo(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp), text_sha256="0" * 64)
+            code, out, err, mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ]
+            )
+        self.assertEqual(code, 2, err)
+        mocked.assert_not_called()
+        self.assertEqual(json.loads(out)["reason"], "text_hash_mismatch")
+        self.assertNotIn(TOKEN, out)
+        self.assertNotIn(TOKEN, err)
+
+    def test_person_live_env_id_posts_without_userinfo(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        os.environ["LINKEDIN_PERSON_ID"] = PERSON_ID
+        captured = []
+
+        def fake_urlopen(request, timeout=None):
+            captured.append(request)
+            return _Response()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp))
+            code, out, err, _mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ],
+                urlopen=fake_urlopen,
+            )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(len(captured), 1)
+        self.assertEqual(captured[0].get_method(), "POST")
+        self.assertEqual(captured[0].full_url, page_publish.POSTS_URL)
+        body = json.loads(captured[0].data.decode("utf-8"))
+        self.assertEqual(body["author"], PERSON)
+        self.assertEqual(body["commentary"], TEXT)
+        self.assertNotIn("reshareContext", body)
+        result = json.loads(out)
+        self.assertEqual(result["person_urn"], PERSON)
+        self.assertEqual(result["author_kind"], "person")
+        self.assertNotIn("organization_urn", result)
+        self.assertNotIn(TOKEN, out)
+
+    def test_person_live_reshare_uses_person_author(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        os.environ["LINKEDIN_PERSON_ID"] = PERSON_ID
+        captured = []
+
+        def fake_urlopen(request, timeout=None):
+            captured.append(request)
+            return _Response()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp), reshare_parent=PARENT)
+            code, out, err, _mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--reshare-parent",
+                    PARENT,
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ],
+                urlopen=fake_urlopen,
+            )
+        self.assertEqual(code, 0, err)
+        body = json.loads(captured[0].data.decode("utf-8"))
+        self.assertEqual(body["author"], PERSON)
+        self.assertEqual(body["reshareContext"], {"parent": PARENT})
+        self.assertNotIn("root", body["reshareContext"])
+
+    def test_person_live_resolves_sub_then_posts(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        captured = []
+
+        def fake_urlopen(request, timeout=None):
+            captured.append(request)
+            if request.full_url == page_publish.USERINFO_URL:
+                return _JsonResponse(
+                    {
+                        "sub": PERSON_ID,
+                        "name": "Should Not Leak",
+                        "email": "nope@example.com",
+                    }
+                )
+            return _Response()
+
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp))
+            code, out, err, _mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ],
+                urlopen=fake_urlopen,
+            )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(len(captured), 2)
+        self.assertEqual(captured[0].get_method(), "GET")
+        self.assertEqual(captured[0].full_url, "https://api.linkedin.com/v2/userinfo")
+        self.assertEqual(captured[0].get_header("Authorization"), f"Bearer {TOKEN}")
+        self.assertEqual(captured[1].get_method(), "POST")
+        self.assertEqual(captured[1].full_url, page_publish.POSTS_URL)
+        body = json.loads(captured[1].data.decode("utf-8"))
+        self.assertEqual(body["author"], PERSON)
+        self.assertEqual(body["commentary"], TEXT)
+        result = json.loads(out)
+        self.assertEqual(result["person_urn"], PERSON)
+        self.assertEqual(result["status"], "published")
+        self.assertNotIn("Should Not Leak", out)
+        self.assertNotIn("nope@example.com", out)
+        self.assertNotIn(TOKEN, out)
+        self.assertNotIn(TOKEN, err)
+
+    def test_person_userinfo_error_does_not_post_or_leak_token(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        calls = []
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(request.full_url)
+            raise urllib.error.HTTPError(
+                page_publish.USERINFO_URL,
+                401,
+                "Unauthorized",
+                hdrs=None,
+                fp=io.BytesIO(f"bad token {TOKEN}".encode("utf-8")),
+            )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp))
+            code, out, err, _mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ],
+                urlopen=fake_urlopen,
+            )
+        self.assertEqual(code, 1)
+        self.assertEqual(calls, [page_publish.USERINFO_URL])
+        self.assertEqual(json.loads(out)["reason"], "userinfo_http_error")
+        self.assertIn("[redacted]", err)
+        self.assertNotIn(TOKEN, out)
+        self.assertNotIn(TOKEN, err)
+
+    def test_person_userinfo_missing_sub_does_not_post(self) -> None:
+        os.environ["CM_LIVE"] = "1"
+        os.environ["LINKEDIN_ACCESS_TOKEN"] = TOKEN
+        calls = []
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(request.full_url)
+            return _JsonResponse({"name": "no-sub"})
+
+        with tempfile.TemporaryDirectory() as tmp:
+            approved_id = _approval(Path(tmp))
+            code, out, err, _mocked = self._run(
+                [
+                    "--text",
+                    TEXT,
+                    "--author",
+                    "person",
+                    "--no-dry-run",
+                    "--approved-id",
+                    approved_id,
+                    "--approvals-dir",
+                    tmp,
+                ],
+                urlopen=fake_urlopen,
+            )
+        self.assertEqual(code, 1, err)
+        self.assertEqual(calls, [page_publish.USERINFO_URL])
+        self.assertEqual(json.loads(out)["reason"], "userinfo_missing_sub")
+        self.assertNotIn("no-sub", out)
+
+
 class WorkflowContractTests(unittest.TestCase):
     def test_workflow_is_inactive_and_gated(self) -> None:
         path = ROOT / "workflows" / "wf1-org-publish-hitl.json"
@@ -399,6 +711,61 @@ class WorkflowContractTests(unittest.TestCase):
                     if edge["node"] == "LinkedIn Create Org Post":
                         incoming.append(source)
         self.assertEqual(incoming, ["Build Org Post"])
+
+        blob = path.read_text(encoding="utf-8")
+        self.assertNotIn("782xlck", blob)
+        self.assertNotIn("CLIENT_SECRET", blob)
+        self.assertNotIn("Bearer ", blob)
+
+    def test_personal_workflow_is_inactive_and_uses_person_urn(self) -> None:
+        path = ROOT / "workflows" / "wf1-personal-publish-hitl.json"
+        workflow = json.loads(path.read_text(encoding="utf-8"))
+        self.assertFalse(workflow["active"])
+        types = [node["type"] for node in workflow["nodes"]]
+        self.assertNotIn("n8n-nodes-base.scheduleTrigger", types)
+        self.assertNotIn("n8n-nodes-base.cron", types)
+        self.assertNotIn("n8n-nodes-base.webhook", types)
+        self.assertIn("n8n-nodes-base.manualTrigger", types)
+        self.assertIn("n8n-nodes-base.wait", types)
+
+        by_name = {node["name"]: node for node in workflow["nodes"]}
+        wait = by_name["Wait for Gideon"]
+        self.assertEqual(wait["parameters"]["resume"], "webhook")
+        self.assertNotIn("limitWaitTime", json.dumps(wait["parameters"]))
+
+        linkedin = by_name["LinkedIn Create Personal Post"]
+        self.assertEqual(linkedin["parameters"]["url"], "https://api.linkedin.com/rest/posts")
+        self.assertEqual(linkedin["parameters"]["method"], "POST")
+        self.assertIn("w_member_social", linkedin["notes"])
+        credential = linkedin["credentials"]["oAuth2Api"]
+        self.assertEqual(credential["name"], "LinkedIn CleantechHUB n8n (78cn54)")
+        self.assertEqual(credential["id"], "REPLACE_LINKEDIN_CREDENTIAL_ID")
+
+        draft = by_name["Set Draft Post"]["parameters"]["jsonOutput"]
+        self.assertIn("urn:li:person:REPLACE_PERSON_ID", draft)
+        build = by_name["Build Personal Post"]["parameters"]["jsCode"]
+        self.assertIn("author: draft.person_urn", build)
+        self.assertIn("reshareContext", build)
+        self.assertIn("parent", build)
+        self.assertNotIn("root:", build)
+        self.assertNotIn("urn:li:organization:", build)
+
+        connections = workflow["connections"]
+        true_branch = connections["IF Gideon Approved"]["main"][0]
+        false_branch = connections["IF Gideon Approved"]["main"][1]
+        self.assertEqual(true_branch[0]["node"], "Build Personal Post")
+        self.assertEqual(false_branch[0]["node"], "Log Not Approved")
+        self.assertEqual(
+            connections["Build Personal Post"]["main"][0][0]["node"],
+            "LinkedIn Create Personal Post",
+        )
+        incoming = []
+        for source, spec in connections.items():
+            for outputs in spec.get("main", []):
+                for edge in outputs:
+                    if edge["node"] == "LinkedIn Create Personal Post":
+                        incoming.append(source)
+        self.assertEqual(incoming, ["Build Personal Post"])
 
         blob = path.read_text(encoding="utf-8")
         self.assertNotIn("782xlck", blob)
