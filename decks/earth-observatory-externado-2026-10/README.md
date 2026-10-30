@@ -1,52 +1,36 @@
 # Observatorio de la Tierra — deck Externado (30 oct 2026)
 
-Deck en español para la reunión Earth Observatory (CleantechHUB × Universidad Externado de Colombia). Un solo archivo `index.html` (CSS inline; fuentes via Google Fonts).
+Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz Malagón. Un `index.html` autocontenido (CSS inline; Chart.js y fuentes vía CDN).
 
-**Layout de referencia:** `decks/cth-clp26` no está en `main`; se modeló el patrón de paneles sobre `decks/afe-foundations-2026-10/teaser/` (PR #92, rama `cursor/afe-foundations-mockup`).
+**Logo:** `img/cth-globe-logo.svg` (CTH). Sin logo Externado (no autorizado).
 
-**Logo:** `img/cth-globe-logo.svg` copiado desde `decks/afe-foundations-2026-10/teaser/img/cth-globe-logo.svg` (PR #92; en `main` no existía).
+## Secciones (16)
 
-## Secciones (11)
+0. Portada (sin JS; `min-height: 100vh`)  
+1. Resumen ejecutivo (contadores)  
+2. Capítulo 1 · perspectiva multinivel  
+3. Notas de origen  
+4. Propósito y límites  
+5. Banda fundadora  
+6. Mapa de actores · **comunidades y municipios** (tabla de pasos)  
+7. Tipos de actor  
+8. Lentes y palancas (pestañas + gráficos WP)  
+9. El Datalab (tabla ordenable, slider L1–L3)  
+10. El papel (papeles e indicadores; fechas EUDR)  
+11. Earth Data Week  
+12. REIN  
+13. Hoja de ruta (slider de fases)  
+14. Perfiles  
+15. Reunión 30 oct y cierre (Inspire. Act. Transform.)
 
-1. Portada  
-2. La idea en una frase  
-3. Banda fundadora  
-4. Marco (MLP)  
-5. Mapa de actores  
-6. Cuatro lentes + hilo  
-7. El Datalab, motor  
-8. Earth Data Week y REIN  
-9. Hoja de ruta  
-10. Equipo  
-11. Para hoy y cierre  
+## Imágenes
 
-## Fuentes (solo facts.md / ticket)
-
-| Código | Documento |
-|--------|-----------|
-| EM | Correo Gideon → Marlene y Diego, 23 oct 2026 («Earth Observatory – nota conceptual v2») |
-| WP | PDF «Observatorio de la Tierra», Versión 1 · octubre 2026 |
-| CV | Convenio Externado × CleantechHUB, firmado Bogotá 3 jul 2024 |
-| MB | meetings-brief (agenda reunión 30 oct — **no** incluida en cuerpo del deck salvo límites explícitos del ticket) |
-
-**Contexto terceros (no resultado del observatorio):** ProColombia + GGGI, 145 emprendimientos rurales, Ruta Exportadora Bioeconomía Rural (7 ene 2026) — citado en facts; **no** incluido en slides (opcional).
-
-## PENDIENTE (en deck y aquí)
-
-- Año/fecha concreta de Earth Data Week (mes de referencia: marzo).  
-- Plazos de Fases 1–3 y recursos/planta (v2).  
-- Comentarios de Diego sobre nota v2.  
-- Resultado reuniones 1 oct y 14 oct 2026.  
-- Si asiste Marlene (no invitada a la reunión del 30 oct).  
-- Métricas propias del observatorio (la nota no trae conteos).  
-- Nombre oficial validado «Observatorio» con CEE/Extensión.  
-
-## Excluido (repo público)
-
-Montos, texto de cláusulas del convenio, borradores internos (aclaratoria, Otrosí, triángulo HITL), réplica México/Chile, nombres de clientes o socios implementadores, correos, cifras no listadas en facts.
+Nueve fotos en `img/` (Wikimedia Commons, crédito en pie de banda).
 
 ## Capturas
 
-`screenshots/01-portada.png` … `11-cierre.png` — viewport **1440×900** (desktop) y **390×844** (`*-mobile.png`), una por sección.
+`screenshots/00-portada.png` … `15-cierre.png` y variantes `*-mobile.png` (1440×900 y 390×844). Regenerar: `npm install playwright` en esta carpeta y `node screenshot-deck.mjs`.
 
-**Nota técnica:** no usar `--window-size=1440,11000` en Chrome headless: `100vh` escala con la altura de ventana y el recorte por franjas deja la portada en azul vacío. Regenerar con Playwright (`scroll_into_view_if_needed` por `#s1`…`#s11`).
+## Fuentes
+
+Solo white paper v1 (oct 2026), facts del ticket y MB para agenda de reunión. Huecos marcados **PENDIENTE**.
