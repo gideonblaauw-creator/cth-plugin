@@ -285,11 +285,6 @@
     return false;
   }
 
-  function jitter(idx, base) {
-    const a = idx * 2.399963;
-    return base + Math.cos(a) * 0.08;
-  }
-
   mapState.built = false;
 
   function renderMapPanel(s) {
