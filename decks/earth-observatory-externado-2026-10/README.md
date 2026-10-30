@@ -1,18 +1,18 @@
-# Observatorio de la Tierra — deck Externado (30 oct 2026)
+# Observatorio de la Tierra - deck Externado (30 oct 2026)
 
-Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz Malagón. Un `index.html` autocontenido (CSS inline; Chart.js y fuentes vía CDN).
+Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz Malagón. **Formato CLP26** (`styles.css`, `app.js`, `lib/`, navegación topbar, hero, secciones `sec`, tablas, gráficos Chart.js).
 
-**Logo:** `img/cth-globe-logo.svg` (CTH). Sin logo Externado (no autorizado).
+**Logo:** `img/logo.png` (CleantechHUB, mismo patrón que decks.cleantechhub.net/cth-clp26/). Sin logo Externado (no autorizado).
 
 ## Secciones (16)
 
-0. Portada (sin JS; `min-height: 100vh`)  
-1. Resumen ejecutivo (contadores)  
+0. Portada (`#hero`)  
+1. Resumen ejecutivo  
 2. Capítulo 1 · perspectiva multinivel  
 3. Notas de origen  
 4. Propósito y límites  
 5. Banda fundadora  
-6. Mapa de actores · **comunidades y municipios** (tabla de pasos)  
+6. Mapa de actores · **comunidades y municipios**  
 7. Tipos de actor  
 8. Lentes y palancas (pestañas + gráficos WP)  
 9. El Datalab (tabla ordenable, slider L1–L3)  
@@ -23,13 +23,15 @@ Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz M
 14. Perfiles  
 15. Reunión 30 oct y cierre (Inspire. Act. Transform.)
 
-## Imágenes
+## Archivos
 
-Nueve fotos en `img/` (Wikimedia Commons, crédito en pie de banda).
+- `index.html`, `styles.css` (CLP26), `eo-extra.css` (layout EO), `app.js`, `data/eo-deck.json`
+- `lib/chart.umd.js` (+ d3/topojson reservados del template CLP26)
+- `review/side-by-side.png` · capturas locales vs template CLP26
 
 ## Capturas
 
-`screenshots/00-portada.png` … `15-cierre.png` y variantes `*-mobile.png` (1440×900 y 390×844). Regenerar: `npm install playwright` en esta carpeta y `node screenshot-deck.mjs`.
+Regenerar EO: `node screenshot-deck.mjs` (Playwright). Side-by-side: `node review-side-by-side.mjs`.
 
 ## Fuentes
 

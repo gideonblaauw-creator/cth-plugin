@@ -9,7 +9,7 @@ const outDir = path.join(__dirname, 'screenshots');
 fs.mkdirSync(outDir, { recursive: true });
 
 const sections = [
-  { id: 'cover', slug: '00-portada' },
+  { id: 'hero', slug: '00-portada' },
   { id: 's1', slug: '01-resumen' },
   { id: 's2', slug: '02-capitulo1' },
   { id: 's3', slug: '03-notas-origen' },
