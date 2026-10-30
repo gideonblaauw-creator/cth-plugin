@@ -10,19 +10,173 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="eo-extra.css">
+<link rel="stylesheet" href="eo-hub.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%230C498A%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22%239DC384%22/%3E%3C/svg%3E">
 </head>
-<body>
-<header class="topbar" id="top">
-  <a href="#hero" class="brand"><img src="img/logo.png" alt="CleantechHUB" width="140" height="31"></a>
-  <nav class="nav eo-nav" id="nav" aria-label="Secciones">
+<body data-mode="hub">
+<header class="topbar hub-topbar" id="top">
+  <a href="#hero" class="brand" id="brandLink"><img src="img/logo.png" alt="CleantechHUB" width="140" height="31"></a>
+  <nav class="hub-nav" aria-label="Vistas del hub">
+    <button type="button" class="on" data-view="overview">Vista general</button>
+    <button type="button" data-view="mlp">Marco MLP</button>
+    <button type="button" data-view="lenses">4 Lentes</button>
+    <button type="button" data-view="datalab">Datalab</button>
+    <button type="button" data-view="actors">Actores + mapa</button>
+    <button type="button" data-view="roadmap">Hoja de ruta</button>
+  </nav>
+  <div class="hub-status"><span class="dot"></span> Techo colaborativo activo</div>
+  <button type="button" class="hub-doc-toggle" id="hubDocToggle">Documento WP (16 §)</button>
+  <nav class="nav eo-nav" id="nav" aria-label="Secciones WP" style="display:none;width:100%;order:99">
     <a href="#hero">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a>
     <a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a><a href="#s9">9</a>
     <a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a><a href="#s15">15</a>
   </nav>
-  <div class="lang" role="group" aria-label="Language"><button data-lang="es" class="on">ES</button></div>
   <button class="burger" id="burger" aria-label="Menu">☰</button>
 </header>
+<main id="hub-main">
+<section id="view-overview" class="hub-view active">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-hero-bar">
+<div>
+<p class="eyebrow" style="color:var(--cyan);margin-bottom:8px">Dynamic Intelligence Hub · v7 · 30 oct 2026</p>
+<h1>Observatorio de la Tierra</h1>
+<p class="lead">La colaboración es la lente. El dato es la infraestructura.</p>
+<p class="meta">CleantechHUB × Universidad Externado · white paper v1 · texto en español manda</p>
+<div class="hub-link-row">
+<button type="button" class="linkish" data-goto-view="actors">Mapa de startups (25)</button>
+<button type="button" class="linkish" data-goto-doc="s1">Resumen ejecutivo →</button>
+</div>
+</div>
+<div class="hub-mini-stats">
+<div class="stat"><span class="num">4</span><span class="lbl">Lentes pares</span></div>
+<div class="stat"><span class="num">4</span><span class="lbl">Entornos Datalab</span></div>
+<div class="stat"><span class="num">3</span><span class="lbl">Niveles L1/L2/L3</span></div>
+<div class="stat"><span class="num">3</span><span class="lbl">Fases de ruta</span></div>
+<div class="stat"><span class="num">5</span><span class="lbl">Palancas</span></div>
+<div class="stat"><span class="num">5</span><span class="lbl">Años convenio</span></div>
+</div>
+</div>
+<div class="hub-grid4">
+<div class="hub-card clickable" data-goto-view="mlp"><div class="kicker">Fundamento</div><h3>Perspectiva multinivel</h3><p>Nicho, régimen y paisaje (Geels; Loorbach). Clic para explorar niveles.</p></div>
+<div class="hub-card clickable" data-goto-view="lenses"><div class="kicker">Territorio</div><h3>4 lentes + hilo tech</h3><p>Pares Ambiental, Urbana, Ciudadana, Del mercado. Palancas como preguntas.</p></div>
+<div class="hub-card clickable" data-goto-view="datalab"><div class="kicker">Motor</div><h3>Datalab Engine</h3><p>L1/L2/L3, cuatro entornos, servidores OVH (UE), Ley 1581.</p></div>
+<div class="hub-card clickable" data-goto-view="roadmap"><div class="kicker">Ruta</div><h3>Tres fases</h3><p>Fundamento, Piloto, Escala. CEE, Desarrollo e Innovación, CleantechHUB.</p></div>
+</div>
+<div class="hub-grid3">
+<div class="hub-card"><div class="kicker">Carapulica</div><h3>La colaboración manda</h3><p>Relato de quién se sienta con quién. El Datalab es motor, dentro del observatorio.</p></div>
+<div class="hub-card"><div class="kicker">REIN Colombia</div><h3>Única ruta de cohortes</h3><p>Esta nota no abre otra ruta al lado de REIN. Earth Data Week ≠ cierre ClimateLaunchpad.</p></div>
+<div class="hub-card"><div class="kicker">Earth Data Week</div><h3>Momento público (marzo)</h3><p>Año: <span class="pendiente">PENDIENTE</span>. Cuatro entornos, matriz de lentes, círculo, datathon.</p></div>
+</div>
+<div class="hub-banner"><div><strong>Regla:</strong> sin cifras nacionales propias · citas oficiales (IDEAM/CREG) · no anunciar socios inexistentes</div><button type="button" class="linkish" data-goto-doc="hero">Ver portada documento →</button></div>
+</div>
+</section>
+
+<section id="view-mlp" class="hub-view">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-head"><h2>Perspectiva multinivel (MLP)</h2><p>WP §2 · Geels (2002, 2011); Geels y Schot (2007); Loorbach (2010). Haz clic en un nivel.</p></div>
+<div class="hub-grid2">
+<div>
+<div class="hub-card clickable" data-mlp-tier="paisaje" id="tier-paisaje"><div class="kicker">Macro</div><h3>Paisaje</h3><p>Presión exterior, clima, EUDR. Lente Ambiental.</p></div>
+<div class="hub-card clickable" data-mlp-tier="regimen" id="tier-regimen" style="margin-top:12px"><div class="kicker">Meso</div><h3>Régimen sociotécnico</h3><p>Reglas, instituciones, mercados existentes.</p></div>
+<div class="hub-card clickable sel" data-mlp-tier="nicho" id="tier-nicho" style="margin-top:12px"><div class="kicker">Micro</div><h3>Nicho de innovación</h3><p>Hilo tecnológico, sandbox, cohorte REIN.</p></div>
+</div>
+<div class="hub-detail">
+<div class="kicker">Detalle dinámico</div>
+<h3 id="mlp-detail-title">Nicho de innovación</h3>
+<p id="mlp-detail-desc"></p>
+<p style="margin-top:12px"><strong>Papel en el observatorio:</strong> <span id="mlp-detail-role"></span></p>
+<p style="margin-top:8px"><strong>Intermediación:</strong> <span id="mlp-detail-inter"></span></p>
+<p class="source-foot"><a href="#" data-goto-doc="s2">WP §2 completo →</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="view-lenses" class="hub-view">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-head"><h2>Matriz de lentes y palancas</h2><p>WP §8 · Cinco palancas son preguntas, no facultades. ProColombia 145 es cifra citada, no resultado del observatorio.</p></div>
+<div class="hub-lens-tabs" id="hubLensTabs" role="tablist">
+<button type="button" class="on" data-lens="ambiental">Ambiental</button>
+<button type="button" data-lens="urbana">Urbana</button>
+<button type="button" data-lens="ciudadana">Ciudadana</button>
+<button type="button" data-lens="mercado">Del mercado</button>
+</div>
+<div class="hub-detail" id="hubLensPanel"></div>
+<div class="hub-banner" style="margin-top:16px"><span><strong>Hilo tecnológico:</strong> transversal en el nicho; no es un quinto par.</span><button type="button" class="linkish" data-goto-view="datalab">Ver Datalab →</button></div>
+</div>
+</section>
+
+<section id="view-datalab" class="hub-view">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-head"><h2>Simulador Datalab Engine</h2><p>WP §9 · Cuatro entornos · OVH (UE) · Reg. (UE) 2022/868 y Ley 1581/2012 (diseño, no certificación).</p></div>
+<div class="hub-pipe">
+<div class="hub-pipe-step on" data-step="0"><span class="tag">L1</span><h4>Datos brutos</h4><p>Ingesta con fecha y fuente</p></div>
+<div class="hub-pipe-step" data-step="1"><span class="tag">L2</span><h4>Datos limpios</h4><p>Validado, unidades unificadas</p></div>
+<div class="hub-pipe-step" data-step="2"><span class="tag">L3</span><h4>Datos listos</h4><p>Respuesta trazable a una pregunta</p></div>
+</div>
+<div class="eo-slider"><label for="hubLevelSlider">Niveles L1 / L2 / L3</label><input type="range" id="hubLevelSlider" min="1" max="3" step="1" value="1"><div class="panel" id="hubLevelPanel"></div></div>
+<p class="source-foot"><a href="#" data-goto-doc="s9">Tabla de entornos y notas WP →</a></p>
+</div>
+</section>
+
+<section id="view-actors" class="hub-view">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-head"><h2>Hélice, círculo y mapa de startups</h2><p>WP §6-§7 · Carapulica lleva el relato. Pins: solo <code>nexus-co-cities.csv</code> (<span class="map-count" id="mapStartupCount">25</span> filas con fuente).</p></div>
+<div class="hub-grid2" style="margin-bottom:18px">
+<svg class="hub-actor-svg" viewBox="0 0 500 320" aria-label="Mapa de actores">
+<circle cx="250" cy="160" r="140" fill="none" stroke="#669348" stroke-dasharray="6,6" stroke-width="2"/>
+<text x="250" y="32" fill="#0C498A" font-size="10" text-anchor="middle">CÍRCULO DE INVITACIÓN</text>
+<circle cx="250" cy="160" r="95" fill="none" stroke="#0C498A" stroke-width="2" opacity="0.5"/>
+<text x="250" y="78" fill="#0C498A" font-size="10" text-anchor="middle">HÉLICE DE CUATRO</text>
+<circle cx="250" cy="160" r="48" fill="#0C498A" stroke="#669348" stroke-width="2"/>
+<text x="250" y="156" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">BANDA</text>
+<text x="250" y="168" fill="#B2EEFA" font-size="9" text-anchor="middle">FUNDADORA</text>
+<g class="node" data-actor="gobierno"><circle cx="170" cy="120" r="18" fill="#fff" stroke="#0C498A" stroke-width="2"/><text x="170" y="124" fill="#0C498A" font-size="9" text-anchor="middle">GOB</text></g>
+<g class="node" data-actor="startups"><circle cx="330" cy="120" r="18" fill="#fff" stroke="#669348" stroke-width="2"/><text x="330" y="124" fill="#669348" font-size="9" text-anchor="middle">STR</text></g>
+<g class="node" data-actor="privado"><circle cx="310" cy="210" r="18" fill="#fff" stroke="#0C498A" stroke-width="2"/><text x="310" y="214" fill="#0C498A" font-size="9" text-anchor="middle">PRI</text></g>
+<g class="node" data-actor="cooperacion"><circle cx="190" cy="210" r="18" fill="#fff" stroke="#69B5FA" stroke-width="2"/><text x="190" y="214" fill="#69B5FA" font-size="9" text-anchor="middle">COO</text></g>
+<g class="node" data-actor="locales"><circle cx="120" cy="160" r="14" fill="#B2EEFA" stroke="#0C498A" stroke-width="1.5"/><text x="120" y="163" fill="#0C498A" font-size="8" text-anchor="middle">MUN</text></g>
+<g class="node" data-actor="cooperativas"><circle cx="380" cy="160" r="14" fill="#B2EEFA" stroke="#0C498A" stroke-width="1.5"/><text x="380" y="163" fill="#0C498A" font-size="8" text-anchor="middle">CIV</text></g>
+</svg>
+<div class="hub-detail">
+<div class="kicker">Ficha de colaboración</div>
+<h3 id="actor-title">Startups</h3>
+<p id="actor-role"></p>
+<p style="margin-top:10px"><strong>Límite:</strong> <span id="actor-limit"></span></p>
+</div>
+</div>
+<div class="map-toolbar">
+<label for="mapDeptFilter">Filtrar departamento</label>
+<select id="mapDeptFilter"><option value="">Todos (Colombia)</option></select>
+<span class="map-legend"><span><i></i> Pin = startup con fila CSV</span><span><i style="background:var(--green)"></i> Seleccionado</span></span>
+</div>
+<div class="hub-map-wrap">
+<div><div id="coMap" role="img" aria-label="Mapa de Colombia con pins de startups"></div></div>
+<div>
+<div class="map-panel empty" id="mapStartupPanel"><p>Selecciona un pin. Ciudad + enlace a fuente; sin inventar nombres.</p></div>
+<div style="margin-top:12px;font-size:0.82rem;font-weight:700">Lista rápida:</div>
+<div id="mapStartupList" style="margin-top:8px;max-height:140px;overflow-y:auto"></div>
+</div>
+</div>
+<p class="source-foot"><a href="#" data-goto-doc="s6">Municipios y comunidades (WP §6) →</a></p>
+</div>
+</section>
+
+<section id="view-roadmap" class="hub-view">
+<div class="wrap" style="max-width:1180px;margin:0 auto">
+<div class="hub-head"><h2>Hoja de ruta por fases</h2><p>WP §13 · Responsables: CEE (Marlene Díaz), Desarrollo e Innovación (Diego Díaz), CleantechHUB (Gideon Blaauw).</p></div>
+<div class="hub-phase-row">
+<div class="hub-card hub-phase-card sel" data-phase="1"><div class="kicker">Fase 1</div><h3>Fundamento</h3><p>Vocabulario MLP, lentes, línea base L1.</p></div>
+<div class="hub-card hub-phase-card" data-phase="2"><div class="kicker">Fase 2</div><h3>Piloto</h3><p>Un caso por lente; living lab + datathon.</p></div>
+<div class="hub-card hub-phase-card" data-phase="3"><div class="kicker">Fase 3</div><h3>Escala</h3><p>Entrada al régimen; Earth Data Week L3.</p></div>
+</div>
+<div class="eo-slider"><label for="hubPhaseSlider">Explorar fase</label><input type="range" id="hubPhaseSlider" min="1" max="3" step="1" value="1"><div class="panel" id="hubPhasePanel"></div></div>
+</div>
+</section>
+</main>
+
+
+<div id="doc-app">
 
 <section id="hero" class="hero">
   <div class="hero-inner">
@@ -365,8 +519,12 @@
   <p>Observatorio de la Tierra · white paper v1 · CleantechHUB × Universidad Externado</p>
   <p><a href="https://cleantechhub.net" target="_blank" rel="noopener">cleantechhub.net</a></p>
 </footer>
+</div>
 
+
+<script src="lib/d3.min.js"></script>
 <script src="lib/chart.umd.js"></script>
 <script src="app.js"></script>
+<script src="hub.js"></script>
 </body>
 </html>

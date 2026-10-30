@@ -1,6 +1,6 @@
 # Observatorio de la Tierra - deck Externado (30 oct 2026)
 
-Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz Malagón. **Formato CLP26** (`styles.css`, `app.js`, `lib/`, navegación topbar, hero, secciones `sec`, tablas, gráficos Chart.js).
+Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz Malagón. **Formato CLP26** (`styles.css`, `eo-extra.css`, `app.js`) más **v7 Dynamic Intelligence Hub** (`eo-hub.css`, `hub.js`): vistas interactivas (MLP, lentes, Datalab, actores, hoja de ruta) y documento WP completo (16 secciones).
 
 **Logo:** `img/logo.png` (CleantechHUB, mismo patrón que decks.cleantechhub.net/cth-clp26/). Sin logo Externado (no autorizado).
 
@@ -25,13 +25,14 @@ Recorrido en español del white paper v1 (oct 2026) para Diego Alejandro Díaz M
 
 ## Archivos
 
-- `index.html`, `styles.css` (CLP26), `eo-extra.css` (layout EO), `app.js`, `data/eo-deck.json`
-- `lib/chart.umd.js` (+ d3/topojson reservados del template CLP26)
-- `review/side-by-side.png` · capturas locales vs template CLP26
+- `index.html`, `styles.css` (CLP26), `eo-extra.css`, `eo-hub.css`, `app.js`, `hub.js`, `data/eo-deck.json`
+- `data/col-min.geojson`, `data/nexus-co-cities.csv` (25 startups con fuente; único origen de pins)
+- `lib/chart.umd.js`, `lib/d3.min.js`
+- `review/v7-hero.png`, `review/v7-map.png`, `review/v7-full.png`
 
 ## Capturas
 
-Regenerar EO: `node screenshot-deck.mjs` (Playwright). Side-by-side: `node review-side-by-side.mjs`.
+Servir el deck por HTTP (p. ej. `python3 -m http.server 8765`), luego `node capture-v7-review.mjs`. Documento WP: `node screenshot-deck.mjs` (Playwright).
 
 ## Fuentes
 
