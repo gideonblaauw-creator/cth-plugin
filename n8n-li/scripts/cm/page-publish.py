@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Publish a CleantechHUB organization post via the LinkedIn Posts API.
+"""Publish a CleantechHUB LinkedIn post via the Posts API.
 
-Replaces the Community Management page-publish stub. Dry-run is the default.
-A live POST needs CM_LIVE=1, --no-dry-run, and --approved-id.
+Organization author is the default. Personal-profile author is opt-in.
+Dry-run is the default. A live POST needs CM_LIVE=1, --no-dry-run, and
+--approved-id. The approval record must have approved_by=gideon, a
+timezone-aware timestamp, and the sha256 of the exact commentary.
 
 The access token is read from the LINKEDIN_ACCESS_TOKEN environment variable.
 This file must not contain secrets.
@@ -11,8 +13,12 @@ Posts API (Microsoft Learn, version view li-lms-2026-10):
   POST https://api.linkedin.com/rest/posts
   LinkedIn-Version: YYYYMM (default 202610, override with LINKEDIN_VERSION)
   X-Restli-Protocol-Version: 2.0.0
-  Author: urn:li:organization:72031636
-  Scope at the token: w_organization_social
+  Organization author: urn:li:organization:72031636
+  Organization scope: w_organization_social
+  Person author: urn:li:person:<id>
+  Person id: LINKEDIN_PERSON_ID, or GET https://api.linkedin.com/v2/userinfo
+  field sub on a live run. Person scope: w_member_social.
+  userinfo also needs openid and profile. Dry-run does not call userinfo.
 """
 from __future__ import annotations
 
@@ -28,19 +34,25 @@ from datetime import datetime
 from pathlib import Path
 
 POSTS_URL = "https://api.linkedin.com/rest/posts"
+USERINFO_URL = "https://api.linkedin.com/v2/userinfo"
 DEFAULT_ORG_URN = "urn:li:organization:72031636"
 DEFAULT_LINKEDIN_VERSION = "202610"
 TOKEN_ENV = "LINKEDIN_ACCESS_TOKEN"
+PERSON_ID_ENV = "LINKEDIN_PERSON_ID"
 VERSION_ENV = "LINKEDIN_VERSION"
 RESTLI_PROTOCOL_VERSION = "2.0.0"
 APPROVED_BY = "gideon"
 USER_AGENT = "CleantechHUB-n8n-li-page-publish"
+AUTHOR_ORG = "org"
+AUTHOR_PERSON = "person"
 
 _ORG_URN_RE = re.compile(r"^urn:li:organization:\d+$")
+_PERSON_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$")
 _PARENT_URN_RE = re.compile(r"^urn:li:(?:share|ugcPost|groupPost):[A-Za-z0-9._:-]+$")
 _APPROVED_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
 _VERSION_RE = re.compile(r"^\d{6}$")
 _VISIBILITY = frozenset({"PUBLIC", "LOGGED_IN"})
+_AUTHORS = frozenset({AUTHOR_ORG, AUTHOR_PERSON})
 
 
 class ApprovalError(Exception):
@@ -132,14 +144,30 @@ def validate_approval(record: dict, text: str, reshare_parent: str | None) -> No
         raise ApprovalError("reshare_parent_mismatch")
 
 
+def person_urn(person_id: str) -> str:
+    if not _PERSON_ID_RE.fullmatch(person_id):
+        raise PublishError("bad_person_id")
+    return f"urn:li:person:{person_id}"
+
+
+def configured_person_id() -> str | None:
+    """Bare member id from LINKEDIN_PERSON_ID. Unset means resolve via userinfo."""
+    raw = os.environ.get(PERSON_ID_ENV, "").strip()
+    if not raw:
+        return None
+    if not _PERSON_ID_RE.fullmatch(raw):
+        raise PublishError("bad_person_id")
+    return raw
+
+
 def build_post_body(
     text: str,
-    org_urn: str,
+    author_urn: str,
     visibility: str,
     reshare_parent: str | None,
 ) -> dict:
     body = {
-        "author": org_urn,
+        "author": author_urn,
         "commentary": text,
         "visibility": visibility,
         "distribution": {
@@ -172,6 +200,44 @@ def _redact(text: str, token: str) -> str:
     return text
 
 
+def _read_error_body(exc: urllib.error.HTTPError, token: str) -> str:
+    detail = ""
+    try:
+        detail = exc.read().decode("utf-8", errors="replace")[:500]
+    except Exception:
+        detail = ""
+    return _redact(f"HTTP {exc.code}: {detail}", token)
+
+
+def fetch_person_id(token: str) -> str:
+    """GET /v2/userinfo and return the sub field. Does not return profile fields."""
+    request = urllib.request.Request(USERINFO_URL, method="GET")
+    request.add_header("Authorization", f"Bearer {token}")
+    request.add_header("User-Agent", USER_AGENT)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            status = getattr(response, "status", None) or response.getcode()
+            raw = response.read()
+    except urllib.error.HTTPError as exc:
+        raise PublishError("userinfo_http_error", _read_error_body(exc, token)) from exc
+    except urllib.error.URLError as exc:
+        raise PublishError("linkedin_transport_error", "transport error") from exc
+
+    if status != 200:
+        raise PublishError("userinfo_http_error", f"HTTP {status}")
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except (UnicodeError, json.JSONDecodeError) as exc:
+        raise PublishError("userinfo_invalid_json") from exc
+    sub = payload.get("sub") if isinstance(payload, dict) else None
+    if not isinstance(sub, str):
+        raise PublishError("userinfo_missing_sub")
+    sub = sub.strip()
+    if not _PERSON_ID_RE.fullmatch(sub):
+        raise PublishError("userinfo_missing_sub")
+    return sub
+
+
 def post_to_linkedin(body: dict, token: str, version: str) -> dict:
     payload = json.dumps(body).encode("utf-8")
     request = urllib.request.Request(POSTS_URL, data=payload, method="POST")
@@ -186,15 +252,7 @@ def post_to_linkedin(body: dict, token: str, version: str) -> dict:
             response.read()
             post_urn = _header(getattr(response, "headers", None), "x-restli-id")
     except urllib.error.HTTPError as exc:
-        detail = ""
-        try:
-            detail = exc.read().decode("utf-8", errors="replace")[:500]
-        except Exception:
-            detail = ""
-        raise PublishError(
-            "linkedin_http_error",
-            _redact(f"HTTP {exc.code}: {detail}", token),
-        ) from exc
+        raise PublishError("linkedin_http_error", _read_error_body(exc, token)) from exc
     except urllib.error.URLError as exc:
         raise PublishError("linkedin_transport_error", "transport error") from exc
 
@@ -223,11 +281,31 @@ def blocked(code: str) -> int:
     return 2
 
 
+def _fail_publish(exc: PublishError) -> int:
+    print(f"ERROR: {exc.code}", file=sys.stderr)
+    if exc.detail:
+        print(exc.detail, file=sys.stderr)
+    _emit(
+        {
+            "linkedin_api": True,
+            "reason": exc.code,
+            "status": "error",
+        }
+    )
+    return 1
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Publish a CleantechHUB organization post (dry-run by default)."
+        description="Publish a CleantechHUB LinkedIn post (dry-run by default)."
     )
     parser.add_argument("--text", required=True, help="Exact post commentary")
+    parser.add_argument(
+        "--author",
+        choices=sorted(_AUTHORS),
+        default=AUTHOR_ORG,
+        help="org (default) or person. person uses urn:li:person:<id>.",
+    )
     parser.add_argument(
         "--visibility",
         default="PUBLIC",
@@ -236,7 +314,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--org-urn",
         default=DEFAULT_ORG_URN,
-        help="Organization author URN",
+        help="Organization author URN. Used when --author org.",
     )
     parser.add_argument(
         "--reshare-parent",
@@ -263,11 +341,13 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def _validate_request(args: argparse.Namespace) -> str | None:
+    if args.author not in _AUTHORS:
+        return "bad_author"
     if args.text == "" or args.text.strip() == "":
         return "empty_text"
     if args.visibility not in _VISIBILITY:
         return "bad_visibility"
-    if not _ORG_URN_RE.fullmatch(args.org_urn):
+    if args.author == AUTHOR_ORG and not _ORG_URN_RE.fullmatch(args.org_urn):
         return "bad_org_urn"
     if args.reshare_parent is not None and not _PARENT_URN_RE.fullmatch(args.reshare_parent):
         return "bad_reshare_parent"
@@ -281,13 +361,33 @@ def _check_approval(args: argparse.Namespace) -> dict:
     return record
 
 
+def _author_fields(author_kind: str, author_urn: str, org_urn: str) -> dict:
+    fields = {"author_kind": author_kind}
+    if author_kind == AUTHOR_ORG:
+        fields["organization_urn"] = org_urn
+    else:
+        fields["person_urn"] = author_urn
+    return fields
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     problem = _validate_request(args)
     if problem:
         return blocked(problem)
 
-    body = build_post_body(args.text, args.org_urn, args.visibility, args.reshare_parent)
+    person_id = None
+    if args.author == AUTHOR_PERSON:
+        try:
+            person_id = configured_person_id()
+        except PublishError as exc:
+            return blocked(exc.code)
+        if person_id is None and args.dry_run:
+            return blocked("person_id_required")
+
+    author_urn = args.org_urn if args.author == AUTHOR_ORG else None
+    if person_id is not None:
+        author_urn = person_urn(person_id)
     digest = text_sha256(args.text)
 
     if args.dry_run:
@@ -298,18 +398,18 @@ def main(argv: list[str] | None = None) -> int:
             except ApprovalError as exc:
                 return blocked(exc.code)
             approval = {"id": args.approved_id, "ok": True}
-        _emit(
-            {
-                "approval": approval,
-                "cm_live": cm_live_enabled(),
-                "http_called": False,
-                "linkedin_api": False,
-                "organization_urn": args.org_urn,
-                "payload": body,
-                "status": "dry_run",
-                "text_sha256": digest,
-            }
-        )
+        body = build_post_body(args.text, author_urn, args.visibility, args.reshare_parent)
+        payload = {
+            "approval": approval,
+            "cm_live": cm_live_enabled(),
+            "http_called": False,
+            "linkedin_api": False,
+            "payload": body,
+            "status": "dry_run",
+            "text_sha256": digest,
+        }
+        payload.update(_author_fields(args.author, author_urn, args.org_urn))
+        _emit(payload)
         return 0
 
     if not cm_live_enabled():
@@ -325,24 +425,17 @@ def main(argv: list[str] | None = None) -> int:
         return blocked(exc.code)
     try:
         version = linkedin_version()
+        if author_urn is None:
+            author_urn = person_urn(fetch_person_id(token))
+        body = build_post_body(args.text, author_urn, args.visibility, args.reshare_parent)
         result = post_to_linkedin(body, token, version)
     except PublishError as exc:
-        print(f"ERROR: {exc.code}", file=sys.stderr)
-        if exc.detail:
-            print(exc.detail, file=sys.stderr)
-        _emit(
-            {
-                "linkedin_api": True,
-                "reason": exc.code,
-                "status": "error",
-            }
-        )
-        return 1
+        return _fail_publish(exc)
 
     result["approved_id"] = args.approved_id
     result["cm_live"] = True
-    result["organization_urn"] = args.org_urn
     result["text_sha256"] = digest
+    result.update(_author_fields(args.author, author_urn, args.org_urn))
     _emit(result)
     return 0
 
