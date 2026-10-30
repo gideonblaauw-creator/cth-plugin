@@ -1,0 +1,334 @@
+{
+  "name": "WF1 Org Publish — HITL (INACTIVE — DO NOT AUTO-POST)",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## WF1 organization publish\n\nInactive on import. No schedule and no Webhook trigger.\n\nA run starts only from Manual Trigger. It stops at Wait for Gideon. LinkedIn is called only after a POST to that execution's resume URL with decision=yes, approved_by=gideon, a timezone-aware timestamp, and text_sha256 equal to Hash Draft.\n\nCredential name: LinkedIn CleantechHUB n8n (78cn54). Rebind the placeholder id in the n8n UI. Do not paste secrets into this workflow.",
+        "height": 280,
+        "width": 460
+      },
+      "id": "wf1-note",
+      "name": "HITL note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-20, -320]
+    },
+    {
+      "parameters": {},
+      "id": "wf1-manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"post_text\": \"[DRAFT] Replace with the exact copy Gideon will approve. Human-in-the-loop required.\",\n  \"visibility\": \"PUBLIC\",\n  \"reshare_parent\": \"\",\n  \"organization_urn\": \"urn:li:organization:72031636\",\n  \"publish_target\": \"organization_page\"\n}",
+        "options": {}
+      },
+      "id": "wf1-set-draft",
+      "name": "Set Draft Post",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 0],
+      "notes": "Draft in. Edit post_text before Execute. Leave reshare_parent empty for a text post, or set a urn:li:share: / urn:li:ugcPost: URN."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "const crypto = require('crypto');\nconst postText = String($json.post_text ?? '');\nconst textSha256 = crypto.createHash('sha256').update(postText, 'utf8').digest('hex');\nreturn {\n  json: {\n    post_text: postText,\n    visibility: $json.visibility || 'PUBLIC',\n    reshare_parent: $json.reshare_parent || '',\n    organization_urn: $json.organization_urn || 'urn:li:organization:72031636',\n    publish_target: 'organization_page',\n    text_sha256: textSha256\n  }\n};"
+      },
+      "id": "wf1-hash-draft",
+      "name": "Hash Draft",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 0],
+      "notes": "SHA-256 of the exact UTF-8 post_text. Same rule as scripts/cm/page-publish.py."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "return {\n  json: {\n    ...$json,\n    approval_request: {\n      decision: 'yes',\n      approved_by: 'gideon',\n      timestamp: '<ISO-8601 with timezone>',\n      text_sha256: $json.text_sha256\n    },\n    instruction: 'Send this hash to Gideon. He replies by POSTing the Wait resume URL. Any other body stops before LinkedIn.'\n  }\n};"
+      },
+      "id": "wf1-approval-request",
+      "name": "Approval Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 0],
+      "notes": "Out-of-band request. This node does not email, Slack, or post."
+    },
+    {
+      "parameters": {
+        "resume": "webhook",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "id": "wf1-wait-gideon",
+      "name": "Wait for Gideon",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [960, 0],
+      "webhookId": "wf1-gideon-yes",
+      "notes": "Pauses this execution only. Resume URL is single-use. Expected JSON: {\"decision\":\"yes\",\"approved_by\":\"gideon\",\"timestamp\":\"2026-10-30T16:00:00+00:00\",\"text_sha256\":\"<Hash Draft>\"}. No time-based resume."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-decision",
+              "leftValue": "={{ $json.decision }}",
+              "rightValue": "yes",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "cond-approved-by",
+              "leftValue": "={{ $json.approved_by }}",
+              "rightValue": "gideon",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "cond-timestamp",
+              "leftValue": "={{ $json.timestamp }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "cond-text-hash",
+              "leftValue": "={{ $json.text_sha256 }}",
+              "rightValue": "={{ $('Hash Draft').item.json.text_sha256 }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "wf1-if-approved",
+      "name": "IF Gideon Approved",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1200, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "const draft = $('Hash Draft').item.json;\nconst parent = String(draft.reshare_parent || '').trim();\nconst body = {\n  author: draft.organization_urn,\n  commentary: draft.post_text,\n  visibility: draft.visibility || 'PUBLIC',\n  distribution: {\n    feedDistribution: 'MAIN_FEED',\n    targetEntities: [],\n    thirdPartyDistributionChannels: []\n  },\n  lifecycleState: 'PUBLISHED',\n  isReshareDisabledByAuthor: false\n};\nif (parent) {\n  body.reshareContext = { parent: parent };\n}\nreturn {\n  json: {\n    posts_body: body,\n    organization_urn: draft.organization_urn,\n    text_sha256: draft.text_sha256,\n    approved_by: $json.approved_by,\n    timestamp: $json.timestamp,\n    decision: $json.decision\n  }\n};"
+      },
+      "id": "wf1-build-post",
+      "name": "Build Org Post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1440, -80],
+      "notes": "Text post omits reshareContext. Reshare sets reshareContext.parent only. Do not send reshareContext.root."
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.linkedin.com/rest/posts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "LinkedIn-Version",
+              "value": "202610"
+            },
+            {
+              "name": "X-Restli-Protocol-Version",
+              "value": "2.0.0"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.posts_body) }}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": false,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "wf1-linkedin-post",
+      "name": "LinkedIn Create Org Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1680, -80],
+      "notes": "Uses the OAuth2 credential named LinkedIn CleantechHUB n8n (78cn54). Scope w_organization_social. No bearer token in this node.",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "REPLACE_LINKEDIN_CREDENTIAL_ID",
+          "name": "LinkedIn CleantechHUB n8n (78cn54)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "const built = $('Build Org Post').item.json;\nconst headerBag = $json.headers || ($json.response && $json.response.headers) || {};\nlet postUrn = null;\nfor (const key of Object.keys(headerBag)) {\n  if (String(key).toLowerCase() === 'x-restli-id') {\n    postUrn = headerBag[key];\n    break;\n  }\n}\nreturn {\n  json: {\n    event: 'wf1_published',\n    publish_target: 'organization_page',\n    organization_urn: built.organization_urn || 'urn:li:organization:72031636',\n    post_urn: postUrn,\n    text_sha256: built.text_sha256,\n    approved_by: built.approved_by,\n    timestamp: built.timestamp,\n    http_status: $json.statusCode || $json.status || null,\n    linkedin_api: true\n  }\n};"
+      },
+      "id": "wf1-log-published",
+      "name": "Log Published",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1920, -80],
+      "notes": "Ledger-shaped log. Does not store the access token."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "return {\n  json: {\n    event: 'wf1_not_approved',\n    publish_target: 'organization_page',\n    linkedin_api: false,\n    decision: $json.decision || null,\n    approved_by: $json.approved_by || null,\n    text_sha256: $json.text_sha256 || null\n  }\n};"
+      },
+      "id": "wf1-log-not-approved",
+      "name": "Log Not Approved",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1440, 160],
+      "notes": "False branch. Does not call LinkedIn."
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Draft Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Draft Post": {
+      "main": [
+        [
+          {
+            "node": "Hash Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hash Draft": {
+      "main": [
+        [
+          {
+            "node": "Approval Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approval Request": {
+      "main": [
+        [
+          {
+            "node": "Wait for Gideon",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Gideon": {
+      "main": [
+        [
+          {
+            "node": "IF Gideon Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Gideon Approved": {
+      "main": [
+        [
+          {
+            "node": "Build Org Post",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Not Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Org Post": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Create Org Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Create Org Post": {
+      "main": [
+        [
+          {
+            "node": "Log Published",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "none",
+    "timezone": "America/Bogota"
+  },
+  "active": false,
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
