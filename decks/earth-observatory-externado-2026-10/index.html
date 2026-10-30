@@ -66,9 +66,14 @@ body {
   padding-top: clamp(4.5rem, 10vw, 6rem);
 }
 .cover-hero { text-align: left; opacity: 1; transform: none; }
+.cover-hero .cover-logo-wrap {
+  display: inline-block; padding: 12px; margin-bottom: 1.25rem;
+  background: var(--white); border-radius: 16px;
+  border: 3px solid var(--fg);
+}
 .cover-hero .cover-logo {
   width: 88px; height: 88px; object-fit: contain;
-  display: block; margin-bottom: 1.25rem;
+  display: block;
 }
 .cover-hero h1,
 .cover-hero .lead,
@@ -280,7 +285,9 @@ h2 {
 <!-- 1 Portada -->
 <section id="s1" class="section deep cover">
   <div class="inner cover-hero">
-    <img class="cover-logo" src="img/cth-globe-logo.svg" width="88" height="88" alt="CleantechHUB">
+    <div class="cover-logo-wrap">
+      <img class="cover-logo" src="img/cth-globe-logo.svg" width="88" height="88" alt="CleantechHUB">
+    </div>
     <p class="eyebrow">CleantechHUB × Universidad Externado de Colombia · 30 oct 2026</p>
     <h1>Observatorio de la Tierra</h1>
     <div class="accent-bar"></div>
