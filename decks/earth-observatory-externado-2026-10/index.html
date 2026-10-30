@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Observatorio de la Tierra — CleantechHUB × Universidad Externado de Colombia</title>
+<title>Observatorio de la Tierra · recorrido WP v1 · CleantechHUB × Externado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
 <style>
 :root {
   --deep: #0C498A;
@@ -22,361 +23,357 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  font-family: var(--body);
-  background: var(--deep);
-  color: var(--ink);
-  line-height: 1.55;
-}
+body { font-family: var(--body); background: var(--deep); color: var(--ink); line-height: 1.55; }
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 10px clamp(1rem, 4vw, 2rem);
-  background: var(--deep);
-  border-bottom: 3px solid var(--fg);
+  padding: 8px clamp(0.75rem, 3vw, 1.5rem);
+  background: var(--deep); border-bottom: 3px solid var(--fg);
 }
-.site-header a.brand {
-  display: flex; align-items: center; gap: 10px;
-  text-decoration: none; color: var(--white);
+.site-header a.brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--white); }
+.site-header img.logo-mark { width: 36px; height: 36px; object-fit: contain; }
+.site-header .brand-text { font-family: var(--title); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; }
+.nav-scroll {
+  display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; max-width: 62vw;
+  max-height: 42px; overflow-y: auto;
 }
-.site-header img.logo-mark { width: 40px; height: 40px; object-fit: contain; }
-.site-header .brand-text {
-  font-family: var(--title); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em;
+.nav-scroll a {
+  font-family: var(--title); font-size: 0.62rem; font-weight: 700;
+  padding: 3px 6px; border-radius: 6px; text-decoration: none;
+  background: rgba(105,181,250,0.25); color: var(--cyan); border: 1px solid var(--sky);
 }
-.nav-dots {
-  display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; max-width: 55vw;
-}
-.nav-dots a {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--sky); border: 2px solid var(--cyan);
-  text-indent: -9999px; overflow: hidden;
-}
-.nav-dots a:hover, .nav-dots a:focus { background: var(--cyan); }
+.nav-scroll a:hover, .nav-scroll a:focus { background: var(--sky); color: var(--ink); }
 
 .section {
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: clamp(5rem, 12vw, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem);
+  min-height: 100vh; min-height: 100dvh;
+  padding: clamp(4.5rem, 11vw, 6.5rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 4vw, 2.5rem);
   display: flex; flex-direction: column; justify-content: flex-start;
-  opacity: 1;
-  visibility: visible;
 }
-.section.cover {
-  justify-content: center;
-  padding-top: clamp(4.5rem, 10vw, 6rem);
-}
-.cover-hero { text-align: left; opacity: 1; transform: none; }
-.cover-hero .cover-logo-wrap {
-  display: inline-block; padding: 12px; margin-bottom: 1.25rem;
-  background: var(--white); border-radius: 16px;
-  border: 3px solid var(--fg);
-}
-.cover-hero .cover-logo {
-  width: 88px; height: 88px; object-fit: contain;
-  display: block;
-}
-.cover-hero h1,
-.cover-hero .lead,
-.cover-hero .sub,
-.cover-hero .meta-line,
-.cover-hero .eyebrow {
-  opacity: 1;
-  color: var(--white);
-  transform: none;
-}
-.cover-hero .eyebrow { color: var(--cyan); }
-.section.light { background: var(--white); color: var(--ink); }
+.section.cover { justify-content: center; padding-top: clamp(4rem, 9vw, 5.5rem); }
+.section.light { background: var(--white); }
 .section.deep { background: var(--deep); color: var(--white); }
-.section.paper { background: var(--paper); color: var(--ink); }
-.section.sky { background: var(--sky); color: var(--ink); }
-.section.cyan-band { background: var(--cyan); color: var(--ink); }
-
+.section.paper { background: var(--paper); }
+.section.cyan-band { background: var(--cyan); }
+.section.sky { background: var(--sky); }
 .inner { max-width: 72rem; margin: 0 auto; width: 100%; }
 .eyebrow {
-  font-family: var(--title); font-weight: 700; font-size: 0.78rem;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg); margin-bottom: 0.65rem;
+  font-family: var(--title); font-weight: 700; font-size: 0.75rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg); margin-bottom: 0.55rem;
 }
 .section.deep .eyebrow { color: var(--cyan); }
-h1 {
-  font-family: var(--title); font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem;
-}
-h2 {
-  font-family: var(--title); font-weight: 700;
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem); line-height: 1.15; margin-bottom: 0.85rem;
-}
+h1 { font-family: var(--title); font-weight: 700; font-size: clamp(1.85rem, 4.5vw, 3.2rem); line-height: 1.1; margin-bottom: 0.85rem; }
+h2 { font-family: var(--title); font-weight: 700; font-size: clamp(1.35rem, 3vw, 2.15rem); line-height: 1.15; margin-bottom: 0.75rem; }
 .section.deep h2 { color: var(--cyan); }
-.lead { font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 46rem; }
-.sub { font-size: clamp(0.95rem, 1.6vw, 1.1rem); max-width: 48rem; margin-top: 0.75rem; opacity: 0.95; }
-.accent-bar { width: 4rem; height: 5px; background: var(--fg); margin: 1rem 0 1.25rem; }
+.lead { font-size: clamp(1rem, 1.8vw, 1.22rem); max-width: 46rem; }
+.sub { font-size: clamp(0.9rem, 1.5vw, 1.05rem); max-width: 48rem; margin-top: 0.65rem; }
+.accent-bar { width: 4rem; height: 5px; background: var(--fg); margin: 0.85rem 0 1.1rem; }
 .section.deep .accent-bar { background: var(--lg); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.85rem; }
+.pill {
+  font-family: var(--title); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 0.35rem 0.7rem; border-radius: 999px; background: var(--lg); color: var(--ink);
+  border: 2px solid var(--fg);
+}
+.section.deep .pill { background: rgba(255,255,255,0.15); color: var(--white); border-color: var(--cyan); }
 
-.stat-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.75rem, 2vw, 1.25rem);
-  margin-top: 1.75rem;
+.counter-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.25rem;
 }
-@media (max-width: 768px) { .stat-grid { grid-template-columns: 1fr; } }
-.stat {
-  background: var(--white); border: 2px solid var(--lg);
-  border-left: 6px solid var(--fg); border-radius: 12px;
-  padding: 1.15rem 1.25rem;
+@media (max-width: 720px) { .counter-grid { grid-template-columns: repeat(2, 1fr); } }
+.counter {
+  background: var(--white); border: 2px solid var(--lg); border-left: 6px solid var(--fg);
+  border-radius: 12px; padding: 1rem 1.1rem; text-align: center;
 }
-.section.deep .stat {
-  background: rgba(255,255,255,0.12); border-color: var(--sky);
-  border-left-color: var(--cyan); color: var(--white);
+.section.deep .counter {
+  background: rgba(255,255,255,0.1); border-color: var(--sky); border-left-color: var(--cyan); color: var(--white);
 }
-.stat strong {
-  display: block; font-family: var(--title); font-size: 1.05rem;
-  color: var(--deep); margin-bottom: 0.35rem;
+.counter .num {
+  font-family: var(--title); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
+  color: var(--deep); line-height: 1.1;
 }
-.section.deep .stat strong { color: var(--cyan); }
-.stat span { font-size: 0.92rem; line-height: 1.45; }
+.section.deep .counter .num { color: var(--cyan); }
+.counter .lbl { font-size: 0.82rem; margin-top: 0.35rem; line-height: 1.35; }
 
-.two-col {
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 3vw, 2rem);
-  margin-top: 1.5rem;
-}
-@media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
-.card {
-  background: var(--white); border: 2px solid rgba(12,73,138,0.15);
-  border-radius: 14px; padding: 1.35rem 1.5rem;
-  border-top: 5px solid var(--fg);
-}
-.section.deep .card {
-  background: var(--white); color: var(--ink);
-}
-.card h3 {
-  font-family: var(--title); font-size: 1.1rem; color: var(--deep); margin-bottom: 0.5rem;
-}
-.card p, .card ul { font-size: 0.94rem; line-height: 1.5; }
-.card ul { margin-left: 1.1rem; margin-top: 0.5rem; }
-
-.level-stack {
-  display: flex; flex-direction: column; gap: 0.65rem; margin-top: 1.25rem; max-width: 36rem;
-}
-.level {
-  padding: 0.85rem 1.1rem; border-radius: 10px;
-  font-family: var(--title); font-weight: 600; font-size: 0.95rem;
-}
-.level.l3 { background: var(--deep); color: var(--white); width: 100%; }
-.level.l2 { background: var(--sky); color: var(--ink); width: 78%; margin-left: auto; margin-right: auto; }
-.level.l1 { background: var(--lg); color: var(--ink); width: 56%; margin-left: auto; margin-right: auto; }
-
-.actor-map {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;
-  align-items: start;
-}
-@media (max-width: 800px) { .actor-map { grid-template-columns: 1fr; } }
-.helix, .circle-block {
-  border-radius: 14px; padding: 1.25rem 1.35rem;
-}
-.helix { background: var(--deep); color: var(--white); border: 3px solid var(--sky); }
-.circle-block {
-  background: var(--white); border: 3px dashed var(--fg);
-}
-.helix h3, .circle-block h3 {
-  font-family: var(--title); font-size: 1rem; margin-bottom: 0.65rem;
-}
-.helix h3 { color: var(--cyan); }
-.circle-block h3 { color: var(--fg); }
-.helix ul, .circle-block ul { margin-left: 1rem; font-size: 0.92rem; line-height: 1.5; }
-.carapulica {
-  margin-top: 1.25rem; padding: 1rem 1.2rem;
-  background: var(--cyan); border-radius: 12px; font-size: 0.95rem;
-}
-
-.lenses-table {
-  width: 100%; border-collapse: collapse; margin-top: 1.25rem;
-  font-size: 0.92rem; background: var(--white);
-  border: 2px solid rgba(12,73,138,0.2); border-radius: 12px; overflow: hidden;
-}
-.lenses-table th, .lenses-table td {
-  padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid rgba(12,73,138,0.12);
-}
-.lenses-table th {
-  background: var(--deep); color: var(--white);
-  font-family: var(--title); font-weight: 700;
-}
-.lenses-table tr:last-child td { border-bottom: none; }
-.lenses-table tr:nth-child(even) td { background: #eef5fb; }
-.thread-note {
-  margin-top: 1rem; padding: 0.9rem 1.1rem;
-  background: var(--sky); border-left: 6px solid var(--deep);
-  border-radius: 0 10px 10px 0; font-size: 0.92rem;
-}
-.levers { margin-top: 1rem; }
-.levers li { margin-bottom: 0.45rem; font-size: 0.92rem; }
-
-.team-strip {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
-  margin-top: 1.75rem;
-}
-@media (max-width: 768px) { .team-strip { grid-template-columns: 1fr; } }
-.person {
-  text-align: center; background: var(--white);
-  border: 2px solid var(--lg); border-radius: 14px; padding: 1.25rem 1rem;
-}
-.person img {
-  width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
-  border: 4px solid var(--fg); margin-bottom: 0.75rem;
-}
-.person .initials {
-  width: 120px; height: 120px; border-radius: 50%;
-  background: var(--deep); color: var(--white);
-  font-family: var(--title); font-size: 2rem; font-weight: 700;
-  display: none; align-items: center; justify-content: center;
-  margin: 0 auto 0.75rem; border: 4px solid var(--fg);
-}
-.person.fail img { display: none; }
-.person.fail .initials { display: flex; }
-.person h3 { font-family: var(--title); font-size: 1rem; color: var(--deep); margin-bottom: 0.25rem; }
-.person p { font-size: 0.82rem; line-height: 1.4; color: var(--ink); }
-
-.close-band {
-  text-align: center; padding-bottom: 4rem;
-}
-.close-band .tagline {
-  font-family: var(--title); font-weight: 700;
-  font-size: clamp(1.5rem, 4vw, 2.2rem); letter-spacing: 0.06em;
-  margin: 1.5rem 0 1.25rem; color: var(--deep);
-}
-.btn-book {
-  display: inline-block; margin-top: 0.5rem;
-  font-family: var(--title); font-weight: 700; font-size: 1rem;
-  padding: 0.85rem 1.75rem; border-radius: 999px;
-  background: var(--deep); color: var(--white); text-decoration: none;
+.photo-band {
+  position: relative; border-radius: 14px; overflow: hidden; margin-top: 1.25rem;
+  min-height: 200px; background-size: cover; background-position: center;
   border: 3px solid var(--fg);
 }
+.photo-band::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(12,73,138,0.82), rgba(8,53,98,0.55));
+}
+.photo-band .band-copy {
+  position: relative; z-index: 1; padding: 1.35rem 1.5rem; color: var(--white);
+}
+.photo-band .band-copy p { font-size: 0.95rem; max-width: 40rem; }
+.img-cap {
+  font-size: 0.68rem; margin-top: 0.35rem; opacity: 0.9; line-height: 1.35;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.15rem; }
+@media (max-width: 780px) { .two-col { grid-template-columns: 1fr; } }
+.card {
+  background: var(--white); border: 2px solid rgba(12,73,138,0.15);
+  border-radius: 14px; padding: 1.2rem 1.35rem; border-top: 5px solid var(--fg);
+}
+.card h3 { font-family: var(--title); font-size: 1.05rem; color: var(--deep); margin-bottom: 0.45rem; }
+.card p, .card ul { font-size: 0.9rem; line-height: 1.48; }
+.card ul { margin: 0.45rem 0 0 1.1rem; }
+
+.level-stack { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1rem; max-width: 36rem; }
+.level {
+  padding: 0.75rem 1rem; border-radius: 10px;
+  font-family: var(--title); font-weight: 600; font-size: 0.9rem;
+}
+.level.l3 { background: var(--deep); color: var(--white); width: 100%; }
+.level.l2 { background: var(--sky); color: var(--ink); width: 78%; margin: 0 auto; }
+.level.l1 { background: var(--lg); color: var(--ink); width: 56%; margin: 0 auto; }
+
+.actor-map { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.15rem; }
+@media (max-width: 780px) { .actor-map { grid-template-columns: 1fr; } }
+.helix, .circle-block { border-radius: 14px; padding: 1.15rem 1.25rem; }
+.helix { background: var(--deep); color: var(--white); border: 3px solid var(--sky); }
+.circle-block { background: var(--white); border: 3px dashed var(--fg); }
+.helix h3, .circle-block h3 { font-family: var(--title); font-size: 0.98rem; margin-bottom: 0.55rem; }
+.helix h3 { color: var(--cyan); }
+.circle-block h3 { color: var(--fg); }
+.helix ul, .circle-block ul { margin-left: 1rem; font-size: 0.88rem; line-height: 1.45; }
+
+.steps-table, .data-table, .lenses-table {
+  width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.86rem;
+  background: var(--white); border: 2px solid rgba(12,73,138,0.2); border-radius: 12px; overflow: hidden;
+}
+.steps-table th, .data-table th, .lenses-table th,
+.steps-table td, .data-table td, .lenses-table td {
+  padding: 0.75rem 0.85rem; text-align: left; border-bottom: 1px solid rgba(12,73,138,0.12);
+}
+.steps-table th, .data-table th, .lenses-table th {
+  background: var(--deep); color: var(--white); font-family: var(--title); font-weight: 700;
+}
+.steps-table tr:last-child td, .data-table tr:last-child td, .lenses-table tr:last-child td { border-bottom: none; }
+.steps-table tr:nth-child(even) td, .data-table tr:nth-child(even) td, .lenses-table tr:nth-child(even) td { background: #eef5fb; }
+.data-table th.sortable { cursor: pointer; user-select: none; }
+.data-table th.sortable:hover { background: #0a3d72; }
+.data-table th .sort-ind { opacity: 0.7; font-size: 0.75rem; }
+
+.tab-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.tab-btn {
+  font-family: var(--title); font-weight: 700; font-size: 0.78rem;
+  padding: 0.45rem 0.85rem; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--fg); background: var(--white); color: var(--deep);
+}
+.tab-btn[aria-selected="true"] { background: var(--deep); color: var(--white); border-color: var(--cyan); }
+.tab-panel {
+  display: none; margin-top: 1rem; padding: 1.15rem 1.25rem;
+  background: var(--paper); border-radius: 12px; border-left: 6px solid var(--fg);
+}
+.tab-panel.active { display: block; }
+.tab-panel h3 { font-family: var(--title); color: var(--deep); margin-bottom: 0.45rem; font-size: 1rem; }
+
+.slider-wrap { margin-top: 1.15rem; max-width: 40rem; }
+.slider-wrap label {
+  font-family: var(--title); font-weight: 700; font-size: 0.85rem; color: var(--deep);
+  display: block; margin-bottom: 0.45rem;
+}
+input[type="range"] { width: 100%; accent-color: var(--fg); }
+.slider-panel {
+  margin-top: 0.85rem; padding: 1rem 1.15rem; background: var(--white);
+  border: 2px solid var(--lg); border-radius: 12px; font-size: 0.9rem;
+}
+.section.deep .slider-panel { background: rgba(255,255,255,0.12); border-color: var(--sky); color: var(--white); }
+
+.chart-box { margin-top: 1.15rem; max-width: 520px; background: var(--white); border-radius: 12px; padding: 0.85rem; border: 2px solid var(--lg); }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+@media (max-width: 800px) { .chart-row { grid-template-columns: 1fr; } }
+
+.team-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.25rem; }
+@media (max-width: 720px) { .team-strip { grid-template-columns: 1fr; } }
+.person {
+  text-align: center; background: var(--white); border: 2px solid var(--lg);
+  border-radius: 14px; padding: 1.1rem 0.85rem;
+}
+.person img {
+  width: 108px; height: 108px; border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--fg); margin-bottom: 0.65rem;
+}
+.person h3 { font-family: var(--title); font-size: 0.95rem; color: var(--deep); margin-bottom: 0.2rem; }
+.person p { font-size: 0.8rem; line-height: 1.38; }
+
+.close-band { text-align: center; padding-bottom: 3rem; }
+.close-band .tagline {
+  font-family: var(--title); font-weight: 700; font-size: clamp(1.35rem, 3.5vw, 2rem);
+  letter-spacing: 0.06em; margin: 1.25rem 0 1rem; color: var(--deep);
+}
+.btn-book {
+  display: inline-block; font-family: var(--title); font-weight: 700; font-size: 0.95rem;
+  padding: 0.75rem 1.55rem; border-radius: 999px; background: var(--deep); color: var(--white);
+  text-decoration: none; border: 3px solid var(--fg);
+}
 .btn-book:hover, .btn-book:focus { background: var(--fg); }
-
-.source-foot {
-  margin-top: auto; padding-top: 1.5rem;
-  font-size: 0.72rem; line-height: 1.45; opacity: 0.85;
-}
-.section.light .source-foot { color: #456; }
+.source-foot { margin-top: auto; padding-top: 1.25rem; font-size: 0.68rem; line-height: 1.4; opacity: 0.88; }
+.section.light .source-foot, .section.paper .source-foot { color: #456; }
 .section.deep .source-foot { color: var(--cyan); }
-.pendiente { color: var(--deep); font-weight: 700; background: var(--cyan); padding: 0 0.25rem; }
+.pendiente { font-weight: 700; background: var(--cyan); color: var(--deep); padding: 0 0.2rem; }
 .section.deep .pendiente { background: var(--sky); }
-
-.questions { margin-top: 1rem; }
-.questions li { margin-bottom: 0.55rem; font-size: 0.95rem; }
-
-.meta-line {
-  margin-top: 1.25rem; font-size: 0.9rem; font-family: var(--title); letter-spacing: 0.04em;
+.cover-hero .eyebrow { color: var(--cyan); }
+.cover-hero h1, .cover-hero .lead, .cover-hero .meta-line { color: var(--white); }
+.cover-logo-wrap {
+  display: inline-block; padding: 10px; margin-bottom: 1rem;
+  background: var(--white); border-radius: 14px; border: 3px solid var(--fg);
 }
-.section.deep .meta-line { color: var(--cyan); }
+.cover-logo { width: 80px; height: 80px; display: block; object-fit: contain; }
+.meta-line { margin-top: 1rem; font-size: 0.88rem; font-family: var(--title); letter-spacing: 0.03em; color: var(--cyan); }
+ul.clean { margin: 0.55rem 0 0 1.1rem; font-size: 0.9rem; }
+ul.clean li { margin-bottom: 0.4rem; }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="brand" href="#s1">
-    <img class="logo-mark" src="img/cth-globe-logo.svg" width="40" height="40" alt="CleantechHUB">
+  <a class="brand" href="#cover">
+    <img class="logo-mark" src="img/cth-globe-logo.svg" width="36" height="36" alt="CleantechHUB">
     <span class="brand-text">CleantechHUB</span>
   </a>
-  <nav class="nav-dots" aria-label="Secciones">
-    <a href="#s1" title="1">1</a><a href="#s2" title="2">2</a><a href="#s3" title="3">3</a>
-    <a href="#s4" title="4">4</a><a href="#s5" title="5">5</a><a href="#s6" title="6">6</a>
-    <a href="#s7" title="7">7</a><a href="#s8" title="8">8</a><a href="#s9" title="9">9</a>
-    <a href="#s10" title="10">10</a><a href="#s11" title="11">11</a>
+  <nav class="nav-scroll" aria-label="Secciones">
+    <a href="#cover">0</a><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a>
+    <a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a><a href="#s8">8</a><a href="#s9">9</a>
+    <a href="#s10">10</a><a href="#s11">11</a><a href="#s12">12</a><a href="#s13">13</a><a href="#s14">14</a><a href="#s15">15</a>
   </nav>
 </header>
 
-<!-- 1 Portada -->
-<section id="s1" class="section deep cover">
+<section id="cover" class="section deep cover">
   <div class="inner cover-hero">
     <div class="cover-logo-wrap">
-      <img class="cover-logo" src="img/cth-globe-logo.svg" width="88" height="88" alt="CleantechHUB">
+      <img class="cover-logo" src="img/cth-globe-logo.svg" width="80" height="80" alt="CleantechHUB">
     </div>
-    <p class="eyebrow">CleantechHUB × Universidad Externado de Colombia · 30 oct 2026</p>
+    <p class="eyebrow">Recorrido para Diego Alejandro Díaz Malagón · 30 oct 2026 · Holland House, Bogotá</p>
     <h1>Observatorio de la Tierra</h1>
     <div class="accent-bar"></div>
     <p class="lead">La colaboración es la lente. El dato es la infraestructura.</p>
-    <p class="sub meta-line">Nota conceptual · versión para conversación con Externado (CEE · Desarrollo e Innovación)</p>
-    <p class="source-foot">Fuentes: WP p1 (subtítulo); EM (eje colaboración–dato–Datalab).</p>
+    <p class="meta-line">White paper v1 · octubre 2026 · texto en español manda</p>
+    <p class="source-foot">Fuente: WP p1 (subtítulo y encuadre).</p>
   </div>
 </section>
 
-<!-- 2 La idea en una frase -->
-<section id="s2" class="section light">
+<section id="s1" class="section light">
   <div class="inner">
-    <p class="eyebrow">Sección 2 · La idea en una frase</p>
-    <h2>Colaboración, datos y motor</h2>
+    <p class="eyebrow">WP §1 · Resumen ejecutivo</p>
+    <h2>Una sola nota: colaboración primero</h2>
     <div class="accent-bar"></div>
-    <blockquote class="lead" cite="email 23 oct 2026">
-      «En esta versión la colaboración es el eje principal, con los datos como infraestructura de soporte, y el Datalab funciona como motor dentro del observatorio.»
-    </blockquote>
-    <p class="sub">Correo Gideon Blaauw → Marlene Díaz y Diego Díaz Malagón, 23 oct 2026 («Earth Observatory – nota conceptual v2»).</p>
-    <div class="stat-grid">
-      <div class="stat">
-        <strong>Colaboración</strong>
-        <span>Eje principal del observatorio: pregunta, ética, estudiantes y anclaje REIN/CEE en el Externado.</span>
-      </div>
-      <div class="stat">
-        <strong>Datos</strong>
-        <span>Infraestructura de soporte (niveles L1 Bruto · L2 Limpio · L3 Listo).</span>
-      </div>
-      <div class="stat">
-        <strong>Datalab</strong>
-        <span>Motor dentro del observatorio: cuatro entornos de uso y gobernanza.</span>
-      </div>
+    <p class="lead">El Observatorio de la Tierra es el programa donde la casa académica (Universidad Externado) y la custodia del contrato (CTH Foundation) trabajan con la hélice y el círculo. Carapulica lleva el relato de la colaboración. El Datalab es el motor, dentro del observatorio. El dato queda debajo, como infraestructura.</p>
+    <p class="sub">La colaboración se muestra. El motor no la sustituye. Esta nota usa la perspectiva multinivel (capítulo 1) para leer el cruce, sin repetir toda la teoría.</p>
+    <div class="counter-grid" id="counter-grid">
+      <div class="counter"><div class="num" data-target="4" data-suffix="">0</div><div class="lbl">Lentes pares</div></div>
+      <div class="counter"><div class="num" data-target="4" data-suffix="">0</div><div class="lbl">Entornos Datalab</div></div>
+      <div class="counter"><div class="num" data-target="3" data-suffix="">0</div><div class="lbl">Niveles de dato (L1/L2/L3)</div></div>
+      <div class="counter"><div class="num" data-target="3" data-suffix="">0</div><div class="lbl">Fases de ruta</div></div>
+      <div class="counter"><div class="num" data-target="5" data-suffix="">0</div><div class="lbl">Palancas (preguntas)</div></div>
+      <div class="counter"><div class="num" data-target="5" data-suffix=" años">0</div><div class="lbl">Convenio marco (vigencia)</div></div>
     </div>
-    <p class="source-foot">Fuentes: EM; WP p2 §1.</p>
+    <p class="source-foot">Fuentes: WP p2 §1; CV SEXTA (5 años); conteos estructurales en WP §4, §9, §13.</p>
   </div>
 </section>
 
-<!-- 3 Banda fundadora -->
-<section id="s3" class="section paper">
+<section id="s2" class="section paper">
   <div class="inner">
-    <p class="eyebrow">Sección 3 · Banda fundadora</p>
-    <h2>Dos casas, un marco</h2>
+    <p class="eyebrow">WP §2 · Capítulo 1 · Perspectiva multinivel</p>
+    <h2>Nicho, régimen e intermediario</h2>
     <div class="accent-bar"></div>
+    <p class="lead">Geels (2002, 2011) distingue nicho, régimen sociotécnico y paisaje. El observatorio no pronostica la vía de un lente: una celda vacía no es un cero.</p>
+    <div class="level-stack" role="img" aria-label="Tres niveles">
+      <div class="level l3">Paisaje · presión exterior (el lente Ambiental lee este nivel)</div>
+      <div class="level l2">Régimen · sistema existente (reglas, mercados, instituciones)</div>
+      <div class="level l1">Nicho · donde se forma lo nuevo (ahí se sienta el hilo tecnológico)</div>
+    </div>
     <div class="two-col">
       <article class="card">
-        <h3>Universidad Externado de Colombia</h3>
-        <p>Casa académica: formula la pregunta, pone estudiantes, sostiene la ética de uso de datos y revisa si el dato aguanta una conclusión. Ancla el hub REIN Colombia y el Centro de Emprendimiento Externadista (CEE).</p>
+        <h3>Intermediarios</h3>
+        <p>Externado, el observatorio y CTH conectan niveles. CTH es intermediario de confianza y no es dueño de un data warehouse (WP, documentación Datalab).</p>
       </article>
       <article class="card">
-        <h3>CleanTech Hub Foundation</h3>
-        <p>Custodia del contrato y del motor; intermediario de confianza. <strong>No</strong> es dueña de un data warehouse.</p>
+        <h3>Referencias</h3>
+        <p>Geels y Schot (2007); Markard, Raven y Truffer (2012); Loorbach (2010); Carayannis y Campbell (2009); Smith y Raven (2012).</p>
       </article>
     </div>
-    <p class="sub" style="margin-top:1.25rem">Marco de colaboración Externado × CleantechHUB firmado el <strong>3 de julio de 2024</strong>; vigencia <strong>5 años</strong> (sin detallar otras cláusulas en este deck).</p>
-    <p class="source-foot">Fuentes: WP p3 §5; CV (convenio 03 jul 2024, SEXTA).</p>
-  </div>
-</section>
-
-<!-- 4 Marco -->
-<section id="s4" class="section light">
-  <div class="inner">
-    <p class="eyebrow">Sección 4 · Marco</p>
-    <h2>Perspectiva multinivel</h2>
-    <div class="accent-bar"></div>
-    <p class="lead">El observatorio lee cambios en tres niveles: nicho, régimen y paisaje — para conectar innovación local con presiones del entorno.</p>
-    <div class="level-stack" role="img" aria-label="Nicho, régimen y paisaje">
-      <div class="level l3">Paisaje — presiones macro (normas, mercados, clima político)</div>
-      <div class="level l2">Régimen — reglas e instituciones dominantes</div>
-      <div class="level l1">Nicho — experimentos, startups, prácticas emergentes</div>
-    </div>
-    <p class="sub" style="margin-top:1.25rem">Referencias: Geels (2002, 2011); Geels y Schot (2007); Markard, Raven y Truffer (2012); Loorbach (2010); Carayannis y Campbell (2009); Smith y Raven (2012).</p>
     <p class="source-foot">Fuentes: WP p2 §2, p12 §15.</p>
   </div>
 </section>
 
-<!-- 5 Mapa de actores -->
-<section id="s5" class="section deep">
+<section id="s3" class="section light">
   <div class="inner">
-    <p class="eyebrow">Sección 5 · Mapa de actores</p>
-    <h2>Hélice y círculo</h2>
+    <p class="eyebrow">WP §3 · Notas de origen</p>
+    <h2>Qué entra en esta versión</h2>
     <div class="accent-bar"></div>
+    <p class="lead">La colaboración manda. El dato queda debajo, como infraestructura del cruce.</p>
+    <ul class="clean">
+      <li>Casa académica, banda de dos, hélice de cuatro y círculo de invitación.</li>
+      <li>Cuatro lentes pares + hilo tecnológico; cinco palancas como preguntas, no facultades.</li>
+      <li>Cuatro entornos Datalab; custodia sin data warehouse; REIN como única ruta de cohortes.</li>
+      <li>Earth Data Week como momento público; regla de no anunciar socios inexistentes.</li>
+    </ul>
+    <p class="sub"><strong>No entran:</strong> segunda ruta de cohortes, segundo instituto de cifras nacionales, ni un nombre tan fino que el Externado deje de formular la pregunta.</p>
+    <div class="photo-band" style="background-image:url('img/landscape-huila.jpg')">
+      <div class="band-copy">
+        <p>Territorio y colaboración: el observatorio lee cruces, no publica un atlas nuevo.</p>
+        <p class="img-cap">Foto: Bernard Gagnon · CC BY-SA 4.0 · Wikimedia Commons (Huila).</p>
+      </div>
+    </div>
+    <p class="source-foot">Fuente: WP p3 §3 (notas de origen).</p>
+  </div>
+</section>
+
+<section id="s4" class="section deep">
+  <div class="inner">
+    <p class="eyebrow">WP §4 · Propósito</p>
+    <h2>Para qué existe el observatorio</h2>
+    <div class="accent-bar"></div>
+    <p class="lead">Leer cómo la innovación cruza del nicho al régimen, con cuatro lentes pares: Ambiental, Urbana, Ciudadana y Del mercado. Tecnología es el hilo del nicho, no un quinto par.</p>
+    <div class="pill-row">
+      <span class="pill">No sustituye IDEAM</span>
+      <span class="pill">No publica tasas nacionales</span>
+      <span class="pill">No abre 2.ª aceleradora junto a REIN</span>
+      <span class="pill">No nombra clientes</span>
+    </div>
+    <p class="sub" style="margin-top:1rem">«Fuente única» en el Datalab es una definición de fila, calidad y permiso (contrato y YAML de sandbox), no un lago nacional.</p>
+    <p class="source-foot">Fuente: WP p3 §4 (propósito y límites).</p>
+  </div>
+</section>
+
+<section id="s5" class="section paper">
+  <div class="inner">
+    <p class="eyebrow">WP §5 · Banda fundadora</p>
+    <h2>Dos socios, una mesa</h2>
+    <div class="accent-bar"></div>
+    <div class="two-col">
+      <article class="card">
+        <h3>Universidad Externado de Colombia</h3>
+        <p>Formula la pregunta, pone estudiantes, sostiene la ética de datos y revisa si el dato aguanta una conclusión. Ancla hub REIN Colombia y CEE.</p>
+      </article>
+      <article class="card">
+        <h3>CTH Foundation</h3>
+        <p>Custodia del contrato y del motor. Intermediario de confianza. No es dueño de un data warehouse.</p>
+      </article>
+    </div>
+    <p class="sub" style="margin-top:1rem">Marco Externado × CleantechHUB firmado 3 jul 2024; vigencia 5 años desde la última firma. Marco sin erogaciones (detalle financiero en convenio específico, no en este deck).</p>
+    <p class="source-foot">Fuentes: WP p3 §5; CV (03 jul 2024, SEXTA, QUINTA).</p>
+  </div>
+</section>
+
+<section id="s6" class="section light">
+  <div class="inner">
+    <p class="eyebrow">WP §6 · Mapa de actores</p>
+    <h2>Carapulica, hélice y círculo</h2>
+    <div class="accent-bar"></div>
+    <p class="lead">Carapulica es el relato de la colaboración (no un almacén). El Datalab es motor, dentro del observatorio.</p>
     <div class="actor-map">
       <div class="helix">
         <h3>Hélice (continua)</h3>
         <ul>
-          <li>Gobierno</li>
-          <li>Cooperación internacional</li>
-          <li>Startups y socios de innovación</li>
-          <li>Sector privado</li>
+          <li>Gobierno (cita fuentes oficiales; ningún ministerio es miembro)</li>
+          <li>Cooperación internacional (presión de paisaje; proyecto con dueño)</li>
+          <li>Startups y socios de innovación (nicho; cohorte vía REIN)</li>
+          <li>Sector privado (régimen; adoptante posible)</li>
         </ul>
       </div>
       <div class="circle-block">
@@ -388,169 +385,406 @@ h2 {
         </ul>
       </div>
     </div>
-    <div class="carapulica">
-      <strong>Carapulica</strong> — relato de la colaboración (caso narrativo del programa, no un actor más en la hélice).
-    </div>
-    <p class="source-foot">Fuentes: WP p3 §6.</p>
-  </div>
-</section>
 
-<!-- 6 Cuatro lentes + hilo -->
-<section id="s6" class="section light">
-  <div class="inner">
-    <p class="eyebrow">Sección 6 · Cuatro lentes + hilo</p>
-    <h2>Lentes pares y tecnología como hilo</h2>
+    <h2 style="margin-top:1.75rem;font-size:1.35rem;color:var(--deep)">Comunidades y municipios: cómo entran</h2>
     <div class="accent-bar"></div>
-    <table class="lenses-table">
-      <thead>
-        <tr><th scope="col">Lente</th><th scope="col">Enfoque (resumen)</th><th scope="col">Nivel MLP</th></tr>
-      </thead>
+    <p class="sub">Carapulica invita al círculo; no anuncia un socio que no existe. El lente Ciudadana hace explícita esta colaboración (consentimiento de datos incluido).</p>
+    <table class="steps-table">
+      <thead><tr><th>Paso</th><th>Qué aporta el territorio / comunidad</th><th>Qué recibe / límite (WP)</th></tr></thead>
       <tbody>
-        <tr><td>Ambiental</td><td>Presiones ecológicas y uso del territorio</td><td>Paisaje</td></tr>
-        <tr><td>Urbana</td><td>Ciudad, servicios e infraestructura</td><td>Régimen / nicho</td></tr>
-        <tr><td>Ciudadana</td><td>Participación, derechos y uso social del dato</td><td>Nicho / círculo</td></tr>
-        <tr><td>Del mercado</td><td>Modelos de negocio y entrada al mercado</td><td>Régimen / nicho</td></tr>
+        <tr>
+          <td>1 · Invitación al círculo</td>
+          <td>Un proyecto de su territorio (ejemplo pedido: agrovoltaica)</td>
+          <td>No se anuncia membresía ni cliente; Carapulica registra el cruce</td>
+        </tr>
+        <tr>
+          <td>2 · Contexto normativo</td>
+          <td>Comunidades energéticas (Colombia: Decreto 2236/2023; CREG 101 072/2025)</td>
+          <td>Una comunidad energética no es, por esa sola norma, una cooperativa</td>
+        </tr>
+        <tr>
+          <td>3 · Protección del nicho</td>
+          <td>Cooperativas eléctricas (contexto regional citado en WP) y sociedad civil en el círculo</td>
+          <td>La sociedad civil no es un quinto radio de la hélice</td>
+        </tr>
+        <tr>
+          <td>4 · Motor de datos</td>
+          <td>Metadato de conexión vía Datalab (living lab, vitrina, datathon según caso)</td>
+          <td>El Datalab no guarda el predio ni el parque; no nombra implementador sin fuente</td>
+        </tr>
+        <tr>
+          <td>5 · Precedente verificado</td>
+          <td>Gobierno Región Metropolitana de Santiago financió 3 sistemas 13 kWp (Fraunhofer; cerró 2018)</td>
+          <td><span class="pendiente">PENDIENTE</span>: ninguna alcaldía colombiana está invitada en esta nota</td>
+        </tr>
       </tbody>
     </table>
-    <div class="thread-note">
-      <strong>Tecnología</strong> = hilo del nicho (no es un quinto par de lentes).
+    <div class="photo-band" style="background-image:url('img/plaza-bogota.jpg');margin-top:1rem">
+      <div class="band-copy">
+        <p>El círculo conecta lo local con la hélice sin convertir a un gobierno local en «miembro» del observatorio.</p>
+        <p class="img-cap">Foto: Daforerog · CC BY-SA 3.0 · Wikimedia Commons (Plaza de Bolívar, Bogotá).</p>
+      </div>
     </div>
-    <p class="sub" style="margin-top:1rem"><strong>Cinco palancas</strong> (como preguntas de trabajo):</p>
-    <ol class="levers">
-      <li>¿Cómo abre la cooperación internacional ventanas útiles?</li>
-      <li>¿Qué innovación probamos con evidencia?</li>
-      <li>¿Qué investigación sostiene la conclusión?</li>
-      <li>¿Cómo entra al mercado el emprendimiento?</li>
-      <li>¿Cuál es el problema del corporativo que bloquea escala?</li>
+    <p class="source-foot">Fuentes: WP p3 §6, p4 (círculo, agrovoltaica, normas, Santiago); lente Ciudadana WP p5–6.</p>
+  </div>
+</section>
+
+<section id="s7" class="section cyan-band">
+  <div class="inner">
+    <p class="eyebrow">WP §7 · Tipos de actor</p>
+    <h2>Tipos, no listas de nombres</h2>
+    <div class="accent-bar"></div>
+    <p class="lead">Esta nota no nombra empresas, clientes ni sedes concretas. Los tipos orientan cómo colaborar.</p>
+    <table class="lenses-table">
+      <thead><tr><th>Tipo</th><th>Rol en la colaboración</th><th>Límite</th></tr></thead>
+      <tbody>
+        <tr><td>Gobierno</td><td>Porta regla e información oficial</td><td>No es miembro por portar dato</td></tr>
+        <tr><td>Cooperación internacional</td><td>Presión de paisaje; puede proteger el nicho</td><td>No es el paisaje (Ambiental sí)</td></tr>
+        <tr><td>Startups / innovación</td><td>Nicho si la oferta necesita protección</td><td>Cohorte solo vía REIN; sin nombres</td></tr>
+        <tr><td>Sector privado</td><td>Régimen; adoptante posible</td><td>Sin lista de empresas ni clientes</td></tr>
+        <tr><td>Círculo (local, cooperativas, sociedad civil)</td><td>Invitación explícita vía Carapulica</td><td>Sociedad civil fuera de la hélice</td></tr>
+      </tbody>
+    </table>
+    <p class="source-foot">Fuente: WP p4 §7.</p>
+  </div>
+</section>
+
+<section id="s8" class="section light">
+  <div class="inner">
+    <p class="eyebrow">WP §8 · Lentes y palancas</p>
+    <h2>Cuatro lentes pares + hilo tecnológico</h2>
+    <div class="accent-bar"></div>
+    <p class="sub">Cinco palancas (preguntas): cooperación internacional, innovación, investigación, entrada al mercado por emprendimiento, problema del corporativo.</p>
+    <div class="tab-bar" role="tablist" aria-label="Lentes">
+      <button type="button" class="tab-btn" role="tab" aria-selected="true" data-tab="ambiental">Ambiental</button>
+      <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="urbana">Urbana</button>
+      <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="ciudadana">Ciudadana</button>
+      <button type="button" class="tab-btn" role="tab" aria-selected="false" data-tab="mercado">Del mercado</button>
+    </div>
+    <div id="panel-ambiental" class="tab-panel active" role="tabpanel">
+      <h3>Ambiental (paisaje)</h3>
+      <p>Transición energética, biodiversidad, economía circular (ENEC). Fechas EUDR citadas: 30 dic 2026 y 30 jun 2027 (micro/pequeñas). No monta otra vía de diligencia debida.</p>
+    </div>
+    <div id="panel-urbana" class="tab-panel" role="tabpanel">
+      <h3>Urbana</h3>
+      <p>Calidad del aire; caso documentado en sandbox con startups (lente Urbana). No monta red de estaciones; adoptante <span class="pendiente">sin evidencia</span> en fuente fechada.</p>
+    </div>
+    <div id="panel-ciudadana" class="tab-panel" role="tabpanel">
+      <h3>Ciudadana</h3>
+      <p>Hélice + círculo (gobiernos locales, cooperativas, sociedad civil) y consentimiento para publicar un dato. Aquí se lee la entrada de municipios y comunidades.</p>
+    </div>
+    <div id="panel-mercado" class="tab-panel" role="tabpanel">
+      <h3>Del mercado</h3>
+      <p>Startups y corporativos en cruce con Ambiental; cohorte vía REIN. Incumbente solo como tipo con informe público citado.</p>
+    </div>
+    <div class="chart-row">
+      <div class="chart-box"><canvas id="chart-structure" aria-label="Conteos estructurales del white paper"></canvas></div>
+      <div class="chart-box"><canvas id="chart-procolombia" aria-label="145 emprendimientos ProColombia y GGGI"></canvas></div>
+    </div>
+    <p class="sub" style="margin-top:0.75rem">Cifra citada (no resultado del observatorio): ProColombia y GGGI acompañaron <strong>145</strong> emprendimientos y empresas rurales (Ruta Exportadora Bioeconomía Rural, 7 ene 2026).</p>
+    <p class="source-foot">Fuentes: WP p4–6 §8; ProColombia 2026 (WP p6).</p>
+  </div>
+</section>
+
+<section id="s9" class="section paper">
+  <div class="inner">
+    <p class="eyebrow">WP §9 · El Datalab</p>
+    <h2>Motor e infraestructura de dato</h2>
+    <div class="accent-bar"></div>
+    <p class="sub">Cuatro entornos (ordena la tabla por duración). Servidores OVH en la UE; diseño alineado con Reg. (UE) 2022/868 y Ley 1581/2012 (no certificación).</p>
+    <table class="data-table" id="env-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="sortable" data-sort="name">Entorno <span class="sort-ind">↕</span></th>
+          <th class="sortable" data-sort="days">Duración (días, orden) <span class="sort-ind">↕</span></th>
+          <th>Nota WP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-days="0"><td>1</td><td>Vitrina pública anonimizada</td><td>Continua</td><td>Custodio + startup; variante corporativa ligera</td></tr>
+        <tr data-days="90"><td>2</td><td>Living lab cerrado (3 partes)</td><td>90–180</td><td>Startup + implementador (sin nombre en nota)</td></tr>
+        <tr data-days="0"><td>3</td><td>Producto de cliente</td><td>Solo lectura</td><td>Copia de horas validadas</td></tr>
+        <tr data-days="28"><td>4</td><td>Datathon</td><td>28–42 (4–6 sem)</td><td>No es living lab ni cohorte REIN</td></tr>
+      </tbody>
+    </table>
+    <div class="slider-wrap">
+      <label for="level-slider">Niveles de Data Set (L1 / L2 / L3)</label>
+      <input type="range" id="level-slider" min="1" max="3" step="1" value="1" aria-valuetext="L1 Bruto">
+      <div class="slider-panel" id="level-panel">
+        <strong>L1 Bruto</strong> · copia cruda con fecha y fuente. Los carriles A1/A2/A3 del producto vivo son distintos de L1/L2/L3.
+      </div>
+    </div>
+    <div class="photo-band" style="background-image:url('img/wind-guajira.jpg')">
+      <div class="band-copy">
+        <p>Transición energética en territorio: el lente Ambiental cita atlas oficiales, no los reemplaza.</p>
+        <p class="img-cap">Foto: Taggen · CC BY-SA 4.0 · Wikimedia Commons (Jepírachi, Guajira).</p>
+      </div>
+    </div>
+    <p class="source-foot">Fuente: WP p6–7 §9.</p>
+  </div>
+</section>
+
+<section id="s10" class="section light">
+  <div class="inner">
+    <p class="eyebrow">WP §10 · El papel</p>
+    <h2>Cinco papeles y cinco indicadores</h2>
+    <div class="accent-bar"></div>
+    <div class="two-col">
+      <article class="card">
+        <h3>Papeles</h3>
+        <ul>
+          <li>Protector · Adoptante · Regulador</li>
+          <li>Financiador · Intermediario</li>
+        </ul>
+        <p style="margin-top:0.5rem">«Sin evidencia» ≠ cero.</p>
+      </article>
+      <article class="card">
+        <h3>Indicadores (hecho con fecha y fuente)</h3>
+        <ul>
+          <li>Piloto con incumbente (living lab 90–180 días)</li>
+          <li>Compra o producto de cliente</li>
+          <li>Cambio de norma (ej. Dec. 2236/2023, EUDR)</li>
+          <li>Cofinanciación · Acuerdo de datos</li>
+        </ul>
+      </article>
+    </div>
+    <div class="counter-grid" style="grid-template-columns:1fr 1fr;max-width:36rem">
+      <div class="counter"><div class="num" style="font-size:1.25rem">30 dic 2026</div><div class="lbl">EUDR · aplicación general (WP / EUR-Lex)</div></div>
+      <div class="counter"><div class="num" style="font-size:1.25rem">30 jun 2027</div><div class="lbl">EUDR · micro y pequeñas empresas</div></div>
+    </div>
+    <p class="source-foot">Fuentes: WP p7–8 §10; fechas EUDR WP p5 y EUR-Lex feb 2026.</p>
+  </div>
+</section>
+
+<section id="s11" class="section cyan-band">
+  <div class="inner">
+    <p class="eyebrow">WP §11 · Earth Data Week</p>
+    <h2>Momento público (marzo)</h2>
+    <div class="accent-bar"></div>
+    <p class="lead">Mes de referencia: <strong>marzo</strong>. Año: <span class="pendiente">PENDIENTE</span>.</p>
+    <ol class="clean">
+      <li>Recorre los cuatro entornos con datos publicables.</li>
+      <li>Matriz de cuatro lentes + hilo; un caso por lente.</li>
+      <li>Invita al círculo sin anunciar socios inexistentes.</li>
+      <li>Remite EUDR a guías ya publicadas (FIT for FAIR).</li>
+      <li>Cierra con un datathon.</li>
     </ol>
-    <p class="source-foot">Fuentes: WP p3 §4, p4–5 §8.</p>
-  </div>
-</section>
-
-<!-- 7 Datalab motor -->
-<section id="s7" class="section paper">
-  <div class="inner">
-    <p class="eyebrow">Sección 7 · El Datalab, motor</p>
-    <h2>Cuatro entornos · tres niveles de dato</h2>
-    <div class="accent-bar"></div>
-    <div class="stat-grid">
-      <div class="stat">
-        <strong>1 · Vitrina pública</strong>
-        <span>Datos anonimizados visibles para aprendizaje y confianza.</span>
-      </div>
-      <div class="stat">
-        <strong>2 · Living lab cerrado</strong>
-        <span>Tres partes; ventanas de <strong>90–180 días</strong>.</span>
-      </div>
-      <div class="stat">
-        <strong>3 · Producto de cliente</strong>
-        <span>Copia de solo lectura de horas ya validadas.</span>
+    <div class="photo-band" style="background-image:url('img/cocora-valley.jpg')">
+      <div class="band-copy">
+        <p>Earth Data Week muestra colaboración y motor; no lanza un instituto nuevo.</p>
+        <p class="img-cap">Foto: Angela Calle y Daniel Di Palma · CC BY-SA 4.0 · Valle del Cocora.</p>
       </div>
     </div>
-    <div class="stat" style="margin-top:1rem; max-width:24rem">
-      <strong>4 · Datathon</strong>
-      <span>Ciclos de <strong>4–6 semanas</strong> que cierran con entregables.</span>
-    </div>
-    <p class="sub" style="margin-top:1.25rem"><strong>Flujo de datos:</strong> L1 Bruto → L2 Limpio → L3 Listo (tableros leen solo L3).</p>
-    <p class="sub">Infraestructura en servidores <strong>OVH en la Unión Europea</strong>. Diseño alineado con Reglamento (UE) 2022/868 y Ley 1581 de 2012 — <em>no constituye certificación</em>.</p>
-    <p class="sub" style="margin-top:0.75rem"><strong>Cinco papeles:</strong> Protector, Adoptante, Regulador, Financiador, Intermediario. <strong>Cinco indicadores:</strong> piloto con un incumbente; compra o producto de cliente; cambio de norma; cofinanciación; acuerdo de datos. «Sin evidencia» no es un cero.</p>
-    <p class="source-foot">Fuentes: WP p6–8 §9–10.</p>
+    <p class="source-foot">Fuente: WP p8 §11.</p>
   </div>
 </section>
 
-<!-- 8 Earth Data Week y REIN -->
-<section id="s8" class="section cyan-band">
+<section id="s12" class="section paper">
   <div class="inner">
-    <p class="eyebrow">Sección 8 · Earth Data Week y REIN</p>
-    <h2>Momento público · única ruta de cohortes</h2>
+    <p class="eyebrow">WP §12 · REIN</p>
+    <h2>Única ruta de cohortes</h2>
     <div class="accent-bar"></div>
-    <p class="lead">Earth Data Week concentra visibilidad; mes de referencia <strong>marzo</strong> (año <span class="pendiente">PENDIENTE</span>).</p>
-    <p class="sub"><strong>Cinco acciones</strong> del momento:</p>
-    <ol class="levers">
-      <li>Recorrer los cuatro entornos del Datalab</li>
-      <li>Presentar la matriz de cuatro lentes + hilo tecnológico</li>
-      <li>Invitar al círculo (locales, cooperativas, sociedad civil)</li>
-      <li>Remitir la EUDR a guías ya publicadas (sin duplicar asesoría)</li>
-      <li>Cerrar con un datathon</li>
-    </ol>
-    <p class="sub" style="margin-top:1rem"><strong>REIN</strong> es la única ruta de cohortes del observatorio (no se abre una segunda aceleradora en paralelo).</p>
-    <p class="source-foot">Fuentes: WP p8 §11–12.</p>
+    <p class="lead">Esta nota no abre otra ruta al lado de REIN. Earth Data Week no es final de ClimateLaunchpad.</p>
+    <p class="sub">Hay dos textos públicos (PVBLIC vs CleantechHUB) con énfasis distintos; esta nota <strong>no elige</strong> entre ellos.</p>
+    <p class="sub">Hub en Externado mencionado desde 2019 (página PVBLIC, citada en WP).</p>
+    <p class="source-foot">Fuente: WP p8 §12.</p>
   </div>
 </section>
 
-<!-- 9 Hoja de ruta -->
-<section id="s9" class="section light">
+<section id="s13" class="section light">
   <div class="inner">
-    <p class="eyebrow">Sección 9 · Hoja de ruta</p>
-    <h2>Tres fases</h2>
+    <p class="eyebrow">WP §13 · Hoja de ruta</p>
+    <h2>Tres fases · tres unidades</h2>
     <div class="accent-bar"></div>
-    <div class="stat-grid">
-      <div class="stat">
-        <strong>Fase 1 · Fundamento</strong>
-        <span>Vocabulario común, definición de lentes, línea base L1 Bruto.</span>
-      </div>
-      <div class="stat">
-        <strong>Fase 2 · Piloto</strong>
-        <span>Un caso por lente; Living Lab + Datathon.</span>
-      </div>
-      <div class="stat">
-        <strong>Fase 3 · Escala</strong>
-        <span>Entrada al régimen; Earth Data Week; formato L3 Listo.</span>
-      </div>
+    <div class="slider-wrap">
+      <label for="phase-slider">Fase: Fundamento · Piloto · Escala</label>
+      <input type="range" id="phase-slider" min="1" max="3" step="1" value="1">
+      <div class="slider-panel" id="phase-panel"></div>
     </div>
-    <p class="sub" style="margin-top:1.25rem"><strong>Plazos:</strong> <span class="pendiente">PENDIENTE</span> (recursos/planta para v2 en nota).</p>
-    <p class="sub"><strong>Responsables:</strong> CEE — Gloria Marlene Díaz Muñoz; Desarrollo e Innovación — Diego Alejandro Díaz Malagón; CleantechHUB — Gideon Blaauw.</p>
-    <p class="source-foot">Fuentes: WP p8–10 §13.</p>
+    <p class="sub" style="margin-top:1rem"><strong>Responsables:</strong> CEE (Marlene Díaz), Desarrollo e Innovación (Diego Díaz Malagón), CleantechHUB (Gideon Blaauw). Plazos y planta: <span class="pendiente">PENDIENTE</span> (v2).</p>
+    <p class="source-foot">Fuente: WP p8–10 §13.</p>
   </div>
 </section>
 
-<!-- 10 Equipo -->
-<section id="s10" class="section paper">
+<section id="s14" class="section paper">
   <div class="inner">
-    <p class="eyebrow">Sección 10 · Equipo</p>
-    <h2>Quién sostiene el observatorio</h2>
+    <p class="eyebrow">WP §14 · Perfiles</p>
+    <h2>Autores del white paper</h2>
     <div class="accent-bar"></div>
     <div class="team-strip">
-      <article class="person" data-initials="GM">
-        <img src="https://www.uexternado.edu.co/wp-content/uploads/2023/05/gloria-marlene-diaz-scaled-1-450x450.jpg" width="120" height="120" alt="Gloria Marlene Díaz Muñoz" loading="lazy" onerror="this.parentElement.classList.add('fail')">
-        <div class="initials" aria-hidden="true">GM</div>
+      <article class="person">
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2023/05/gloria-marlene-diaz-scaled-1-450x450.jpg" width="108" height="108" alt="Gloria Marlene Díaz Muñoz" loading="lazy">
         <h3>Gloria Marlene Díaz Muñoz</h3>
-        <p>Directora, Centro de Emprendimiento Externadista (CEE), Universidad Externado de Colombia</p>
+        <p>Directora, CEE · anfitriona hub REIN Colombia en el Externado</p>
       </article>
-      <article class="person" data-initials="DD">
-        <img src="https://www.uexternado.edu.co/wp-content/uploads/2026/08/diego-alejandro.jpg" width="120" height="120" alt="Diego Alejandro Díaz Malagón" loading="lazy" onerror="this.parentElement.classList.add('fail')">
-        <div class="initials" aria-hidden="true">DD</div>
+      <article class="person">
+        <img src="https://www.uexternado.edu.co/wp-content/uploads/2026/08/diego-alejandro.jpg" width="108" height="108" alt="Diego Alejandro Díaz Malagón" loading="lazy">
         <h3>Diego Alejandro Díaz Malagón</h3>
-        <p>Coordinador de Desarrollo e Innovación, Dirección de Desarrollo Institucional, Universidad Externado de Colombia</p>
+        <p>Coordinador de Desarrollo e Innovación, Dirección de Desarrollo Institucional</p>
       </article>
-      <article class="person" data-initials="GB">
-        <img src="https://cleantechhub.net/wp-content/uploads/2025/04/GIDEON-e1743197807249-1024x1024.png" width="120" height="120" alt="Gideon Blaauw" loading="lazy" onerror="this.parentElement.classList.add('fail')">
-        <div class="initials" aria-hidden="true">GB</div>
+      <article class="person">
+        <img src="https://cleantechhub.net/wp-content/uploads/2025/04/GIDEON-e1743197807249-1024x1024.png" width="108" height="108" alt="Gideon Blaauw" loading="lazy">
         <h3>Gideon Blaauw</h3>
         <p>Regional Lead, CleantechHUB</p>
       </article>
     </div>
-    <p class="source-foot">Fuentes: WP p1, p12–13; URLs de foto en WP p13.</p>
+    <p class="source-foot">Fuentes: WP p12–13 §14; URLs de foto WP p13.</p>
   </div>
 </section>
 
-<!-- 11 Para hoy y cierre -->
-<section id="s11" class="section sky close-band">
+<section id="s15" class="section sky close-band">
   <div class="inner">
-    <p class="eyebrow">Sección 11 · Para hoy</p>
-    <h2>Preguntas para esta reunión</h2>
+    <p class="eyebrow">Reunión 30 oct 2026 · Cierre</p>
+    <h2>Agenda sugerida (60 min)</h2>
     <div class="accent-bar"></div>
-    <ul class="questions">
-      <li>Comentarios de Diego a la nota conceptual v2 (correo 23 oct).</li>
-      <li>Rol del CEE y de Desarrollo e Innovación en la siguiente versión.</li>
-      <li>Próximos pasos hacia v3 y dueños por entrega.</li>
+    <ul class="clean" style="text-align:left;max-width:36rem;margin:0 auto">
+      <li>Comentarios de Diego a v2 · <span class="pendiente">PENDIENTE</span></li>
+      <li>Rol CEE / Desarrollo e Innovación y vínculo Otrosí (Datathon, Earth Data Week, Datalab, investigación)</li>
+      <li>Datalab como motor · currículo curso 1 día (enviado 21 oct)</li>
+      <li>Próximos pasos v3 y dueños · timing fases <span class="pendiente">PENDIENTE</span></li>
     </ul>
-    <p class="sub" style="margin-top:1rem"><strong>Límites del observatorio</strong> (recordatorio): no sustituye al IDEAM; no publica cifras nacionales; no abre otra aceleradora junto a REIN; no anuncia socios inexistentes; no nombra clientes.</p>
     <p class="tagline">Inspire. Act. Transform.</p>
     <a class="btn-book" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6" rel="noopener noreferrer">Agendar conversación</a>
-    <p class="source-foot" style="text-align:center;margin-top:1.5rem">Fuentes: WP p3 §4; EM; límites en ticket/facts.</p>
+    <p class="source-foot" style="text-align:center">Fuentes: MB (agenda 30 oct); WP límites §4; EM eje colaboración-dato.</p>
   </div>
 </section>
 
+<script>
+(function () {
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = {
+    ambiental: document.getElementById('panel-ambiental'),
+    urbana: document.getElementById('panel-urbana'),
+    ciudadana: document.getElementById('panel-ciudadana'),
+    mercado: document.getElementById('panel-mercado')
+  };
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+      Object.values(panels).forEach(p => p.classList.remove('active'));
+      panels[btn.dataset.tab].classList.add('active');
+    });
+  });
+
+  const levelCopy = {
+    1: '<strong>L1 Bruto</strong> · copia cruda con fecha y fuente.',
+    2: '<strong>L2 Limpio</strong> · validado, unidades unificadas, un hecho por fila.',
+    3: '<strong>L3 Listo</strong> · respuesta trazable a una pregunta; el Data Dashboard lee solo L3.'
+  };
+  const levelSlider = document.getElementById('level-slider');
+  const levelPanel = document.getElementById('level-panel');
+  function syncLevel() {
+    levelPanel.innerHTML = levelCopy[levelSlider.value];
+    levelSlider.setAttribute('aria-valuetext', 'L' + levelSlider.value);
+  }
+  levelSlider.addEventListener('input', syncLevel);
+  syncLevel();
+
+  const phaseData = {
+    1: { title: 'Fase 1 · Fundamento', body: 'Acuerdo de vocabulario MLP, definición de lentes, línea base L1 Bruto e indicadores. Lectura de paisaje (Ambiental) y régimen. CEE: palabra nicho; Desarrollo e Innovación: definiciones; CTH: motor y contrato.' },
+    2: { title: 'Fase 2 · Piloto', body: 'Una colaboración por lente en el nicho; Living Lab + Datathon como motor. Salidas con datos publicables desde L3; celda vacía no es cero.' },
+    3: { title: 'Fase 3 · Escala', body: 'Entrada al régimen; productos de inteligencia compartida; Earth Data Week como momento público con formato L3 Listo.' }
+  };
+  const phaseSlider = document.getElementById('phase-slider');
+  const phasePanel = document.getElementById('phase-panel');
+  function syncPhase() {
+    const d = phaseData[phaseSlider.value];
+    phasePanel.innerHTML = '<strong>' + d.title + '</strong><br>' + d.body;
+  }
+  phaseSlider.addEventListener('input', syncPhase);
+  syncPhase();
+
+  const tbody = document.querySelector('#env-table tbody');
+  document.querySelectorAll('#env-table th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort;
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = th.dataset.asc !== 'true';
+      th.dataset.asc = asc;
+      rows.sort((a, b) => {
+        if (key === 'days') {
+          return (asc ? 1 : -1) * (Number(a.dataset.days) - Number(b.dataset.days));
+        }
+        const ta = a.children[1].textContent.trim();
+        const tb = b.children[1].textContent.trim();
+        return (asc ? 1 : -1) * ta.localeCompare(tb, 'es');
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    });
+  });
+
+  function animateCounters() {
+    document.querySelectorAll('.num[data-target]').forEach(el => {
+      if (el.dataset.done) return;
+      const target = Number(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let cur = 0;
+      const step = Math.max(1, Math.floor(target / 24));
+      const tick = () => {
+        cur += step;
+        if (cur >= target) { cur = target; el.dataset.done = '1'; }
+        el.textContent = cur + suffix;
+        if (cur < target) requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }
+  const cg = document.getElementById('counter-grid');
+  if ('IntersectionObserver' in window && cg) {
+    const io = new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) { animateCounters(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(cg);
+  } else animateCounters();
+
+  function initCharts() {
+    if (!window.Chart) return;
+    const deep = '#0C498A', fg = '#669348', sky = '#69B5FA', lg = '#9DC384';
+    new Chart(document.getElementById('chart-structure'), {
+      type: 'bar',
+      data: {
+        labels: ['Lentes', 'Entornos', 'Niveles L', 'Fases', 'Palancas'],
+        datasets: [{ label: 'Conteo (WP)', data: [4, 4, 3, 3, 5], backgroundColor: [deep, fg, sky, lg, deep] }]
+      },
+      options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } } }
+    });
+    new Chart(document.getElementById('chart-procolombia'), {
+      type: 'bar',
+      data: {
+        labels: ['Emprendimientos rurales acompañados'],
+        datasets: [{ label: 'ProColombia + GGGI (7 ene 2026)', data: [145], backgroundColor: fg }]
+      },
+      options: { plugins: { legend: { display: true } }, scales: { y: { beginAtZero: true } } }
+    });
+    new Chart(document.getElementById('chart-eudr'), {
+      type: 'bar',
+      data: {
+        labels: ['Aplicación general EUDR', 'Micro/pequeñas'],
+        datasets: [{ label: 'Fecha límite (WP / EUR-Lex)', data: [2026.98, 2027.48], backgroundColor: [deep, sky] }]
+      },
+      options: {
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label(ctx) {
+                return ctx.dataIndex === 0 ? '30 dic 2026' : '30 jun 2027';
+              }
+            }
+          }
+        },
+        scales: {
+          y: { display: false },
+          x: { ticks: { font: { size: 11 } } }
+        }
+      }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCharts);
+  else initCharts();
+})();
+</script>
 </body>
 </html>
