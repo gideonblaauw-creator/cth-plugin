@@ -47,4 +47,6 @@ Montos, texto de cláusulas del convenio, borradores internos (aclaratoria, Otro
 
 ## Capturas
 
-`screenshots/01-portada.png` … `11-cierre.png` — viewport 1440×900, una por sección.
+`screenshots/01-portada.png` … `11-cierre.png` — viewport **1440×900** (desktop) y **390×844** (`*-mobile.png`), una por sección.
+
+**Nota técnica:** no usar `--window-size=1440,11000` en Chrome headless: `100vh` escala con la altura de ventana y el recorte por franjas deja la portada en azul vacío. Regenerar con Playwright (`scroll_into_view_if_needed` por `#s1`…`#s11`).

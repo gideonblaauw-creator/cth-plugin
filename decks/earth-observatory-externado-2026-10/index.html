@@ -55,9 +55,31 @@ body {
 
 .section {
   min-height: 100vh;
+  min-height: 100dvh;
   padding: clamp(5rem, 12vw, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem);
-  display: flex; flex-direction: column; justify-content: center;
+  display: flex; flex-direction: column; justify-content: flex-start;
+  opacity: 1;
+  visibility: visible;
 }
+.section.cover {
+  justify-content: center;
+  padding-top: clamp(4.5rem, 10vw, 6rem);
+}
+.cover-hero { text-align: left; opacity: 1; transform: none; }
+.cover-hero .cover-logo {
+  width: 88px; height: 88px; object-fit: contain;
+  display: block; margin-bottom: 1.25rem;
+}
+.cover-hero h1,
+.cover-hero .lead,
+.cover-hero .sub,
+.cover-hero .meta-line,
+.cover-hero .eyebrow {
+  opacity: 1;
+  color: var(--white);
+  transform: none;
+}
+.cover-hero .eyebrow { color: var(--cyan); }
 .section.light { background: var(--white); color: var(--ink); }
 .section.deep { background: var(--deep); color: var(--white); }
 .section.paper { background: var(--paper); color: var(--ink); }
@@ -256,8 +278,9 @@ h2 {
 </header>
 
 <!-- 1 Portada -->
-<section id="s1" class="section deep">
-  <div class="inner">
+<section id="s1" class="section deep cover">
+  <div class="inner cover-hero">
+    <img class="cover-logo" src="img/cth-globe-logo.svg" width="88" height="88" alt="CleantechHUB">
     <p class="eyebrow">CleantechHUB × Universidad Externado de Colombia · 30 oct 2026</p>
     <h1>Observatorio de la Tierra</h1>
     <div class="accent-bar"></div>
@@ -522,11 +545,5 @@ h2 {
   </div>
 </section>
 
-<script>
-document.querySelectorAll('.person').forEach(function (el) {
-  var ini = el.getAttribute('data-initials');
-  if (ini) el.querySelector('.initials').textContent = ini;
-});
-</script>
 </body>
 </html>
