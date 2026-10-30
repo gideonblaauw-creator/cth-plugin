@@ -272,6 +272,33 @@
     ['norte de santander', 'norte santander']
   ];
 
+  function ringArea(ring) {
+    let a = 0;
+    let b = ring[ring.length - 1];
+    for (let i = 0; i < ring.length; i++) {
+      a += b[0] * ring[i][1] - ring[i][0] * b[1];
+      b = ring[i];
+    }
+    return a;
+  }
+
+  function rewindRing(ring, dir) {
+    if (ringArea(ring) * dir < 0) ring.reverse();
+  }
+
+  function rewindPolygon(coords) {
+    coords.forEach((ring, i) => rewindRing(ring, i === 0 ? -1 : 1));
+  }
+
+  function rewindFeatureCollection(fc) {
+    fc.features.forEach((f) => {
+      const g = f.geometry;
+      if (g.type === 'Polygon') rewindPolygon(g.coordinates);
+      else if (g.type === 'MultiPolygon') g.coordinates.forEach(rewindPolygon);
+    });
+    return fc;
+  }
+
   function deptMatch(a, b) {
     const na = normDept(a);
     const nb = normDept(b);
@@ -360,12 +387,13 @@
     container.innerHTML = '';
     const svg = d3.select(container).append('svg').attr('viewBox', '0 0 ' + width + ' ' + height);
 
+    const mapGeo = rewindFeatureCollection({ type: 'FeatureCollection', features: geoFeatures.slice() });
     const projection = d3.geoMercator().fitExtent(
       [
         [16, 12],
         [width - 16, height - 12]
       ],
-      { type: 'FeatureCollection', features: geoFeatures }
+      mapGeo
     );
     const path = d3.geoPath().projection(projection);
 
@@ -436,15 +464,11 @@
     sel.addEventListener('change', applyMapFilter);
   }
 
-  Promise.all([
-    fetch('data/eo-deck.json').then((r) => r.json()),
-    fetch('data/nexus-co-cities.csv').then((r) => r.text()),
-    fetch('data/col-min.geojson').then((r) => r.json())
-  ])
-    .then(([deck, csvText, geo]) => {
+  Promise.all([fetch('data/eo-deck.json').then((r) => r.json()), fetch('data/nexus-co-cities.csv').then((r) => r.text())])
+    .then(([deck, csvText]) => {
       EO = deck;
       startups = parseCsv(csvText);
-      geoFeatures = geo.features || [];
+      geoFeatures = (window.EO_COL_GEO && window.EO_COL_GEO.features) || [];
       populateDeptFilter();
       bindHubLenses();
       bindHubPhases();
