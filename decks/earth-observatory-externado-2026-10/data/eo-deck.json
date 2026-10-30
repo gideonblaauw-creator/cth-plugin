@@ -1,0 +1,36 @@
+{
+  "counters": [
+    { "n": 4, "suffix": "", "label": "Lentes pares" },
+    { "n": 4, "suffix": "", "label": "Entornos Datalab" },
+    { "n": 3, "suffix": "", "label": "Niveles de dato (L1/L2/L3)" },
+    { "n": 3, "suffix": "", "label": "Fases de ruta" },
+    { "n": 5, "suffix": "", "label": "Palancas (preguntas)" },
+    { "n": 5, "suffix": " años", "label": "Convenio marco (vigencia)" }
+  ],
+  "lenses": [
+    { "id": "ambiental", "title": "Ambiental (paisaje)", "body": "Transición energética, biodiversidad, economía circular (ENEC). Fechas EUDR citadas: 30 dic 2026 y 30 jun 2027 (micro/pequeñas). No monta otra vía de diligencia debida." },
+    { "id": "urbana", "title": "Urbana", "body": "Calidad del aire; caso documentado en sandbox con startups (lente Urbana). No monta red de estaciones; adoptante sin evidencia en fuente fechada." },
+    { "id": "ciudadana", "title": "Ciudadana", "body": "Hélice + círculo (gobiernos locales, cooperativas, sociedad civil) y consentimiento para publicar un dato. Aquí se lee la entrada de municipios y comunidades." },
+    { "id": "mercado", "title": "Del mercado", "body": "Startups y corporativos en cruce con Ambiental; cohorte vía REIN. Incumbente solo como tipo con informe público citado." }
+  ],
+  "levels": {
+    "1": "<strong>L1 Bruto</strong> · copia cruda con fecha y fuente. Los carriles A1/A2/A3 del producto vivo son distintos de L1/L2/L3.",
+    "2": "<strong>L2 Limpio</strong> · validado, unidades unificadas, un hecho por fila.",
+    "3": "<strong>L3 Listo</strong> · respuesta trazable a una pregunta; el Data Dashboard lee solo L3."
+  },
+  "phases": {
+    "1": { "title": "Fase 1 · Fundamento", "body": "Acuerdo de vocabulario MLP, definición de lentes, línea base L1 Bruto e indicadores. Lectura de paisaje (Ambiental) y régimen. CEE: palabra nicho; Desarrollo e Innovación: definiciones; CTH: motor y contrato." },
+    "2": { "title": "Fase 2 · Piloto", "body": "Una colaboración por lente en el nicho; Living Lab + Datathon como motor. Salidas con datos publicables desde L3; celda vacía no es cero." },
+    "3": { "title": "Fase 3 · Escala", "body": "Entrada al régimen; productos de inteligencia compartida; Earth Data Week como momento público con formato L3 Listo." }
+  },
+  "environments": [
+    { "days": 0, "name": "Vitrina pública anonimizada", "duration": "Continua", "note": "Custodio + startup; variante corporativa ligera" },
+    { "days": 90, "name": "Living lab cerrado (3 partes)", "duration": "90–180", "note": "Startup + implementador (sin nombre en nota)" },
+    { "days": 0, "name": "Producto de cliente", "duration": "Solo lectura", "note": "Copia de horas validadas" },
+    { "days": 28, "name": "Datathon", "duration": "28–42 (4–6 sem)", "note": "No es living lab ni cohorte REIN" }
+  ],
+  "charts": {
+    "structure": { "labels": ["Lentes", "Entornos", "Niveles L", "Fases", "Palancas"], "data": [4, 4, 3, 3, 5] },
+    "procolombia": { "label": "Emprendimientos rurales acompañados", "value": 145 }
+  }
+}
