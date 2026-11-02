@@ -4,7 +4,7 @@
 **Review copy (workflow JSON):** `n8n-li/workflows/` in this repo  
 **VPS source of truth:** `/opt/n8n-li` (see `n8n-li/docs/WF1-OAUTH-SETUP.md`)
 
-This map is derived from `n8n-li/workflows/*.json`, `n8n-li/docs/WF1-OAUTH-SETUP.md`, `n8n-li/scripts/cm/page-publish.py`, and `n8n-li/tests/test_page_publish.py` only. Gaps are marked **TBD**.
+This map is derived from `n8n-li/workflows/*.json`, `n8n-li/docs/WF1-OAUTH-SETUP.md`, `n8n-li/scripts/cm/page-publish.py`, `n8n-li/tests/test_page_publish.py`, and the **Infra deploy record (30 Oct 2026)** for live instance ids and VPS paths. Remaining gaps are marked **TBD**.
 
 ---
 
@@ -32,11 +32,22 @@ CLI adjunct (`page-publish.py`, not an n8n workflow): reads `LINKEDIN_ACCESS_TOK
 
 ### Back up `database.sqlite` before import
 
-**TBD** — no path or procedure for n8n’s SQLite backup appears in this repo. Confirm on the VPS under `/opt/n8n-li` before any workflow import.
+Live n8n SQLite (Infra deploy record, 30 Oct 2026):
+
+`/mnt/data/docker/volumes/n8n_li_data/_data/database.sqlite`
+
+Before **any** workflow import or credential edit, copy it beside the live file:
+
+```bash
+cp /mnt/data/docker/volumes/n8n_li_data/_data/database.sqlite \
+  "/mnt/data/docker/volumes/n8n_li_data/_data/database.sqlite.bak-<tag>-$(date -u +%Y%m%dT%H%M%SZ)"
+```
+
+Replace `<tag>` with a short operator label (for example `pre-import-wf1`).
 
 ### Docker socket mount
 
-**TBD** — no `docker.sock` mount note appears in this repo. Confirm stack compose/runbook on the VPS before changing containers or imports.
+**Open trap (30 Oct 2026):** `/var/run/docker.sock` is mounted in the **n8n-li** container again, despite an earlier removal fix (cloud agent run `bc-3ea6d70c`). Treat this as an open security/ops issue — do not rely on the socket being absent when reviewing blast radius or hardening. Remove or document the mount explicitly on the VPS stack; do not assume the fix stuck.
 
 ### How to verify
 
@@ -51,7 +62,7 @@ python3 -m unittest discover -s n8n-li/tests -p 'test_*.py'
 **Manual / operator (from `WF1-OAUTH-SETUP.md` §9):**
 
 1. Credential **Connect** at `https://n8n-li.cleantechhub.net/home/credentials` for `LinkedIn CleantechHUB n8n (78cn54)`.
-2. Import both JSON files; confirm **Active** off; rebind LinkedIn HTTP nodes to that credential (replace `REPLACE_LINKEDIN_CREDENTIAL_ID`).
+2. Import both JSON files; confirm **Active** off; rebind LinkedIn HTTP nodes to credential id `KkT9AyzpMcfZD0qv` (`LinkedIn CleantechHUB n8n (78cn54)`). Repo exports still ship placeholder `REPLACE_LINKEDIN_CREDENTIAL_ID`.
 3. Canvas check: no Schedule Trigger, Cron, or Webhook trigger; only Manual Trigger.
 4. CLI dry-run (no `CM_LIVE`, no token): expect `"status": "dry_run"` and `"linkedin_api": false`.
 5. Person CLI dry-run: set bare `LINKEDIN_PERSON_ID`, `--author person`; expect `payload.author` `urn:li:person:<id>` and no HTTP.
@@ -69,7 +80,7 @@ python3 -m unittest discover -s n8n-li/tests -p 'test_*.py'
 | Field | Value |
 |---|---|
 | **File** | `n8n-li/workflows/wf1-org-publish-hitl.json` |
-| **n8n workflow id** | **TBD** (assigned on import in n8n UI) |
+| **n8n workflow id** | `4yGEg8ju8UmjZEwl` (imported inactive, 30 Oct 2026) |
 | **Timezone** | `America/Bogota` (`settings.timezone`) |
 | **Active in repo export** | `false` |
 
@@ -128,7 +139,7 @@ Workflow JSON does not reference Infisical directly.
 
 | Name | Type | Notes |
 |---|---|---|
-| `LinkedIn CleantechHUB n8n (78cn54)` | OAuth2 API (`oAuth2Api`) | Placeholder id `REPLACE_LINKEDIN_CREDENTIAL_ID` until rebound after import. Scope for org post: `w_organization_social` (full credential scope string in OAuth setup doc). |
+| `LinkedIn CleantechHUB n8n (78cn54)` | OAuth2 API (`oAuth2Api`) | Live id `KkT9AyzpMcfZD0qv` (30 Oct 2026). Repo export placeholder: `REPLACE_LINKEDIN_CREDENTIAL_ID`. **Observed scope on credential:** `w_organization_social r_organization_social`. OAuth setup doc lists additional scopes for personal/userinfo — reconcile before personal live tests. |
 
 Do **not** use built-in **LinkedIn OAuth2 API** (`linkedInOAuth2Api`) — it hides scope and defaults to member-only posting.
 
@@ -151,6 +162,7 @@ Do **not** use built-in **LinkedIn OAuth2 API** (`linkedInOAuth2Api`) — it hid
 - **Hash Draft** uses `require('crypto')` — confirm VPS n8n Code node allows it (**TBD** on deploy).
 - **LinkedIn-Version** `202610` may sunset; confirm on deploy day (`WF1-OAUTH-SETUP.md` §11).
 - OAuth redirect must be exactly `https://n8n-li.cleantechhub.net/rest/oauth2-credential/callback`.
+- Back up live `database.sqlite` before import or credential edits (see global section).
 
 ---
 
@@ -159,9 +171,10 @@ Do **not** use built-in **LinkedIn OAuth2 API** (`linkedInOAuth2Api`) — it hid
 | Field | Value |
 |---|---|
 | **File** | `n8n-li/workflows/wf1-personal-publish-hitl.json` |
-| **n8n workflow id** | **TBD** (assigned on import in n8n UI) |
+| **n8n workflow id** | `GzmvJoo23Zx4LEIh` (imported inactive, 30 Oct 2026) |
 | **Timezone** | `America/Bogota` |
 | **Active in repo export** | `false` |
+| **Live draft (30 Oct 2026)** | **Set Draft Post** still has `urn:li:person:REPLACE_PERSON_ID` on the instance |
 
 ### Trigger
 
@@ -208,7 +221,7 @@ No separate Infisical keys for person id in workflow JSON; person URN is edited 
 
 | Name | Type | Notes |
 |---|---|---|
-| `LinkedIn CleantechHUB n8n (78cn54)` | OAuth2 API (`oAuth2Api`) | Rebind after import. Node notes scope `w_member_social` for personal post; credential must still include org + `openid` + `profile` scopes per OAuth setup doc. |
+| `LinkedIn CleantechHUB n8n (78cn54)` | OAuth2 API (`oAuth2Api`) | Live id `KkT9AyzpMcfZD0qv`. **Observed scope (30 Oct 2026):** `w_organization_social r_organization_social` only. Personal posting additionally requires LinkedIn Developer Portal products **Sign In with OpenID** and **Share on LinkedIn** enabled on app `78cn54afhparm6`. Node notes scope `w_member_social` for the HTTP post — confirm token scopes and products before any personal live test. |
 
 ### Healthy-run signs
 
@@ -219,8 +232,8 @@ No separate Infisical keys for person id in workflow JSON; person URN is edited 
 ### Known traps
 
 - All org-workflow traps apply (inactive import, credential rebind, HITL hash, reshare shape, wrong LinkedIn app).
-- Leaving `urn:li:person:REPLACE_PERSON_ID` in production draft.
-- Posting as org vs person: author must be person URN; scope `w_member_social`.
+- Leaving `urn:li:person:REPLACE_PERSON_ID` in production draft (still true on live workflow `GzmvJoo23Zx4LEIh` as of 30 Oct 2026).
+- Posting as org vs person: author must be person URN; scope `w_member_social`. Credential may not yet include member/openid scopes — see credential table and LinkedIn products above.
 - Do not revive personal Share nodes on old stub workflow — use this inactive workflow (`WF1-OAUTH-SETUP.md` §9).
 - Confirm `sub` from userinfo matches `urn:li:person:<id>` on Development Tier app before any personal live test (**TBD** until operator confirms).
 
@@ -240,3 +253,4 @@ No separate Infisical keys for person id in workflow JSON; person URN is edited 
 | Date | Change |
 |---|---|
 | 2026-11-02 | Initial feature map (Gideon approved). |
+| 2026-11-02 | Live workflow ids, credential id/scope, SQLite backup path, docker.sock trap (Infra deploy record 30 Oct 2026). |
