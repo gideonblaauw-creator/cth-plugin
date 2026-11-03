@@ -321,3 +321,96 @@ Cada ruta indica **dimensión / indicador IMPE** (peso dimensión acceso y calid
 ### D. Mensaje sugerido para la reunión (1 frase)
 
 Promigas ancla el debate país en **IMPE 9,5% en 2030** (−**2,9 M** personas), pero el ritmo observado (**~300 k/año**, **0,75 p.p./año**) deja la meta en **~2033–2034** salvo aceleración (**~490 k/año**, **≥1 p.p./año**) vía las **cuatro apuestas** — donde cooperación holandesa puede apoyar **comunidades energéticas, PNSL y equipamiento**, sin confundir **IMPE** con **IPEM MinEnergía (22,3% hogares)** ni con metas **climáticas 2040**.
+
+---
+
+## Educación, empleos verdes y O&M
+
+*Enfoque Gideon: cerrar la brecha de pobreza energética es sobre todo **OPEX** (operación, mantenimiento, competencias), no solo CAPEX. Fuentes: búsqueda web pública (nov. 2026); **no se inventaron** vínculos ni cifras.*
+
+### 1) Promigas ↔ Escuela Colombiana de Ingeniería Julio Garavito (`escuelaing.edu.co`)
+
+#### ¿Convenio formal firmado?
+
+**No se encontró** (en búsqueda web) un **convenio marco o específico publicado** que nombre a Promigas, Gases del Caribe, Surtigas, CEO, GDO o Compañía Energética de Occidente en:
+
+- [Convenios y alianzas institucionales](https://www.escuelaing.edu.co/es/empresa/convenios-y-alianzas-institucionales/) (texto genérico, sin listado de empresas con Promigas), ni  
+- [Convenios empresariales](https://www.escuelaing.edu.co/es/minisitios/convenios-empresariales-escuela/) (proceso tipo, sin Promigas citada).
+
+**Conclusión:** relación **documentada y activa**, pero **no** como convenio PDF indexado; sí como **Cátedra**, **retos** y **innovación abierta**.
+
+#### Relación documentada (evidencia)
+
+| Tipo | Hecho | Fuente 1 | Fuente 2 |
+|------|--------|----------|----------|
+| **Cátedra Luis Carlos Sarmiento Angulo (CLSA)** | Eje “Sector energético: **Grupo Promigas**, Gascop, Mineros S.A.”; primer **reto académico** propuesto por **Promigas**: integración/coordinación de mercados **eléctrico y gas** (no fusión obligatoria; herramientas de anticipación de riesgo) | [Sector energético – CLSA](https://www.escuelaing.edu.co/es/la-escuela/sector-energetico-grupo-promigas-gascop-mineros-sa/) | [Noticia reto mercados](https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/) |
+| **Diálogo / apertura** | **Juan Manuel Rojas**, presidente de Promigas, abrió ciclo “Diálogos para la inspiración” (27 abr.; evento presencial Escuela) | [LinkedIn Escuela – Promigas](https://es.linkedin.com/posts/escuela-colombiana-de-ingenieria_un-comienzo-con-mucha-energ%C3%ADa-promigas-activity-7449864207921090560-JbeF) | [El Tiempo – Rojas en CLSA](https://www.eltiempo.com/economia/sectores/si-el-fenomeno-de-el-nino-es-muy-extenso-podriamos-tener-problemas-advierte-presidente-de-promigas-3551282) |
+| **Co-creación declarada** | Escuela compromete mesas multidisciplinarias y validación con Promigas; resultados en **Eciciencia** | [Noticia primer reto CLSA](https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/) | [Construcción del reto](https://www.escuelaing.edu.co/es/noticias/asi-comienza-a-construirse-el-reto-energetico-de-la-catedra-luis-carlos-sarmiento-angulo/) |
+| **Innovación abierta** | Reto **Promigas** en Solucionatón 10X (Connect Bogotá): **GeoPrioriza** — 3.er lugar, Escuela (oct. 2026) | [Noticia GeoPrioriza](https://www.escuelaing.edu.co/es/noticias/estudiantes-de-la-escuela-obtuvieron-el-tercer-lugar-en-solucionaton-10x-de-connect-bogota/) | Reto descrito en la misma nota (infraestructura gas) |
+
+#### ¿“Escuela Ingenieros” = otra institución?
+
+En Colombia el término puede referirse a **distintas** entidades; **no** intercambiables:
+
+| Nombre usual | Institución | Evidencia Promigas en esta búsqueda |
+|--------------|-------------|-------------------------------------|
+| **Escuela Colombiana de Ingeniería Julio Garavito** | `escuelaing.edu.co` | **Sí** — CLSA, retos (tabla arriba) |
+| **Escuela Militar de Ingeniería / ingeniería militar** | Ej. cadena **Universidad Militar Nueva Granada** (ganador Solucionatón 10X) | **No** vínculo Promigas–UMNG encontrado |
+| **ENIM** (en convenios Escuela) | Consorcio académico citado en [convenios Escuela](https://www.escuelaing.edu.co/es/admisiones/convenios/) — **no** es Promigas | **No** relación Promigas localizada |
+
+---
+
+### 2) Aliados educación / talento / empleos verdes del grupo Promigas
+
+*(Fundación Promigas, filiales y Promigas S.A.; fuentes web.)*
+
+| Aliado | Qué hace | Cifras / alcance citados | Fuente |
+|--------|----------|---------------------------|--------|
+| **Universidad del Norte** | Becas **ProExcelencia** / **Talento Promigas**; **Alianza GreenGas** (2 becas doctorado hidrógeno, 2023) | **435** becarios históricos nacional; **246** becas Caribe desde 2005; **3** becas nuevas jul. 2026 | [Fundación](https://fundacionpromigas.org.co/promigas-y-uninorte-entregan-tres-nuevas-becas-universitarias-que-transformaran-la-vida-de-jovenes-del-caribe/) · [Uninorte](https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe) |
+| **Universidad del Norte + USAID** | **Escuela Atlántico II** — formación técnico-laboral (gastronomía/servicios), empleabilidad juvenil | Convocatoria Barranquilla/Soledad | [Fundación](https://fundacionpromigas.org.co/fundacion-promigas-abre-la-convocatoria-escuela-atlantico-ii-para-formar-nuevos-talentos-del-sector-de-servicios/) |
+| **UTB (Cartagena)** | **Vamos pa’ Lante**: **17** becas semestrales (2022); alianza **UTB Solar** (~**700 kWp**, centro solar, I+D) | Inversión becas **>$44 M**; ~**$5.000 M** granja (cifra Promigas, 2022) | [Fundación becas](https://fundacionpromigas.org.co/surtigas-spec-lng-y-su-fundacion-promigas-otorgaron-17-becas-para-jovenes-universitarios-en-cartagena/) · [UTB Solar](https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/) |
+| **Universidad de San Buenaventura** | **Soy TEG Crisálida** (Surtigas + Fundación) — técnico sector gas, Cartagena | — | [Fundación](https://fundacionpromigas.org.co/soy-teg-crisalida-cartagena-formacion-tecnica-para-transformar-el-empleo-juvenil-en-el-sector-gas/) |
+| **Corporación Universitaria Autónoma del Cauca + CEO** | **Convenio marco**: **30 becas** 1.ª cohorte **Ingeniería Energética** (2024) | CEO + Fundación Promigas | [Uniautónoma](https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/) |
+| **Fundación Promigas (programas)** | **Más Empleo Juvenil** — competencias técnicas (incl. **“Energético y Gas”**, TIC, gastronomía); **1.666** jóvenes (2024), **1.930** (2025 informe) | Sectores listados en informe | [Informe FP 2024 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/03/31172145/Informe-de-Gestioin-Fundacioin-Promigas-2024.pdf) · [Informe 2025 PDF](https://fundacionpromigas.org.co/wp-content/uploads/2026/06/2.-INFORME-GESTION-2025.pdf) |
+| **Promigas S.A.** | **Pasantías de verano** (portal talento) | — | [trabajaconnosotros.promigas.com](https://trabajaconnosotros.promigas.com/content/Estudiantes/?locale=es_ES) |
+| **SENA** | Convenios SENA–universidades (marco nacional) | **No** se encontró convenio **directo** Fundación Promigas–SENA en esta búsqueda | [SENA histórico](https://historico.sena.edu.co/es-co/comunidades/instructores/Paginas/convenios_con_universidades.aspx) |
+
+**CIIEG (Promigas):** apoyo a investigación doctorado hidrógeno con Uninorte ([noticia Uninorte](https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-lanzan-beca-doctoral-para-investigacion-en-hidrogeno)) — I+D transición, no O&M rural explícito.
+
+---
+
+### 3) Escuela Colombiana de Ingeniería — programas relevantes (energía / empleos verdes)
+
+| Oferta | Contenido citado | Fuente |
+|--------|------------------|--------|
+| **Pregrado / posgrado eléctrica** | Curso diseño renovables ligado a **Maestría en Ingeniería Eléctrica** | [Curso diseño renovables](https://www.escuelaing.edu.co/es/programas/curso-diseno-de-sistemas-de-energia-renovables/) |
+| **Educación continuada** | Curso **Transición energética** (virtual, MME/UPME/CREG/XM); **Economía circular FV** (incl. empleo en O&M/reciclaje); **Diplomado Energías Renovables** (montaje, conexión, **mantenimiento**) | [Transición](https://www.escuelaing.edu.co/es/programas/curso-fundamentos-de-la-transicion-energetica/) · [Circular FV](https://www.escuelaing.edu.co/es/programas/curso-economia-circular-en-energia-fotovoltaica/) · [Diplomado](https://tycho.escuelaing.edu.co/contenido/diplomado/electrica/energias-renovables.html) |
+| **Laboratorio de Energías Renovables** | **101,76 kWp** on-grid; banco **off-grid para ZNI**; híbridos; grupo **MEEP** | [Laboratorio](https://www.escuelaing.edu.co/es/campus/laboratorio-de-energias-renovables/) |
+| **Comunidades energéticas / ZNI en campo** | **No se encontró** (búsqueda web) proyecto de extensión de la Escuela desplegando CE o O&M comunitario en ZNI con nombre propio | — (**ausencia documentada**) |
+
+---
+
+### 4) Evidencia OPEX / O&M — solar rural y ZNI en Colombia
+
+| Hallazgo | Detalle citado | Fuente 1 | Fuente 2 |
+|----------|----------------|----------|----------|
+| **Abandono por falta de gestión** | Programas estatales instalaron miles de SFV rurales **sin sistema de gestión** → **“con frecuencia abandonados”**; falta norma instalación, instaladores certificados, AOM | [CREG Informe GEN-Renovables (Circular 005-13)](https://gestornormativo.creg.gov.co/Publicac.nsf/52188526a7290f8505256eee0072eba7/12aca473c3be151205257b080075913a/$FILE/Circular005-13%20GEN-RENOVABLES%20Informe%20Final.pdf) | Estudio INEA 1996 citado en el mismo informe (**37%** con problemas, **8%** fuera de servicio en muestra) |
+| **Remuneración O&M insuficiente** | Contraloría: preocupación por **sostenibilidad** al **no** contar con metodologías para remunerar **operación, administración de microredes e SFVI**; desarticulación y fallas en **mantenimiento y monitoreo** | [El Colombiano – Contraloría](https://www.elcolombiano.com/negocios/contraloria-advierte-sobre-dificultades-en-proyectos-solares-zonas-apartadas-JN24837952) | — |
+| **Caso extremo (CAPEX sin OPEX)** | Proyecto regalías **~$30.000 millones** (Amazonas): **sin operar**, baterías dañadas, planta quemada; “estado crítico” por **sostenibilidad** | [Seguimiento.co / Procuraduría](https://seguimiento.co/colombia/30000-millones-se-invirtieron-en-proyecto-fotovoltaico-y-esta-abandonado-en-amazonas-68633) | — |
+| **Marco económico OPEX** | CREG: AOM incluye **mantenimiento 3–5%** vida útil; **reemplazo baterías 20–27%** costo total (3–5 años); tarifas AOM SFV en resolución | [Concepto CREG 4022/2019](https://normograma.superservicios.gov.co/normograma/compilacion/docs/concepto_creg_0004022_2019.htm) | Res. CREG 091/2007 (citada en concepto) |
+| **Escala ZNI y carga operativa** | SSPD ZNI 2023: **~31.029** SSFVI (+73% en 2 años); empresas con SFVI reportan **más eventos** por dispersión y necesidad de **mantenimiento frecuente** | [Informe sectorial ZNI 2023 – SSPD](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) | — |
+
+**PIEC 2024–2028:** enfatiza costos por sitio (CAPEX + OPEX transporte, O&M) pero **no** publica un único “costo por usuario” universal ([UPME PIEC](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/PIEC/2024-2028/PIEC_2024-2028_Vfinal.pdf)); referencia histórica **~18,3 M COP/vivienda** (8,93 billones / 486.637 VSS, PIEC 2019–2023) es **CAPEX-oriented**, no contrato O&M comunitario.
+
+---
+
+### 5) Propuesta CTH Energy Coop *(propuesta — no hecho de Promigas ni Escuela)*
+
+**Rol:** **Cooperativa de servicios O&M y empleos verdes** que complementa CAPEX (FENOGE/IPSE/PIEC/Promigas) con:
+
+1. **Contratos OPEX** explícitos (limpieza FV, baterías, monitoreo remoto, repuestos) alineados a marco CREG/SSPD.  
+2. **Formación certificada** vía **educación continuada** (p. ej. diplomado/cursos Escuela en renovables + módulo corto **O&M ZNI/CE**) y prácticas con **Fundación Promigas / Más Empleo Juvenil** en el vertical **“Energético y Gas”** ampliado a **técnicos FV**.  
+3. **Gobernanza comunitaria** en CE (modelo Misión La Guajira: operación y uso cocreados — [Promigas noticia](https://www.promigas.com/Paginas/NoticiasESP/Mision-La-Guajira-3.aspx)) para que el activo no quede huérfano post-instalación.  
+4. **Puente Embajada–Promigas:** financiación blanda para **primeros 3–5 años de O&M** en un corredor piloto (p. ej. La Guajira), con KPIs **IMPE** (calidad/acceso) — no sustituye indicadores oficiales.
+
+**Encaje con reunión 11 nov:** argumenta que alcanzar **IMPE 9,5% en 2030** requiere **capacidad instalada operable**, no solo MWp entregados; alinea con apuesta IMPE **calidad + no convencionales** y con el encuadre OPEX de Gideon.
