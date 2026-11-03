@@ -1,0 +1,54 @@
+# CleantechHUB — Mission Control test install (not deployed)
+#
+# Upstream: https://github.com/builderz-labs/mission-control (MIT)
+# Evaluated commit: c1a846fe020567bb3ceb3b65db9f00db875618cd (v2.3.0 tree)
+#
+# Usage (on a host with Docker):
+#   export MC_DATA=/var/lib/mission-control-test   # optional; defaults to named volume
+#   docker compose -f docs/bot-board/mission-control.docker-compose.yml up -d
+#   open http://127.0.0.1:13000/setup
+#
+# Bindings are localhost-only. Do not expose without TLS and hardened overlay.
+
+services:
+  mission-control:
+    image: ghcr.io/builderz-labs/mission-control:latest
+    container_name: cth-mission-control-test
+    ports:
+      - "127.0.0.1:13000:3000"
+    environment:
+      PORT: "3000"
+      # Standalone dashboard: no OpenClaw gateway required for task/agent REST loop
+      NEXT_PUBLIC_GATEWAY_OPTIONAL: "true"
+      OPENCLAW_GATEWAY_HOST: host.docker.internal
+      OPENCLAW_GATEWAY_PORT: "18789"
+    volumes:
+      - mc-data:/app/.data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/.next/cache
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "1.0"
+          pids: 256
+    networks:
+      - mc-net
+    restart: unless-stopped
+
+volumes:
+  mc-data:
+
+networks:
+  mc-net:
+    driver: bridge
