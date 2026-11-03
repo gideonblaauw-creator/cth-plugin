@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Promigas — CleantechHUB Energy Coop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
 :root {
@@ -14,9 +17,9 @@
   --cth-white: #FFFFFF;
   --cth-text: #333333;
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --sim-bg: #fff3cd;
-  --sim-border: #856404;
-  --pin-red: #c0392b;
+  --sim-bg: color-mix(in srgb, var(--cth-accent) 35%, var(--cth-white));
+  --sim-border: var(--cth-dark);
+  --pin-map: var(--cth-primary);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -24,7 +27,7 @@ html, body {
   overflow: hidden;
   font-family: var(--font-family);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--cth-text);
   background: var(--cth-dark);
 }
@@ -45,8 +48,8 @@ html, body {
   color: var(--cth-white);
   font-size: 14px;
 }
-.topbar .brand { font-weight: 700; letter-spacing: -0.02em; }
-.topbar .brand span { font-weight: 400; }
+.topbar .brand { font-weight: 400; letter-spacing: -0.02em; }
+.topbar .brand .hub { font-weight: 700; }
 .topbar .meta { opacity: 0.9; font-size: 12px; text-align: right; }
 .progress {
   display: flex;
@@ -134,9 +137,22 @@ html, body {
   border: 1px solid var(--sim-border);
 }
 .tag.fact { background: var(--cth-accent); color: var(--cth-dark); }
-.tag.design { background: #e3f2fd; color: #1565c0; }
+.tag.design {
+  background: color-mix(in srgb, var(--cth-light) 70%, var(--cth-white));
+  color: var(--cth-dark);
+  border: 1px solid var(--cth-primary);
+}
 .tag.fenoge { background: var(--cth-dark); color: var(--cth-white); }
-.tag.csr { background: #fce4ec; color: #880e4f; }
+.tag.csr {
+  background: var(--cth-light);
+  color: var(--cth-dark);
+  border: 1px solid var(--cth-primary);
+}
+.tag.nl {
+  background: var(--cth-primary);
+  color: var(--cth-white);
+  border: 1px solid var(--cth-accent);
+}
 .totals-note { font-size: 12px; color: #555; margin-bottom: 8px; max-width: 52rem; }
 .panel-links { font-size: 12px; }
 .panel-links a { color: var(--cth-primary); }
@@ -157,7 +173,11 @@ html, body {
   transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s;
   border: 2px solid transparent;
 }
-.node.comite { background: #fde8e8; color: #922; border-color: #e57373; }
+.node.comite {
+  background: var(--cth-white);
+  color: var(--cth-dark);
+  border-color: color-mix(in srgb, var(--cth-primary) 45%, var(--cth-white));
+}
 .node.coop { background: var(--cth-light); color: var(--cth-dark); border-color: var(--cth-primary); }
 .node.dim { opacity: 0.35; transform: scale(0.92); }
 .node.highlight { transform: scale(1.04); box-shadow: 0 4px 16px rgba(45,106,79,0.25); }
@@ -284,17 +304,28 @@ html, body {
   cursor: pointer;
   font-size: 14px;
 }
-.nav-bar .prev { background: #eee; color: var(--cth-text); }
-.nav-bar .next { background: var(--cth-primary); color: white; }
-.nav-bar .hint { font-size: 12px; color: #777; }
-.leaflet-popup-content { font-size: 13px; line-height: 1.4; }
-.red-pin { filter: hue-rotate(-30deg) saturate(1.4); }
+.nav-bar .prev {
+  background: var(--cth-light);
+  color: var(--cth-dark);
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, transparent);
+}
+.nav-bar .next { background: var(--cth-primary); color: var(--cth-white); }
+.nav-bar .hint { font-size: 12px; color: #666; }
+.nav-bar .legal {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  flex: 1;
+  padding: 0 8px;
+}
+.leaflet-popup-content { font-size: 13px; line-height: 1.5; }
+.leaflet-popup-content a { color: var(--cth-primary); font-weight: 500; }
 </style>
 </head>
 <body>
 <div class="app">
   <header class="topbar">
-    <div class="brand">Cleantech<span>HUB</span> · Energy Coop</div>
+    <div class="brand" aria-label="CleantechHUB">Cleantech<span class="hub">HUB</span> · Energy Coop</div>
     <div class="progress" role="tablist" aria-label="Pantallas demo">
       <button type="button" class="dot active" data-goto="0" aria-label="Pantalla 1"></button>
       <button type="button" class="dot" data-goto="1" aria-label="Pantalla 2"></button>
@@ -313,7 +344,10 @@ html, body {
         <div class="panel">
           <span class="tag fact">Fuente pública</span>
           <p><strong>Fundación Promigas</strong> — primer piloto de energía solar comunitaria; comité comunitario e IE Chiricoco.</p>
-          <p class="panel-links"><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co — Paiva</a></p>
+          <p class="panel-links">
+            <a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Fundación Promigas</a>
+            · <a href="https://guiadelgas.com/primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Guía del Gas</a>
+          </p>
           <span class="tag design">Propuesta diseño CTH</span>
           <p>Transformación guiada: comité comunitario → cooperativa energética con ~30&nbsp;% participación en clase comunitaria (no es dato contractual).</p>
           <div class="flow-stage" id="transform-flow">
@@ -337,13 +371,13 @@ html, body {
     <!-- Screen 2 -->
     <section class="screen" id="screen-1" aria-labelledby="t2">
       <h1 id="t2">La Guajira a escala</h1>
-      <p class="subtitle">Proyectos <strong>FENOGE</strong> en La Guajira (fuentes públicas nov 2026). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Síntesis: <code>docs/energy-coop/fenoge-public-data-2026-11.md</code>.</p>
+      <p class="subtitle">Proyectos públicos en La Guajira (FENOGE + <strong>Gutami</strong>, Países Bajos). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.</p>
       <div class="totals">
-        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Proyectos FENOGE</div></div>
-        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp (suma citada)</div></div>
-        <div class="stat"><div class="val" id="stat-hh">0</div><div class="lbl">Beneficiarios (mixto)</div></div>
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Proyectos en mapa</div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp verificados (suma)</div></div>
+        <div class="stat"><div class="val" id="stat-mw">0</div><div class="lbl">MW planeados (NL)</div></div>
       </div>
-      <p class="totals-note" id="totals-note" hidden>Suma kWp: Maicao 1.102 + Cabo/Media Luna 1 MW + Tomarrazón ~241 (derivado). Nazareth/Puerto Estrella: kWp no publicado en IA-006-2024. Beneficiarios: familias, usuarios y personas según cada nota — no suma única de hogares.</p>
+      <p class="totals-note" id="totals-note" hidden>Suma kWp solo incluye Maicao (1.102) + Cabo/Media Luna (1 MW = 1.000 kWp). Nazareth: kWp no publicado. Gutami 750 MW no se suma en kWp.</p>
       <button type="button" class="transform-btn" id="btn-guajira">Ver La Guajira a escala</button>
       <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
     </section>
@@ -401,7 +435,7 @@ html, body {
 
   <nav class="nav-bar">
     <button type="button" class="prev" id="nav-prev">← Anterior</button>
-    <span class="hint">Flechas ← → · Espacio · Clic en puntos</span>
+    <span class="legal">© 2026 CleantechHUB Foundation · Flechas ← → · Espacio</span>
     <button type="button" class="next" id="nav-next">Siguiente →</button>
   </nav>
 </div>
@@ -420,41 +454,48 @@ html, body {
   // Vereda Paiva, Bolívar — aprox. (Fundación Promigas; sin geocódigo en fuente)
   var PAIVA_APPROX = [10.450, -75.250];
 
-  /** FENOGE La Guajira — docs/energy-coop/fenoge-public-data-2026-11.md */
-  var FENOGE_GUajira = [
+  /** Verificado: demo-promigas-fact-check.md */
+  var MAP_PROJECTS = [
     {
       name: 'Maicao — población vulnerable',
-      lat: 11.378, lng: -72.240, approx: true,
+      lat: 11.378, lng: -72.240, approx: true, fenoge: true, dutch: false,
       kwp: 1102, kwpLabel: '1.102 kWp',
       ben: '~500 familias (estrato 1–2)',
       source: 'https://fenoge.gov.co/gobierno-nacional-entrega-en-maicao-el-primer-territorio-energetico-de-la-guajira/',
-      srcLabel: 'FENOGE, ago 2025'
+      source2: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/gobierno-nacional-entrega-maicao-primer-territorio-energetico-la-guajira/',
+      srcLabel: 'FENOGE + MinEnergía'
     },
     {
       name: 'Cabo de la Vela & Media Luna',
-      lat: 12.090, lng: -72.145, approx: true,
+      lat: 12.090, lng: -72.145, approx: true, fenoge: true, dutch: false,
       kwp: 1000, kwpLabel: '1 MW',
-      ben: '~1.500 personas; 61 comunidades citadas',
+      ben: '~1.500 personas; 61 comunidades wayúu (MinEnergía)',
       source: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/minenerg%C3%ADa-y-fenoge-instalar%C3%A1n-parque-solar-en-el-cabo-de-la-vela-y-media-luna-que-proveer%C3%A1-energ%C3%ADa-247/',
-      srcLabel: 'MinEnergía, oct 2024'
+      source2: 'https://www.review-energy.com/solar/colombia-da-luz-verde-a-una-granja-solar-de-1-mw-que-beneficiara-a-comunidades-indigenas',
+      srcLabel: 'MinEnergía + Review Energy'
     },
     {
       name: 'Nazareth & Puerto Estrella',
-      lat: 12.199722, lng: -71.263889, approx: false,
-      kwp: null, kwpLabel: 'kWp no publicado (IA-006-2024)',
-      ben: '>800 usuarios',
+      lat: 12.199722, lng: -71.263889, approx: false, fenoge: true, dutch: false,
+      kwp: null, kwpLabel: 'kWp: no publicado (IA-006-2024)',
+      ben: 'Ampliación: 700 usuarios + 250 adicionales (anuncio MinEnergía 2023)',
       source: 'https://fenoge.gov.co/invitacion-abietno-006-de-2024-ia-006-2024-fenoge/',
-      srcLabel: 'IA-006-2024 (coords ref.)'
+      source2: 'https://diariodelnorte.net/laguajira/gobierno-nacional-destina-25-000-millones-para-1-618-paneles-solares-y-930-baterias-en-nazareth/',
+      srcLabel: 'IA-006-2024 + Diario del Norte'
     },
     {
-      name: 'Tomarrazón — CE',
-      lat: 11.050, lng: -72.550, approx: true,
-      kwp: 241, kwpLabel: '~241 kWp (339×710 W, derivado)',
-      ben: '180 familias',
-      source: 'https://es.linkedin.com/posts/fenoge_enfotos-comunidadesenerg%C3%A9ticas-tomarraz%C3%B3n-activity-7425237830081249280-9fsM',
-      srcLabel: 'FENOGE LinkedIn'
+      name: 'Chivo Mono 1 — Gutami (Países Bajos)',
+      lat: 11.157, lng: -72.592, approx: true, fenoge: false, dutch: true,
+      kwp: null, kwpLabel: '750 MW (planeado / anunciado)',
+      ben: 'MOU con liderazgo wayúu; Albania, La Guajira',
+      source: 'https://gutami.com/information/news/clean-energy-in-la-guajira-colombia/',
+      source2: 'https://hollandhouse-colombia.com/noticias-afiliados/noticia-asi-avanza-el-proyecto-solar-agroalimentario/',
+      srcLabel: 'Gutami + Holland House'
     }
   ];
+
+  var VERIFIED_KWP_SUM = 2102;
+  var DUTCH_MW = 750;
 
   var WIZARD_SIM = [
     { name: 'Comunidad ejemplo A', kwp: 45, hh: 38 },
@@ -508,20 +549,28 @@ html, body {
     }).addTo(maps.paiva);
     L.circle(PAIVA_APPROX, {
       radius: 1800,
-      color: '#c0392b',
-      fillColor: '#e74c3c',
-      fillOpacity: 0.15,
+      color: varPin(),
+      fillColor: varPin(),
+      fillOpacity: 0.12,
       dashArray: '6,8'
     }).addTo(maps.paiva).bindPopup(
       '<strong>IE Chiricoco — vereda Paiva</strong><br>Bolívar · ~450 habitantes<br><em>Ubicación aproximada</em><br>Piloto CSR Promigas / Fundación Promigas<br><small><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co</a></small>'
     );
-    L.marker(PAIVA_APPROX, {
-      icon: L.divIcon({
-        className: 'red-pin',
-        html: '<div style="background:#c0392b;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);margin:-7px 0 0 -7px"></div>',
-        iconSize: [14, 14]
-      })
-    }).addTo(maps.paiva);
+    L.marker(PAIVA_APPROX, { icon: pinIcon(14) }).addTo(maps.paiva);
+  }
+
+  function varPin() { return getComputedStyle(document.documentElement).getPropertyValue('--pin-map').trim() || '#2D6A4F'; }
+
+  function pinIcon(size, dutch) {
+    var bg = dutch ? '#95D5B2' : varPin();
+    var border = dutch ? '#1B4332' : '#fff';
+    var s = size || 10;
+    var m = -Math.round(s / 2);
+    return L.divIcon({
+      className: '',
+      html: '<div style="background:' + bg + ';width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:2px solid ' + border + ';box-shadow:0 1px 4px rgba(0,0,0,.35);margin:' + m + 'px 0 0 ' + m + 'px"></div>',
+      iconSize: [s, s]
+    });
   }
 
   function initGuajiraMap() {
@@ -549,33 +598,30 @@ html, body {
     requestAnimationFrame(frame);
   }
 
-  function fenogePopup(p) {
+  function projectPopup(p) {
     var loc = p.approx
       ? '<em>Ubicación aproximada</em>'
       : '<em>Coord. ref. IA-006-2024</em> (área de obra puede variar)';
-    return '<strong>' + p.name + '</strong><br><span class="tag fenoge" style="display:inline-block;margin:4px 0">FENOGE · fuente pública</span><br>' +
+    var tags = '';
+    if (p.dutch) tags += '<span class="tag nl" style="display:inline-block;margin:2px 4px 2px 0">Liderado por actor neerlandés</span>';
+    if (p.fenoge) tags += '<span class="tag fenoge" style="display:inline-block;margin:2px 0">FENOGE</span>';
+    return '<strong>' + p.name + '</strong><br>' + tags + '<br>' +
       p.kwpLabel + '<br>' + p.ben + '<br>' + loc + '<br>' +
-      '<a href="' + p.source + '" target="_blank" rel="noopener">' + p.srcLabel + '</a>';
+      '<a href="' + p.source + '" target="_blank" rel="noopener">' + p.srcLabel + '</a>' +
+      (p.source2 ? ' · <a href="' + p.source2 + '" target="_blank" rel="noopener">Fuente 2</a>' : '');
   }
 
   function loadGuajiraPins() {
     if (guajiraLoaded || !maps.guajira) return;
     guajiraLoaded = true;
     maps.guajira.flyTo([11.35, -72.75], 8, { duration: 1.5 });
-    var totalKwp = 0;
-    FENOGE_GUajira.forEach(function (p, i) {
-      if (p.kwp) totalKwp += p.kwp;
+    MAP_PROJECTS.forEach(function (p, i) {
       setTimeout(function () {
-        var marker = L.marker([p.lat, p.lng], {
-          icon: L.divIcon({
-            className: 'red-pin',
-            html: '<div style="background:#c0392b;width:10px;height:10px;border-radius:50%;border:2px solid #fff;margin:-5px 0 0 -5px"></div>',
-            iconSize: [10, 10]
-          })
-        }).addTo(maps.guajira).bindPopup(fenogePopup(p));
+        L.marker([p.lat, p.lng], { icon: pinIcon(10, p.dutch) })
+          .addTo(maps.guajira).bindPopup(projectPopup(p));
         if (p.approx) {
           L.circle([p.lat, p.lng], {
-            radius: 12000, color: '#c0392b', fillOpacity: 0.06, dashArray: '4,6', weight: 1
+            radius: 12000, color: varPin(), fillOpacity: 0.06, dashArray: '4,6', weight: 1
           }).addTo(maps.guajira);
         }
       }, i * 120);
@@ -583,15 +629,15 @@ html, body {
     setTimeout(function () {
       var elCom = document.getElementById('stat-com');
       var elKwp = document.getElementById('stat-kwp');
-      var elHh = document.getElementById('stat-hh');
-      animateValue(elCom, FENOGE_GUajira.length, '');
-      animateValue(elKwp, totalKwp, '');
-      elHh.textContent = '—';
+      var elMw = document.getElementById('stat-mw');
+      animateValue(elCom, MAP_PROJECTS.length, '');
+      animateValue(elKwp, VERIFIED_KWP_SUM, '');
+      animateValue(elMw, DUTCH_MW, '');
       document.getElementById('totals-note').hidden = false;
       setTimeout(function () {
-        elCom.textContent = String(FENOGE_GUajira.length);
-        elKwp.textContent = totalKwp.toLocaleString('es-CO');
-        elHh.textContent = 'mixto';
+        elCom.textContent = String(MAP_PROJECTS.length);
+        elKwp.textContent = VERIFIED_KWP_SUM.toLocaleString('es-CO');
+        elMw.textContent = String(DUTCH_MW);
       }, 1300);
     }, 400);
   }
@@ -641,7 +687,7 @@ html, body {
     initGuajiraMap();
     loadGuajiraPins();
     this.disabled = true;
-    this.textContent = '4 proyectos FENOGE en mapa';
+    this.textContent = MAP_PROJECTS.length + ' proyectos en mapa';
   });
 
   document.getElementById('size-options').addEventListener('click', function (e) {
