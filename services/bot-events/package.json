@@ -1,0 +1,14 @@
+{
+  "name": "@cleantechhub/bot-events",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CleantechHUB bot activity event log (ingest + SSE)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  }
+}

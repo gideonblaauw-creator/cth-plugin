@@ -1,0 +1,21 @@
+# Caddy snippet for bot-events (merge into site block on OVH VPS Caddyfile)
+# Public hostname example: bot-events.cleantechhub.net — confirm with Gideon before DNS/TLS.
+#
+# Reads (GET) use Google gate via forward_auth. POST /event bypasses the gate and uses bearer token in the app.
+
+bot-events.cleantechhub.net {
+	@ingest path /event
+	@reads not path /event
+
+	handle @ingest {
+		reverse_proxy 127.0.0.1:8795
+	}
+
+	handle @reads {
+		forward_auth auth.cleantechhub.net {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		reverse_proxy 127.0.0.1:8795
+	}
+}
