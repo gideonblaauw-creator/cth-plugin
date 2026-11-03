@@ -6,6 +6,8 @@
 
 **KPIs:** `docs/energy-coop/energy-poverty-kpis-2026-11.md` (PR #111, aprobado Gideon).
 
+**i18n (ES default · EN toggle):** `docs/energy-coop/demo-promigas-i18n.md` — files changed and untranslated strings (map tiles, citation titles).
+
 ---
 
 ## Actor neerlandés en La Guajira — candidatos (no adivinar cuál citará Gideon)

@@ -1,0 +1,331 @@
+(function (global) {
+  'use strict';
+
+  var STORAGE_KEY = 'cth-demo-promigas-lang';
+
+  var STRINGS = {
+    es: {
+      'topbar.brandHtml': 'Cleantech<span class="hub">HUB</span> · Energy Coop',
+      'topbar.progress': 'Pantallas demo',
+      'topbar.screenN': 'Pantalla {n}',
+      'topbar.meta': 'Embajada Países Bajos · Promigas · 11 nov 2026',
+      'topbar.metaHint': 'Demo ~3 min · ← → Espacio',
+      'nav.prev': '← Anterior',
+      'nav.next': 'Siguiente →',
+      'nav.legal': '© 2026 CleantechHUB Foundation · Flechas ← → · Espacio',
+      'lang.toggle': 'Idioma',
+      'tag.publicSource': 'Fuente pública',
+      'tag.cthDesign': 'Propuesta diseño CTH',
+      'tag.sim': 'SIMULACIÓN – datos de ejemplo',
+      'tag.noFenoge': 'No FENOGE',
+      'tag.partialDept': 'PARCIAL — 1.ª fuente dept.',
+      'tag.cthProposal': 'PROPUESTA CTH',
+      'tag.dutchLead': 'Liderado por actor neerlandés',
+      'tag.fenoge': 'FENOGE',
+      's1.title': 'Paiva: del comité a la cooperativa',
+      's1.subtitleHtml': 'Piloto CSR <strong>Promigas / Fundación Promigas</strong> — vereda Paiva, Bolívar (~450 habitantes), IE Chiricoco. <span class="tag csr">No FENOGE</span> Ubicación en mapa <strong>aproximada</strong>.',
+      's1.kpiStrip': 'Indicadores de pobreza energética',
+      's1.kpi1': 'Pobreza energética nacional (IMPE, índice sobre personas, Fundación Promigas): 15,4% · ~8,1 M personas (2024)',
+      's1.kpi2': 'Cobertura eléctrica rural 75,92% vs nacional 93,12% (UPME ICEE 2024)',
+      's1.mapAria': 'Mapa vereda Paiva Bolívar',
+      's1.panel1': 'Fundación Promigas — primer piloto de energía solar comunitaria; comité comunitario e IE Chiricoco.',
+      's1.panel2': 'Transformación guiada: comité comunitario → cooperativa energética con ~30 % participación en clase comunitaria (no es dato contractual).',
+      's1.nodeComite': 'Comité comunitario',
+      's1.nodeComiteSub': 'Organización de base',
+      's1.nodeCoop': 'Cooperativa energética',
+      's1.nodeCoopSub': 'Personería jurídica',
+      's1.btnTransform': 'Animar transformación',
+      's1.btnTransformDone': 'Transformación mostrada',
+      's1.gov1': 'Asamblea — máximo órgano social',
+      's1.gov2': 'Consejo de administración — vigilancia y estrategia',
+      's1.gov3': 'Operador — O&M técnico del activo',
+      's1.gov4': 'Promigas — aliado en piloto / know-how (rol según acuerdo local)',
+      's1.gov5': 'Clase comunitaria — ~30 % propuesta CTH en estructura de capital',
+      's1.cite': '~450 hab. y territorio: Fundación Promigas (enlace arriba). Coordenadas del mapa: aproximadas (sin geocódigo en fuente).',
+      's1.popupTitle': 'IE Chiricoco — vereda Paiva',
+      's1.popupBody': 'Bolívar · ~450 habitantes',
+      's1.popupApprox': 'Ubicación aproximada',
+      's1.popupPilot': 'Piloto CSR Promigas / Fundación Promigas',
+      's2.title': 'La Guajira a escala',
+      's2.subtitleHtml': 'Proyectos públicos en La Guajira (FENOGE + <strong>Gutami</strong>, Países Bajos). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.',
+      's2.kpiStrip': 'Indicadores territoriales La Guajira',
+      's2.kpi1': 'IMPE La Guajira 63,1% (2024)',
+      's2.kpi2': 'ICEE La Guajira 54,28% (UPME 2024)',
+      's2.kpi3': 'Cocina con leña/carbón/residuos: 56,6% de las personas en pobreza energética (IMPE 2025)',
+      's2.statProjects': 'Proyectos en mapa',
+      's2.statKwp': 'kWp verificados (suma)',
+      's2.statMw': 'MW planeados (NL)',
+      's2.totalsNote': 'Suma kWp solo incluye Maicao (1.102) + Cabo/Media Luna (1 MW = 1.000 kWp). Nazareth: kWp no publicado. Gutami 750 MW no se suma en kWp.',
+      's2.btnGuajira': 'Ver La Guajira a escala',
+      's2.btnGuajiraDone': '{n} proyectos en mapa',
+      's2.popupApprox': 'Ubicación aproximada',
+      's2.popupCoords': 'Coord. ref. IA-006-2024 (área de obra puede variar)',
+      's2.popupSource2': 'Fuente 2',
+      's3.title': 'Tu cooperativa en 3 clics',
+      's3.subtitleHtml': 'Flujo ilustrativo CEOF (estructura cooperativa + inversionistas + operador). <span class="tag sim">SIMULACIÓN – datos de ejemplo</span>',
+      's3.step1': '1. Elige una comunidad',
+      's3.selectPlaceholder': '— Seleccionar —',
+      's3.step2': '2. Tamaño del sistema',
+      's3.btnCreate': 'Crear cooperativa',
+      's3.ceofTag': 'Diagrama CEOF — propuesta CTH',
+      's3.ceofAria': 'Estructura CEOF',
+      's3.svgCoop': 'Cooperativa energética',
+      's3.svgInvestors': 'Inversionistas',
+      's3.svgCommunity': 'Clase comunitaria',
+      's3.svgCommunityPct': '~30 % propuesta CTH',
+      's3.svgOperator': 'Operador O&M',
+      's3.svgMultisig': 'Pago vía multisig',
+      's3.flowSub': 'Ingresos → O&M → Fondo comunitario → Inversionistas',
+      's3.flowSubMultisig': 'Desembolso condicionado a firma multisig',
+      's3.flow0': 'kWh generados',
+      's3.flow1': 'Ingresos por venta de energía',
+      's3.flow2': 'O&M operador',
+      's3.flow3': 'Fondo comunitario',
+      's3.flow4': 'Retorno inversionistas (multisig)',
+      's3.simSuffix': ' (SIMULACIÓN)',
+      's3.commA': 'Comunidad ejemplo A',
+      's3.commB': 'Comunidad ejemplo B',
+      's3.commC': 'Comunidad ejemplo C',
+      's4.title': 'Meta 2030 + talento local',
+      's4.subtitleHtml': 'Escenario IMPE país (Fundación Promigas / Promigas). Índice sobre <strong>personas</strong>. Fuentes: <code>energy-poverty-kpis-2026-11.md</code>.',
+      's4.kpiMeta': 'Meta IMPE 2030: 15,4% (8,11 M personas, 2024) → 9,5% (5,17 M) en 2030 · −2,9 M personas',
+      's4.gapTitle': 'Brecha de ritmo (aritmética citada)',
+      's4.gapIntroHtml': 'Personas que deben salir de pobreza energética ≈ <strong>2,9 M</strong> (8,11 M − 5,17 M; IMPE 2025 p. 33).',
+      's4.gapSlowTitle': 'Ritmo observado ~300 000 personas/año',
+      's4.gapSlowMath': '2.900.000 ÷ 300.000 ≈ 9,7 años desde 2024',
+      's4.gapSlowMetaHtml': 'IMPE 2025 p. 12 (~300 k/año) · <a href="https://www.promigas.com/Paginas/NoticiasESP/IMPE-2025.aspx" target="_blank" rel="noopener">Promigas: meta un dígito hasta 2034 al ritmo 2024</a>',
+      's4.gapFastTitle': 'Ritmo meta escenario ~490 000 personas/año × 6 años',
+      's4.gapFastMath': '490.000 × 6 = 2.940.000 ≈ 2,9 M',
+      's4.gapFastMetaHtml': '<a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 p. 33</a> (≥1,0 p.p./año de incidencia)',
+      's4.opexTitle': 'No es un problema de CAPEX, es de OPEX',
+      's4.opex1': 'Contraloría: sin metodologías para remunerar operación, administración de microredes y SFVI → fallas en mantenimiento y monitoreo.',
+      's4.opex2': 'Amazonas (~$30.000 millones regalías): proyecto fotovoltaico abandonado; baterías dañadas — «estado crítico» por sostenibilidad.',
+      's4.opex3': 'CREG (GEN-Renovables): miles de SFV rurales sin sistema de gestión → «con frecuencia abandonados»; falta norma, instaladores certificados y AOM.',
+      's4.talentTitle': 'Talento local — vínculos documentados (no convenio marco Escuela–Promigas publicado)',
+      's4.talent1': 'Escuela Colombiana de Ingeniería Julio Garavito: Cátedra Luis Carlos Sarmiento Angulo — eje sector energético Grupo Promigas; reto académico integración mercados eléctrico y gas.',
+      's4.talent2': 'Solucionatón 10X (Connect Bogotá): reto Promigas GeoPrioriza — 3.er lugar, estudiantes Escuela (oct. 2026).',
+      's4.talent3Html': '<strong>Caribe:</strong> becas con <strong>Uninorte</strong> (ProExcelencia / Talento Promigas) <a href="https://fundacionpromigas.org.co/promigas-y-uninorte-entregan-tres-nuevas-becas-universitarias-que-transformaran-la-vida-de-jovenes-del-caribe/" target="_blank" rel="noopener">Fundación</a> · <a href="https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe" target="_blank" rel="noopener">Uninorte</a>; <strong>UTB</strong> (Vamos pa’ Lante, UTB Solar) <a href="https://fundacionpromigas.org.co/surtigas-spec-lng-y-su-fundacion-promigas-otorgaron-17-becas-para-jovenes-universitarios-en-cartagena/" target="_blank" rel="noopener">Fundación</a> · <a href="https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/" target="_blank" rel="noopener">UTB Solar</a>; <strong>Uniautónoma</strong> + CEO — 30 becas Ingeniería Energética (2024) <a href="https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/" target="_blank" rel="noopener">Uniautónoma</a>',
+      's4.propIntroHtml': '<strong>Cooperativa de O&amp;M + empleos verdes</strong> (propuesta CleantechHUB — no hecho de Promigas ni Escuela):',
+      's4.prop1': 'Contratos OPEX explícitos (limpieza FV, baterías, monitoreo) alineados a marco CREG/SSPD.',
+      's4.prop2': 'Técnicos comunitarios formados vía educación continuada (p. ej. diplomado/cursos Escuela en renovables) y vertical «Energético y Gas» de Fundación Promigas / Más Empleo Juvenil ampliado a técnicos FV.',
+      's4.prop3': 'Financiación blanda Embajada–Promigas para 3–5 años de O&M en corredor piloto (p. ej. La Guajira).',
+      's4.prop4': 'Seguimiento con indicadores IMPE (acceso y calidad) — no sustituye ICEE/IPEM oficiales.',
+      'map.p1.name': 'Maicao — población vulnerable',
+      'map.p1.ben': '~500 familias (estrato 1–2)',
+      'map.p2.name': 'Cabo de la Vela & Media Luna',
+      'map.p2.ben': '~1.500 personas; 61 comunidades wayúu (MinEnergía)',
+      'map.p3.name': 'Nazareth & Puerto Estrella',
+      'map.p3.kwpLabel': 'kWp: no publicado (IA-006-2024)',
+      'map.p3.ben': 'Ampliación: 700 usuarios + 250 adicionales (anuncio MinEnergía 2023)',
+      'map.p4.name': 'Chivo Mono 1 — Gutami (Países Bajos)',
+      'map.p4.kwpLabel': '750 MW (planeado / anunciado)',
+      'map.p4.ben': 'MOU con liderazgo wayúu; Albania, La Guajira'
+    },
+    en: {
+      'topbar.brandHtml': 'Cleantech<span class="hub">HUB</span> · Energy Coop',
+      'topbar.progress': 'Demo screens',
+      'topbar.screenN': 'Screen {n}',
+      'topbar.meta': 'Embassy of the Netherlands · Promigas · 11 Nov 2026',
+      'topbar.metaHint': 'Demo ~3 min · ← → Space',
+      'nav.prev': '← Previous',
+      'nav.next': 'Next →',
+      'nav.legal': '© 2026 CleantechHUB Foundation · Arrow keys ← → · Space',
+      'lang.toggle': 'Language',
+      'tag.publicSource': 'Public source',
+      'tag.cthDesign': 'CTH design proposal',
+      'tag.sim': 'SIMULATION – sample data',
+      'tag.noFenoge': 'Not FENOGE',
+      'tag.partialDept': 'PARTIAL — 1st dept. source',
+      'tag.cthProposal': 'CTH PROPOSAL',
+      'tag.dutchLead': 'Led by Dutch actor',
+      'tag.fenoge': 'FENOGE',
+      's1.title': 'Paiva: from committee to cooperative',
+      's1.subtitleHtml': 'CSR pilot <strong>Promigas / Fundación Promigas</strong> — vereda Paiva, Bolívar (~450 inhabitants), IE Chiricoco. <span class="tag csr">Not FENOGE</span> Map location <strong>approximate</strong>.',
+      's1.kpiStrip': 'Energy poverty indicators',
+      's1.kpi1': 'National energy poverty (IMPE, index on persons, Fundación Promigas): 15.4% · ~8.1 M people (2024)',
+      's1.kpi2': 'Rural electricity coverage 75.92% vs national 93.12% (UPME ICEE 2024)',
+      's1.mapAria': 'Map vereda Paiva Bolívar',
+      's1.panel1': 'Fundación Promigas — first community solar energy pilot; community committee and IE Chiricoco.',
+      's1.panel2': 'Guided transition: community committee → energy cooperative with ~30% participation in the community share class (not a contractual figure).',
+      's1.nodeComite': 'Community committee',
+      's1.nodeComiteSub': 'Grassroots organization',
+      's1.nodeCoop': 'Energy cooperative',
+      's1.nodeCoopSub': 'Legal personality',
+      's1.btnTransform': 'Animate transition',
+      's1.btnTransformDone': 'Transition shown',
+      's1.gov1': 'General assembly — supreme social body',
+      's1.gov2': 'Board of directors — oversight and strategy',
+      's1.gov3': 'Operator — technical O&M of the asset',
+      's1.gov4': 'Promigas — pilot ally / know-how (role per local agreement)',
+      's1.gov5': 'Community share class — ~30% CTH proposal in capital structure',
+      's1.cite': '~450 inhabitants and territory: Fundación Promigas (link above). Map coordinates: approximate (no geocode in source).',
+      's1.popupTitle': 'IE Chiricoco — vereda Paiva',
+      's1.popupBody': 'Bolívar · ~450 inhabitants',
+      's1.popupApprox': 'Approximate location',
+      's1.popupPilot': 'CSR pilot Promigas / Fundación Promigas',
+      's2.title': 'La Guajira at scale',
+      's2.subtitleHtml': 'Public projects in La Guajira (FENOGE + <strong>Gutami</strong>, Netherlands). Pins without official coordinates: <em>approximate location</em>. Verification: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.',
+      's2.kpiStrip': 'La Guajira territorial indicators',
+      's2.kpi1': 'IMPE La Guajira 63.1% (2024)',
+      's2.kpi2': 'ICEE La Guajira 54.28% (UPME 2024)',
+      's2.kpi3': 'Cooking with firewood/charcoal/waste: 56.6% of people in energy poverty (IMPE 2025)',
+      's2.statProjects': 'Projects on map',
+      's2.statKwp': 'Verified kWp (sum)',
+      's2.statMw': 'Planned MW (NL)',
+      's2.totalsNote': 'kWp sum includes only Maicao (1,102) + Cabo/Media Luna (1 MW = 1,000 kWp). Nazareth: kWp not published. Gutami 750 MW is not added to kWp.',
+      's2.btnGuajira': 'View La Guajira at scale',
+      's2.btnGuajiraDone': '{n} projects on map',
+      's2.popupApprox': 'Approximate location',
+      's2.popupCoords': 'Ref. coords IA-006-2024 (work area may vary)',
+      's2.popupSource2': 'Source 2',
+      's3.title': 'Your cooperative in 3 clicks',
+      's3.subtitleHtml': 'Illustrative CEOF flow (cooperative structure + investors + operator). <span class="tag sim">SIMULATION – sample data</span>',
+      's3.step1': '1. Choose a community',
+      's3.selectPlaceholder': '— Select —',
+      's3.step2': '2. System size',
+      's3.btnCreate': 'Create cooperative',
+      's3.ceofTag': 'CEOF diagram — CTH proposal',
+      's3.ceofAria': 'CEOF structure',
+      's3.svgCoop': 'Energy cooperative',
+      's3.svgInvestors': 'Investors',
+      's3.svgCommunity': 'Community share class',
+      's3.svgCommunityPct': '~30% CTH proposal',
+      's3.svgOperator': 'O&M operator',
+      's3.svgMultisig': 'Payment via multisig',
+      's3.flowSub': 'Revenue → O&M → Community fund → Investors',
+      's3.flowSubMultisig': 'Disbursement conditional on multisig signature',
+      's3.flow0': 'kWh generated',
+      's3.flow1': 'Energy sales revenue',
+      's3.flow2': 'Operator O&M',
+      's3.flow3': 'Community fund',
+      's3.flow4': 'Investor return (multisig)',
+      's3.simSuffix': ' (SIMULATION)',
+      's3.commA': 'Sample community A',
+      's3.commB': 'Sample community B',
+      's3.commC': 'Sample community C',
+      's4.title': '2030 target + local talent',
+      's4.subtitleHtml': 'National IMPE scenario (Fundación Promigas / Promigas). Index on <strong>persons</strong>. Sources: <code>energy-poverty-kpis-2026-11.md</code>.',
+      's4.kpiMeta': 'IMPE 2030 target: 15.4% (8.11 M people, 2024) → 9.5% (5.17 M) in 2030 · −2.9 M people',
+      's4.gapTitle': 'Pace gap (cited arithmetic)',
+      's4.gapIntroHtml': 'People who must leave energy poverty ≈ <strong>2.9 M</strong> (8.11 M − 5.17 M; IMPE 2025 p. 33).',
+      's4.gapSlowTitle': 'Observed pace ~300,000 people/year',
+      's4.gapSlowMath': '2,900,000 ÷ 300,000 ≈ 9.7 years from 2024',
+      's4.gapSlowMetaHtml': 'IMPE 2025 p. 12 (~300 k/year) · <a href="https://www.promigas.com/Paginas/NoticiasESP/IMPE-2025.aspx" target="_blank" rel="noopener">Promigas: single-digit target by 2034 at 2024 pace</a>',
+      's4.gapFastTitle': 'Target scenario pace ~490,000 people/year × 6 years',
+      's4.gapFastMath': '490,000 × 6 = 2,940,000 ≈ 2.9 M',
+      's4.gapFastMetaHtml': '<a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 p. 33</a> (≥1.0 p.p./year incidence)',
+      's4.opexTitle': 'Not a CAPEX problem, it is OPEX',
+      's4.opex1': 'Contraloría: no methodologies to remunerate operation, microgrid administration and SFVI → maintenance and monitoring failures.',
+      's4.opex2': 'Amazonas (~$30,000 million in royalties): abandoned photovoltaic project; damaged batteries — “critical state” due to sustainability.',
+      's4.opex3': 'CREG (GEN-Renovables): thousands of rural PV systems without management → “often abandoned”; missing regulation, certified installers and O&M.',
+      's4.talentTitle': 'Local talent — documented links (no published Escuela–Promigas framework agreement)',
+      's4.talent1': 'Escuela Colombiana de Ingeniería Julio Garavito: Luis Carlos Sarmiento Angulo Chair — energy sector axis Grupo Promigas; academic challenge integrating electricity and gas markets.',
+      's4.talent2': 'Solucionatón 10X (Connect Bogotá): Promigas GeoPrioriza challenge — 3rd place, Escuela students (Oct 2026).',
+      's4.talent3Html': '<strong>Caribbean:</strong> scholarships with <strong>Uninorte</strong> (ProExcelencia / Talento Promigas) <a href="https://fundacionpromigas.org.co/promigas-y-uninorte-entregan-tres-nuevas-becas-universitarias-que-transformaran-la-vida-de-jovenes-del-caribe/" target="_blank" rel="noopener">Fundación</a> · <a href="https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe" target="_blank" rel="noopener">Uninorte</a>; <strong>UTB</strong> (Vamos pa’ Lante, UTB Solar) <a href="https://fundacionpromigas.org.co/surtigas-spec-lng-y-su-fundacion-promigas-otorgaron-17-becas-para-jovenes-universitarios-en-cartagena/" target="_blank" rel="noopener">Fundación</a> · <a href="https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/" target="_blank" rel="noopener">UTB Solar</a>; <strong>Uniautónoma</strong> + CEO — 30 Energy Engineering scholarships (2024) <a href="https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/" target="_blank" rel="noopener">Uniautónoma</a>',
+      's4.propIntroHtml': '<strong>O&amp;M cooperative + green jobs</strong> (CleantechHUB proposal — not a Promigas or Escuela deliverable):',
+      's4.prop1': 'Explicit OPEX contracts (PV cleaning, batteries, monitoring) aligned with CREG/SSPD framework.',
+      's4.prop2': 'Community technicians trained via continuing education (e.g. Escuela diploma/courses in renewables) and Fundación Promigas “Energy and Gas” vertical / Más Empleo Juvenil extended to PV technicians.',
+      's4.prop3': 'Soft Embassy–Promigas financing for 3–5 years of O&M in a pilot corridor (e.g. La Guajira).',
+      's4.prop4': 'Tracking with IMPE indicators (access and quality) — does not replace official ICEE/IPEM.',
+      'map.p1.name': 'Maicao — vulnerable population',
+      'map.p1.ben': '~500 families (strata 1–2)',
+      'map.p2.name': 'Cabo de la Vela & Media Luna',
+      'map.p2.ben': '~1,500 people; 61 Wayúu communities (MinEnergía)',
+      'map.p3.name': 'Nazareth & Puerto Estrella',
+      'map.p3.kwpLabel': 'kWp: not published (IA-006-2024)',
+      'map.p3.ben': 'Expansion: 700 users + 250 additional (MinEnergía announcement 2023)',
+      'map.p4.name': 'Chivo Mono 1 — Gutami (Netherlands)',
+      'map.p4.kwpLabel': '750 MW (planned / announced)',
+      'map.p4.ben': 'MOU with Wayúu leadership; Albania, La Guajira'
+    }
+  };
+
+  var listeners = [];
+  var currentLang = 'es';
+
+  function resolveInitialLang() {
+    var params = new URLSearchParams(global.location.search);
+    var fromUrl = params.get('lang');
+    if (fromUrl === 'en' || fromUrl === 'es') return fromUrl;
+    try {
+      var stored = global.localStorage.getItem(STORAGE_KEY);
+      if (stored === 'en' || stored === 'es') return stored;
+    } catch (e) { /* ignore */ }
+    return 'es';
+  }
+
+  function t(key, vars) {
+    var table = STRINGS[currentLang] || STRINGS.es;
+    var s = table[key];
+    if (s == null) s = STRINGS.es[key] || key;
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        s = s.replace(new RegExp('\\{' + k + '\\}', 'g'), String(vars[k]));
+      });
+    }
+    return s;
+  }
+
+  function applyDom() {
+    document.documentElement.lang = currentLang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+    document.querySelectorAll('[data-i18n-screen]').forEach(function (el) {
+      el.setAttribute('aria-label', t('topbar.screenN', { n: el.getAttribute('data-i18n-screen') }));
+    });
+    document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+      var lang = btn.getAttribute('data-lang');
+      btn.setAttribute('aria-pressed', lang === currentLang ? 'true' : 'false');
+      btn.classList.toggle('active', lang === currentLang);
+    });
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+      titleEl.textContent = currentLang === 'en'
+        ? 'Promigas Demo — CleantechHUB Energy Coop'
+        : 'Demo Promigas — CleantechHUB Energy Coop';
+    }
+  }
+
+  function setLang(lang, persist) {
+    if (lang !== 'es' && lang !== 'en') lang = 'es';
+    currentLang = lang;
+    if (persist !== false) {
+      try { global.localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+    }
+    applyDom();
+    listeners.forEach(function (fn) { fn(lang); });
+  }
+
+  function getLang() { return currentLang; }
+
+  function onChange(fn) {
+    if (typeof fn === 'function') listeners.push(fn);
+  }
+
+  function localeTag() {
+    return currentLang === 'en' ? 'en-US' : 'es-CO';
+  }
+
+  global.CthI18n = {
+    t: t,
+    getLang: getLang,
+    setLang: setLang,
+    applyDom: applyDom,
+    onChange: onChange,
+    localeTag: localeTag,
+    init: function () {
+      currentLang = resolveInitialLang();
+      applyDom();
+    }
+  };
+})(window);
