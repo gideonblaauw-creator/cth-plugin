@@ -162,6 +162,21 @@ li { margin-bottom: 2px; }
 .footer-bar a { color: var(--cth-primary); text-decoration: none; font-weight: 600; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .compact-list li { font-size: 8pt; }
+.page-back h2 { margin: 5px 0 2px; font-size: 9pt; }
+.page-back p, .page-back li { font-size: 7.75pt; line-height: 1.35; }
+.page-back .proposal { padding: 5px 7px; margin: 4px 0; }
+.page-back .header { margin-bottom: 5px; padding-bottom: 4px; }
+.territory-list { padding-left: 1em; margin: 2px 0 4px; columns: 2; column-gap: 10px; }
+.territory-list li { font-size: 7.25pt; margin-bottom: 1px; break-inside: avoid; }
+.pilot-line { font-size: 7.25pt; margin: 3px 0 5px; padding: 3px 6px; background: var(--cth-light); border-radius: 3px; }
+.funnel {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin: 4px 0 6px; font-size: 10pt; font-weight: 700; color: var(--cth-dark);
+}
+.funnel span { padding: 2px 8px; background: var(--cth-light); border-radius: 4px; border: 1px solid var(--cth-primary); }
+.funnel .arr { font-weight: 400; color: var(--cth-primary); font-size: 9pt; }
+.page-back .footnotes { margin-top: 4px; padding-top: 4px; }
+.page-back .footnotes p { font-size: 6pt; }
 </style>
 </head>
 <body>
@@ -228,7 +243,7 @@ li { margin-bottom: 2px; }
   </div>
 </section>
 
-<section class="page" aria-label="Back">
+<section class="page page-back" aria-label="Back">
   <header class="header">
     <div class="brand">Cleantech<span class="hub">HUB</span></div>
     <p class="tagline">Energy Coop proposal</p>
@@ -237,42 +252,36 @@ li { margin-bottom: 2px; }
   <h2>3. The cooperative as the tool</h2>
   <div class="proposal">
     <span class="badge">CTH proposal</span>
-    <p><strong>O&amp;M services cooperative and green jobs</strong> complementing CAPEX (FENOGE, IPSE, PIEC) with:</p>
-    <ul class="compact-list">
-      <li>Explicit OPEX contracts (PV cleaning, batteries, remote monitoring) aligned with CREG/SSPD rules.</li>
-      <li>Local revenue and ownership: community governance in energy communities so assets are not orphaned after commissioning.</li>
-      <li>Tracking with IMPE indicators (access and quality) — does not replace official ICEE or IPEM.</li>
-    </ul>
+    <p><strong>Community O&amp;M + revenue + local ownership</strong> (energy cooperative) complements CAPEX with explicit OPEX contracts (PV, batteries, monitoring; CREG/SSPD) and community governance; IMPE access/quality KPIs — does not replace ICEE/IPEM.</p>
   </div>
 
-  <div class="two-col">
-    <div>
-      <h2>4. Local talent and green jobs</h2>
-      <p><strong>Proposed collaboration</strong> with Escuela Colombiana de Ingeniería Julio Garavito — <em>no published framework agreement</em> with CleantechHUB.</p>
-      <ul class="compact-list">
-        <li>Documented academic engagement: CLSA chair (energy-sector challenges); 3rd place Solucionatón 10X Connect Bogotá (Oct 2026).<sup>6</sup></li>
-        <li>Training offer: renewable-energy diploma and courses, energy-transition and circular-PV modules (incl. O&amp;M); 101.76&nbsp;kWp lab and off-grid ZNI bench.<sup>7</sup></li>
-      </ul>
-    </div>
-    <div>
-      <h2>5. Territorial priority (IMPE)</h2>
-      <p>Departments with high IMPE incidence (persons, 2024) guide pilot corridors: La Guajira <strong>63.1%</strong>, Chocó <strong>52.8%</strong>; La Guajira ICEE <strong>54.28%</strong>.<sup>1,2</sup></p>
-      <p style="font-size:8pt;color:#555;margin-top:4px;">Productive territorial partner lists and named pilot sites are omitted pending additional sourced evidence in the evidence pack.</p>
-    </div>
-  </div>
+  <h2>4. Local talent — Escuela Garavito</h2>
+  <p><strong>Proposed collaboration</strong> (no framework agreement with CTH): CLSA energy challenges; 3rd place Solucionatón 10X (2026); renewable diploma/courses + 101.76&nbsp;kWp lab.<sup>6,7</sup></p>
 
-  <h2>7. Dutch partner network (target)</h2>
-  <p style="font-size:8.5pt;">CleantechHUB maps <strong>finance and peer-learning channels</strong> — <em>no signed agreements</em> with Energy Coop:</p>
-  <ul class="compact-list">
-    <li><strong>FMO:</strong> solar project finance in Colombia (e.g. 252&nbsp;MWp utility-scale Cesar/Córdoba; ~52.8&nbsp;MWp mini-farm portfolio).<sup>8</sup></li>
-    <li><strong>RVO</strong> (Netherlands Enterprise Agency): commercial facilitation in the clean-energy ecosystem (La Guajira solar MOU context).<sup>9</sup></li>
+  <h2>5. Territorial partner PASO Colombia</h2>
+  <p><strong>Productive and cooperative projects</strong> in high energy-poverty departments — <strong>PASO does not run energy projects.</strong><sup>10</sup></p>
+  <ul class="territory-list">
+    <li><strong>Fonseca, La Guajira</strong> — COOMPAZCOL, ASMUPERIJA (IMPE 63.1%)</li>
+    <li><strong>Puerto Asís / Puerto Guzmán, Putumayo</strong> (IMPE 58.7%)</li>
+    <li><strong>Istmina, Chocó</strong> — Bioconversión Chocó, Aserrío Continental (52.8%)</li>
+    <li><strong>San José del Guaviare</strong> (IMPE 38.9%)</li>
+    <li><strong>Arauca</strong> — COOPCACAO, COMPROCAR, Filimarpaz (27.9%)</li>
   </ul>
+  <p class="pilot-line"><strong>Energy Coop pilot site:</strong> Corozal, Sucre (IMPE 43.1%) — not a PASO project.<sup>10</sup></p>
+
+  <h2>6. Data lab — filtering method</h2>
+  <p>Funnel from ~1,000 MinEnergía prioritised communities to final candidates; filters: solar resource, ZNI/off-grid, legal ID (NIT), social licence (scores not shown).<sup>10</sup></p>
+  <div class="funnel" aria-label="Filtering funnel">
+    <span>~1,000</span><span class="arr">→</span><span>100</span><span class="arr">→</span><span>20</span><span class="arr">→</span><span>10</span>
+  </div>
+
+  <h2>7. Dutch network (target, no signed agreements)</h2>
+  <p><strong>FMO</strong> and <strong>RVO</strong> (Colombia solar finance/facilitation).<sup>8,9</sup> <strong>Green Choice</strong> and <strong>Energie Samen</strong> — finance and peer learning for community energy.<sup>10</sup></p>
 
   <div class="footnotes">
-    <p><sup>6</sup> escuelaing.edu.co — CLSA and Solucionatón 10X news (2026).</p>
-    <p><sup>7</sup> escuelaing.edu.co — continuing-education programs and Renewable Energy Laboratory.</p>
-    <p><sup>8</sup> fmo.nl — Colombia project news and sheets (La Mata / La Unión; Sol de la Sierra / Ayura).</p>
-    <p><sup>9</sup> Gutami MOU 2023; Holland House Colombia (facilitation).</p>
+    <p><sup>6,7</sup> escuelaing.edu.co — CLSA, Solucionatón 10X, continuing education, Renewable Energy Laboratory.</p>
+    <p><sup>8</sup> fmo.nl — Colombia projects. <sup>9</sup> Gutami MOU 2023; Holland House Colombia.</p>
+    <p><sup>10</sup> CTH / PASO, 2026 (project brief and GRP application filter).</p>
   </div>
 
   <div class="footer-bar">
