@@ -135,6 +135,11 @@ html, body {
 }
 .tag.fact { background: var(--cth-accent); color: var(--cth-dark); }
 .tag.design { background: #e3f2fd; color: #1565c0; }
+.tag.fenoge { background: var(--cth-dark); color: var(--cth-white); }
+.tag.csr { background: #fce4ec; color: #880e4f; }
+.totals-note { font-size: 12px; color: #555; margin-bottom: 8px; max-width: 52rem; }
+.panel-links { font-size: 12px; }
+.panel-links a { color: var(--cth-primary); }
 .flow-stage {
   display: flex;
   align-items: stretch;
@@ -302,12 +307,13 @@ html, body {
     <!-- Screen 1 -->
     <section class="screen active" id="screen-0" aria-labelledby="t1">
       <h1 id="t1">Paiva: del comité a la cooperativa</h1>
-      <p class="subtitle">Piloto solar Promigas en Centro Educativo Chiricoco (vereda Chiricoco, Paiva, Bolívar). Dic. 2025 — ubicación <strong>aproximada</strong> en mapa.</p>
+      <p class="subtitle">Piloto CSR <strong>Promigas / Fundación Promigas</strong> — vereda Paiva, Bolívar (~450 habitantes), IE Chiricoco. <span class="tag csr">No FENOGE</span> Ubicación en mapa <strong>aproximada</strong>.</p>
       <div class="grid-2">
-        <div class="map-box"><div id="map-paiva" role="img" aria-label="Mapa Paiva Bolívar"></div></div>
+        <div class="map-box"><div id="map-paiva" role="img" aria-label="Mapa vereda Paiva Bolívar"></div></div>
         <div class="panel">
-          <span class="tag fact">Hecho citado — ticket desk 3 nov 2026</span>
-          <p><strong>Promigas</strong> — piloto fotovoltaico en centro educativo, vereda Chiricoco.</p>
+          <span class="tag fact">Fuente pública</span>
+          <p><strong>Fundación Promigas</strong> — primer piloto de energía solar comunitaria; comité comunitario e IE Chiricoco.</p>
+          <p class="panel-links"><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co — Paiva</a></p>
           <span class="tag design">Propuesta diseño CTH</span>
           <p>Transformación guiada: comité comunitario → cooperativa energética con ~30&nbsp;% participación en clase comunitaria (no es dato contractual).</p>
           <div class="flow-stage" id="transform-flow">
@@ -323,7 +329,7 @@ html, body {
             <li><strong>Promigas</strong> — aliado en piloto / know-how (rol según acuerdo local)</li>
             <li><strong>Clase comunitaria</strong> — ~30&nbsp;% propuesta CTH en estructura de capital</li>
           </ul>
-          <p class="cite">Fuente ubicación y piloto: brief ticket Energy Coop (3 nov 2026). Sin coordenadas verificadas en repo.</p>
+          <p class="cite">~450 hab. y territorio: Fundación Promigas (enlace arriba). Coordenadas del mapa: aproximadas (sin geocódigo en fuente).</p>
         </div>
       </div>
     </section>
@@ -331,12 +337,13 @@ html, body {
     <!-- Screen 2 -->
     <section class="screen" id="screen-1" aria-labelledby="t2">
       <h1 id="t2">La Guajira a escala</h1>
-      <p class="subtitle">Un clic: zoom a La Guajira y comunidades priorizadas. <span class="tag sim">SIMULACIÓN – datos de ejemplo</span> — lista MinEnergía no está en este repo.</p>
+      <p class="subtitle">Proyectos <strong>FENOGE</strong> en La Guajira (fuentes públicas nov 2026). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Síntesis: <code>docs/energy-coop/fenoge-public-data-2026-11.md</code>.</p>
       <div class="totals">
-        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Comunidades</div></div>
-        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp (suma)</div></div>
-        <div class="stat"><div class="val" id="stat-hh">0</div><div class="lbl">Hogares</div></div>
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Proyectos FENOGE</div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp (suma citada)</div></div>
+        <div class="stat"><div class="val" id="stat-hh">0</div><div class="lbl">Beneficiarios (mixto)</div></div>
       </div>
+      <p class="totals-note" id="totals-note" hidden>Suma kWp: Maicao 1.102 + Cabo/Media Luna 1 MW + Tomarrazón ~241 (derivado). Nazareth/Puerto Estrella: kWp no publicado en IA-006-2024. Beneficiarios: familias, usuarios y personas según cada nota — no suma única de hogares.</p>
       <button type="button" class="transform-btn" id="btn-guajira">Ver La Guajira a escala</button>
       <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
     </section>
@@ -410,18 +417,49 @@ html, body {
   var guajiraLoaded = false;
   var selectedKwp = null;
 
-  // Paiva ~approx (Paiva corregimiento, Bolívar) — ticket: vereda Chiricoco, not survey-grade
+  // Vereda Paiva, Bolívar — aprox. (Fundación Promigas; sin geocódigo en fuente)
   var PAIVA_APPROX = [10.450, -75.250];
 
-  var SIM_COMMUNITIES = [
-    { name: 'Uribia (ejemplo)', lat: 11.715, lng: -72.265, kwp: 45, hh: 38 },
-    { name: 'Manaure (ejemplo)', lat: 11.775, lng: -72.445, kwp: 62, hh: 52 },
-    { name: 'Albania (ejemplo)', lat: 11.160, lng: -72.592, kwp: 28, hh: 24 },
-    { name: 'Maicao (ejemplo)', lat: 11.378, lng: -72.240, kwp: 80, hh: 68 },
-    { name: 'Riohacha (ejemplo)', lat: 11.544, lng: -72.907, kwp: 55, hh: 47 },
-    { name: 'Dibulla (ejemplo)', lat: 11.272, lng: -73.308, kwp: 33, hh: 29 },
-    { name: 'San Juan (ejemplo)', lat: 10.775, lng: -73.015, kwp: 40, hh: 35 },
-    { name: 'Barrancas (ejemplo)', lat: 10.950, lng: -72.790, kwp: 51, hh: 44 }
+  /** FENOGE La Guajira — docs/energy-coop/fenoge-public-data-2026-11.md */
+  var FENOGE_GUajira = [
+    {
+      name: 'Maicao — población vulnerable',
+      lat: 11.378, lng: -72.240, approx: true,
+      kwp: 1102, kwpLabel: '1.102 kWp',
+      ben: '~500 familias (estrato 1–2)',
+      source: 'https://fenoge.gov.co/gobierno-nacional-entrega-en-maicao-el-primer-territorio-energetico-de-la-guajira/',
+      srcLabel: 'FENOGE, ago 2025'
+    },
+    {
+      name: 'Cabo de la Vela & Media Luna',
+      lat: 12.090, lng: -72.145, approx: true,
+      kwp: 1000, kwpLabel: '1 MW',
+      ben: '~1.500 personas; 61 comunidades citadas',
+      source: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/minenerg%C3%ADa-y-fenoge-instalar%C3%A1n-parque-solar-en-el-cabo-de-la-vela-y-media-luna-que-proveer%C3%A1-energ%C3%ADa-247/',
+      srcLabel: 'MinEnergía, oct 2024'
+    },
+    {
+      name: 'Nazareth & Puerto Estrella',
+      lat: 12.199722, lng: -71.263889, approx: false,
+      kwp: null, kwpLabel: 'kWp no publicado (IA-006-2024)',
+      ben: '>800 usuarios',
+      source: 'https://fenoge.gov.co/invitacion-abietno-006-de-2024-ia-006-2024-fenoge/',
+      srcLabel: 'IA-006-2024 (coords ref.)'
+    },
+    {
+      name: 'Tomarrazón — CE',
+      lat: 11.050, lng: -72.550, approx: true,
+      kwp: 241, kwpLabel: '~241 kWp (339×710 W, derivado)',
+      ben: '180 familias',
+      source: 'https://es.linkedin.com/posts/fenoge_enfotos-comunidadesenerg%C3%A9ticas-tomarraz%C3%B3n-activity-7425237830081249280-9fsM',
+      srcLabel: 'FENOGE LinkedIn'
+    }
+  ];
+
+  var WIZARD_SIM = [
+    { name: 'Comunidad ejemplo A', kwp: 45, hh: 38 },
+    { name: 'Comunidad ejemplo B', kwp: 62, hh: 52 },
+    { name: 'Comunidad ejemplo C', kwp: 28, hh: 24 }
   ];
 
   var FLOW_STEPS = [
@@ -475,7 +513,7 @@ html, body {
       fillOpacity: 0.15,
       dashArray: '6,8'
     }).addTo(maps.paiva).bindPopup(
-      '<strong>Centro Educativo Chiricoco</strong><br>Vereda Chiricoco, Paiva, Bolívar<br><em>Ubicación aproximada</em><br>Piloto Promigas (dic. 2025)<br><small>Fuente: ticket desk 3 nov 2026</small>'
+      '<strong>IE Chiricoco — vereda Paiva</strong><br>Bolívar · ~450 habitantes<br><em>Ubicación aproximada</em><br>Piloto CSR Promigas / Fundación Promigas<br><small><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co</a></small>'
     );
     L.marker(PAIVA_APPROX, {
       icon: L.divIcon({
@@ -511,37 +549,49 @@ html, body {
     requestAnimationFrame(frame);
   }
 
+  function fenogePopup(p) {
+    var loc = p.approx
+      ? '<em>Ubicación aproximada</em>'
+      : '<em>Coord. ref. IA-006-2024</em> (área de obra puede variar)';
+    return '<strong>' + p.name + '</strong><br><span class="tag fenoge" style="display:inline-block;margin:4px 0">FENOGE · fuente pública</span><br>' +
+      p.kwpLabel + '<br>' + p.ben + '<br>' + loc + '<br>' +
+      '<a href="' + p.source + '" target="_blank" rel="noopener">' + p.srcLabel + '</a>';
+  }
+
   function loadGuajiraPins() {
     if (guajiraLoaded || !maps.guajira) return;
     guajiraLoaded = true;
     maps.guajira.flyTo([11.35, -72.75], 8, { duration: 1.5 });
-    var totalKwp = 0, totalHh = 0;
-    SIM_COMMUNITIES.forEach(function (c, i) {
-      totalKwp += c.kwp;
-      totalHh += c.hh;
+    var totalKwp = 0;
+    FENOGE_GUajira.forEach(function (p, i) {
+      if (p.kwp) totalKwp += p.kwp;
       setTimeout(function () {
-        L.marker([c.lat, c.lng], {
+        var marker = L.marker([p.lat, p.lng], {
           icon: L.divIcon({
             className: 'red-pin',
             html: '<div style="background:#c0392b;width:10px;height:10px;border-radius:50%;border:2px solid #fff;margin:-5px 0 0 -5px"></div>',
             iconSize: [10, 10]
           })
-        }).addTo(maps.guajira).bindPopup(
-          '<strong>' + c.name + '</strong><br><span style="color:#856404">SIMULACIÓN</span><br>' + c.kwp + ' kWp · ' + c.hh + ' hogares (ejemplo)'
-        );
-      }, i * 80);
+        }).addTo(maps.guajira).bindPopup(fenogePopup(p));
+        if (p.approx) {
+          L.circle([p.lat, p.lng], {
+            radius: 12000, color: '#c0392b', fillOpacity: 0.06, dashArray: '4,6', weight: 1
+          }).addTo(maps.guajira);
+        }
+      }, i * 120);
     });
     setTimeout(function () {
       var elCom = document.getElementById('stat-com');
       var elKwp = document.getElementById('stat-kwp');
       var elHh = document.getElementById('stat-hh');
-      animateValue(elCom, SIM_COMMUNITIES.length, '');
+      animateValue(elCom, FENOGE_GUajira.length, '');
       animateValue(elKwp, totalKwp, '');
-      animateValue(elHh, totalHh, '');
+      elHh.textContent = '—';
+      document.getElementById('totals-note').hidden = false;
       setTimeout(function () {
-        elCom.textContent = String(SIM_COMMUNITIES.length);
-        elKwp.textContent = String(totalKwp);
-        elHh.textContent = String(totalHh);
+        elCom.textContent = String(FENOGE_GUajira.length);
+        elKwp.textContent = totalKwp.toLocaleString('es-CO');
+        elHh.textContent = 'mixto';
       }, 1300);
     }, 400);
   }
@@ -549,7 +599,7 @@ html, body {
   function populateCommunities() {
     var sel = document.getElementById('sel-community');
     if (sel.options.length > 1) return;
-    SIM_COMMUNITIES.forEach(function (c) {
+    WIZARD_SIM.forEach(function (c) {
       var o = document.createElement('option');
       o.value = c.name;
       o.textContent = c.name + ' (SIMULACIÓN)';
@@ -591,7 +641,7 @@ html, body {
     initGuajiraMap();
     loadGuajiraPins();
     this.disabled = true;
-    this.textContent = 'Comunidades cargadas (simulación)';
+    this.textContent = '4 proyectos FENOGE en mapa';
   });
 
   document.getElementById('size-options').addEventListener('click', function (e) {
