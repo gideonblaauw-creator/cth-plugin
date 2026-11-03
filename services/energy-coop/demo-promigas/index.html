@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Promigas — CleantechHUB Energy Coop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<style>
+:root {
+  --cth-primary: #2D6A4F;
+  --cth-dark: #1B4332;
+  --cth-accent: #95D5B2;
+  --cth-light: #D8F3DC;
+  --cth-white: #FFFFFF;
+  --cth-text: #333333;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sim-bg: color-mix(in srgb, var(--cth-accent) 35%, var(--cth-white));
+  --sim-border: var(--cth-dark);
+  --pin-map: var(--cth-primary);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--cth-text);
+  background: var(--cth-dark);
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100dvh;
+}
+.topbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--cth-primary);
+  color: var(--cth-white);
+  font-size: 14px;
+}
+.topbar .brand { font-weight: 400; letter-spacing: -0.02em; }
+.topbar .brand .hub { font-weight: 700; }
+.topbar .meta { opacity: 0.9; font-size: 12px; text-align: right; }
+.progress {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.dot.active { background: var(--cth-accent); transform: scale(1.15); }
+.dot.done { background: rgba(149,213,178,0.7); }
+.screen-wrap {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--cth-light);
+}
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: 16px 20px 72px;
+  overflow: auto;
+}
+.screen.active { display: flex; }
+.screen h1 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--cth-dark);
+  margin-bottom: 4px;
+}
+.screen .subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  max-width: 52rem;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+  min-height: 280px;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+.map-box {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--cth-primary);
+  min-height: 260px;
+  background: #e8e8e8;
+}
+#map-paiva, #map-guajira { width: 100%; height: 100%; min-height: 260px; }
+.panel {
+  background: var(--cth-white);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(45,106,79,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--cth-light);
+  color: var(--cth-dark);
+}
+.tag.sim {
+  background: var(--sim-bg);
+  color: var(--sim-border);
+  border: 1px solid var(--sim-border);
+}
+.tag.fact { background: var(--cth-accent); color: var(--cth-dark); }
+.tag.design {
+  background: color-mix(in srgb, var(--cth-light) 70%, var(--cth-white));
+  color: var(--cth-dark);
+  border: 1px solid var(--cth-primary);
+}
+.tag.fenoge { background: var(--cth-dark); color: var(--cth-white); }
+.tag.csr {
+  background: var(--cth-light);
+  color: var(--cth-dark);
+  border: 1px solid var(--cth-primary);
+}
+.tag.nl {
+  background: var(--cth-primary);
+  color: var(--cth-white);
+  border: 1px solid var(--cth-accent);
+}
+.totals-note { font-size: 12px; color: #555; margin-bottom: 8px; max-width: 52rem; }
+.kpi-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-width: 52rem;
+}
+.kpi-card {
+  background: var(--cth-white);
+  border-left: 4px solid var(--cth-primary);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 20%, transparent);
+  border-left-width: 4px;
+}
+.kpi-card .kpi-title { font-weight: 600; color: var(--cth-dark); display: block; margin-bottom: 2px; }
+.kpi-card .kpi-meta { font-size: 11px; color: #555; margin-top: 4px; }
+.kpi-card a { color: var(--cth-primary); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.kpi-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.kpi-row .kpi-card { flex: 1; min-width: 200px; }
+.gap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0 14px;
+  max-width: 52rem;
+}
+@media (max-width: 720px) { .gap-grid { grid-template-columns: 1fr; } }
+.gap-card {
+  background: var(--cth-white);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, transparent);
+}
+.gap-card.slow { border-left: 4px solid color-mix(in srgb, var(--cth-dark) 50%, #888); }
+.gap-card.fast { border-left: 4px solid var(--cth-primary); }
+.gap-card h3 { font-size: 13px; font-weight: 600; color: var(--cth-dark); margin-bottom: 6px; }
+.gap-card .math { font-family: ui-monospace, monospace; font-size: 12px; color: #444; margin: 6px 0; }
+.gap-card .year { font-size: 22px; font-weight: 700; color: var(--cth-primary); }
+.gap-card.slow .year { color: #666; }
+.opex-list, .talent-list { font-size: 13px; max-width: 52rem; margin: 8px 0 12px; padding-left: 1.1rem; }
+.opex-list li, .talent-list li { margin-bottom: 8px; }
+.section-h2 { font-size: 15px; font-weight: 600; color: var(--cth-dark); margin: 12px 0 6px; max-width: 52rem; }
+.proposal-block {
+  max-width: 52rem;
+  background: color-mix(in srgb, var(--cth-light) 55%, var(--cth-white));
+  border: 2px dashed var(--cth-primary);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.proposal-block ul { margin: 8px 0 0 1.1rem; }
+.screen-4-scroll { overflow-y: auto; padding-bottom: 8px; }
+.panel-links { font-size: 12px; }
+.panel-links a { color: var(--cth-primary); }
+.flow-stage {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.node {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s;
+  border: 2px solid transparent;
+}
+.node.comite {
+  background: var(--cth-white);
+  color: var(--cth-dark);
+  border-color: color-mix(in srgb, var(--cth-primary) 45%, var(--cth-white));
+}
+.node.coop { background: var(--cth-light); color: var(--cth-dark); border-color: var(--cth-primary); }
+.node.dim { opacity: 0.35; transform: scale(0.92); }
+.node.highlight { transform: scale(1.04); box-shadow: 0 4px 16px rgba(45,106,79,0.25); }
+.arrow-col {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: var(--cth-primary);
+}
+.transform-btn {
+  align-self: flex-start;
+  background: var(--cth-primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+.transform-btn:hover { background: var(--cth-dark); }
+.transform-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.governance-list {
+  font-size: 13px;
+  padding-left: 18px;
+}
+.governance-list li { margin-bottom: 4px; }
+.cite { font-size: 12px; color: #666; margin-top: auto; }
+.totals {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.stat {
+  flex: 1;
+  min-width: 120px;
+  background: var(--cth-white);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--cth-primary);
+}
+.stat .val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cth-dark);
+  font-variant-numeric: tabular-nums;
+}
+.stat .lbl { font-size: 12px; color: #555; }
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 640px;
+}
+.wizard label { font-weight: 600; font-size: 14px; }
+.wizard select, .wizard button.primary {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+}
+.wizard button.primary {
+  background: var(--cth-primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wizard button.primary:hover { background: var(--cth-dark); }
+.size-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.size-options button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid var(--cth-primary);
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.size-options button.selected {
+  background: var(--cth-primary);
+  color: white;
+}
+.ceof-wrap {
+  margin-top: 8px;
+  display: none;
+}
+.ceof-wrap.visible { display: block; }
+.ceof-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+.money-pulse {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.flow-label {
+  font-size: 11px;
+  fill: var(--cth-dark);
+  font-weight: 600;
+}
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--cth-white);
+  border-top: 1px solid #ddd;
+  z-index: 1000;
+}
+.nav-bar button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+.nav-bar .prev {
+  background: var(--cth-light);
+  color: var(--cth-dark);
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, transparent);
+}
+.nav-bar .next { background: var(--cth-primary); color: var(--cth-white); }
+.nav-bar .hint { font-size: 12px; color: #666; }
+.nav-bar .legal {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  flex: 1;
+  padding: 0 8px;
+}
+.leaflet-popup-content { font-size: 13px; line-height: 1.5; }
+.leaflet-popup-content a { color: var(--cth-primary); font-weight: 500; }
+.lang-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1101;
+  display: flex;
+  gap: 2px;
+  background: var(--cth-white);
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 35%, transparent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--cth-dark);
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.lang-toggle button.active {
+  background: var(--cth-primary);
+  color: var(--cth-white);
+}
+.lang-toggle button:focus-visible {
+  outline: 2px solid var(--cth-accent);
+  outline-offset: 1px;
+}
+</style>
+</head>
+<body>
+<div class="lang-toggle" role="group" data-i18n-aria="lang.toggle" id="lang-toggle">
+  <button type="button" data-lang="es" aria-pressed="true">ES</button>
+  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+</div>
+<div class="app">
+  <header class="topbar">
+    <div class="brand" aria-label="CleantechHUB" data-i18n-html="topbar.brandHtml"></div>
+    <div class="progress" role="tablist" data-i18n-aria="topbar.progress">
+      <button type="button" class="dot active" data-goto="0" data-i18n-screen="1"></button>
+      <button type="button" class="dot" data-goto="1" data-i18n-screen="2"></button>
+      <button type="button" class="dot" data-goto="2" data-i18n-screen="3"></button>
+      <button type="button" class="dot" data-goto="3" data-i18n-screen="4"></button>
+    </div>
+    <div class="meta"><span data-i18n="topbar.meta"></span><br><span data-i18n="topbar.metaHint"></span></div>
+  </header>
+
+  <main class="screen-wrap">
+    <!-- Screen 1 -->
+    <section class="screen active" id="screen-0" aria-labelledby="t1">
+      <h1 id="t1" data-i18n="s1.title"></h1>
+      <p class="subtitle" data-i18n-html="s1.subtitleHtml"></p>
+      <div class="kpi-strip" data-i18n-aria="s1.kpiStrip">
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s1.kpi1"></span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+          </span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s1.kpi2"></span>
+          <span class="kpi-meta">
+            <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024 (UPME)</a>
+            · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia 2024</a>
+          </span>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="map-box"><div id="map-paiva" role="img" data-i18n-aria="s1.mapAria"></div></div>
+        <div class="panel">
+          <span class="tag fact" data-i18n="tag.publicSource"></span>
+          <p data-i18n="s1.panel1"></p>
+          <p class="panel-links">
+            <a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Fundación Promigas</a>
+            · <a href="https://guiadelgas.com/primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Guía del Gas</a>
+          </p>
+          <span class="tag design" data-i18n="tag.cthDesign"></span>
+          <p data-i18n="s1.panel2"></p>
+          <div class="flow-stage" id="transform-flow">
+            <div class="node comite" id="n-comite"><span data-i18n="s1.nodeComite"></span><br><small data-i18n="s1.nodeComiteSub"></small></div>
+            <div class="arrow-col" aria-hidden="true">→</div>
+            <div class="node coop dim" id="n-coop"><span data-i18n="s1.nodeCoop"></span><br><small data-i18n="s1.nodeCoopSub"></small></div>
+          </div>
+          <button type="button" class="transform-btn" id="btn-transform" data-i18n="s1.btnTransform"></button>
+          <ul class="governance-list" id="gov-list" hidden>
+            <li data-i18n="s1.gov1"></li>
+            <li data-i18n="s1.gov2"></li>
+            <li data-i18n="s1.gov3"></li>
+            <li data-i18n="s1.gov4"></li>
+            <li data-i18n="s1.gov5"></li>
+          </ul>
+          <p class="cite" data-i18n="s1.cite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2 -->
+    <section class="screen" id="screen-1" aria-labelledby="t2">
+      <h1 id="t2" data-i18n="s2.title"></h1>
+      <p class="subtitle" data-i18n-html="s2.subtitleHtml"></p>
+      <div class="kpi-strip" data-i18n-aria="s2.kpiStrip">
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi1"></span>
+            <span class="kpi-meta">
+              <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+              · <span class="tag design" style="font-size:10px;padding:2px 6px" data-i18n="tag.partialDept"></span>
+            </span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi2"></span>
+            <span class="kpi-meta">
+              <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024</a>
+              · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia</a>
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s2.kpi3"></span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf" target="_blank" rel="noopener">Resumen ejecutivo IMPE 2025</a>
+          </span>
+        </div>
+      </div>
+      <div class="totals">
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl" data-i18n="s2.statProjects"></div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl" data-i18n="s2.statKwp"></div></div>
+        <div class="stat"><div class="val" id="stat-mw">0</div><div class="lbl" data-i18n="s2.statMw"></div></div>
+      </div>
+      <p class="totals-note" id="totals-note" hidden data-i18n="s2.totalsNote"></p>
+      <button type="button" class="transform-btn" id="btn-guajira" data-i18n="s2.btnGuajira"></button>
+      <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
+    </section>
+
+    <!-- Screen 3 -->
+    <section class="screen" id="screen-2" aria-labelledby="t3">
+      <h1 id="t3" data-i18n="s3.title"></h1>
+      <p class="subtitle" data-i18n-html="s3.subtitleHtml"></p>
+      <div class="grid-2" style="align-items:start;">
+        <div class="wizard">
+          <div>
+            <label for="sel-community" data-i18n="s3.step1"></label>
+            <select id="sel-community">
+              <option value="" data-i18n="s3.selectPlaceholder"></option>
+            </select>
+          </div>
+          <div>
+            <label data-i18n="s3.step2"></label>
+            <div class="size-options" id="size-options">
+              <button type="button" data-kwp="10">10 kWp</button>
+              <button type="button" data-kwp="25">25 kWp</button>
+              <button type="button" data-kwp="50">50 kWp</button>
+              <button type="button" data-kwp="100">100 kWp</button>
+            </div>
+          </div>
+          <button type="button" class="primary" id="btn-create" disabled data-i18n="s3.btnCreate"></button>
+        </div>
+        <div class="panel ceof-wrap" id="ceof-wrap">
+          <span class="tag design" data-i18n="s3.ceofTag"></span>
+          <svg class="ceof-svg" viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" data-i18n-aria="s3.ceofAria">
+            <rect x="240" y="20" width="240" height="56" rx="8" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+            <text x="360" y="52" text-anchor="middle" class="flow-label" font-size="14" data-i18n="s3.svgCoop"></text>
+            <rect x="40" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="120" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgInvestors"></text>
+            <rect x="280" y="120" width="160" height="48" rx="6" fill="#95D5B2" stroke="#2D6A4F"/>
+            <text x="360" y="142" text-anchor="middle" class="flow-label" data-i18n="s3.svgCommunity"></text>
+            <text x="360" y="158" text-anchor="middle" font-size="10" fill="#555" data-i18n="s3.svgCommunityPct"></text>
+            <rect x="520" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="600" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgOperator"></text>
+            <rect x="260" y="220" width="200" height="44" rx="6" fill="#1B4332"/>
+            <text x="360" y="248" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-i18n="s3.svgMultisig"></text>
+            <line x1="120" y1="168" x2="300" y2="210" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arr)"/>
+            <line x1="360" y1="168" x2="360" y2="218" stroke="#2D6A4F" stroke-width="2"/>
+            <line x1="600" y1="168" x2="420" y2="210" stroke="#2D6A4F" stroke-width="2"/>
+            <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2D6A4F"/></marker></defs>
+            <g id="money-flow">
+              <text x="360" y="300" text-anchor="middle" font-size="13" fill="#2D6A4F" class="money-pulse" id="flow-text" data-i18n="s3.flow0"></text>
+              <text x="360" y="330" text-anchor="middle" font-size="11" fill="#666" id="flow-sub" data-i18n="s3.flowSub"></text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4 -->
+    <section class="screen screen-4-scroll" id="screen-3" aria-labelledby="t4">
+      <h1 id="t4" data-i18n="s4.title"></h1>
+      <p class="subtitle" data-i18n-html="s4.subtitleHtml"></p>
+
+      <div class="kpi-card">
+        <span class="kpi-title" data-i18n="s4.kpiMeta"></span>
+        <span class="kpi-meta">
+          <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025, p. 33 (PDF)</a>
+          · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+        </span>
+      </div>
+
+      <h2 class="section-h2" data-i18n="s4.gapTitle"></h2>
+      <p class="kpi-meta" style="max-width:52rem;margin-bottom:8px;" data-i18n-html="s4.gapIntroHtml"></p>
+      <div class="gap-grid">
+        <div class="gap-card slow">
+          <h3 data-i18n="s4.gapSlowTitle"></h3>
+          <p class="math" data-i18n="s4.gapSlowMath"></p>
+          <p class="year">~2034</p>
+          <p class="kpi-meta" data-i18n-html="s4.gapSlowMetaHtml"></p>
+        </div>
+        <div class="gap-card fast">
+          <h3 data-i18n="s4.gapFastTitle"></h3>
+          <p class="math" data-i18n="s4.gapFastMath"></p>
+          <p class="year">2030</p>
+          <p class="kpi-meta" data-i18n-html="s4.gapFastMetaHtml"></p>
+        </div>
+      </div>
+
+      <h2 class="section-h2" data-i18n="s4.opexTitle"></h2>
+      <ul class="opex-list">
+        <li><span data-i18n="s4.opex1"></span>
+          <a href="https://www.elcolombiano.com/negocios/contraloria-advierte-sobre-dificultades-en-proyectos-solares-zonas-apartadas-JN24837952" target="_blank" rel="noopener">El Colombiano</a></li>
+        <li><span data-i18n="s4.opex2"></span>
+          <a href="https://seguimiento.co/colombia/30000-millones-se-invirtieron-en-proyecto-fotovoltaico-y-esta-abandonado-en-amazonas-68633" target="_blank" rel="noopener">Seguimiento.co / Procuraduría</a></li>
+        <li><span data-i18n="s4.opex3"></span>
+          <a href="https://gestornormativo.creg.gov.co/Publicac.nsf/52188526a7290f8505256eee0072eba7/12aca473c3be151205257b080075913a/$FILE/Circular005-13%20GEN-RENOVABLES%20Informe%20Final.pdf" target="_blank" rel="noopener">Circular 005-13 informe final</a>
+          · <a href="https://normograma.superservicios.gov.co/normograma/compilacion/docs/concepto_creg_0004022_2019.htm" target="_blank" rel="noopener">Concepto CREG 4022/2019 (AOM)</a></li>
+      </ul>
+
+      <h2 class="section-h2" data-i18n="s4.talentTitle"></h2>
+      <ul class="talent-list">
+        <li><span data-i18n="s4.talent1"></span>
+          <a href="https://www.escuelaing.edu.co/es/la-escuela/sector-energetico-grupo-promigas-gascop-mineros-sa/" target="_blank" rel="noopener">CLSA sector energético</a>
+          · <a href="https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/" target="_blank" rel="noopener">Primer reto CLSA</a></li>
+        <li><span data-i18n="s4.talent2"></span>
+          <a href="https://www.escuelaing.edu.co/es/noticias/estudiantes-de-la-escuela-obtuvieron-el-tercer-lugar-en-solucionaton-10x-de-connect-bogota/" target="_blank" rel="noopener">Noticia Escuela</a></li>
+        <li data-i18n-html="s4.talent3Html"></li>
+      </ul>
+
+      <div class="proposal-block">
+        <span class="tag design" data-i18n="tag.cthProposal"></span>
+        <p style="margin-top:8px;" data-i18n-html="s4.propIntroHtml"></p>
+        <ul>
+          <li data-i18n="s4.prop1"></li>
+          <li data-i18n="s4.prop2"></li>
+          <li data-i18n="s4.prop3"></li>
+          <li data-i18n="s4.prop4"></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-bar">
+    <button type="button" class="prev" id="nav-prev" data-i18n="nav.prev"></button>
+    <span class="legal" data-i18n="nav.legal"></span>
+    <button type="button" class="next" id="nav-next" data-i18n="nav.next"></button>
+  </nav>
+</div>
+
+<script src="i18n.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  'use strict';
+
+  CthI18n.init();
+
+  document.querySelectorAll('#lang-toggle button[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      CthI18n.setLang(btn.getAttribute('data-lang'));
+    });
+  });
+
+  function t(key, vars) { return CthI18n.t(key, vars); }
+
+  var SCREENS = 4;
+  var current = 0;
+  var maps = { paiva: null, guajira: null };
+  var guajiraLoaded = false;
+  var guajiraMarkers = [];
+  var paivaPopupLayer = null;
+  var selectedKwp = null;
+  var transformShown = false;
+  var guajiraBtnDone = false;
+
+  // Vereda Paiva, Bolívar — aprox. (Fundación Promigas; sin geocódigo en fuente)
+  var PAIVA_APPROX = [10.450, -75.250];
+
+  /** Verificado: demo-promigas-fact-check.md */
+  var MAP_PROJECTS = [
+    {
+      mapKey: 'p1',
+      lat: 11.378, lng: -72.240, approx: true, fenoge: true, dutch: false,
+      kwp: 1102, kwpLabel: '1.102 kWp',
+      source: 'https://fenoge.gov.co/gobierno-nacional-entrega-en-maicao-el-primer-territorio-energetico-de-la-guajira/',
+      source2: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/gobierno-nacional-entrega-maicao-primer-territorio-energetico-la-guajira/',
+      srcLabel: 'FENOGE + MinEnergía'
+    },
+    {
+      mapKey: 'p2',
+      lat: 12.090, lng: -72.145, approx: true, fenoge: true, dutch: false,
+      kwp: 1000, kwpLabel: '1 MW',
+      source: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/minenerg%C3%ADa-y-fenoge-instalar%C3%A1n-parque-solar-en-el-cabo-de-la-vela-y-media-luna-que-proveer%C3%A1-energ%C3%ADa-247/',
+      source2: 'https://www.review-energy.com/solar/colombia-da-luz-verde-a-una-granja-solar-de-1-mw-que-beneficiara-a-comunidades-indigenas',
+      srcLabel: 'MinEnergía + Review Energy'
+    },
+    {
+      mapKey: 'p3',
+      lat: 12.199722, lng: -71.263889, approx: false, fenoge: true, dutch: false,
+      kwp: null, kwpLabelKey: 'map.p3.kwpLabel',
+      source: 'https://fenoge.gov.co/invitacion-abietno-006-de-2024-ia-006-2024-fenoge/',
+      source2: 'https://diariodelnorte.net/laguajira/gobierno-nacional-destina-25-000-millones-para-1-618-paneles-solares-y-930-baterias-en-nazareth/',
+      srcLabel: 'IA-006-2024 + Diario del Norte'
+    },
+    {
+      mapKey: 'p4',
+      lat: 11.157, lng: -72.592, approx: true, fenoge: false, dutch: true,
+      kwp: null, kwpLabelKey: 'map.p4.kwpLabel',
+      source: 'https://gutami.com/information/news/clean-energy-in-la-guajira-colombia/',
+      source2: 'https://hollandhouse-colombia.com/noticias-afiliados/noticia-asi-avanza-el-proyecto-solar-agroalimentario/',
+      srcLabel: 'Gutami + Holland House'
+    }
+  ];
+
+  var VERIFIED_KWP_SUM = 2102;
+  var DUTCH_MW = 750;
+
+  var WIZARD_SIM = [
+    { i18nKey: 'commA', kwp: 45, hh: 38 },
+    { i18nKey: 'commB', kwp: 62, hh: 52 },
+    { i18nKey: 'commC', kwp: 28, hh: 24 }
+  ];
+
+  function flowSteps() {
+    return [
+      t('s3.flow0'),
+      t('s3.flow1'),
+      t('s3.flow2'),
+      t('s3.flow3'),
+      t('s3.flow4')
+    ];
+  }
+  var flowIdx = 0;
+  var flowTimer = null;
+
+  function paivaPopupHtml() {
+    return '<strong>' + t('s1.popupTitle') + '</strong><br>' +
+      t('s1.popupBody') + '<br><em>' + t('s1.popupApprox') + '</em><br>' +
+      t('s1.popupPilot') + '<br><small><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co</a></small>';
+  }
+
+  function projectKwpLabel(p) {
+    if (p.kwpLabelKey) return t(p.kwpLabelKey);
+    return p.kwpLabel;
+  }
+
+  function refreshActionButtons() {
+    var tr = document.getElementById('btn-transform');
+    if (transformShown) tr.textContent = t('s1.btnTransformDone');
+    else tr.textContent = t('s1.btnTransform');
+    var gj = document.getElementById('btn-guajira');
+    if (guajiraBtnDone) gj.textContent = t('s2.btnGuajiraDone', { n: MAP_PROJECTS.length });
+    else gj.textContent = t('s2.btnGuajira');
+  }
+
+  function refreshMapPopups() {
+    if (paivaPopupLayer) paivaPopupLayer.setPopupContent(paivaPopupHtml());
+    guajiraMarkers.forEach(function (entry) {
+      entry.marker.setPopupContent(projectPopup(entry.project));
+    });
+  }
+
+  function parseHash() {
+    var h = location.hash.replace('#', '');
+    var n = parseInt(h, 10);
+    if (!isNaN(n) && n >= 0 && n < SCREENS) return n;
+    return 0;
+  }
+
+  function goTo(idx, pushHash) {
+    if (idx < 0 || idx >= SCREENS) return;
+    current = idx;
+    document.querySelectorAll('.screen').forEach(function (el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.dot').forEach(function (el, i) {
+      el.classList.toggle('active', i === idx);
+      el.classList.toggle('done', i < idx);
+    });
+    if (pushHash !== false) location.hash = String(idx);
+    if (idx === 0) initPaivaMap();
+    if (idx === 1) initGuajiraMap();
+    if (idx === 2) populateCommunities();
+  }
+
+  function initPaivaMap() {
+    if (maps.paiva) {
+      maps.paiva.invalidateSize();
+      return;
+    }
+    var el = document.getElementById('map-paiva');
+    maps.paiva = L.map(el, { scrollWheelZoom: true }).setView(PAIVA_APPROX, 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 18
+    }).addTo(maps.paiva);
+    paivaPopupLayer = L.circle(PAIVA_APPROX, {
+      radius: 1800,
+      color: varPin(),
+      fillColor: varPin(),
+      fillOpacity: 0.12,
+      dashArray: '6,8'
+    }).addTo(maps.paiva);
+    paivaPopupLayer.bindPopup(paivaPopupHtml());
+    L.marker(PAIVA_APPROX, { icon: pinIcon(14) }).addTo(maps.paiva);
+  }
+
+  function varPin() { return getComputedStyle(document.documentElement).getPropertyValue('--pin-map').trim() || '#2D6A4F'; }
+
+  function pinIcon(size, dutch) {
+    var bg = dutch ? '#95D5B2' : varPin();
+    var border = dutch ? '#1B4332' : '#fff';
+    var s = size || 10;
+    var m = -Math.round(s / 2);
+    return L.divIcon({
+      className: '',
+      html: '<div style="background:' + bg + ';width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:2px solid ' + border + ';box-shadow:0 1px 4px rgba(0,0,0,.35);margin:' + m + 'px 0 0 ' + m + 'px"></div>',
+      iconSize: [s, s]
+    });
+  }
+
+  function initGuajiraMap() {
+    if (maps.guajira) {
+      maps.guajira.invalidateSize();
+      return;
+    }
+    maps.guajira = L.map('map-guajira').setView([4.5, -74.0], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 18
+    }).addTo(maps.guajira);
+  }
+
+  function animateValue(el, target, suffix) {
+    var start = 0;
+    var dur = 1200;
+    var t0 = performance.now();
+    function frame(t) {
+      var p = Math.min(1, (t - t0) / dur);
+      var v = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v + (suffix || '');
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function projectPopup(p) {
+    var loc = p.approx
+      ? '<em>' + t('s2.popupApprox') + '</em>'
+      : '<em>' + t('s2.popupCoords') + '</em>';
+    var tags = '';
+    if (p.dutch) tags += '<span class="tag nl" style="display:inline-block;margin:2px 4px 2px 0">' + t('tag.dutchLead') + '</span>';
+    if (p.fenoge) tags += '<span class="tag fenoge" style="display:inline-block;margin:2px 0">' + t('tag.fenoge') + '</span>';
+    return '<strong>' + t('map.' + p.mapKey + '.name') + '</strong><br>' + tags + '<br>' +
+      projectKwpLabel(p) + '<br>' + t('map.' + p.mapKey + '.ben') + '<br>' + loc + '<br>' +
+      '<a href="' + p.source + '" target="_blank" rel="noopener">' + p.srcLabel + '</a>' +
+      (p.source2 ? ' · <a href="' + p.source2 + '" target="_blank" rel="noopener">' + t('s2.popupSource2') + '</a>' : '');
+  }
+
+  function loadGuajiraPins() {
+    if (guajiraLoaded || !maps.guajira) return;
+    guajiraLoaded = true;
+    maps.guajira.flyTo([11.35, -72.75], 8, { duration: 1.5 });
+    MAP_PROJECTS.forEach(function (p, i) {
+      setTimeout(function () {
+        var marker = L.marker([p.lat, p.lng], { icon: pinIcon(10, p.dutch) })
+          .addTo(maps.guajira).bindPopup(projectPopup(p));
+        guajiraMarkers.push({ marker: marker, project: p });
+        if (p.approx) {
+          L.circle([p.lat, p.lng], {
+            radius: 12000, color: varPin(), fillOpacity: 0.06, dashArray: '4,6', weight: 1
+          }).addTo(maps.guajira);
+        }
+      }, i * 120);
+    });
+    setTimeout(function () {
+      var elCom = document.getElementById('stat-com');
+      var elKwp = document.getElementById('stat-kwp');
+      var elMw = document.getElementById('stat-mw');
+      animateValue(elCom, MAP_PROJECTS.length, '');
+      animateValue(elKwp, VERIFIED_KWP_SUM, '');
+      animateValue(elMw, DUTCH_MW, '');
+      document.getElementById('totals-note').hidden = false;
+      setTimeout(function () {
+        elCom.textContent = String(MAP_PROJECTS.length);
+        elKwp.textContent = VERIFIED_KWP_SUM.toLocaleString(CthI18n.localeTag());
+        elMw.textContent = String(DUTCH_MW);
+      }, 1300);
+    }, 400);
+  }
+
+  function populateCommunities(force) {
+    var sel = document.getElementById('sel-community');
+    var prev = sel.value;
+    if (!force && sel.options.length > 1) return;
+    while (sel.options.length > 1) sel.remove(1);
+    WIZARD_SIM.forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = c.i18nKey;
+      o.textContent = t('s3.' + c.i18nKey) + t('s3.simSuffix');
+      sel.appendChild(o);
+    });
+    if (prev) sel.value = prev;
+  }
+
+  function updateCreateBtn() {
+    var ok = document.getElementById('sel-community').value && selectedKwp;
+    document.getElementById('btn-create').disabled = !ok;
+  }
+
+  function startMoneyFlow() {
+    if (flowTimer) clearInterval(flowTimer);
+    flowIdx = 0;
+    var txt = document.getElementById('flow-text');
+    var sub = document.getElementById('flow-sub');
+    var steps = flowSteps();
+    flowTimer = setInterval(function () {
+      steps = flowSteps();
+      flowIdx = (flowIdx + 1) % steps.length;
+      txt.textContent = steps[flowIdx];
+      sub.textContent = flowIdx === 4 ? t('s3.flowSubMultisig') : t('s3.flowSub');
+    }, 1400);
+  }
+
+  document.getElementById('btn-transform').addEventListener('click', function () {
+    var coop = document.getElementById('n-coop');
+    var comite = document.getElementById('n-comite');
+    coop.classList.remove('dim');
+    coop.classList.add('highlight');
+    comite.classList.add('dim');
+    document.getElementById('gov-list').hidden = false;
+    this.disabled = true;
+    transformShown = true;
+    this.textContent = t('s1.btnTransformDone');
+  });
+
+  document.getElementById('btn-guajira').addEventListener('click', function () {
+    initGuajiraMap();
+    loadGuajiraPins();
+    this.disabled = true;
+    guajiraBtnDone = true;
+    this.textContent = t('s2.btnGuajiraDone', { n: MAP_PROJECTS.length });
+  });
+
+  document.getElementById('size-options').addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-kwp]');
+    if (!btn) return;
+    selectedKwp = parseInt(btn.dataset.kwp, 10);
+    document.querySelectorAll('#size-options button').forEach(function (b) {
+      b.classList.toggle('selected', b === btn);
+    });
+    updateCreateBtn();
+  });
+
+  document.getElementById('sel-community').addEventListener('change', updateCreateBtn);
+
+  document.getElementById('btn-create').addEventListener('click', function () {
+    document.getElementById('ceof-wrap').classList.add('visible');
+    startMoneyFlow();
+  });
+
+  document.getElementById('nav-prev').addEventListener('click', function () { goTo(current - 1); });
+  document.getElementById('nav-next').addEventListener('click', function () { goTo(current + 1); });
+  document.querySelectorAll('.dot').forEach(function (d) {
+    d.addEventListener('click', function () { goTo(parseInt(d.dataset.goto, 10)); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+      if (e.key === ' ' || e.key === 'Enter') e.preventDefault();
+      if (current === 1 && !guajiraLoaded && e.key !== 'ArrowLeft') {
+        var btn = document.getElementById('btn-guajira');
+        if (!btn.disabled) { btn.click(); return; }
+      }
+      goTo(current + 1);
+    } else if (e.key === 'ArrowLeft') {
+      goTo(current - 1);
+    }
+  });
+
+  window.addEventListener('hashchange', function () { goTo(parseHash(), false); });
+
+  goTo(parseHash(), false);
+
+  CthI18n.onChange(function () {
+    refreshActionButtons();
+    populateCommunities(true);
+    refreshMapPopups();
+    if (flowTimer) {
+      var txt = document.getElementById('flow-text');
+      var sub = document.getElementById('flow-sub');
+      var steps = flowSteps();
+      txt.textContent = steps[flowIdx];
+      sub.textContent = flowIdx === 4 ? t('s3.flowSubMultisig') : t('s3.flowSub');
+    }
+  });
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('capture') === '1') {
+    setTimeout(function () {
+      if (current === 0) document.getElementById('btn-transform').click();
+      if (current === 1) {
+        initGuajiraMap();
+        document.getElementById('btn-guajira').click();
+      }
+      if (current === 2) {
+        populateCommunities();
+        document.getElementById('sel-community').selectedIndex = 1;
+        selectedKwp = 25;
+        document.querySelector('#size-options button[data-kwp="25"]').classList.add('selected');
+        updateCreateBtn();
+        document.getElementById('btn-create').click();
+      }
+    }, 800);
+  }
+})();
+</script>
+</body>
+</html>
