@@ -498,7 +498,7 @@ En Colombia el término puede referirse a **distintas** entidades; **no** interc
 | **PERS Chocó** (caracterización UPME) | Chocó mayoritariamente **ZNI**; electrificación rural sostenible dept. | (informe PERS) | [Informe socioeconómico PERS Chocó (PDF)](https://docs.upme.gov.co/SIMEC/PERS/Choco/Informe%20Socioecon%C3%B3mico%20PERS%20Choc%C3%B3%20(1).pdf) |
 | Costos unitarios Chocó ZNI (G/D/C) | G **1.445,7**; D **122,1**; C **135,7** COP/kWh (promedios dept.) | 2023 | [SSPD Informe ZNI 2023 (PDF)](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) |
 | Ingresos / costos / utilidades prestadores Chocó | **$74.580 M** ingresos; **$60.029 M** costos; **$2.010 M** utilidades (cifra informe) | 2023 | Mismo informe SSPD (sección financiera Chocó) |
-| Cumplimiento cargue financiero SUI (Chocó) | **12 de 22** empresas | 2023 | Mismo informe SSPD |
+| Cargue financiero SUI (Chocó) | **12 de 22** empresas (**55%**) | 2023 | [SSPD ZNI 2023, Tabla 4 (PDF)](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) |
 
 ---
 
