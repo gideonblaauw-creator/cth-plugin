@@ -1,0 +1,85 @@
+name: Bot events (Hands PR)
+
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+      - ready_for_review
+
+jobs:
+  post-bot-event:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Post bot board event
+        env:
+          BOT_EVENTS_URL: ${{ secrets.BOT_EVENTS_URL }}
+          BOT_EVENTS_TOKEN: ${{ secrets.BOT_EVENTS_TOKEN }}
+          PR_ACTION: ${{ github.event.action }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${BOT_EVENTS_URL:-}" ] || [ -z "${BOT_EVENTS_TOKEN:-}" ]; then
+            echo "BOT_EVENTS_URL or BOT_EVENTS_TOKEN unset; skipping bot event post."
+            exit 0
+          fi
+
+          case "$PR_ACTION" in
+            opened|ready_for_review)
+              EVENT_TYPE="start"
+              ;;
+            closed)
+              EVENT_TYPE="finish"
+              ;;
+            *)
+              echo "No bot event mapping for action: $PR_ACTION"
+              exit 0
+              ;;
+          esac
+
+          if [ -n "${HEAD_REF:-}" ]; then
+            BOT_ID="$HEAD_REF"
+          else
+            BOT_ID="hands"
+          fi
+
+          TS="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+
+          jq -n \
+            --arg bot_id "$BOT_ID" \
+            --arg bot_name "Cloud Hands" \
+            --arg layer "hands" \
+            --arg type "$EVENT_TYPE" \
+            --arg task "$PR_TITLE" \
+            --arg link "$PR_URL" \
+            --arg ts "$TS" \
+            '{
+              bot_id: $bot_id,
+              bot_name: $bot_name,
+              layer: $layer,
+              type: $type,
+              task: $task,
+              link: $link,
+              cause_tag: null,
+              ts: $ts
+            }' > /tmp/bot-event.json
+
+          HTTP_CODE="$(curl -sS -o /tmp/bot-event-response.txt -w "%{http_code}" \
+            -X POST "$BOT_EVENTS_URL" \
+            -H "Authorization: Bearer $BOT_EVENTS_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data-binary @/tmp/bot-event.json)"
+
+          echo "Posted bot event (type=$EVENT_TYPE, http=$HTTP_CODE)"
+          cat /tmp/bot-event-response.txt || true
+
+          if [ "$HTTP_CODE" -ge 400 ]; then
+            echo "Bot events endpoint returned $HTTP_CODE (non-fatal for CI)."
+          fi
+
+          exit 0
