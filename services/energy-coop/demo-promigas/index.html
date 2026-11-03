@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Promigas — CleantechHUB Energy Coop</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<style>
+:root {
+  --cth-primary: #2D6A4F;
+  --cth-dark: #1B4332;
+  --cth-accent: #95D5B2;
+  --cth-light: #D8F3DC;
+  --cth-white: #FFFFFF;
+  --cth-text: #333333;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sim-bg: #fff3cd;
+  --sim-border: #856404;
+  --pin-red: #c0392b;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cth-text);
+  background: var(--cth-dark);
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100dvh;
+}
+.topbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--cth-primary);
+  color: var(--cth-white);
+  font-size: 14px;
+}
+.topbar .brand { font-weight: 700; letter-spacing: -0.02em; }
+.topbar .brand span { font-weight: 400; }
+.topbar .meta { opacity: 0.9; font-size: 12px; text-align: right; }
+.progress {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.dot.active { background: var(--cth-accent); transform: scale(1.15); }
+.dot.done { background: rgba(149,213,178,0.7); }
+.screen-wrap {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--cth-light);
+}
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  padding: 16px 20px 72px;
+  overflow: auto;
+}
+.screen.active { display: flex; }
+.screen h1 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--cth-dark);
+  margin-bottom: 4px;
+}
+.screen .subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  max-width: 52rem;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+  min-height: 280px;
+}
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+.map-box {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--cth-primary);
+  min-height: 260px;
+  background: #e8e8e8;
+}
+#map-paiva, #map-guajira { width: 100%; height: 100%; min-height: 260px; }
+.panel {
+  background: var(--cth-white);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(45,106,79,0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--cth-light);
+  color: var(--cth-dark);
+}
+.tag.sim {
+  background: var(--sim-bg);
+  color: var(--sim-border);
+  border: 1px solid var(--sim-border);
+}
+.tag.fact { background: var(--cth-accent); color: var(--cth-dark); }
+.tag.design { background: #e3f2fd; color: #1565c0; }
+.flow-stage {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.node {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s;
+  border: 2px solid transparent;
+}
+.node.comite { background: #fde8e8; color: #922; border-color: #e57373; }
+.node.coop { background: var(--cth-light); color: var(--cth-dark); border-color: var(--cth-primary); }
+.node.dim { opacity: 0.35; transform: scale(0.92); }
+.node.highlight { transform: scale(1.04); box-shadow: 0 4px 16px rgba(45,106,79,0.25); }
+.arrow-col {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: var(--cth-primary);
+}
+.transform-btn {
+  align-self: flex-start;
+  background: var(--cth-primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+.transform-btn:hover { background: var(--cth-dark); }
+.transform-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.governance-list {
+  font-size: 13px;
+  padding-left: 18px;
+}
+.governance-list li { margin-bottom: 4px; }
+.cite { font-size: 12px; color: #666; margin-top: auto; }
+.totals {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.stat {
+  flex: 1;
+  min-width: 120px;
+  background: var(--cth-white);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--cth-primary);
+}
+.stat .val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cth-dark);
+  font-variant-numeric: tabular-nums;
+}
+.stat .lbl { font-size: 12px; color: #555; }
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 640px;
+}
+.wizard label { font-weight: 600; font-size: 14px; }
+.wizard select, .wizard button.primary {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+}
+.wizard button.primary {
+  background: var(--cth-primary);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.wizard button.primary:hover { background: var(--cth-dark); }
+.size-options { display: flex; gap: 8px; flex-wrap: wrap; }
+.size-options button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid var(--cth-primary);
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.size-options button.selected {
+  background: var(--cth-primary);
+  color: white;
+}
+.ceof-wrap {
+  margin-top: 8px;
+  display: none;
+}
+.ceof-wrap.visible { display: block; }
+.ceof-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+.money-pulse {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.flow-label {
+  font-size: 11px;
+  fill: var(--cth-dark);
+  font-weight: 600;
+}
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--cth-white);
+  border-top: 1px solid #ddd;
+  z-index: 1000;
+}
+.nav-bar button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+.nav-bar .prev { background: #eee; color: var(--cth-text); }
+.nav-bar .next { background: var(--cth-primary); color: white; }
+.nav-bar .hint { font-size: 12px; color: #777; }
+.leaflet-popup-content { font-size: 13px; line-height: 1.4; }
+.red-pin { filter: hue-rotate(-30deg) saturate(1.4); }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">Cleantech<span>HUB</span> · Energy Coop</div>
+    <div class="progress" role="tablist" aria-label="Pantallas demo">
+      <button type="button" class="dot active" data-goto="0" aria-label="Pantalla 1"></button>
+      <button type="button" class="dot" data-goto="1" aria-label="Pantalla 2"></button>
+      <button type="button" class="dot" data-goto="2" aria-label="Pantalla 3"></button>
+    </div>
+    <div class="meta">Embajada Países Bajos · Promigas · 11 nov 2026<br>Demo ~2 min · ← → Espacio</div>
+  </header>
+
+  <main class="screen-wrap">
+    <!-- Screen 1 -->
+    <section class="screen active" id="screen-0" aria-labelledby="t1">
+      <h1 id="t1">Paiva: del comité a la cooperativa</h1>
+      <p class="subtitle">Piloto solar Promigas en Centro Educativo Chiricoco (vereda Chiricoco, Paiva, Bolívar). Dic. 2025 — ubicación <strong>aproximada</strong> en mapa.</p>
+      <div class="grid-2">
+        <div class="map-box"><div id="map-paiva" role="img" aria-label="Mapa Paiva Bolívar"></div></div>
+        <div class="panel">
+          <span class="tag fact">Hecho citado — ticket desk 3 nov 2026</span>
+          <p><strong>Promigas</strong> — piloto fotovoltaico en centro educativo, vereda Chiricoco.</p>
+          <span class="tag design">Propuesta diseño CTH</span>
+          <p>Transformación guiada: comité comunitario → cooperativa energética con ~30&nbsp;% participación en clase comunitaria (no es dato contractual).</p>
+          <div class="flow-stage" id="transform-flow">
+            <div class="node comite" id="n-comite">Comité comunitario<br><small>Organización de base</small></div>
+            <div class="arrow-col" aria-hidden="true">→</div>
+            <div class="node coop dim" id="n-coop">Cooperativa energética<br><small>Personería jurídica</small></div>
+          </div>
+          <button type="button" class="transform-btn" id="btn-transform">Animar transformación</button>
+          <ul class="governance-list" id="gov-list" hidden>
+            <li><strong>Asamblea</strong> — máximo órgano social</li>
+            <li><strong>Consejo de administración</strong> — vigilancia y estrategia</li>
+            <li><strong>Operador</strong> — O&amp;M técnico del activo</li>
+            <li><strong>Promigas</strong> — aliado en piloto / know-how (rol según acuerdo local)</li>
+            <li><strong>Clase comunitaria</strong> — ~30&nbsp;% propuesta CTH en estructura de capital</li>
+          </ul>
+          <p class="cite">Fuente ubicación y piloto: brief ticket Energy Coop (3 nov 2026). Sin coordenadas verificadas en repo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2 -->
+    <section class="screen" id="screen-1" aria-labelledby="t2">
+      <h1 id="t2">La Guajira a escala</h1>
+      <p class="subtitle">Un clic: zoom a La Guajira y comunidades priorizadas. <span class="tag sim">SIMULACIÓN – datos de ejemplo</span> — lista MinEnergía no está en este repo.</p>
+      <div class="totals">
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Comunidades</div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp (suma)</div></div>
+        <div class="stat"><div class="val" id="stat-hh">0</div><div class="lbl">Hogares</div></div>
+      </div>
+      <button type="button" class="transform-btn" id="btn-guajira">Ver La Guajira a escala</button>
+      <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
+    </section>
+
+    <!-- Screen 3 -->
+    <section class="screen" id="screen-2" aria-labelledby="t3">
+      <h1 id="t3">Tu cooperativa en 3 clics</h1>
+      <p class="subtitle">Flujo ilustrativo CEOF (estructura cooperativa + inversionistas + operador). <span class="tag sim">SIMULACIÓN – datos de ejemplo</span></p>
+      <div class="grid-2" style="align-items:start;">
+        <div class="wizard">
+          <div>
+            <label for="sel-community">1. Elige una comunidad</label>
+            <select id="sel-community">
+              <option value="">— Seleccionar —</option>
+            </select>
+          </div>
+          <div>
+            <label>2. Tamaño del sistema</label>
+            <div class="size-options" id="size-options">
+              <button type="button" data-kwp="10">10 kWp</button>
+              <button type="button" data-kwp="25">25 kWp</button>
+              <button type="button" data-kwp="50">50 kWp</button>
+              <button type="button" data-kwp="100">100 kWp</button>
+            </div>
+          </div>
+          <button type="button" class="primary" id="btn-create" disabled>Crear cooperativa</button>
+        </div>
+        <div class="panel ceof-wrap" id="ceof-wrap">
+          <span class="tag design">Diagrama CEOF — propuesta CTH</span>
+          <svg class="ceof-svg" viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" aria-label="Estructura CEOF">
+            <rect x="240" y="20" width="240" height="56" rx="8" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+            <text x="360" y="52" text-anchor="middle" class="flow-label" font-size="14">Cooperativa energética</text>
+            <rect x="40" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="120" y="148" text-anchor="middle" class="flow-label">Inversionistas</text>
+            <rect x="280" y="120" width="160" height="48" rx="6" fill="#95D5B2" stroke="#2D6A4F"/>
+            <text x="360" y="142" text-anchor="middle" class="flow-label">Clase comunitaria</text>
+            <text x="360" y="158" text-anchor="middle" font-size="10" fill="#555">~30 % propuesta CTH</text>
+            <rect x="520" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="600" y="148" text-anchor="middle" class="flow-label">Operador O&amp;M</text>
+            <rect x="260" y="220" width="200" height="44" rx="6" fill="#1B4332"/>
+            <text x="360" y="248" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Pago vía multisig</text>
+            <line x1="120" y1="168" x2="300" y2="210" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arr)"/>
+            <line x1="360" y1="168" x2="360" y2="218" stroke="#2D6A4F" stroke-width="2"/>
+            <line x1="600" y1="168" x2="420" y2="210" stroke="#2D6A4F" stroke-width="2"/>
+            <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2D6A4F"/></marker></defs>
+            <g id="money-flow">
+              <text x="360" y="300" text-anchor="middle" font-size="13" fill="#2D6A4F" class="money-pulse" id="flow-text">kWh generados</text>
+              <text x="360" y="330" text-anchor="middle" font-size="11" fill="#666" id="flow-sub">Ingresos → O&amp;M → Fondo comunitario → Inversionistas</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="nav-bar">
+    <button type="button" class="prev" id="nav-prev">← Anterior</button>
+    <span class="hint">Flechas ← → · Espacio · Clic en puntos</span>
+    <button type="button" class="next" id="nav-next">Siguiente →</button>
+  </nav>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function () {
+  'use strict';
+
+  var SCREENS = 3;
+  var current = 0;
+  var maps = { paiva: null, guajira: null };
+  var guajiraLoaded = false;
+  var selectedKwp = null;
+
+  // Paiva ~approx (Paiva corregimiento, Bolívar) — ticket: vereda Chiricoco, not survey-grade
+  var PAIVA_APPROX = [10.450, -75.250];
+
+  var SIM_COMMUNITIES = [
+    { name: 'Uribia (ejemplo)', lat: 11.715, lng: -72.265, kwp: 45, hh: 38 },
+    { name: 'Manaure (ejemplo)', lat: 11.775, lng: -72.445, kwp: 62, hh: 52 },
+    { name: 'Albania (ejemplo)', lat: 11.160, lng: -72.592, kwp: 28, hh: 24 },
+    { name: 'Maicao (ejemplo)', lat: 11.378, lng: -72.240, kwp: 80, hh: 68 },
+    { name: 'Riohacha (ejemplo)', lat: 11.544, lng: -72.907, kwp: 55, hh: 47 },
+    { name: 'Dibulla (ejemplo)', lat: 11.272, lng: -73.308, kwp: 33, hh: 29 },
+    { name: 'San Juan (ejemplo)', lat: 10.775, lng: -73.015, kwp: 40, hh: 35 },
+    { name: 'Barrancas (ejemplo)', lat: 10.950, lng: -72.790, kwp: 51, hh: 44 }
+  ];
+
+  var FLOW_STEPS = [
+    'kWh generados',
+    'Ingresos por venta de energía',
+    'O&M operador',
+    'Fondo comunitario',
+    'Retorno inversionistas (multisig)'
+  ];
+  var flowIdx = 0;
+  var flowTimer = null;
+
+  function parseHash() {
+    var h = location.hash.replace('#', '');
+    var n = parseInt(h, 10);
+    if (!isNaN(n) && n >= 0 && n < SCREENS) return n;
+    return 0;
+  }
+
+  function goTo(idx, pushHash) {
+    if (idx < 0 || idx >= SCREENS) return;
+    current = idx;
+    document.querySelectorAll('.screen').forEach(function (el, i) {
+      el.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.dot').forEach(function (el, i) {
+      el.classList.toggle('active', i === idx);
+      el.classList.toggle('done', i < idx);
+    });
+    if (pushHash !== false) location.hash = String(idx);
+    if (idx === 0) initPaivaMap();
+    if (idx === 1) initGuajiraMap();
+    if (idx === 2) populateCommunities();
+  }
+
+  function initPaivaMap() {
+    if (maps.paiva) {
+      maps.paiva.invalidateSize();
+      return;
+    }
+    var el = document.getElementById('map-paiva');
+    maps.paiva = L.map(el, { scrollWheelZoom: true }).setView(PAIVA_APPROX, 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 18
+    }).addTo(maps.paiva);
+    L.circle(PAIVA_APPROX, {
+      radius: 1800,
+      color: '#c0392b',
+      fillColor: '#e74c3c',
+      fillOpacity: 0.15,
+      dashArray: '6,8'
+    }).addTo(maps.paiva).bindPopup(
+      '<strong>Centro Educativo Chiricoco</strong><br>Vereda Chiricoco, Paiva, Bolívar<br><em>Ubicación aproximada</em><br>Piloto Promigas (dic. 2025)<br><small>Fuente: ticket desk 3 nov 2026</small>'
+    );
+    L.marker(PAIVA_APPROX, {
+      icon: L.divIcon({
+        className: 'red-pin',
+        html: '<div style="background:#c0392b;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);margin:-7px 0 0 -7px"></div>',
+        iconSize: [14, 14]
+      })
+    }).addTo(maps.paiva);
+  }
+
+  function initGuajiraMap() {
+    if (maps.guajira) {
+      maps.guajira.invalidateSize();
+      return;
+    }
+    maps.guajira = L.map('map-guajira').setView([4.5, -74.0], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 18
+    }).addTo(maps.guajira);
+  }
+
+  function animateValue(el, target, suffix) {
+    var start = 0;
+    var dur = 1200;
+    var t0 = performance.now();
+    function frame(t) {
+      var p = Math.min(1, (t - t0) / dur);
+      var v = Math.floor(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+      el.textContent = v + (suffix || '');
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function loadGuajiraPins() {
+    if (guajiraLoaded || !maps.guajira) return;
+    guajiraLoaded = true;
+    maps.guajira.flyTo([11.35, -72.75], 8, { duration: 1.5 });
+    var totalKwp = 0, totalHh = 0;
+    SIM_COMMUNITIES.forEach(function (c, i) {
+      totalKwp += c.kwp;
+      totalHh += c.hh;
+      setTimeout(function () {
+        L.marker([c.lat, c.lng], {
+          icon: L.divIcon({
+            className: 'red-pin',
+            html: '<div style="background:#c0392b;width:10px;height:10px;border-radius:50%;border:2px solid #fff;margin:-5px 0 0 -5px"></div>',
+            iconSize: [10, 10]
+          })
+        }).addTo(maps.guajira).bindPopup(
+          '<strong>' + c.name + '</strong><br><span style="color:#856404">SIMULACIÓN</span><br>' + c.kwp + ' kWp · ' + c.hh + ' hogares (ejemplo)'
+        );
+      }, i * 80);
+    });
+    setTimeout(function () {
+      var elCom = document.getElementById('stat-com');
+      var elKwp = document.getElementById('stat-kwp');
+      var elHh = document.getElementById('stat-hh');
+      animateValue(elCom, SIM_COMMUNITIES.length, '');
+      animateValue(elKwp, totalKwp, '');
+      animateValue(elHh, totalHh, '');
+      setTimeout(function () {
+        elCom.textContent = String(SIM_COMMUNITIES.length);
+        elKwp.textContent = String(totalKwp);
+        elHh.textContent = String(totalHh);
+      }, 1300);
+    }, 400);
+  }
+
+  function populateCommunities() {
+    var sel = document.getElementById('sel-community');
+    if (sel.options.length > 1) return;
+    SIM_COMMUNITIES.forEach(function (c) {
+      var o = document.createElement('option');
+      o.value = c.name;
+      o.textContent = c.name + ' (SIMULACIÓN)';
+      sel.appendChild(o);
+    });
+  }
+
+  function updateCreateBtn() {
+    var ok = document.getElementById('sel-community').value && selectedKwp;
+    document.getElementById('btn-create').disabled = !ok;
+  }
+
+  function startMoneyFlow() {
+    if (flowTimer) clearInterval(flowTimer);
+    flowIdx = 0;
+    var txt = document.getElementById('flow-text');
+    var sub = document.getElementById('flow-sub');
+    flowTimer = setInterval(function () {
+      flowIdx = (flowIdx + 1) % FLOW_STEPS.length;
+      txt.textContent = FLOW_STEPS[flowIdx];
+      sub.textContent = flowIdx === 4
+        ? 'Desembolso condicionado a firma multisig'
+        : 'Ingresos → O&M → Fondo comunitario → Inversionistas';
+    }, 1400);
+  }
+
+  document.getElementById('btn-transform').addEventListener('click', function () {
+    var coop = document.getElementById('n-coop');
+    var comite = document.getElementById('n-comite');
+    coop.classList.remove('dim');
+    coop.classList.add('highlight');
+    comite.classList.add('dim');
+    document.getElementById('gov-list').hidden = false;
+    this.disabled = true;
+    this.textContent = 'Transformación mostrada';
+  });
+
+  document.getElementById('btn-guajira').addEventListener('click', function () {
+    initGuajiraMap();
+    loadGuajiraPins();
+    this.disabled = true;
+    this.textContent = 'Comunidades cargadas (simulación)';
+  });
+
+  document.getElementById('size-options').addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-kwp]');
+    if (!btn) return;
+    selectedKwp = parseInt(btn.dataset.kwp, 10);
+    document.querySelectorAll('#size-options button').forEach(function (b) {
+      b.classList.toggle('selected', b === btn);
+    });
+    updateCreateBtn();
+  });
+
+  document.getElementById('sel-community').addEventListener('change', updateCreateBtn);
+
+  document.getElementById('btn-create').addEventListener('click', function () {
+    document.getElementById('ceof-wrap').classList.add('visible');
+    startMoneyFlow();
+  });
+
+  document.getElementById('nav-prev').addEventListener('click', function () { goTo(current - 1); });
+  document.getElementById('nav-next').addEventListener('click', function () { goTo(current + 1); });
+  document.querySelectorAll('.dot').forEach(function (d) {
+    d.addEventListener('click', function () { goTo(parseInt(d.dataset.goto, 10)); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+      if (e.key === ' ' || e.key === 'Enter') e.preventDefault();
+      if (current === 1 && !guajiraLoaded && e.key !== 'ArrowLeft') {
+        var btn = document.getElementById('btn-guajira');
+        if (!btn.disabled) { btn.click(); return; }
+      }
+      goTo(current + 1);
+    } else if (e.key === 'ArrowLeft') {
+      goTo(current - 1);
+    }
+  });
+
+  window.addEventListener('hashchange', function () { goTo(parseHash(), false); });
+
+  goTo(parseHash(), false);
+
+  var params = new URLSearchParams(location.search);
+  if (params.get('capture') === '1') {
+    setTimeout(function () {
+      if (current === 0) document.getElementById('btn-transform').click();
+      if (current === 1) {
+        initGuajiraMap();
+        document.getElementById('btn-guajira').click();
+      }
+      if (current === 2) {
+        populateCommunities();
+        document.getElementById('sel-community').selectedIndex = 1;
+        selectedKwp = 25;
+        document.querySelector('#size-options button[data-kwp="25"]').classList.add('selected');
+        updateCreateBtn();
+        document.getElementById('btn-create').click();
+      }
+    }, 800);
+  }
+})();
+</script>
+</body>
+</html>
