@@ -2,7 +2,9 @@
 
 **Regla (Gideon, nov 2026):** cada dato en pantalla requiere **≥2 fuentes independientes**. Columna «Fuente 3» opcional.
 
-**Conteos:** VERIFICADO 18 · PARCIAL 4 · RETIRADO 6 (nov 2026, rama PR #110).
+**Conteos:** VERIFICADO 22 · PARCIAL 5 · RETIRADO 6 (nov 2026, incl. KPIs pobreza energética).
+
+**KPIs:** `docs/energy-coop/energy-poverty-kpis-2026-11.md` (PR #111, aprobado Gideon).
 
 ---
 
@@ -51,6 +53,12 @@
 | Gutami — pin | Ubicación **aproximada** (Albania) | GEM (aprox.) | — | — | PARCIAL |
 | Pantalla 3 — wizard | SIMULACIÓN | Etiqueta UI | — | — | VERIFICADO (no presentado como real) |
 | Pantalla 3 — ~30 % CEOF | Propuesta CTH | Etiqueta diseño | — | — | PARCIAL (ilustrativo) |
+| **KPI** IMPE nacional 15,4% · ~8,1 M **personas** | Pantalla 1 | [IMPE 2025 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf) | [Fundación Promigas nov 2025](https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/) | — | VERIFICADO |
+| **KPI** ICEE rural 75,92% vs nacional 93,12% | Pantalla 1 | [Boletín ICEE 2024](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf) | [UPME noticia](https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/) | — | VERIFICADO |
+| **KPI** IMPE La Guajira 63,1% (**personas**) | Pantalla 2 | [IMPE 2025 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf) | — (2.ª fuente dept. pendiente en demo) | — | **PARCIAL** |
+| **KPI** ICEE La Guajira 54,28% | Pantalla 2 | Boletín ICEE 2024 | UPME noticia | — | VERIFICADO |
+| **KPI** Cocina leña/carbón/residuos 56,6% entre personas en PE | Pantalla 2 | IMPE 2025 PDF | [Resumen ejecutivo IMPE 2025](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf) | — | VERIFICADO |
+| IPEM MinEnergía 22,3% hogares | **No en demo** | MinEnergía | El Tiempo | — | RETIRADO (≠ IMPE; no mezclar) |
 
 ---
 
@@ -61,5 +69,6 @@
 - **Totales kWp:** solo **2.102** (Maicao + Cabo).
 - Añadido **Chivo Mono / Gutami** con tag **Liderado por actor neerlandés**.
 - Beneficiarios agregados **retirados** de la barra de totales.
+- Franjas **KPI pobreza energética** pantallas 1–2 (`energy-poverty-kpis-2026-11.md`); **IPEM no mostrado**.
 
 *Awaiting Gideon's approval if reused in external CleantechHUB communications.*

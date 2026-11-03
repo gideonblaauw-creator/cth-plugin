@@ -154,6 +154,28 @@ html, body {
   border: 1px solid var(--cth-accent);
 }
 .totals-note { font-size: 12px; color: #555; margin-bottom: 8px; max-width: 52rem; }
+.kpi-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  max-width: 52rem;
+}
+.kpi-card {
+  background: var(--cth-white);
+  border-left: 4px solid var(--cth-primary);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 20%, transparent);
+  border-left-width: 4px;
+}
+.kpi-card .kpi-title { font-weight: 600; color: var(--cth-dark); display: block; margin-bottom: 2px; }
+.kpi-card .kpi-meta { font-size: 11px; color: #555; margin-top: 4px; }
+.kpi-card a { color: var(--cth-primary); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.kpi-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.kpi-row .kpi-card { flex: 1; min-width: 200px; }
 .panel-links { font-size: 12px; }
 .panel-links a { color: var(--cth-primary); }
 .flow-stage {
@@ -339,6 +361,22 @@ html, body {
     <section class="screen active" id="screen-0" aria-labelledby="t1">
       <h1 id="t1">Paiva: del comité a la cooperativa</h1>
       <p class="subtitle">Piloto CSR <strong>Promigas / Fundación Promigas</strong> — vereda Paiva, Bolívar (~450 habitantes), IE Chiricoco. <span class="tag csr">No FENOGE</span> Ubicación en mapa <strong>aproximada</strong>.</p>
+      <div class="kpi-strip" aria-label="Indicadores de pobreza energética">
+        <div class="kpi-card">
+          <span class="kpi-title">Pobreza energética nacional (IMPE, índice sobre <strong>personas</strong>, Fundación Promigas): 15,4% · ~8,1 M personas (2024)</span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+          </span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Cobertura eléctrica rural 75,92% vs nacional 93,12% (UPME ICEE 2024)</span>
+          <span class="kpi-meta">
+            <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024 (UPME)</a>
+            · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia 2024</a>
+          </span>
+        </div>
+      </div>
       <div class="grid-2">
         <div class="map-box"><div id="map-paiva" role="img" aria-label="Mapa vereda Paiva Bolívar"></div></div>
         <div class="panel">
@@ -372,6 +410,31 @@ html, body {
     <section class="screen" id="screen-1" aria-labelledby="t2">
       <h1 id="t2">La Guajira a escala</h1>
       <p class="subtitle">Proyectos públicos en La Guajira (FENOGE + <strong>Gutami</strong>, Países Bajos). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.</p>
+      <div class="kpi-strip" aria-label="Indicadores territoriales La Guajira">
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-title">IMPE La Guajira 63,1% (2024)</span>
+            <span class="kpi-meta">
+              <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+              · <span class="tag design" style="font-size:10px;padding:2px 6px">PARCIAL — 1.ª fuente dept.</span>
+            </span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title">ICEE La Guajira 54,28% (UPME 2024)</span>
+            <span class="kpi-meta">
+              <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024</a>
+              · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia</a>
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title">Cocina con leña/carbón/residuos: 56,6% de las personas en pobreza energética (IMPE 2025)</span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf" target="_blank" rel="noopener">Resumen ejecutivo IMPE 2025</a>
+          </span>
+        </div>
+      </div>
       <div class="totals">
         <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl">Proyectos en mapa</div></div>
         <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl">kWp verificados (suma)</div></div>
