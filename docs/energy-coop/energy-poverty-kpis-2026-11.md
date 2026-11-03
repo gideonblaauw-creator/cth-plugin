@@ -414,3 +414,94 @@ En Colombia el término puede referirse a **distintas** entidades; **no** interc
 4. **Puente Embajada–Promigas:** financiación blanda para **primeros 3–5 años de O&M** en un corredor piloto (p. ej. La Guajira), con KPIs **IMPE** (calidad/acceso) — no sustituye indicadores oficiales.
 
 **Encaje con reunión 11 nov:** argumenta que alcanzar **IMPE 9,5% en 2030** requiere **capacidad instalada operable**, no solo MWp entregados; alinea con apuesta IMPE **calidad + no convencionales** y con el encuadre OPEX de Gideon.
+
+---
+
+## Chocó
+
+*Ficha rápida para reunión Embajada × Promigas. Solo cifras con fuente URL; **PARCIAL** / **no encontrado** cuando aplica.*
+
+### 1) IMPE 2025 — incidencia vs nacional
+
+| Indicador | Valor | Año | Fuente |
+|-----------|-------|-----|--------|
+| Incidencia **nacional** pobreza energética (personas) | **15,4%** (~**8,11 M** pobres energéticos) | 2024 | [Informe IMPE 2025 (PDF)](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf) · [Fundación Promigas](https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/) |
+| Incidencia **Chocó** | **52,8%** (2024); **54%** (2023) | 2024 | [IMPE 2025 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf) · [Ficha departamental Chocó (PDF)](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2026/04/08161350/Fichas-departamentales-2025.pdf) |
+| Pobres energéticos **Chocó** (conteo) | **297.699** (2024); **301.724** (2023) | 2024 | [Ficha departamental Chocó (PDF)](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2026/04/08161350/Fichas-departamentales-2025.pdf) |
+| Ranking departamental (incidencia) | Posición **11 de 33** (2024) | 2024 | [Ficha departamental Chocó (PDF)](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2026/04/08161350/Fichas-departamentales-2025.pdf) |
+
+**Brecha vs nacional (2024):** **52,8% − 15,4% = 37,4 p.p.** (incidencia Chocó ≈ **3,4×** la nacional; el informe IMPE describe la periferia pacífica/amazonica en rangos **3–5×** el promedio — [IMPE 2025 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf)).
+
+**Composición IMPE Chocó (% población privada por indicador, 2024):** acceso energía eléctrica **33%**; calidad energía eléctrica **56%**; energético adecuado para cocinar **52%**; acceso internet hogar **79%**; computadora/tablet **89%** — [Ficha departamental Chocó (PDF)](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2026/04/08161350/Fichas-departamentales-2025.pdf).
+
+**IPEM MinEnergía (hogar, distinto de IMPE):** incidencia **departamental Chocó 2024** — **no encontrada** en texto extraíble del [IPEM-CLACSO-2025.pdf](https://minenergia.gov.co/documents/14106/IPEM-CLACSO-2025.pdf) (el **52,83%** del gráfico “mayor incidencia” corresponde a **Amazonas**, no a Chocó). Nacional IPEM **22,3% hogares** (2024) — [MinEnergía](https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/colombia-saca-a-760000-personas-de-la-pobreza-energetica-en-2024-un-avance-historico-del-gobierno-del-cambio/).
+
+---
+
+### 2) UPME ICEE 2024 — cobertura y hogares sin servicio
+
+| Indicador | Valor | Año | Fuente |
+|-----------|-------|-----|--------|
+| **ICEE total Chocó** | **93,9%** | 2024 | [Boletín ICEE 2024 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf) |
+| **ICEE total Chocó (año anterior)** | **100%**\* | 2023 | [Boletín ICEE 2023 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2023.pdf) |
+| **ICEE rural / urbano Chocó** | Rural **78,88%**; urbano **100%** | 2023 | [Boletín ICEE 2023, Tabla 7 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2023.pdf) |
+| **ICEE rural / urbano Chocó** | **No publicado** en cuerpo del boletín 2024 revisado | 2024 | [Boletín ICEE 2024 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf) — **PARCIAL** |
+| **Viviendas sin servicio (residual ICEE)** | **No calculable** con cifras departamentales VT/VCS publicadas en el boletín 2024 | 2024 | Misma fuente — **no encontrado** |
+| Excedente VCS vs VT (estadístico, no “sin luz”) | **1.891** viviendas con servicio por encima de VT proyectada | 2023 | [Boletín ICEE 2023, Tabla 6 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2023.pdf) |
+
+**Caveat 100% → 93,9% (UPME, citar siempre):** el retroceso se asocia a **dispersión territorial**, **ZNI**, **calidad de reportes** y/o **actualización de viviendas con servicio vs proyecciones DANE**; además la información de **usuarios atendidos y no atendidos de Chocó no se incluyó** en la construcción del boletín 2024 por **ausencia de datos reportados** — [Boletín ICEE 2024 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf) (pp. narrativa departamental y nota metodológica).
+
+**Nacional ICEE (contexto):** total **93,12%**; rural **75,92%** (2024) — [UPME noticia ICEE 2024](https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/).
+
+---
+
+### 3) IPSE / CNM — ZNI en Chocó (diésel, horas)
+
+| Indicador | Valor | Año | Fuente |
+|-----------|-------|-----|--------|
+| Suscriptores ZNI **Chocó** | **52.439** (**23,7%** del total ZNI) | 2023 | [SSPD Informe ZNI 2023 (PDF)](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) |
+| **Localidades** atendidas en ZNI | **463** | 2023 | Mismo informe SSPD (ficha departamental generación) |
+| Prestadores en Chocó | **22** empresas | 2023 | Mismo informe SSPD |
+| Matriz generación Chocó | **Principalmente diésel**; pequeña participación **PCH** e **híbridos**; **12,3%** de generación ZNI nacional | 2023 | Mismo informe SSPD |
+| Matriz ZNI nacional | **88%** suscriptores atendidos con **diésel–híbridos** | 2023 | Mismo informe SSPD |
+| Duración media de eventos (continuidad) | **76,06 días/año** (mayor del país) | 2023 | Mismo informe SSPD |
+| Localidades **sin telemetría** monitoreadas (Chocó) | **457** | dic. 2024 | [IPSE-CNOM, localidades sin telemetría dic. 2024 (PDF)](https://ipse.gov.co/documentos_cmn/documentos/informe_mensual_localidades_sin_telemetria/2024/12-INFORME_LOCALIDADES_SIN_TELEMETRI%CC%81A_ZNI_DICIEMBRE-2024.pdf) |
+| Sin servicio / 1–6 h / 7–8 h / sin información (457 locales) | **66** / **126** / **92** / **157** | dic. 2024 | Misma tabla 5 IPSE |
+| Localidades sin servicio (mayor conteo nacional) | **66** (Chocó) vs **12** (Nariño) | dic. 2024 | Mismo informe IPSE (mapa observaciones) |
+| Ejemplos **telemetría** (promedio diario prestación, enero) | Nuquí **23 h 46 min**; Acandí **20 h**; Puerto Alegre **0 h** | ene. 2025 | [IPSE telemetría enero 2025 (PDF)](https://ipse.gov.co/documentos_cmn/documentos/informes_mensuales_de_telemetria/2025/INFORME_MENSUAL_DE_TELEMETRIA%20_ENERO_2025.pdf) |
+| Híbridos diésel + solar (marco CNM) | Clasificación oficial de prestación por **horas/día** (<6 h = crítico; 24 h = continuo) | — | [IPSE Especial CNM](https://ipse.gov.co/especial-cnm/) |
+
+*Nota:* **457** (seguimiento sin telemetría, CNM) y **463** (localidades ZNI, SSPD) son conteos distintos; no unificar sin definición.
+
+---
+
+### 4) DANE — ECV / Censo 2018 / MPM (acceso y cocina)
+
+| Indicador | Valor | Año | Fuente |
+|-----------|-------|-----|--------|
+| **Censo 2018** — viviendas ocupadas con **energía eléctrica** | **75,8%** (dept.; Quibdó **94,4%**; Riosucio **69,7%**) | 2018 | [DANE CNPV presentación Chocó (PDF)](https://www.dane.gov.co/files/censo2018/informacion-tecnica/presentaciones-territorio/190806-CNPV-presentacion-Choco.pdf) |
+| **ECV** — principal combustible cocina **GLP** (dept.) | **71,0%** | 2023 | [DANE Economía Circular, 9.º reporte (PDF)](https://www.dane.gov.co/files/investigaciones/boletines/economia-circular/doc-ECircular-NovenoReporte.pdf) |
+| **ECV** — **leña/madera** principal cocina (dept. Chocó) | **No citado** en texto del 9.º reporte (Chocó no figura entre deptos. con leña dominante) | 2023 | Misma fuente — **no encontrado** |
+| **ECV 2022** sobremuestra étnica (**5 deptos**, incl. Chocó) — hogares con **electricidad** | Resguardos indígenas **53,4%**; comunidades negras **85,9%**; CP+rural disperso (5 deptos) **80,8%** | 2022 | [ECV étnicos feb 2024 (PDF)](https://www.dane.gov.co/files/operaciones/ECV/bol-ECV-Etnicos-feb2024.pdf) |
+| **ECV 2022** — cocina comunidades negras (5 deptos) | GLP **57,6%**; leña **36,7%** | 2022 | Mismo boletín |
+| **ECV 2024** — hogares con internet (dept.; proxy conectividad) | **28,7%** (tercer peor del país) | 2024 | [ECV 2024 comunicado (PDF)](https://www.dane.gov.co/files/operaciones/ECV/cp-ECV-2024.pdf) |
+| **ECV 2024** — % hogares dept. con **servicio eléctrico** | **No extraído** del boletín nacional 2024 en esta revisión | 2024 | [bol-ECV-2024.pdf](https://www.dane.gov.co/files/operaciones/ECV/bol-ECV-2024.pdf) — **PARCIAL** |
+| **MPM** (contexto pobreza monetaria, no energética) | **67,4%** personas (mayor incidencia nacional) | 2024 | [DANE PM departamental 2024 (PDF)](https://www.dane.gov.co/files/operaciones/PM/cp-PMDepartamental-2024.pdf) |
+
+---
+
+### 5) DNP / MinEnergía / PIEC / SSPD (Chocó)
+
+| Indicador | Valor | Año | Fuente |
+|-----------|-------|-----|--------|
+| **PIEC 2024–2028** (nacional) | Plan indicativo cobertura; insumo ICEE; sin meta única dept. Chocó en síntesis | 2024–2028 | [PIEC 2024–2028 (PDF)](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/PIEC/2024-2028/PIEC_2024-2028_Vfinal.pdf) |
+| **PERS Chocó** (caracterización UPME) | Chocó mayoritariamente **ZNI**; electrificación rural sostenible dept. | (informe PERS) | [Informe socioeconómico PERS Chocó (PDF)](https://docs.upme.gov.co/SIMEC/PERS/Choco/Informe%20Socioecon%C3%B3mico%20PERS%20Choc%C3%B3%20(1).pdf) |
+| Costos unitarios Chocó ZNI (G/D/C) | G **1.445,7**; D **122,1**; C **135,7** COP/kWh (promedios dept.) | 2023 | [SSPD Informe ZNI 2023 (PDF)](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) |
+| Ingresos / costos / utilidades prestadores Chocó | **$74.580 M** ingresos; **$60.029 M** costos; **$2.010 M** utilidades (cifra informe) | 2023 | Mismo informe SSPD (sección financiera Chocó) |
+| Cargue financiero SUI (Chocó) | **12 de 22** empresas (**55%**) | 2023 | [SSPD ZNI 2023, Tabla 4 (PDF)](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) |
+
+---
+
+### Lectura reunión (1 frase)
+
+Chocó concentra **IMPE ~53%** (**~298 k** personas) frente a **15,4%** nacional, con **ICEE 93,9%** (2024) tras corrección metodológica desde **100%** artificial, mientras la **ZNI** sigue siendo **diésel-dominante**, con **>50 k** suscriptores, **cientos de localidades** y **prestación parcial** (muchas localidades **≤8 h/día** o **sin servicio** en monitoreo CNM) — el cuello de botella es **OPEX/continuidad**, no solo conexión en papel.

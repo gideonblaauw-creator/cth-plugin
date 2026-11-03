@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Energy Coop — Potencial solar (mock-up)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <style>
+    :root {
+      --cth-primary: #2D6A4F;
+      --cth-dark: #1B4332;
+      --cth-accent: #95D5B2;
+      --cth-light: #D8F3DC;
+      --cth-white: #FFFFFF;
+      --cth-text: #333333;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      color: var(--cth-text);
+      background: var(--cth-white);
+    }
+    header {
+      background: var(--cth-dark);
+      color: var(--cth-white);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    header p {
+      margin: 0;
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+    .banner-mock {
+      background: #fff3cd;
+      color: #664d03;
+      text-align: center;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-bottom: 1px solid #ffecb5;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: calc(100vh - 88px);
+    }
+    @media (min-width: 900px) {
+      .layout { grid-template-columns: 1fr 380px; }
+    }
+    #map { min-height: 420px; height: 100%; width: 100%; }
+    aside {
+      background: var(--cth-light);
+      border-left: 1px solid rgba(27, 67, 50, 0.12);
+      padding: 1rem 1.25rem 2rem;
+      overflow-y: auto;
+    }
+    aside.empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--cth-dark);
+      opacity: 0.85;
+      font-size: 0.95rem;
+      padding: 2rem;
+    }
+    .site-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cth-dark);
+      margin: 0 0 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .badge-google { background: var(--cth-primary); color: var(--cth-white); }
+    .badge-nasa { background: #5c4d3c; color: var(--cth-white); }
+    .badge-unknown { background: #6c757d; color: var(--cth-white); }
+    .ejemplo {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #856404;
+      background: #fff3cd;
+      padding: 0.35rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    .metrics {
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+    .metric {
+      background: var(--cth-white);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid rgba(45, 106, 79, 0.15);
+    }
+    .metric label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--cth-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.2rem;
+    }
+    .metric span { font-size: 1rem; font-weight: 600; color: var(--cth-dark); }
+    .metric small { display: block; font-size: 0.65rem; color: #856404; margin-top: 0.15rem; }
+    button.primary {
+      width: 100%;
+      background: var(--cth-primary);
+      color: var(--cth-white);
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    button.primary:hover { background: var(--cth-dark); }
+    .coop-result {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.85rem;
+      background: var(--cth-white);
+      border-radius: 8px;
+      border: 2px solid var(--cth-accent);
+    }
+    .coop-result.visible { display: block; }
+    .coop-result h3 {
+      margin: 0 0 0.5rem;
+      font-size: 0.95rem;
+      color: var(--cth-dark);
+    }
+    .flow-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed rgba(0,0,0,0.08);
+    }
+    .leaflet-popup-content { font-family: var(--font-family); font-size: 0.85rem; }
+    .pin-hint { font-size: 0.8rem; padding: 0.5rem 1rem; background: var(--cth-white); border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>CleantechHUB · Energy Coop</h1>
+      <p>Mapa de casos — potencial solar comunitario</p>
+    </div>
+    <p>Mock-up estático · sin llamadas API</p>
+  </header>
+  <div class="banner-mock">PROTOTIPO INTERNO — todos los números son DATOS DE EJEMPLO – mock-up</div>
+  <div class="layout">
+    <div>
+      <div id="map"></div>
+      <p class="pin-hint">Haz clic en un pin para abrir el panel <strong>Potencial solar</strong>.</p>
+    </div>
+    <aside id="panel" class="empty" aria-live="polite">
+      Selecciona un caso en el mapa para ver potencial solar, ahorro estimado y cooperativa.
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const EJEMPLO = 'DATOS DE EJEMPLO – mock-up';
+
+    const sites = [
+      {
+        id: 'corozal',
+        name: 'Corozal, Sucre',
+        lat: 9.31778,
+        lng: -75.29583,
+        coverage: 'google',
+        badgeText: 'Cobertura Google Solar',
+        metrics: {
+          panels: '48 paneles máx.',
+          kwp: '19,2 kWp',
+          kwh: '28 400 kWh/año',
+          sun: '4,9 h sol pico/día (prom.)',
+          savings: 'Ahorro est. vs diésel: ~COP 42 M/año · vs tarifa: ~COP 31 M/año',
+          co2: '~14,2 t CO₂ evitadas/año'
+        },
+        coop: { households: 32, members: 38, split: [
+          { label: 'Operación y mantenimiento', pct: 15 },
+          { label: 'Fondo comunitario', pct: 10 },
+          { label: 'Distribución a hogares', pct: 75 }
+        ]}
+      },
+      {
+        id: 'uribia',
+        name: 'Uribia, La Guajira',
+        lat: 11.71389,
+        lng: -72.26583,
+        coverage: 'google',
+        badgeText: 'Cobertura Google Solar',
+        metrics: {
+          panels: '36 paneles máx.',
+          kwp: '14,4 kWp',
+          kwh: '24 100 kWh/año',
+          sun: '5,4 h sol pico/día (prom.)',
+          savings: 'Ahorro est. vs diésel: ~COP 38 M/año · vs tarifa: ~COP 27 M/año',
+          co2: '~12,0 t CO₂ evitadas/año'
+        },
+        coop: { households: 24, members: 28, split: [
+          { label: 'Operación y mantenimiento', pct: 15 },
+          { label: 'Fondo comunitario', pct: 12 },
+          { label: 'Distribución a hogares', pct: 73 }
+        ]}
+      },
+      {
+        id: 'paiva',
+        name: 'Paiva / Centro Educativo Chiricoco (aprox.)',
+        lat: 10.431,
+        lng: -75.368,
+        coverage: 'unknown',
+        badgeText: 'Cobertura por confirmar',
+        metrics: {
+          panels: '— (pendiente geocodificación)',
+          kwp: '12,0 kWp (supuesto sitio)',
+          kwh: '18 600 kWh/año (supuesto)',
+          sun: '4,7 h sol pico/día (NASA POWER si sin Google)',
+          savings: 'Ahorro est. vs diésel: ~COP 29 M/año · vs tarifa: ~COP 21 M/año',
+          co2: '~9,3 t CO₂ evitadas/año'
+        },
+        coop: { households: 18, members: 22, split: [
+          { label: 'Operación y mantenimiento', pct: 15 },
+          { label: 'Fondo escolar / comunitario', pct: 15 },
+          { label: 'Distribución a hogares', pct: 70 }
+        ]}
+      },
+      {
+        id: 'quibdo',
+        name: 'Quibdó, Chocó',
+        lat: 5.69222,
+        lng: -76.65806,
+        coverage: 'nasa',
+        badgeText: 'Sin cobertura – usando NASA POWER',
+        metrics: {
+          panels: 'No disponible (sin techo Google)',
+          kwp: '8,0 kWp (diseño manual)',
+          kwh: '11 200 kWh/año (irradiancia GSA/NASA)',
+          sun: '3,8 h sol pico/día (prom.)',
+          savings: 'Ahorro est. vs diésel: ~COP 22 M/año · vs tarifa: ~COP 16 M/año',
+          co2: '~5,6 t CO₂ evitadas/año'
+        },
+        coop: { households: 14, members: 16, split: [
+          { label: 'Operación y mantenimiento', pct: 18 },
+          { label: 'Fondo comunitario', pct: 12 },
+          { label: 'Distribución a hogares', pct: 70 }
+        ]}
+      },
+      {
+        id: 'bahia',
+        name: 'Bahía Solano, Chocó',
+        lat: 6.22622,
+        lng: -77.40439,
+        coverage: 'nasa',
+        badgeText: 'Sin cobertura – usando NASA POWER',
+        metrics: {
+          panels: 'No disponible (sin techo Google)',
+          kwp: '6,5 kWp (diseño manual)',
+          kwh: '9 400 kWh/año (irradiancia GSA/NASA)',
+          sun: '3,6 h sol pico/día (prom.)',
+          savings: 'Ahorro est. vs diésel: ~COP 19 M/año · vs tarifa: ~COP 13 M/año',
+          co2: '~4,7 t CO₂ evitadas/año'
+        },
+        coop: { households: 11, members: 12, split: [
+          { label: 'Operación y mantenimiento', pct: 20 },
+          { label: 'Fondo comunitario', pct: 10 },
+          { label: 'Distribución a hogares', pct: 70 }
+        ]}
+      }
+    ];
+
+    const map = L.map('map', { scrollWheelZoom: true }).setView([6.5, -73.5], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    const panel = document.getElementById('panel');
+    let activeMarker = null;
+
+    function badgeClass(coverage) {
+      if (coverage === 'google') return 'badge badge-google';
+      if (coverage === 'nasa') return 'badge badge-nasa';
+      return 'badge badge-unknown';
+    }
+
+    function renderPanel(site) {
+      panel.classList.remove('empty');
+      panel.innerHTML = `
+        <h2 class="site-title">${site.name}</h2>
+        <span class="${badgeClass(site.coverage)}">${site.badgeText}</span>
+        <div class="ejemplo">${EJEMPLO}</div>
+        <h3 style="margin:0 0 0.5rem;font-size:0.9rem;color:var(--cth-primary);">Potencial solar</h3>
+        <div class="metrics">
+          <div class="metric"><label>Paneles / sitio</label><span>${site.metrics.panels}</span><small>${EJEMPLO}</small></div>
+          <div class="metric"><label>Potencia</label><span>${site.metrics.kwp}</span><small>${EJEMPLO}</small></div>
+          <div class="metric"><label>Generación anual</label><span>${site.metrics.kwh}</span><small>${EJEMPLO}</small></div>
+          <div class="metric"><label>Horas de sol</label><span>${site.metrics.sun}</span><small>${EJEMPLO}</small></div>
+          <div class="metric"><label>Ahorro estimado</label><span>${site.metrics.savings}</span><small>${EJEMPLO}</small></div>
+          <div class="metric"><label>CO₂ evitado</label><span>${site.metrics.co2}</span><small>${EJEMPLO}</small></div>
+        </div>
+        <button type="button" class="primary" id="btn-coop">Calcular cooperativa</button>
+        <div class="coop-result" id="coop-result">
+          <h3>Cooperativa energética (${EJEMPLO})</h3>
+          <div class="flow-row"><span>Hogares servidos</span><strong>${site.coop.households}</strong></div>
+          <div class="flow-row"><span>Miembros/as</span><strong>${site.coop.members}</strong></div>
+          <p style="font-size:0.8rem;margin:0.75rem 0 0.35rem;color:var(--cth-dark);">Reparto simplificado del flujo de caja anual:</p>
+          ${site.coop.split.map(r => `<div class="flow-row"><span>${r.label}</span><strong>${r.pct}%</strong></div>`).join('')}
+          <p style="font-size:0.65rem;color:#856404;margin-top:0.75rem;">${EJEMPLO}</p>
+        </div>
+      `;
+      document.getElementById('btn-coop').addEventListener('click', () => {
+        document.getElementById('coop-result').classList.add('visible');
+      });
+    }
+
+    sites.forEach(site => {
+      const marker = L.circleMarker([site.lat, site.lng], {
+        radius: 10,
+        color: '#1B4332',
+        weight: 2,
+        fillColor: '#2D6A4F',
+        fillOpacity: 0.85
+      }).addTo(map);
+      marker.bindPopup(`<strong>${site.name}</strong><br/>${site.badgeText}<br/><em>${EJEMPLO}</em>`);
+      marker.on('click', () => {
+        if (activeMarker) {
+          activeMarker.setStyle({ fillColor: '#2D6A4F', radius: 10 });
+        }
+        activeMarker = marker;
+        marker.setStyle({ fillColor: '#95D5B2', radius: 12 });
+        renderPanel(site);
+      });
+    });
+  </script>
+</body>
+</html>
