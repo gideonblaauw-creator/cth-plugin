@@ -22,6 +22,29 @@ const CAUSE_TAGS = new Set([
 ]);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const PUBLIC_DIR = join(__dirname, 'public');
+
+/** @type {Record<string, { file: string; type: string }>} */
+const BOARD_ROUTES = {
+  '/board': { file: 'index.html', type: 'text/html; charset=utf-8' },
+  '/board/': { file: 'index.html', type: 'text/html; charset=utf-8' },
+  '/board/board.js': { file: 'board.js', type: 'application/javascript; charset=utf-8' },
+  '/board/board.css': { file: 'board.css', type: 'text/css; charset=utf-8' },
+};
+
+/**
+ * @param {string} pathname
+ * @param {import('node:http').ServerResponse} res
+ * @returns {boolean}
+ */
+function serveBoardAsset(pathname, res) {
+  const route = BOARD_ROUTES[pathname];
+  if (!route) return false;
+  const body = readFileSync(join(PUBLIC_DIR, route.file), 'utf8');
+  res.writeHead(200, { 'Content-Type': route.type });
+  res.end(body);
+  return true;
+}
 
 /** @type {Set<import('node:http').ServerResponse>} */
 const sseClients = new Set();
@@ -305,6 +328,10 @@ export function createBotEventsServer({ db, token, port = 8795, host = '127.0.0.
 
       if (req.method === 'GET' && url.pathname === '/bots') {
         sendJson(200, { bots: latestBots(db) });
+        return;
+      }
+
+      if (req.method === 'GET' && serveBoardAsset(url.pathname, res)) {
         return;
       }
 

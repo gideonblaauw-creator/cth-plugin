@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CleantechHUB — Bot board</title>
+  <link rel="stylesheet" href="/board/board.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>CleantechHUB Bot board</h1>
+      <p class="tagline">Live activity across orchestrator, desk, workbench, and hands</p>
+      <div class="stream-status" id="stream-status" aria-live="polite">Connecting…</div>
+    </div>
+  </header>
+
+  <section class="gideon-strip" id="gideon-strip" hidden>
+    <h2>Waiting on Gideon</h2>
+    <ul class="gideon-list" id="gideon-list"></ul>
+  </section>
+
+  <main class="layout">
+    <section class="panel bots-panel" aria-labelledby="bots-heading">
+      <h2 id="bots-heading">Bots</h2>
+      <div class="bot-grid" id="bot-grid"></div>
+    </section>
+
+    <section class="panel feed-panel" aria-labelledby="feed-heading">
+      <h2 id="feed-heading">Event feed</h2>
+      <form class="filters" id="filters">
+        <label>
+          Layer
+          <select id="filter-layer">
+            <option value="">All layers</option>
+            <option value="orchestrator">orchestrator</option>
+            <option value="desk">desk</option>
+            <option value="workbench">workbench</option>
+            <option value="hands">hands</option>
+          </select>
+        </label>
+        <label>
+          Type
+          <select id="filter-type">
+            <option value="">All types</option>
+            <option value="start">start</option>
+            <option value="finish">finish</option>
+            <option value="blocked">blocked</option>
+            <option value="needs_gideon">needs_gideon</option>
+            <option value="heartbeat">heartbeat</option>
+          </select>
+        </label>
+        <label>
+          Bot
+          <select id="filter-bot">
+            <option value="">All bots</option>
+          </select>
+        </label>
+        <label>
+          Cause tag
+          <select id="filter-cause">
+            <option value="">All causes</option>
+            <option value="unclear_ticket">unclear_ticket</option>
+            <option value="missing_map">missing_map</option>
+            <option value="wrong_model">wrong_model</option>
+            <option value="waiting_on_gideon">waiting_on_gideon</option>
+            <option value="broken_connector">broken_connector</option>
+            <option value="other">other</option>
+          </select>
+        </label>
+      </form>
+      <ol class="feed-list" id="feed-list"></ol>
+    </section>
+  </main>
+
+  <script src="/board/board.js" type="module"></script>
+</body>
+</html>

@@ -124,6 +124,14 @@ describe('HTTP ingest + reads', () => {
     assert.ok(bot);
     assert.equal(typeof bot.silent_over_2h, 'boolean');
   });
+
+  it('serves the live board at GET /board', async () => {
+    const res = await fetch(`http://127.0.0.1:${port}/board`);
+    assert.equal(res.status, 200);
+    assert.match(res.headers.get('content-type') ?? '', /text\/html/);
+    const html = await res.text();
+    assert.match(html, /CleantechHUB Bot board/);
+  });
 });
 
 describe('SSE /stream', () => {
