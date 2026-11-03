@@ -176,6 +176,40 @@ html, body {
 .kpi-card a { color: var(--cth-primary); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
 .kpi-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .kpi-row .kpi-card { flex: 1; min-width: 200px; }
+.gap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0 14px;
+  max-width: 52rem;
+}
+@media (max-width: 720px) { .gap-grid { grid-template-columns: 1fr; } }
+.gap-card {
+  background: var(--cth-white);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, transparent);
+}
+.gap-card.slow { border-left: 4px solid color-mix(in srgb, var(--cth-dark) 50%, #888); }
+.gap-card.fast { border-left: 4px solid var(--cth-primary); }
+.gap-card h3 { font-size: 13px; font-weight: 600; color: var(--cth-dark); margin-bottom: 6px; }
+.gap-card .math { font-family: ui-monospace, monospace; font-size: 12px; color: #444; margin: 6px 0; }
+.gap-card .year { font-size: 22px; font-weight: 700; color: var(--cth-primary); }
+.gap-card.slow .year { color: #666; }
+.opex-list, .talent-list { font-size: 13px; max-width: 52rem; margin: 8px 0 12px; padding-left: 1.1rem; }
+.opex-list li, .talent-list li { margin-bottom: 8px; }
+.section-h2 { font-size: 15px; font-weight: 600; color: var(--cth-dark); margin: 12px 0 6px; max-width: 52rem; }
+.proposal-block {
+  max-width: 52rem;
+  background: color-mix(in srgb, var(--cth-light) 55%, var(--cth-white));
+  border: 2px dashed var(--cth-primary);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.proposal-block ul { margin: 8px 0 0 1.1rem; }
+.screen-4-scroll { overflow-y: auto; padding-bottom: 8px; }
 .panel-links { font-size: 12px; }
 .panel-links a { color: var(--cth-primary); }
 .flow-stage {
@@ -352,8 +386,9 @@ html, body {
       <button type="button" class="dot active" data-goto="0" aria-label="Pantalla 1"></button>
       <button type="button" class="dot" data-goto="1" aria-label="Pantalla 2"></button>
       <button type="button" class="dot" data-goto="2" aria-label="Pantalla 3"></button>
+      <button type="button" class="dot" data-goto="3" aria-label="Pantalla 4"></button>
     </div>
-    <div class="meta">Embajada Países Bajos · Promigas · 11 nov 2026<br>Demo ~2 min · ← → Espacio</div>
+    <div class="meta">Embajada Países Bajos · Promigas · 11 nov 2026<br>Demo ~3 min · ← → Espacio</div>
   </header>
 
   <main class="screen-wrap">
@@ -494,6 +529,76 @@ html, body {
         </div>
       </div>
     </section>
+
+    <!-- Screen 4 -->
+    <section class="screen screen-4-scroll" id="screen-3" aria-labelledby="t4">
+      <h1 id="t4">Meta 2030 + talento local</h1>
+      <p class="subtitle">Escenario IMPE país (Fundación Promigas / Promigas). Índice sobre <strong>personas</strong>. Fuentes: <code>energy-poverty-kpis-2026-11.md</code>.</p>
+
+      <div class="kpi-card">
+        <span class="kpi-title">Meta IMPE 2030: 15,4% (8,11 M personas, 2024) → 9,5% (5,17 M) en 2030 · −2,9 M personas</span>
+        <span class="kpi-meta">
+          <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025, p. 33 (PDF)</a>
+          · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+        </span>
+      </div>
+
+      <h2 class="section-h2">Brecha de ritmo (aritmética citada)</h2>
+      <p class="kpi-meta" style="max-width:52rem;margin-bottom:8px;">Personas que deben salir de pobreza energética ≈ <strong>2,9 M</strong> (8,11 M − 5,17 M; IMPE 2025 p. 33).</p>
+      <div class="gap-grid">
+        <div class="gap-card slow">
+          <h3>Ritmo observado ~300&nbsp;000 personas/año</h3>
+          <p class="math">2.900.000 ÷ 300.000 ≈ 9,7 años desde 2024</p>
+          <p class="year">~2034</p>
+          <p class="kpi-meta">IMPE 2025 p. 12 (~300 k/año) · <a href="https://www.promigas.com/Paginas/NoticiasESP/IMPE-2025.aspx" target="_blank" rel="noopener">Promigas: meta un dígito hasta 2034 al ritmo 2024</a></p>
+        </div>
+        <div class="gap-card fast">
+          <h3>Ritmo meta escenario ~490&nbsp;000 personas/año × 6 años</h3>
+          <p class="math">490.000 × 6 = 2.940.000 ≈ 2,9 M</p>
+          <p class="year">2030</p>
+          <p class="kpi-meta"><a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 p. 33</a> (≥1,0 p.p./año de incidencia)</p>
+        </div>
+      </div>
+
+      <h2 class="section-h2">No es un problema de CAPEX, es de OPEX</h2>
+      <ul class="opex-list">
+        <li><strong>Contraloría:</strong> sin metodologías para remunerar operación, administración de microredes y SFVI → fallas en mantenimiento y monitoreo.
+          <a href="https://www.elcolombiano.com/negocios/contraloria-advierte-sobre-dificultades-en-proyectos-solares-zonas-apartadas-JN24837952" target="_blank" rel="noopener">El Colombiano</a></li>
+        <li><strong>Amazonas (~$30.000 millones regalías):</strong> proyecto fotovoltaico abandonado; baterías dañadas — «estado crítico» por sostenibilidad.
+          <a href="https://seguimiento.co/colombia/30000-millones-se-invirtieron-en-proyecto-fotovoltaico-y-esta-abandonado-en-amazonas-68633" target="_blank" rel="noopener">Seguimiento.co / Procuraduría</a></li>
+        <li><strong>CREG (GEN-Renovables):</strong> miles de SFV rurales sin sistema de gestión → «con frecuencia abandonados»; falta norma, instaladores certificados y AOM.
+          <a href="https://gestornormativo.creg.gov.co/Publicac.nsf/52188526a7290f8505256eee0072eba7/12aca473c3be151205257b080075913a/$FILE/Circular005-13%20GEN-RENOVABLES%20Informe%20Final.pdf" target="_blank" rel="noopener">Circular 005-13 informe final</a>
+          · <a href="https://normograma.superservicios.gov.co/normograma/compilacion/docs/concepto_creg_0004022_2019.htm" target="_blank" rel="noopener">Concepto CREG 4022/2019 (AOM)</a></li>
+      </ul>
+
+      <h2 class="section-h2">Talento local — vínculos documentados (no convenio marco Escuela–Promigas publicado)</h2>
+      <ul class="talent-list">
+        <li><strong>Escuela Colombiana de Ingeniería Julio Garavito:</strong> Cátedra Luis Carlos Sarmiento Angulo — eje sector energético <strong>Grupo Promigas</strong>; reto académico integración mercados eléctrico y gas.
+          <a href="https://www.escuelaing.edu.co/es/la-escuela/sector-energetico-grupo-promigas-gascop-mineros-sa/" target="_blank" rel="noopener">CLSA sector energético</a>
+          · <a href="https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/" target="_blank" rel="noopener">Primer reto CLSA</a></li>
+        <li><strong>Solucionatón 10X (Connect Bogotá):</strong> reto Promigas <em>GeoPrioriza</em> — 3.er lugar, estudiantes Escuela (oct. 2026).
+          <a href="https://www.escuelaing.edu.co/es/noticias/estudiantes-de-la-escuela-obtuvieron-el-tercer-lugar-en-solucionaton-10x-de-connect-bogota/" target="_blank" rel="noopener">Noticia Escuela</a></li>
+        <li><strong>Caribe:</strong> becas con <strong>Uninorte</strong> (ProExcelencia / Talento Promigas)
+          <a href="https://fundacionpromigas.org.co/promigas-y-uninorte-entregan-tres-nuevas-becas-universitarias-que-transformaran-la-vida-de-jovenes-del-caribe/" target="_blank" rel="noopener">Fundación</a>
+          · <a href="https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe" target="_blank" rel="noopener">Uninorte</a>;
+          <strong>UTB</strong> (Vamos pa’ Lante, UTB Solar)
+          <a href="https://fundacionpromigas.org.co/surtigas-spec-lng-y-su-fundacion-promigas-otorgaron-17-becas-para-jovenes-universitarios-en-cartagena/" target="_blank" rel="noopener">Fundación</a>
+          · <a href="https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/" target="_blank" rel="noopener">UTB Solar</a>;
+          <strong>Uniautónoma</strong> + CEO — 30 becas Ingeniería Energética (2024)
+          <a href="https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/" target="_blank" rel="noopener">Uniautónoma</a></li>
+      </ul>
+
+      <div class="proposal-block">
+        <span class="tag design">PROPUESTA CTH</span>
+        <p style="margin-top:8px;"><strong>Cooperativa de O&amp;M + empleos verdes</strong> (propuesta CleantechHUB — no hecho de Promigas ni Escuela):</p>
+        <ul>
+          <li>Contratos OPEX explícitos (limpieza FV, baterías, monitoreo) alineados a marco CREG/SSPD.</li>
+          <li><strong>Técnicos comunitarios</strong> formados vía educación continuada (p. ej. diplomado/cursos Escuela en renovables) y vertical «Energético y Gas» de Fundación Promigas / Más Empleo Juvenil ampliado a técnicos FV.</li>
+          <li>Financiación blanda Embajada–Promigas para <strong>3–5 años de O&amp;M</strong> en corredor piloto (p. ej. La Guajira).</li>
+          <li>Seguimiento con indicadores <strong>IMPE</strong> (acceso y calidad) — no sustituye ICEE/IPEM oficiales.</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
   <nav class="nav-bar">
@@ -508,7 +613,7 @@ html, body {
 (function () {
   'use strict';
 
-  var SCREENS = 3;
+  var SCREENS = 4;
   var current = 0;
   var maps = { paiva: null, guajira: null };
   var guajiraLoaded = false;

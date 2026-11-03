@@ -186,3 +186,231 @@ Use these in talking points and optional static callouts on screens 1–2 (not w
 | Validation | JSON/manifest N/A; repo `jq` + skill YAML checks per `AGENTS.md` |
 
 **Awaiting Gideon's approval** if any excerpt is reused as external CleantechHUB voice; internal meeting prep only.
+
+---
+
+## Meta 2030 y rutas
+
+*Actualización PR #111 — reuniones Embajada de Países Bajos × Promigas. Sin metas inventadas: solo cifras y formulaciones citadas.*
+
+### A. ¿Qué meta 2030 declara Promigas?
+
+#### A.1 Meta explícita de pobreza energética (IMPE) — **sí existe, con números**
+
+Promigas y Fundación Promigas presentan en la **III edición del IMPE (2025)** un escenario prospectivo (microsimulación) hacia **2030**, no como meta climática corporativa sino como **hoja de ruta país** para “pobreza energética de un dígito”:
+
+> «El objetivo que se propone hacia 2030 es reducir el porcentaje de personas en pobreza energética de **15,4% en 2024 a 9,5%**, lo que equivale pasar de **8,11 millones** de pobres energéticos en 2024 a **5,17 millones** en 2030, reduciendo en **2,9 millones** el total de personas en esta condición.»
+
+— *Informe IMPE 2025*, p. 33 ([PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf))
+
+Meta complementaria de **intensidad** (profundidad de privaciones entre quienes siguen siendo pobres energéticos):
+
+> «… de **46,7% a 43,2%** [privaciones promedio que acumulan los hogares pobres energéticos].»
+
+— *Informe IMPE 2025*, p. 33 (mismo PDF)
+
+Ritmo que el informe asocia al cumplimiento de esa meta:
+
+> «… acelerar su ritmo actual de reducción —que hoy es de **0,75 puntos porcentuales por año**— y llevarlo al menos a **1,0** durante los próximos seis años, reduciendo el total de pobres en promedio cerca de **490 mil personas por año**.»
+
+— *Informe IMPE 2025*, p. 33
+
+**Segunda fuente (comunicación Promigas):** [IMPE 2025 — Promigas.com](https://www.promigas.com/Paginas/NoticiasESP/IMPE-2025.aspx): más de **300.000** personas salieron de la pobreza energética en 2024; si se mantiene ese ritmo, la meta de un dígito llegaría **hasta 2034**, pero el IMPE 2025 presenta hoja de ruta para **anticiparla a 2030**.
+
+**Cuatro “apuestas” ligadas a la simulación 2030** (IMPE, pp. 33–34):
+
+1. Calidad eléctrica + soluciones no convencionales (solar, híbrida) en rural disperso.  
+2. Plan Nacional de Sustitución de Leña — «sustituir cerca de **540 mil hogares**».  
+3. Dotación de electrodomésticos y dispositivos (“Modo ON”).  
+4. Colegios con electricidad — «entre **1300 y 1800** instituciones educativas».
+
+#### A.2 Informe Integrado de Gestión / prosperidad energética — **sin meta numérica 2030 de IMPE**
+
+En el **IIG 2024** (texto público verificado vía documento corporativo en promigas.com), Promigas enmarca **“Nuestra Energía 2040”** y la prioridad **“Prosperidad energética — Energía confiable y reducción de la pobreza energética”**, con **resultados operativos 2024** (p. ej. **421.719** nuevos usuarios, **7,2 millones** de clientes), pero **no se encontró una meta cuantitativa corporativa 2030** del tipo “X % IMPE” o “Y millones de conexiones en 2030” distinta del escenario IMPE país.
+
+| Tema | Meta / horizonte citado | Baseline | Fuente 1 | Fuente 2 | Status |
+|------|-------------------------|----------|----------|----------|--------|
+| Pobreza energética (IMPE país) | **9,5%** personas, **5,17 M** pobres energéticos | **15,4%**, **8,11 M** (2024) | IMPE 2025 p. 33 | [Fundación Promigas Nov 2025](https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/) | OK |
+| Intensidad IMPE | **43,2%** privaciones promedio (pobres) | **46,7%** (2024) | IMPE 2025 p. 33 | Resumen ejecutivo IMPE ([PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf)) | OK |
+| Carbono neutralidad | **2040** (alcances 1, 2 y parte 3) | Línea base emisiones **2021** | [Promigas descarbonización 2022](https://www.promigas.com/Paginas/NoticiasESP/PROMIGAS-IMPLEMENTA-HOJA-DE-RUTA-DE-DESCARBONIZACI%C3%93N.aspx) | [Estrategia climática EN](https://www.promigas.com/Paginas/Sostenibilidad/ENG/EstrategiaClimatica.aspx) | OK |
+| Emisiones intermedias | **~50%** reducción intensidad vs 2021 | 2021 | Noticia descarbonización 2022 | IIG 2024 acción climática ([gestion2024](https://gestion2024.promigas.com/es/accion-climatica)) | OK |
+| SBTi | **Alineación con lineamientos generales**; no meta SBTi validada citada | — | IIG 2024 (acción climática) | SBTi net-zero framework (referencia sectorial) | OK (alineación declarada; **no** target SBTi publicado) |
+| Conexiones anuales | **Resultado** 2024: 421.719 nuevos usuarios; 2025 IIG web: 292.255 | — | IIG / prosperidad 2024 (narrativa) | [Informe gestión 2025 web](https://www.promigas.com/Paginas/Especiales/Informe-gestion-2025.aspx) | OK (hechos, **no** meta 2030) |
+| ODS / eficiencia web | Estrategia **2030** — mercados más eficientes, renovables | — | [Promigas ODS](https://www.promigas.com/Paginas/Sostenibilidad/ESP/ODS.aspx) | — | PARCIAL (cualitativo, sin KPI único pobreza) |
+
+**Conclusión A:** La **única meta 2030 cuantitativa explícita sobre pobreza energética** localizada en fuentes Promigas/Fundación es el **escenario IMPE 9,5% / −2,9 M personas**, con metas satélite (intensidad, PNSL **540 mil hogares**, colegios **1300–1800**). Metas corporativas 2030 en clima son **50% (2028)**; **2040** es carbono neutralidad — distinto eje.
+
+---
+
+### B. Brecha actual vs meta — aritmética solo con cifras citadas
+
+**Stock de personas (IMPE 2025, p. 33):**
+
+| Concepto | Valor |
+|----------|--------|
+| Pobres energéticos 2024 | **8.117.357** (figura p. 33; texto redondea **8,11 millones**) |
+| Pobres energéticos 2030 (meta escenario) | **5.171.498** (**5,17 millones**) |
+| Personas que deben salir | **2.945.859** (= 8.117.357 − 5.171.498) ≈ **2,9 millones** (redondeo informe) |
+
+**Horizonte:** seis años de esfuerzo **2025–2030** (implícito en “próximos seis años”, p. 33).
+
+#### B.1 Ritmo en personas
+
+| Escenario | Supuesto (fuente) | Cálculo | Tiempo para cerrar ~2,9 M | ¿Alcanza 2030? |
+|-----------|-------------------|---------|---------------------------|----------------|
+| **Observado 2022–2024** | ~**300 mil** personas/año (IMPE p. 12) | 2.900.000 ÷ 300.000 = **9,67 años** | Desde 2024 → ~**2034** | No (IMPE p. 12: «**nueve años adicionales**» para un dígito al ritmo 2022–2024 → ~**2033**) |
+| **Comunicación 2024** | **>300.000** en un solo año (Fundación / Promigas news) | Mismo orden de magnitud | [Promigas IMPE 2025](https://www.promigas.com/Paginas/NoticiasESP/IMPE-2025.aspx) cita **2034** si se mantiene **300.000/año** | No |
+| **Meta IMPE 2030** | ~**490.000** personas/año × 6 años (IMPE p. 33) | 490.000 × 6 = **2.940.000** ≈ 2,9 M | **6 años** → **2030** | Sí (por construcción del escenario) |
+
+#### B.2 Ritmo en puntos porcentuales (incidencia)
+
+| Concepto | Valor |
+|----------|--------|
+| Brecha incidencia | 15,4% − 9,5% = **5,9 p.p.** |
+| Ritmo observado 2022–2024 | 1,5 p.p. / 2 años = **0,75 p.p./año** (IMPE p. 12 y p. 33) |
+| Años al ritmo 0,75 | 5,9 ÷ 0,75 = **7,87 años** → ~**2032** | 
+| Ritmo requerido (informe) | **≥ 1,0 p.p./año** (IMPE p. 33) |
+| Años a 1,0 p.p./año | 5,9 ÷ 1,0 = **5,9 años** → ~**2030** |
+
+*Nota:* No extrapolar **9,5%** como “cero pobreza”; es la meta del escenario IMPE, no erradicación total.
+
+---
+
+### C. Rutas para cerrar la brecha (evidencia + encaje cooperativo)
+
+Cada ruta indica **dimensión / indicador IMPE** (peso dimensión acceso y calidad **40%** salvo donde aplica vivienda, aprender, territorio).
+
+#### 1) Calidad y continuidad eléctrica + no convencionales en última milla
+
+- **Qué es:** Mejorar **calidad de la energía eléctrica** (interrupciones) e implementar **solar / híbrido / microrred** donde la red es débil o ausente.  
+- **IMPE:** Dimensión **Acceso y calidad de la energía** — indicadores **acceso a electricidad** (13,3%) y **calidad del servicio** (13,3%); apuesta 1 IMPE pp. 33–34.  
+- **Escala citada:** UPME conectó **539.351** viviendas nuevas en 2024 (**ICEE** 93,12%); PIEC 2024–2028 estima **32,23 billones COP** inversión universalización ([UPME PIEC](https://www.upme.gov.co/simec/planeacion-energetica/plan-de-expansion-de-cobertura/)); **148** comunidades energéticas La Guajira, **1.409 familias** ([IPSE](https://ipse.gov.co/blog/2024/12/20/gobierno-nacional-entrega-80-comunidades-en-la-guajira/)); meta nacional **500 comunidades 2024–2025**, **40% ZNI** ([FENOGE](https://fenoge.gov.co/minenergia-y-fenoge-inician-el-proceso-de-contratacion-para-la-implementacion-de-comunidades-energeticas/)).  
+- **Referencia costo (histórico, no 2030):** PIEC 2019–2023: **8,93 billones COP / 486.637 viviendas** ≈ **18,3 M COP/vivienda** (orden de magnitud; solución varía por sitio).  
+- **Propuesta CTH Energy Coop *(propuesta, no hecho)*:** Modelo **cooperativo / comunidad energética** para reparto de beneficio, O&M local y gobernanza en proyectos FENOGE-ZNI (p. ej. pantalla 2 demo La Guajira), complementando utility/IPSE sin sustituir ICEE oficial.
+
+#### 2) Sustitución de leña y combustibles sólidos (gas, GLP, inducción)
+
+- **Qué es:** Implementar **Plan Nacional de Sustitución de Leña (PNSL)** y conversiones **leña/GLP → gas natural**.  
+- **IMPE:** **Energético adecuado para cocinar**; **Estufa de gas o eléctrica**; privación nacional **9,9%** (2024); **56,6%** de pobres energéticos aún en leña/carbón/desechos (IMPE 2025). Meta simulación: **~540 mil hogares** (IMPE p. 34).  
+- **Escala citada:** Promigas **109.727** conversiones GLP/leña a gas (**2024**, IIG prosperidad); **56.083** conversiones (**2025**, [IIG 2025 web](https://www.promigas.com/Paginas/Especiales/Informe-gestion-2025.aspx)); PNSL orienta sustitución gradual ([UPME / Bancolombia citing DANE](https://www.bancolombia.com/empresas/capital-inteligente/actualidad-economica-sectorial/rol-gas-natural-sustitucion-lena)).  
+- **Propuesta CTH *(propuesta)*:** Cooperativa como **canal de adopción** (educación, financiación grupal, inducción eficiente) alineada a apuesta 2 IMPE, especialmente Caribe/Chocó/rural.
+
+#### 3) Dotación y “Modo ON” (electrodomésticos, digitalización)
+
+- **Qué es:** Nevera, lavadora, conectividad — uso productivo de la energía.  
+- **IMPE:** Dimensión **Vivienda funcional** (nevera, lavadora, estufa, espacio cocina) y **Aprender y comunicarse** (internet, smartphone, etc.).  
+- **Escala citada:** Programa **Brilla** — financiación inclusiva para bienes esenciales (IIG 2024); FENOGE **Hogares Energéticamente Sostenibles** — **>2.000 familias** Cali, ahorros factura **30–100%** ([FENOGE](https://fenoge.gov.co/cali-brillara-con-energia-solar-100-nuevos-hogares-seran-beneficiados-por-el-programa-hogares-energeticamente-sostenibles/)).  
+- **Propuesta CTH *(propuesta)*:** Paquetes **coop + Brilla-like** para electrodomésticos eficientes vinculados a indicadores IMPE (nevera/lavadora), con trazabilidad de salida de privación.
+
+#### 4) Electrificación educativa (colegios)
+
+- **Qué es:** Electricidad continua en **1.300–1.800** colegios (meta escenario IMPE p. 34).  
+- **IMPE:** Indicador **estudiantes en colegios con electricidad** (dimensión **Territorio equipado para el bienestar**).  
+- **Escala citada:** Solo meta cualitativa/cuantitativa en IMPE 2025; **PARCIAL** en segunda fuente independiente en este ticket.  
+- **Propuesta CTH *(propuesta)*:** Articular demo **CEOF wizard (pantalla 3)** como **plantilla de gobernanza/financiación**, no como dato real — facilitación post-electrificación (efficiency, mantenimiento comunitario).
+
+#### 5) Aceleración territorial (La Guajira, Caribe, Amazonía)
+
+- **Qué es:** Política diferenciada donde IMPE departamental es máximo (**La Guajira 63,1%**, 2024) e **ICEE** bajo (**54,28%**).  
+- **IMPE:** Cierre brecha centro–periferia; microsimulación con reducciones dept. hasta **20 p.p.** (IMPE p. 35).  
+- **Escala citada:** **Misión La Guajira** — **>3.000 familias** (~25.000 beneficiarios) agua/energía (IIG 2024); IPSE/FENOGE en Guajira (arriba).  
+- **Propuesta CTH *(propuesta)*:** **Cooperativa multi-stakeholder** (Promigas, FENOGE, comunidad Wayúu, cooperación internacional) para escalar post-piloto **Paiva** (pantalla 1) con métricas IMPE/ICEE locales.
+
+---
+
+### D. Mensaje sugerido para la reunión (1 frase)
+
+Promigas ancla el debate país en **IMPE 9,5% en 2030** (−**2,9 M** personas), pero el ritmo observado (**~300 k/año**, **0,75 p.p./año**) deja la meta en **~2033–2034** salvo aceleración (**~490 k/año**, **≥1 p.p./año**) vía las **cuatro apuestas** — donde cooperación holandesa puede apoyar **comunidades energéticas, PNSL y equipamiento**, sin confundir **IMPE** con **IPEM MinEnergía (22,3% hogares)** ni con metas **climáticas 2040**.
+
+---
+
+## Educación, empleos verdes y O&M
+
+*Enfoque Gideon: cerrar la brecha de pobreza energética es sobre todo **OPEX** (operación, mantenimiento, competencias), no solo CAPEX. Fuentes: búsqueda web pública (nov. 2026); **no se inventaron** vínculos ni cifras.*
+
+### 1) Promigas ↔ Escuela Colombiana de Ingeniería Julio Garavito (`escuelaing.edu.co`)
+
+#### ¿Convenio formal firmado?
+
+**No se encontró** (en búsqueda web) un **convenio marco o específico publicado** que nombre a Promigas, Gases del Caribe, Surtigas, CEO, GDO o Compañía Energética de Occidente en:
+
+- [Convenios y alianzas institucionales](https://www.escuelaing.edu.co/es/empresa/convenios-y-alianzas-institucionales/) (texto genérico, sin listado de empresas con Promigas), ni  
+- [Convenios empresariales](https://www.escuelaing.edu.co/es/minisitios/convenios-empresariales-escuela/) (proceso tipo, sin Promigas citada).
+
+**Conclusión:** relación **documentada y activa**, pero **no** como convenio PDF indexado; sí como **Cátedra**, **retos** y **innovación abierta**.
+
+#### Relación documentada (evidencia)
+
+| Tipo | Hecho | Fuente 1 | Fuente 2 |
+|------|--------|----------|----------|
+| **Cátedra Luis Carlos Sarmiento Angulo (CLSA)** | Eje “Sector energético: **Grupo Promigas**, Gascop, Mineros S.A.”; primer **reto académico** propuesto por **Promigas**: integración/coordinación de mercados **eléctrico y gas** (no fusión obligatoria; herramientas de anticipación de riesgo) | [Sector energético – CLSA](https://www.escuelaing.edu.co/es/la-escuela/sector-energetico-grupo-promigas-gascop-mineros-sa/) | [Noticia reto mercados](https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/) |
+| **Diálogo / apertura** | **Juan Manuel Rojas**, presidente de Promigas, abrió ciclo “Diálogos para la inspiración” (27 abr.; evento presencial Escuela) | [LinkedIn Escuela – Promigas](https://es.linkedin.com/posts/escuela-colombiana-de-ingenieria_un-comienzo-con-mucha-energ%C3%ADa-promigas-activity-7449864207921090560-JbeF) | [El Tiempo – Rojas en CLSA](https://www.eltiempo.com/economia/sectores/si-el-fenomeno-de-el-nino-es-muy-extenso-podriamos-tener-problemas-advierte-presidente-de-promigas-3551282) |
+| **Co-creación declarada** | Escuela compromete mesas multidisciplinarias y validación con Promigas; resultados en **Eciciencia** | [Noticia primer reto CLSA](https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/) | [Construcción del reto](https://www.escuelaing.edu.co/es/noticias/asi-comienza-a-construirse-el-reto-energetico-de-la-catedra-luis-carlos-sarmiento-angulo/) |
+| **Innovación abierta** | Reto **Promigas** en Solucionatón 10X (Connect Bogotá): **GeoPrioriza** — 3.er lugar, Escuela (oct. 2026) | [Noticia GeoPrioriza](https://www.escuelaing.edu.co/es/noticias/estudiantes-de-la-escuela-obtuvieron-el-tercer-lugar-en-solucionaton-10x-de-connect-bogota/) | Reto descrito en la misma nota (infraestructura gas) |
+
+#### ¿“Escuela Ingenieros” = otra institución?
+
+En Colombia el término puede referirse a **distintas** entidades; **no** intercambiables:
+
+| Nombre usual | Institución | Evidencia Promigas en esta búsqueda |
+|--------------|-------------|-------------------------------------|
+| **Escuela Colombiana de Ingeniería Julio Garavito** | `escuelaing.edu.co` | **Sí** — CLSA, retos (tabla arriba) |
+| **Escuela Militar de Ingeniería / ingeniería militar** | Ej. cadena **Universidad Militar Nueva Granada** (ganador Solucionatón 10X) | **No** vínculo Promigas–UMNG encontrado |
+| **ENIM** (en convenios Escuela) | Consorcio académico citado en [convenios Escuela](https://www.escuelaing.edu.co/es/admisiones/convenios/) — **no** es Promigas | **No** relación Promigas localizada |
+
+---
+
+### 2) Aliados educación / talento / empleos verdes del grupo Promigas
+
+*(Fundación Promigas, filiales y Promigas S.A.; fuentes web.)*
+
+| Aliado | Qué hace | Cifras / alcance citados | Fuente |
+|--------|----------|---------------------------|--------|
+| **Universidad del Norte** | Becas **ProExcelencia** / **Talento Promigas**; **Alianza GreenGas** (2 becas doctorado hidrógeno, 2023) | **435** becarios históricos nacional; **246** becas Caribe desde 2005; **3** becas nuevas jul. 2026 | [Fundación](https://fundacionpromigas.org.co/promigas-y-uninorte-entregan-tres-nuevas-becas-universitarias-que-transformaran-la-vida-de-jovenes-del-caribe/) · [Uninorte](https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe) |
+| **Universidad del Norte + USAID** | **Escuela Atlántico II** — formación técnico-laboral (gastronomía/servicios), empleabilidad juvenil | Convocatoria Barranquilla/Soledad | [Fundación](https://fundacionpromigas.org.co/fundacion-promigas-abre-la-convocatoria-escuela-atlantico-ii-para-formar-nuevos-talentos-del-sector-de-servicios/) |
+| **UTB (Cartagena)** | **Vamos pa’ Lante**: **17** becas semestrales (2022); alianza **UTB Solar** (~**700 kWp**, centro solar, I+D) | Inversión becas **>$44 M**; ~**$5.000 M** granja (cifra Promigas, 2022) | [Fundación becas](https://fundacionpromigas.org.co/surtigas-spec-lng-y-su-fundacion-promigas-otorgaron-17-becas-para-jovenes-universitarios-en-cartagena/) · [UTB Solar](https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/) |
+| **Universidad de San Buenaventura** | **Soy TEG Crisálida** (Surtigas + Fundación) — técnico sector gas, Cartagena | — | [Fundación](https://fundacionpromigas.org.co/soy-teg-crisalida-cartagena-formacion-tecnica-para-transformar-el-empleo-juvenil-en-el-sector-gas/) |
+| **Corporación Universitaria Autónoma del Cauca + CEO** | **Convenio marco**: **30 becas** 1.ª cohorte **Ingeniería Energética** (2024) | CEO + Fundación Promigas | [Uniautónoma](https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/) |
+| **Fundación Promigas (programas)** | **Más Empleo Juvenil** — competencias técnicas (incl. **“Energético y Gas”**, TIC, gastronomía); **1.666** jóvenes (2024), **1.930** (2025 informe) | Sectores listados en informe | [Informe FP 2024 PDF](https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/03/31172145/Informe-de-Gestioin-Fundacioin-Promigas-2024.pdf) · [Informe 2025 PDF](https://fundacionpromigas.org.co/wp-content/uploads/2026/06/2.-INFORME-GESTION-2025.pdf) |
+| **Promigas S.A.** | **Pasantías de verano** (portal talento) | — | [trabajaconnosotros.promigas.com](https://trabajaconnosotros.promigas.com/content/Estudiantes/?locale=es_ES) |
+| **SENA** | Convenios SENA–universidades (marco nacional) | **No** se encontró convenio **directo** Fundación Promigas–SENA en esta búsqueda | [SENA histórico](https://historico.sena.edu.co/es-co/comunidades/instructores/Paginas/convenios_con_universidades.aspx) |
+
+**CIIEG (Promigas):** apoyo a investigación doctorado hidrógeno con Uninorte ([noticia Uninorte](https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-lanzan-beca-doctoral-para-investigacion-en-hidrogeno)) — I+D transición, no O&M rural explícito.
+
+---
+
+### 3) Escuela Colombiana de Ingeniería — programas relevantes (energía / empleos verdes)
+
+| Oferta | Contenido citado | Fuente |
+|--------|------------------|--------|
+| **Pregrado / posgrado eléctrica** | Curso diseño renovables ligado a **Maestría en Ingeniería Eléctrica** | [Curso diseño renovables](https://www.escuelaing.edu.co/es/programas/curso-diseno-de-sistemas-de-energia-renovables/) |
+| **Educación continuada** | Curso **Transición energética** (virtual, MME/UPME/CREG/XM); **Economía circular FV** (incl. empleo en O&M/reciclaje); **Diplomado Energías Renovables** (montaje, conexión, **mantenimiento**) | [Transición](https://www.escuelaing.edu.co/es/programas/curso-fundamentos-de-la-transicion-energetica/) · [Circular FV](https://www.escuelaing.edu.co/es/programas/curso-economia-circular-en-energia-fotovoltaica/) · [Diplomado](https://tycho.escuelaing.edu.co/contenido/diplomado/electrica/energias-renovables.html) |
+| **Laboratorio de Energías Renovables** | **101,76 kWp** on-grid; banco **off-grid para ZNI**; híbridos; grupo **MEEP** | [Laboratorio](https://www.escuelaing.edu.co/es/campus/laboratorio-de-energias-renovables/) |
+| **Comunidades energéticas / ZNI en campo** | **No se encontró** (búsqueda web) proyecto de extensión de la Escuela desplegando CE o O&M comunitario en ZNI con nombre propio | — (**ausencia documentada**) |
+
+---
+
+### 4) Evidencia OPEX / O&M — solar rural y ZNI en Colombia
+
+| Hallazgo | Detalle citado | Fuente 1 | Fuente 2 |
+|----------|----------------|----------|----------|
+| **Abandono por falta de gestión** | Programas estatales instalaron miles de SFV rurales **sin sistema de gestión** → **“con frecuencia abandonados”**; falta norma instalación, instaladores certificados, AOM | [CREG Informe GEN-Renovables (Circular 005-13)](https://gestornormativo.creg.gov.co/Publicac.nsf/52188526a7290f8505256eee0072eba7/12aca473c3be151205257b080075913a/$FILE/Circular005-13%20GEN-RENOVABLES%20Informe%20Final.pdf) | Estudio INEA 1996 citado en el mismo informe (**37%** con problemas, **8%** fuera de servicio en muestra) |
+| **Remuneración O&M insuficiente** | Contraloría: preocupación por **sostenibilidad** al **no** contar con metodologías para remunerar **operación, administración de microredes e SFVI**; desarticulación y fallas en **mantenimiento y monitoreo** | [El Colombiano – Contraloría](https://www.elcolombiano.com/negocios/contraloria-advierte-sobre-dificultades-en-proyectos-solares-zonas-apartadas-JN24837952) | — |
+| **Caso extremo (CAPEX sin OPEX)** | Proyecto regalías **~$30.000 millones** (Amazonas): **sin operar**, baterías dañadas, planta quemada; “estado crítico” por **sostenibilidad** | [Seguimiento.co / Procuraduría](https://seguimiento.co/colombia/30000-millones-se-invirtieron-en-proyecto-fotovoltaico-y-esta-abandonado-en-amazonas-68633) | — |
+| **Marco económico OPEX** | CREG: AOM incluye **mantenimiento 3–5%** vida útil; **reemplazo baterías 20–27%** costo total (3–5 años); tarifas AOM SFV en resolución | [Concepto CREG 4022/2019](https://normograma.superservicios.gov.co/normograma/compilacion/docs/concepto_creg_0004022_2019.htm) | Res. CREG 091/2007 (citada en concepto) |
+| **Escala ZNI y carga operativa** | SSPD ZNI 2023: **~31.029** SSFVI (+73% en 2 años); empresas con SFVI reportan **más eventos** por dispersión y necesidad de **mantenimiento frecuente** | [Informe sectorial ZNI 2023 – SSPD](https://www.superservicios.gov.co/sites/default/files/inline-files/Informe-sectorial-de-la-prestacion-del-servicio-de-energia-electrica-vigencia-2023-ZNI.pdf) | — |
+
+**PIEC 2024–2028:** enfatiza costos por sitio (CAPEX + OPEX transporte, O&M) pero **no** publica un único “costo por usuario” universal ([UPME PIEC](https://docs.upme.gov.co/SIMEC/Energia%20Electrica/PIEC/2024-2028/PIEC_2024-2028_Vfinal.pdf)); referencia histórica **~18,3 M COP/vivienda** (8,93 billones / 486.637 VSS, PIEC 2019–2023) es **CAPEX-oriented**, no contrato O&M comunitario.
+
+---
+
+### 5) Propuesta CTH Energy Coop *(propuesta — no hecho de Promigas ni Escuela)*
+
+**Rol:** **Cooperativa de servicios O&M y empleos verdes** que complementa CAPEX (FENOGE/IPSE/PIEC/Promigas) con:
+
+1. **Contratos OPEX** explícitos (limpieza FV, baterías, monitoreo remoto, repuestos) alineados a marco CREG/SSPD.  
+2. **Formación certificada** vía **educación continuada** (p. ej. diplomado/cursos Escuela en renovables + módulo corto **O&M ZNI/CE**) y prácticas con **Fundación Promigas / Más Empleo Juvenil** en el vertical **“Energético y Gas”** ampliado a **técnicos FV**.  
+3. **Gobernanza comunitaria** en CE (modelo Misión La Guajira: operación y uso cocreados — [Promigas noticia](https://www.promigas.com/Paginas/NoticiasESP/Mision-La-Guajira-3.aspx)) para que el activo no quede huérfano post-instalación.  
+4. **Puente Embajada–Promigas:** financiación blanda para **primeros 3–5 años de O&M** en un corredor piloto (p. ej. La Guajira), con KPIs **IMPE** (calidad/acceso) — no sustituye indicadores oficiales.
+
+**Encaje con reunión 11 nov:** argumenta que alcanzar **IMPE 9,5% en 2030** requiere **capacidad instalada operable**, no solo MWp entregados; alinea con apuesta IMPE **calidad + no convencionales** y con el encuadre OPEX de Gideon.
