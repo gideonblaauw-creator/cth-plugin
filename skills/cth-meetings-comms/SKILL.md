@@ -69,6 +69,19 @@ Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the o
 
 
 HITL before any Calendar create, move, or external invite send.
+
+## Meeting prep — Tough Conversations (AI Apps for Good — 2026-11-04)
+
+**Standard step for every meeting** (before Calendar send or Granola capture):
+
+1. **Evidence-based prep** — Open [Tough Conversations](https://aiappsforgood.org/toughconversations.html). Draft prep covering **facts** (what happened / status), **sources** (where evidence lives — ticket, Drive, wiki), **asks** (decisions or next steps), and **likely objections** (counterpoints and responses). Use output as **prep only**, not sent copy.
+2. **CTH handoff** — Attach the one-pager to the meeting ticket; pair with Granola notes and Calendar Workbench as needed. External-facing wording still requires Gideon HITL before send.
+3. **Scope** — Do not paste Infisical paths, credentials, or unreleased financial detail into the tool.
+
+**Hard-conversation kit (extra):** For **donor, board, partner, payment, or conflict** meetings, run a second Tough Conversations pass focused on stakes, boundaries, opening line, and de-escalation techniques from the app.
+
+Done when: every meeting ticket has the four-part evidence prep; sensitive meetings also have the hard-conversation addendum.
+
 ## 8. Secrets (Infisical SoT — Gideon 2026-09-07)
 
 Service secrets → **Infisical** (`skills/secrets/SKILL.md`). Never paste token values in tickets, PRs, or chat. Hands fetch by project / environment / key name only.

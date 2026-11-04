@@ -78,6 +78,16 @@ CTH allocates a maximum of 40% of any grant budget to salaries and personnel cos
 9. Sustainability plan
 10. Detailed budget with narrative justification
 
+## MEL design (AI Apps for Good — 2026-11-04)
+
+Before locking the results framework in a full proposal:
+
+1. **MEL Builder** — Open [MEL Builder](https://aiappsforgood.org/melbuilder.html). Describe the program, population, and funder reporting expectations. Capture the recommended **MEL approach** and generated **implementation guide** (and optional live NGO examples if relevant).
+2. **Map to CTH proposal** — Translate outputs into §5 Results framework (indicators, baselines, targets) and the theory of change. Align Nexus / Datalab evaluation tickets if portfolio impact is in scope.
+3. **Ticket handoff** — Store the MEL Builder summary in the grant ticket or Drive pack (Lane B); do not commit funder-confidential indicators to a public repo.
+
+Done when: proposal results framework cites the chosen MEL approach and every mandatory funder indicator has a data source and owner.
+
 ## Pre-Submission Checklist
 
 - All required annexes attached.
@@ -94,3 +104,4 @@ For funder-specific templates, see references/.
 |---|---|
 | `cth-proposal-build` | Commercial client service proposals |
 | `cleantechhub-brand` | Branded donor-facing layout and copy tone |
+| `pitch-builder-first-draft` | 10-slide funder deck narrative before HTML deck build |
