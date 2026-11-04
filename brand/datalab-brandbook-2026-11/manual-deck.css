@@ -247,7 +247,7 @@ h3 {
   font-weight: 700;
   font-size: 8rem;
   line-height: 1;
-  color: var(--deep-blue);
+  color: var(--sky);
 }
 
 .slide--chapter h2 {
@@ -288,7 +288,39 @@ h3 {
 .cth-logo-img {
   height: 36px;
   width: auto;
+  max-width: 100%;
   display: block;
+  object-fit: contain;
+  align-self: flex-start;
+  aspect-ratio: 2221 / 588;
+  flex-shrink: 0;
+}
+
+.bb-clp26 img.cth-logo-img {
+  max-width: none;
+  width: auto;
+}
+
+.cth-logo-wrap {
+  width: fit-content;
+  max-width: 100%;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+body.print-all #s04-templates .cth-logo-wrap {
+  width: calc(14mm * 2221 / 588);
+  height: 14mm;
+  margin-top: auto !important;
+  flex: 0 0 auto;
+}
+
+body.print-all #s04-templates .cth-logo-wrap .cth-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  object-fit: contain !important;
 }
 
 table.data {
@@ -908,6 +940,7 @@ body.print-all .slide--chapter .chapter-inner {
 
 body.print-all .slide--chapter .chapter-num {
   font-size: 8rem;
+  color: var(--sky);
 }
 
 body.print-all .slide--chapter h2 {
@@ -1048,7 +1081,13 @@ body.print-all #s04-templates .table-wrap {
 }
 
 body.print-all #s04-templates img.cth-logo-img {
+  flex: 0 0 auto !important;
   height: 14mm !important;
+  width: calc(14mm * 2221 / 588) !important;
+  max-width: calc(14mm * 2221 / 588) !important;
+  align-self: flex-start !important;
+  object-fit: contain !important;
+  aspect-ratio: 2221 / 588;
   margin-top: auto !important;
 }
 
@@ -1107,16 +1146,53 @@ body.print-all .misuse-grid--large .misuse {
   font-size: 0.95rem;
 }
 
-body.print-all .social-showcase {
-  min-height: 130mm;
+body.print-all #s05-social .slide-body {
+  padding-bottom: 1mm;
 }
 
-body.print-all .social-thumb img {
-  min-height: 45mm;
+body.print-all #s05-social .social-showcase {
+  min-height: 0;
+  max-height: 132mm;
+  align-items: start;
 }
 
-body.print-all .social-thumb--story img {
-  min-height: 115mm;
+body.print-all #s05-social .social-showcase__row {
+  height: auto;
+  flex: 0 0 auto;
+  gap: 3mm;
+}
+
+body.print-all #s05-social .social-thumb {
+  flex: 0 0 auto;
+}
+
+body.print-all #s05-social .social-showcase__row .social-thumb:first-child img {
+  width: 58mm;
+  height: 58mm;
+  min-height: 0;
+  max-height: 58mm;
+  object-fit: contain;
+}
+
+body.print-all #s05-social .social-thumb--wide img {
+  width: 100mm;
+  height: auto;
+  max-height: 46mm;
+  min-height: 0;
+  object-fit: contain;
+}
+
+body.print-all #s05-social .social-thumb--story img {
+  width: auto;
+  height: 100mm;
+  max-height: 100mm;
+  min-height: 0;
+  object-fit: contain;
+}
+
+body.print-all #s05-social .social-thumb figcaption {
+  flex-shrink: 0;
+  margin-top: 2mm;
 }
 
 body.print-all .download-cols {

@@ -2,10 +2,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Datalab soft launch social square">
   <rect width="1080" height="1080" fill="#0C498A"/>
   <g transform="translate(80, 72) scale(1.35)">
-    <g transform="translate(12, 22)">
-      <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
-      <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
-      <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#B2EEFA"/>
+    <g transform="translate(12, 14)">
+      <rect x="0" y="0" width="26" height="26" rx="4" fill="#69B5FA"/>
+      <rect x="31" y="0" width="26" height="26" rx="4" fill="#0C498A"/>
+      <rect x="62" y="0" width="26" height="26" rx="4" fill="#69B5FA"/>
+      <rect x="0" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#FFFFFF" stroke-width="1"/>
+      <rect x="31" y="31" width="26" height="26" rx="4" fill="#669348"/>
+      <rect x="62" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#FFFFFF" stroke-width="1"/>
+      <rect x="0" y="62" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#FFFFFF" stroke-width="1"/>
+      <rect x="31" y="62" width="26" height="26" rx="4" fill="#69B5FA"/>
+      <rect x="62" y="62" width="26" height="26" rx="4" fill="#0C498A"/>
       <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
     </g>
     <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" x="130" y="78">Datalab</text>
