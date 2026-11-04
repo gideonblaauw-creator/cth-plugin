@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="CTH Data Lab soft launch social square">
-  <defs>
-    <style>
-      .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #FFFFFF; }
-      .sub { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #B2EEFA; }
-      .body { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #FFFFFF; }
-      .tag { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #9DC384; }
-      .slot { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 10px; fill: #0C498A; }
-      .ph { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 10px; fill: #0C498A; }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Datalab soft launch social square">
   <rect width="1080" height="1080" fill="#0C498A"/>
   <g transform="translate(80, 72) scale(1.35)">
     <g transform="translate(12, 22)">
@@ -18,20 +8,19 @@
       <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#B2EEFA"/>
       <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
     </g>
-    <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" x="130" y="78">Data Lab</text>
+    <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" x="130" y="78">Datalab</text>
   </g>
-  <text class="head" font-size="72" x="80" y="320">CTH Data Lab</text>
-  <text class="sub" font-size="40" x="80" y="390">Soft launch</text>
-  <text class="head" font-size="52" x="80" y="480">Tue 24 Nov 2026</text>
-  <text class="body" font-size="28" x="80" y="540">Earth Observatory</text>
-  <text class="body" font-size="24" x="80" y="600">Data Lab sandboxes &#183; Data Governance</text>
-  <text class="body" font-size="22" x="80" y="660">Time: PENDIENTE &#183; Venue: PENDIENTE</text>
-  <text class="tag" font-size="26" x="80" y="740">Inspira. Act&#250;a. Transforma.</text>
+  <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="72" fill="#FFFFFF" x="80" y="320">Datalab</text>
+  <text font-family="Open Sans, sans-serif" font-weight="600" font-size="40" fill="#B2EEFA" x="80" y="390">Soft launch</text>
+  <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="52" fill="#FFFFFF" x="80" y="480">Tue 24 Nov 2026</text>
+  <text font-family="Open Sans, sans-serif" font-weight="400" font-size="28" fill="#FFFFFF" x="80" y="540">Earth Observatory</text>
+  <text font-family="Open Sans, sans-serif" font-weight="400" font-size="24" fill="#FFFFFF" x="80" y="600">Datalab sandboxes · Data Governance</text>
+  <text font-family="Open Sans, sans-serif" font-weight="400" font-size="22" fill="#9DC384" x="80" y="660">Time: PENDIENTE · Venue: PENDIENTE</text>
+  <text font-family="Open Sans, sans-serif" font-weight="400" font-size="26" fill="#9DC384" x="80" y="740">Inspira. Actúa. Transforma.</text>
   <rect x="80" y="810" width="248" height="52" rx="6" fill="#FFFFFF" stroke="#B2EEFA" stroke-width="2" stroke-dasharray="6 4"/>
-  <text class="ph" x="88" y="832">CTH logo (official asset)</text>
-  <text class="ph" x="88" y="848">PENDIENTE</text>
+  <text font-family="Open Sans, sans-serif" font-weight="600" font-size="11" fill="#0C498A" x="88" y="842">Logo oficial CleantechHUB · PENDIENTE</text>
   <rect x="80" y="920" width="220" height="56" rx="6" fill="#FFFFFF"/>
-  <text class="slot" x="88" y="952">Externado logo PENDIENTE</text>
+  <text font-family="Open Sans, sans-serif" font-weight="600" font-size="10" fill="#0C498A" x="88" y="952">Externado logo PENDIENTE</text>
   <rect x="320" y="920" width="220" height="56" rx="6" fill="#FFFFFF"/>
-  <text class="slot" x="328" y="952">Partner logo PENDIENTE</text>
+  <text font-family="Open Sans, sans-serif" font-weight="600" font-size="10" fill="#0C498A" x="328" y="952">Partner logo PENDIENTE</text>
 </svg>

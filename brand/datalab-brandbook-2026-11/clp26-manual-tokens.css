@@ -1,0 +1,148 @@
+/**
+ * CLP26 shell components (stat, tbl, story) from
+ * decks/_templates/clp26-rein-shell/styles.css — Manual de Marca tokens.
+ */
+@font-face {
+  font-family: "Titillium Web";
+  font-weight: 700;
+  font-display: block;
+  src: url("assets/fonts/TitilliumWeb-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-display: block;
+  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600 700;
+  font-display: block;
+  src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+}
+
+.bb-clp26 {
+  --g: #0c498a;
+  --o: #669348;
+  --ink: #0c498a;
+  --gray: #5f6663;
+  --line: #69b5fa;
+  --bg: #b2eefa;
+  --white: #ffffff;
+  --font: "Open Sans", sans-serif;
+  --head: "Titillium Web", "Open Sans", sans-serif;
+  font-family: var(--font);
+  color: var(--ink);
+}
+
+.bb-clp26 .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 16px 0;
+  max-width: 960px;
+}
+
+.bb-clp26 .stat {
+  background: var(--white);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 22px;
+  border-left: 8px solid var(--o);
+}
+
+.bb-clp26 .stat .num {
+  display: block;
+  font-family: var(--head);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.bb-clp26 .stat .lbl {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.bb-clp26 .table-wrap {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--g);
+}
+
+.bb-clp26 .tbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bb-clp26 .tbl th {
+  background: var(--g);
+  color: var(--white);
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+}
+
+.bb-clp26 .tbl td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.bb-clp26 .story {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 34px;
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid var(--g);
+}
+
+.bb-clp26 .story h3 {
+  font-family: var(--head);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.bb-clp26 .story .tag {
+  display: inline-block;
+  background: var(--g);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.bb-clp26 .story p {
+  font-size: 1.05rem;
+}
+
+.bb-clp26 .path {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.bb-clp26 .path span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.bb-clp26 .path span.on {
+  background: var(--o);
+  color: var(--white);
+  border-color: var(--o);
+}

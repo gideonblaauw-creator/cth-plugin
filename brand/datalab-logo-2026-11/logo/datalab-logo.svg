@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="CTH Data Lab logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="Datalab logo">
   <defs>
     <style>
       .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 36px; fill: #0C498A; }
@@ -11,5 +11,5 @@
     <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
     <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
   </g>
-  <text class="wm" x="130" y="78">Data Lab</text>
+  <text class="wm" x="130" y="78">Datalab</text>
 </svg>

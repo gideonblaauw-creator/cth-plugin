@@ -4,40 +4,25 @@ Master brand name (exact): **Datalab powered by CleantechHUB** (`Datalab` one wo
 
 **Status:** Draft PR · **Awaiting Gideon's approval** · HITL before use, post, or deploy.
 
-Built from `cursor/datalab-logo-2026-11` @ `197b5ad` (Option B primary). Sub-brand of CleantechHUB: five Manual de Marca colours, Titillium Web + Open Sans, flat fills.
+Framed after **MANUAL DE MARCA ACTUAL** (CleantechHUB): apaisado 1920×1080 slides, secciones en español, paleta Manual de Marca (cinco colores), Titillium Web + Open Sans. HTML components reuse **`decks/_templates/clp26-rein-shell/styles.css`** (`.stat`, `.tbl`, `.story`) with tokens in `clp26-manual-tokens.css`.
 
 ## Contents
 
 | Path | Description |
 |------|-------------|
-| `index.html` | Twelve-section HTML brand book (CLP26-style scroll layout) |
-| `datalab-brandbook.pdf` | A4 landscape print export |
-| `styles.css` | Brand tokens and layout |
-| `assets/logos/` | Primary + sub-product logos (SVG, light/dark PNG) |
-| `assets/icons/` | 12 line icons |
-| `assets/palettes/` | JSON palette |
-| `assets/social/` | 1080, 1200×627, 1080×1920 story |
-| `assets/templates/` | Deck slide master, web hero, chart example |
+| `index.html` | Manual de marca (deck · one slide per section) |
+| `manual-deck.css` | Slide framing + print (`print-all`) |
+| `datalab-brandbook.pdf` | Landscape export (1920×1080 per page) |
+| `assets/logos/` | Primary + sub-product logos |
+| `assets/social/` | Square, landscape, story (SVG + PNG) |
 
-### Sub-product logos (Option B family)
+Regenerate logo PNGs: `cd scripts && npm install @resvg/resvg-js && node render-logos-png.mjs && node render-social-png.mjs`
 
-| Product | Mark source | Files |
-|---------|-------------|--------|
-| Data Flow | Option C flow (secondary device) | `data-flow.svg`, `-light.png`, `-dark.png` |
-| Data Set | Option A grid (secondary device) | `data-set.svg`, `-light.png`, `-dark.png` |
-| Data Dashboard | Option B layers + bar tiles | `data-dashboard.svg`, `-light.png`, `-dark.png` |
-
-Regenerate PNGs: `cd scripts && npm install @resvg/resvg-js && node render-logos-png.mjs`
-
-Regenerate PDF: `python3 export-deck-pdf.py --index index.html --pdf datalab-brandbook.pdf --mode scroll`
+Regenerate PDF: `python3 export-deck-pdf.py --index index.html --pdf datalab-brandbook.pdf --mode slides`
 
 ## PENDIENTE
 
-- Official **CleantechHUB logo** asset (placeholders in endorsed lockups and social)
-- **CMYK** values for the five colours (not in brand skill)
-- **Adobe ASE** palette export
-- Event **time**, **venue**, partner logos and permissions
-- Third pre-event post date, final **social copy**
-- Any metrics, partner names, or claims beyond approved intro lines
-- **Story template PNG** (SVG provided; run resvg if PNG required)
-- Deploy to `decks.cleantechhub.net` (out of scope for this ticket)
+- Official **CleantechHUB logo** vector asset (labelled placeholders only)
+- **CMYK** values · **Adobe ASE**
+- Event time, venue, partner logos
+- Deploy to `decks.cleantechhub.net` (out of scope)

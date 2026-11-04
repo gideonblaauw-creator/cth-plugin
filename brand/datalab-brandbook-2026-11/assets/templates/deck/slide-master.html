@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8"/>
-  <title>Data Lab deck slide master (CLP26-style)</title>
-  <link rel="stylesheet" href="../../styles-deck-snippet.css"/>
+  <title>Datalab deck slide master (CLP26 components)</title>
+  <link rel="stylesheet" href="../../../../../decks/_templates/clp26-rein-shell/styles.css"/>
+  <link rel="stylesheet" href="../../../clp26-manual-tokens.css"/>
+  <link rel="stylesheet" href="../styles-deck-snippet.css"/>
 </head>
-<body class="deck-preview">
+<body class="deck-preview bb-clp26">
   <section class="slide slide-title">
     <div class="slide-bar"><span>01 · Title</span></div>
     <div class="slide-body">
@@ -15,29 +17,37 @@
       <p class="tagline">Inspire. Act. Transform.</p>
     </div>
   </section>
-  <section class="slide slide-section">
-    <div class="slide-bar"><span>02 · Section</span></div>
-    <div class="slide-body light">
-      <h2>Deep blue heading block</h2>
-      <p>Body copy on white or light cyan panel.</p>
-    </div>
-  </section>
   <section class="slide slide-stat">
-    <div class="slide-bar"><span>03 · Stat tile</span></div>
+    <div class="slide-bar"><span>02 · Stat</span></div>
     <div class="slide-body">
-      <div class="stat-grid">
-        <div class="stat-tile"><span class="stat-label">EXAMPLE LABEL</span><span class="stat-value">PENDIENTE</span></div>
-        <div class="stat-tile accent"><span class="stat-label">EXAMPLE LABEL</span><span class="stat-value">PENDIENTE</span></div>
+      <div class="stats">
+        <div class="stat"><span class="num">PENDIENTE</span><span class="lbl">EXAMPLE LABEL</span></div>
+        <div class="stat"><span class="num">5</span><span class="lbl">Manual colours</span></div>
       </div>
     </div>
   </section>
   <section class="slide slide-table">
-    <div class="slide-bar"><span>04 · Table</span></div>
-    <div class="slide-body light">
-      <table class="datalab-table">
-        <thead><tr><th>Column A</th><th>Column B</th></tr></thead>
-        <tbody><tr><td>EXAMPLE DATA</td><td>PENDIENTE</td></tr><tr><td>EXAMPLE DATA</td><td>PENDIENTE</td></tr></tbody>
-      </table>
+    <div class="slide-bar"><span>03 · Table</span></div>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead><tr><th>Column A</th><th>Column B</th></tr></thead>
+          <tbody><tr><td>EXAMPLE DATA</td><td>PENDIENTE</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="slide slide-story">
+    <div class="slide-bar"><span>04 · Story</span></div>
+    <div class="story">
+      <div>
+        <span class="tag">Datalab</span>
+        <h3>Story card</h3>
+        <p>Componente <code>.story</code> del shell CLP26.</p>
+      </div>
+      <div>
+        <div class="cth-logo-slot">Logo oficial CleantechHUB · PENDIENTE</div>
+      </div>
     </div>
   </section>
 </body>

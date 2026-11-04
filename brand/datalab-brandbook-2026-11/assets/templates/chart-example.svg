@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="EXAMPLE DATA chart">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="EXAMPLE DATA chart">
   <rect width="640" height="360" fill="#FFFFFF"/>
   <text x="20" y="32" font-family="Titillium Web, sans-serif" font-weight="700" font-size="18" fill="#0C498A">EXAMPLE DATA · categorical palette</text>
   <rect x="60" y="160" width="80" height="120" fill="#0C498A"/>

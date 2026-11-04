@@ -19,3 +19,17 @@ h1, h2 { font-family: 'Titillium Web', sans-serif; color: var(--deep-blue); }
 .datalab-table { width: 100%; border-collapse: collapse; }
 .datalab-table th { background: var(--deep-blue); color: var(--white); text-align: left; padding: 0.5rem; }
 .datalab-table td { border-bottom: 1px solid var(--deep-blue); padding: 0.5rem; }
+.cth-logo-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  min-height: 48px;
+  padding: 8px 14px;
+  border: 2px dashed var(--deep-blue);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--deep-blue);
+  background: var(--white);
+}
