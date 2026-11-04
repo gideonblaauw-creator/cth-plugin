@@ -15,3 +15,6 @@ Neutral template extracted from a CTH programme report page. All content, names,
 2. Fill `data/*.json` following the placeholder shapes (people, mentor_cards, jury_cards, hub_cards, startups).
 3. Serve statically (`python3 -m http.server`) — `fetch()` needs http, not file://.
 4. Set real `href`s (CTA mailto, downloads, footer links) — they are `#` here.
+5. **Download PDF (HARD 4 Nov 2026):** add `../pdf-download.css` rules + `../pdf-download.html` fragment to `index.html`, run `../export-deck-pdf.py --pdf <basename>.pdf`, commit PDF beside HTML. See `../README.md` and `docs/html-deck-protocol.md`.
+
+This folder also includes `pdf-download.css` and `pdf-download.html` copies for convenience when forking the shell.
