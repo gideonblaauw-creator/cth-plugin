@@ -1,27 +1,43 @@
 #!/usr/bin/env node
 /**
- * Render logo and social PNGs from SVG via @resvg/resvg-js.
- * Logo dark variants: remap fills for dark backgrounds.
+ * Render logo and social PNGs from SVG via @resvg/resvg-js with bundled OFL fonts.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const fontsDir = join(dirname(fileURLToPath(import.meta.url)), 'fonts');
+
+const fontFiles = [
+  join(fontsDir, 'TitilliumWeb-Bold.ttf'),
+  join(fontsDir, 'OpenSans-Regular.ttf'),
+  join(fontsDir, 'OpenSans-SemiBold.ttf'),
+];
+
+for (const f of fontFiles) {
+  if (!existsSync(f)) {
+    console.error(`Missing font: ${f}. Run from repo with scripts/fonts/*.ttf present.`);
+    process.exit(1);
+  }
+}
 
 function toDark(svg) {
   return svg
-    .replace(/#0C498A/gi, '#B2EEFA')
+    .replace(/#0C498A/gi, '%%PRIMARY%%')
+    .replace(/#B2EEFA/gi, '#69B5FA')
     .replace(/#669348/gi, '#9DC384')
-    .replace(/opacity="0\.35"/g, 'opacity="0.55"');
+    .replace(/%%PRIMARY%%/g, '#B2EEFA');
 }
 
 function renderSvg(svgString, outPath, width) {
   const resvg = new Resvg(svgString, {
     fitTo: width ? { mode: 'width', value: width } : undefined,
     font: {
-      loadSystemFonts: true,
+      loadSystemFonts: false,
+      fontFiles,
+      defaultFontFamily: 'Open Sans',
     },
   });
   const png = resvg.render().asPng();

@@ -1,6 +1,6 @@
 # CTH Data Lab logo + pre-event social kit (Nov 2026)
 
-**Status:** Draft — **Awaiting Gideon's approval** before any use, posting, or deploy.
+**Status:** Draft · **Awaiting Gideon's approval** before any use, posting, or deploy.
 
 Soft-launch visuals for **CTH Data Lab** (Earth Observatory, Tue 24 Nov 2026). Source: Granola Air4U meeting 4 Nov 2026 (Hands ticket; not copied into this repo).
 
@@ -8,36 +8,36 @@ Soft-launch visuals for **CTH Data Lab** (Earth Observatory, Tue 24 Nov 2026). S
 
 | File | Idea | Palette use |
 |------|------|-------------|
-| `logo/option-a.svg` | **Data grid** — 4×4 cell matrix; one sky-blue and one forest-green accent cell | Deep Blue + Sky Blue + Forest Green |
-| `logo/option-b.svg` | **Layers** — three stacked planes (sandboxes / governance stack) | Deep Blue, Light Green, Sky Blue |
-| `logo/option-c.svg` | **Flow network** — nodes and links (datasets → insight) | Deep Blue, Forest Green, Sky Blue, Light Green |
+| `logo/option-a.svg` | **Data grid** · 4×4 cell matrix; sky-blue and forest-green accent cells | Deep Blue + Light Cyan + Sky Blue + Forest Green |
+| `logo/option-b.svg` | **Layers** · three stacked planes (sandboxes / governance stack) | Deep Blue, Light Green, Sky Blue |
+| `logo/option-c.svg` | **Flow network** · nodes and links (datasets to insight) | Deep Blue, Forest Green, Sky Blue, Light Green |
 
 Wordmark on all options: **Data Lab** (Titillium Web Bold). These are sub-brand marks only; they do **not** replace or redraw the official CleantechHUB logo.
 
 **Light PNG** (`*-light.png`): deep blue / green artwork for light backgrounds.  
-**Dark PNG** (`*-dark.png`): cyan / light green remap for dark backgrounds (generated via `scripts/render-png.mjs`).
+**Dark PNG** (`*-dark.png`): cyan / sky-blue remap for dark backgrounds (generated via `scripts/render-png.mjs`).
 
 ## Social templates
 
-- `social/post-1080x1080.*` — square feed (option A grid mark, deep blue field).
-- `social/post-1200x627.*` — link preview / landscape (cyan field + deep blue sidebar).
+- `social/post-1080x1080.*` · square feed (option A grid mark, deep blue field; white headlines).
+- `social/post-1200x627.*` · link preview / landscape (cyan field, deep blue copy and headlines).
 
 Copy on templates is limited to ticket-approved lines only. Partner and CTH logo areas are labelled placeholders.
 
-## Brand tokens (Manual de Marca Jan 2024 — this kit)
+## Brand tokens (Manual de Marca Jan 2024, this kit)
 
 | Name | Hex | Used for |
 |------|-----|----------|
-| Deep Blue | `#0C498A` | Primary fields, wordmark (light logos) |
-| Light Cyan | `#B2EEFA` | Accents, landscape background |
+| Deep Blue | `#0C498A` | Primary fields, wordmark (light logos), body on cyan |
+| Light Cyan | `#B2EEFA` | Accents, landscape background, grid mute (light) |
 | Light Green | `#9DC384` | Layer / accent |
 | Forest Green | `#669348` | Nodes, tagline accent |
-| Sky Blue | `#69B5FA` | Grid highlight |
-| White | `#FFFFFF` | Text on dark fields, placeholder boxes |
+| Sky Blue | `#69B5FA` | Grid highlight / mute on dark fields |
+| White | `#FFFFFF` | Text on deep blue fields, placeholder boxes |
 
-**Typography:** Titillium Web Bold (titles / wordmark), Open Sans (body on social templates). Fonts referenced via Google Fonts in SVG and `preview.html`.
+**Typography:** Titillium Web Bold (titles / wordmark), Open Sans (body on social templates). PNG renders use OFL files in `scripts/fonts/` (not system fallbacks). SVG and `preview.html` also link Google Fonts for browser preview.
 
-No gradients, purple, red, or gray fills in deliverables.
+No gradients, purple, red, or gray fills. All shape fills are fully opaque brand colours.
 
 ## Regenerate PNGs
 
