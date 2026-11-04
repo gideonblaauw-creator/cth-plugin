@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 200" width="720" height="200" role="img" aria-label="Layered Maps horizontal lockup">
+  <defs><style></style></defs>
+  <defs><style>
+    .title { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #1B4332; }
+    .subtitle { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #2D6A4F; }
+    .caption { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #333333; }
+    .muted { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #2D6A4F; }
+    .partner { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #333333; }
+  </style></defs>
+  <g transform="translate(8,28) scale(0.95)">
+  <path d="M 18 70 L 18 30 L 58 22 L 58 62 Z" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+  <path d="M 28 76 L 28 36 L 68 28 L 68 68 Z" fill="#95D5B2" stroke="#2D6A4F" stroke-width="2" opacity="0.9"/>
+  <path d="M 38 82 L 38 42 L 78 34 L 78 74 Z" fill="#2D6A4F" stroke="#2D6A4F" stroke-width="2"/>
+  <path d="M 44 50 L 52 46 L 60 54 L 48 58 Z" fill="#D8F3DC"/>
+</g>
+  <text class="title" font-size="32" x="200" y="88">Observatorio de la Tierra</text>
+  <text class="subtitle" font-size="22" x="200" y="122">Earth Observatory</text>
+  <text class="caption" font-size="14" x="200" y="158">CleantechHUB × Universidad Externado</text>
+</svg>
