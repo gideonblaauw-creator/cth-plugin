@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Nexus portfolio — self-reported CO₂ impact · CleantechHUB</title>
+<link rel="stylesheet" href="shell/deck.css">
+</head>
+<body>
+<div class="deck-viewport"><div class="deck-frame"><div class="deck-stage"><div class="deck" id="deck">
+
+<section class="slide cover active" id="s-01" data-menu-title="Intro">
+  <div class="slide-inner">
+    <p class="wordmark">Cleantech<strong>HUB</strong> · Nexus</p>
+    <p class="eyebrow">Research deck · November 2026</p>
+    <h1>Self-reported CO₂ impact in the Nexus portfolio</h1>
+    <p class="lede">Interactive view of climate figures that startups publish on their own websites — verbatim quotes, linked to Nexus cards and primary sources. Not production; awaiting Gideon's approval before any public alias.</p>
+    <div class="grid-3">
+      <div class="card"><h3>Scope</h3><p>174 Nexus startups; website pass on 126 with URLs (waves 1–7).</p></div>
+      <div class="card"><h3>Reporting now</h3><p>8 startups · 9 distinct on-site claims in <code>research/nexus-co2/co2.csv</code>.</p></div>
+      <div class="card"><h3>Explore</h3><p>Filters, log-scale range, cards, bar chart, and sortable table on the next slides.</p></div>
+    </div>
+    <p class="note">House format cloned from the CTH CLP26 deck shell (<code>decks/rein-academic-city-ghana</code> pattern; live CLP26 source is on VPS, not in this repo).</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Nexus</span>
+    <span>Draft · not deployed to decks.cleantechhub.net</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+<section class="slide" id="s-02" data-menu-title="Method">
+  <div class="slide-inner">
+    <p class="eyebrow">Method</p>
+    <h2>How these numbers were collected</h2>
+    <div class="grid-2">
+      <div class="callout">
+        <ul class="method-list">
+          <li><strong>Own-site only.</strong> Figures come from each startup's website or its own published materials — not third-party databases or estimates.</li>
+          <li><strong>Verbatim quotes.</strong> Wording is copied as published; spelling and units stay as on the page.</li>
+          <li><strong>No inference.</strong> If a site gives no tCO₂e figure, the startup is omitted from this deck.</li>
+          <li><strong>Missing periods.</strong> Many claims do not state a time boundary; empty period cells mean "not stated on source page".</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <p><strong>Metric types (do not add across types).</strong></p>
+        <ul class="method-list">
+          <li><span class="badge mitigated">mitigated</span> — emissions reduced or absorbed as described by the company.</li>
+          <li><span class="badge avoided">avoided</span> — counterfactual savings vs. a baseline the company describes.</li>
+          <li><span class="badge managed">managed</span> — greenhouse gases handled through the firm's programs (not the same as mitigated or avoided).</li>
+        </ul>
+        <p class="note" style="margin-top:10px;">Headline counters show separate totals per metric type. Never sum mitigated + avoided + managed into one portfolio headline.</p>
+      </div>
+    </div>
+    <p class="src">Data file: <a class="cite" href="https://github.com/gideonblaauw-creator/cth-plugin/blob/main/research/nexus-co2/co2.csv">research/nexus-co2/co2.csv</a> · Country, sector, and theme from Nexus cards when absent in CSV.</p>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Nexus CO₂ research</span>
+    <span>Self-reported only</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+<section class="slide" id="s-03" data-menu-title="Explore &amp; counters">
+  <div class="slide-inner deck-app" id="deck-app-root">
+    <p class="eyebrow">Live view</p>
+    <h2>Startups &amp; claims (filtered)</h2>
+    <div class="counter-strip">
+      <div class="stat"><span class="num" id="c-startups">—</span><span class="label">Startups reporting</span></div>
+      <div class="stat"><span class="num" id="c-claims">—</span><span class="label">Claims shown</span></div>
+      <div class="stat"><span class="num" id="c-mitigated">—</span><span class="label">Σ mitigated (filtered)</span></div>
+      <div class="stat"><span class="num" id="c-avoided">—</span><span class="label">Σ avoided (filtered)</span></div>
+    </div>
+    <div class="counter-strip" style="grid-template-columns: 1fr 3fr;">
+      <div class="stat"><span class="num" id="c-managed">—</span><span class="label">Σ managed (filtered)</span></div>
+      <p class="note">Totals above sum only rows that pass filters, within each metric type. Managed totals are shown separately from mitigated and avoided.</p>
+    </div>
+    <div class="filter-bar">
+      <label>Country
+        <select id="f-country"><option value="all">All</option></select>
+      </label>
+      <label>Sector
+        <select id="f-sector"><option value="all">All</option></select>
+      </label>
+      <label>Theme
+        <select id="f-theme"><option value="all">All</option></select>
+      </label>
+      <label>Metric
+        <select id="f-metric"><option value="all">All</option></select>
+      </label>
+      <div class="range-wrap">
+        <label>tCO₂e range (log scale)</label>
+        <input type="range" id="f-range" aria-label="Minimum tCO2e log">
+        <input type="range" id="f-range-max" aria-label="Maximum tCO2e log">
+        <div class="range-labels"><span id="range-min-label">—</span><span id="range-max-label">—</span></div>
+      </div>
+      <button type="button" class="chrome-btn" id="btn-reset-filters">Reset</button>
+    </div>
+    <div class="startup-grid" id="startup-grid" aria-live="polite"></div>
+  </div>
+  <footer class="footer">
+    <span>Cards link to nexus.cleantechhub.net/s/&lt;slug&gt;</span>
+    <span>Use Index or dots to reach chart &amp; table</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+<section class="slide" id="s-04" data-menu-title="Bar chart">
+  <div class="slide-inner deck-app">
+    <p class="eyebrow">Chart</p>
+    <h2>Claim size (filtered rows)</h2>
+    <p class="note">Each bar is one CSV row (a single on-site claim). Colors encode metric type.</p>
+    <div class="chart-panel">
+      <svg class="chart" id="bar-chart" role="img" aria-label="Horizontal bar chart of filtered tCO2e claims"></svg>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>Same filters as Explore slide</span>
+    <span>Log-scale slider affects chart</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+<section class="slide" id="s-05" data-menu-title="Table">
+  <div class="slide-inner deck-app">
+    <p class="eyebrow">Table</p>
+    <h2>All claims (sortable)</h2>
+    <div class="data-table-wrap">
+      <table class="data-table" id="data-table">
+        <thead>
+          <tr>
+            <th data-sort="name">Startup</th>
+            <th data-sort="country">Country</th>
+            <th data-sort="sector">Sector</th>
+            <th data-sort="theme">Theme</th>
+            <th data-sort="metric_type">Metric</th>
+            <th data-sort="value_tco2e">tCO₂e</th>
+            <th data-sort="period">Period</th>
+            <th data-sort="quote">Quote</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="data-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>Click column headers to sort</span>
+    <span>Self-reported · verify on linked source</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+<section class="slide" id="s-06" data-menu-title="Coverage">
+  <div class="slide-inner">
+    <p class="eyebrow">Coverage</p>
+    <h2>Portfolio scan status</h2>
+    <p class="lede">Website review across the Nexus portfolio (November 2026). Most startups publish no explicit tCO₂e figure on their own site.</p>
+    <div class="grid-4">
+      <div class="stat"><span class="num" id="cov-portfolio">174</span><span class="label">Portfolio startups</span></div>
+      <div class="stat"><span class="num" id="cov-checked">126</span><span class="label">Websites checked</span></div>
+      <div class="stat"><span class="num" id="cov-no-site">48</span><span class="label">Without website URL</span></div>
+      <div class="stat"><span class="num" id="cov-unreach">22</span><span class="label">Sites unreachable (~)</span></div>
+    </div>
+    <div class="grid-2" style="margin-top:12px;">
+      <div class="card">
+        <h3>In this deck</h3>
+        <p><strong id="cov-reporting">8</strong> startups with at least one on-site CO₂ claim · <strong id="cov-claims">9</strong> rows in CSV.</p>
+        <p class="note">Remaining checked sites either lack a numeric claim or use language we do not record without a tCO₂e value.</p>
+      </div>
+      <div class="card">
+        <h3>Next research waves</h3>
+        <p>Continue own-site passes; add rows only with verbatim quotes and source URLs. Refresh this deck from <code>co2.csv</code>.</p>
+        <p class="src"><a class="cite" href="https://nexus.cleantechhub.net/p/startup-portfolio" target="_blank" rel="noopener">Nexus startup portfolio</a></p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <span>CleantechHUB · Nexus</span>
+    <span>Awaiting Gideon's approval</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>
+
+</div></div></div></div>
+
+<div class="deck-chrome" id="deck-chrome">
+  <button type="button" class="chrome-btn" id="btn-menu" aria-expanded="false" aria-controls="deck-menu">Index</button>
+  <nav class="slide-dots" id="slide-dots" aria-label="Slide progress"></nav>
+</div>
+<div class="deck-menu" id="deck-menu" hidden>
+  <div class="deck-menu-panel" role="dialog" aria-label="Slide index">
+    <h2>Index</h2>
+    <ul class="deck-menu-list" id="deck-menu-list"></ul>
+  </div>
+</div>
+<p class="nav-hint" aria-hidden="true">arrows · space · click · index · dots</p>
+<script src="shell/deck.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
