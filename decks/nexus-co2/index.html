@@ -24,21 +24,44 @@
 .counter-grid .box{background:var(--bg);border-left:5px solid var(--green);border-radius:10px;padding:10px 12px;font-size:.88rem}
 .counter-grid .box.target{border-color:var(--o)}
 .counter-grid .box b{font-size:1.15rem;display:block}
-.card-grid-deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px;align-items:start}
-.deck-card{border:2px solid var(--line);border-top:8px solid var(--green);border-radius:14px;padding:16px;background:#fff;height:auto;align-self:start}
-#startup-grid.imp-grid{align-items:start}
-#startup-grid .imp-theme{align-self:start;height:auto}
-.deck-card blockquote{margin:10px 0 0}
-.deck-card h3{margin:0 0 6px;font-size:1.05rem}
-.deck-card .amt{color:var(--green);font-size:1.35rem;font-weight:800}
-.deck-card .meta{font-size:.78rem;color:var(--g);font-weight:700}
-.deck-card blockquote{margin:10px 0 0;font-size:.86rem;border-left:4px solid var(--o);padding-left:10px;color:var(--ink)}
-.deck-card .src{font-size:.78rem;color:var(--g);margin-top:8px}
-.badge-pill{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:20px;padding:2px 10px;margin-right:6px}
-.badge-pill.achieved{background:var(--green);color:#fff}
-.badge-pill.target{background:var(--o);color:var(--ink)}
-.badge-pill.website{background:#e8f4ef;color:var(--green)}
-.badge-pill.investor_deck{background:#fff3ed;color:var(--o)}
+:root{--deep-blue:#0C498A;--color-border:#D1E3F8;--color-text:#1A2332;--color-mid:#475569;--color-muted:#94A3B8;--light-green:#9DC384;--forest:#669348}
+.nexus-grid,.card-grid-deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:11px;margin-top:16px;align-items:start}
+.nx-card{background:#fff;border:1.5px solid var(--color-border);border-radius:11px;padding:13px 13px 11px;display:flex;flex-direction:column;gap:7px;transition:all .16s;position:relative;overflow:hidden;align-self:start;height:auto}
+.nx-card:hover{border-color:var(--light-green);box-shadow:0 4px 18px rgba(157,195,132,.18);transform:translateY(-1px)}
+.nx-cb{position:absolute;top:0;left:0;right:0;height:3px}
+.nx-logo{font-size:22px;line-height:1;margin-top:5px}
+.nx-ct{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
+.nx-cn{font-size:12.5px;font-weight:700;line-height:1.3;flex:1;color:var(--color-text)}
+.nx-cn a{color:inherit;text-decoration:none}
+.nx-cn a:hover{color:var(--deep-blue);text-decoration:underline}
+.nx-cd{font-size:11px;line-height:1.5;color:var(--color-mid);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.nx-cbot{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:2px}
+.nx-badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:9.5px;font-weight:700;letter-spacing:.2px;white-space:nowrap}
+.bt-BIO{background:#F0FDF4;color:#16A34A}.bt-EN{background:#FFFBEB;color:#D97706}.bt-CE{background:#ECFEFF;color:#0891B2}
+.bt-ct-af{background:#2d6a4f;color:#fff}.bt-ct-en{background:#1565c0;color:#fff}.bt-ct-wa{background:#e65100;color:#fff}
+.bt-ct-xs{background:#00695c;color:#fff}.bt-ct-mo{background:#283593;color:#fff}.bt-ct-ww{background:#0277bd;color:#fff}
+.bs-PS{background:#F1F5F9;color:#94A3B8}
+.nexus-btn{display:inline-flex;align-items:center;gap:3px;padding:4px 8px;background:#0C498A;color:#fff;border-radius:6px;text-decoration:none;font-size:9.5px;font-weight:700;margin-left:auto}
+.nexus-btn:hover{background:#669348}
+.co2-claim{margin-top:8px;padding-top:8px;border-top:1px solid var(--color-border);font-size:11px}
+.co2-head{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:4px}
+.co2-amt{font-weight:800;color:var(--forest);font-size:12px}
+.co2-period{font-size:9px;color:var(--color-muted);font-weight:700}
+.co2-quote{font-size:10.5px;line-height:1.45;color:var(--color-mid);margin:4px 0}
+.co2-src{font-size:9.5px;color:var(--color-muted)}
+.lbl-badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:9px;font-weight:800;letter-spacing:.03em}
+.lb-self-reported{background:#EBF5E0;color:var(--forest)}
+.lb-target{background:#FFF3ED;color:#C2410C}
+.lb-evaluated{background:#F3E8FF;color:#6A1B9A}
+.lb-metric,.lb-source{background:#EFF6FF;color:#1565c0}
+.counter-grid .box.lbl-target{border-left-color:#FF6633}
+.counter-grid .box.lbl-evaluated{border-left-color:#6A1B9A}
+.chart-legend{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 10px;font-size:11px;font-weight:700;color:var(--color-mid)}
+.leg-item{display:inline-flex;align-items:center;gap:6px}
+.leg-swatch{width:14px;height:14px;border-radius:4px;border:2px solid var(--deep-blue)}
+.leg-swatch.lb-target{border-color:#FF6633}
+.leg-swatch.lb-evaluated{border-color:#6A1B9A}
+.leg-note{font-weight:600;color:var(--color-muted)}
 .chart-sec .cbox{height:520px}
 .sec-slide{min-height:min(900px,92vh);scroll-margin-top:72px}
 .foot.nx{padding:48px 0 80px}
@@ -64,7 +87,8 @@
     <p class="brand-frame"><b>CleantechHUB</b> · Nexus portfolio</p>
     <p class="eyebrow">Draft · awaiting Gideon's approval</p>
     <h1>Self-reported CO₂ impact in the Nexus portfolio</h1>
-    <p class="lead">Verbatim figures from each startup's own website or investor deck — linked to Nexus cards. Targets are labeled and never summed with achieved totals.</p>
+    <p class="lead">Verbatim figures from each startup's own website or investor deck — linked to Nexus cards. Labels: Self-reported, Target, or Evaluated (third-party verified only).</p>
+    <p class="lead2" id="hs-labels">—</p>
     <p class="lead2">Shell layout from <code>decks/_templates/clp26-rein-shell/</code> (PR #126). Data: <code>research/nexus-co2/co2.csv</code> + <code>co2-decks.csv</code>.</p>
     <div class="nx-stats" id="hero-stats">
       <div class="stat"><b id="hs-figures">—</b><span>Sourced figures</span></div>
@@ -85,8 +109,8 @@
         <p>Website copy or the startup's investor deck — not third-party market sizing unless clearly labeled as the company's own target.</p>
       </div>
       <div class="card">
-        <h3>Metric types</h3>
-        <p><b>mitigated</b>, <b>avoided</b>, <b>managed</b>, <b>sequestered</b> — do not add across types. <b>achieved</b> vs <b>target</b> counters stay separate.</p>
+        <h3>Impact labels</h3>
+        <p><b>Self-reported</b>, <b>Target</b>, <b>Evaluated</b> (third-party verified only when the source says so). Counters stay separate by label and by metric type (<b>mitigated</b>, <b>avoided</b>, <b>managed</b>, <b>sequestered</b>).</p>
       </div>
       <div class="card">
         <h3>Deck pass</h3>
@@ -109,7 +133,7 @@
       <label>Theme <select id="f-theme"><option value="all">All</option></select></label>
       <label>Metric <select id="f-metric"><option value="all">All</option></select></label>
       <label>Source <select id="f-source"><option value="all">All</option><option value="website">website</option><option value="investor_deck">investor_deck</option></select></label>
-      <label>Status <select id="f-status"><option value="all">All</option><option value="achieved">achieved</option><option value="target">target</option></select></label>
+      <label>Label <select id="f-label"><option value="all">All</option><option value="Self-reported">Self-reported</option><option value="Target">Target</option><option value="Evaluated">Evaluated</option></select></label>
       <div class="range-dual">
         <label>tCO₂e (log) <span id="range-lbl">—</span></label>
         <input type="range" id="f-range-min" aria-label="Minimum">
@@ -118,15 +142,16 @@
       <button class="btn small" type="button" id="btn-reset">Reset</button>
     </div>
     <div class="counter-grid" id="counter-grid"></div>
-    <p class="intro" id="filter-note">Totals sum filtered rows within each metric type and status. Never combine achieved + target.</p>
-    <div class="imp-grid" id="startup-grid"></div>
+    <p class="intro" id="filter-note">Totals sum filtered rows within each impact label and metric type only. Never combine Self-reported + Target + Evaluated.</p>
+    <div class="nexus-grid" id="startup-grid"></div>
   </div>
 </section>
 
 <section id="chart" class="sec light sec-slide chart-sec">
   <div class="wrap">
     <h2>Claim size (filtered)</h2>
-    <p class="intro">One bar per row. Color encodes metric type; pattern encodes achieved vs target.</p>
+    <p class="intro">One bar per row. Fill = metric type; border = impact label (see legend).</p>
+    <div class="chart-legend" id="chart-legend"></div>
     <div class="card chart-card wide"><div class="cbox"><canvas id="cBars"></canvas></div></div>
   </div>
 </section>
@@ -141,7 +166,7 @@
           <thead><tr>
             <th data-sort="name">Startup</th>
             <th data-sort="metric_type">Metric</th>
-            <th data-sort="claim_status">Status</th>
+            <th data-sort="impact_label">Label</th>
             <th data-sort="value_tco2e">tCO₂e</th>
             <th data-sort="source_kind">Source</th>
             <th>Period</th>

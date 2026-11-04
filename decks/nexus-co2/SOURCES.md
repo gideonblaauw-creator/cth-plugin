@@ -1,5 +1,23 @@
 # Sources — Nexus CO₂ deck
 
+## Impact labels (Gideon 4 Nov 2026)
+
+Column **`impact_label`** replaces `claim_status` with exactly three values:
+
+| Label | Rule | Count in deck |
+|-------|------|---------------|
+| **Self-reported** | Figure stated by the startup (website or deck), not a future goal | 11 |
+| **Target** | Projection, goal, or forward-looking scenario | 8 |
+| **Evaluated** | Third-party verified (certifier, MRV, audit, program evaluation) **only if the source text says so** | **0** |
+
+### Evaluated — none in this dataset
+
+No row quotes independent verification, certification, MRV sign-off, or audited measurement. Examples reviewed and **not** upgraded to Evaluated:
+
+- **Natoure** — “Lifecycle Assessment via Impact Forecasts” is the startup’s stated methodology for a **Target** per-trip figure, not third-party certification of achieved impact.
+- **BEFLY** — “Climate Impact Forecast platform” is a modeling tool cited on the SDG slide; the deck does not claim external audit or verifier sign-off.
+- **EcoSea** — “has prevented over 10,3 Kton” is the company’s own cumulative claim (**Self-reported**), not labeled as verified by a third party in the extract.
+
 ## Fix decisions
 
 ### BIO NATURAL SOLUTIONS — 7,500 vs 4,500 t mitigated (website)
@@ -8,7 +26,7 @@ Both figures appear on [bionatsolutions.com](https://bionatsolutions.com/): a he
 
 ### CARBON BOX (KIMSA) vs CARBONBOX
 
-**Same company.** The 2022 investor deck is titled *Pitch CarbonBox.pdf*, lists `www.carbonbox.app`, and uses contact email `@kimsa.co`. Nexus previously split KIMSA’s “CARBON BOX” website figure from the Carbonbox.app figure. **Merged** under slug `carbonbox`, display name **CARBONBOX**. **Distinct claims retained (website, achieved):** 13,000+ t GHG managed (KIMSA technology page); 112K+ tCO₂e managed (carbonbox.app).
+**Same company.** The 2022 investor deck is titled *Pitch CarbonBox.pdf*, lists `www.carbonbox.app`, and uses contact email `@kimsa.co`. Nexus previously split KIMSA’s “CARBON BOX” website figure from the Carbonbox.app figure. **Merged** under slug `carbonbox`, display name **CARBONBOX**. **Distinct claims retained (website, Self-reported):** 13,000+ t GHG managed (KIMSA technology page); 112K+ tCO₂e managed (carbonbox.app).
 
 ### Dropped deck figures — market / country potential (Gideon GO 4 Nov 2026)
 
