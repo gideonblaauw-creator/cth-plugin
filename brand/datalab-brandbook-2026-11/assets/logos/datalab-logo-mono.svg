@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="Datalab mono logo">
-  <g transform="translate(12, 22)" fill="#0C498A">
-    <path d="M8 52 L52 72 L96 52 L52 32 Z"/>
-    <path d="M8 38 L52 58 L96 38 L52 18 Z"/>
-    <path d="M8 24 L52 44 L96 24 L52 4 Z"/>
-    <rect x="44" y="74" width="16" height="6" rx="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="Datalab mono lockup">
+  <g transform="translate(8, 14)" fill="#0C498A">
+    <rect x="0" y="0" width="26" height="26" rx="4"/>
+    <rect x="31" y="0" width="26" height="26" rx="4" opacity="0.35"/>
+    <rect x="62" y="0" width="26" height="26" rx="4"/>
+    <rect x="0" y="31" width="26" height="26" rx="4" opacity="0.2"/>
+    <rect x="31" y="31" width="26" height="26" rx="4" opacity="0.55"/>
+    <rect x="62" y="31" width="26" height="26" rx="4" opacity="0.2"/>
+    <rect x="0" y="62" width="26" height="26" rx="4" opacity="0.2"/>
+    <rect x="31" y="62" width="26" height="26" rx="4" opacity="0.35"/>
+    <rect x="62" y="62" width="26" height="26" rx="4"/>
   </g>
-  <text x="130" y="78" font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#0C498A">Datalab</text>
+  <text x="118" y="78" font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#0C498A">Datalab</text>
 </svg>

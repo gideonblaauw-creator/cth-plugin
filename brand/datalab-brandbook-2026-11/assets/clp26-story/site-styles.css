@@ -1,0 +1,14 @@
+/**
+ * Vendored from gideonblaauw-creator/cth-clp26-story @ 331b980 (site/styles.css tokens).
+ * Manual de Marca palette only — not REIN shell colours.
+ */
+:root {
+  --blue: #0c498a;
+  --cyan: #b2eefa;
+  --lgreen: #9dc384;
+  --green: #669348;
+  --sky: #69b5fa;
+  --white: #ffffff;
+  --font: "Open Sans", sans-serif;
+  --head: "Titillium Web", sans-serif;
+}

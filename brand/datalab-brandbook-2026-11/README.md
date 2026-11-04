@@ -4,7 +4,7 @@ Master brand name (exact): **Datalab powered by CleantechHUB** (`Datalab` one wo
 
 **Status:** Draft PR · **Awaiting Gideon's approval** · HITL before use, post, or deploy.
 
-Framed after **MANUAL DE MARCA ACTUAL** (CleantechHUB): apaisado 1920×1080 slides, secciones en español, paleta Manual de Marca (cinco colores), Titillium Web + Open Sans. HTML components reuse **`decks/_templates/clp26-rein-shell/styles.css`** (`.stat`, `.tbl`, `.story`) with tokens in `clp26-manual-tokens.css`.
+Framed after **MANUAL DE MARCA ACTUAL** (CleantechHUB): apaisado 1920×1080 slides (PDF export A4 landscape), secciones 01–05 en español, paleta Manual de Marca (tokens vendored from **cth-clp26-story** `site/styles.css` in `assets/clp26-story/site-styles.css`), Titillium Web + Open Sans. HTML components use **`clp26-manual-tokens.css`** (`.stat`, `.tbl`, `.story`).
 
 ## Contents
 

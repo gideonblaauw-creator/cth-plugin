@@ -313,7 +313,7 @@ footer.site-footer {
   text-align: center;
   font-size: 0.85rem;
 }
-[lang="es"] {
+body [lang="es"] {
   display: none;
 }
 body.es [lang="en"] {

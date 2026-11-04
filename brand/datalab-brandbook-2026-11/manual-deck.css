@@ -1,3 +1,5 @@
+@import url("assets/clp26-story/site-styles.css");
+
 @font-face {
   font-family: "Titillium Web";
   font-style: normal;
@@ -21,16 +23,18 @@
 }
 
 :root {
-  --deep-blue: #0c498a;
-  --light-cyan: #b2eefa;
-  --light-green: #9dc384;
-  --forest: #669348;
-  --sky: #69b5fa;
-  --white: #ffffff;
+  --deep-blue: var(--blue);
+  --light-cyan: var(--cyan);
+  --light-green: var(--lgreen);
+  --forest: var(--green);
+  --sky: var(--sky);
+  --white: var(--white);
   --stage-w: 1920px;
   --stage-h: 1080px;
-  --font-title: "Titillium Web", sans-serif;
-  --font-body: "Open Sans", sans-serif;
+  --font-title: var(--head);
+  --font-body: var(--font);
+  --clear-space: 3cm;
+  --logo-min-width: 4cm;
 }
 
 * {
@@ -185,6 +189,82 @@ h3 {
 
 .slide--cyan {
   background: var(--light-cyan);
+}
+
+.slide--chapter {
+  background: var(--deep-blue);
+  color: var(--white);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slide--chapter .chapter-num {
+  font-family: var(--font-title);
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--sky);
+}
+
+.slide--chapter h2 {
+  font-size: 3rem;
+  margin-top: 12px;
+}
+
+.clearspace-demo {
+  border: 2px dashed var(--deep-blue);
+  border-radius: 8px;
+  padding: var(--clear-space);
+  display: inline-block;
+  background: var(--white);
+}
+
+.clearspace-demo img {
+  display: block;
+  max-height: 72px;
+}
+
+.min-size-demo {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.min-size-demo .at-min {
+  width: var(--logo-min-width);
+}
+
+.min-size-demo .at-min img {
+  width: 100%;
+  height: auto;
+}
+
+.cth-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+table.data th {
+  background: var(--deep-blue);
+  color: var(--white);
+  padding: 6px;
+  text-align: left;
+}
+
+table.data td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--deep-blue);
+}
+
+.swatch-row .chip {
+  border: 1px solid var(--deep-blue);
 }
 
 .manual-kicker {
@@ -430,7 +510,7 @@ h3 {
   font-size: 0.85rem;
 }
 
-[lang="es"] {
+body [lang="es"] {
   display: none;
 }
 body.es [lang="en"] {
@@ -449,7 +529,7 @@ body.es [lang="es"] {
 }
 
 @page {
-  size: 1920px 1080px;
+  size: A4 landscape;
   margin: 0;
 }
 
@@ -486,10 +566,12 @@ body.print-all .slide {
   display: flex !important;
   position: relative !important;
   inset: auto !important;
-  width: var(--stage-w);
-  height: var(--stage-h);
+  width: 297mm;
+  height: 210mm;
+  max-width: 297mm;
   page-break-after: always;
   break-after: page;
+  box-sizing: border-box;
 }
 
 body.print-all .slide:last-child {

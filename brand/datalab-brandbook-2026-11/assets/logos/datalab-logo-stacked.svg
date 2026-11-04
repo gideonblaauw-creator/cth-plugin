@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-label="Datalab stacked lockup with endorsement">
-  <g transform="translate(52, 24)">
-    <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
-    <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
-    <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
-    <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 240" width="220" height="240" role="img" aria-label="Datalab stacked lockup with endorsement">
+  <g transform="translate(66, 16)">
+    <rect x="0" y="0" width="26" height="26" rx="4" fill="#0C498A"/>
+    <rect x="31" y="0" width="26" height="26" rx="4" fill="#69B5FA"/>
+    <rect x="62" y="0" width="26" height="26" rx="4" fill="#0C498A"/>
+    <rect x="0" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="31" y="31" width="26" height="26" rx="4" fill="#669348"/>
+    <rect x="62" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="0" y="62" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="31" y="62" width="26" height="26" rx="4" fill="#69B5FA"/>
+    <rect x="62" y="62" width="26" height="26" rx="4" fill="#0C498A"/>
   </g>
-  <text x="100" y="148" text-anchor="middle" font-family="Titillium Web, sans-serif" font-weight="700" font-size="28" fill="#0C498A">Datalab</text>
-  <text x="100" y="172" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="10" fill="#669348">powered by CleantechHUB</text>
+  <text x="110" y="128" text-anchor="middle" font-family="Titillium Web, sans-serif" font-weight="700" font-size="28" fill="#0C498A">Datalab</text>
+  <text x="110" y="148" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="10" fill="#669348">powered by</text>
+  <image href="cleantechhub-official.png" x="36" y="152" width="148" height="38" preserveAspectRatio="xMidYMid meet"/>
 </svg>

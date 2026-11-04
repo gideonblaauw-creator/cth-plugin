@@ -1,7 +1,9 @@
 /**
- * CLP26 shell components (stat, tbl, story) from
- * decks/_templates/clp26-rein-shell/styles.css — Manual de Marca tokens.
+ * CLP26 story components (.stat, .tbl, .story) on Manual de Marca tokens.
+ * Colours: assets/clp26-story/site-styles.css (--blue, --cyan, --lgreen, --green, --sky).
  */
+@import url("assets/clp26-story/site-styles.css");
+
 @font-face {
   font-family: "Titillium Web";
   font-weight: 700;
@@ -22,17 +24,8 @@
 }
 
 .bb-clp26 {
-  --g: #0c498a;
-  --o: #669348;
-  --ink: #0c498a;
-  --gray: #5f6663;
-  --line: #69b5fa;
-  --bg: #b2eefa;
-  --white: #ffffff;
-  --font: "Open Sans", sans-serif;
-  --head: "Titillium Web", "Open Sans", sans-serif;
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--blue);
 }
 
 .bb-clp26 .stats {
@@ -45,17 +38,17 @@
 
 .bb-clp26 .stat {
   background: var(--white);
-  color: var(--ink);
+  color: var(--blue);
   border-radius: 14px;
   padding: 22px;
-  border-left: 8px solid var(--o);
+  border-left: 8px solid var(--green);
 }
 
 .bb-clp26 .stat .num {
   display: block;
   font-family: var(--head);
   font-size: 3.2rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
 }
 
@@ -70,7 +63,7 @@
   background: var(--white);
   border-radius: 16px;
   overflow: hidden;
-  border: 2px solid var(--g);
+  border: 2px solid var(--blue);
 }
 
 .bb-clp26 .tbl {
@@ -79,7 +72,7 @@
 }
 
 .bb-clp26 .tbl th {
-  background: var(--g);
+  background: var(--blue);
   color: var(--white);
   text-align: left;
   padding: 12px 14px;
@@ -88,7 +81,7 @@
 
 .bb-clp26 .tbl td {
   padding: 12px 14px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--cyan);
   vertical-align: top;
 }
 
@@ -96,22 +89,22 @@
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 34px;
-  background: var(--bg);
+  background: var(--cyan);
   border-radius: 20px;
   padding: 30px;
-  border: 2px solid var(--g);
+  border: 2px solid var(--blue);
 }
 
 .bb-clp26 .story h3 {
   font-family: var(--head);
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
 .bb-clp26 .story .tag {
   display: inline-block;
-  background: var(--g);
+  background: var(--blue);
   color: var(--white);
   font-weight: 700;
   font-size: 0.82rem;
@@ -137,12 +130,12 @@
   padding: 6px 10px;
   border-radius: 8px;
   background: var(--white);
-  color: var(--ink);
-  border: 1px solid var(--line);
+  color: var(--blue);
+  border: 1px solid var(--sky);
 }
 
 .bb-clp26 .path span.on {
-  background: var(--o);
+  background: var(--green);
   color: var(--white);
-  border-color: var(--o);
+  border-color: var(--green);
 }
