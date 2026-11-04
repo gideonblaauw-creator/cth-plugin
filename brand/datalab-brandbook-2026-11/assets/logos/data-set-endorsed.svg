@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 148" width="560" height="148" role="img" aria-label="Data Set � Datalab powered by CleantechHUB">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 148" width="560" height="148" role="img" aria-label="Data Set · Datalab powered by CleantechHUB">
   <defs>
     <style>
+      @font-face {
+        font-family: 'Titillium Web';
+        font-weight: 700;
+        src: url('../fonts/TitilliumWeb-Bold.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-weight: 400;
+        src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        src: url('../fonts/OpenSans-SemiBold.ttf') format('truetype');
+      }
+
       .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 34px; fill: #0C498A; }
       .end { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 11px; fill: #669348; }
     </style>

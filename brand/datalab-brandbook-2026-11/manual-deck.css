@@ -21,14 +21,21 @@
   font-display: block;
   src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+}
 
 :root {
   --deep-blue: var(--blue);
   --light-cyan: var(--cyan);
   --light-green: var(--lgreen);
   --forest: var(--green);
-  --sky: var(--sky);
-  --white: var(--white);
+  --sky: #69B5FA;
+  --white: #FFFFFF;
   --stage-w: 1920px;
   --stage-h: 1080px;
   --font-title: var(--head);
@@ -53,9 +60,16 @@ body {
   font-size: 18px;
   line-height: 1.45;
   color: var(--deep-blue);
-  background: #051a33;
+  background: #0C498A;
   height: auto;
   overflow: visible;
+  font-synthesis: none;
+}
+
+strong,
+b {
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 
 body.print-all,
@@ -154,7 +168,12 @@ h3 {
   width: var(--stage-w);
   height: var(--stage-h);
   transform-origin: top left;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+@media screen {
+  .deck-stage {
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  }
 }
 
 .deck {
@@ -451,7 +470,25 @@ table.data td {
 }
 
 .cover-stack {
-  margin-top: 48px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.cover-stack .cover-logo {
+  display: block;
+  max-width: 320px;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.cover-stack .cover-cth {
+  display: block;
+  max-height: 56px;
+  width: auto;
+  object-fit: contain;
 }
 
 .cover-stack .brand-book {
@@ -541,16 +578,20 @@ body.print-all .deck-viewport {
   overflow: visible;
 }
 
+body.print-all {
+  font-size: 10.53px;
+}
+
 body.print-all .deck-frame {
   position: static;
-  width: var(--stage-w);
+  width: 297mm;
   height: auto;
   overflow: visible;
 }
 
 body.print-all .deck-stage {
   position: static;
-  width: var(--stage-w);
+  width: 297mm;
   height: auto;
   transform: none !important;
   box-shadow: none;
@@ -558,7 +599,7 @@ body.print-all .deck-stage {
 
 body.print-all .deck {
   position: static;
-  width: var(--stage-w);
+  width: 297mm;
   height: auto;
 }
 
@@ -569,9 +610,44 @@ body.print-all .slide {
   width: 297mm;
   height: 210mm;
   max-width: 297mm;
+  min-height: 210mm;
+  padding: 33px 51px 42px;
+  overflow: hidden;
   page-break-after: always;
   break-after: page;
   box-sizing: border-box;
+}
+
+body.print-all .slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5mm;
+  background: var(--deep-blue);
+  pointer-events: none;
+}
+
+body.print-all .slide--blue::after {
+  background: var(--forest);
+}
+
+code,
+pre,
+kbd,
+table,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+code,
+pre,
+kbd {
+  font-weight: 400;
 }
 
 body.print-all .slide:last-child {

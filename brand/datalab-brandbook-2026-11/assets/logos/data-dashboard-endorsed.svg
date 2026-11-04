@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 148" width="720" height="148" role="img" aria-label="Data Dashboard � Datalab powered by CleantechHUB">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 148" width="560" height="148" role="img" aria-label="Data Dashboard · Datalab powered by CleantechHUB">
   <defs>
     <style>
+      @font-face {
+        font-family: 'Titillium Web';
+        font-weight: 700;
+        src: url('../fonts/TitilliumWeb-Bold.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-weight: 400;
+        src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        src: url('../fonts/OpenSans-SemiBold.ttf') format('truetype');
+      }
+
       .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 30px; fill: #0C498A; }
       .end { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 11px; fill: #669348; }
     </style>
   </defs>
-  <g transform="translate(8, 14)">
-    <rect x="0" y="0" width="26" height="26" rx="4" fill="#0C498A"/>
-    <rect x="31" y="0" width="26" height="26" rx="4" fill="#69B5FA"/>
-    <rect x="62" y="0" width="26" height="26" rx="4" fill="#0C498A"/>
-    <rect x="0" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
-    <rect x="31" y="31" width="26" height="26" rx="4" fill="#669348"/>
-    <rect x="62" y="31" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
-    <rect x="0" y="62" width="26" height="26" rx="4" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
-    <rect x="31" y="62" width="26" height="26" rx="4" fill="#69B5FA"/>
-    <rect x="62" y="62" width="26" height="26" rx="4" fill="#0C498A"/>
-    <rect x="98" y="52" width="12" height="26" rx="2" fill="#0C498A"/>
-    <rect x="114" y="38" width="12" height="40" rx="2" fill="#669348"/>
-    <rect x="130" y="58" width="12" height="20" rx="2" fill="#69B5FA"/>
+  <g transform="translate(6, 12)">
+    <rect x="0" y="0" width="20" height="20" rx="3" fill="#0C498A"/>
+    <rect x="24" y="0" width="20" height="20" rx="3" fill="#69B5FA"/>
+    <rect x="48" y="0" width="20" height="20" rx="3" fill="#0C498A"/>
+    <rect x="0" y="24" width="20" height="20" rx="3" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="24" y="24" width="20" height="20" rx="3" fill="#669348"/>
+    <rect x="48" y="24" width="20" height="20" rx="3" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="0" y="48" width="20" height="20" rx="3" fill="#B2EEFA" stroke="#0C498A" stroke-width="1"/>
+    <rect x="24" y="48" width="20" height="20" rx="3" fill="#69B5FA"/>
+    <rect x="48" y="48" width="20" height="20" rx="3" fill="#0C498A"/>
+    <rect x="76" y="38" width="8" height="20" rx="2" fill="#0C498A"/>
+    <rect x="88" y="28" width="8" height="30" rx="2" fill="#669348"/>
+    <rect x="100" y="44" width="8" height="14" rx="2" fill="#69B5FA"/>
   </g>
-  <text class="wm" x="200" y="72">Data Dashboard</text>
-  <text class="end" x="200" y="94">Datalab powered by</text>
-  <image href="cleantechhub-official.png" x="200" y="98" width="160" height="42" preserveAspectRatio="xMinYMid meet"/>
+  <text class="wm" x="118" y="72">Data Dashboard</text>
+  <text class="end" x="118" y="94">Datalab powered by</text>
+  <image href="cleantechhub-official.png" x="118" y="98" width="148" height="38" preserveAspectRatio="xMinYMid meet"/>
 </svg>

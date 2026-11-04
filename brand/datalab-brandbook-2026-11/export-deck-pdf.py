@@ -17,9 +17,29 @@ PREP_JS = """
   document.querySelectorAll('.topbar, .site-footer, .pdf-dl-fixed').forEach(el => {
     el.style.display = 'none';
   });
+  const svgToPng = {
+    'assets/logos/datalab-logo.svg': 'assets/logos/datalab-logo-light.png',
+    'assets/logos/datalab-logo-mono.svg': 'assets/logos/datalab-logo-light.png',
+    'assets/logos/datalab-logo-stacked.svg': 'assets/logos/datalab-logo-endorsed-light.png',
+    'assets/logos/datalab-option-b.svg': 'assets/logos/datalab-option-b.png',
+    'assets/templates/chart-example.svg': 'assets/templates/chart-example.png',
+  };
+  document.querySelectorAll('img').forEach(img => {
+    const src = img.getAttribute('src') || '';
+    Object.entries(svgToPng).forEach(([from, to]) => {
+      if (src.endsWith(from)) img.setAttribute('src', to);
+    });
+  });
   document.querySelectorAll('*').forEach(el => {
     el.style.setProperty('animation', 'none', 'important');
     el.style.setProperty('transition', 'none', 'important');
+    const tag = el.tagName;
+    if (/^H[1-6]$/.test(tag) || el.classList.contains('brand-book') || el.classList.contains('chapter-num') || el.classList.contains('slide-num-big') || el.classList.contains('manual-title') || el.classList.contains('brand')) {
+      el.style.setProperty('font-family', '"Titillium Web", "Open Sans", sans-serif', 'important');
+    } else {
+      el.style.setProperty('font-family', '"Open Sans", sans-serif', 'important');
+    }
+    el.style.setProperty('font-synthesis', 'none', 'important');
   });
 }
 """
@@ -51,18 +71,26 @@ def main() -> None:
         browser = p.chromium.launch(
             channel="chrome",
             headless=True,
-            args=["--no-sandbox", "--disable-gpu", "--font-render-hinting=none"],
+            args=[
+                "--no-sandbox",
+                "--disable-gpu",
+                "--font-render-hinting=none",
+                "--disable-features=FontSrcLocalMatching",
+            ],
         )
         page = browser.new_page(viewport={"width": 1280, "height": 800})
         page.goto(index.as_uri(), wait_until="networkidle")
         page.wait_for_timeout(400)
         page.evaluate(PREP_JS)
+        page.wait_for_function("() => document.fonts.status === 'loaded'")
         page.emulate_media(media="print")
         page.pdf(
             path=str(pdf_out),
             format="A4",
             landscape=True,
             print_background=True,
+            prefer_css_page_size=True,
+            scale=1,
             margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
         )
         browser.close()
