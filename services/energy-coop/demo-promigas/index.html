@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo Promigas — CleantechHUB Energy Coop</title>
+<title>Energy Coop — CleantechHUB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@ html, body {
   background: var(--cth-light);
   color: var(--cth-dark);
 }
-.tag.sim {
+.tag.example {
   background: var(--sim-bg);
   color: var(--sim-border);
   border: 1px solid var(--sim-border);
@@ -148,11 +148,49 @@ html, body {
   color: var(--cth-dark);
   border: 1px solid var(--cth-primary);
 }
-.tag.nl {
-  background: var(--cth-primary);
-  color: var(--cth-white);
-  border: 1px solid var(--cth-accent);
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  max-width: 52rem;
+  margin: 12px 0;
 }
+.candidate-card {
+  background: var(--cth-white);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, transparent);
+  font-size: 13px;
+}
+.candidate-card.featured { border-left: 4px solid var(--cth-primary); }
+.funnel-wrap { max-width: 52rem; margin: 8px 0 16px; }
+.funnel-steps { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: 14px 0; }
+.funnel-tier {
+  background: var(--cth-white);
+  border-radius: 10px;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 30%, transparent);
+  text-align: center;
+}
+.funnel-tier .num { font-size: 1.75rem; font-weight: 700; color: var(--cth-primary); }
+.funnel-tier .lbl { font-size: 12px; color: #555; margin-top: 4px; }
+.funnel-tier.w100 { width: 100%; }
+.funnel-tier.w80 { width: 80%; }
+.funnel-tier.w55 { width: 55%; }
+.funnel-arrow { color: var(--cth-primary); font-size: 18px; line-height: 1; }
+.funnel-pipeline { font-size: 13px; max-width: 52rem; margin-bottom: 10px; }
+.funnel-pipeline li { margin-bottom: 10px; }
+.closing-panel {
+  max-width: 40rem;
+  background: var(--cth-white);
+  border-radius: 12px;
+  padding: 20px 22px;
+  border: 2px solid var(--cth-primary);
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.closing-note { font-size: 12px; color: #666; margin-top: 12px; }
 .totals-note { font-size: 12px; color: #555; margin-bottom: 8px; max-width: 52rem; }
 .kpi-strip {
   display: flex;
@@ -423,6 +461,9 @@ html, body {
       <button type="button" class="dot" data-goto="1" data-i18n-screen="2"></button>
       <button type="button" class="dot" data-goto="2" data-i18n-screen="3"></button>
       <button type="button" class="dot" data-goto="3" data-i18n-screen="4"></button>
+      <button type="button" class="dot" data-goto="4" data-i18n-screen="5"></button>
+      <button type="button" class="dot" data-goto="5" data-i18n-screen="6"></button>
+      <button type="button" class="dot" data-goto="6" data-i18n-screen="7"></button>
     </div>
     <div class="meta"><span data-i18n="topbar.meta"></span><br><span data-i18n="topbar.metaHint"></span></div>
   </header>
@@ -437,7 +478,7 @@ html, body {
           <span class="kpi-title" data-i18n="s1.kpi1"></span>
           <span class="kpi-meta">
             <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
-            · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+            · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Nota IMPE, nov 2025</a>
           </span>
         </div>
         <div class="kpi-card">
@@ -454,7 +495,7 @@ html, body {
           <span class="tag fact" data-i18n="tag.publicSource"></span>
           <p data-i18n="s1.panel1"></p>
           <p class="panel-links">
-            <a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Fundación Promigas</a>
+            <a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Noticia Paiva (2025)</a>
             · <a href="https://guiadelgas.com/primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Guía del Gas</a>
           </p>
           <span class="tag design" data-i18n="tag.cthDesign"></span>
@@ -516,8 +557,74 @@ html, body {
       <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
     </section>
 
-    <!-- Screen 3 -->
-    <section class="screen" id="screen-2" aria-labelledby="t3">
+    <!-- Screen 3 — Data Lab funnel -->
+    <section class="screen" id="screen-2" aria-labelledby="t5">
+      <h1 id="t5" data-i18n="s5.title"></h1>
+      <p class="subtitle" data-i18n-html="s5.subtitleHtml"></p>
+      <ul class="funnel-pipeline">
+        <li>
+          <strong data-i18n="s5.step0Title"></strong><br>
+          <span data-i18n-html="s5.step0Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step0Meta"></p>
+        </li>
+        <li>
+          <strong data-i18n="s5.step1Title"></strong><br>
+          <span data-i18n-html="s5.step1Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step1Meta"></p>
+        </li>
+        <li>
+          <strong data-i18n="s5.step2Title"></strong><br>
+          <span data-i18n-html="s5.step2Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step2Meta"></p>
+        </li>
+      </ul>
+      <div class="funnel-wrap">
+        <span class="tag example" data-i18n="tag.example"></span>
+        <div class="funnel-steps">
+          <div class="funnel-tier w100">
+            <div class="num" data-i18n="s5.funnel100"></div>
+            <div class="lbl" data-i18n="s5.funnel100Lbl"></div>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">↓</div>
+          <div class="funnel-tier w80">
+            <div class="num" data-i18n="s5.funnel20"></div>
+            <div class="lbl" data-i18n="s5.funnel20Lbl"></div>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">↓</div>
+          <div class="funnel-tier w55">
+            <div class="num" data-i18n="s5.funnel10"></div>
+            <div class="lbl" data-i18n="s5.funnel10Lbl"></div>
+          </div>
+        </div>
+        <p class="cite" data-i18n="s5.funnelNote"></p>
+      </div>
+    </section>
+
+    <!-- Screen 4 — PASO -->
+    <section class="screen" id="screen-3" aria-labelledby="t6">
+      <h1 id="t6" data-i18n="s6.title"></h1>
+      <p class="subtitle" data-i18n-html="s6.subtitleHtml"></p>
+      <div class="candidate-card featured" style="max-width:52rem;margin-bottom:12px;">
+        <span class="tag candidate" data-i18n="tag.candidate"></span>
+        <h2 class="section-h2" style="margin-top:8px;" data-i18n="s6.corozalTitle"></h2>
+        <p data-i18n="s6.corozalBody"></p>
+        <p class="kpi-meta" data-i18n-html="s6.corozalMeta"></p>
+      </div>
+      <p class="section-h2" data-i18n="s6.grpIntro"></p>
+      <div class="candidate-grid">
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp1"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp2"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp3"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp4"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp5"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp6"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp7"></span></div>
+      </div>
+      <p class="cite" data-i18n="s6.disclaimer"></p>
+    </section>
+
+    <!-- Screen 5 — CEOF wizard -->
+    <section class="screen" id="screen-4" aria-labelledby="t3">
       <h1 id="t3" data-i18n="s3.title"></h1>
       <p class="subtitle" data-i18n-html="s3.subtitleHtml"></p>
       <div class="grid-2" style="align-items:start;">
@@ -566,8 +673,8 @@ html, body {
       </div>
     </section>
 
-    <!-- Screen 4 -->
-    <section class="screen screen-4-scroll" id="screen-3" aria-labelledby="t4">
+    <!-- Screen 6 — Meta 2030 -->
+    <section class="screen screen-4-scroll" id="screen-5" aria-labelledby="t4">
       <h1 id="t4" data-i18n="s4.title"></h1>
       <p class="subtitle" data-i18n-html="s4.subtitleHtml"></p>
 
@@ -575,7 +682,7 @@ html, body {
         <span class="kpi-title" data-i18n="s4.kpiMeta"></span>
         <span class="kpi-meta">
           <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025, p. 33 (PDF)</a>
-          · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Fundación Promigas, nov 2025</a>
+          · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Nota IMPE, nov 2025</a>
         </span>
       </div>
 
@@ -628,6 +735,14 @@ html, body {
         </ul>
       </div>
     </section>
+
+    <!-- Screen 7 — Closing -->
+    <section class="screen" id="screen-6" aria-labelledby="t7">
+      <h1 id="t7" data-i18n="s7.title"></h1>
+      <p class="subtitle" data-i18n-html="s7.subtitleHtml"></p>
+      <div class="closing-panel" data-i18n-html="s7.askHtml"></div>
+      <p class="closing-note" data-i18n="s7.ctaNote"></p>
+    </section>
   </main>
 
   <nav class="nav-bar">
@@ -653,7 +768,7 @@ html, body {
 
   function t(key, vars) { return CthI18n.t(key, vars); }
 
-  var SCREENS = 4;
+  var SCREENS = 7;
   var current = 0;
   var maps = { paiva: null, guajira: null };
   var guajiraLoaded = false;
@@ -694,18 +809,18 @@ html, body {
     },
     {
       mapKey: 'p4',
-      lat: 11.157, lng: -72.592, approx: true, fenoge: false, dutch: true,
+      lat: 11.157, lng: -72.592, approx: true, fenoge: false, dutch: false,
       kwp: null, kwpLabelKey: 'map.p4.kwpLabel',
       source: 'https://gutami.com/information/news/clean-energy-in-la-guajira-colombia/',
-      source2: 'https://hollandhouse-colombia.com/noticias-afiliados/noticia-asi-avanza-el-proyecto-solar-agroalimentario/',
-      srcLabel: 'Gutami + Holland House'
+      source2: 'https://energyincidentregister.com/facility/chivo-mono-1-solar-farm-solar-farm-co-100000832324/',
+      srcLabel: 'Anuncio público (MOU)'
     }
   ];
 
   var VERIFIED_KWP_SUM = 2102;
   var DUTCH_MW = 750;
 
-  var WIZARD_SIM = [
+  var WIZARD_COMMUNITIES = [
     { i18nKey: 'commA', kwp: 45, hh: 38 },
     { i18nKey: 'commB', kwp: 62, hh: 52 },
     { i18nKey: 'commC', kwp: 28, hh: 24 }
@@ -726,7 +841,7 @@ html, body {
   function paivaPopupHtml() {
     return '<strong>' + t('s1.popupTitle') + '</strong><br>' +
       t('s1.popupBody') + '<br><em>' + t('s1.popupApprox') + '</em><br>' +
-      t('s1.popupPilot') + '<br><small><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">fundacionpromigas.org.co</a></small>';
+      t('s1.popupType') + '<br><small><a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Noticia Paiva (2025)</a></small>';
   }
 
   function projectKwpLabel(p) {
@@ -770,7 +885,7 @@ html, body {
     if (pushHash !== false) location.hash = String(idx);
     if (idx === 0) initPaivaMap();
     if (idx === 1) initGuajiraMap();
-    if (idx === 2) populateCommunities();
+    if (idx === 4) populateCommunities();
   }
 
   function initPaivaMap() {
@@ -839,7 +954,6 @@ html, body {
       ? '<em>' + t('s2.popupApprox') + '</em>'
       : '<em>' + t('s2.popupCoords') + '</em>';
     var tags = '';
-    if (p.dutch) tags += '<span class="tag nl" style="display:inline-block;margin:2px 4px 2px 0">' + t('tag.dutchLead') + '</span>';
     if (p.fenoge) tags += '<span class="tag fenoge" style="display:inline-block;margin:2px 0">' + t('tag.fenoge') + '</span>';
     return '<strong>' + t('map.' + p.mapKey + '.name') + '</strong><br>' + tags + '<br>' +
       projectKwpLabel(p) + '<br>' + t('map.' + p.mapKey + '.ben') + '<br>' + loc + '<br>' +
@@ -884,10 +998,10 @@ html, body {
     var prev = sel.value;
     if (!force && sel.options.length > 1) return;
     while (sel.options.length > 1) sel.remove(1);
-    WIZARD_SIM.forEach(function (c) {
+    WIZARD_COMMUNITIES.forEach(function (c) {
       var o = document.createElement('option');
       o.value = c.i18nKey;
-      o.textContent = t('s3.' + c.i18nKey) + t('s3.simSuffix');
+      o.textContent = t('s3.' + c.i18nKey);
       sel.appendChild(o);
     });
     if (prev) sel.value = prev;
@@ -993,7 +1107,7 @@ html, body {
         initGuajiraMap();
         document.getElementById('btn-guajira').click();
       }
-      if (current === 2) {
+      if (current === 4) {
         populateCommunities();
         document.getElementById('sel-community').selectedIndex = 1;
         selectedKwp = 25;
