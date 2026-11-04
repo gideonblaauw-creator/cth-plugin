@@ -202,7 +202,7 @@
     Object.keys(bySlug).sort().forEach(function (slug) {
       var r = bySlug[slug];
       var card = document.createElement('article');
-      card.className = 'deck-card sec-slide';
+      card.className = 'deck-card';
       card.id = 'deck-card-' + slug;
       card.innerHTML =
         '<h3><a href="' + nexusUrl(slug) + '" target="_blank" rel="noopener">' + esc(r.name) + '</a></h3>' +

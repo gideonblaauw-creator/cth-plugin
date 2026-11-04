@@ -24,8 +24,11 @@
 .counter-grid .box{background:var(--bg);border-left:5px solid var(--green);border-radius:10px;padding:10px 12px;font-size:.88rem}
 .counter-grid .box.target{border-color:var(--o)}
 .counter-grid .box b{font-size:1.15rem;display:block}
-.card-grid-deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
-.deck-card{border:2px solid var(--line);border-top:8px solid var(--green);border-radius:14px;padding:16px;background:#fff}
+.card-grid-deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px;align-items:start}
+.deck-card{border:2px solid var(--line);border-top:8px solid var(--green);border-radius:14px;padding:16px;background:#fff;height:auto;align-self:start}
+#startup-grid.imp-grid{align-items:start}
+#startup-grid .imp-theme{align-self:start;height:auto}
+.deck-card blockquote{margin:10px 0 0}
 .deck-card h3{margin:0 0 6px;font-size:1.05rem}
 .deck-card .amt{color:var(--green);font-size:1.35rem;font-weight:800}
 .deck-card .meta{font-size:.78rem;color:var(--g);font-weight:700}

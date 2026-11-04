@@ -196,21 +196,6 @@
       "source_url": ""
     },
     {
-      "slug": "carbonbox",
-      "name": "CARBONBOX",
-      "country": "CO",
-      "sector": "CT-XS-001",
-      "theme": "Energy",
-      "metric_type": "avoided",
-      "claim_status": "target",
-      "value_tco2e": 436000.0,
-      "period": "Colombia annual",
-      "quote": "436ktonCO2e /a\u00f1o - Colombia",
-      "source_kind": "investor_deck",
-      "source_title": "Pitch CarbonBox.pdf",
-      "source_url": ""
-    },
-    {
       "slug": "calo-jabones",
       "name": "Calo Jabones",
       "country": "CO",
@@ -280,25 +265,7 @@
       "claim_status": "achieved",
       "value_tco2e": 10300.0,
       "period": "cumulative to date",
-      "quote": "EcoSea' systems has prevented over 10",
-      "source_kind": "3 Kton CO2 emissions",
-      "source_title": "investor_deck",
-      "source_url": "EcoSea Deck .pdf",
-      "null": [
-        ""
-      ]
-    },
-    {
-      "slug": "ecosea",
-      "name": "EcoSea",
-      "country": "CL",
-      "sector": "CT-WA-001",
-      "theme": "Bioeconomy",
-      "metric_type": "avoided",
-      "claim_status": "target",
-      "value_tco2e": 11000000.0,
-      "period": "by 2050",
-      "quote": "Potential reduction of 11 Million tons C02 / year",
+      "quote": "EcoSea' systems has prevented over 10,3 Kton CO2 emissions",
       "source_kind": "investor_deck",
       "source_title": "EcoSea Deck .pdf",
       "source_url": ""
