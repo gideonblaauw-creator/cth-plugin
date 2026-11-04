@@ -113,6 +113,14 @@ Format signatures as:
 - **Footer:** "© [Year] CleantechHUB Foundation" (left-aligned) + page number (right-aligned).
 - Replace `[Year]` with the current year at time of creation.
 
+## HTML decks (Download PDF — HARD, Gideon 4 Nov 2026)
+
+CleantechHUB **HTML decks** on `decks.cleantechhub.net` (stage or scroll) must ship a print-ready PDF beside `index.html` and **two Download PDF links** (footer + fixed bottom-right), hidden in `@media print`. Full protocol: `docs/html-deck-protocol.md`.
+
+- **Stage decks** use Manual de Marca tokens in `brand_dna.yaml` (not the Inter/CSS block above). PDF export: A4 landscape, backgrounds on, `?print` / final slide states per `skills/cth-html-deck/SKILL.md` when merged.
+- **Button styling on CTH-primary decks:** set `--pdf-dl-bg: #2D6A4F` and `--pdf-dl-focus: #1B4332` when reusing `decks/_templates/pdf-download.css`.
+- Generate PDF with `decks/_templates/export-deck-pdf.py`; paste markup from `decks/_templates/pdf-download.html`.
+
 ## Application Checklist
 
 Before delivering any CleantechHUB-branded content, verify:
@@ -125,6 +133,7 @@ Before delivering any CleantechHUB-branded content, verify:
 6. "CleantechHUB" is spelled correctly everywhere (one word, capital H-U-B).
 7. For HTML artifacts: CSS custom properties are defined and used for all brand colors.
 8. For bilingual content: Spanish is Latin American neutral.
+9. For HTML **decks**: co-located PDF, footer + fixed Download PDF controls, print-hide CSS (see HTML decks section above).
 ## Brand DNA for diffusion (OSS stills)
 
 For ComfyUI / Flux LoRA stills, use the five-color Manual de Marca Jan 2024 palette in `skills/cleantechhub-brand/brand_dna.yaml` (not the Inter/CSS palette above). Routed by `skills/oss-stills/SKILL.md`.

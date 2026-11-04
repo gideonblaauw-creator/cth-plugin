@@ -1,0 +1,18 @@
+<!--
+  Paste into every HTML deck (replace DECK_BASENAME.pdf in both places).
+  Link decks/_templates/pdf-download.css in <head> or inline equivalent rules.
+  Reference: docs/html-deck-protocol.md
+-->
+
+<!-- Inside <footer>, before copyright line: -->
+<div class="pdf-dl-footer">
+  <a class="pdf-dl-btn" href="DECK_BASENAME.pdf" download="DECK_BASENAME.pdf">Download PDF</a>
+</div>
+
+<!-- Once before </body>: -->
+<a
+  class="pdf-dl-btn pdf-dl-fixed"
+  href="DECK_BASENAME.pdf"
+  download="DECK_BASENAME.pdf"
+  aria-label="Download PDF"
+>Download PDF</a>
