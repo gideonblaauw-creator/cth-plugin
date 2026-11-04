@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
+import mimetypes
 import shutil
 import textwrap
 from pathlib import Path
@@ -14,25 +16,19 @@ CTH_LOGO_SRC = REPO / "decks/nexus-co2/logos/cleantechhub.png"
 OPTION_A_DIR = REPO / "brand/datalab-logo-2026-11/archive/logo"
 SHARED_DIR = ROOT / "_shared"
 CTH_LOGO_SHARED = SHARED_DIR / "cleantechhub-logo.png"
-CTH_LOGO_HTML = "../_shared/cleantechhub-logo.png"
 DATALAB_OPTION_A = {
     "svg": SHARED_DIR / "datalab-option-a.svg",
     "light": SHARED_DIR / "datalab-option-a-light.png",
     "dark": SHARED_DIR / "datalab-option-a-dark.png",
 }
-DATALAB_HTML = {
-    "svg": "../_shared/datalab-option-a.svg",
-    "light": "../_shared/datalab-option-a-light.png",
-    "dark": "../_shared/datalab-option-a-dark.png",
-}
+_DATA_URI_CACHE: dict[str, str] = {}
 FOTOS_DIR = ROOT / "06-fotos"
-FOTOS_HTML = "../06-fotos"
 # Datalab + Datathon social layouts only (no personal captions).
 STREAM_PHOTOS: dict[str, dict[str, str]] = {
     "03-datalab": {
         "linkedin": "engineer-cad-19895882.jpg",
         "feed": "field-engineer-laptop-442152.jpg",
-        "story": "city-mexico-21383930.jpg",
+        "story": "city-bogota-3579097.jpg",
     },
     "04-datathon": {
         "linkedin": "solar-bogota-8853505.jpg",
@@ -80,7 +76,7 @@ STREAMS = [
         "bullets": [
             "Datos ambientales accionables para decisiones locales",
             "CleantechHUB como custodio del ecosistema",
-            "Colaboración académica — [LOGO EXTERNADO]",
+            "Colaboración académica — Universidad Externado",
             "Hora y sede: PENDIENTE",
         ],
     },
@@ -126,7 +122,7 @@ COPY_FOOTER = textwrap.dedent("""
 ---
 **Estado:** Borrador — *Awaiting Gideon's approval* · NO publicar desde este PR.
 
-**Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · [LOGO EXTERNADO] = aliado académico (placeholder).
+**Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · Universidad Externado = aliado académico.
 
 **PENDIENTE operativo:** sede, hora de inicio, enlace RSVP, panelistas confirmados, reglas/premios del datathon, logos finales.
 """).strip()
@@ -148,7 +144,7 @@ def write_copy(stream: dict) -> None:
 
     {bullets.replace('- ', '')}
 
-    Trabajamos con **[LOGO AIR4U]** como socio de innovación; **CleantechHUB** actúa como custodio del enfoque y del ecosistema. Aliado académico: **[LOGO EXTERNADO]**.
+    Trabajamos con **[LOGO AIR4U]** como socio de innovación; **CleantechHUB** actúa como custodio del enfoque y del ecosistema. Aliado académico: **Universidad Externado**.
 
     Sede, hora y registro: **PENDIENTE**.
 
@@ -165,7 +161,7 @@ def write_copy(stream: dict) -> None:
     {stream["bullets"][0]}
     {stream["bullets"][1]}
 
-    Air4U · CleantechHUB · [LOGO EXTERNADO]
+    Air4U · CleantechHUB · Universidad Externado
 
     Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
@@ -181,7 +177,7 @@ def write_copy(stream: dict) -> None:
 
     {bullets}
 
-    **Air4U** (innovación) + **CleantechHUB** (custodio). **[LOGO EXTERNADO]**
+    **Air4U** (innovación) + **CleantechHUB** (custodio). **Universidad Externado**
 
     Confirmación de sede, horario y enlace: PENDIENTE.
 
@@ -191,7 +187,7 @@ def write_copy(stream: dict) -> None:
     whatsapp = textwrap.dedent(f"""
     ## WhatsApp / email (corto)
 
-    Hola — te compartimos la convocatoria *{title}* ({EVENT_SHORT}): {stream["headline"]}. {stream["bullets"][0]}. Air4U + CleantechHUB + [LOGO EXTERNADO]. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
+    Hola — te compartimos la convocatoria *{title}* ({EVENT_SHORT}): {stream["headline"]}. {stream["bullets"][0]}. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
     """).strip()
 
     body = f"# Copy ES — {sid}\n\n{linkedin}\n\n---\n\n{instagram}\n\n---\n\n{facebook}\n\n---\n\n{whatsapp}\n\n---\n\n{COPY_FOOTER}\n"
@@ -215,7 +211,7 @@ def write_copy_txt(stream: dict, folder: Path) -> None:
 
         Air4U — socio de innovación
         CleantechHUB — custodio
-        [LOGO EXTERNADO] — aliado académico
+        Universidad Externado — aliado académico
 
         Sede, hora y registro: confirmar con el equipo (pendiente de publicación).
 
@@ -235,20 +231,37 @@ def ensure_shared_assets() -> None:
         shutil.copy2(OPTION_A_DIR / "option-a-dark.png", DATALAB_OPTION_A["dark"])
 
 
+def data_uri_from_file(path: Path) -> str:
+    """Embed binary assets so headless Chrome rasterizes from any HTML depth."""
+    key = str(path.resolve())
+    if key in _DATA_URI_CACHE:
+        return _DATA_URI_CACHE[key]
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    uri = f"data:{mime};base64,{encoded}"
+    _DATA_URI_CACHE[key] = uri
+    return uri
+
+
 def datalab_logo_img(variant: str = "dark", height: int = 72) -> str:
     """Option A grid mark (+ wordmark in PNG). dark = on deep fields; light = on pale fields."""
-    src = DATALAB_HTML[variant if variant in DATALAB_HTML else "dark"]
+    key = variant if variant in DATALAB_OPTION_A else "dark"
+    path = DATALAB_OPTION_A[key]
+    src = data_uri_from_file(path)
     width = int(height * (480 / 120))
     return (
         f'<img class="datalab-logo" src="{src}" height="{height}" '
-        f'width="{width}" alt="Datalab" />'
+        f'width="{width}" alt="" />'
     )
 
 
 def cth_logo_img(height: int = 52) -> str:
+    src = data_uri_from_file(CTH_LOGO_SHARED)
     return (
-        f'<img class="cth-logo" src="{CTH_LOGO_HTML}" width="{int(height * 3.8)}" '
-        f'height="{height}" alt="CleantechHUB" />'
+        f'<img class="cth-logo" src="{src}" width="{int(height * 3.8)}" '
+        f'height="{height}" alt="" />'
     )
 
 
@@ -278,7 +291,7 @@ def photo_src(stream_id: str, layout: str) -> str | None:
     path = FOTOS_DIR / name
     if not path.is_file():
         return None
-    return f"{FOTOS_HTML}/{name}"
+    return data_uri_from_file(path)
 
 
 def photo_panel_html(src: str, overlay: str, opacity: float) -> str:

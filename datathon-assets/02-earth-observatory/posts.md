@@ -3,36 +3,34 @@
 Estado: borrador · Awaiting Gideon's approval · NO publicar.
 
 ## LinkedIn (largo)
-**Lanzamiento Observatorio de la Tierra** — martes 24 de noviembre de 2026
-
-Observatorio de la Tierra: Lanzamiento · martes 24 de noviembre de 2026
+**Observatorio de la Tierra** — martes 24 de noviembre de 2026
 
 • Datos ambientales accionables para decisiones locales
 • CleantechHUB como custodio del ecosistema
-• Colaboración académica — [LOGO EXTERNADO]
+• Colaboración académica — Universidad Externado
 • Hora y sede: PENDIENTE
 
-Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración académica: [LOGO EXTERNADO].
+Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración con Universidad Externado.
 
 Sede, hora y registro: PENDIENTE.
 
 #CleantechHUB #ClimateAction #Cleantech #ObservatorioDeLaTierra #Datalab #CalidadDelAire
 
 ## LinkedIn (corto)
-Observatorio de la Tierra · 24 · 11 · 2026. Datos ambientales accionables para decisiones locales Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
+Observatorio de la Tierra · 24 · 11 · 2026. Datos ambientales accionables para decisiones locales. Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
 
 ## Facebook
 Lanzamiento Observatorio de la Tierra — martes 24 de noviembre de 2026
 
-        Lanzamiento · martes 24 de noviembre de 2026
+Lanzamiento · martes 24 de noviembre de 2026
 
-        • Datos ambientales accionables para decisiones locales
+• Datos ambientales accionables para decisiones locales
 • CleantechHUB como custodio del ecosistema
-• Colaboración académica — [LOGO EXTERNADO]
+• Colaboración académica — Universidad Externado
 • Hora y sede: PENDIENTE
 
-        Air4U (innovación) + CleantechHUB (custodio) + [LOGO EXTERNADO].
-        Confirmación de sede, horario y enlace: PENDIENTE.
+Air4U (innovación) + CleantechHUB (custodio) + Universidad Externado.
+Confirmación de sede, horario y enlace: PENDIENTE.
 
 ## Instagram
 ### Caption
@@ -43,7 +41,7 @@ Observatorio de la Tierra 🌍
 Datos ambientales accionables para decisiones locales
 CleantechHUB como custodio del ecosistema
 
-Air4U · CleantechHUB · [LOGO EXTERNADO]
+Air4U · CleantechHUB · Universidad Externado
 Sede y hora: PENDIENTE.
 
 ### Hashtags
@@ -56,7 +54,7 @@ Pieza gráfica CleantechHUB: Observatorio de la Tierra, 24 · 11 · 2026. Logos 
 Observatorio de la Tierra · 24 · 11 · 2026. Datos ambientales accionables para decisiones locales… RSVP PENDIENTE. #CleantechHUB #Datalab #ClimateAction
 
 ## WhatsApp (grupo)
-Hola — convocatoria *Lanzamiento Observatorio de la Tierra* (24 · 11 · 2026): Observatorio de la Tierra. Datos ambientales accionables para decisiones locales Air4U + CleantechHUB + [LOGO EXTERNADO]. Sede/hora/RSVP: PENDIENTE.
+Hola — convocatoria *Lanzamiento Observatorio de la Tierra* (24 · 11 · 2026): Observatorio de la Tierra. Datos ambientales accionables para decisiones locales Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
 
 ## Email (blurb)
 Asunto sugerido: Observatorio de la Tierra · 24 · 11 · 2026

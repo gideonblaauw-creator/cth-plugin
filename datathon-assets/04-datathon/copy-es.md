@@ -11,7 +11,7 @@ Equipos multidisciplinarios — PENDIENTE (formato)
 Premios y criterios: PENDIENTE
 Inscripción: PENDIENTE
 
-    Trabajamos con **[LOGO AIR4U]** como socio de innovación; **CleantechHUB** actúa como custodio del enfoque y del ecosistema. Aliado académico: **[LOGO EXTERNADO]**.
+    Trabajamos con **[LOGO AIR4U]** como socio de innovación; **CleantechHUB** actúa como custodio del enfoque y del ecosistema. Aliado académico: **Universidad Externado**.
 
     Sede, hora y registro: **PENDIENTE**.
 
@@ -28,7 +28,7 @@ Datathon 🌍
 Construir sobre datos del Observatorio y Datalab
 Equipos multidisciplinarios — PENDIENTE (formato)
 
-Air4U · CleantechHUB · [LOGO EXTERNADO]
+Air4U · CleantechHUB · Universidad Externado
 
 Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
@@ -47,7 +47,7 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 - Premios y criterios: PENDIENTE
 - Inscripción: PENDIENTE
 
-    **Air4U** (innovación) + **CleantechHUB** (custodio). **[LOGO EXTERNADO]**
+    **Air4U** (innovación) + **CleantechHUB** (custodio). **Universidad Externado**
 
     Confirmación de sede, horario y enlace: PENDIENTE.
 
@@ -57,13 +57,13 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
 ## WhatsApp / email (corto)
 
-Hola — te compartimos la convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab. Air4U + CleantechHUB + [LOGO EXTERNADO]. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
+Hola — te compartimos la convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
 
 ---
 
 ---
 **Estado:** Borrador — *Awaiting Gideon's approval* · NO publicar desde este PR.
 
-**Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · [LOGO EXTERNADO] = aliado académico (placeholder).
+**Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · Universidad Externado = aliado académico.
 
 **PENDIENTE operativo:** sede, hora de inicio, enlace RSVP, panelistas confirmados, reglas/premios del datathon, logos finales.

@@ -131,18 +131,17 @@ def simplified_svg(stream: dict, w: int, h: int, label: str) -> str:
 def write_posts_md(stream: dict, folder: Path) -> None:
     title = stream["title"]
     bullets = stream["bullets"]
+    b0 = bullets[0].rstrip(".")
     li_long = textwrap.dedent(
         f"""
-        **{title}** — {EVENT_DATE}
-
-        {stream['headline']}: {stream['sub']}
+        **{stream['headline']}** — {EVENT_DATE}
 
         • {bullets[0]}
         • {bullets[1]}
         • {bullets[2]}
         • {bullets[3]}
 
-        Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración académica: [LOGO EXTERNADO].
+        Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración con Universidad Externado.
 
         Sede, hora y registro: PENDIENTE.
 
@@ -150,21 +149,17 @@ def write_posts_md(stream: dict, folder: Path) -> None:
         """
     ).strip()
     li_short = (
-        f"{stream['headline']} · {EVENT_SHORT}. {bullets[0]} "
+        f"{stream['headline']} · {EVENT_SHORT}. {b0}. "
         f"Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab"
     )
-    fb = textwrap.dedent(
-        f"""
-        {title} — {EVENT_DATE}
-
-        {stream['sub']}
-
-        {chr(10).join('• ' + b for b in bullets)}
-
-        Air4U (innovación) + CleantechHUB (custodio) + [LOGO EXTERNADO].
-        Confirmación de sede, horario y enlace: PENDIENTE.
-        """
-    ).strip()
+    fb_lines = "\n".join(f"• {b}" for b in bullets)
+    fb = (
+        f"{title} — {EVENT_DATE}\n\n"
+        f"{stream['sub']}\n\n"
+        f"{fb_lines}\n\n"
+        f"Air4U (innovación) + CleantechHUB (custodio) + Universidad Externado.\n"
+        f"Confirmación de sede, horario y enlace: PENDIENTE."
+    )
     ig_caption = textwrap.dedent(
         f"""
         {stream['headline']} 🌍
@@ -174,7 +169,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
         {bullets[0]}
         {bullets[1]}
 
-        Air4U · CleantechHUB · [LOGO EXTERNADO]
+        Air4U · CleantechHUB · Universidad Externado
         Sede y hora: PENDIENTE.
         """
     ).strip()
@@ -189,7 +184,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
     )[:280]
     wa = (
         f"Hola — convocatoria *{title}* ({EVENT_SHORT}): {stream['headline']}. "
-        f"{bullets[0]} Air4U + CleantechHUB + [LOGO EXTERNADO]. Sede/hora/RSVP: PENDIENTE."
+        f"{bullets[0]} Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE."
     )
     email = textwrap.dedent(
         f"""

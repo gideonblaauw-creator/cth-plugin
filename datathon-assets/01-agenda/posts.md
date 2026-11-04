@@ -3,36 +3,34 @@
 Estado: borrador · Awaiting Gideon's approval · NO publicar.
 
 ## LinkedIn (largo)
-**Agenda del evento** — martes 24 de noviembre de 2026
-
-Agenda · Observatorio de la Tierra: Soft launch de Datalab · 24 · 11 · 2026
+**Agenda · Observatorio de la Tierra** — martes 24 de noviembre de 2026
 
 • Panel de apertura — PENDIENTE (hora y panelistas)
 • Anuncio de Datalab (sandboxes + gobernanza de datos)
 • Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)
 • Breakouts tipo datathon — PENDIENTE (reglas y premios)
 
-Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración académica: [LOGO EXTERNADO].
+Air4U es socio de innovación; CleantechHUB actúa como custodio. Colaboración con Universidad Externado.
 
 Sede, hora y registro: PENDIENTE.
 
 #CleantechHUB #ClimateAction #Cleantech #ObservatorioDeLaTierra #Datalab #CalidadDelAire
 
 ## LinkedIn (corto)
-Agenda · Observatorio de la Tierra · 24 · 11 · 2026. Panel de apertura — PENDIENTE (hora y panelistas) Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
+Agenda · Observatorio de la Tierra · 24 · 11 · 2026. Panel de apertura — PENDIENTE (hora y panelistas). Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
 
 ## Facebook
 Agenda del evento — martes 24 de noviembre de 2026
 
-        Soft launch de Datalab · 24 · 11 · 2026
+Soft launch de Datalab · 24 · 11 · 2026
 
-        • Panel de apertura — PENDIENTE (hora y panelistas)
+• Panel de apertura — PENDIENTE (hora y panelistas)
 • Anuncio de Datalab (sandboxes + gobernanza de datos)
 • Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)
 • Breakouts tipo datathon — PENDIENTE (reglas y premios)
 
-        Air4U (innovación) + CleantechHUB (custodio) + [LOGO EXTERNADO].
-        Confirmación de sede, horario y enlace: PENDIENTE.
+Air4U (innovación) + CleantechHUB (custodio) + Universidad Externado.
+Confirmación de sede, horario y enlace: PENDIENTE.
 
 ## Instagram
 ### Caption
@@ -43,7 +41,7 @@ Agenda · Observatorio de la Tierra 🌍
 Panel de apertura — PENDIENTE (hora y panelistas)
 Anuncio de Datalab (sandboxes + gobernanza de datos)
 
-Air4U · CleantechHUB · [LOGO EXTERNADO]
+Air4U · CleantechHUB · Universidad Externado
 Sede y hora: PENDIENTE.
 
 ### Hashtags
@@ -56,7 +54,7 @@ Pieza gráfica CleantechHUB: Agenda · Observatorio de la Tierra, 24 · 11 · 20
 Agenda · Observatorio de la Tierra · 24 · 11 · 2026. Panel de apertura — PENDIENTE (hora y panelistas)… RSVP PENDIENTE. #CleantechHUB #Datalab #ClimateAction
 
 ## WhatsApp (grupo)
-Hola — convocatoria *Agenda del evento* (24 · 11 · 2026): Agenda · Observatorio de la Tierra. Panel de apertura — PENDIENTE (hora y panelistas) Air4U + CleantechHUB + [LOGO EXTERNADO]. Sede/hora/RSVP: PENDIENTE.
+Hola — convocatoria *Agenda del evento* (24 · 11 · 2026): Agenda · Observatorio de la Tierra. Panel de apertura — PENDIENTE (hora y panelistas) Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
 
 ## Email (blurb)
 Asunto sugerido: Agenda · Observatorio de la Tierra · 24 · 11 · 2026

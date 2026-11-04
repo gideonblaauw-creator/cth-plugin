@@ -1,4 +1,4 @@
-Datathon kit — stock photo credits (commercial use permitted). Do not identify people as named individuals.
+Datathon kit — stock photo credits (commercial use permitted). Do not identify people as named individuals. Do not describe people by nationality unless the source page states it.
 
 solar-bogota-8853505.jpg
 Source: https://www.pexels.com/photo/maintenance-man-standing-beside-a-solar-panel-8853505/
@@ -25,11 +25,11 @@ Source: https://www.pexels.com/photo/serious-ethnic-field-engineer-examining-har
 Photographer: Field Engineer (Pexels)
 License: Pexels License — https://www.pexels.com/license/
 
-city-mexico-21383930.jpg
-Source: https://www.pexels.com/photo/modern-office-buildings-in-city-21383930/
-Photographer: Israyosoy S. (Pexels)
+city-bogota-3579097.jpg
+Source: https://www.pexels.com/photo/aerial-view-of-city-buildings-3579097/
+Photographer: Alejandro Arango (Pexels)
 License: Pexels License — https://www.pexels.com/license/
-Location note: Mexico City, CDMX, Mexico (urban cleantech / city context)
+Location note (per Pexels): Bogotá, Colombia
 
 solar-roof-unsplash-ACnFSTBlnts.jpg
 Source: https://unsplash.com/photos/a-man-working-on-a-roof-with-a-power-drill-ACnFSTBlnts

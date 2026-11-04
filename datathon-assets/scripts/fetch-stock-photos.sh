@@ -25,9 +25,9 @@ fetch "https://images.pexels.com/photos/19895882/pexels-photo-19895882.jpeg?auto
 fetch "https://images.pexels.com/photos/442152/pexels-photo-442152.jpeg?auto=compress&cs=tinysrgb&w=1600" \
   "$OUT/field-engineer-laptop-442152.jpg"
 
-# Pexels — Mexico City skyline (urban cleantech context)
-fetch "https://images.pexels.com/photos/21383930/pexels-photo-21383930.jpeg?auto=compress&cs=tinysrgb&w=1600" \
-  "$OUT/city-mexico-21383930.jpg"
+# Pexels — Bogotá cityscape (urban context; location per Pexels page)
+fetch "https://images.pexels.com/photos/3579097/pexels-photo-3579097.jpeg?auto=compress&cs=tinysrgb&w=1600" \
+  "$OUT/city-bogota-3579097.jpg"
 
 # Unsplash License — solar rooftop install
 fetch "https://images.unsplash.com/photo-1635424825057-7fb6dcd651ef?auto=format&fit=crop&w=1600&q=80" \
