@@ -1,8 +1,8 @@
-# Copy ES — 03-datalab
+# Copy ES · 03-datalab
 
 ## LinkedIn (página CleantechHUB)
 
-    **Datalab soft launch** — martes 24 de noviembre de 2026
+    **Datalab soft launch**, martes 24 de noviembre de 2026
 
     Datalab: Datalab powered by CleantechHUB
 
@@ -30,7 +30,7 @@ Gobernanza de datos desde el diseño
 
 Air4U · CleantechHUB · Universidad Externado
 
-Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
+Sede y hora: PENDIENTE. Más info en bio: PENDIENTE.
 
 #CleantechHUB #Datalab #ObservatorioDeLaTierra #CalidadDelAire #DatosAmbientales #InnovaciónClimática
 
@@ -38,7 +38,7 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
 ## Facebook
 
-    Datalab soft launch — martes 24 de noviembre de 2026
+    Datalab soft launch, martes 24 de noviembre de 2026
 
     Datalab powered by CleantechHUB
 
@@ -57,12 +57,12 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
 ## WhatsApp / email (corto)
 
-Hola — te compartimos la convocatoria *Datalab soft launch* (24 · 11 · 2026): Datalab. Sandboxes para probar flujos reales de datos ambientales. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
+Hola, te compartimos la convocatoria *Datalab soft launch* (24 · 11 · 2026): Datalab. Sandboxes para probar flujos reales de datos ambientales. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
 
 ---
 
 ---
-**Estado:** Borrador — *Awaiting Gideon's approval* · NO publicar desde este PR.
+**Estado:** Borrador, *Awaiting Gideon's approval* · NO publicar desde este PR.
 
 **Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · Universidad Externado = aliado académico.
 

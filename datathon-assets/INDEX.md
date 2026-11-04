@@ -1,8 +1,8 @@
-# Datathon / Earth Observatory — comms kit index
+# Datathon / Earth Observatory, comms kit index
 
 **Marca:** Datalab powered by CleantechHUB (`Datalab` una palabra).
 **Evento ancla:** martes 24 de noviembre de 2026.
-**Estado:** borrador PR — NO publicar.
+**Estado:** borrador PR, NO publicar.
 
 ## Streams (5)
 
@@ -33,13 +33,13 @@ Por canal: `svg/`, `png/`, `jpg/` (+ `carousel.pdf` en carruseles). HTML fuente 
 
 ## Copy por stream
 
-`posts.md` — LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.
-`copy.txt` — texto plano legacy.
-`copy-es.md` — borrador extendido.
+`posts.md`: LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.
+`copy.txt`: texto plano legacy.
+`copy-es.md`: borrador extendido.
 
 ## Fotos stock (LatAm cleantech)
 
-`06-fotos/` — JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).
+`06-fotos/`: JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).
 
 ## Agenda impresa
 
@@ -51,7 +51,7 @@ Por canal: `svg/`, `png/`, `jpg/` (+ `carousel.pdf` en carruseles). HTML fuente 
 
 Regenerar: `fetch-stock-photos.sh` → `python3 build_assets.py` → `render-comms.sh` → `build-kit-zip.sh`.
 
-**Logo:** Option A grid — `brand/datalab-logo-2026-11/archive/logo/option-a.*`.
+**Logo:** Option A grid, `brand/datalab-logo-2026-11/archive/logo/option-a.*`.
 
 ## PENDIENTE (global)
 

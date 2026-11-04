@@ -9,9 +9,9 @@ Datalab soft launch
 • Fase inicial: cargas manuales (CSV/SQLite)
 • Registro y sede: PENDIENTE
 
-        Air4U — socio de innovación
-        CleantechHUB — custodio
-        Universidad Externado — aliado académico
+        Air4U, socio de innovación
+        CleantechHUB, custodio
+        Universidad Externado, aliado académico
 
         Sede, hora y registro: confirmar con el equipo (pendiente de publicación).
 

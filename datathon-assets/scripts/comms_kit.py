@@ -134,7 +134,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
     b0 = bullets[0].rstrip(".")
     li_long = textwrap.dedent(
         f"""
-        **{stream['headline']}** — {EVENT_DATE}
+        **{stream['headline']}**, {EVENT_DATE}
 
         • {bullets[0]}
         • {bullets[1]}
@@ -154,7 +154,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
     )
     fb_lines = "\n".join(f"• {b}" for b in bullets)
     fb = (
-        f"{title} — {EVENT_DATE}\n\n"
+        f"{title}, {EVENT_DATE}\n\n"
         f"{stream['sub']}\n\n"
         f"{fb_lines}\n\n"
         f"Air4U (innovación) + CleantechHUB (custodio) + Universidad Externado.\n"
@@ -183,7 +183,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
         f"RSVP PENDIENTE. #CleantechHUB #Datalab #ClimateAction"
     )[:280]
     wa = (
-        f"Hola — convocatoria *{title}* ({EVENT_SHORT}): {stream['headline']}. "
+        f"Hola, convocatoria *{title}* ({EVENT_SHORT}): {stream['headline']}. "
         f"{bullets[0]} Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE."
     )
     email = textwrap.dedent(
@@ -201,7 +201,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
     ctas = textwrap.dedent(
         """
         ### CTA 1
-        Registro: PENDIENTE — escríbenos para confirmar tu interés.
+        Registro: PENDIENTE, escríbenos para confirmar tu interés.
 
         ### CTA 2
         ¿Tu equipo trabaja datos ambientales? Contáctanos por mensaje directo.
@@ -210,7 +210,7 @@ def write_posts_md(stream: dict, folder: Path) -> None:
         Guarda la fecha · 24 · 11 · 2026 · Detalles operativos: PENDIENTE.
         """
     ).strip()
-    body = f"""# posts.md — {stream['id']}
+    body = f"""# posts.md · {stream['id']}
 
 Estado: borrador · Awaiting Gideon's approval · NO publicar.
 

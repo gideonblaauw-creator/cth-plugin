@@ -1,13 +1,13 @@
-# Copy ES — 04-datathon
+# Copy ES · 04-datathon
 
 ## LinkedIn (página CleantechHUB)
 
-    **Datathon** — martes 24 de noviembre de 2026
+    **Datathon**, martes 24 de noviembre de 2026
 
     Datathon: Breakouts colaborativos · 24 · 11 · 2026
 
     Construir sobre datos del Observatorio y Datalab
-Equipos multidisciplinarios — PENDIENTE (formato)
+Equipos multidisciplinarios: PENDIENTE (formato)
 Premios y criterios: PENDIENTE
 Inscripción: PENDIENTE
 
@@ -26,11 +26,11 @@ Datathon 🌍
 24 · 11 · 2026 · Datalab powered by CleantechHUB
 
 Construir sobre datos del Observatorio y Datalab
-Equipos multidisciplinarios — PENDIENTE (formato)
+Equipos multidisciplinarios: PENDIENTE (formato)
 
 Air4U · CleantechHUB · Universidad Externado
 
-Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
+Sede y hora: PENDIENTE. Más info en bio: PENDIENTE.
 
 #CleantechHUB #Datalab #ObservatorioDeLaTierra #CalidadDelAire #DatosAmbientales #InnovaciónClimática
 
@@ -38,12 +38,12 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
 ## Facebook
 
-    Datathon — martes 24 de noviembre de 2026
+    Datathon, martes 24 de noviembre de 2026
 
     Breakouts colaborativos · 24 · 11 · 2026
 
     - Construir sobre datos del Observatorio y Datalab
-- Equipos multidisciplinarios — PENDIENTE (formato)
+- Equipos multidisciplinarios: PENDIENTE (formato)
 - Premios y criterios: PENDIENTE
 - Inscripción: PENDIENTE
 
@@ -57,12 +57,12 @@ Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
 
 ## WhatsApp / email (corto)
 
-Hola — te compartimos la convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
+Hola, te compartimos la convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
 
 ---
 
 ---
-**Estado:** Borrador — *Awaiting Gideon's approval* · NO publicar desde este PR.
+**Estado:** Borrador, *Awaiting Gideon's approval* · NO publicar desde este PR.
 
 **Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · Universidad Externado = aliado académico.
 

@@ -62,10 +62,10 @@ STREAMS = [
         "headline": "Agenda · Observatorio de la Tierra",
         "sub": "Soft launch de Datalab · " + EVENT_SHORT,
         "bullets": [
-            "Panel de apertura — PENDIENTE (hora y panelistas)",
+            "Panel de apertura: PENDIENTE (hora y panelistas)",
             "Anuncio de Datalab (sandboxes + gobernanza de datos)",
-            "Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)",
-            "Breakouts tipo datathon — PENDIENTE (reglas y premios)",
+            "Demostración en vivo Air4U (~10–15 min) + preguntas (~15 min)",
+            "Breakouts tipo datathon: PENDIENTE (reglas y premios)",
         ],
     },
     {
@@ -76,7 +76,7 @@ STREAMS = [
         "bullets": [
             "Datos ambientales accionables para decisiones locales",
             "CleantechHUB como custodio del ecosistema",
-            "Colaboración académica — Universidad Externado",
+            "Colaboración académica: Universidad Externado",
             "Hora y sede: PENDIENTE",
         ],
     },
@@ -99,7 +99,7 @@ STREAMS = [
         "sub": "Breakouts colaborativos · " + EVENT_SHORT,
         "bullets": [
             "Construir sobre datos del Observatorio y Datalab",
-            "Equipos multidisciplinarios — PENDIENTE (formato)",
+            "Equipos multidisciplinarios: PENDIENTE (formato)",
             "Premios y criterios: PENDIENTE",
             "Inscripción: PENDIENTE",
         ],
@@ -113,14 +113,14 @@ STREAMS = [
             "Recorrido: flujo de datos → conjuntos → tablero",
             "Capas de madurez de datos (sin metáforas de metales)",
             "Métrica compartida: partículas por metro cúbico",
-            "Duración demo ~10–15 min + Q&A ~15 min — horario PENDIENTE",
+            "Duración demo ~10–15 min + preguntas ~15 min, horario PENDIENTE",
         ],
     },
 ]
 
 COPY_FOOTER = textwrap.dedent("""
 ---
-**Estado:** Borrador — *Awaiting Gideon's approval* · NO publicar desde este PR.
+**Estado:** Borrador, *Awaiting Gideon's approval* · NO publicar desde este PR.
 
 **Créditos:** Air4U = socio de innovación · CleantechHUB = custodio · Universidad Externado = aliado académico.
 
@@ -138,7 +138,7 @@ def write_copy(stream: dict) -> None:
     linkedin = textwrap.dedent(f"""
     ## LinkedIn (página CleantechHUB)
 
-    **{title}** — {EVENT_DATE}
+    **{title}**, {EVENT_DATE}
 
     {stream["headline"]}: {stream["sub"]}
 
@@ -163,7 +163,7 @@ def write_copy(stream: dict) -> None:
 
     Air4U · CleantechHUB · Universidad Externado
 
-    Sede y hora: PENDIENTE. Más info en bio — PENDIENTE.
+    Sede y hora: PENDIENTE. Más info en bio: PENDIENTE.
 
     #CleantechHUB #Datalab #ObservatorioDeLaTierra #CalidadDelAire #DatosAmbientales #InnovaciónClimática
     """).strip()
@@ -171,7 +171,7 @@ def write_copy(stream: dict) -> None:
     facebook = textwrap.dedent(f"""
     ## Facebook
 
-    {title} — {EVENT_DATE}
+    {title}, {EVENT_DATE}
 
     {stream["sub"]}
 
@@ -187,10 +187,10 @@ def write_copy(stream: dict) -> None:
     whatsapp = textwrap.dedent(f"""
     ## WhatsApp / email (corto)
 
-    Hola — te compartimos la convocatoria *{title}* ({EVENT_SHORT}): {stream["headline"]}. {stream["bullets"][0]}. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
+    Hola, te compartimos la convocatoria *{title}* ({EVENT_SHORT}): {stream["headline"]}. {stream["bullets"][0]}. Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE. ¿Te interesa asistir? Responde y te enviamos detalles cuando estén confirmados.
     """).strip()
 
-    body = f"# Copy ES — {sid}\n\n{linkedin}\n\n---\n\n{instagram}\n\n---\n\n{facebook}\n\n---\n\n{whatsapp}\n\n---\n\n{COPY_FOOTER}\n"
+    body = f"# Copy ES · {sid}\n\n{linkedin}\n\n---\n\n{instagram}\n\n---\n\n{facebook}\n\n---\n\n{whatsapp}\n\n---\n\n{COPY_FOOTER}\n"
     (folder / "copy-es.md").write_text(body, encoding="utf-8")
     write_copy_txt(stream, folder)
 
@@ -209,9 +209,9 @@ def write_copy_txt(stream: dict, folder: Path) -> None:
 
         {bullets}
 
-        Air4U — socio de innovación
-        CleantechHUB — custodio
-        Universidad Externado — aliado académico
+        Air4U, socio de innovación
+        CleantechHUB, custodio
+        Universidad Externado, aliado académico
 
         Sede, hora y registro: confirmar con el equipo (pendiente de publicación).
 
@@ -755,11 +755,11 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
 def agenda_print_html() -> str:
     blocks = [
         ("PENDIENTE", "Registro y bienvenida", "PENDIENTE (instrucciones de acceso)"),
-        ("PENDIENTE", "Panel de apertura", "Representantes académicos, territorio y aliados — panelistas PENDIENTE"),
+        ("PENDIENTE", "Panel de apertura", "Representantes académicos, territorio y aliados, panelistas PENDIENTE"),
         ("PENDIENTE", "Lanzamiento Observatorio de la Tierra", "Marco del observatorio y datos ambientales accionables"),
         ("PENDIENTE", "Anuncio Datalab", "Sandboxes + gobernanza · Datalab powered by CleantechHUB"),
         ("PENDIENTE", "Demo en vivo Air4U", "~10–15 min · flujo de datos → tablero · [LOGO AIR4U]"),
-        ("PENDIENTE", "Q&A demo", "~15 min"),
+        ("PENDIENTE", "Preguntas demo", "~15 min"),
         ("PENDIENTE", "Breakouts datathon", "Reglas y premios PENDIENTE"),
         ("PENDIENTE", "Cierre", "Próximos pasos PENDIENTE"),
     ]
@@ -869,11 +869,11 @@ def write_index(all_files: list[dict]) -> None:
         "Tercera fecha de pre-evento (si aplica fuera de este pack)",
     ]
     lines = [
-        "# Datathon / Earth Observatory — asset index",
+        "# Datathon / Earth Observatory, comms kit index",
         "",
         f"**Marca:** {BRAND_LINE} (`Datalab` una palabra).",
         f"**Evento ancla:** {EVENT_DATE}.",
-        "**Estado:** borrador PR — NO publicar.",
+        "**Estado:** borrador PR, NO publicar.",
         "",
         "## Archivos",
         "",
@@ -881,13 +881,13 @@ def write_index(all_files: list[dict]) -> None:
         "|---------|---------|-------|--------|",
     ]
     for row in sorted(all_files, key=lambda r: r["file"]):
-        png = row.get("png", "—")
-        pdf = row.get("pdf", "—")
-        extra = pdf if pdf != "—" else png
+        png = row.get("png", "-")
+        pdf = row.get("pdf", "-")
+        extra = pdf if pdf != "-" else png
         lines.append(f"| `{row['file']}` | `{extra}` | {row['channel']} | {row['size']} |")
 
     for stream in STREAMS:
-        lines.append(f"| `{stream['id']}/copy-es.md` | — | copy | ES |")
+        lines.append(f"| `{stream['id']}/copy-es.md` | - | copy | ES |")
 
     lines.extend(["", "## PENDIENTE (global)", ""])
     for p in pendientes:
@@ -908,7 +908,7 @@ def write_index(all_files: list[dict]) -> None:
             "",
             "## WhatsApp kit",
             "",
-            "`datathon-kit.zip` — por stream: subcarpetas de canal (`svg/`, `jpg/`, `png/` si cabe), `posts.md`, `copy.txt`; `06-fotos/` + `credits.txt`; `agenda-evento.pdf`. Regenerar: `fetch-stock-photos.sh`, `build_assets.py`, `render-comms.sh`, `build-kit-zip.sh`.",
+            "`datathon-kit.zip`: por stream, subcarpetas de canal (`svg/`, `jpg/`, `png/` si cabe), `posts.md`, `copy.txt`; `06-fotos/` + `credits.txt`; `agenda-evento.pdf`. Regenerar: `fetch-stock-photos.sh`, `build_assets.py`, `render-comms.sh`, `build-kit-zip.sh`.",
         ]
     )
     (ROOT / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -929,11 +929,11 @@ def write_comms_index() -> None:
         "Tercera fecha de pre-evento (si aplica fuera de este pack)",
     ]
     lines = [
-        "# Datathon / Earth Observatory — comms kit index",
+        "# Datathon / Earth Observatory, comms kit index",
         "",
         f"**Marca:** {BRAND_LINE} (`Datalab` una palabra).",
         f"**Evento ancla:** {EVENT_DATE}.",
-        "**Estado:** borrador PR — NO publicar.",
+        "**Estado:** borrador PR, NO publicar.",
         "",
         "## Streams (5)",
         "",
@@ -965,13 +965,13 @@ def write_comms_index() -> None:
             "",
             "## Copy por stream",
             "",
-            "`posts.md` — LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.",
-            "`copy.txt` — texto plano legacy.",
-            "`copy-es.md` — borrador extendido.",
+            "`posts.md`: LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.",
+            "`copy.txt`: texto plano legacy.",
+            "`copy-es.md`: borrador extendido.",
             "",
             "## Fotos stock (LatAm cleantech)",
             "",
-            "`06-fotos/` — JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).",
+            "`06-fotos/`: JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).",
             "",
             "## Agenda impresa",
             "",
@@ -983,7 +983,7 @@ def write_comms_index() -> None:
             "",
             "Regenerar: `fetch-stock-photos.sh` → `python3 build_assets.py` → `render-comms.sh` → `build-kit-zip.sh`.",
             "",
-            f"**Logo:** Option A grid — `brand/datalab-logo-2026-11/archive/logo/option-a.*`.",
+            f"**Logo:** Option A grid, `brand/datalab-logo-2026-11/archive/logo/option-a.*`.",
             "",
             "## PENDIENTE (global)",
             "",

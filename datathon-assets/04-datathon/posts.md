@@ -1,12 +1,12 @@
-# posts.md — 04-datathon
+# posts.md · 04-datathon
 
 Estado: borrador · Awaiting Gideon's approval · NO publicar.
 
 ## LinkedIn (largo)
-**Datathon** — martes 24 de noviembre de 2026
+**Datathon**, martes 24 de noviembre de 2026
 
 • Construir sobre datos del Observatorio y Datalab
-• Equipos multidisciplinarios — PENDIENTE (formato)
+• Equipos multidisciplinarios: PENDIENTE (formato)
 • Premios y criterios: PENDIENTE
 • Inscripción: PENDIENTE
 
@@ -20,12 +20,12 @@ Sede, hora y registro: PENDIENTE.
 Datathon · 24 · 11 · 2026. Construir sobre datos del Observatorio y Datalab. Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
 
 ## Facebook
-Datathon — martes 24 de noviembre de 2026
+Datathon, martes 24 de noviembre de 2026
 
 Breakouts colaborativos · 24 · 11 · 2026
 
 • Construir sobre datos del Observatorio y Datalab
-• Equipos multidisciplinarios — PENDIENTE (formato)
+• Equipos multidisciplinarios: PENDIENTE (formato)
 • Premios y criterios: PENDIENTE
 • Inscripción: PENDIENTE
 
@@ -39,7 +39,7 @@ Datathon 🌍
 24 · 11 · 2026 · Datalab powered by CleantechHUB
 
 Construir sobre datos del Observatorio y Datalab
-Equipos multidisciplinarios — PENDIENTE (formato)
+Equipos multidisciplinarios: PENDIENTE (formato)
 
 Air4U · CleantechHUB · Universidad Externado
 Sede y hora: PENDIENTE.
@@ -54,21 +54,21 @@ Pieza gráfica CleantechHUB: Datathon, 24 · 11 · 2026. Logos de aliados como p
 Datathon · 24 · 11 · 2026. Construir sobre datos del Observatorio y Datalab… RSVP PENDIENTE. #CleantechHUB #Datalab #ClimateAction
 
 ## WhatsApp (grupo)
-Hola — convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
+Hola, convocatoria *Datathon* (24 · 11 · 2026): Datathon. Construir sobre datos del Observatorio y Datalab Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
 
 ## Email (blurb)
 Asunto sugerido: Datathon · 24 · 11 · 2026
 
 Breakouts colaborativos · 24 · 11 · 2026
 
-Construir sobre datos del Observatorio y Datalab Equipos multidisciplinarios — PENDIENTE (formato)
+Construir sobre datos del Observatorio y Datalab Equipos multidisciplinarios: PENDIENTE (formato)
 
 Sede, hora y enlace de registro: PENDIENTE.
 CleantechHUB · Inspira. Actúa. Transforma.
 
 ## CTAs (variantes)
 ### CTA 1
-Registro: PENDIENTE — escríbenos para confirmar tu interés.
+Registro: PENDIENTE, escríbenos para confirmar tu interés.
 
 ### CTA 2
 ¿Tu equipo trabaja datos ambientales? Contáctanos por mensaje directo.

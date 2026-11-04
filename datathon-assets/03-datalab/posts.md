@@ -1,9 +1,9 @@
-# posts.md — 03-datalab
+# posts.md · 03-datalab
 
 Estado: borrador · Awaiting Gideon's approval · NO publicar.
 
 ## LinkedIn (largo)
-**Datalab** — martes 24 de noviembre de 2026
+**Datalab**, martes 24 de noviembre de 2026
 
 • Sandboxes para probar flujos reales de datos ambientales
 • Gobernanza de datos desde el diseño
@@ -20,7 +20,7 @@ Sede, hora y registro: PENDIENTE.
 Datalab · 24 · 11 · 2026. Sandboxes para probar flujos reales de datos ambientales. Sede/hora/RSVP: PENDIENTE. #CleantechHUB #Datalab
 
 ## Facebook
-Datalab soft launch — martes 24 de noviembre de 2026
+Datalab soft launch, martes 24 de noviembre de 2026
 
 Datalab powered by CleantechHUB
 
@@ -54,7 +54,7 @@ Pieza gráfica CleantechHUB: Datalab, 24 · 11 · 2026. Logos de aliados como pl
 Datalab · 24 · 11 · 2026. Sandboxes para probar flujos reales de datos ambientales… RSVP PENDIENTE. #CleantechHUB #Datalab #ClimateAction
 
 ## WhatsApp (grupo)
-Hola — convocatoria *Datalab soft launch* (24 · 11 · 2026): Datalab. Sandboxes para probar flujos reales de datos ambientales Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
+Hola, convocatoria *Datalab soft launch* (24 · 11 · 2026): Datalab. Sandboxes para probar flujos reales de datos ambientales Air4U + CleantechHUB + Universidad Externado. Sede/hora/RSVP: PENDIENTE.
 
 ## Email (blurb)
 Asunto sugerido: Datalab · 24 · 11 · 2026
@@ -68,7 +68,7 @@ CleantechHUB · Inspira. Actúa. Transforma.
 
 ## CTAs (variantes)
 ### CTA 1
-Registro: PENDIENTE — escríbenos para confirmar tu interés.
+Registro: PENDIENTE, escríbenos para confirmar tu interés.
 
 ### CTA 2
 ¿Tu equipo trabaja datos ambientales? Contáctanos por mensaje directo.
