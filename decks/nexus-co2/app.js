@@ -21,8 +21,12 @@
     unreachable: 22
   };
 
-  var LOG_MIN = Math.log10(Math.min.apply(null, ROWS.map(function (r) { return r.value_tco2e; })));
-  var LOG_MAX = Math.log10(Math.max.apply(null, ROWS.map(function (r) { return r.value_tco2e; })));
+  var VALUE_MIN = Math.min.apply(null, ROWS.map(function (r) { return r.value_tco2e; }));
+  var VALUE_MAX = Math.max.apply(null, ROWS.map(function (r) { return r.value_tco2e; }));
+  var LOG_MIN = Math.log10(VALUE_MIN);
+  var LOG_MAX = Math.log10(VALUE_MAX);
+  /** Inclusive upper log bound so range input step does not drop the largest claim. */
+  var LOG_MAX_SLIDER = Math.ceil(LOG_MAX * 100) / 100;
 
   function uniq(arr) {
     return arr.filter(function (v, i, a) { return a.indexOf(v) === i; }).sort();
@@ -65,8 +69,9 @@
     if (f.sector !== 'all' && row.sector !== f.sector) return false;
     if (f.theme !== 'all' && row.theme !== f.theme) return false;
     if (f.metric !== 'all' && row.metric_type !== f.metric) return false;
-    var logV = Math.log10(row.value_tco2e);
-    if (logV < f.logMin - 1e-6 || logV > f.logMax + 1e-6) return false;
+    var minV = Math.pow(10, f.logMin);
+    var maxV = Math.pow(10, f.logMax);
+    if (row.value_tco2e < minV * 0.999 || row.value_tco2e > maxV * 1.001) return false;
     return true;
   }
 
@@ -275,13 +280,13 @@
     var range = document.getElementById('f-range');
     var rangeMax = document.getElementById('f-range-max');
     range.min = String(LOG_MIN);
-    range.max = String(LOG_MAX);
+    range.max = String(LOG_MAX_SLIDER);
     range.step = '0.001';
     range.value = String(LOG_MIN);
     rangeMax.min = String(LOG_MIN);
-    rangeMax.max = String(LOG_MAX);
+    rangeMax.max = String(LOG_MAX_SLIDER);
     rangeMax.step = '0.001';
-    rangeMax.value = String(LOG_MAX);
+    rangeMax.value = String(LOG_MAX_SLIDER);
 
     ['f-country', 'f-sector', 'f-theme', 'f-metric', 'f-range', 'f-range-max'].forEach(function (id) {
       document.getElementById(id).addEventListener('input', function () {
@@ -302,7 +307,7 @@
       document.getElementById('f-theme').value = 'all';
       document.getElementById('f-metric').value = 'all';
       range.value = String(LOG_MIN);
-      rangeMax.value = String(LOG_MAX);
+      rangeMax.value = String(LOG_MAX_SLIDER);
       refresh();
     });
   }
