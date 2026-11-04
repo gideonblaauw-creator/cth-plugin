@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 627" width="1200" height="627" role="img" aria-label="CTH Data Lab soft launch social landscape">
+  <defs>
+    <style>
+      .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #0C498A; }
+      .sub { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #0C498A; }
+      .body { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #0C498A; }
+      .tag { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #669348; }
+      .slot { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 10px; fill: #0C498A; }
+      .ph { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 10px; fill: #0C498A; }
+      .side-wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 36px; fill: #FFFFFF; }
+    </style>
+  </defs>
+  <rect width="1200" height="627" fill="#B2EEFA"/>
+  <rect x="0" y="0" width="420" height="627" fill="#0C498A"/>
+  <g transform="translate(52, 120) scale(1.15)">
+    <g transform="translate(12, 22)">
+      <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
+      <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
+      <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#B2EEFA"/>
+      <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
+    </g>
+    <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" x="130" y="78">Data Lab</text>
+  </g>
+  <text class="head" font-size="56" x="460" y="120">CTH Data Lab</text>
+  <text class="sub" font-size="32" x="460" y="175">Soft launch &#183; Tue 24 Nov 2026</text>
+  <text class="body" font-size="26" x="460" y="240">Earth Observatory</text>
+  <text class="body" font-size="22" x="460" y="290">Data Lab sandboxes &#183; Data Governance</text>
+  <text class="body" font-size="20" x="460" y="340">Time: PENDIENTE &#183; Venue: PENDIENTE</text>
+  <text class="tag" font-size="22" x="460" y="400">Inspira. Act&#250;a. Transforma.</text>
+  <rect x="460" y="430" width="248" height="52" rx="6" fill="#FFFFFF" stroke="#0C498A" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text class="ph" x="468" y="452">CTH logo (official asset)</text>
+  <text class="ph" x="468" y="468">PENDIENTE</text>
+  <rect x="460" y="510" width="210" height="56" rx="6" fill="#FFFFFF" stroke="#0C498A" stroke-width="1"/>
+  <text class="slot" x="468" y="542">Externado logo PENDIENTE</text>
+  <rect x="690" y="510" width="210" height="56" rx="6" fill="#FFFFFF" stroke="#0C498A" stroke-width="1"/>
+  <text class="slot" x="698" y="542">Partner logo PENDIENTE</text>
+</svg>

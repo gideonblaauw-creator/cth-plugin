@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 148" width="560" height="148" role="img" aria-label="Data Dashboard · Datalab powered by CleantechHUB">
+  <defs>
+    <style>
+      .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 30px; fill: #0C498A; }
+      .end { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 13px; fill: #669348; }
+    </style>
+  </defs>
+  <g transform="translate(12, 18)">
+    <path d="M8 48 L44 64 L80 48 L44 32 Z" fill="#69B5FA"/>
+    <path d="M8 36 L44 52 L80 36 L44 20 Z" fill="#9DC384"/>
+    <path d="M8 24 L44 40 L80 24 L44 8 Z" fill="#0C498A"/>
+    <rect x="86" y="52" width="10" height="22" rx="2" fill="#0C498A"/>
+    <rect x="98" y="42" width="10" height="32" rx="2" fill="#669348"/>
+    <rect x="110" y="58" width="10" height="16" rx="2" fill="#69B5FA"/>
+  </g>
+  <rect x="56" y="88" width="16" height="6" rx="2" fill="#669348"/>
+  <text class="wm" x="130" y="72">Data Dashboard</text>
+  <text class="end" x="130" y="98">Datalab powered by CleantechHUB</text>
+</svg>

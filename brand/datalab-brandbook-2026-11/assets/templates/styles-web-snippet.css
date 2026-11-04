@@ -1,0 +1,14 @@
+:root {
+  --deep-blue: #0C498A;
+  --light-cyan: #B2EEFA;
+  --white: #FFFFFF;
+}
+body { margin: 0; font-family: 'Open Sans', sans-serif; }
+.dl-web-header { background: var(--white); border-bottom: 4px solid var(--deep-blue); padding: 0.75rem 1.5rem; }
+.dl-web-header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.dl-cth-slot { border: 2px dashed var(--deep-blue); padding: 0.5rem 1rem; font-size: 0.75rem; color: var(--deep-blue); border-radius: 4px; }
+.dl-hero { min-height: 320px; background: linear-gradient(0deg, rgba(12, 73, 138, 0.72), rgba(12, 73, 138, 0.72)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22%3E%3Crect fill=%22%23669348%22 width=%22400%22 height=%22200%22/%3E%3Ctext x=%2220%22 y=%22100%22 fill=%22%23fff%22 font-size=%2218%22%3EPhoto placeholder%3C/text%3E%3C/svg%3E') center/cover; display: flex; align-items: center; padding: 2rem; }
+.dl-hero-glass { background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(178, 238, 250, 0.6); backdrop-filter: blur(8px); padding: 1.5rem 2rem; border-radius: 12px; max-width: 640px; color: var(--white); }
+.dl-eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; }
+.dl-hero h1 { font-family: 'Titillium Web', sans-serif; margin: 0.5rem 0; }
+.dl-btn { display: inline-block; margin-top: 1rem; background: var(--light-cyan); color: var(--deep-blue); font-weight: 600; padding: 0.6rem 1.2rem; border-radius: 24px; text-decoration: none; }
