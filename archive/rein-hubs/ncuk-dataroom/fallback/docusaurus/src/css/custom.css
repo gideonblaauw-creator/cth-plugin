@@ -1,0 +1,22 @@
+:root {
+  --ifm-color-primary: #335d4f;
+  --ifm-color-primary-dark: #2e5447;
+  --ifm-color-primary-darker: #2b4f43;
+  --ifm-color-primary-darkest: #234137;
+  --ifm-color-primary-light: #386657;
+  --ifm-color-primary-lighter: #3a6b5b;
+  --ifm-color-primary-lightest: #437a68;
+  --ifm-color-secondary: #ff6633;
+  --ifm-font-color-base: #333333;
+  --ifm-navbar-background-color: #335d4f;
+  --ifm-navbar-link-color: #ffffff;
+  --ifm-footer-background-color: #335d4f;
+}
+
+a {
+  color: var(--ifm-color-secondary);
+}
+
+.navbar__title {
+  color: #ffffff;
+}

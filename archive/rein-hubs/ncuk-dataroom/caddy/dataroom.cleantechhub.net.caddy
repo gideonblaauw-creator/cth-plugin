@@ -1,0 +1,36 @@
+# Host site file — install to /etc/caddy/Caddyfile.d/dataroom.cleantechhub.net.caddy
+# Requires caddy.service EnvironmentFile (e.g. caddy.env from scripts/deploy-prep.sh):
+#   NCUK_ROOM_MODE=docmost|fallback
+#   NCUK_DOCMOST_UPSTREAM=127.0.0.1:3076
+#   NCUK_FALLBACK_ROOT=/path/to/docusaurus/build
+#   NCUK_FALLBACK_UPSTREAM=127.0.0.1:3077  (optional; used if set instead of file_server)
+
+dataroom.cleantechhub.net {
+	# No Basic Auth (Gideon 22 Oct 2026); Docmost login only
+	@mode_fallback expression {env.NCUK_ROOM_MODE} == "fallback"
+
+	handle @mode_fallback {
+		redir /ncuk /ncuk/ permanent
+
+		@use_fallback_proxy expression {env.NCUK_FALLBACK_UPSTREAM} != ""
+		handle @use_fallback_proxy {
+			reverse_proxy {env.NCUK_FALLBACK_UPSTREAM}
+		}
+
+		handle_path /ncuk/* {
+			root * {env.NCUK_FALLBACK_ROOT}
+			try_files {path} {path}/ /index.html
+			file_server
+		}
+		respond / "NCUK data room (fallback). Open /ncuk/" 200
+	}
+
+	handle {
+		redir /ncuk / 302
+		redir /ncuk/ / 302
+
+		reverse_proxy {env.NCUK_DOCMOST_UPSTREAM} {
+			header_up -Authorization
+		}
+	}
+}
