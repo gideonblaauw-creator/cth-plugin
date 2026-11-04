@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEL Builder — Find Your Monitoring, Evaluation & Learning Approach</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #1c1f2e; --ink-mid: #3d4060; --ink-light: #7a7d9a;
+  --teal: #2a7f6f; --teal-light: #e6f4f1; --teal-mid: #a8d8cf;
+  --amber-light: #fdf5e6; --indigo-light: #eef0fb;
+  --bg: #f7f6f3; --white: #fff; --border: #e0ddd5;
+  --radius: 12px; --radius-sm: 8px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.6; }
+
+/* ── HEADER ── */
+header {
+  background: #0f2a22; padding: 17px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-family: 'Lora', serif; font-size: 1.25rem; color: #fff; letter-spacing: -0.02em; cursor: pointer; }
+.logo span { color: var(--teal-mid); }
+.hright { display: flex; align-items: center; gap: 6px; }
+.nbtn {
+  background: transparent; border: 1.5px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.58); font-family: 'DM Sans', sans-serif;
+  font-size: 0.81rem; font-weight: 500; padding: 6px 15px;
+  border-radius: 100px; cursor: pointer; transition: all 0.2s;
+}
+.nbtn:hover { border-color: rgba(255,255,255,0.38); color: #fff; }
+.nbtn.on { background: rgba(255,255,255,0.09); border-color: var(--teal-mid); color: var(--teal-mid); }
+.nbtn-fb { background: rgba(42,127,111,0.18); border-color: rgba(42,127,111,0.48); color: var(--teal-mid); }
+.nbtn-fb:hover { background: rgba(42,127,111,0.32); }
+
+/* ── HERO ── */
+.hero {
+  background: #0f2a22; padding: 54px 40px 74px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 38px; background: var(--bg); border-radius: 38px 38px 0 0;
+}
+.eyebrow {
+  display: inline-block; background: rgba(42,127,111,0.2); color: var(--teal-mid);
+  font-size: 0.73rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+  padding: 5px 15px; border-radius: 100px; margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: 'Lora', serif; font-size: clamp(1.85rem, 5vw, 2.9rem);
+  color: #fff; font-weight: 500; line-height: 1.22; margin-bottom: 13px;
+  max-width: 620px; margin-left: auto; margin-right: auto;
+}
+.hero h1 em { color: var(--teal-mid); font-style: italic; }
+.hero p { color: rgba(255,255,255,0.56); font-size: 0.98rem; max-width: 480px; margin: 0 auto; }
+
+/* ── PROGRESS ── */
+.pbar {
+  display: flex; justify-content: center;
+  padding: 30px 40px 0; max-width: 460px; margin: 0 auto;
+}
+.pstep { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; }
+.pstep::before {
+  content: ''; position: absolute; top: 17px; left: 50%; right: -50%;
+  height: 2px; background: var(--border); z-index: 0; transition: background 0.4s;
+}
+.pstep:last-child::before { display: none; }
+.pstep.done::before { background: var(--teal); }
+.pcircle {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid var(--border); background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 600; color: var(--ink-light);
+  z-index: 1; transition: all 0.3s; position: relative;
+}
+.pstep.active .pcircle { border-color: var(--teal); background: var(--teal); color: #fff; box-shadow: 0 0 0 4px var(--teal-light); }
+.pstep.done .pcircle { border-color: var(--teal); background: var(--teal); color: #fff; }
+.plabel { font-size: 0.66rem; color: var(--ink-light); margin-top: 7px; font-weight: 500; text-align: center; max-width: 66px; }
+.pstep.active .plabel { color: var(--teal); font-weight: 600; }
+.pstep.done .plabel { color: var(--teal); }
+
+/* ── MAIN / STEPS ── */
+main { max-width: 740px; margin: 0 auto; padding: 14px 24px 80px; }
+.spanel { display: none; animation: fup 0.32s ease; }
+.spanel.active { display: block; }
+@keyframes fup { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.shead { padding: 34px 0 20px; }
+.stag { font-size: 0.71rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 7px; }
+.shead h2 { font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; line-height: 1.24; }
+.shead p { color: var(--ink-mid); font-size: 0.91rem; max-width: 520px; }
+
+/* ── QUESTIONS ── */
+.qg { margin-bottom: 26px; }
+.ql { font-weight: 600; font-size: 0.91rem; color: var(--ink); margin-bottom: 5px; }
+.qh { font-size: 0.8rem; color: var(--ink-light); margin-bottom: 10px; line-height: 1.5; }
+.mtag { display: inline-flex; font-size: 0.7rem; color: var(--teal); background: var(--teal-light); padding: 3px 10px; border-radius: 100px; margin-bottom: 10px; font-weight: 600; }
+
+/* ── OPTION CARDS ── */
+.grid { display: grid; gap: 8px; }
+.g2 { grid-template-columns: 1fr 1fr; }
+.g3 { grid-template-columns: 1fr 1fr 1fr; }
+.card {
+  border: 2px solid var(--border); border-radius: var(--radius-sm);
+  padding: 12px 14px; cursor: pointer; background: #fff;
+  transition: all 0.17s; text-align: left; position: relative;
+}
+.card:hover { border-color: var(--teal); background: var(--teal-light); }
+.card.on { border-color: var(--teal); background: var(--teal-light); }
+.ck {
+  position: absolute; top: 10px; right: 10px;
+  width: 19px; height: 19px; border-radius: 50%;
+  border: 2px solid var(--border); display: flex; align-items: center; justify-content: center;
+  transition: all 0.17s;
+}
+.card.on .ck { background: var(--teal); border-color: var(--teal); }
+.cki { display: none; }
+.card.on .cki { display: block; }
+.ct { font-weight: 600; font-size: 0.87rem; color: var(--ink); margin-bottom: 3px; padding-right: 24px; }
+.cd { font-size: 0.78rem; color: var(--ink-mid); line-height: 1.42; }
+
+/* ── BUTTONS ── */
+.nav { display: flex; justify-content: space-between; align-items: center; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--border); }
+.btn { padding: 11px 25px; border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif; font-size: 0.87rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+.bp { background: var(--teal); color: #fff; border-color: var(--teal); }
+.bp:hover { background: #1f6257; }
+.bp:disabled { background: var(--ink-light); border-color: var(--ink-light); cursor: not-allowed; }
+.bs { background: transparent; color: var(--ink-mid); border-color: var(--border); }
+.bs:hover { border-color: var(--ink-mid); color: var(--ink); }
+.blg { padding: 14px 32px; font-size: 0.95rem; }
+
+/* ── LOADING ── */
+.lwrap { max-width: 740px; margin: 0 auto; padding: 34px 24px; display: none; }
+.lcard { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 52px 40px; text-align: center; }
+.spin { width: 40px; height: 40px; border: 3px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ltxt { font-family: 'Lora', serif; font-size: 1.06rem; color: var(--ink); margin-bottom: 6px; }
+.lsub { font-size: 0.82rem; color: var(--ink-light); }
+
+/* ── METHOD CARDS ── */
+.mwrap { max-width: 740px; margin: 0 auto; padding: 14px 24px 60px; display: none; }
+.mcards { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+.mcard {
+  background: #fff; border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 19px 21px 48px; cursor: pointer; transition: all 0.2s; position: relative;
+}
+.mcard:hover { border-color: var(--teal); box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+.mcard.on { border-color: var(--teal); background: var(--teal-light); }
+.mbadge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 11px; border-radius: 100px; margin-bottom: 6px; }
+.bl { background: var(--amber-light); color: #b06000; }
+.bst { background: var(--teal-light); color: #1a5040; }
+.bid { background: var(--indigo-light); color: #3a46a0; }
+.mname { font-family: 'Lora', serif; font-size: 1.06rem; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.msrc { font-size: 0.76rem; color: var(--ink-light); margin-bottom: 9px; }
+.msrc a { color: var(--teal); text-decoration: none; }
+.msrc a:hover { text-decoration: underline; }
+.mwhy { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.54; margin-bottom: 9px; }
+.mmeta { display: flex; gap: 20px; flex-wrap: wrap; }
+.mmi { font-size: 0.78rem; color: var(--ink-light); }
+.mmi strong { color: var(--ink-mid); font-weight: 600; }
+.mselbtn {
+  position: absolute; bottom: 13px; right: 17px;
+  background: var(--teal); color: #fff; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 0.79rem; font-weight: 600;
+  padding: 6px 15px; border-radius: 100px; cursor: pointer;
+  opacity: 0; transform: translateY(3px); transition: all 0.18s;
+}
+.mcard:hover .mselbtn, .mcard.on .mselbtn { opacity: 1; transform: translateY(0); }
+.mcard.on .mselbtn { background: #1f6257; }
+
+/* ── REFINE ── */
+.rwrap { max-width: 740px; margin: 0 auto; padding: 14px 24px 60px; display: none; }
+.cbox {
+  background: var(--teal-light); border: 1px solid var(--teal-mid);
+  border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 24px; display: none;
+}
+.cbox-tag { font-size: 0.69rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+.cbox-name { font-family: 'Lora', serif; font-size: 1rem; font-weight: 500; color: var(--ink); }
+.cbox-link { font-size: 0.79rem; color: var(--ink-light); margin-top: 2px; }
+.cbox-link a { color: var(--teal); text-decoration: none; }
+
+.txt { width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 11px 13px; font-family: 'DM Sans', sans-serif; font-size: 0.87rem; color: var(--ink); background: #fff; resize: vertical; min-height: 76px; transition: border-color 0.2s; line-height: 1.5; }
+.txt:focus { outline: none; border-color: var(--teal); }
+
+/* ── PLAN ── */
+.pwrap { max-width: 740px; margin: 0 auto; padding: 14px 24px 80px; display: none; }
+.ptag { display: inline-flex; background: var(--teal-light); border: 1px solid var(--teal-mid); border-radius: var(--radius-sm); padding: 7px 14px; margin-bottom: 14px; font-size: 0.82rem; font-weight: 600; color: var(--teal); }
+#plan-content { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; line-height: 1.76; color: var(--ink); font-size: 0.88rem; }
+#plan-content h2 { font-family: 'Lora', serif; font-size: 1.22rem; font-weight: 500; color: var(--ink); margin: 24px 0 8px; padding-top: 18px; border-top: 1px solid var(--border); }
+#plan-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+#plan-content h3 { font-size: 0.82rem; font-weight: 700; color: var(--teal); margin: 15px 0 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+#plan-content p { margin-bottom: 9px; color: var(--ink-mid); }
+#plan-content ul, #plan-content ol { padding-left: 19px; margin-bottom: 10px; }
+#plan-content li { margin-bottom: 4px; color: var(--ink-mid); }
+#plan-content strong { color: var(--ink); }
+#plan-content a { color: var(--teal); }
+#plan-content hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+.rbar { margin-top: 26px; text-align: center; padding-top: 20px; border-top: 1px solid var(--border); }
+.rbar p { font-size: 0.82rem; color: var(--ink-light); margin-bottom: 10px; }
+
+/* ── ERROR ── */
+.ewrap { max-width: 740px; margin: 0 auto; padding: 20px 24px; display: none; }
+.ecard { background: #fff5f5; border: 1px solid #fccece; border-radius: var(--radius); padding: 20px; color: #c0392b; font-size: 0.87rem; }
+.ecard strong { display: block; margin-bottom: 5px; }
+
+/* ── ABOUT ── */
+#about { display: none; }
+#about.on { display: block; animation: fup 0.32s ease; }
+.awrap { max-width: 740px; margin: 0 auto; padding: 42px 24px 80px; }
+.asec { margin-bottom: 46px; }
+.asec h2 { font-family: 'Lora', serif; font-size: 1.45rem; font-weight: 500; color: var(--ink); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid var(--teal-light); }
+.asec p { color: var(--ink-mid); font-size: 0.91rem; line-height: 1.7; margin-bottom: 9px; }
+.asec p a { color: var(--teal); text-decoration: none; }
+.asec p a:hover { text-decoration: underline; }
+.hgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.hcard { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 17px; }
+.hnum { width: 29px; height: 29px; background: var(--teal); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.77rem; font-weight: 700; margin-bottom: 8px; }
+.hcard h4 { font-size: 0.84rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.hcard p { font-size: 0.78rem; color: var(--ink-mid); margin: 0; line-height: 1.48; }
+.cred { background: var(--teal-light); border: 1px solid var(--teal-mid); border-radius: var(--radius); padding: 17px 21px; display: flex; gap: 13px; margin-top: 13px; }
+.cred-icon { font-size: 1.6rem; flex-shrink: 0; }
+.cred p { color: var(--ink-mid); font-size: 0.85rem; margin: 0; }
+.cred a { color: var(--teal); }
+.agrid { display: flex; flex-direction: column; gap: 8px; margin-top: 13px; }
+.acard { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 13px 17px; transition: border-color 0.2s; }
+.acard:hover { border-color: var(--teal); }
+.ause { font-size: 0.69rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+.aname { font-weight: 600; font-size: 0.87rem; color: var(--ink); margin-bottom: 3px; }
+.adesc { font-size: 0.8rem; color: var(--ink-mid); line-height: 1.46; }
+.alink { display: inline-flex; margin-top: 5px; font-size: 0.76rem; color: var(--teal); text-decoration: none; font-weight: 500; }
+.alink:hover { text-decoration: underline; }
+
+/* ── FOOTER ── */
+footer { background: var(--ink); color: rgba(255,255,255,0.4); font-size: 0.76rem; padding: 24px 40px; text-align: center; line-height: 1.7; }
+footer a { color: var(--teal-mid); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.fcc { margin-bottom: 5px; }
+
+/* ── MODAL ── */
+.mbg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; align-items: center; justify-content: center; padding: 20px; }
+.mbg.on { display: flex; }
+.modal { background: #fff; border-radius: var(--radius); padding: 28px; max-width: 450px; width: 100%; position: relative; animation: fup 0.26s ease; }
+.modal h3 { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 4px; }
+.modal > p { font-size: 0.82rem; color: var(--ink-mid); margin-bottom: 16px; }
+.mx { position: absolute; top: 13px; right: 13px; background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--ink-light); }
+.mx:hover { color: var(--ink); }
+.fg { margin-bottom: 12px; }
+.fg label { display: block; font-size: 0.79rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.fg input, .fg textarea, .fg select { width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 8px 11px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--ink); background: var(--bg); transition: border-color 0.2s; resize: vertical; }
+.fg input:focus, .fg textarea:focus, .fg select:focus { outline: none; border-color: var(--teal); }
+.fg textarea { min-height: 82px; }
+.fok { text-align: center; padding: 16px 0; }
+.fok .oi { font-size: 2.2rem; margin-bottom: 9px; }
+.fok h4 { font-family: 'Lora', serif; font-size: 1.02rem; margin-bottom: 4px; }
+.fok p { font-size: 0.82rem; color: var(--ink-mid); }
+
+/* ── EXAMPLES ── */
+.ex-section { margin-top: 24px; }
+.ex-btn {
+  width: 100%; padding: 14px 20px; border-radius: var(--radius-sm);
+  border: 2px dashed var(--border); background: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+  color: var(--ink-mid); cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.ex-btn:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+.ex-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.ex-loading { text-align: center; padding: 28px; color: var(--ink-light); font-size: 0.85rem; display: none; }
+.ex-loading .spin { margin: 0 auto 12px; width: 32px; height: 32px; }
+#ex-content { display: none; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-top: 12px; font-size: 0.88rem; line-height: 1.72; }
+#ex-content h2 { font-family: 'Lora', serif; font-size: 1.18rem; font-weight: 500; color: var(--ink); margin: 22px 0 8px; padding-top: 16px; border-top: 1px solid var(--border); }
+#ex-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+#ex-content h3 { font-size: 0.82rem; font-weight: 700; color: var(--teal); margin: 14px 0 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+#ex-content p { margin-bottom: 9px; color: var(--ink-mid); }
+#ex-content ul { padding-left: 19px; margin-bottom: 10px; }
+#ex-content li { margin-bottom: 4px; color: var(--ink-mid); }
+#ex-content strong { color: var(--ink); }
+#ex-content a { color: var(--teal); word-break: break-word; }
+#ex-content hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+.ex-note { font-size: 0.75rem; color: var(--ink-light); text-align: center; margin-top: 8px; }
+
+@media (max-width: 600px) {
+  header { padding: 14px 17px; }
+  .hero { padding: 36px 17px 58px; }
+  main, .mwrap, .rwrap, .pwrap { padding-left: 15px; padding-right: 15px; }
+  .g2, .g3 { grid-template-columns: 1fr; }
+  .hgrid { grid-template-columns: 1fr; }
+}
+</style>
+
+<style id="cth-adapt-footer-style">
+#cth-adapt-footer{margin:24px auto 16px;max-width:960px;padding:12px 16px;font-size:12px;line-height:1.5;color:#475569;text-align:center;border-top:1px solid #e2e8f0;font-family:system-ui,sans-serif}
+#cth-adapt-footer a{color:#2D6A4F}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo" onclick="showPage('tool')">MEL<span>Builder</span></div>
+  <div class="hright">
+    <a href="https://aiappsforgood.org" target="_blank" class="nbtn" style="text-decoration:none;">AI Apps for Good ↗</a>
+    <button class="nbtn" id="nav-about" onclick="showPage('about')">About</button>
+    <button class="nbtn nbtn-fb" onclick="openFb()">Give feedback</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div id="hero-el" class="hero">
+  <div class="eyebrow">Monitoring, Evaluation &amp; Learning</div>
+  <h1>Find the right <em>MEL approach</em> for your organisation</h1>
+  <p>Two quick steps plus a few words about your org. AI-suggested MEL approaches matched to your context. A practical design guide — and real-world examples — for the one you choose.</p>
+</div>
+
+<!-- PROGRESS BAR -->
+<div id="prog-el" class="pbar">
+  <div class="pstep active" id="ps1"><div class="pcircle" id="pc1">1</div><div class="plabel">Situation</div></div>
+  <div class="pstep" id="ps2"><div class="pcircle" id="pc2">2</div><div class="plabel">Capacity</div></div>
+  <div class="pstep" id="ps3"><div class="pcircle" id="pc3">3</div><div class="plabel">Pick method</div></div>
+  <div class="pstep" id="ps4"><div class="pcircle" id="pc4">4</div><div class="plabel">Your plan</div></div>
+</div>
+
+<!-- STEPS -->
+<main id="main-el">
+
+  <!-- STEP 1 -->
+  <div class="spanel active" id="step-1">
+    <div class="shead">
+      <div class="stag">Step 1 of 2 — Your organisation</div>
+      <h2>Tell us about your work</h2>
+      <p>Three quick questions to help us understand your organisation, your MEL starting point, and what you need MEL to do.</p>
+    </div>
+
+    <div class="qg">
+      <div class="ql">What kind of work does your organisation primarily do?</div>
+      <div class="qh">This is the single biggest factor in choosing the right MEL approach.</div>
+      <div class="grid">
+        <div class="card" data-q="q0" data-v="service" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Direct service delivery</div>
+          <div class="cd">We work directly with beneficiaries — training, healthcare, legal aid, community services, or similar</div>
+        </div>
+        <div class="card" data-q="q0" data-v="advocacy" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Advocacy &amp; policy change</div>
+          <div class="cd">We try to change laws, regulations, or how government works — outcomes are slow and hard to attribute</div>
+        </div>
+        <div class="card" data-q="q0" data-v="systems" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Systems &amp; market change</div>
+          <div class="cd">We work to shift industry practices, financial flows, supply chains, or economic systems</div>
+        </div>
+        <div class="card" data-q="q0" data-v="capacity" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Capacity building &amp; training</div>
+          <div class="cd">We strengthen other organisations, communities, or networks — not direct service to end beneficiaries</div>
+        </div>
+        <div class="card" data-q="q0" data-v="research" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Research &amp; knowledge production</div>
+          <div class="cd">We generate evidence, data, or analysis to inform others — reports, policy briefs, tools, or field knowledge</div>
+        </div>
+        <div class="card" data-q="q0" data-v="multi" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Multi-mandate</div>
+          <div class="cd">We do several of the above — service delivery, advocacy, capacity building, and/or research in combination</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qg">
+      <div class="ql">What is your current MEL situation?</div>
+      <div class="qh">There's no point recommending a complex evaluation framework to an organisation that doesn't yet have basic monitoring in place.</div>
+      <div class="grid">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">We don't have MEL yet</div>
+          <div class="cd">We collect little or no data systematically — we need to start from scratch</div>
+        </div>
+        <div class="card" data-q="q1" data-v="weak" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">We have something but it's not working well</div>
+          <div class="cd">We track some things, but inconsistently — data doesn't really inform decisions</div>
+        </div>
+        <div class="card" data-q="q1" data-v="improve" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">We have MEL and want to strengthen it</div>
+          <div class="cd">Our system exists and works reasonably well — we want more depth or rigour</div>
+        </div>
+        <div class="card" data-q="q1" data-v="evaluate" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">We need to evaluate a specific project</div>
+          <div class="cd">A completed or ongoing project that needs a standalone evaluation — not our whole system</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qg">
+      <div class="ql">What is MEL for in your organisation?</div>
+      <div class="qh">Be honest — what are the real drivers? This isn't about what the answer should be. Most organisations have more than one.</div>
+      <div class="mtag">✦ Select all that apply</div>
+      <div class="grid g2">
+        <div class="card multi" data-q="q2" data-v="donor" onclick="selM(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Donor reporting</div>
+          <div class="cd">We need to demonstrate results to funders and meet grant requirements</div>
+        </div>
+        <div class="card multi" data-q="q2" data-v="learning" onclick="selM(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Internal learning</div>
+          <div class="cd">We want to understand what's working so we can improve our programs</div>
+        </div>
+        <div class="card multi" data-q="q2" data-v="adaptive" onclick="selM(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Adaptive management</div>
+          <div class="cd">We work in complex contexts and need data to adjust our approach in real time</div>
+        </div>
+        <div class="card multi" data-q="q2" data-v="impact" onclick="selM(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Demonstrating impact</div>
+          <div class="cd">We want credible evidence of impact for advocacy, fundraising, or the public</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav"><div></div><button class="btn bp" onclick="goTo(2)">Next →</button></div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="spanel" id="step-2">
+    <div class="shead">
+      <div class="stag">Step 2 of 2 — Your capacity</div>
+      <h2>What do you have to work with?</h2>
+      <p>The right MEL approach is one your team can actually sustain — not just set up and abandon.</p>
+    </div>
+
+    <div class="qg">
+      <div class="ql">How many programs or projects does your organisation run?</div>
+      <div class="qh">MEL design looks very different for a single-program organisation versus one running many programs simultaneously.</div>
+      <div class="grid g3">
+        <div class="card" data-q="q3" data-v="one" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Just one</div>
+          <div class="cd">All our work is a single focused program or project</div>
+        </div>
+        <div class="card" data-q="q3" data-v="few" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">2 – 5</div>
+          <div class="cd">A small portfolio of related or distinct programs</div>
+        </div>
+        <div class="card" data-q="q3" data-v="many" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">6 or more</div>
+          <div class="cd">We need MEL that works across a larger, more complex portfolio</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qg">
+      <div class="ql">How much can your organisation invest in MEL?</div>
+      <div class="qh">Include staff time, any budget for tools or external support, and realistic bandwidth alongside program delivery.</div>
+      <div class="grid g3">
+        <div class="card" data-q="q4" data-v="low" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Low</div>
+          <div class="cd">Small team, very limited time, no dedicated MEL staff or budget</div>
+        </div>
+        <div class="card" data-q="q4" data-v="medium" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">Medium</div>
+          <div class="cd">Some staff time available, small budget for tools or part-time support</div>
+        </div>
+        <div class="card" data-q="q4" data-v="high" onclick="sel(this)">
+          <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+          <div class="ct">High</div>
+          <div class="cd">Dedicated MEL staff or budget for an external consultant or system</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qg">
+      <div class="ql">Tell us about your organisation and what you want to monitor</div>
+      <div class="qh">The more specific you are here, the better your results — this field has more impact on output quality than any other. Include: what your org does, who your beneficiaries or targets are, the geographic and policy context, what data you already have, and what kind of report or deliverable you have in mind. A few specific sentences will produce a dramatically better plan than a vague paragraph.</div>
+      <textarea class="txt" id="org-context" placeholder="e.g. We advocate for stronger environmental protection laws in our region, working with affected communities, officials, and industry partners. We've been running for about 8 years across several countries. We currently track media mentions and meetings with policymakers, but nothing on our actual influence on policy. Our main funder wants evidence of our contribution to an upcoming piece of legislation."></textarea>
+    </div>
+
+    <div class="nav">
+      <button class="btn bs" onclick="goTo(1)">← Back</button>
+      <button class="btn bp blg" onclick="call1()">✦ Suggest MEL approaches →</button>
+    </div>
+  </div>
+
+</main>
+
+<!-- LOADING -->
+<div id="load-el" class="lwrap">
+  <div class="lcard">
+    <div class="spin"></div>
+    <div class="ltxt" id="ltxt">Analysing your context…</div>
+    <div class="lsub" id="lsub">Matching to the right MEL approaches</div>
+  </div>
+</div>
+
+<!-- ERROR -->
+<div id="err-el" class="ewrap">
+  <div class="ecard"><strong>Something went wrong.</strong><span id="emsg"></span><br><br><button class="btn bs" onclick="restart()">← Start again</button></div>
+</div>
+
+<!-- STEP 3: METHOD CARDS -->
+<div id="method-el" class="mwrap">
+  <div class="shead">
+    <div class="stag">Step 3 — Choose your MEL approach</div>
+    <h2>Recommended for your context</h2>
+    <p>Read through each option, then select the one you want to build a design guide for.</p>
+  </div>
+  <div class="mcards" id="mcard-wrap"></div>
+  <div class="nav" style="margin-top:18px;">
+    <button class="btn bs" onclick="goTo(2)">← Back</button>
+    <button class="btn bp" id="btn-next" disabled onclick="toRefine()">Use this approach →</button>
+  </div>
+</div>
+
+<!-- STEP 4a: QUICK REFINE -->
+<div id="refine-el" class="rwrap">
+  <div class="shead">
+    <div class="stag">Step 4 — Two quick questions</div>
+    <h2>Almost there</h2>
+    <p>Two practical questions that help us build a realistic, usable MEL design guide for you.</p>
+  </div>
+
+  <div id="cbox" class="cbox">
+    <div class="cbox-tag">Selected approach</div>
+    <div class="cbox-name" id="cname"></div>
+    <div class="cbox-link" id="clink"></div>
+  </div>
+
+  <div class="qg">
+    <div class="ql">Who will collect data in your organisation?</div>
+    <div class="mtag">✦ Select all that apply</div>
+    <div class="grid g2">
+      <div class="card multi" data-q="rc" data-v="programstaff" onclick="selM(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">Program staff</div>
+        <div class="cd">Field or program officers alongside their delivery work</div>
+      </div>
+      <div class="card multi" data-q="rc" data-v="melstaff" onclick="selM(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">Dedicated MEL staff</div>
+        <div class="cd">A person or team whose role is monitoring and evaluation</div>
+      </div>
+      <div class="card multi" data-q="rc" data-v="community" onclick="selM(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">Community members</div>
+        <div class="cd">Beneficiaries or community volunteers involved in data collection</div>
+      </div>
+      <div class="card multi" data-q="rc" data-v="external" onclick="selM(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">External consultant</div>
+        <div class="cd">A hired evaluator or researcher who comes in periodically</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qg">
+    <div class="ql">Roughly how many people does your work reach in total?</div>
+    <div class="grid g3">
+      <div class="card" data-q="rs" data-v="small" onclick="sel(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">Under 200</div>
+        <div class="cd">A small community or focused cohort</div>
+      </div>
+      <div class="card" data-q="rs" data-v="medium" onclick="sel(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">200 – 2,000</div>
+        <div class="cd">A district-level or mid-sized program</div>
+      </div>
+      <div class="card" data-q="rs" data-v="large" onclick="sel(this)">
+        <div class="ck"><svg class="cki" width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="ct">2,000+</div>
+        <div class="cd">Regional, national, or large-scale reach</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="qg">
+    <div class="ql">Anything else we should know? <span style="font-weight:400;color:var(--ink-light)">(optional)</span></div>
+    <div class="qh">Sector, context, language considerations, funder requirements, prior attempts at MEL, or anything that might shape the design.</div>
+    <textarea class="txt" id="r-extra" placeholder="e.g. We work in fragile contexts. Our funder requires quarterly reports. We tried a logframe once and it didn't stick. We work across 3 countries…"></textarea>
+  </div>
+
+  <div class="nav">
+    <button class="btn bs" onclick="toMethods()">← Back</button>
+    <button class="btn bp blg" onclick="call2()">✦ Build my MEL design guide</button>
+  </div>
+</div>
+
+<!-- PLAN -->
+<div id="plan-el" class="pwrap">
+  <div class="shead">
+    <div class="stag">Your MEL design guide</div>
+    <h2>Here's your plan</h2>
+    <p>A practical guide to setting up and running MEL in your organisation. Adapt it to your context.</p>
+  </div>
+  <div id="plan-tag" class="ptag"></div>
+  <div id="plan-content"></div>
+  <div class="ex-section">
+    <button class="ex-btn" id="ex-btn" onclick="callExamples()">
+      🔍 Find real-world examples of this approach
+    </button>
+    <div class="ex-loading" id="ex-loading">
+      <div class="spin" style="border: 3px solid var(--border); border-top-color: var(--teal); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+      Searching for published examples…
+    </div>
+    <div id="ex-content"></div>
+    <div class="ex-note" id="ex-note" style="display:none;">Results sourced live from the web via Perplexity. Always verify before citing.</div>
+  </div>
+
+  <div class="rbar">
+    <p>Want to try a different approach?</p>
+    <button class="btn bs" onclick="restart()">← Start again</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="awrap">
+
+    <div class="asec">
+      <h2>What is MEL Builder?</h2>
+      <p>MEL Builder is a free tool that helps nonprofit practitioners find the right approach to Monitoring, Evaluation and Learning (MEL) for their organisation — and get a practical design guide to implement it.</p>
+      <p>Most nonprofits struggle with MEL not because they lack commitment, but because the approach they're trying to use doesn't fit their capacity, context, or purpose. MEL Builder asks two focused steps of questions, suggests 2–3 well-matched MEL approaches, and then builds a step-by-step design guide for the one you choose.</p>
+      <p>It's a starting point — not a substitute for expert MEL support. But it's a structured, practical way to get unstuck.</p>
+    </div>
+
+    <div class="asec">
+      <h2>How it works</h2>
+      <div class="hgrid">
+        <div class="hcard"><div class="hnum">1</div><h4>Two steps of questions</h4><p>Your MEL situation, purpose, and capacity — all clickable cards. Then a short open text field to describe your organisation, beneficiaries, existing data, and what you have in mind for reporting.</p></div>
+        <div class="hcard"><div class="hnum">2</div><h4>AI suggests 2–3 approaches</h4><p>Matched to your specific context. Each card explains why the approach fits your situation, how long it takes to set up, and what it helps you understand.</p></div>
+        <div class="hcard"><div class="hnum">3</div><h4>You pick one &amp; refine</h4><p>Select the approach that fits best. Answer two quick questions — who collects data, and your total reach — plus an optional notes field for constraints or funder requirements.</p></div>
+        <div class="hcard"><div class="hnum">4</div><h4>You get a design guide + real examples</h4><p>A step-by-step MEL design guide: what to measure, data tools, review rhythm, roles, and a setup timeline. Plus an optional button to search for real published examples of the approach used by NGOs — sourced live from the web.</p></div>
+      </div>
+    </div>
+
+    <div class="asec">
+      <h2>Credit &amp; source</h2>
+      <div class="cred">
+        <div class="cred-icon">🌐</div>
+        <p>MEL approaches in this tool are drawn from <strong><a href="https://www.betterevaluation.org" target="_blank" rel="noopener">BetterEvaluation</a></strong> — a global open-access knowledge platform dedicated to improving evaluation practice. We link directly to their method pages and encourage users to explore the full library at <a href="https://www.betterevaluation.org/methods-approaches/approaches" target="_blank" rel="noopener">betterevaluation.org</a>.</p>
+      </div>
+    </div>
+
+    <div class="asec">
+      <h2>Evaluation approaches in this tool</h2>
+      <p>MEL Builder draws on the BetterEvaluation library. Below is the full set of approaches it may recommend, with a short description and direct link for each.</p>
+      <div class="agrid">
+        <div class="acard"><div class="ause">Organisational change &amp; culture</div><div class="aname">Appreciative Inquiry</div><div class="adesc">Focuses on strengths and successes rather than problems, using inquiry into "what works" to support change and learning.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/appreciative-inquiry" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Beneficiary perspectives</div><div class="aname">Beneficiary Assessment</div><div class="adesc">Assesses the value of an intervention as perceived by intended beneficiaries, giving voice to their priorities and concerns.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/beneficiary-assessment" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">In-depth understanding</div><div class="aname">Case Study</div><div class="adesc">Focuses on understanding a particular unit (person, site, project) in context using qualitative and/or quantitative data.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/case-study" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Adaptive MEL in complexity</div><div class="aname">Causal Link Monitoring</div><div class="adesc">Designs MEL systems that prioritise key causal links to support adaptive management in complex settings.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/causal-link-monitoring" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Impact with stakeholder review</div><div class="aname">Collaborative Outcomes Reporting</div><div class="adesc">Impact evaluation based on contribution analysis, adding expert and community review of evidence and conclusions.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/collaborative-outcomes-reporting" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Contribution to outcomes</div><div class="aname">Contribution Analysis</div><div class="adesc">Assesses how an intervention contributed to observed outcomes where direct causality is hard to demonstrate.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/contribution-analysis" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Innovation &amp; adaptation</div><div class="aname">Developmental Evaluation</div><div class="adesc">Embedded, iterative evaluation supporting ongoing learning and adaptation in complex or innovative initiatives.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/developmental-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Capacity to self-evaluate</div><div class="aname">Empowerment Evaluation</div><div class="adesc">Equips groups with tools and knowledge to monitor and evaluate their own performance over time.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/empowerment-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Stories of change</div><div class="aname">Most Significant Change</div><div class="adesc">Collects personal accounts of change, selects the most significant stories, and discusses why they matter.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/most-significant-change" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Retrospective contribution</div><div class="aname">Outcome Harvesting</div><div class="adesc">Collects evidence of outcomes, then works backwards to assess how an intervention contributed to them.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/outcome-harvesting" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Behavioural change tracking</div><div class="aname">Outcome Mapping</div><div class="adesc">Articulates a theory of change and tracks immediate behavioural changes plausibly leading to longer-term results.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/outcome-mapping" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Shared ownership</div><div class="aname">Participatory Evaluation</div><div class="adesc">Engages stakeholders, especially beneficiaries, in conducting and governing the evaluation.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/participatory-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Learning from outliers</div><div class="aname">Positive Deviance</div><div class="adesc">Identifies positive outliers with unusually good outcomes and learns how they achieved them.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/positive-deviance" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Narrative impact</div><div class="aname">Qualitative Impact Protocol (QuIP)</div><div class="adesc">Collects narrative causal statements directly from those affected to understand impact and contribution.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/qualitative-impact-protocol" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Fast assessment</div><div class="aname">Rapid Evaluation</div><div class="adesc">Quickly and systematically conducts an evaluation when time or resources are limited.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/rapid-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">What works, for whom, in what context</div><div class="aname">Realist Evaluation</div><div class="adesc">Identifies generative mechanisms and how context influences whether and how outcomes occur.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/realist-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Social value</div><div class="aname">Social Return on Investment (SROI)</div><div class="adesc">Identifies a broad range of social outcomes and assigns them monetary value for accountability and advocacy.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/social-return-on-investment" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard"><div class="ause">Maximising use</div><div class="aname">Utilisation-Focused Evaluation</div><div class="adesc">Uses the intended uses and primary users of an evaluation to guide all key design and implementation decisions.</div><a class="alink" href="https://www.betterevaluation.org/methods-approaches/approaches/utilisation-focused-evaluation" target="_blank" rel="noopener">↗ BetterEvaluation</a></div>
+        <div class="acard" style="border-color: var(--teal-mid); background: var(--teal-light);">
+          <div class="ause" style="color: var(--teal);">Advocacy, policy change &amp; systems change ✦ Featured</div>
+          <div class="aname">Laudes Foundation Rubrics</div>
+          <div class="adesc">A rubrics-based measurement framework developed by Laudes Foundation for organisations working on systems change — especially policy reform, climate action, financial sector change, and long-horizon advocacy work where outcomes are slow to materialise and impossible to count with simple metrics.<br><br>
+          The system uses 21 rubrics across four levels: <strong>Category A</strong> assesses process quality (design, implementation, monitoring, communication, capacity); <strong>Category B</strong> tracks early and intermediate systems change conditions (stakeholder-informed policies, investor pressure, multi-stakeholder movements, compelling narratives, worker voice, and more); <strong>Category C</strong> tracks medium-term outcomes (policymakers reforming, financial actors shifting, businesses transforming); <strong>Category D</strong> tracks long-term impact (bold policy frameworks, accountable finance, responsible industries).<br><br>
+          Each rubric is rated on a five-point scale: <em>Harmful → Unconducive → Partly Conducive → Conducive &amp; Supportive → Thrivable</em>. Organisations select 1–4 relevant rubrics from B and C that match their initiative, always add A5 (organisational capacity), establish a baseline, and re-assess at regular intervals — using mixed evidence from multiple sources. The rating describes the <em>state of the system</em> the organisation is working to change, not just the organisation's own outputs.<br><br>
+          The rubrics are purposefully generic so they work across sectors, geographies, and scales — and are available for free use by any organisation involved in systems change.</div>
+          <a class="alink" href="https://www.laudesfoundation.org/how-we-work/measuring-with-rubrics/" target="_blank" rel="noopener">↗ Laudes Foundation — Measuring with Rubrics</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="asec">
+      <h2>About Nonprofit Builder</h2>
+      <p>MEL Builder is a free resource by <a href="https://nonprofitbuilder.org" target="_blank" rel="noopener">Nonprofit Builder</a> — a capacity-building marketplace connecting foundations, nonprofits, and consultants globally. For MEL consulting, training, or capacity-building support, visit <a href="https://nonprofitbuilder.org" target="_blank" rel="noopener">nonprofitbuilder.org</a>.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FEEDBACK MODAL -->
+<div class="mbg" id="fb-modal" onclick="if(event.target===this)closeFb()">
+  <div class="modal">
+    <button class="mx" onclick="closeFb()">✕</button>
+    <div id="fb-form">
+      <h3>Share your feedback</h3>
+      <p>Help us improve MEL Compass.</p>
+      <div class="fg"><label>Your name (optional)</label><input type="text" id="fb-name" placeholder="Maria"></div>
+      <div class="fg"><label>Email (optional)</label><input type="email" id="fb-email" placeholder="you@org.org"></div>
+      <div class="fg"><label>Type</label>
+        <select id="fb-type">
+          <option value="general">General feedback</option>
+          <option value="bug">Something isn't working</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="accuracy">Accuracy of advice</option>
+        </select>
+      </div>
+      <div class="fg"><label>Feedback *</label><textarea id="fb-msg" placeholder="What worked? What could be better?"></textarea></div>
+      <button class="btn bp" style="width:100%;" onclick="sendFb()">Send feedback</button>
+    </div>
+    <div class="fok" id="fb-ok" style="display:none;">
+      <div class="oi">✅</div><h4>Thank you!</h4>
+      <p>We read every message and use it to improve the tool.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fcc">Content adapted from <a href="https://www.betterevaluation.org" target="_blank" rel="noopener">BetterEvaluation</a>, licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a>. MEL Builder is shared under the same licence.</div>
+  <div>Tool by <a href="https://nonprofitbuilder.org" target="_blank" rel="noopener">Nonprofit Builder</a> &nbsp;·&nbsp; Free to use with attribution &nbsp;·&nbsp; Not for commercial use</div>
+</footer>
+
+<script>
+let ans = {}, chosen = null, allM = null;
+const CHK = '<svg width="11" height="9" viewBox="0 0 11 9"><path d="M1 4.5l3.5 3.5L10 1" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const PANELS = ['hero-el','prog-el','main-el','load-el','err-el','method-el','refine-el','plan-el'];
+
+// ── API CONFIG ──
+const ANTHROPIC_URL = '/api/llm';
+const ANTHROPIC_MODEL = 'claude-sonnet-4-6';
+
+async function callAnthropic(messages, maxTokens) {
+  const r = await fetch(ANTHROPIC_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({ model: ANTHROPIC_MODEL, max_tokens: maxTokens, messages })
+  });
+  if (!r.ok) {
+    const errText = await r.text().catch(() => '');
+    throw new Error(`API error ${r.status}${errText ? ': ' + errText.slice(0,120) : ''}`);
+  }
+  return r.json();
+}
+
+const $ = id => document.getElementById(id);
+const hide = id => { const e=$(id); if(e) e.style.display='none'; };
+const show = id => { const e=$(id); if(e) e.style.display='block'; };
+const hideAll = () => PANELS.forEach(hide);
+
+// ── PAGE SWITCH ──
+function showPage(p) {
+  const about = $('about');
+  about.classList.toggle('on', p==='about');
+  
+  $('nav-about').classList.toggle('on', p==='about');
+  if(p==='tool') { show('hero-el'); show('prog-el'); show('main-el'); }
+  else hideAll();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── CARD SELECTION ──
+function sel(c) {
+  document.querySelectorAll('[data-q="'+c.dataset.q+'"]').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on');
+  ans[c.dataset.q] = c.dataset.v;
+}
+function selM(c) {
+  c.classList.toggle('on');
+  ans[c.dataset.q] = [...document.querySelectorAll('[data-q="'+c.dataset.q+'"].on')].map(x=>x.dataset.v);
+}
+
+// ── PROGRESS ──
+function setProg(a) {
+  for(let i=1;i<=4;i++) {
+    const p=$('ps'+i), c=$('pc'+i);
+    p.classList.remove('active','done');
+    if(i<a) { p.classList.add('done'); c.innerHTML=CHK; }
+    else if(i===a) { p.classList.add('active'); c.textContent=i; }
+    else c.textContent=i;
+  }
+}
+
+// ── STEP NAV ──
+function goTo(s) {
+  document.querySelectorAll('.spanel').forEach(p=>p.classList.remove('active'));
+  const p=$('step-'+s); if(p) p.classList.add('active');
+  setProg(s); hideAll(); show('hero-el'); show('prog-el'); show('main-el');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toMethods() {
+  hideAll(); show('hero-el'); show('prog-el'); show('method-el'); setProg(3);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toRefine() {
+  if(!chosen) return;
+  const url = chosen.slug === 'laudes-rubrics'
+    ? 'https://www.laudesfoundation.org/how-we-work/measuring-with-rubrics/'
+    : 'https://www.betterevaluation.org/methods-approaches/approaches/'+h(chosen.slug);
+  const label = chosen.slug === 'laudes-rubrics' ? 'Laudes Foundation ↗' : 'BetterEvaluation ↗';
+  $('cname').textContent = chosen.name;
+  $('clink').innerHTML = chosen.approach+' · <a href="'+url+'" target="_blank" rel="noopener">'+label+'</a>';
+  $('cbox').style.display = 'block';
+  hideAll(); show('hero-el'); show('prog-el'); show('refine-el'); setProg(4);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── CONTEXT STRING ──
+function ctx() {
+  const M = {
+    q0: { service:'direct service delivery', advocacy:'advocacy & policy change', systems:'systems & market change', capacity:'capacity building & training', research:'research & knowledge production', multi:'multi-mandate (service + advocacy + capacity + research)' },
+    q1: { none:'no MEL system yet', weak:'a weak/inconsistent MEL system', improve:'an existing MEL system to strengthen', evaluate:'a specific project needing standalone evaluation' },
+    q2: { donor:'donor reporting', learning:'internal learning', adaptive:'adaptive management in complex contexts', impact:'demonstrating impact publicly' },
+    q3: { one:'1 program', few:'2–5 programs', many:'6+ programs' },
+    q4: { low:'low (no dedicated MEL staff or budget)', medium:'medium (some staff time, small budget)', high:'high (dedicated MEL staff or external consultant)' }
+  };
+  const q2vals = Array.isArray(ans.q2) ? ans.q2 : (ans.q2 ? [ans.q2] : []);
+  const purposes = q2vals.map(v=>M.q2[v]).filter(Boolean);
+  const purposeStr = purposes.length ? purposes.join(', ') : '?';
+  return `Work type: ${M.q0[ans.q0]||'?'} | MEL situation: ${M.q1[ans.q1]||'?'} | Purpose(s) of MEL: ${purposeStr} | Programs: ${M.q3[ans.q3]||'?'} | Investment capacity: ${M.q4[ans.q4]||'?'} | Organisation context: ${$('org-context').value||'not provided'}`;
+}
+
+// ── PURPOSE HELPERS (multi-select q2) ──
+function purposeList() {
+  return Array.isArray(ans.q2) ? ans.q2 : (ans.q2 ? [ans.q2] : []);
+}
+function purposeNames() {
+  const L = { donor:'donor reporting', learning:'internal learning', adaptive:'adaptive management', impact:'demonstrating impact publicly' };
+  return purposeList().map(v=>L[v]).filter(Boolean);
+}
+
+// ── CALL 1: SUGGEST METHODS ──
+async function call1() {
+  hideAll(); show('hero-el'); show('prog-el'); show('load-el'); setProg(3);
+  $('ltxt').textContent = 'Finding the best MEL approaches…';
+  $('lsub').textContent = 'Matching your context to the right methods';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  const prompt = `You are an expert MEL advisor for nonprofits. Based on this organisation's context, suggest 2–3 MEL approaches from the BetterEvaluation library that are the best fit.
+
+CONTEXT: ${ctx()}
+
+IMPORTANT: This is about MEL system design, not just one-off evaluations. Prioritise approaches that can work as ongoing frameworks, not just single evaluations. Consider the full MEL spectrum: basic monitoring frameworks, participatory learning systems, outcome-focused approaches, adaptive management methods.
+
+MULTIPLE PURPOSES: The "Purpose(s) of MEL" field may list more than one driver. If it does, favour approaches that can credibly serve more than one of the listed purposes at once, and in each "why" make clear which of their purposes the approach serves. Note that accountability purposes (donor reporting, demonstrating impact publicly) and learning purposes (internal learning, adaptive management) pull in different directions; a good recommendation set should cover both if both are present.
+
+SPECIAL RULE — LAUDES RUBRICS: If the work type is "advocacy & policy change", "systems & market change", or "multi-mandate" — OR if the organisation context mentions climate, advocacy, policy reform, financial sector change, supply chain change, systemic change, or multi-stakeholder campaigning — you MUST include the Laudes Foundation Rubrics approach as one of your suggestions and position it first or second. It is specifically designed for slow-moving, hard-to-attribute change and is the best available framework for this work.
+
+AVAILABLE APPROACHES (use the exact names and slugs shown):
+- Most Significant Change | slug: most-significant-change
+- Outcome Mapping | slug: outcome-mapping
+- Outcome Harvesting | slug: outcome-harvesting
+- Participatory Evaluation | slug: participatory-evaluation
+- Developmental Evaluation | slug: developmental-evaluation
+- Utilisation-Focused Evaluation | slug: utilisation-focused-evaluation
+- Contribution Analysis | slug: contribution-analysis
+- Empowerment Evaluation | slug: empowerment-evaluation
+- Beneficiary Assessment | slug: beneficiary-assessment
+- Realist Evaluation | slug: realist-evaluation
+- Causal Link Monitoring | slug: causal-link-monitoring
+- Qualitative Impact Protocol (QuIP) | slug: qualitative-impact-protocol
+- Social Return on Investment (SROI) | slug: social-return-on-investment
+- Positive Deviance | slug: positive-deviance
+- Rapid Evaluation | slug: rapid-evaluation
+- Case Study | slug: case-study
+- Laudes Foundation Rubrics | slug: laudes-rubrics (source: https://www.laudesfoundation.org/how-we-work/measuring-with-rubrics/)
+
+Return ONLY a valid JSON array — no markdown, no fences. Each object:
+{"tier":"lean"|"standard"|"indepth","name":"Short evocative name (not just the approach name)","approach":"Approach name as listed above","slug":"slug as listed above","why":"2–3 sentences specific to their context — explain concretely why this fits their situation, capacity, and purpose","setup":"e.g. 4–6 weeks to set up","tells_you":"What this approach helps them understand or decide (1 sentence)"}
+
+Use "lean" for low-capacity orgs or those starting from scratch. Use "indepth" only if investment is medium or high. Be specific in "why" — no generic descriptions.`;
+
+  try {
+    const d = await callAnthropic([{role:'user',content:prompt}], 2000);
+    const raw = d.content.map(b=>b.text||'').join('').trim()
+      .replace(/^```[a-z]*\n?/i,'').replace(/\n?```$/,'').trim();
+    allM = JSON.parse(raw);
+    renderMethods(allM);
+    hideAll(); show('hero-el'); show('prog-el'); show('method-el'); setProg(3);
+    window.scrollTo({top:0,behavior:'smooth'});
+  } catch(e) { showErr(e.message); }
+}
+
+// ── RENDER METHOD CARDS ──
+function renderMethods(ms) {
+  const bc = {lean:'bl',standard:'bst',indepth:'bid'};
+  const bl = {lean:'⚡ Lean',standard:'✦ Standard',indepth:'◎ In-depth'};
+  function srcUrl(m) {
+    if(m.slug === 'laudes-rubrics') return 'https://www.laudesfoundation.org/how-we-work/measuring-with-rubrics/';
+    return 'https://www.betterevaluation.org/methods-approaches/approaches/'+h(m.slug);
+  }
+  function srcLabel(m) {
+    if(m.slug === 'laudes-rubrics') return 'Laudes Foundation ↗';
+    return 'BetterEvaluation ↗';
+  }
+  $('mcard-wrap').innerHTML = ms.map((m,i) => `
+    <div class="mcard" id="mc${i}" onclick="pickM(${i},this)">
+      <span class="mbadge ${bc[m.tier]||'bst'}">${bl[m.tier]||m.tier}</span>
+      <div class="mname">${h(m.name)}</div>
+      <div class="msrc">Based on: <a href="${srcUrl(m)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${h(m.approach)} — ${srcLabel(m)}</a></div>
+      <div class="mwhy">${h(m.why)}</div>
+      <div class="mmeta">
+        <div class="mmi"><strong>Setup time:</strong> ${h(m.setup)}</div>
+        <div class="mmi"><strong>Helps you:</strong> ${h(m.tells_you)}</div>
+      </div>
+      <button class="mselbtn">Select →</button>
+    </div>`).join('');
+}
+
+function pickM(i, el) {
+  document.querySelectorAll('.mcard').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  chosen = allM[i];
+  $('btn-next').disabled = false;
+}
+
+// ── CALL 2: BUILD PLAN ──
+async function call2() {
+  hideAll(); show('hero-el'); show('prog-el'); show('load-el'); setProg(4);
+  $('ltxt').textContent = 'Building your MEL design guide…';
+  $('lsub').textContent = 'Designing a practical plan for '+chosen.name;
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  const collectors = Array.isArray(ans.rc) ? ans.rc.join(', ') : 'not specified';
+  const reachMap = {small:'under 200 people',medium:'200–2,000 people',large:'2,000+ people'};
+
+  const isLaudes = chosen.slug === 'laudes-rubrics';
+  const sourceUrl = isLaudes
+    ? 'https://www.laudesfoundation.org/how-we-work/measuring-with-rubrics/'
+    : `https://www.betterevaluation.org/methods-approaches/approaches/${chosen.slug}`;
+
+  const laudesExtra = isLaudes ? `
+
+LAUDES RUBRICS — SPECIAL GUIDANCE:
+This is a rubrics-based approach, not an indicator-based one. Your design guide must walk the user through building their own rubric set. Use this detailed knowledge of the system:
+
+THE STRUCTURE:
+- 21 rubrics across 4 categories. Users select a small set (typically 3–5) relevant to their work.
+- Category A (Process): A1 Design, A2 Implementation, A3 Monitoring & Adaptation, A4 Communication & Learning, A5 Organisation & Network Capacity. Always include A5.
+- Category B (Early/intermediate systems change): B1 Stakeholder-informed policies, B2 Investor/financial pressure, B3 Progressive businesses leading, B4 Worker and producer voice, B5 Exposing and thwarting harm, B6 Multi-stakeholder movements, B7 Redefined value, B8 Compelling narratives.
+- Category C (Medium-term outcomes): C1 Policymakers reform/implement/enforce, C2 Financial actors use influence, C3 Business transformation, C4 Workers and producers claim rights.
+- Category D (Long-term impact 2030+): D1 Bold policy frameworks, D2 Accountable financial sector, D3 Responsible businesses, D4 Workers exercise power.
+
+THE RATING SCALE (5 levels, applied to each rubric):
+1. Harmful — actively making things worse
+2. Unconducive — not contributing to change, maintaining status quo
+3. Partly Conducive — some progress but significant gaps
+4. Conducive & Supportive — mostly working, minor gaps
+5. Thrivable — excellent, creating conditions for systemic change
+
+KEY PRINCIPLES:
+- Rubrics describe the STATE OF THE SYSTEM the org is trying to change — not just the org's own outputs
+- Each rating must be supported by evidence from MULTIPLE sources (at least 2, ideally contrasting)
+- The baseline is set at the start of the grant/initiative, then re-assessed at intervals (typically every 6–12 months)
+- Partners self-assess but discuss with funders/peers — this is a collaborative, not unilateral, process
+- Evidence can be qualitative or quantitative — the rubric doesn't require numbers, but does require specificity
+
+RECOMMENDED RUBRIC SELECTION BY WORK TYPE:
+- Advocacy & policy change: prioritise B1 (Stakeholder-informed policies), B6 (Multi-stakeholder movements), B8 (Compelling narratives), C1 (Policymakers reform)
+- Systems & market change: prioritise B2 (Investor/financial pressure), B3 (Progressive businesses), B7 (Redefined value), C2 or C3
+- Capacity building: prioritise A2 (Implementation), A5 (Organisational capacity), B4 (Worker/producer voice)
+- Research & knowledge: prioritise A4 (Communication & learning), B8 (Compelling narratives), B5 (Exposing harm)
+- Multi-mandate: select a mix of 2–3 B rubrics covering the main change pathways, plus A3 and A5
+Always include A5 regardless of work type.
+1. Which specific rubrics to select (recommend 3–5 from B/C most relevant to their work, plus A5 always)
+2. For each recommended rubric: a plain-English description of what each rating level looks like IN THEIR SPECIFIC CONTEXT (not the generic Laudes description)
+3. A suggested baseline assessment process (who does it, what evidence to gather, how to handle disagreement)
+4. A review rhythm — how often to re-assess and what to do with the results
+5. What "good evidence" looks like for their sector — specific examples of evidence types they should gather
+6. How to present rubric ratings in a funder report in a way that is honest and credible
+` : '';
+
+  const selPurposes = purposeNames();
+  const purposeExtra = selPurposes.length > 1 ? `
+
+MULTIPLE PURPOSES — IMPORTANT:
+This organisation uses MEL for more than one purpose: ${selPurposes.join(', ')}. A strong design must serve ALL of these, not just the easiest one. As you write the guide:
+- In "What to Measure" and "How to Collect Data", make sure the measures and methods deliberately serve every purpose listed. Where one measure can serve several purposes, say so explicitly; where a purpose needs its own data, name what it needs and why.
+- Be honest about the core tension between upward accountability (donor reporting / demonstrating impact publicly) and internal learning / adaptive management. Data gathered to satisfy funders often crowds out the data that actually helps the team learn and adapt. Give concrete advice on running ONE system that does both without doubling the team's workload.
+- In "Review and Learning Rhythm", show how a single data review can feed both a funder report and an internal learning or adaptation decision.
+- Add a section titled "## Balancing Your Purposes" near the end (before "One Honest Caution"). Name the main trade-off between their specific selected purposes and give 2–3 practical moves to manage it in their context and at their capacity level.` : (selPurposes.length === 1 ? `
+
+PURPOSE FOCUS: This organisation uses MEL mainly for: ${selPurposes[0]}. Keep the guide tightly oriented to this purpose throughout.` : '');
+
+  const prompt = `You are an expert MEL advisor. Write a practical MEL design guide for this nonprofit.
+
+CONTEXT: ${ctx()}
+
+CHOSEN APPROACH: ${chosen.name} (${chosen.approach})
+Source URL: ${sourceUrl}
+
+ADDITIONAL:
+- Who collects data: ${collectors}
+- Total reach: ${reachMap[ans.rs]||'not specified'}
+- Other context: ${$('r-extra').value||'none'}
+${laudesExtra}${purposeExtra}
+Write a practical, concrete MEL design guide. Speak as a skilled MEL advisor sitting with them — plain language, no jargon.
+
+Use ## headings for these sections:
+
+## What This Gives You
+One paragraph: what this MEL approach will do for their organisation and why it fits their situation.
+
+## What to Measure
+${isLaudes ? '3–5 recommended rubrics from the Laudes system (always include A5), with a plain-English explanation of what each rating level means for their specific context and work.' : '3–6 key things to track (outcomes, behaviours, or changes — not just outputs). For each, suggest one practical indicator.'}
+
+## How to Collect Data
+For each data collector they have available, specify: the method, how often, and a practical tip for making it work in their context.
+
+## ${isLaudes ? 'Evidence to Gather for Each Rubric' : 'Data Collection Tools to Build'}
+${isLaudes ? 'For each recommended rubric, list 3–4 specific types of evidence they should collect (documents, interviews, observation, data). Give examples relevant to their sector.' : 'List 3–4 specific tools or instruments they need to create. For the main one, provide 4–5 sample questions.'}
+
+## Review and Learning Rhythm
+How often should data be reviewed? Who should be in the room? What decisions should come out of each review cycle?
+
+## Setup Timeline
+Week-by-week for the first 6–8 weeks. What do they do to get this up and running?
+
+## Roles and Responsibilities
+Who does what. Keep it simple — name the roles even if it's the same person wearing multiple hats.
+
+## What Good Looks Like
+${isLaudes ? '3–4 signs that their rubric-based MEL system is working well. What would a "Conducive & Supportive" or "Thrivable" rating look like in their specific context?' : '3–4 signs that their MEL system is working well. Concrete, observable, realistic.'}
+
+## One Honest Caution
+The most common failure mode for this approach in a context like theirs — and how to avoid it.
+
+Plain language. Specific. Encouraging. This person may be setting up MEL for the first time.`;
+
+  try {
+    const d = await callAnthropic([{role:'user',content:prompt}], 8000);
+    const txt = d.content.map(b=>b.text||'').join('');
+    $('plan-tag').textContent = '✦ '+chosen.name+' · '+chosen.approach+(chosen.slug==='laudes-rubrics'?' · Laudes Foundation':' · BetterEvaluation');
+    $('plan-content').innerHTML = renderMd(txt);
+    hideAll(); show('hero-el'); show('prog-el'); show('plan-el'); setProg(4);
+    window.scrollTo({top:0,behavior:'smooth'});
+  } catch(e) { showErr(e.message); }
+}
+
+// ── MARKDOWN RENDERER ──
+function renderMd(t) {
+  return t
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/^## (.+)$/gm,'<h2>$1</h2>')
+    .replace(/^### (.+)$/gm,'<h3>$1</h3>')
+    .replace(/^---+$/gm,'<hr>')
+    .replace(/^\d+\. (.+)$/gm,'<li>$1</li>')
+    .replace(/^[-•] (.+)$/gm,'<li>$1</li>')
+    .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, m=>'<ul>'+m+'</ul>')
+    .replace(/\n\n/g,'</p><p>')
+    .replace(/^(?!<[hul\/]|<p|<hr)(.+)$/gm,'<p>$1</p>')
+    .replace(/(https:\/\/www\.betterevaluation\.org\/[^\s<"&]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+}
+
+function h(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function showErr(msg) {
+  hideAll(); show('hero-el'); show('prog-el'); show('err-el');
+  const isCors = !msg || msg.toLowerCase().includes('fetch') || msg.toLowerCase().includes('network') || msg.toLowerCase().includes('failed');
+  const detail = isCors
+    ? 'Network error — the browser blocked the API request (CORS). When hosted on your own domain, this tool needs to run through your Hetzner proxy. Check that the /api/llm proxy is reachable.'
+    : msg;
+  $('emsg').innerHTML = '<br><span style="font-size:0.82rem;display:block;margin-top:6px;line-height:1.5;">'+h(detail)+'</span>';
+}
+
+function restart() {
+  ans={}; chosen=null; allM=null;
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('on'));
+  $('r-extra').value='';
+  $('org-context').value='';
+  $('ex-btn').style.display='flex';
+  $('ex-loading').style.display='none';
+  $('ex-content').style.display='none';
+  $('ex-content').innerHTML='';
+  $('ex-note').style.display='none';
+  $('btn-next').disabled=true;
+  $('mcard-wrap').innerHTML='';
+  $('plan-content').innerHTML='';
+  $('cbox').style.display='none';
+  hideAll(); show('hero-el'); show('prog-el'); show('main-el');
+  document.querySelectorAll('.spanel').forEach(p=>p.classList.remove('active'));
+  $('step-1').classList.add('active'); setProg(1);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── CALL 3: PERPLEXITY EXAMPLES ──
+async function callExamples() {
+  const btn = $('ex-btn');
+  const loading = $('ex-loading');
+  const content = $('ex-content');
+  const note = $('ex-note');
+  btn.style.display = 'none';
+  loading.style.display = 'none';
+  content.style.display = 'block';
+  note.style.display = 'block';
+  content.innerHTML = '<p><strong>Real-world example search is not available</strong> on this CleantechHUB self-hosted copy (Perplexity step disabled).</p>';
+}
+
+// ── FEEDBACK ──
+function openFb() { $('fb-modal').classList.add('on'); $('fb-form').style.display='block'; $('fb-ok').style.display='none'; }
+function closeFb() { $('fb-modal').classList.remove('on'); }
+async function sendFb() {
+  alert('Feedback is disabled on this self-hosted copy. Contact your CleantechHUB admin.');
+}
+</script>
+</body>
+</html>

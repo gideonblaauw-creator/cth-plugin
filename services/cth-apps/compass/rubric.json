@@ -1,0 +1,522 @@
+{
+  "app": "compass",
+  "framework": "Prioritisation game (80 projects / 14 themes) or Ask Claude three-question roadmap",
+  "paths": [
+    "prioritisation_game",
+    "ask_claude_three_questions",
+    "browse_catalog"
+  ],
+  "ask_claude_questions": [
+    {
+      "id": "ask_q1",
+      "text": "Describe the organisation you are working to build."
+    },
+    {
+      "id": "ask_q2",
+      "text": "What is currently holding you back?"
+    },
+    {
+      "id": "ask_q3",
+      "text": "Of those things holding you back, what is your top priority to work on right now?"
+    }
+  ],
+  "project_count": 80,
+  "categories": [
+    "Communications & Advocacy",
+    "Executive Coaching",
+    "Financials",
+    "Fundraising & Sustainability",
+    "Governance & Board",
+    "Human Resources",
+    "Impact & Engagement",
+    "Leadership and Management",
+    "Operations & Systems",
+    "People, Leadership, & Culture",
+    "Risk & Compliance",
+    "Strategy",
+    "Team and Culture",
+    "Technology Systems"
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "category": "Strategy",
+      "name": "Strategic Plan Development & Facilitation",
+      "painPoint": "You are engaged in many good activities, but they don't add up to a coherent or powerful strategic direction."
+    },
+    {
+      "id": 2,
+      "category": "Strategy",
+      "name": "Write a business plan for a new initiative or organization overall",
+      "painPoint": "You have a game-changing idea for a new venture, but you can't get it on paper in a way that funders will take seriously."
+    },
+    {
+      "id": 3,
+      "category": "People, Leadership, & Culture",
+      "name": "Develop a growth and change roadmap",
+      "painPoint": "You are growing fast and your old ways of working are starting to break."
+    },
+    {
+      "id": 4,
+      "category": "Strategy",
+      "name": "Theory of Change (ToC) Development",
+      "painPoint": "You have a strong belief that your work leads to impact, but you have never been explicit about why and how you think this will happen."
+    },
+    {
+      "id": 5,
+      "category": "Strategy",
+      "name": "Run an adaptive strategy workshop",
+      "painPoint": "Your strategy feels stale and you need to adapt to a changing environment."
+    },
+    {
+      "id": 6,
+      "category": "Strategy",
+      "name": "Facilitate a systems thinking workshop",
+      "painPoint": "You are stuck solving symptoms instead of addressing the root cause of your challenges."
+    },
+    {
+      "id": 7,
+      "category": "Strategy",
+      "name": "Align programming to a new ToC",
+      "painPoint": "Your programs are not fully aligned with your new strategic direction or Theory of Change."
+    },
+    {
+      "id": 8,
+      "category": "Strategy",
+      "name": "Team retreat",
+      "painPoint": "Your team needs time to reconnect, reflect, and realign around shared goals following change, conflict, growth, or remote/hybrid transitions."
+    },
+    {
+      "id": 9,
+      "category": "Operations & Systems",
+      "name": "Project Management Framework (PMO Lite)",
+      "painPoint": "Your project timelines are constantly slipping, and everything feels rushed and last-minute."
+    },
+    {
+      "id": 10,
+      "category": "Operations & Systems",
+      "name": "Project Management Skills Boost",
+      "painPoint": "Your team seems incredibly busy all the time, but you are not making progress on your most important strategic goals."
+    },
+    {
+      "id": 11,
+      "category": "Operations & Systems",
+      "name": "Redesign your org chart and roles",
+      "painPoint": "Your organizational chart is a rigid pyramid that stifles innovation and cross-team collaboration. You've outgrown the flat structure you started with or you're expanding into new subject areas/ geographies, or the organisation has become too silo'd."
+    },
+    {
+      "id": 12,
+      "category": "Operations & Systems",
+      "name": "Improve team productivity and time use",
+      "painPoint": "Your team seems incredibly busy all the time, but you are not making progress on your most important strategic goals."
+    },
+    {
+      "id": 13,
+      "category": "Operations & Systems",
+      "name": "Support cross-team collaboration and role clarity",
+      "painPoint": "Different departments feel like they're working in silos and don't communicate youll."
+    },
+    {
+      "id": 14,
+      "category": "Operations & Systems",
+      "name": "Clarify decision-making authority",
+      "painPoint": "There's no clarity on decision-making authority, so even small decisions get escalated to the top."
+    },
+    {
+      "id": 15,
+      "category": "Operations & Systems",
+      "name": "Improve internal workflows",
+      "painPoint": "It feels like simple tasks require too many approvals and too much paperwork."
+    },
+    {
+      "id": 16,
+      "category": "Operations & Systems",
+      "name": "Set up a new organisation",
+      "painPoint": "You are setting up a new organisation but you don't know where or how to go about it"
+    },
+    {
+      "id": 17,
+      "category": "Governance & Board",
+      "name": "Strengthen board oversight and effectiveness",
+      "painPoint": "The board avoids difficult conversations about financial sustainability or underperforming programs."
+    },
+    {
+      "id": 18,
+      "category": "Governance & Board",
+      "name": "Board reporting, data and information",
+      "painPoint": "Your Board feels it does not have the right information to function properly"
+    },
+    {
+      "id": 19,
+      "category": "Governance & Board",
+      "name": "Effective Board Meetings and Decision-Making",
+      "painPoint": "Your board meetings feel unproductive or decisions are delayed or unclear."
+    },
+    {
+      "id": 20,
+      "category": "Governance & Board",
+      "name": "Succession Planning for Board Leadership",
+      "painPoint": "Your board chair or key members may step down soon, and there’s no clear successor."
+    },
+    {
+      "id": 21,
+      "category": "Governance & Board",
+      "name": "Governance for Growing Organizations",
+      "painPoint": "Your organization has grown and your governance structures haven’t kept up."
+    },
+    {
+      "id": 22,
+      "category": "Governance & Board",
+      "name": "Governance for a new organisation",
+      "painPoint": "Your new organisation needs a board and you don't know how or why to set one up"
+    },
+    {
+      "id": 23,
+      "category": "Governance & Board",
+      "name": "Aligned vision for governance",
+      "painPoint": "There are diffferent views on the Board on what the role of the Board is and how it should operate"
+    },
+    {
+      "id": 24,
+      "category": "Governance & Board",
+      "name": "Tension between Board and the Executive",
+      "painPoint": "There is palpable tension between (parts of) the Board and the Executive, on key matters that need resolving"
+    },
+    {
+      "id": 25,
+      "category": "Governance & Board",
+      "name": "Facilitate board review",
+      "painPoint": "There's no formal process for evaluating the performance of the board itself."
+    },
+    {
+      "id": 26,
+      "category": "Human Resources",
+      "name": "Compensation & Benefits Framework",
+      "painPoint": "There are pay discrepancies between people doing similar work that seem to have no logical justification."
+    },
+    {
+      "id": 27,
+      "category": "Human Resources",
+      "name": "Build a talent development framework",
+      "painPoint": "You don't invest in the professional development of your staff, and people feel like their careers are stagnating."
+    },
+    {
+      "id": 28,
+      "category": "Human Resources",
+      "name": "Develop HR policies and procedures",
+      "painPoint": "Your employee policies are outdated, incomplete, and not easily accessible to staff."
+    },
+    {
+      "id": 29,
+      "category": "Human Resources",
+      "name": "Support recruitment and onboarding improvements",
+      "painPoint": "Your hiring process is ad-hoc and inconsistent, and you frequently make bad hires."
+    },
+    {
+      "id": 30,
+      "category": "Human Resources",
+      "name": "Create a remote onboarding experience",
+      "painPoint": "Your onboarding process for new hires is disorganized, especially for remote staff."
+    },
+    {
+      "id": 31,
+      "category": "Leadership and Management",
+      "name": "Conduct a 360-degree leadership review",
+      "painPoint": "You know you have blind spots that are impacting your team, but I don't know what they are."
+    },
+    {
+      "id": 32,
+      "category": "Leadership and Management",
+      "name": "Management Skills Development Program",
+      "painPoint": "Your managers were promoted because they were good at their jobs, not because they are good at managing people."
+    },
+    {
+      "id": 33,
+      "category": "Leadership and Management",
+      "name": "Develop a personal leadership growth plan",
+      "painPoint": "You feel like I've hit a plateau in your development as a leader."
+    },
+    {
+      "id": 34,
+      "category": "Leadership and Management",
+      "name": "Develop a leadership succession plan",
+      "painPoint": "If you're to get sick or leave suddenly, there is no one who could immediately step into your shoes."
+    },
+    {
+      "id": 35,
+      "category": "Leadership and Management",
+      "name": "Identify and prepare future leaders",
+      "painPoint": "You have talented mid-level staff, but no clear pathway for them to grow into leadership roles."
+    },
+    {
+      "id": 36,
+      "category": "Leadership and Management",
+      "name": "Accountability with Impact: Leading for Performance and Engagement",
+      "painPoint": "You are leader who is struggling to address underperformance in a way that drives accountability without causing disengagement or damaging relationships"
+    },
+    {
+      "id": 37,
+      "category": "Executive Coaching",
+      "name": "Leadership Coaching (Career Development)",
+      "painPoint": "You're an executive, senior leader, or high-potential manager navigating complex strategic decisions, organizational change, or high-stakes leadership transitions."
+    },
+    {
+      "id": 38,
+      "category": "Executive Coaching",
+      "name": "Capacity Coaching",
+      "painPoint": "You're managing increased responsibilities, scaling a team or program, or facing persistent challenges in time, energy, or workflow management."
+    },
+    {
+      "id": 39,
+      "category": "Team and Culture",
+      "name": "Team Effectiveness & Collaboration (DISC)",
+      "painPoint": "There is a palpable lack of trust and psychological safety on your team."
+    },
+    {
+      "id": 40,
+      "category": "Team and Culture",
+      "name": "Change Management & Organizational Transformation",
+      "painPoint": "Every attempt to introduce a new process or system is met with powerful resistance."
+    },
+    {
+      "id": 41,
+      "category": "Team and Culture",
+      "name": "Address burnout and workload balance",
+      "painPoint": "Your \"work hard\" culture is discouraging people from taking time off to rest and recharge."
+    },
+    {
+      "id": 42,
+      "category": "Team and Culture",
+      "name": "Mediate internal team conflicts",
+      "painPoint": "A persistent conflict between two key staff members is creating a toxic environment for everyone."
+    },
+    {
+      "id": 43,
+      "category": "Team and Culture",
+      "name": "Train managers in conflict resolution",
+      "painPoint": "Managers are avoiding performance issues because they are afraid of conflict."
+    },
+    {
+      "id": 44,
+      "category": "Team and Culture",
+      "name": "Build values alignment across teams",
+      "painPoint": "There's a disconnect between your stated values and how different teams operate."
+    },
+    {
+      "id": 45,
+      "category": "Fundraising & Sustainability",
+      "name": "Design a sustainability roadmap",
+      "painPoint": "Your organization's financial survival feels fragile and is a source of constant stress."
+    },
+    {
+      "id": 46,
+      "category": "Fundraising & Sustainability",
+      "name": "Fundraising & Resource Mobilization Strategy",
+      "painPoint": "Your fundraising income has plateaued, and your old methods are bringing in diminishing returns."
+    },
+    {
+      "id": 47,
+      "category": "Fundraising & Sustainability",
+      "name": "Grant Writing & Proposal Development",
+      "painPoint": "You spend a huge amount of effort writing grant proposals that have a very low success rate."
+    },
+    {
+      "id": 48,
+      "category": "Fundraising & Sustainability",
+      "name": "Pitch Deck & Funder Engagement Support",
+      "painPoint": "You need to secure a major grant or investment and your case for support isn't strong enough."
+    },
+    {
+      "id": 49,
+      "category": "Fundraising & Sustainability",
+      "name": "Build a major donor pipeline",
+      "painPoint": "You are excellent at acquiring one-time donations but terrible at retaining donors and building loyalty."
+    },
+    {
+      "id": 50,
+      "category": "Fundraising & Sustainability",
+      "name": "Funder mapping",
+      "painPoint": "You need to find new funders who's mission is aligned with yours."
+    },
+    {
+      "id": 51,
+      "category": "Fundraising & Sustainability",
+      "name": "Fundraising Performance Metrics and Dashboards",
+      "painPoint": "You aren’t tracking fundraising results clearly or consistently."
+    },
+    {
+      "id": 52,
+      "category": "Fundraising & Sustainability",
+      "name": "Surviving the Big Grant",
+      "painPoint": "Your main source of funding is about to disappear and you need to find other resourses"
+    },
+    {
+      "id": 53,
+      "category": "Financials",
+      "name": "Financial Management Systems & Health Check",
+      "painPoint": "Your financial reports are confusing and don't help you make strategic decisions. You are not confident that your finance processes meet minimum/good standards."
+    },
+    {
+      "id": 54,
+      "category": "Financials",
+      "name": "Improve cash flow forecasting",
+      "painPoint": "You can't get a real-time, accurate picture of your cash flow, which makes you nervous."
+    },
+    {
+      "id": 55,
+      "category": "Financials",
+      "name": "Budgeting for Strategic Priorities",
+      "painPoint": "Your budget/ financial plans doesn’t reflect your real goals or adapt to change."
+    },
+    {
+      "id": 56,
+      "category": "Financials",
+      "name": "Build a reserves policy and financial health metrics",
+      "painPoint": "You have no financial reserves, so any unexpected event could become an existential crisis. Or you do have some reserves, but are not confident what a 'good level' to hold is for your organisation."
+    },
+    {
+      "id": 57,
+      "category": "Financials",
+      "name": "Train program staff on financial accountability",
+      "painPoint": "Your program staff struggle to manage their budgets effectively, leading to over/underspend."
+    },
+    {
+      "id": 58,
+      "category": "Financials",
+      "name": "Preparing for Financial Audits",
+      "painPoint": "You’re facing your first audit or want to improve how you prepare for them."
+    },
+    {
+      "id": 59,
+      "category": "Financials",
+      "name": "How to create the best grant budget",
+      "painPoint": "You want to ensure that all costs are covered within the grant budget"
+    },
+    {
+      "id": 60,
+      "category": "Communications & Advocacy",
+      "name": "Design an effective advocacy campaign",
+      "painPoint": "You want to launch a public campaign, but you don't know how to mobilize your supporters effectively."
+    },
+    {
+      "id": 61,
+      "category": "Communications & Advocacy",
+      "name": "Communications Strategy Development",
+      "painPoint": "Your communications feel completely reactive and chaotic; you lurch from one announcement to the next."
+    },
+    {
+      "id": 62,
+      "category": "Communications & Advocacy",
+      "name": "Social Media Audit and Strategy",
+      "painPoint": "Your social media presence feels scattered, low-engagement, or misaligned with your brand."
+    },
+    {
+      "id": 63,
+      "category": "Communications & Advocacy",
+      "name": "Brand Identity & Messaging Refresh",
+      "painPoint": "Your logo, website, and materials look unprofessional and dated, undermining your credibility."
+    },
+    {
+      "id": 64,
+      "category": "Communications & Advocacy",
+      "name": "Advocacy & Communications Strategy",
+      "painPoint": "Your advocacy efforts and your general communications are not aligned and feel disconnected."
+    },
+    {
+      "id": 65,
+      "category": "Communications & Advocacy",
+      "name": "Storytelling for Impact",
+      "painPoint": "Your organization struggles to communicate its impact in an emotionally compelling way."
+    },
+    {
+      "id": 66,
+      "category": "Impact & Engagement",
+      "name": "MEL System Design & Implementation",
+      "painPoint": "You meticulously collect a vast amount of data, but it just sits in a database and is never used for decision-making."
+    },
+    {
+      "id": 67,
+      "category": "Impact & Engagement",
+      "name": "Impact Assessment & Reporting",
+      "painPoint": "When a funder asks 'what was your impact?', you can only provide a list of activities you completed."
+    },
+    {
+      "id": 68,
+      "category": "Impact & Engagement",
+      "name": "Design a reflective learning cycle for your programs",
+      "painPoint": "You complete projects, but the lessons learned are never documented or shared in a systematic way."
+    },
+    {
+      "id": 69,
+      "category": "Impact & Engagement",
+      "name": "Evaluate effectiveness of existing program",
+      "painPoint": "You deliver training, but you have no idea if it leads to any real-world change in behavior or practice."
+    },
+    {
+      "id": 70,
+      "category": "Impact & Engagement",
+      "name": "Facilitate partner feedback mechanisms",
+      "painPoint": "You don't have a good way to get honest feedback from your implementing partners."
+    },
+    {
+      "id": 71,
+      "category": "Impact & Engagement",
+      "name": "Build an internal knowledge-sharing system",
+      "painPoint": "When a key person leaves, all of their critical knowledge about projects and relationships leaves with them."
+    },
+    {
+      "id": 72,
+      "category": "Technology Systems",
+      "name": "Train staff on tech tools security",
+      "painPoint": "A significant portion of your staff lacks the basic digital literacy to use your tools effectively."
+    },
+    {
+      "id": 73,
+      "category": "Technology Systems",
+      "name": "Conduct a technology systems audit",
+      "painPoint": "You are paying for multiple redundant software subscriptions but have no central tech strategy."
+    },
+    {
+      "id": 74,
+      "category": "Technology Systems",
+      "name": "Digital Transformation Strategy",
+      "painPoint": "You are watching new technologies like AI from the sidelines, feeling overwhelmed and left behind."
+    },
+    {
+      "id": 75,
+      "category": "Technology Systems",
+      "name": "Improve remote and hybrid team performance",
+      "painPoint": "Your remote/hybrid team struggles with communication and collaboration."
+    },
+    {
+      "id": 76,
+      "category": "Technology Systems",
+      "name": "Technology Systems Implementation (CRM, Project Management)",
+      "painPoint": "Your data is fragmented across dozens of disconnected spreadsheets and systems."
+    },
+    {
+      "id": 77,
+      "category": "Risk & Compliance",
+      "name": "Safeguarding Policy & Framework Development",
+      "painPoint": "Your safeguarding policy is a generic template, not a practical document that is embedded in your daily operations."
+    },
+    {
+      "id": 78,
+      "category": "Risk & Compliance",
+      "name": "Map and assess strategic risks",
+      "painPoint": "When your board asks about the top risks to your strategy, you don't have a structured or comprehensive ansyour."
+    },
+    {
+      "id": 79,
+      "category": "Risk & Compliance",
+      "name": "Design a strategic foresight process",
+      "painPoint": "You only think about risks after something bad has already happened."
+    },
+    {
+      "id": 80,
+      "category": "Risk & Compliance",
+      "name": "Create a responsible data use policy",
+      "painPoint": "You collect highly sensitive client information, and you're not confident your storage and access protocols are secure."
+    }
+  ]
+}

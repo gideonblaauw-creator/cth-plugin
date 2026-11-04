@@ -1,0 +1,394 @@
+{
+  "app": "tough-conversations",
+  "framework": "Situation → support area → evidence-based technique (NVC, SCARF, etc.) + AI contextualisation",
+  "support_areas": [
+    {
+      "id": "emotional",
+      "label": "Emotional Self-Management",
+      "technique_count": 4
+    },
+    {
+      "id": "prep",
+      "label": "Preparing the Conversation",
+      "technique_count": 4
+    },
+    {
+      "id": "conversation",
+      "label": "Handling the Conversation",
+      "technique_count": 4
+    },
+    {
+      "id": "closing",
+      "label": "Getting a Clear Outcome",
+      "technique_count": 3
+    }
+  ],
+  "techniques": [
+    {
+      "area_id": "emotional",
+      "area_label": "Emotional Self-Management",
+      "id": "stop",
+      "name": "The STOP Technique",
+      "source": "Mindfulness-Based Stress Reduction (Kabat-Zinn)",
+      "keywords": [
+        "anxiety",
+        "dread",
+        "stress",
+        "mindfulness",
+        "nervous system",
+        "breath",
+        "calm",
+        "pre-call",
+        "pause",
+        "amygdala"
+      ],
+      "steps": [
+        "S – Stop: Pause what you are doing. Put down your phone or pen.",
+        "T – Take a breath: Use Box Breathing (4 counts in, 4 hold, 4 out, 4 hold). This physically activates the parasympathetic nervous system.",
+        "O – Observe: Name what you are feeling. Simply labelling an emotion (\"I feel dread\") measurably reduces its intensity.",
+        "P – Proceed: Enter the conversation with an intentional mindset rather than a reactive one."
+      ]
+    },
+    {
+      "area_id": "emotional",
+      "area_label": "Emotional Self-Management",
+      "id": "box_breathing",
+      "name": "Box Breathing",
+      "source": "Clinical psychology / US Navy SEALs performance training",
+      "keywords": [
+        "breathing",
+        "calm",
+        "anxiety",
+        "stress",
+        "nervous system",
+        "physiological",
+        "body",
+        "relax",
+        "pre-call",
+        "4 counts"
+      ],
+      "steps": [
+        "Inhale slowly for 4 counts.",
+        "Hold for 4 counts.",
+        "Exhale fully for 4 counts.",
+        "Hold for 4 counts.",
+        "Repeat the cycle 4–6 times. Practice 5 minutes before the conversation.",
+        "Conscious control of breath overrides the autonomic stress response — you are telling your nervous system the threat has passed."
+      ]
+    },
+    {
+      "area_id": "emotional",
+      "area_label": "Emotional Self-Management",
+      "id": "anxiety_reframe",
+      "name": "Anxiety-to-Excitement Reframe",
+      "source": "Alison Wood Brooks — Harvard Business School",
+      "keywords": [
+        "anxiety",
+        "excitement",
+        "reframe",
+        "performance",
+        "mindset",
+        "energy",
+        "readiness",
+        "arousal",
+        "harvard"
+      ],
+      "steps": [
+        "Instead of \"I need to calm down,\" say aloud or in writing: \"I am ready for this.\"",
+        "Anxiety = high arousal + negative valence. Excitement = high arousal + positive valence. You are already aroused — you are just choosing a different label.",
+        "This is neurologically accurate and has been shown to improve performance in stressful tasks.",
+        "Pair this with an Intent Statement — \"I am ready for this because I want X for this relationship.\""
+      ]
+    },
+    {
+      "area_id": "emotional",
+      "area_label": "Emotional Self-Management",
+      "id": "intent_statement",
+      "name": "The Intent Statement",
+      "source": "Coaching practice / Difficult Conversations literature",
+      "keywords": [
+        "purpose",
+        "care",
+        "motivation",
+        "dread",
+        "mindset",
+        "intention",
+        "values",
+        "empathy",
+        "why",
+        "anchoring"
+      ],
+      "steps": [
+        "Before the conversation, write one sentence: \"I am having this conversation because I want ___ for this person and this relationship.\"",
+        "Be honest. This shifts your internal frame from threat to care.",
+        "If you cannot complete the sentence honestly, treat that as data — clarify your own motives first.",
+        "Read it again immediately before you join the call or walk into the room."
+      ]
+    },
+    {
+      "area_id": "prep",
+      "area_label": "Preparing the Conversation",
+      "id": "third_story",
+      "name": "The Third Story",
+      "source": "Stone, Patton & Heen — Difficult Conversations (Harvard Negotiation Project)",
+      "keywords": [
+        "perspective",
+        "neutral",
+        "observer",
+        "bias",
+        "conflict",
+        "both sides",
+        "framing",
+        "preparation",
+        "harvard"
+      ],
+      "steps": [
+        "Write your story: what happened, what it means to you, what you want.",
+        "Write their likely story: what they probably believe happened, what pressures they are under, what they want and fear.",
+        "Write the Third Story: what would a fair, neutral observer say is happening here?",
+        "Enter the conversation starting from the Third Story, not just your own."
+      ]
+    },
+    {
+      "area_id": "prep",
+      "area_label": "Preparing the Conversation",
+      "id": "empathy_audit",
+      "name": "Pre-Conversation Empathy Audit",
+      "source": "Cognitive empathy and perspective-taking research",
+      "keywords": [
+        "empathy",
+        "perspective",
+        "preparation",
+        "other person",
+        "fear",
+        "pressure",
+        "charitable",
+        "understanding",
+        "pre-call"
+      ],
+      "steps": [
+        "1. What pressures is this person likely under right now?",
+        "2. What might they be afraid this conversation is about?",
+        "3. What do they believe they have done well that I may be undervaluing?",
+        "4. What is the most charitable explanation for the problem I am seeing?",
+        "5. What would I want someone to understand if I were in their position?"
+      ]
+    },
+    {
+      "area_id": "prep",
+      "area_label": "Preparing the Conversation",
+      "id": "steelmanning",
+      "name": "Steelmanning",
+      "source": "Philosophy / Argumentation theory",
+      "keywords": [
+        "argument",
+        "perspective",
+        "respect",
+        "pushback",
+        "preparation",
+        "opposition",
+        "counterargument",
+        "straw man"
+      ],
+      "steps": [
+        "Write: \"The strongest case they could make for their position is…\"",
+        "Include legitimate concerns, real pressures, and valid reasoning that supports their view.",
+        "Test it: would they recognise this as a fair representation of their perspective?",
+        "In conversation: \"I imagine you'd argue that X — is that fair?\" This often disarms defensiveness immediately."
+      ]
+    },
+    {
+      "area_id": "prep",
+      "area_label": "Preparing the Conversation",
+      "id": "ladder_of_inference",
+      "name": "Ladder of Inference",
+      "source": "Chris Argyris — Harvard Business School / Action Science",
+      "keywords": [
+        "assumptions",
+        "judgement",
+        "data",
+        "blame",
+        "facts",
+        "inference",
+        "argyris",
+        "interpretation",
+        "inquiry"
+      ],
+      "steps": [
+        "Identify the actual observable fact. (e.g., \"The deadline was missed by three days.\")",
+        "Identify where you have climbed the ladder: what assumptions have you layered on top? (e.g., \"They don't take this seriously.\")",
+        "In conversation, come back down to the data: share observations, not conclusions.",
+        "Ask: \"What information am I missing that led to this outcome?\" — shifts blame to inquiry."
+      ]
+    },
+    {
+      "area_id": "conversation",
+      "area_label": "Handling the Conversation",
+      "id": "nvc",
+      "name": "Nonviolent Communication (NVC)",
+      "source": "Marshall Rosenberg — Center for Nonviolent Communication",
+      "keywords": [
+        "communication",
+        "conflict",
+        "de-escalation",
+        "feelings",
+        "needs",
+        "rosenberg",
+        "observation",
+        "request",
+        "empathy"
+      ],
+      "steps": [
+        "Observation: State the observable fact without evaluation. \"When I see / hear / notice X…\"",
+        "Feeling: Share your genuine feeling. \"I feel concerned / worried / frustrated…\"",
+        "Need: Name the underlying need. \"Because I need reliability / clarity / trust…\"",
+        "Request: Make a concrete, actionable request. \"Would you be willing to X by Y date?\""
+      ]
+    },
+    {
+      "area_id": "conversation",
+      "area_label": "Handling the Conversation",
+      "id": "scarf",
+      "name": "The SCARF Model",
+      "source": "David Rock — NeuroLeadership Institute",
+      "keywords": [
+        "brain",
+        "threat",
+        "status",
+        "certainty",
+        "autonomy",
+        "fairness",
+        "neuroleadership",
+        "defensiveness",
+        "safety",
+        "david rock"
+      ],
+      "steps": [
+        "Status: Acknowledge the other person's expertise or track record before raising the problem.",
+        "Certainty: Tell them clearly what this conversation IS and IS NOT about.",
+        "Autonomy: Give them choices wherever possible. Ask for their ideas.",
+        "Relatedness: Signal that you are on the same team. \"I want this to work.\"",
+        "Fairness: Acknowledge the legitimacy of what is being asked of them."
+      ]
+    },
+    {
+      "area_id": "conversation",
+      "area_label": "Handling the Conversation",
+      "id": "ibr",
+      "name": "Interest-Based Relational (IBR) Approach",
+      "source": "Roger Fisher & William Ury — Getting to Yes",
+      "keywords": [
+        "negotiation",
+        "interests",
+        "positions",
+        "win-win",
+        "fisher",
+        "ury",
+        "getting to yes",
+        "conflict",
+        "collaboration"
+      ],
+      "steps": [
+        "Separate the relationship from the problem: treat the other person as a partner, not an adversary.",
+        "Focus on interests, not positions. Ask: \"What are you trying to achieve here?\"",
+        "Invent options for mutual gain before evaluating any of them.",
+        "Use objective criteria — policy, shared values, precedent — to evaluate options together."
+      ]
+    },
+    {
+      "area_id": "conversation",
+      "area_label": "Handling the Conversation",
+      "id": "crucial_conversations",
+      "name": "Crucial Conversations",
+      "source": "Patterson, Grenny, McMillan & Switzler",
+      "keywords": [
+        "safety",
+        "high stakes",
+        "dialogue",
+        "shared meaning",
+        "emotions",
+        "contrasting",
+        "psychological safety",
+        "withdrawal"
+      ],
+      "steps": [
+        "Start with Heart: \"What do I really want for myself, for them, and for this relationship?\"",
+        "Watch for safety signals: when someone goes quiet or reactive, pause and restore safety before continuing.",
+        "Use Contrasting to address the other person's fears: \"I don't want you to think X. What I do want is Y.\"",
+        "STATE your path: Share facts, Tell your story tentatively, Ask for their path, Talk tentatively, Encourage testing."
+      ]
+    },
+    {
+      "area_id": "closing",
+      "area_label": "Getting a Clear Outcome",
+      "id": "www_c",
+      "name": "The WWW+C Framework",
+      "source": "Project management and difficult conversations practice",
+      "keywords": [
+        "accountability",
+        "next steps",
+        "deliverables",
+        "deadline",
+        "clarity",
+        "ambiguity",
+        "consequence",
+        "agreement",
+        "who what when"
+      ],
+      "steps": [
+        "Who: Exactly who is responsible for the next action? Name the person.",
+        "What: What is the specific, measurable deliverable? \"Better communication\" becomes \"a weekly Friday email update.\"",
+        "When: What is the hard deadline? A specific date, not \"soon.\"",
+        "Consequence: What happens if it is not met? State it explicitly — not implied or softened."
+      ]
+    },
+    {
+      "area_id": "closing",
+      "area_label": "Getting a Clear Outcome",
+      "id": "check_back",
+      "name": "The Check-Back (Reflective Synthesis)",
+      "source": "Active listening / Difficult Conversations practice",
+      "keywords": [
+        "understanding",
+        "playback",
+        "confirmation",
+        "closing",
+        "accountability",
+        "clarity",
+        "alignment",
+        "listening"
+      ],
+      "steps": [
+        "\"To make sure I've been clear, could you play back your understanding of what we've agreed and what the implications are if we don't hit that deadline?\"",
+        "This surfaces misalignments before they become problems.",
+        "It creates accountability: they have now stated the commitment aloud.",
+        "If their playback is wrong: \"Thanks — let me just clarify one thing…\""
+      ]
+    },
+    {
+      "area_id": "closing",
+      "area_label": "Getting a Clear Outcome",
+      "id": "radical_candor",
+      "name": "Radical Candor",
+      "source": "Kim Scott — Radical Candor",
+      "keywords": [
+        "candor",
+        "honesty",
+        "consequences",
+        "direct",
+        "empathy",
+        "feedback",
+        "care",
+        "ruinous empathy",
+        "kim scott",
+        "challenge"
+      ],
+      "steps": [
+        "Be direct about consequences precisely because you want them to succeed — not despite caring.",
+        "Framing: \"I am telling you this because I want to see you succeed. I need to be very clear about where things stand.\"",
+        "State the specific consequence explicitly. Not \"there could be issues\" but \"if X is not resolved by Y date, then Z will happen.\"",
+        "Immediately follow with: \"What support do you need from me to make this happen?\""
+      ]
+    }
+  ]
+}

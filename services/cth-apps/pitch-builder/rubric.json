@@ -1,0 +1,70 @@
+{
+  "app": "pitch-builder",
+  "framework": "10-question pitch intake + AI follow-up gap review + 10-slide deck generation",
+  "questions": [
+    {
+      "theme": "THE STORY",
+      "text": "Tell me about one real person whose life is directly affected by the problem you're solving.",
+      "hint": "Give them a name. Paint their situation. Make the struggle vivid and human — this will become the emotional heart of your pitch.",
+      "key": "story"
+    },
+    {
+      "theme": "THE PROBLEM",
+      "text": "What problem are you tackling — and what are its root causes?",
+      "hint": "Be specific. What's broken? Who created this situation? Why hasn't it been fixed yet?",
+      "key": "problem"
+    },
+    {
+      "theme": "THE SCALE",
+      "text": "How big is this problem? Give me the numbers — statistics, data, key figures that show its urgency.",
+      "hint": "Think: how many people are affected? What's the economic or social cost? Any shocking facts that show why this can't wait?",
+      "key": "scale"
+    },
+    {
+      "theme": "YOUR SOLUTION",
+      "text": "What exactly are you doing about this problem — and how does it work in practice?",
+      "hint": "Walk me through it step by step. What makes your approach different from what's been tried before?",
+      "key": "solution"
+    },
+    {
+      "theme": "WHY YOU",
+      "text": "Why are you and your team the right people to solve this problem?",
+      "hint": "What's your background, lived experience, expertise? What's your personal connection to this issue? Why now?",
+      "key": "team"
+    },
+    {
+      "theme": "PROOF & TRACTION",
+      "text": "What have you already achieved? Any pilots, partnerships, people reached, early results?",
+      "hint": "Even small wins matter. Tell me what exists today — proof that this isn't just an idea, it's already working.",
+      "key": "traction"
+    },
+    {
+      "theme": "IMPACT MODEL",
+      "text": "How do you measure your social impact? What changes in people's lives because of your work?",
+      "hint": "Think outcomes, not outputs. Not 'we trained 200 people' but 'those people then…' What's the chain of change?",
+      "key": "impact"
+    },
+    {
+      "theme": "BUSINESS MODEL",
+      "text": "How does your organisation sustain itself and grow? What are your revenue streams, and how will you scale?",
+      "hint": "Are you grant-funded, fee-for-service, earned income, hybrid? How do you move from pilot to systemic scale?",
+      "key": "model"
+    },
+    {
+      "theme": "THE ASK",
+      "text": "How much investment are you seeking — and what exactly will you spend it on?",
+      "hint": "Break it down: what buckets of spending? Over what period? What does the money unlock?",
+      "key": "ask"
+    },
+    {
+      "theme": "THE RETURN",
+      "text": "What's in it for investors? What financial return and social return will their money generate?",
+      "hint": "Be honest about both dimensions. Timeline to financial sustainability? Social ROI per dollar? Your growth trajectory?",
+      "key": "return"
+    }
+  ],
+  "llm_steps": [
+    "review_gaps",
+    "generate_deck"
+  ]
+}

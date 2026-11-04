@@ -1,0 +1,80 @@
+# apps.cleantechhub.net — AI Apps for Good (CTH self-host)
+# Merge into OVH Caddyfile after DNS + /opt/cth-apps sync.
+# Google SSO gate: oauth2-proxy on localhost (same pattern as decks dashboard gate).
+
+apps.cleantechhub.net {
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Robots-Tag "noindex, nofollow"
+	}
+
+	handle /api/llm* {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		reverse_proxy 127.0.0.1:8796
+	}
+
+	handle /pitch-builder {
+		redir * /pitch-builder/ 308
+	}
+	handle_path /pitch-builder/* {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		root * /opt/cth-apps/pitch-builder
+		try_files {path} {path}/ /index.html
+		file_server
+	}
+
+	handle /mel-builder {
+		redir * /mel-builder/ 308
+	}
+	handle_path /mel-builder/* {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		root * /opt/cth-apps/mel-builder
+		try_files {path} {path}/ /index.html
+		file_server
+	}
+
+	handle /compass {
+		redir * /compass/ 308
+	}
+	handle_path /compass/* {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		root * /opt/cth-apps/compass
+		try_files {path} {path}/ /index.html
+		file_server
+	}
+
+	handle /tough-conversations {
+		redir * /tough-conversations/ 308
+	}
+	handle_path /tough-conversations/* {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		root * /opt/cth-apps/tough-conversations
+		try_files {path} {path}/ /index.html
+		file_server
+	}
+
+	handle {
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Forwarded-User X-Forwarded-Email
+		}
+		redir * /pitch-builder/ 302
+	}
+}
