@@ -1,0 +1,4 @@
+slug,name,country,sector,theme,metric_type,value_tco2e,period,quote,source_url
+ciclorganicos,CICLORGÁNICOS (BIO ABONOS GAIA),CO,CT-WA-002,Bioeconomy,avoided,25000,2019-2026,"+25.000 t de CO₂ eq evitadas",https://ciclorganicos.com/
+kimsa,CARBON BOX,CO,CT-IC-002,Energy,managed,13000,,"13000+ Toneladas de gases efecto invernadero gestionadas",https://www.kimsa.co/tecnologia-para-la-naturaleza
+carbonbox,CARBONBOX,CO,CT-XS-001,Energy,managed,112000,,"112K+ tCO₂e gestionadas",https://carbonbox.app/

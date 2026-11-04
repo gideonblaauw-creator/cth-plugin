@@ -105,7 +105,7 @@
     var groups = groupBySlug(rows);
     groups.forEach(function (g) {
       var card = document.createElement('article');
-      card.className = 'startup-card';
+      card.className = 'startup-card glass';
       var h = document.createElement('h3');
       var link = document.createElement('a');
       link.href = nexusUrl(g.slug);
@@ -184,7 +184,7 @@
       rect.setAttribute('width', Math.max(2, barW));
       rect.setAttribute('height', barH);
       rect.setAttribute('rx', '4');
-      var fill = row.metric_type === 'managed' ? '#5F6663' : row.metric_type === 'mitigated' ? '#2D6A4F' : '#40916C';
+      var fill = row.metric_type === 'managed' ? '#B2EEFA' : row.metric_type === 'mitigated' ? '#9DC384' : '#69B5FA';
       rect.setAttribute('fill', fill);
       svg.appendChild(rect);
 
