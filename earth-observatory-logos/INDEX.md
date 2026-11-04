@@ -2,6 +2,8 @@
 
 **Status:** Draft · **INTERNAL REVIEW ONLY** · Awaiting Gideon's approval. No posting, sharing, or deploy.
 
+**Selected concept (Gideon 4 Nov 2026):** `03-orbita-datos` · final lockups in `final/` (Externado first, then CleantechHUB).
+
 **Partnership:** CleantechHUB × Universidad Externado (Externado shown as text placeholder only; no unofficial Externado logo).
 
 **Tagline (context):** *La colaboración es la lente. El conocimiento orienta las decisiones. El dato es la infraestructura.*
@@ -31,6 +33,20 @@ Each folder under `concepts/<id>/` contains:
 | `*-transparent.png` | PNG on transparent background |
 | `*-white.png` | PNG on white background |
 
+## Final lockups (`final/`)
+
+| Path | Use |
+|------|-----|
+| `final/preview.png` | Compare key final lockups (green + blue) |
+| `final/<es\|en>/<green\|blue>/` | Locale + colour variant |
+| `final/.../lockup-square.svg` | Square mark + locale title |
+| `final/.../lockup-horizontal.svg` | Horizontal mark + locale title |
+| `final/.../lockup-cobrand.svg` | **Universidad Externado** (`PENDIENTE logo`) then official CTH PNG |
+| `final/.../lockup-mono.svg` | Single-colour horizontal |
+| `*-transparent.png` / `*-white.png` | PNG exports per lockup |
+
+**Palettes:** `green` (CTH primary `#2D6A4F`) and `blue` (compare `#0C498A`).
+
 ## Kit root
 
 | Path | Use |
@@ -38,7 +54,8 @@ Each folder under `concepts/<id>/` contains:
 | `contact-sheet.png` | Compare all concepts (horizontal lockups) |
 | `contact-sheet.svg` | Editable contact sheet source |
 | `assets/cleantechhub.png` | Official CTH logo (from `decks/nexus-co2/logos/`) |
-| `scripts/generate.mjs` | Regenerate SVGs + PNGs |
+| `scripts/generate.mjs` | Regenerate concept SVGs + PNGs |
+| `scripts/generate-final.mjs` | Regenerate `final/` only (concept 03) |
 
 ## Brand tokens
 
@@ -52,4 +69,5 @@ Family consistency reference only: `brand/datalab-logo-2026-11/` (Option A grid 
 cd earth-observatory-logos/scripts
 npm install @resvg/resvg-js
 node generate.mjs
+node generate-final.mjs
 ```

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 480" width="480" height="480" role="img" aria-label="Observatorio de la Tierra square">
+  <defs><style>
+    .title { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #0C498A; }
+    .pendiente { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #333333; }
+    .pendiente-tag { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 10px; fill: #0C498A; }
+  </style></defs>
+  <g transform="translate(166,72) scale(0.7083333333333334)">
+  <circle cx="48" cy="48" r="14" fill="#0C498A"/>
+  <ellipse cx="48" cy="48" rx="42" ry="18" fill="none" stroke="#69B5FA" stroke-width="2.5" transform="rotate(-25 48 48)"/>
+  <ellipse cx="48" cy="48" rx="38" ry="16" fill="none" stroke="#0C498A" stroke-width="2" transform="rotate(35 48 48)"/>
+  <circle cx="86" cy="38" r="5" fill="#69B5FA"/>
+  <circle cx="14" cy="58" r="5" fill="#69B5FA"/>
+  <circle cx="58" cy="82" r="4" fill="#0C498A"/>
+</g>
+  <text class="title" font-size="32" x="240" y="320" text-anchor="middle">Observatorio de la Tierra</text>
+</svg>
