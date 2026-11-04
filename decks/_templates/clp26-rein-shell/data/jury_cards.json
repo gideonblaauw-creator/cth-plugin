@@ -1,0 +1,13 @@
+{
+ "jurors": [
+  {
+   "name": "Partner name",
+   "events": [
+    "Lorem ipsum"
+   ],
+   "organisation": "Partner name",
+   "bio_en": "Lorem ipsum",
+   "bio_es": "Lorem ipsum"
+  }
+ ]
+}
