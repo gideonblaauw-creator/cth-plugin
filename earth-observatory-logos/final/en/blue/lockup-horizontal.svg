@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 200" width="720" height="200" role="img" aria-label="Earth Observatory horizontal">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 720 90" width="720" height="90" role="img" aria-label="Earth Observatory horizontal">
   <defs><style>
     .title { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #0C498A; }
     .pendiente { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #333333; }
     .pendiente-tag { font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 10px; fill: #0C498A; }
   </style></defs>
-  <g transform="translate(8,66) scale(0.7083333333333334)">
+  <g transform="translate(8,12.200000000000003) scale(0.6833333333333332)">
   <circle cx="48" cy="48" r="14" fill="#0C498A"/>
   <ellipse cx="48" cy="48" rx="42" ry="18" fill="none" stroke="#69B5FA" stroke-width="2.5" transform="rotate(-25 48 48)"/>
   <ellipse cx="48" cy="48" rx="38" ry="16" fill="none" stroke="#0C498A" stroke-width="2" transform="rotate(35 48 48)"/>
@@ -13,5 +13,5 @@
   <circle cx="14" cy="58" r="5" fill="#69B5FA"/>
   <circle cx="58" cy="82" r="4" fill="#0C498A"/>
 </g>
-  <text class="title" font-size="32" x="120" y="94">Earth Observatory</text>
+  <text class="title" font-size="32" x="85.6" y="55.24">Earth Observatory</text>
 </svg>
