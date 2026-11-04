@@ -4,22 +4,27 @@
 
 Soft-launch visuals for **CTH Data Lab** (Earth Observatory, Tue 24 Nov 2026). Source: Granola Air4U meeting 4 Nov 2026 (Hands ticket; not copied into this repo).
 
-## Concepts (logo options)
+**Logo decision (4 Nov 2026):** Option **B · layers** (stacked planes / sandboxes / governance stack) is the final mark.
 
-| File | Idea | Palette use |
-|------|------|-------------|
-| `logo/option-a.svg` | **Data grid** · 4×4 cell matrix; sky-blue and forest-green accent cells | Deep Blue + Light Cyan + Sky Blue + Forest Green |
-| `logo/option-b.svg` | **Layers** · three stacked planes (sandboxes / governance stack) | Deep Blue, Light Green, Sky Blue |
-| `logo/option-c.svg` | **Flow network** · nodes and links (datasets to insight) | Deep Blue, Forest Green, Sky Blue, Light Green |
+## Final logo files
 
-Wordmark on all options: **Data Lab** (Titillium Web Bold). These are sub-brand marks only; they do **not** replace or redraw the official CleantechHUB logo.
+| File | Use |
+|------|-----|
+| `logo/datalab-logo.svg` | Master vector (layers mark + **Data Lab** wordmark, Titillium Web Bold) |
+| `logo/datalab-logo-light.png` | Deep blue / green artwork for light backgrounds |
+| `logo/datalab-logo-dark.png` | Cyan / sky-blue remap for dark backgrounds |
 
-**Light PNG** (`*-light.png`): deep blue / green artwork for light backgrounds.  
-**Dark PNG** (`*-dark.png`): cyan / sky-blue remap for dark backgrounds (generated via `scripts/render-png.mjs`).
+Wordmark: **Data Lab** (Titillium Web Bold). Sub-brand mark only; does **not** replace or redraw the official CleantechHUB logo.
+
+**Palette on the mark:** Deep Blue `#0C498A`, Light Green `#9DC384`, Sky Blue `#69B5FA`, Forest Green `#669348` (accent bar).
+
+## Archived concepts
+
+Options A (data grid) and C (flow network) live under `archive/logo/` for reference only. Do not use for launch.
 
 ## Social templates
 
-- `social/post-1080x1080.*` · square feed (option A grid mark, deep blue field; white headlines).
+- `social/post-1080x1080.*` · square feed (layers mark on deep blue field; white headlines).
 - `social/post-1200x627.*` · link preview / landscape (cyan field, deep blue copy and headlines).
 
 Copy on templates is limited to ticket-approved lines only. Partner and CTH logo areas are labelled placeholders.
@@ -35,7 +40,7 @@ Copy on templates is limited to ticket-approved lines only. Partner and CTH logo
 | Sky Blue | `#69B5FA` | Grid highlight / mute on dark fields |
 | White | `#FFFFFF` | Text on deep blue fields, placeholder boxes |
 
-**Typography:** Titillium Web Bold (titles / wordmark), Open Sans (body on social templates). PNG renders use OFL files in `scripts/fonts/` (not system fallbacks). SVG and `preview.html` also link Google Fonts for browser preview.
+**Typography:** Titillium Web Bold (titles / wordmark), Open Sans (body on social templates). PNG renders use OFL files in `scripts/fonts/` (see `scripts/fonts/OFL.txt`). SVG and `preview.html` also link Google Fonts for browser preview.
 
 No gradients, purple, red, or gray fills. All shape fills are fully opaque brand colours.
 
@@ -56,8 +61,7 @@ Logos export at **1024 px** width, transparent background. Social PNGs match SVG
 - Partner logos (**Externado**, partner referred as **Marlene**, **Air4U**) and permission to use them
 - Exact **third pre-event post** date (first Thu 5 or Fri 6 Nov 2026, then Mon 23 Nov noted in source; third post unspecified)
 - Final **post copy** (Socials desk)
-- Which logo option (A / B / C) to lock for launch
 
 ## Preview
 
-Open `preview.html` in a browser to compare options and social layouts on light and dark surfaces.
+Open `preview.html` in a browser to review the final logo, social layouts, and archived options on light and dark surfaces.

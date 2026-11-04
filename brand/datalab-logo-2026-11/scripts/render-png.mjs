@@ -45,7 +45,7 @@ function renderSvg(svgString, outPath, width) {
   return png.length;
 }
 
-const logos = ['option-a', 'option-b', 'option-c'];
+const logos = ['datalab-logo'];
 for (const name of logos) {
   const svgPath = join(root, 'logo', `${name}.svg`);
   const svg = readFileSync(svgPath, 'utf8');

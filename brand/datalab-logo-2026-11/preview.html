@@ -48,7 +48,7 @@
       padding-bottom: 0.35rem;
     }
     .grid { display: grid; gap: 1rem; }
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     .card {
       border: 2px solid var(--light-cyan);
       border-radius: 8px;
@@ -91,6 +91,11 @@
       font-size: 0.9rem;
       margin-bottom: 1rem;
     }
+    .archive-note {
+      font-size: 0.9rem;
+      color: var(--forest);
+      margin: 0 0 1rem;
+    }
     footer {
       margin-top: 2rem;
       padding: 1rem 1.5rem;
@@ -103,33 +108,21 @@
 <body>
   <header>
     <h1>CTH Data Lab · logo and social preview</h1>
-    <p>Draft kit · Awaiting Gideon's approval · HITL before use</p>
+    <p>Draft kit · Option B (layers) locked · Awaiting Gideon's approval · HITL before use</p>
   </header>
   <main>
     <div class="banner">
       <strong>PENDIENTE:</strong> official CTH logo, partner logos (Externado, Partner), event time and venue, final post copy.
     </div>
 
-    <h2>Logo options (SVG + PNG)</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Option A · data grid</h3>
-        <div class="surface surface-light"><img src="logo/option-a-light.png" alt="Option A on light background" width="512"/></div>
-        <div class="surface surface-dark"><img src="logo/option-a-dark.png" alt="Option A on dark background" width="512"/></div>
-      </div>
-      <div class="card">
-        <h3>Option B · layers</h3>
-        <div class="surface surface-light"><img src="logo/option-b-light.png" alt="Option B on light background" width="512"/></div>
-        <div class="surface surface-dark"><img src="logo/option-b-dark.png" alt="Option B on dark background" width="512"/></div>
-      </div>
-      <div class="card">
-        <h3>Option C · flow network</h3>
-        <div class="surface surface-light"><img src="logo/option-c-light.png" alt="Option C on light background" width="512"/></div>
-        <div class="surface surface-dark"><img src="logo/option-c-dark.png" alt="Option C on dark background" width="512"/></div>
-      </div>
+    <h2>Final logo (Option B · layers)</h2>
+    <div class="card" style="max-width: 640px;">
+      <h3>datalab-logo.svg · light and dark PNG</h3>
+      <div class="surface surface-light"><img src="logo/datalab-logo-light.png" alt="Data Lab logo on light background" width="512"/></div>
+      <div class="surface surface-dark"><img src="logo/datalab-logo-dark.png" alt="Data Lab logo on dark background" width="512"/></div>
     </div>
 
-    <h2>Social templates (option A mark)</h2>
+    <h2>Social templates (layers mark)</h2>
     <div class="social-row">
       <figure>
         <img src="social/post-1080x1080.png" alt="Square social template 1080 by 1080" width="540"/>
@@ -139,6 +132,19 @@
         <img src="social/post-1200x627.png" alt="Landscape social template 1200 by 627" width="720"/>
         <figcaption>post-1200x627 · link preview</figcaption>
       </figure>
+    </div>
+
+    <h2>Archived concepts (A and C)</h2>
+    <p class="archive-note">Not for launch use. Kept in <code>archive/logo/</code> for reference.</p>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Option A · data grid (archived)</h3>
+        <div class="surface surface-light"><img src="archive/logo/option-a-light.png" alt="Archived option A on light" width="512"/></div>
+      </div>
+      <div class="card">
+        <h3>Option C · flow network (archived)</h3>
+        <div class="surface surface-light"><img src="archive/logo/option-c-light.png" alt="Archived option C on light" width="512"/></div>
+      </div>
     </div>
   </main>
   <footer>
