@@ -6,30 +6,186 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #B2EEFA; }
-    .canvas { position: relative; overflow: hidden; background: #B2EEFA; }
-    .sidebar { background: #0C498A; color: #FFFFFF; }
+    html, body {
+      width: 1080px;
+      height: 1920px;
+      max-width: 1080px;
+      max-height: 1920px;
+      overflow: hidden;
+      position: relative;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #0C498A; }
+    .canvas {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+    }
     .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
     .tag { color: #669348; font-weight: 600; }
-    .bullet { font-size: 22px; line-height: 1.35; margin: 8px 0; padding-left: 18px; position: relative; }
-    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; }
-    .ph { border: 1.5px dashed #0C498A; background: #FFFFFF; font-size: 11px; font-weight: 600; padding: 8px 10px; border-radius: 6px; }
-    .logos { display: flex; gap: 12px; flex-wrap: wrap; }
-    
-html, body { width: 1080px; height: 1920px; overflow: hidden; }
-</style>
+    .bullet { line-height: 1.35; margin: 0; padding-left: 1.1em; position: relative; }
+    .bullet + .bullet { margin-top: 0.55em; }
+    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; font-weight: 700; }
+    .ph {
+      border: 1.5px dashed #0C498A;
+      background: #FFFFFF;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .logo-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-cth {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-left: auto;
+    }
+    .cth-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+
+    /* LinkedIn 1200×627 */
+    .layout-linkedin { display: flex; height: 100%; align-items: stretch; }
+    .layout-linkedin .sidebar {
+      width: 34%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main {
+      flex: 1;
+      min-height: 100%;
+      background: #B2EEFA;
+      padding: 24px 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }
+    .layout-linkedin .main-top h1 { font-size: 50px; line-height: 1.05; }
+    .layout-linkedin .main-top .sub { font-size: 26px; font-weight: 600; }
+    .layout-linkedin .bullet { font-size: 21px; }
+    .layout-linkedin .main-bottom .tag { font-size: 20px; margin-bottom: 12px; }
+    .layout-linkedin .sidebar .side-note {
+      font-size: 15px; line-height: 1.45; opacity: 0.92; margin-top: 20px;
+    }
+
+    /* Instagram feed 1080×1350 */
+    .layout-feed { display: flex; flex-direction: column; height: 100%; }
+    .layout-feed .feed-top {
+      flex: 1;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .layout-feed .feed-top h1 { font-size: 54px; line-height: 1.05; }
+    .layout-feed .feed-top .sub { font-size: 26px; font-weight: 600; color: #B2EEFA; }
+    .layout-feed .feed-bottom {
+      flex: 1.08;
+      min-height: 0;
+      background: #B2EEFA;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .layout-feed .card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      margin: 28px 40px 0;
+      padding: 34px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .layout-feed .logo-bar {
+      margin-top: auto;
+      padding: 22px 40px 26px;
+      background: rgba(255, 255, 255, 0.45);
+      border-top: 3px solid rgba(12, 73, 138, 0.12);
+    }
+    .layout-feed .bullet { font-size: 26px; }
+
+    /* Story 1080×1920 */
+    .layout-story {
+      background: #0C498A;
+      color: #FFFFFF;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .layout-story .badge {
+      background: #69B5FA;
+      color: #0C498A;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    .layout-story h1 { font-size: 62px; line-height: 1.05; margin-top: 28px; }
+    .layout-story .sub { font-size: 28px; margin-top: 14px; opacity: 0.95; font-weight: 600; }
+    .layout-story .story-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 20px 0 28px;
+    }
+    .layout-story .bullet { font-size: 30px; color: #FFFFFF; }
+    .layout-story .bullet::before { color: #9DC384; }
+    .layout-story .story-tag { font-size: 26px; color: #9DC384; font-weight: 600; margin-bottom: 16px; }
+    .layout-story .ph { color: #0C498A; }
+    .layout-story .logo-bar {
+      padding-top: 8px;
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }
+    </style>
 </head>
 <body>
-        <div class="canvas" style="width:1080px;height:1920px;padding:64px 48px;background:#0C498A;color:#FFFFFF;">
-          <div style="background:#69B5FA;color:#0C498A;display:inline-block;padding:8px 16px;border-radius:999px;font-weight:600;font-size:22px;">24 · 11 · 2026</div>
-          <h1 class="head" style="font-size:64px;margin-top:40px;line-height:1.05;">Observatorio de la Tierra</h1>
-          <p style="font-size:28px;margin-top:16px;opacity:.95;">Lanzamiento · martes 24 de noviembre de 2026</p>
-          <div style="margin-top:48px;"><p class="bullet" style="color:#fff;">Datos ambientales accionables para decisiones locales</p><p class="bullet" style="color:#fff;">CleantechHUB como custodio del ecosistema</p><p class="bullet" style="color:#fff;">Colaboración académica — [LOGO EXTERNADO]</p><p class="bullet" style="color:#fff;">Hora y sede: PENDIENTE</p></div>
-          <p class="tag" style="margin-top:40px;font-size:24px;color:#9DC384;">Datalab powered by CleantechHUB</p>
-          <div class="logos" style="margin-top:48px;">
-            <div class="ph" style="color:#0C498A;">[LOGO AIR4U]</div>
-            <div class="ph" style="color:#0C498A;">[LOGO EXTERNADO]</div>
-          </div>
+        <div class="canvas layout-story">
+          <header>
+            <span class="badge">24 · 11 · 2026</span>
+            <h1 class="head">Observatorio de la Tierra</h1>
+            <p class="sub">Lanzamiento · martes 24 de noviembre de 2026</p>
+          </header>
+          <div class="story-mid"><p class="bullet">Datos ambientales accionables para decisiones locales</p><p class="bullet">CleantechHUB como custodio del ecosistema</p><p class="bullet">Colaboración académica — [LOGO EXTERNADO]</p><p class="bullet">Hora y sede: PENDIENTE</p></div>
+          <footer class="logo-bar">
+            <p class="story-tag">Datalab powered by CleantechHUB</p>
+            
+    <div class="logo-footer">
+      
+    <div class="ph partner">[LOGO AIR4U]</div>
+    <div class="ph partner">[LOGO EXTERNADO]</div>
+    
+      <div class="logo-cth"><img class="cth-logo" src="../_shared/cleantechhub-logo.png" width="197" height="52" alt="CleantechHUB" /></div>
+    </div>
+    
+          </footer>
         </div>
         </body>
 </html>

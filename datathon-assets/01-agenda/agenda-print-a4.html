@@ -5,25 +5,42 @@
 <title>Agenda imprimible</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
-body { font-family: 'Open Sans', sans-serif; color: #333333; padding: 40px; max-width: 900px; margin: 0 auto; }
-h1 { font-family: 'Titillium Web', sans-serif; color: #2D6A4F; font-size: 32px; }
-.sub { color: #1B4332; margin: 8px 0 24px; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-td { border-bottom: 1px solid #ccc; padding: 10px 8px; vertical-align: top; }
+html, body {
+  width: 900px;
+  height: 1200px;
+  max-width: 900px;
+  max-height: 1200px;
+  overflow: hidden;
+  margin: 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+  padding: 44px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+h1 { font-family: 'Titillium Web', sans-serif; color: #2D6A4F; font-size: 36px; }
+.sub { color: #1B4332; margin: 10px 0 22px; font-size: 16px; line-height: 1.45; }
+.table-wrap { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+td { border-bottom: 1px solid #ccc; padding: 20px 8px; vertical-align: top; line-height: 1.45; font-size: 16px; }
 td:first-child { width: 110px; font-weight: 600; color: #0C498A; }
-.logos { margin-top: 24px; display: flex; gap: 10px; }
+.logos { margin-top: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .ph { border: 1px dashed #0C498A; padding: 8px; font-size: 11px; }
-.footer { margin-top: 20px; font-size: 12px; color: #666; }
+.logo-cth { background: #fff; border-radius: 8px; padding: 6px 10px; margin-left: auto; }
+.cth-logo { height: 52px; width: auto; display: block; }
 </style>
 </head>
 <body>
 <h1>Agenda · Observatorio de la Tierra</h1>
 <p class="sub">martes 24 de noviembre de 2026 · Datalab powered by CleantechHUB<br/>Sede: PENDIENTE · Hora de inicio: PENDIENTE</p>
-<table><tr><td>PENDIENTE</td><td><strong>Registro y bienvenida</strong><br/><span>PENDIENTE (instrucciones de acceso)</span></td></tr><tr><td>PENDIENTE</td><td><strong>Panel de apertura</strong><br/><span>Representantes académicos, territorio y aliados — panelistas PENDIENTE</span></td></tr><tr><td>PENDIENTE</td><td><strong>Lanzamiento Observatorio de la Tierra</strong><br/><span>Marco del observatorio y datos ambientales accionables</span></td></tr><tr><td>PENDIENTE</td><td><strong>Anuncio Datalab</strong><br/><span>Sandboxes + gobernanza · Datalab powered by CleantechHUB</span></td></tr><tr><td>PENDIENTE</td><td><strong>Demo en vivo Air4U</strong><br/><span>~10–15 min · flujo de datos → tablero · [LOGO AIR4U]</span></td></tr><tr><td>PENDIENTE</td><td><strong>Q&A demo</strong><br/><span>~15 min</span></td></tr><tr><td>PENDIENTE</td><td><strong>Breakouts datathon</strong><br/><span>Reglas y premios PENDIENTE</span></td></tr><tr><td>PENDIENTE</td><td><strong>Cierre</strong><br/><span>Próximos pasos PENDIENTE</span></td></tr></table>
+<div class="table-wrap"><table><tr><td>PENDIENTE</td><td><strong>Registro y bienvenida</strong><br/><span>PENDIENTE (instrucciones de acceso)</span></td></tr><tr><td>PENDIENTE</td><td><strong>Panel de apertura</strong><br/><span>Representantes académicos, territorio y aliados — panelistas PENDIENTE</span></td></tr><tr><td>PENDIENTE</td><td><strong>Lanzamiento Observatorio de la Tierra</strong><br/><span>Marco del observatorio y datos ambientales accionables</span></td></tr><tr><td>PENDIENTE</td><td><strong>Anuncio Datalab</strong><br/><span>Sandboxes + gobernanza · Datalab powered by CleantechHUB</span></td></tr><tr><td>PENDIENTE</td><td><strong>Demo en vivo Air4U</strong><br/><span>~10–15 min · flujo de datos → tablero · [LOGO AIR4U]</span></td></tr><tr><td>PENDIENTE</td><td><strong>Q&A demo</strong><br/><span>~15 min</span></td></tr><tr><td>PENDIENTE</td><td><strong>Breakouts datathon</strong><br/><span>Reglas y premios PENDIENTE</span></td></tr><tr><td>PENDIENTE</td><td><strong>Cierre</strong><br/><span>Próximos pasos PENDIENTE</span></td></tr></table></div>
 <div class="logos">
   <div class="ph">[LOGO AIR4U] · socio de innovación</div>
   <div class="ph">[LOGO EXTERNADO]</div>
-  <div class="ph">CleantechHUB · custodio</div>
+  <div class="logo-cth"><img class="cth-logo" src="../_shared/cleantechhub-logo.png" width="182" height="48" alt="CleantechHUB" /></div>
 </div>
 </body>
 </html>

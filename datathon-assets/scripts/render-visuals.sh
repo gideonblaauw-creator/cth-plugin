@@ -6,8 +6,13 @@ shopt -s nullglob
 
 render_png() {
   local html="$1" out="$2" w="$3" h="$4"
-  "$CHROME" --headless --no-sandbox --disable-gpu \
-    --screenshot="$out" --window-size="${w},${h}" \
+  "$CHROME" --headless=new --no-sandbox --disable-gpu \
+    --force-device-scale-factor=1 \
+    --hide-scrollbars \
+    --window-size="${w},${h}" \
+    --screenshot="$out" \
+    --run-all-compositor-stages-before-draw \
+    --virtual-time-budget=5000 \
     "file://${html}" 2>/dev/null || true
   if [[ ! -s "$out" ]]; then
     echo "FAIL png: $out" >&2

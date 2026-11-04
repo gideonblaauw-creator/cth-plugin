@@ -6,45 +6,204 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #B2EEFA; }
-    .canvas { position: relative; overflow: hidden; background: #B2EEFA; }
-    .sidebar { background: #0C498A; color: #FFFFFF; }
+    html, body {
+      width: 1200px;
+      height: 627px;
+      max-width: 1200px;
+      max-height: 627px;
+      overflow: hidden;
+      position: relative;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #0C498A; }
+    .canvas {
+      position: absolute;
+      inset: 0;
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+    }
     .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
     .tag { color: #669348; font-weight: 600; }
-    .bullet { font-size: 22px; line-height: 1.35; margin: 8px 0; padding-left: 18px; position: relative; }
-    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; }
-    .ph { border: 1.5px dashed #0C498A; background: #FFFFFF; font-size: 11px; font-weight: 600; padding: 8px 10px; border-radius: 6px; }
-    .logos { display: flex; gap: 12px; flex-wrap: wrap; }
-    
-html, body { width: 1200px; height: 627px; overflow: hidden; }
-</style>
+    .bullet { line-height: 1.35; margin: 0; padding-left: 1.1em; position: relative; }
+    .bullet + .bullet { margin-top: 0.55em; }
+    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; font-weight: 700; }
+    .ph {
+      border: 1.5px dashed #0C498A;
+      background: #FFFFFF;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .logo-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-cth {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-left: auto;
+    }
+    .cth-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+
+    /* LinkedIn 1200×627 */
+    .layout-linkedin { display: flex; height: 100%; align-items: stretch; }
+    .layout-linkedin .sidebar {
+      width: 34%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main {
+      flex: 1;
+      min-height: 100%;
+      background: #B2EEFA;
+      padding: 24px 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }
+    .layout-linkedin .main-top h1 { font-size: 50px; line-height: 1.05; }
+    .layout-linkedin .main-top .sub { font-size: 26px; font-weight: 600; }
+    .layout-linkedin .bullet { font-size: 21px; }
+    .layout-linkedin .main-bottom .tag { font-size: 20px; margin-bottom: 12px; }
+    .layout-linkedin .sidebar .side-note {
+      font-size: 15px; line-height: 1.45; opacity: 0.92; margin-top: 20px;
+    }
+
+    /* Instagram feed 1080×1350 */
+    .layout-feed { display: flex; flex-direction: column; height: 100%; }
+    .layout-feed .feed-top {
+      flex: 1;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .layout-feed .feed-top h1 { font-size: 54px; line-height: 1.05; }
+    .layout-feed .feed-top .sub { font-size: 26px; font-weight: 600; color: #B2EEFA; }
+    .layout-feed .feed-bottom {
+      flex: 1.08;
+      min-height: 0;
+      background: #B2EEFA;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .layout-feed .card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      margin: 28px 40px 0;
+      padding: 34px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .layout-feed .logo-bar {
+      margin-top: auto;
+      padding: 22px 40px 26px;
+      background: rgba(255, 255, 255, 0.45);
+      border-top: 3px solid rgba(12, 73, 138, 0.12);
+    }
+    .layout-feed .bullet { font-size: 26px; }
+
+    /* Story 1080×1920 */
+    .layout-story {
+      background: #0C498A;
+      color: #FFFFFF;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .layout-story .badge {
+      background: #69B5FA;
+      color: #0C498A;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    .layout-story h1 { font-size: 62px; line-height: 1.05; margin-top: 28px; }
+    .layout-story .sub { font-size: 28px; margin-top: 14px; opacity: 0.95; font-weight: 600; }
+    .layout-story .story-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 20px 0 28px;
+    }
+    .layout-story .bullet { font-size: 30px; color: #FFFFFF; }
+    .layout-story .bullet::before { color: #9DC384; }
+    .layout-story .story-tag { font-size: 26px; color: #9DC384; font-weight: 600; margin-bottom: 16px; }
+    .layout-story .ph { color: #0C498A; }
+    .layout-story .logo-bar {
+      padding-top: 8px;
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }
+    </style>
 </head>
 <body>
-        <div class="canvas" style="width:1200px;height:627px;display:flex;">
-          <div class="sidebar" style="width:360px;padding:48px 32px;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="200" height="50" aria-hidden="true">
+        <div class="canvas layout-linkedin">
+          <aside class="sidebar">
+            <div>
+              
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="220" height="55" aria-hidden="true">
       <g transform="translate(4, 8) scale(0.85)">
         <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
         <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
         <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
         <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
       </g>
-      <text x="118" y="52" font-family="Titillium Web, sans-serif" font-weight="700" font-size="32" fill="#FFFFFF">Datalab</text>
+      <text x="118" y="78" font-family="Titillium Web, sans-serif" font-weight="700" font-size="32" fill="#FFFFFF">Datalab</text>
     </svg>
     
-            <p style="margin-top:24px;font-size:14px;opacity:.9;">CleantechHUB · custodio</p>
-          </div>
-          <div style="flex:1;padding:48px 40px;">
-            <h1 class="head" style="font-size:52px;line-height:1.05;">Agenda · Observatorio de la Tierra</h1>
-            <p style="font-size:28px;margin:12px 0 24px;font-weight:600;">Soft launch de Datalab · 24 · 11 · 2026</p>
-            <p class="bullet">Panel de apertura — PENDIENTE (hora y panelistas)</p><p class="bullet">Anuncio de Datalab (sandboxes + gobernanza de datos)</p><p class="bullet">Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)</p><p class="bullet">Breakouts tipo datathon — PENDIENTE (reglas y premios)</p>
-            <p class="tag" style="margin-top:20px;font-size:20px;">Inspira. Actúa. Transforma.</p>
-            <div class="logos" style="margin-top:28px;">
-              <div class="ph">[LOGO AIR4U]</div>
-              <div class="ph">[LOGO EXTERNADO]</div>
-              <div class="ph">CleantechHUB logo PENDIENTE</div>
+              <p class="side-note">Datalab powered by CleantechHUB<br/>24 · 11 · 2026</p>
             </div>
-          </div>
+            <div class="logo-cth" style="align-self:flex-start;"><img class="cth-logo" src="../_shared/cleantechhub-logo.png" width="167" height="44" alt="CleantechHUB" /></div>
+          </aside>
+          <main class="main">
+            <div class="main-top">
+              <h1 class="head">Agenda · Observatorio de la Tierra</h1>
+              <p class="sub">Soft launch de Datalab · 24 · 11 · 2026</p>
+              <p class="bullet">Panel de apertura — PENDIENTE (hora y panelistas)</p><p class="bullet">Anuncio de Datalab (sandboxes + gobernanza de datos)</p><p class="bullet">Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)</p><p class="bullet">Breakouts tipo datathon — PENDIENTE (reglas y premios)</p>
+            </div>
+            <div class="main-bottom">
+              <p class="tag">Inspira. Actúa. Transforma.</p>
+              
+    <div class="logo-footer">
+      
+    <div class="ph partner">[LOGO AIR4U]</div>
+    <div class="ph partner">[LOGO EXTERNADO]</div>
+    
+      <div class="logo-cth"><img class="cth-logo" src="../_shared/cleantechhub-logo.png" width="167" height="44" alt="CleantechHUB" /></div>
+    </div>
+    
+            </div>
+          </main>
         </div>
         </body>
 </html>

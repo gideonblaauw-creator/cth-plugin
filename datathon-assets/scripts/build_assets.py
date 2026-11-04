@@ -2,13 +2,19 @@
 """Generate datathon-assets copy, HTML visuals, INDEX.md (PNG/PDF via render-visuals.sh)."""
 from __future__ import annotations
 
+import argparse
 import json
+import shutil
 import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 LOGO_SVG = REPO / "brand/datalab-logo-2026-11/logo/datalab-logo.svg"
+CTH_LOGO_SRC = REPO / "decks/nexus-co2/logos/cleantechhub.png"
+SHARED_DIR = ROOT / "_shared"
+CTH_LOGO_SHARED = SHARED_DIR / "cleantechhub-logo.png"
+CTH_LOGO_HTML = "../_shared/cleantechhub-logo.png"
 
 COLORS = {
     "deep": "#0C498A",
@@ -194,86 +200,274 @@ def write_copy_txt(stream: dict, folder: Path) -> None:
     (folder / "copy.txt").write_text(text + "\n", encoding="utf-8")
 
 
-def logo_markup(fill_wordmark: str = "#FFFFFF") -> str:
+def ensure_shared_assets() -> None:
+    SHARED_DIR.mkdir(parents=True, exist_ok=True)
+    if CTH_LOGO_SRC.is_file():
+        shutil.copy2(CTH_LOGO_SRC, CTH_LOGO_SHARED)
+
+
+def logo_markup(fill_wordmark: str = "#FFFFFF", scale: float = 1.0) -> str:
+    w = int(220 * scale)
+    h = int(55 * scale)
+    fs = int(32 * scale)
     return f"""
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="200" height="50" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="{w}" height="{h}" aria-hidden="true">
       <g transform="translate(4, 8) scale(0.85)">
         <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
         <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
         <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
         <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
       </g>
-      <text x="118" y="52" font-family="Titillium Web, sans-serif" font-weight="700" font-size="32" fill="{fill_wordmark}">Datalab</text>
+      <text x="118" y="78" font-family="Titillium Web, sans-serif" font-weight="700" font-size="{fs}" fill="{fill_wordmark}">Datalab</text>
     </svg>
     """
 
 
-def base_css() -> str:
+def cth_logo_img(height: int = 52) -> str:
+    return (
+        f'<img class="cth-logo" src="{CTH_LOGO_HTML}" width="{int(height * 3.8)}" '
+        f'height="{height}" alt="CleantechHUB" />'
+    )
+
+
+def partner_placeholders(compact: bool = False) -> str:
+    air = "[LOGO AIR4U]" if not compact else "AIR4U"
+    ext = "[LOGO EXTERNADO]" if not compact else "EXTERNADO"
+    return f"""
+    <div class="ph partner">{air}</div>
+    <div class="ph partner">{ext}</div>
+    """
+
+
+def logo_footer(linkedin: bool = False) -> str:
+    cth_h = 44 if linkedin else 52
+    return f"""
+    <div class="logo-footer">
+      {partner_placeholders()}
+      <div class="logo-cth">{cth_logo_img(cth_h)}</div>
+    </div>
+    """
+
+
+def base_css(width: int, height: int) -> str:
     return f"""
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{ font-family: 'Open Sans', sans-serif; color: {COLORS['deep']}; background: {COLORS['cyan']}; }}
-    .canvas {{ position: relative; overflow: hidden; background: {COLORS['cyan']}; }}
-    .sidebar {{ background: {COLORS['deep']}; color: {COLORS['white']}; }}
+    html, body {{
+      width: {width}px;
+      height: {height}px;
+      max-width: {width}px;
+      max-height: {height}px;
+      overflow: hidden;
+      position: relative;
+    }}
+    body {{ font-family: 'Open Sans', sans-serif; color: {COLORS['deep']}; background: {COLORS['deep']}; }}
+    .canvas {{
+      position: absolute;
+      inset: 0;
+      width: {width}px;
+      height: {height}px;
+      overflow: hidden;
+    }}
     .head {{ font-family: 'Titillium Web', sans-serif; font-weight: 700; }}
     .tag {{ color: {COLORS['forest']}; font-weight: 600; }}
-    .bullet {{ font-size: 22px; line-height: 1.35; margin: 8px 0; padding-left: 18px; position: relative; }}
-    .bullet::before {{ content: '•'; position: absolute; left: 0; color: {COLORS['forest']}; }}
-    .ph {{ border: 1.5px dashed {COLORS['deep']}; background: {COLORS['white']}; font-size: 11px; font-weight: 600; padding: 8px 10px; border-radius: 6px; }}
-    .logos {{ display: flex; gap: 12px; flex-wrap: wrap; }}
+    .bullet {{ line-height: 1.35; margin: 0; padding-left: 1.1em; position: relative; }}
+    .bullet + .bullet {{ margin-top: 0.55em; }}
+    .bullet::before {{ content: '•'; position: absolute; left: 0; color: {COLORS['forest']}; font-weight: 700; }}
+    .ph {{
+      border: 1.5px dashed {COLORS['deep']};
+      background: {COLORS['white']};
+      font-size: 11px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }}
+    .logo-footer {{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }}
+    .logo-cth {{
+      background: {COLORS['white']};
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-left: auto;
+    }}
+    .cth-logo {{ display: block; width: auto; max-width: 100%; object-fit: contain; }}
+
+    /* LinkedIn 1200×627 */
+    .layout-linkedin {{ display: flex; height: 100%; align-items: stretch; }}
+    .layout-linkedin .sidebar {{
+      width: 34%;
+      background: {COLORS['deep']};
+      color: {COLORS['white']};
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }}
+    .layout-linkedin .main {{
+      flex: 1;
+      min-height: 100%;
+      background: {COLORS['cyan']};
+      padding: 24px 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }}
+    .layout-linkedin .main-top {{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }}
+    .layout-linkedin .main-top h1 {{ font-size: 50px; line-height: 1.05; }}
+    .layout-linkedin .main-top .sub {{ font-size: 26px; font-weight: 600; }}
+    .layout-linkedin .bullet {{ font-size: 21px; }}
+    .layout-linkedin .main-bottom .tag {{ font-size: 20px; margin-bottom: 12px; }}
+    .layout-linkedin .sidebar .side-note {{
+      font-size: 15px; line-height: 1.45; opacity: 0.92; margin-top: 20px;
+    }}
+
+    /* Instagram feed 1080×1350 */
+    .layout-feed {{ display: flex; flex-direction: column; height: 100%; }}
+    .layout-feed .feed-top {{
+      flex: 1;
+      background: {COLORS['deep']};
+      color: {COLORS['white']};
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }}
+    .layout-feed .feed-top h1 {{ font-size: 54px; line-height: 1.05; }}
+    .layout-feed .feed-top .sub {{ font-size: 26px; font-weight: 600; color: {COLORS['cyan']}; }}
+    .layout-feed .feed-bottom {{
+      flex: 1.08;
+      min-height: 0;
+      background: {COLORS['cyan']};
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }}
+    .layout-feed .card {{
+      background: {COLORS['white']};
+      border-radius: 14px;
+      margin: 28px 40px 0;
+      padding: 34px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }}
+    .layout-feed .logo-bar {{
+      margin-top: auto;
+      padding: 22px 40px 26px;
+      background: rgba(255, 255, 255, 0.45);
+      border-top: 3px solid rgba(12, 73, 138, 0.12);
+    }}
+    .layout-feed .bullet {{ font-size: 26px; }}
+
+    /* Story 1080×1920 */
+    .layout-story {{
+      background: {COLORS['deep']};
+      color: {COLORS['white']};
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }}
+    .layout-story .badge {{
+      background: {COLORS['sky']};
+      color: {COLORS['deep']};
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 24px;
+    }}
+    .layout-story h1 {{ font-size: 62px; line-height: 1.05; margin-top: 28px; }}
+    .layout-story .sub {{ font-size: 28px; margin-top: 14px; opacity: 0.95; font-weight: 600; }}
+    .layout-story .story-mid {{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 20px 0 28px;
+    }}
+    .layout-story .bullet {{ font-size: 30px; color: {COLORS['white']}; }}
+    .layout-story .bullet::before {{ color: {COLORS['green']}; }}
+    .layout-story .story-tag {{ font-size: 26px; color: {COLORS['green']}; font-weight: 600; margin-bottom: 16px; }}
+    .layout-story .ph {{ color: {COLORS['deep']}; }}
+    .layout-story .logo-bar {{
+      padding-top: 8px;
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }}
     """
 
 
 def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
     bullets_html = "".join(f'<p class="bullet">{b}</p>' for b in stream["bullets"][:4])
-    logo = logo_markup("#FFFFFF" if layout != "story-light" else "#0C498A")
+    datalab = logo_markup("#FFFFFF", scale=1.0 if layout != "story" else 1.15)
 
     if layout == "linkedin":
         inner = f"""
-        <div class="canvas" style="width:{width}px;height:{height}px;display:flex;">
-          <div class="sidebar" style="width:360px;padding:48px 32px;">{logo}
-            <p style="margin-top:24px;font-size:14px;opacity:.9;">CleantechHUB · custodio</p>
-          </div>
-          <div style="flex:1;padding:48px 40px;">
-            <h1 class="head" style="font-size:52px;line-height:1.05;">{stream['headline']}</h1>
-            <p style="font-size:28px;margin:12px 0 24px;font-weight:600;">{stream['sub']}</p>
-            {bullets_html}
-            <p class="tag" style="margin-top:20px;font-size:20px;">Inspira. Actúa. Transforma.</p>
-            <div class="logos" style="margin-top:28px;">
-              <div class="ph">[LOGO AIR4U]</div>
-              <div class="ph">[LOGO EXTERNADO]</div>
-              <div class="ph">CleantechHUB logo PENDIENTE</div>
+        <div class="canvas layout-linkedin">
+          <aside class="sidebar">
+            <div>
+              {datalab}
+              <p class="side-note">{BRAND_LINE}<br/>{EVENT_SHORT}</p>
             </div>
-          </div>
+            <div class="logo-cth" style="align-self:flex-start;">{cth_logo_img(44)}</div>
+          </aside>
+          <main class="main">
+            <div class="main-top">
+              <h1 class="head">{stream['headline']}</h1>
+              <p class="sub">{stream['sub']}</p>
+              {bullets_html}
+            </div>
+            <div class="main-bottom">
+              <p class="tag">Inspira. Actúa. Transforma.</p>
+              {logo_footer(linkedin=True)}
+            </div>
+          </main>
         </div>
         """
     elif layout == "feed":
         inner = f"""
-        <div class="canvas" style="width:{width}px;height:{height}px;padding:56px 48px;background:linear-gradient(180deg,{COLORS['deep']} 0%, {COLORS['deep']} 42%, {COLORS['cyan']} 42%);">
-          <div style="color:{COLORS['white']};">{logo.replace('fill="#FFFFFF"', 'fill="#FFFFFF"')}</div>
-          <h1 class="head" style="color:{COLORS['white']};font-size:56px;margin-top:32px;line-height:1.05;">{stream['headline']}</h1>
-          <p style="color:{COLORS['cyan']};font-size:26px;margin-top:12px;font-weight:600;">{stream['sub']}</p>
-          <div style="margin-top:36px;background:{COLORS['white']};border-radius:12px;padding:28px;">
-            {bullets_html}
-          </div>
-          <div class="logos" style="margin-top:28px;">
-            <div class="ph">[LOGO AIR4U]</div>
-            <div class="ph">[LOGO EXTERNADO]</div>
-          </div>
+        <div class="canvas layout-feed">
+          <section class="feed-top">
+            {datalab}
+            <h1 class="head">{stream['headline']}</h1>
+            <p class="sub">{stream['sub']}</p>
+          </section>
+          <section class="feed-bottom">
+            <div class="card">{bullets_html}</div>
+            <div class="logo-bar">{logo_footer()}</div>
+          </section>
         </div>
         """
-    else:  # story
+    else:
         inner = f"""
-        <div class="canvas" style="width:{width}px;height:{height}px;padding:64px 48px;background:{COLORS['deep']};color:{COLORS['white']};">
-          <div style="background:{COLORS['sky']};color:{COLORS['deep']};display:inline-block;padding:8px 16px;border-radius:999px;font-weight:600;font-size:22px;">{EVENT_SHORT}</div>
-          <h1 class="head" style="font-size:64px;margin-top:40px;line-height:1.05;">{stream['headline']}</h1>
-          <p style="font-size:28px;margin-top:16px;opacity:.95;">{stream['sub']}</p>
-          <div style="margin-top:48px;">{bullets_html.replace('class="bullet"', 'class="bullet" style="color:#fff;"')}</div>
-          <p class="tag" style="margin-top:40px;font-size:24px;color:{COLORS['green']};">Datalab powered by CleantechHUB</p>
-          <div class="logos" style="margin-top:48px;">
-            <div class="ph" style="color:{COLORS['deep']};">[LOGO AIR4U]</div>
-            <div class="ph" style="color:{COLORS['deep']};">[LOGO EXTERNADO]</div>
-          </div>
+        <div class="canvas layout-story">
+          <header>
+            <span class="badge">{EVENT_SHORT}</span>
+            <h1 class="head">{stream['headline']}</h1>
+            <p class="sub">{stream['sub']}</p>
+          </header>
+          <div class="story-mid">{bullets_html}</div>
+          <footer class="logo-bar">
+            <p class="story-tag">{BRAND_LINE}</p>
+            {logo_footer()}
+          </footer>
         </div>
         """
 
@@ -282,9 +476,7 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
 <head>
 <meta charset="utf-8"/>
 <title>{stream['id']} {layout}</title>
-<style>{base_css()}
-html, body {{ width: {width}px; height: {height}px; overflow: hidden; }}
-</style>
+<style>{base_css(width, height)}</style>
 </head>
 <body>{inner}</body>
 </html>
@@ -313,25 +505,42 @@ def agenda_print_html() -> str:
 <title>Agenda imprimible</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
-body {{ font-family: 'Open Sans', sans-serif; color: {COLORS['text']}; padding: 40px; max-width: 900px; margin: 0 auto; }}
-h1 {{ font-family: 'Titillium Web', sans-serif; color: {COLORS['cth_primary']}; font-size: 32px; }}
-.sub {{ color: {COLORS['cth_dark']}; margin: 8px 0 24px; }}
-table {{ width: 100%; border-collapse: collapse; font-size: 14px; }}
-td {{ border-bottom: 1px solid #ccc; padding: 10px 8px; vertical-align: top; }}
+html, body {{
+  width: 900px;
+  height: 1200px;
+  max-width: 900px;
+  max-height: 1200px;
+  overflow: hidden;
+  margin: 0;
+}}
+body {{
+  font-family: 'Open Sans', sans-serif;
+  color: {COLORS['text']};
+  padding: 44px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}}
+h1 {{ font-family: 'Titillium Web', sans-serif; color: {COLORS['cth_primary']}; font-size: 36px; }}
+.sub {{ color: {COLORS['cth_dark']}; margin: 10px 0 22px; font-size: 16px; line-height: 1.45; }}
+.table-wrap {{ flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }}
+table {{ width: 100%; border-collapse: collapse; font-size: 15px; }}
+td {{ border-bottom: 1px solid #ccc; padding: 20px 8px; vertical-align: top; line-height: 1.45; font-size: 16px; }}
 td:first-child {{ width: 110px; font-weight: 600; color: {COLORS['deep']}; }}
-.logos {{ margin-top: 24px; display: flex; gap: 10px; }}
+.logos {{ margin-top: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }}
 .ph {{ border: 1px dashed {COLORS['deep']}; padding: 8px; font-size: 11px; }}
-.footer {{ margin-top: 20px; font-size: 12px; color: #666; }}
+.logo-cth {{ background: #fff; border-radius: 8px; padding: 6px 10px; margin-left: auto; }}
+.cth-logo {{ height: 52px; width: auto; display: block; }}
 </style>
 </head>
 <body>
 <h1>Agenda · Observatorio de la Tierra</h1>
 <p class="sub">{EVENT_DATE} · {BRAND_LINE}<br/>Sede: PENDIENTE · Hora de inicio: PENDIENTE</p>
-<table>{rows}</table>
+<div class="table-wrap"><table>{rows}</table></div>
 <div class="logos">
   <div class="ph">[LOGO AIR4U] · socio de innovación</div>
   <div class="ph">[LOGO EXTERNADO]</div>
-  <div class="ph">CleantechHUB · custodio</div>
+  <div class="logo-cth">{cth_logo_img(48)}</div>
 </div>
 </body>
 </html>
@@ -339,6 +548,7 @@ td:first-child {{ width: 110px; font-weight: 600; color: {COLORS['deep']}; }}
 
 
 def write_visuals(stream: dict) -> list[dict]:
+    ensure_shared_assets()
     folder = ROOT / stream["id"]
     specs = [
         ("linkedin-1200x627", 1200, 627, "linkedin"),
@@ -362,6 +572,7 @@ def write_visuals(stream: dict) -> list[dict]:
 
 
 def write_agenda_extras() -> list[dict]:
+    ensure_shared_assets()
     folder = ROOT / "01-agenda"
     html = agenda_print_html()
     (folder / "agenda-print-a4.html").write_text(html, encoding="utf-8")
@@ -435,12 +646,22 @@ def write_index(all_files: list[dict]) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--visuals-only",
+        action="store_true",
+        help="Regenerate HTML visuals and agenda print only (do not touch copy files).",
+    )
+    args = parser.parse_args()
+
     manifest: list[dict] = []
     for stream in STREAMS:
-        write_copy(stream)
+        if not args.visuals_only:
+            write_copy(stream)
         manifest.extend(write_visuals(stream))
     manifest.extend(write_agenda_extras())
-    write_index(manifest)
+    if not args.visuals_only:
+        write_index(manifest)
     print(json.dumps({"streams": len(STREAMS), "assets": len(manifest)}, indent=2))
 
 
