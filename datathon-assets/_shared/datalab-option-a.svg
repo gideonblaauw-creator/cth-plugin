@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="Data Lab logo option A">
+  <defs>
+    <style>
+      .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 36px; fill: #0C498A; }
+    </style>
+  </defs>
+  <g transform="translate(8, 16)">
+    <rect x="0" y="0" width="22" height="22" rx="4" fill="#0C498A"/>
+    <rect x="28" y="0" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="56" y="0" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="84" y="0" width="22" height="22" rx="4" fill="#69B5FA"/>
+    <rect x="0" y="28" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="28" y="28" width="22" height="22" rx="4" fill="#669348"/>
+    <rect x="56" y="28" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="84" y="28" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="0" y="56" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="28" y="56" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="56" y="56" width="22" height="22" rx="4" fill="#0C498A"/>
+    <rect x="84" y="56" width="22" height="22" rx="4" fill="#B2EEFA"/>
+  </g>
+  <text class="wm" x="130" y="78">Data Lab</text>
+</svg>

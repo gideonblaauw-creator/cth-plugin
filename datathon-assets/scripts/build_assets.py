@@ -10,11 +10,21 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
-LOGO_SVG = REPO / "brand/datalab-logo-2026-11/logo/datalab-logo.svg"
 CTH_LOGO_SRC = REPO / "decks/nexus-co2/logos/cleantechhub.png"
+OPTION_A_DIR = REPO / "brand/datalab-logo-2026-11/archive/logo"
 SHARED_DIR = ROOT / "_shared"
 CTH_LOGO_SHARED = SHARED_DIR / "cleantechhub-logo.png"
 CTH_LOGO_HTML = "../_shared/cleantechhub-logo.png"
+DATALAB_OPTION_A = {
+    "svg": SHARED_DIR / "datalab-option-a.svg",
+    "light": SHARED_DIR / "datalab-option-a-light.png",
+    "dark": SHARED_DIR / "datalab-option-a-dark.png",
+}
+DATALAB_HTML = {
+    "svg": "../_shared/datalab-option-a.svg",
+    "light": "../_shared/datalab-option-a-light.png",
+    "dark": "../_shared/datalab-option-a-dark.png",
+}
 
 COLORS = {
     "deep": "#0C498A",
@@ -204,23 +214,20 @@ def ensure_shared_assets() -> None:
     SHARED_DIR.mkdir(parents=True, exist_ok=True)
     if CTH_LOGO_SRC.is_file():
         shutil.copy2(CTH_LOGO_SRC, CTH_LOGO_SHARED)
+    if OPTION_A_DIR.is_dir():
+        shutil.copy2(OPTION_A_DIR / "option-a.svg", DATALAB_OPTION_A["svg"])
+        shutil.copy2(OPTION_A_DIR / "option-a-light.png", DATALAB_OPTION_A["light"])
+        shutil.copy2(OPTION_A_DIR / "option-a-dark.png", DATALAB_OPTION_A["dark"])
 
 
-def logo_markup(fill_wordmark: str = "#FFFFFF", scale: float = 1.0) -> str:
-    w = int(220 * scale)
-    h = int(55 * scale)
-    fs = int(32 * scale)
-    return f"""
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="{w}" height="{h}" aria-hidden="true">
-      <g transform="translate(4, 8) scale(0.85)">
-        <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
-        <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
-        <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
-        <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
-      </g>
-      <text x="118" y="78" font-family="Titillium Web, sans-serif" font-weight="700" font-size="{fs}" fill="{fill_wordmark}">Datalab</text>
-    </svg>
-    """
+def datalab_logo_img(variant: str = "dark", height: int = 72) -> str:
+    """Option A grid mark (+ wordmark in PNG). dark = on deep fields; light = on pale fields."""
+    src = DATALAB_HTML[variant if variant in DATALAB_HTML else "dark"]
+    width = int(height * (480 / 120))
+    return (
+        f'<img class="datalab-logo" src="{src}" height="{height}" '
+        f'width="{width}" alt="Datalab" />'
+    )
 
 
 def cth_logo_img(height: int = 52) -> str:
@@ -296,6 +303,7 @@ def base_css(width: int, height: int) -> str:
       margin-left: auto;
     }}
     .cth-logo {{ display: block; width: auto; max-width: 100%; object-fit: contain; }}
+    .datalab-logo {{ display: block; width: auto; max-width: 100%; object-fit: contain; }}
 
     /* LinkedIn 1200×627 */
     .layout-linkedin {{ display: flex; height: 100%; align-items: stretch; }}
@@ -385,6 +393,7 @@ def base_css(width: int, height: int) -> str:
       flex-direction: column;
       justify-content: space-between;
     }}
+    .layout-story header .datalab-logo {{ margin-bottom: 22px; }}
     .layout-story .badge {{
       background: {COLORS['sky']};
       color: {COLORS['deep']};
@@ -416,9 +425,8 @@ def base_css(width: int, height: int) -> str:
 
 def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
     bullets_html = "".join(f'<p class="bullet">{b}</p>' for b in stream["bullets"][:4])
-    datalab = logo_markup("#FFFFFF", scale=1.0 if layout != "story" else 1.15)
-
     if layout == "linkedin":
+        datalab = datalab_logo_img("dark", 78)
         inner = f"""
         <div class="canvas layout-linkedin">
           <aside class="sidebar">
@@ -426,7 +434,6 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
               {datalab}
               <p class="side-note">{BRAND_LINE}<br/>{EVENT_SHORT}</p>
             </div>
-            <div class="logo-cth" style="align-self:flex-start;">{cth_logo_img(44)}</div>
           </aside>
           <main class="main">
             <div class="main-top">
@@ -442,6 +449,7 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
         </div>
         """
     elif layout == "feed":
+        datalab = datalab_logo_img("dark", 86)
         inner = f"""
         <div class="canvas layout-feed">
           <section class="feed-top">
@@ -456,9 +464,11 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
         </div>
         """
     else:
+        datalab = datalab_logo_img("dark", 92)
         inner = f"""
         <div class="canvas layout-story">
           <header>
+            {datalab}
             <span class="badge">{EVENT_SHORT}</span>
             <h1 class="head">{stream['headline']}</h1>
             <p class="sub">{stream['sub']}</p>
@@ -635,7 +645,7 @@ def write_index(all_files: list[dict]) -> None:
             "- Air4U = socio de innovación; CleantechHUB = custodio.",
             "- Placeholders de logo hasta archivo aprobado.",
             "",
-            f"**Kit logo:** `brand/datalab-logo-2026-11/` (Option B).",
+            f"**Kit logo:** `brand/datalab-logo-2026-11/archive/logo/option-a.*` (Option A grid).",
             "",
             "## WhatsApp kit",
             "",
