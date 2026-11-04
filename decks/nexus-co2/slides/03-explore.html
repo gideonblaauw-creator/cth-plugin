@@ -1,0 +1,42 @@
+<section class="slide slide-deep slide-app" id="s-03" data-menu-title="Explore &amp; counters">
+  <div class="slide-inner deck-app" id="deck-app-root">
+    <h2 class="slide-title compact">Startups &amp; claims (filtered)</h2>
+    <div class="counter-strip">
+      <div class="glass stat"><span class="num" id="c-startups">—</span><span class="label">Startups reporting</span></div>
+      <div class="glass stat"><span class="num" id="c-claims">—</span><span class="label">Claims shown</span></div>
+      <div class="glass stat"><span class="num" id="c-mitigated">—</span><span class="label">Σ mitigated (filtered)</span></div>
+      <div class="glass stat"><span class="num" id="c-avoided">—</span><span class="label">Σ avoided (filtered)</span></div>
+    </div>
+    <div class="counter-strip counter-strip--2">
+      <div class="glass stat"><span class="num" id="c-managed">—</span><span class="label">Σ managed (filtered)</span></div>
+      <p class="small note-inline">Totals sum only filtered rows, within each metric type. Managed is shown separately from mitigated and avoided.</p>
+    </div>
+    <div class="filter-bar glass">
+      <label>Country
+        <select id="f-country"><option value="all">All</option></select>
+      </label>
+      <label>Sector
+        <select id="f-sector"><option value="all">All</option></select>
+      </label>
+      <label>Theme
+        <select id="f-theme"><option value="all">All</option></select>
+      </label>
+      <label>Metric
+        <select id="f-metric"><option value="all">All</option></select>
+      </label>
+      <div class="range-wrap">
+        <label>tCO₂e range (log scale)</label>
+        <input type="range" id="f-range" aria-label="Minimum tCO2e log">
+        <input type="range" id="f-range-max" aria-label="Maximum tCO2e log">
+        <div class="range-labels"><span id="range-min-label">—</span><span id="range-max-label">—</span></div>
+      </div>
+      <button type="button" class="chrome-btn chrome-btn--inline" id="btn-reset-filters">Reset</button>
+    </div>
+    <div class="startup-grid" id="startup-grid" aria-live="polite"></div>
+  </div>
+  <footer class="footer">
+    <span>Cards link to nexus.cleantechhub.net/s/&lt;slug&gt;</span>
+    <span>Use Index or dots for chart &amp; table</span>
+    <span class="slide-num"></span>
+  </footer>
+</section>

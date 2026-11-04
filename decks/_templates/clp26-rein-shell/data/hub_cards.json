@@ -1,0 +1,29 @@
+{
+ "hub_reps": [
+  {
+   "name": "Partner name",
+   "country": "CO",
+   "startups_mentored": [],
+   "bio_en": "Lorem ipsum",
+   "bio_es": "Lorem ipsum",
+   "organisation": "Partner name",
+   "role": "Lorem ipsum",
+   "role_es": "Lorem ipsum",
+   "hub": "h1",
+   "hub_en": "Partner name",
+   "hub_es": "Partner name",
+   "linkedin_url": null
+  }
+ ],
+ "hubs": [
+  {
+   "id": "h1",
+   "university": "Partner name",
+   "logo": "",
+   "hub_en": "Partner name",
+   "hub_es": "Partner name",
+   "thanks_en": "Lorem ipsum",
+   "thanks_es": "Lorem ipsum"
+  }
+ ]
+}
