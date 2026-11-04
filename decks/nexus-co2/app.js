@@ -66,7 +66,7 @@
     if (f.theme !== 'all' && row.theme !== f.theme) return false;
     if (f.metric !== 'all' && row.metric_type !== f.metric) return false;
     var logV = Math.log10(row.value_tco2e);
-    if (logV < f.logMin || logV > f.logMax) return false;
+    if (logV < f.logMin - 1e-6 || logV > f.logMax + 1e-6) return false;
     return true;
   }
 
@@ -276,11 +276,11 @@
     var rangeMax = document.getElementById('f-range-max');
     range.min = String(LOG_MIN);
     range.max = String(LOG_MAX);
-    range.step = '0.01';
+    range.step = '0.001';
     range.value = String(LOG_MIN);
     rangeMax.min = String(LOG_MIN);
     rangeMax.max = String(LOG_MAX);
-    rangeMax.step = '0.01';
+    rangeMax.step = '0.001';
     rangeMax.value = String(LOG_MAX);
 
     ['f-country', 'f-sector', 'f-theme', 'f-metric', 'f-range', 'f-range-max'].forEach(function (id) {
