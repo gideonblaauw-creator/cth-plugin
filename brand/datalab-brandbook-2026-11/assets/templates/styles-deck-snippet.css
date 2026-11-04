@@ -1,0 +1,21 @@
+:root {
+  --deep-blue: #0C498A;
+  --light-cyan: #B2EEFA;
+  --white: #FFFFFF;
+  --forest: #669348;
+}
+body.deck-preview { font-family: 'Open Sans', sans-serif; background: #f4f8fc; padding: 1rem; }
+.slide { max-width: 960px; margin: 1.5rem auto; border: 2px solid var(--deep-blue); border-radius: 8px; overflow: hidden; background: var(--white); }
+.slide-bar { background: var(--deep-blue); color: var(--white); padding: 0.5rem 1rem; font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 0.85rem; }
+.slide-body { padding: 1.5rem; }
+.slide-body.light { background: var(--light-cyan); }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest); }
+h1, h2 { font-family: 'Titillium Web', sans-serif; color: var(--deep-blue); }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-tile { background: var(--deep-blue); color: var(--white); padding: 1rem; border-radius: 6px; }
+.stat-tile.accent { background: var(--forest); }
+.stat-label { display: block; font-size: 0.7rem; opacity: 0.9; }
+.stat-value { font-family: 'Titillium Web', sans-serif; font-size: 2rem; font-weight: 700; }
+.datalab-table { width: 100%; border-collapse: collapse; }
+.datalab-table th { background: var(--deep-blue); color: var(--white); text-align: left; padding: 0.5rem; }
+.datalab-table td { border-bottom: 1px solid var(--deep-blue); padding: 0.5rem; }

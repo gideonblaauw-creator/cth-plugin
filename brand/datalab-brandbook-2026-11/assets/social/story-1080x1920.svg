@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <rect width="1080" height="1920" fill="#0C498A"/>
+  <g transform="translate(540, 520)">
+    <g transform="translate(-52, -40) scale(2.2)">
+      <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
+      <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
+      <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#FFFFFF"/>
+      <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
+    </g>
+  </g>
+  <text x="540" y="720" text-anchor="middle" font-family="Titillium Web, sans-serif" font-weight="700" font-size="72" fill="#FFFFFF">Data Lab</text>
+  <text x="540" y="800" text-anchor="middle" font-family="Open Sans, sans-serif" font-weight="600" font-size="32" fill="#B2EEFA">Inspira. Actúa. Transforma.</text>
+  <rect x="120" y="1680" width="840" height="120" rx="8" fill="#FFFFFF" fill-opacity="0.12" stroke="#B2EEFA" stroke-width="2"/>
+  <text x="540" y="1750" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="28" fill="#FFFFFF">CTH logo · PENDIENTE</text>
+</svg>

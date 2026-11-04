@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 148" width="520" height="148" role="img" aria-label="Datalab powered by CleantechHUB lockup">
+  <defs>
+    <style>
+      .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 36px; fill: #0C498A; }
+      .end { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 13px; fill: #669348; }
+    </style>
+  </defs>
+  <g transform="translate(12, 22)">
+    <path d="M8 52 L52 72 L96 52 L52 32 Z" fill="#69B5FA"/>
+    <path d="M8 38 L52 58 L96 38 L52 18 Z" fill="#9DC384"/>
+    <path d="M8 24 L52 44 L96 24 L52 4 Z" fill="#0C498A"/>
+    <rect x="44" y="74" width="16" height="6" rx="2" fill="#669348"/>
+  </g>
+  <text class="wm" x="130" y="72">Datalab</text>
+  <text class="end" x="130" y="98">powered by CleantechHUB</text>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "brand": "Datalab powered by CleantechHUB",
+  "wordmark": "Datalab",
+  "parent": "CleantechHUB",
+  "source": "Manual de Marca Jan 2024 (five CTH colours only)",
+  "tagline": {
+    "en": "Inspire. Act. Transform.",
+    "es": "Inspira. Actúa. Transforma."
+  },
+  "core": [
+    { "name": "Deep Blue", "hex": "#0C498A", "rgb": [12, 73, 138], "cmyk": "PENDIENTE" },
+    { "name": "Light Cyan", "hex": "#B2EEFA", "rgb": [178, 238, 250], "cmyk": "PENDIENTE" },
+    { "name": "Light Green", "hex": "#9DC384", "rgb": [157, 195, 132], "cmyk": "PENDIENTE" },
+    { "name": "Forest Green", "hex": "#669348", "rgb": [102, 147, 72], "cmyk": "PENDIENTE" },
+    { "name": "Sky Blue", "hex": "#69B5FA", "rgb": [105, 181, 250], "cmyk": "PENDIENTE" }
+  ],
+  "neutral": { "name": "White", "hex": "#FFFFFF", "rgb": [255, 255, 255], "cmyk": "PENDIENTE" },
+  "categorical": ["#0C498A", "#669348", "#69B5FA", "#9DC384", "#B2EEFA"],
+  "sequential": {
+    "deep_blue": ["#E8EEF5", "#B3C5DB", "#7E9CC1", "#4973A7", "#0C498A"],
+    "forest": ["#EEF3EA", "#C9D9BC", "#A4C08E", "#7FA660", "#669348"]
+  },
+  "usage_ratio_guidance": {
+    "primary_field": "60% Deep Blue or White",
+    "accent": "25% Light Cyan / Sky Blue / Light Green",
+    "support": "15% Forest Green bars and tags",
+    "note": "Max two brand colours per layout section; flat fills only."
+  }
+}
