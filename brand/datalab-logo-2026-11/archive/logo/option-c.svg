@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" width="480" height="120" role="img" aria-label="Data Lab logo option C">
+  <defs>
+    <style>
+      .wm { font-family: 'Titillium Web', sans-serif; font-weight: 700; font-size: 36px; fill: #0C498A; }
+    </style>
+  </defs>
+  <g transform="translate(10, 24)" stroke-linecap="round">
+    <line x1="28" y1="40" x2="58" y2="24" stroke="#669348" stroke-width="3"/>
+    <line x1="28" y1="40" x2="58" y2="56" stroke="#669348" stroke-width="3"/>
+    <line x1="58" y1="24" x2="88" y2="40" stroke="#0C498A" stroke-width="3"/>
+    <line x1="58" y1="56" x2="88" y2="40" stroke="#0C498A" stroke-width="3"/>
+    <circle cx="28" cy="40" r="10" fill="#0C498A"/>
+    <circle cx="58" cy="24" r="8" fill="#69B5FA"/>
+    <circle cx="58" cy="56" r="8" fill="#9DC384"/>
+    <circle cx="88" cy="40" r="11" fill="#669348"/>
+  </g>
+  <text class="wm" x="130" y="78">Data Lab</text>
+</svg>
