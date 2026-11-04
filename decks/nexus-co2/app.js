@@ -1,45 +1,111 @@
 (function () {
   'use strict';
 
-  /** @type {Array<Record<string, string|number>>} */
-  var ROWS = [
-    { slug: 'bio-natural-solutions', name: 'BIO NATURAL SOLUTIONS', country: 'CO', sector: 'CT-AF-010', theme: 'Bioeconomy', metric_type: 'mitigated', value_tco2e: 7500, period: '', quote: '+7500 TM CO2 mitigadas', source_url: 'https://bionatsolutions.com/' },
-    { slug: 'bio-natural-solutions', name: 'BIO NATURAL SOLUTIONS', country: 'CO', sector: 'CT-AF-010', theme: 'Bioeconomy', metric_type: 'mitigated', value_tco2e: 4500, period: '', quote: 'Evitamos emisiones asociadas al uso de agroquímicos sintéticos y al desperdicio de alimentos, mitigando +4500 TM de CO2.', source_url: 'https://bionatsolutions.com/' },
-    { slug: 'batx', name: 'BATX SAS', country: 'CO', sector: 'CT-EN-004', theme: 'Energy', metric_type: 'avoided', value_tco2e: 520, period: '', quote: 'Evitado 520 toneladas de CO₂ equivalentes a la fabricación de baterías de primera vida.', source_url: 'https://www.batx.co/impacto-1' },
-    { slug: 'ciclorganicos', name: 'CICLORGÁNICOS (BIO ABONOS GAIA)', country: 'CO', sector: 'CT-WA-002', theme: 'Bioeconomy', metric_type: 'avoided', value_tco2e: 25000, period: '2019-2026', quote: '+25.000 t de CO₂ eq evitadas', source_url: 'https://ciclorganicos.com/' },
-    { slug: 'kimsa', name: 'CARBON BOX', country: 'CO', sector: 'CT-IC-002', theme: 'Energy', metric_type: 'managed', value_tco2e: 13000, period: '', quote: '13000+ Toneladas de gases efecto invernadero gestionadas', source_url: 'https://www.kimsa.co/tecnologia-para-la-naturaleza' },
-    { slug: 'carbonbox', name: 'CARBONBOX', country: 'CO', sector: 'CT-XS-001', theme: 'Energy', metric_type: 'managed', value_tco2e: 112000, period: '', quote: '112K+ tCO₂e gestionadas', source_url: 'https://carbonbox.app/' },
-    { slug: 'o3-smart-cities', name: 'O3 SMART CITIES', country: 'CO', sector: 'CT-EN-001', theme: 'Energy', metric_type: 'avoided', value_tco2e: 1500, period: '', quote: '1.500+ t CO₂ evitadas', source_url: 'https://o3smartcities.com.co' },
-    { slug: 'seos-energy', name: 'SEOS ENERGY SAS BIC', country: 'CO', sector: 'CT-XS-003', theme: 'Energy', metric_type: 'avoided', value_tco2e: 645, period: '', quote: '645 toneladas de CO₂ evitadas', source_url: 'https://seosenergy.co/' },
-    { slug: 'zhana-solutions', name: 'ZHANA SOLUTIONS', country: 'CO', sector: 'CT-WW-002', theme: 'Circular', metric_type: 'avoided', value_tco2e: 2.73, period: '', quote: 'Toneladas de reducción CO2', source_url: 'https://zhanasolutions.com/' }
-  ];
-
-  var COVERAGE = {
-    portfolio: 174,
-    websitesChecked: 126,
-    noWebsite: 48,
-    unreachable: 22
-  };
-
-  var VALUE_MIN = Math.min.apply(null, ROWS.map(function (r) { return r.value_tco2e; }));
-  var VALUE_MAX = Math.max.apply(null, ROWS.map(function (r) { return r.value_tco2e; }));
-  var LOG_MIN = Math.log10(VALUE_MIN);
-  var LOG_MAX = Math.log10(VALUE_MAX);
-  /** Inclusive upper log bound so range input step does not drop the largest claim. */
-  var LOG_MAX_SLIDER = Math.ceil(LOG_MAX * 100) / 100;
+  var ROWS = [];
+  var COVERAGE = {};
+  var chart = null;
+  var sortKey = 'value_tco2e';
+  var sortDir = -1;
+  var LOG_MIN = 0;
+  var LOG_MAX = 1;
+  var LOG_MAX_SLIDER = 1;
+  var searchQ = '';
 
   function uniq(arr) {
     return arr.filter(function (v, i, a) { return a.indexOf(v) === i; }).sort();
   }
 
   function fmtNum(n) {
+    if (n >= 1e6) return (n / 1e6).toLocaleString('en-US', { maximumFractionDigits: 2 }) + 'M';
     if (n >= 1000) return n.toLocaleString('en-US', { maximumFractionDigits: 0 });
     if (n >= 10) return n.toLocaleString('en-US', { maximumFractionDigits: 1 });
     return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
   }
 
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function nexusUrl(slug) {
     return 'https://nexus.cleantechhub.net/s/' + slug;
+  }
+
+  function citation(row) {
+    if (row.source_kind === 'website' && row.source_url) {
+      return { href: row.source_url, label: 'Own website' };
+    }
+    return { href: '#deck-cards', label: row.source_title || 'Investor deck' };
+  }
+
+  function getFilters() {
+    return {
+      country: document.getElementById('f-country').value,
+      sector: document.getElementById('f-sector').value,
+      theme: document.getElementById('f-theme').value,
+      metric: document.getElementById('f-metric').value,
+      source: document.getElementById('f-source').value,
+      status: document.getElementById('f-status').value,
+      logMin: parseFloat(document.getElementById('f-range-min').value, 10),
+      logMax: parseFloat(document.getElementById('f-range-max').value, 10)
+    };
+  }
+
+  function rowMatches(row, f) {
+    if (f.country !== 'all' && row.country !== f.country) return false;
+    if (f.sector !== 'all' && row.sector !== f.sector) return false;
+    if (f.theme !== 'all' && row.theme !== f.theme) return false;
+    if (f.metric !== 'all' && row.metric_type !== f.metric) return false;
+    if (f.source !== 'all' && row.source_kind !== f.source) return false;
+    if (f.status !== 'all' && row.claim_status !== f.status) return false;
+    var minV = Math.pow(10, f.logMin);
+    var maxV = Math.pow(10, f.logMax);
+    if (row.value_tco2e < minV * 0.999 || row.value_tco2e > maxV * 1.001) return false;
+    if (searchQ) {
+      var hay = (row.name + ' ' + row.quote + ' ' + row.source_title).toLowerCase();
+      if (hay.indexOf(searchQ.toLowerCase()) === -1) return false;
+    }
+    return true;
+  }
+
+  function filteredRows() {
+    var f = getFilters();
+    return ROWS.filter(function (r) { return rowMatches(r, f); });
+  }
+
+  function sumBuckets(rows) {
+    var metrics = ['mitigated', 'avoided', 'managed', 'sequestered'];
+    var out = { achieved: {}, target: {} };
+    metrics.forEach(function (m) {
+      out.achieved[m] = 0;
+      out.target[m] = 0;
+    });
+    rows.forEach(function (r) {
+      var bucket = r.claim_status === 'target' ? out.target : out.achieved;
+      if (bucket[r.metric_type] !== undefined) bucket[r.metric_type] += r.value_tco2e;
+    });
+    return out;
+  }
+
+  function renderCounters(rows) {
+    var el = document.getElementById('counter-grid');
+    var sums = sumBuckets(rows);
+    var metrics = ['mitigated', 'avoided', 'managed', 'sequestered'];
+    var html = '';
+    ['achieved', 'target'].forEach(function (st) {
+      metrics.forEach(function (m) {
+        var v = sums[st][m];
+        if (!v) return;
+        html += '<div class="box ' + (st === 'target' ? 'target' : '') + '">' +
+          '<span class="badge-pill ' + st + '">' + st + '</span> ' +
+          '<span class="badge-pill">' + m + '</span>' +
+          '<b>' + fmtNum(v) + ' t</b>Σ ' + m + ' (' + st + ', filtered)</div>';
+      });
+    });
+    el.innerHTML = html || '<p class="intro">No rows match filters.</p>';
   }
 
   function groupBySlug(rows) {
@@ -53,163 +119,50 @@
     return Object.keys(map).map(function (k) { return map[k]; });
   }
 
-  function getFilters() {
-    return {
-      country: document.getElementById('f-country').value,
-      sector: document.getElementById('f-sector').value,
-      theme: document.getElementById('f-theme').value,
-      metric: document.getElementById('f-metric').value,
-      logMin: parseFloat(document.getElementById('f-range').value, 10),
-      logMax: parseFloat(document.getElementById('f-range-max').value, 10)
-    };
-  }
-
-  function rowMatches(row, f) {
-    if (f.country !== 'all' && row.country !== f.country) return false;
-    if (f.sector !== 'all' && row.sector !== f.sector) return false;
-    if (f.theme !== 'all' && row.theme !== f.theme) return false;
-    if (f.metric !== 'all' && row.metric_type !== f.metric) return false;
-    var minV = Math.pow(10, f.logMin);
-    var maxV = Math.pow(10, f.logMax);
-    if (row.value_tco2e < minV * 0.999 || row.value_tco2e > maxV * 1.001) return false;
-    return true;
-  }
-
-  function filteredRows() {
-    var f = getFilters();
-    return ROWS.filter(function (r) { return rowMatches(r, f); });
-  }
-
-  function sumByMetric(rows) {
-    var out = { mitigated: 0, avoided: 0, managed: 0 };
-    rows.forEach(function (r) {
-      if (out[r.metric_type] !== undefined) out[r.metric_type] += r.value_tco2e;
-    });
-    return out;
-  }
-
-  function updateCounters(rows) {
-    var startups = uniq(rows.map(function (r) { return r.slug; })).length;
-    var sums = sumByMetric(rows);
-    document.getElementById('c-startups').textContent = String(startups);
-    document.getElementById('c-claims').textContent = String(rows.length);
-    document.getElementById('c-mitigated').textContent = fmtNum(sums.mitigated) + ' t';
-    document.getElementById('c-avoided').textContent = fmtNum(sums.avoided) + ' t';
-    document.getElementById('c-managed').textContent = fmtNum(sums.managed) + ' t';
-  }
-
-  function renderCards(rows) {
+  function renderExploreCards(rows) {
     var grid = document.getElementById('startup-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    var groups = groupBySlug(rows);
-    groups.forEach(function (g) {
-      var card = document.createElement('article');
-      card.className = 'startup-card glass';
-      var h = document.createElement('h3');
-      var link = document.createElement('a');
-      link.href = nexusUrl(g.slug);
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = g.name;
-      h.appendChild(link);
-      card.appendChild(h);
-      var meta = document.createElement('p');
-      meta.className = 'meta';
-      meta.textContent = g.country + ' · ' + g.sector + ' · ' + g.theme;
-      card.appendChild(meta);
-      g.claims.forEach(function (c) {
-        var line = document.createElement('div');
-        line.className = 'claim-line';
-        var badge = document.createElement('span');
-        badge.className = 'badge ' + c.metric_type;
-        badge.textContent = c.metric_type;
-        line.appendChild(badge);
-        var val = document.createElement('strong');
-        val.textContent = ' ' + fmtNum(c.value_tco2e) + ' tCO₂e';
-        val.style.marginLeft = '6px';
-        line.appendChild(val);
-        if (c.period) {
-          var per = document.createElement('span');
-          per.className = 'meta';
-          per.textContent = ' · ' + c.period;
-          line.appendChild(per);
-        }
-        var q = document.createElement('blockquote');
-        q.textContent = '"' + c.quote + '"';
-        line.appendChild(q);
-        var src = document.createElement('a');
-        src.className = 'cite';
-        src.href = c.source_url;
-        src.target = '_blank';
-        src.rel = 'noopener';
-        src.textContent = 'Source (own site)';
-        line.appendChild(src);
-        card.appendChild(line);
-      });
-      grid.appendChild(card);
-    });
-    if (!groups.length) {
-      grid.innerHTML = '<p class="note">No startups match the current filters.</p>';
+    if (!rows.length) {
+      grid.innerHTML = '<p class="imp-empty">No startups match filters.</p>';
+      return;
     }
+    grid.innerHTML = groupBySlug(rows).map(function (g) {
+      var claimHtml = g.claims.map(function (c) {
+        var cite = citation(c);
+        return '<li><span class="ic">' + esc(c.metric_type) + '</span><span class="iv"><b>' + fmtNum(c.value_tco2e) +
+          '</b> tCO₂e<small><span class="badge-pill ' + esc(c.claim_status) + '">' + esc(c.claim_status) +
+          '</span> <span class="badge-pill ' + esc(c.source_kind) + '">' + esc(c.source_kind) + '</span></small></span></li>' +
+          '<p style="font-size:.82rem;margin:4px 0 0">"' + esc(c.quote) + '"</p>' +
+          '<a href="' + esc(cite.href) + '" style="font-size:.78rem"' + (cite.href.indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '') + '>' + esc(cite.label) + '</a>';
+      }).join('');
+      return '<div class="imp-theme" style="--tc:#335D4F"><h4><a href="' + nexusUrl(g.slug) + '" target="_blank" rel="noopener">' +
+        esc(g.name) + '</a> <span>' + esc(g.country) + '</span></h4><ul class="imp-rows">' + claimHtml + '</ul></div>';
+    }).join('');
   }
 
   function renderChart(rows) {
-    var svg = document.getElementById('bar-chart');
-    if (!svg) return;
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var sorted = rows.slice().sort(function (a, b) { return b.value_tco2e - a.value_tco2e; });
-    var w = 1700;
-    var h = 720;
-    var padL = 120;
-    var padB = 48;
-    var padT = 24;
-    var barH = Math.max(18, Math.min(36, (h - padT - padB) / Math.max(1, sorted.length) - 4));
-    var maxV = sorted.length ? sorted[0].value_tco2e : 1;
-    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-
-    sorted.forEach(function (row, i) {
-      var y = padT + i * (barH + 6);
-      var barW = maxV ? ((w - padL - 40) * (row.value_tco2e / maxV)) : 0;
-      var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', padL - 8);
-      label.setAttribute('y', y + barH * 0.72);
-      label.setAttribute('text-anchor', 'end');
-      label.textContent = row.name.length > 22 ? row.name.slice(0, 20) + '…' : row.name;
-      svg.appendChild(label);
-
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      rect.setAttribute('x', padL);
-      rect.setAttribute('y', y);
-      rect.setAttribute('width', Math.max(2, barW));
-      rect.setAttribute('height', barH);
-      rect.setAttribute('rx', '4');
-      var fill = row.metric_type === 'managed' ? '#B2EEFA' : row.metric_type === 'mitigated' ? '#9DC384' : '#69B5FA';
-      rect.setAttribute('fill', fill);
-      svg.appendChild(rect);
-
-      var val = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      val.setAttribute('x', padL + barW + 8);
-      val.setAttribute('y', y + barH * 0.72);
-      val.textContent = fmtNum(row.value_tco2e) + ' (' + row.metric_type + ')';
-      svg.appendChild(val);
+    var sorted = rows.slice().sort(function (a, b) { return b.value_tco2e - a.value_tco2e; }).slice(0, 24);
+    var labels = sorted.map(function (r) { return r.name.length > 18 ? r.name.slice(0, 16) + '…' : r.name; });
+    var data = sorted.map(function (r) { return r.value_tco2e; });
+    var colors = sorted.map(function (r) {
+      var base = r.metric_type === 'managed' ? '#B2EEFA' : r.metric_type === 'mitigated' ? '#9DC384' : r.metric_type === 'sequestered' ? '#669348' : '#69B5FA';
+      return r.claim_status === 'target' ? base + '99' : base;
     });
-    if (!sorted.length) {
-      var empty = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      empty.setAttribute('x', w / 2);
-      empty.setAttribute('y', h / 2);
-      empty.setAttribute('text-anchor', 'middle');
-      empty.textContent = 'No rows to chart';
-      svg.appendChild(empty);
-    }
+    if (chart) chart.destroy();
+    chart = new Chart(document.getElementById('cBars'), {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ label: 'tCO₂e', data: data, backgroundColor: colors }] },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { type: 'logarithmic', title: { display: true, text: 'tCO₂e (log scale)' } } }
+      }
+    });
   }
 
-  var sortKey = 'value_tco2e';
-  var sortDir = -1;
-
   function renderTable(rows) {
-    var tbody = document.getElementById('data-tbody');
-    if (!tbody) return;
+    var tbody = document.querySelector('#tbl tbody');
     tbody.innerHTML = '';
     var sorted = rows.slice().sort(function (a, b) {
       var av = a[sortKey];
@@ -222,100 +175,127 @@
       return 0;
     });
     sorted.forEach(function (row) {
+      var cite = citation(row);
       var tr = document.createElement('tr');
       tr.innerHTML =
-        '<td><a href="' + nexusUrl(row.slug) + '" target="_blank" rel="noopener">' + escapeHtml(row.name) + '</a></td>' +
-        '<td>' + escapeHtml(row.country) + '</td>' +
-        '<td>' + escapeHtml(row.sector) + '</td>' +
-        '<td>' + escapeHtml(row.theme) + '</td>' +
-        '<td><span class="badge ' + row.metric_type + '">' + row.metric_type + '</span></td>' +
-        '<td class="num">' + fmtNum(row.value_tco2e) + '</td>' +
-        '<td>' + (row.period ? escapeHtml(row.period) : '—') + '</td>' +
-        '<td>' + escapeHtml(row.quote) + '</td>' +
-        '<td><a class="cite" href="' + escapeHtml(row.source_url) + '" target="_blank" rel="noopener">Link</a></td>';
+        '<td><a href="' + nexusUrl(row.slug) + '" target="_blank" rel="noopener">' + esc(row.name) + '</a></td>' +
+        '<td>' + esc(row.metric_type) + '</td>' +
+        '<td><span class="badge-pill ' + esc(row.claim_status) + '">' + esc(row.claim_status) + '</span></td>' +
+        '<td><b>' + fmtNum(row.value_tco2e) + '</b></td>' +
+        '<td><span class="badge-pill ' + esc(row.source_kind) + '">' + esc(row.source_kind) + '</span></td>' +
+        '<td>' + (row.period ? esc(row.period) : '—') + '</td>' +
+        '<td>' + esc(row.quote) + '</td>' +
+        '<td><a href="' + esc(cite.href) + '" target="_blank" rel="noopener">' + esc(cite.label) + '</a></td>';
       tbody.appendChild(tr);
+    });
+    document.getElementById('count').textContent = sorted.length + ' row(s)';
+  }
+
+  function renderDeckCards() {
+    var deckRows = ROWS.filter(function (r) { return r.source_kind === 'investor_deck'; });
+    var bySlug = {};
+    deckRows.forEach(function (r) {
+      if (!bySlug[r.slug] || r.value_tco2e > bySlug[r.slug].value_tco2e) bySlug[r.slug] = r;
+    });
+    var grid = document.getElementById('deck-card-grid');
+    grid.innerHTML = '';
+    Object.keys(bySlug).sort().forEach(function (slug) {
+      var r = bySlug[slug];
+      var card = document.createElement('article');
+      card.className = 'deck-card sec-slide';
+      card.id = 'deck-card-' + slug;
+      card.innerHTML =
+        '<h3><a href="' + nexusUrl(slug) + '" target="_blank" rel="noopener">' + esc(r.name) + '</a></h3>' +
+        '<p class="meta">' + esc(r.country) + ' · ' + esc(r.sector) + ' · ' + esc(r.theme) + '</p>' +
+        '<p class="amt">' + fmtNum(r.value_tco2e) + ' tCO₂e <span class="badge-pill ' + esc(r.claim_status) + '">' + esc(r.claim_status) + '</span> <span class="badge-pill">' + esc(r.metric_type) + '</span></p>' +
+        (r.period ? '<p class="meta">Period: ' + esc(r.period) + '</p>' : '') +
+        '<blockquote>' + esc(r.quote) + '</blockquote>' +
+        '<p class="src">Source: ' + esc(r.source_title) + '</p>';
+      grid.appendChild(card);
     });
   }
 
-  function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+  function renderHero() {
+    document.getElementById('hs-figures').textContent = String(ROWS.length);
+    document.getElementById('hs-startups').textContent = String(uniq(ROWS.map(function (r) { return r.slug; })).length);
+    var deckSlugs = uniq(ROWS.filter(function (r) { return r.source_kind === 'investor_deck'; }).map(function (r) { return r.slug; }));
+    document.getElementById('hs-decks').textContent = String(deckSlugs.length);
+  }
+
+  function renderCoverage() {
+    var el = document.getElementById('cov-stats');
+    var reporting = uniq(ROWS.map(function (r) { return r.slug; })).length;
+    el.innerHTML =
+      '<div class="stat"><b>' + COVERAGE.portfolio + '</b><span>Portfolio startups</span></div>' +
+      '<div class="stat"><b>' + COVERAGE.websitesChecked + '</b><span>Websites checked</span></div>' +
+      '<div class="stat"><b>' + COVERAGE.noWebsite + '</b><span>No website URL</span></div>' +
+      '<div class="stat"><b>' + COVERAGE.unreachable + '</b><span>Sites unreachable (~)</span></div>' +
+      '<div class="stat"><b>' + (COVERAGE.decksInManifest || 47) + '</b><span>Decks in manifest</span></div>' +
+      '<div class="stat"><b>' + reporting + '</b><span>Startups in this deck</span></div>' +
+      '<div class="stat"><b>' + ROWS.length + '</b><span>Total claim rows</span></div>';
   }
 
   function syncRangeLabels() {
     var f = getFilters();
-    var minV = Math.pow(10, f.logMin);
-    var maxV = Math.pow(10, f.logMax);
-    document.getElementById('range-min-label').textContent = fmtNum(minV) + ' t';
-    document.getElementById('range-max-label').textContent = fmtNum(maxV) + ' t';
+    document.getElementById('range-lbl').textContent = fmtNum(Math.pow(10, f.logMin)) + ' – ' + fmtNum(Math.pow(10, f.logMax)) + ' t';
   }
 
   function refresh() {
     var rows = filteredRows();
-    updateCounters(rows);
-    renderCards(rows);
+    renderCounters(rows);
+    renderExploreCards(rows);
     renderChart(rows);
     renderTable(rows);
     syncRangeLabels();
   }
 
   function initFilters() {
-    var fields = ['country', 'sector', 'theme', 'metric_type'];
-    fields.forEach(function (field) {
-      var id = field === 'metric_type' ? 'f-metric' : 'f-' + field;
+    ['country', 'sector', 'theme', 'metric_type'].forEach(function (field) {
+      var id = field === 'metric_type' ? 'f-metric' : 'f-' + field.replace('_type', '');
       var sel = document.getElementById(id);
-      var key = field;
-      var values = uniq(ROWS.map(function (r) { return r[key]; }));
-      values.forEach(function (v) {
+      uniq(ROWS.map(function (r) { return r[field === 'metric_type' ? 'metric_type' : field]; })).forEach(function (v) {
         var opt = document.createElement('option');
         opt.value = v;
         opt.textContent = v;
         sel.appendChild(opt);
       });
     });
-
-    var range = document.getElementById('f-range');
-    var rangeMax = document.getElementById('f-range-max');
-    range.min = String(LOG_MIN);
-    range.max = String(LOG_MAX_SLIDER);
-    range.step = '0.001';
-    range.value = String(LOG_MIN);
-    rangeMax.min = String(LOG_MIN);
-    rangeMax.max = String(LOG_MAX_SLIDER);
-    rangeMax.step = '0.001';
-    rangeMax.value = String(LOG_MAX_SLIDER);
-
-    ['f-country', 'f-sector', 'f-theme', 'f-metric', 'f-range', 'f-range-max'].forEach(function (id) {
+    var rMin = document.getElementById('f-range-min');
+    var rMax = document.getElementById('f-range-max');
+    rMin.min = rMax.min = String(LOG_MIN);
+    rMin.max = rMax.max = String(LOG_MAX_SLIDER);
+    rMin.step = rMax.step = '0.001';
+    rMin.value = String(LOG_MIN);
+    rMax.value = String(LOG_MAX_SLIDER);
+    ['f-country', 'f-sector', 'f-theme', 'f-metric', 'f-source', 'f-status', 'f-range-min', 'f-range-max'].forEach(function (id) {
       document.getElementById(id).addEventListener('input', function () {
         var f = getFilters();
         if (f.logMin > f.logMax) {
-          if (id === 'f-range') document.getElementById('f-range-max').value = range.value;
-          else document.getElementById('f-range').value = rangeMax.value;
+          if (id === 'f-range-min') document.getElementById('f-range-max').value = rMin.value;
+          else document.getElementById('f-range-min').value = rMax.value;
         }
         refresh();
       });
-      document.getElementById(id).addEventListener('change', refresh);
     });
-
-    document.getElementById('btn-reset-filters').addEventListener('click', function (ev) {
-      ev.stopPropagation();
+    document.getElementById('btn-reset').addEventListener('click', function () {
       document.getElementById('f-country').value = 'all';
       document.getElementById('f-sector').value = 'all';
       document.getElementById('f-theme').value = 'all';
       document.getElementById('f-metric').value = 'all';
-      range.value = String(LOG_MIN);
-      rangeMax.value = String(LOG_MAX_SLIDER);
+      document.getElementById('f-source').value = 'all';
+      document.getElementById('f-status').value = 'all';
+      rMin.value = String(LOG_MIN);
+      rMax.value = String(LOG_MAX_SLIDER);
+      searchQ = '';
+      document.getElementById('q').value = '';
       refresh();
     });
-  }
-
-  function initTableSort() {
-    document.querySelectorAll('#data-table th[data-sort]').forEach(function (th) {
-      th.addEventListener('click', function (ev) {
-        ev.stopPropagation();
+    document.getElementById('q').addEventListener('input', function (e) {
+      searchQ = e.target.value;
+      refresh();
+    });
+    document.querySelectorAll('#tbl th[data-sort]').forEach(function (th) {
+      th.addEventListener('click', function () {
         var key = th.getAttribute('data-sort');
         if (sortKey === key) sortDir *= -1;
         else { sortKey = key; sortDir = key === 'value_tco2e' ? -1 : 1; }
@@ -324,17 +304,34 @@
     });
   }
 
-  function initCoverage() {
-    document.getElementById('cov-portfolio').textContent = String(COVERAGE.portfolio);
-    document.getElementById('cov-checked').textContent = String(COVERAGE.websitesChecked);
-    document.getElementById('cov-no-site').textContent = String(COVERAGE.noWebsite);
-    document.getElementById('cov-unreach').textContent = String(COVERAGE.unreachable);
-    document.getElementById('cov-reporting').textContent = String(uniq(ROWS.map(function (r) { return r.slug; })).length);
-    document.getElementById('cov-claims').textContent = String(ROWS.length);
+  function initNav() {
+    var burger = document.getElementById('burger');
+    var nav = document.getElementById('nav');
+    if (burger && nav) {
+      burger.addEventListener('click', function () { nav.classList.toggle('open'); });
+    }
   }
 
-  initFilters();
-  initTableSort();
-  initCoverage();
-  refresh();
+  function boot(data) {
+    ROWS = data.rows;
+    COVERAGE = data.coverage || {};
+    var vals = ROWS.map(function (r) { return r.value_tco2e; });
+    LOG_MIN = Math.log10(Math.min.apply(null, vals));
+    LOG_MAX = Math.log10(Math.max.apply(null, vals));
+    LOG_MAX_SLIDER = Math.ceil(LOG_MAX * 100) / 100;
+    renderHero();
+    renderCoverage();
+    renderDeckCards();
+    initFilters();
+    initNav();
+    refresh();
+  }
+
+  fetch('data/co2.json')
+    .then(function (r) { return r.json(); })
+    .then(boot)
+    .catch(function (err) {
+      console.error(err);
+      document.body.insertAdjacentHTML('afterbegin', '<p style="padding:20px;color:red">Load data/co2.json via http server (run ./build.sh then python3 -m http.server).</p>');
+    });
 })();

@@ -1,0 +1,26 @@
+{
+ "startups": [
+  {
+   "name": "Partner name",
+   "cc": "CO",
+   "stage": "0",
+   "hub": "h1",
+   "onepager": "",
+   "theme": "EN",
+   "category": "Lorem ipsum",
+   "desc": "Lorem ipsum",
+   "res": [
+    [
+     "Lorem ipsum"
+    ]
+   ]
+  }
+ ],
+ "themes": {
+  "EN": [
+   "Lorem ipsum",
+   "Lorem ipsum"
+  ]
+ },
+ "sdg": {}
+}

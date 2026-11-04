@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
-"""Capture each slide at 1440×900 (navigation mode, one slide active)."""
+"""Capture each main section and deck-source card at 1440×900."""
 from pathlib import Path
 import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-INDEX = ROOT / "index.html"
 OUT_DIR = Path("/opt/cursor/artifacts/nexus-co2-slides")
+
+SECTIONS = [
+    "hero",
+    "method",
+    "explore",
+    "chart",
+    "table",
+    "coverage",
+    "deck-cards",
+]
 
 
 def ensure_playwright():
@@ -21,29 +30,35 @@ def main():
     ensure_playwright()
     from playwright.sync_api import sync_playwright
 
-    if not INDEX.is_file():
-        raise SystemExit("Run ./build.sh first")
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    base = INDEX.as_uri()
+    base = "http://127.0.0.1:8765/index.html"
 
     with sync_playwright() as p:
         browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
         page = browser.new_page(viewport={"width": 1440, "height": 900})
-        count = page.locator(".deck .slide").count()
+        page.goto(base, wait_until="networkidle")
+        page.wait_for_timeout(800)
         paths = []
-        for i in range(1, 20):
-            page.goto(f"{base}#{i}", wait_until="networkidle")
-            page.wait_for_timeout(400)
-            slides = page.locator(".deck .slide")
-            if slides.count() < i:
-                break
-            out = OUT_DIR / f"slide-{i:02d}-1440x900.png"
+        for i, sec in enumerate(SECTIONS, start=1):
+            el = page.locator(f"#{sec}")
+            if el.count():
+                el.scroll_into_view_if_needed()
+                page.wait_for_timeout(400)
+                out = OUT_DIR / f"slide-{i:02d}-{sec}-1440x900.png"
+                page.screenshot(path=str(out), full_page=False)
+                paths.append(out)
+                print("wrote", out)
+        cards = page.locator("#deck-card-grid .deck-card")
+        for j in range(cards.count()):
+            cards.nth(j).scroll_into_view_if_needed()
+            page.wait_for_timeout(300)
+            slug = cards.nth(j).get_attribute("id") or f"card-{j}"
+            out = OUT_DIR / f"deck-card-{j + 1:02d}-{slug.replace('deck-card-', '')}-1440x900.png"
             page.screenshot(path=str(out), full_page=False)
             paths.append(out)
             print("wrote", out)
         browser.close()
-    print(f"Captured {len(paths)} slides")
+    print(f"Captured {len(paths)} screenshots")
 
 
 if __name__ == "__main__":

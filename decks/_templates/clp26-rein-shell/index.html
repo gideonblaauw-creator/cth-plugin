@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide title</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Lorem ipsum">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%23335D4F%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22%23FF6633%22/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="topbar" id="top">
+  <a href="#hero" class="brand"><img src="logos/cleantechhub.png" alt="CleantechHUB" width="122" height="36"><span class="btag">Partner name × CleantechHUB</span></a>
+  <nav class="nav" id="nav">
+    <a href="#sponsors" data-i18n="nav.sponsors"></a>
+    <a href="#journey" data-i18n="nav.journey"></a>
+    <a href="#stories" data-i18n="nav.stories"></a>
+    <a href="#built" data-i18n="nav.built"></a>
+    <a href="#mentors" data-i18n="nav.mentors"></a>
+    <a href="#jury" data-i18n="nav.jury"></a>
+    <a href="#bot" data-i18n="nav.bot"></a>
+    <a href="#clp27" data-i18n="nav.clp27"></a>
+    <a href="#explorer" data-i18n="nav.explorer"></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-lang="en" class="on">EN</button><button data-lang="es">ES</button>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+</header>
+
+<!-- 1. HERO -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <p class="brand-frame"><b>Partner name</b> · <span data-i18n="brand.frame"></span></p>
+    <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+    <h1 data-i18n="hero.title"></h1>
+    <p class="lead" data-i18n="hero.lead"></p>
+    <p class="lead2" data-i18n="hero.why"></p>
+    <div class="stats">
+      <div class="stat"><span class="num" data-count="0">0</span><span class="lbl" data-i18n="hero.s1"></span></div>
+      <div class="stat"><span class="num"><span data-count="0">0</span></span><span class="lbl" data-i18n="hero.s2"></span></div>
+      <div class="stat"><span class="num" data-count="0">0</span><span class="lbl" data-i18n="hero.s3"></span></div>
+    </div>
+    <div class="ctas"><a class="btn primary" href="#explorer" data-i18n="hero.cta1"></a><a class="btn ghost" href="#stories" data-i18n="hero.cta2"></a></div>
+  </div>
+  <div class="hero-block" aria-hidden="true"></div>
+</section>
+
+<!-- 1b. SPONSORS -->
+<section id="sponsors" class="sec sponsors" hidden>
+  <div class="wrap">
+    <p class="eyebrow dark" data-i18n="sp.eyebrow"></p>
+    <h2 data-i18n="sp.title"></h2>
+    <p class="intro" data-i18n="sp.intro"></p>
+    <div class="sp-groups" id="spGrid"></div>
+    <h3 class="sub" data-i18n="sp.hostsT"></h3>
+    <p class="intro hub-intro" id="hubIntro" hidden></p>
+    <div class="sp-grid hosts" id="hostGrid"></div>
+    <div class="roles" id="rolesTop"></div>
+  </div>
+</section>
+
+<!-- 2. JOURNEY -->
+<section id="journey" class="sec light">
+  <div class="wrap">
+    <h2 data-i18n="journey.title"></h2>
+    <p class="intro" data-i18n="journey.intro"></p>
+    <div class="tl" id="timeline"></div>
+    <div class="tl-detail" id="tlDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- 3. STORIES -->
+<section id="stories" class="sec">
+  <div class="wrap">
+    <h2 data-i18n="stories.title"></h2>
+    <p class="intro" data-i18n="stories.intro"></p>
+    <div class="story-tabs" id="storyTabs" role="tablist"></div>
+    <div class="story" id="story"></div>
+  </div>
+</section>
+
+<!-- 4. BUILT -->
+<section id="built" class="sec light">
+  <div class="wrap">
+    <h2 data-i18n="built.title"></h2>
+    <p class="intro" data-i18n="built.intro"></p>
+    <div class="built-grid" id="builtGrid"></div>
+    <h3 class="sub" data-i18n="built.gallery"></h3>
+    <div class="vfilter" id="vfilter"></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- 4b. MENTORS -->
+<section id="mentors" class="sec people" hidden>
+  <div class="wrap">
+    <div class="people-head"><div><h2 data-i18n="me.title"></h2><p class="intro" id="meIntro"></p></div><div class="roles one" id="rolesMentor"></div></div>
+    <div class="pgroups" id="mentorGroups"></div>
+  </div>
+</section>
+
+<!-- 4c. JURY -->
+<section id="jury" class="sec people light" hidden>
+  <div class="wrap">
+    <div class="people-head"><div><h2 data-i18n="ju.title"></h2><p class="intro" id="juIntro"></p></div><div class="roles one" id="rolesJury"></div></div>
+    <div class="pgroups" id="juryGroups"></div>
+  </div>
+</section>
+
+<!-- 5. ASSISTANT -->
+<section id="bot" class="sec bot">
+  <div class="wrap bot-grid">
+    <div>
+      <p class="eyebrow dark" data-i18n="bot.eyebrow"></p>
+      <h2 data-i18n="bot.title"></h2>
+      <p class="intro" data-i18n="bot.lead"></p>
+      <h3 class="sub" data-i18n="bot.offerT"></h3>
+      <ul class="ticks" id="botOffer"></ul>
+      <div class="modules" id="botModules"></div>
+    </div>
+    <div class="bot-card">
+      <h3 data-i18n="bot.pilotT"></h3>
+      <div class="bot-stats" id="botStats"></div>
+      <div class="bot-learn"><h4 data-i18n="bot.learnT"></h4><p data-i18n="bot.learn"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PROGRAM -->
+<section id="clp27" class="sec cta">
+  <div class="wrap cta-grid">
+    <div>
+      <p class="eyebrow" data-i18n="clp27.eyebrow"></p>
+      <h2 data-i18n="clp27.title"></h2>
+      <p class="lead" data-i18n="clp27.body"></p>
+      <h3 class="benefits-t" data-i18n="clp27.benT"></h3>
+      <ul class="ticks light" id="benefits"></ul>
+      <a class="btn primary big" id="partnerCta" href="#" data-i18n="clp27.cta"></a>
+    </div>
+    <div><div class="roles stack" id="rolesClp27"></div><p class="share" data-i18n="clp27.share"></p></div>
+  </div>
+</section>
+
+<!-- 7. EXPLORER -->
+<section id="explorer" class="sec light">
+  <div class="wrap">
+    <h2 data-i18n="ex.title"></h2>
+    <p class="intro" id="exIntro"></p>
+    <div class="filters">
+      <select id="fCountry"></select>
+      <select id="fTheme"></select>
+      <select id="fHub"></select>
+      <div class="slider"><label for="fStage"><span data-i18n="ex.stageMin"></span> <b id="fStageLbl"></b></label><input type="range" id="fStage" min="0" max="4" step="1" value="0"></div>
+      <label class="tog"><input type="checkbox" id="fVideo"><span data-i18n="ex.withVideo"></span></label>
+      <label class="tog"><input type="checkbox" id="fOne"><span data-i18n="ex.withOne"></span></label>
+      <button class="btn small" id="reset" data-i18n="ex.reset"></button>
+    </div>
+    <div class="charts">
+      <div class="card chart-card wide"><h3 data-i18n="ex.cMap"></h3><div id="map"></div><p class="hint" data-i18n="ex.mapHint"></p></div>
+      <div class="card chart-card"><h3 data-i18n="ex.cCountry"></h3><div class="cbox"><canvas id="cCountry"></canvas></div></div>
+      <div class="card chart-card"><h3 data-i18n="ex.cFunnel"></h3><div class="cbox"><canvas id="cFunnel"></canvas></div></div>
+      <div class="card chart-card theme"><h3 data-i18n="ex.cTheme"></h3><div class="cbox"><canvas id="cTheme"></canvas></div><p class="hint" data-i18n="ex.themeNote"></p></div>
+      <div class="card chart-card wide impact-card"><h3 data-i18n="ex.cImpact"></h3><p class="imp-label" data-i18n="ex.impLabel"></p><div id="impact"></div><p class="hint" data-i18n="ex.impNote"></p></div>
+    </div>
+    <div class="list-panel card">
+    <div class="list-head"><input type="search" id="q" data-i18n-ph="ex.search" aria-label="Search"><p class="count" id="count" aria-live="polite"></p></div>
+    <div class="table-wrap" id="listScroll" tabindex="0"><table class="tbl" id="tbl"><thead><tr>
+      <th data-sort="name"><span data-i18n="ex.colName"></span> <i></i></th>
+      <th data-sort="country"><span data-i18n="ex.colCountry"></span> <i></i></th>
+      <th data-sort="stage"><span data-i18n="ex.colStage"></span> <i></i></th>
+    </tr></thead><tbody></tbody></table><p class="empty" id="listEmpty" hidden data-i18n="ex.none"></p></div>
+    </div>
+    <div class="downloads card">
+      <div><h3 data-i18n="ex.dlT"></h3><p data-i18n="ex.dlP"></p></div>
+      <div class="dl-btns"><a class="btn primary" href="#" download>PDF · Lorem</a><a class="btn primary" href="#" download>PDF · Lorem</a><a class="btn ghost dark" href="#" target="_blank" rel="noopener" data-i18n="ex.portfolio"></a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <img src="logos/cleantechhub.png" alt="CleantechHUB" width="150" height="44">
+  <p class="tag">Partner name × CleantechHUB</p>
+  <p data-i18n="foot.note"></p>
+  <p class="links"><a href="#" target="_blank" rel="noopener">Partner name</a><a href="https://cleantechhub.net" target="_blank" rel="noopener">cleantechhub.net</a></p>
+</footer>
+
+<!-- drawer / modal -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-modal="true" role="dialog"><button class="x" id="dClose" aria-label="Close">×</button><div id="dBody"></div></aside>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"><button class="x" id="mClose" aria-label="Close">×</button><div class="vid" id="mBody"></div></div>
+
+<script src="lib/chart.umd.js"></script>
+<script src="lib/d3.min.js"></script>
+<script src="lib/topojson-client.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

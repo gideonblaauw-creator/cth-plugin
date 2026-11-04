@@ -1,10 +1,10 @@
 # Nexus CO₂ impact deck (draft)
 
-Interactive CleantechHUB deck for self-reported startup CO₂ figures from `research/nexus-co2/co2.csv`.
+Self-reported CO₂ figures from Nexus startups — websites (`research/nexus-co2/co2.csv`) and investor decks (`research/nexus-co2/co2-decks.csv`).
 
-- **Format:** CTH interactive deck protocol (same house as [cth-clp26-rein](https://decks.cleantechhub.net/cth-clp26-rein/)): 1920×1080 stage, glass cards, index, dots, optional questions toggle. Shell copied from in-repo reference `decks/meetings-2026-10-13/b4b` on branch `meetings-2026-10-13-b4b` (live CLP26 REIN source is on VPS, not vendored here).
-- **Brand:** CleantechHUB HTML deck tokens (`--deep`, `--cyan`, `--green`, Open Sans) per `skills/cth-html-deck` / Manual de Marca — not the WordPress green block.
-- **Publish:** Do not deploy to `decks.cleantechhub.net/nexus-co2/` without Gideon's GO.
+- **Shell:** `decks/_templates/clp26-rein-shell/` (PR #126) — topbar navigation, `imp-grid` / `growth-card` styling, explorer filters, Chart.js bar chart, sortable table.
+- **Brand:** CleantechHUB palette via template `styles.css` (`#335D4F`, `#FF6633`, Open Sans / Poppins).
+- **Publish:** Do not deploy to `decks.cleantechhub.net` without Gideon's GO.
 
 ## Build
 
@@ -12,12 +12,22 @@ Interactive CleantechHUB deck for self-reported startup CO₂ figures from `rese
 cd decks/nexus-co2 && ./build.sh
 ```
 
+Generates `data/co2.json` from the repo CSV.
+
 ## Local preview
 
-Open `index.html` in a browser. Print-all slides: `?print=1`.
+```bash
+cd decks/nexus-co2 && python3 -m http.server 8765
+```
+
+Open http://127.0.0.1:8765/index.html (`fetch` requires HTTP, not `file://`).
 
 ## Screenshots (1440×900)
+
+With the server running:
 
 ```bash
 python3 capture-slides.py
 ```
+
+Writes PNGs to `/opt/cursor/artifacts/nexus-co2-slides/`.
