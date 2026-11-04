@@ -50,9 +50,20 @@
     }
     .cth-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
     .datalab-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+    .photo-panel, .photo-layer { position: relative; overflow: hidden; }
+    .photo-panel img, .photo-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-overlay { position: absolute; inset: 0; pointer-events: none; }
 
     /* LinkedIn 1200×627 */
     .layout-linkedin { display: flex; height: 100%; align-items: stretch; }
+    .layout-linkedin.has-photo .sidebar { width: 28%; }
+    .layout-linkedin.has-photo .main { flex: 1; width: 44%; }
+    .layout-linkedin.has-photo .photo-panel { width: 28%; flex-shrink: 0; align-self: stretch; }
     .layout-linkedin .sidebar {
       width: 34%;
       background: #0C498A;
@@ -100,6 +111,19 @@
       flex-direction: column;
       justify-content: center;
       gap: 16px;
+      position: relative;
+    }
+    .layout-feed .feed-top.has-photo { padding: 0; }
+    .layout-feed .feed-top .photo-layer { position: absolute; inset: 0; }
+    .layout-feed .feed-top-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
     }
     .layout-feed .feed-top h1 { font-size: 54px; line-height: 1.05; }
     .layout-feed .feed-top .sub { font-size: 26px; font-weight: 600; color: #B2EEFA; }
@@ -138,6 +162,18 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+    }
+    .layout-story.has-photo { padding: 0; }
+    .layout-story .story-photo { position: absolute; inset: 0; }
+    .layout-story .story-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .layout-story header .datalab-logo { margin-bottom: 22px; }
     .layout-story .badge {
@@ -170,11 +206,13 @@
 </head>
 <body>
         <div class="canvas layout-feed">
+          
           <section class="feed-top">
             <img class="datalab-logo" src="../_shared/datalab-option-a-dark.png" height="86" width="344" alt="Datalab" />
             <h1 class="head">Agenda · Observatorio de la Tierra</h1>
             <p class="sub">Soft launch de Datalab · 24 · 11 · 2026</p>
           </section>
+            
           <section class="feed-bottom">
             <div class="card"><p class="bullet">Panel de apertura — PENDIENTE (hora y panelistas)</p><p class="bullet">Anuncio de Datalab (sandboxes + gobernanza de datos)</p><p class="bullet">Demostración en vivo Air4U (~10–15 min) + Q&A (~15 min)</p><p class="bullet">Breakouts tipo datathon — PENDIENTE (reglas y premios)</p></div>
             <div class="logo-bar">

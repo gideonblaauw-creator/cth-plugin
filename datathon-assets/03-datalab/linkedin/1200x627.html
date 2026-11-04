@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>03-datalab linkedin</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 627px;
+      max-width: 1200px;
+      max-height: 627px;
+      overflow: hidden;
+      position: relative;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #0C498A; }
+    .canvas {
+      position: absolute;
+      inset: 0;
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+    }
+    .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
+    .tag { color: #669348; font-weight: 600; }
+    .bullet { line-height: 1.35; margin: 0; padding-left: 1.1em; position: relative; }
+    .bullet + .bullet { margin-top: 0.55em; }
+    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; font-weight: 700; }
+    .ph {
+      border: 1.5px dashed #0C498A;
+      background: #FFFFFF;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .logo-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-cth {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-left: auto;
+    }
+    .cth-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+    .datalab-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+    .photo-panel, .photo-layer { position: relative; overflow: hidden; }
+    .photo-panel img, .photo-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+    /* LinkedIn 1200×627 */
+    .layout-linkedin { display: flex; height: 100%; align-items: stretch; }
+    .layout-linkedin.has-photo .sidebar { width: 28%; }
+    .layout-linkedin.has-photo .main { flex: 1; width: 44%; }
+    .layout-linkedin.has-photo .photo-panel { width: 28%; flex-shrink: 0; align-self: stretch; }
+    .layout-linkedin .sidebar {
+      width: 34%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main {
+      flex: 1;
+      min-height: 100%;
+      background: #B2EEFA;
+      padding: 24px 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }
+    .layout-linkedin .main-top h1 { font-size: 50px; line-height: 1.05; }
+    .layout-linkedin .main-top .sub { font-size: 26px; font-weight: 600; }
+    .layout-linkedin .bullet { font-size: 21px; }
+    .layout-linkedin .main-bottom .tag { font-size: 20px; margin-bottom: 12px; }
+    .layout-linkedin .sidebar .side-note {
+      font-size: 15px; line-height: 1.45; opacity: 0.92; margin-top: 20px;
+    }
+
+    /* Instagram feed 1080×1350 */
+    .layout-feed { display: flex; flex-direction: column; height: 100%; }
+    .layout-feed .feed-top {
+      flex: 1;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+    }
+    .layout-feed .feed-top.has-photo { padding: 0; }
+    .layout-feed .feed-top .photo-layer { position: absolute; inset: 0; }
+    .layout-feed .feed-top-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .layout-feed .feed-top h1 { font-size: 54px; line-height: 1.05; }
+    .layout-feed .feed-top .sub { font-size: 26px; font-weight: 600; color: #B2EEFA; }
+    .layout-feed .feed-bottom {
+      flex: 1.08;
+      min-height: 0;
+      background: #B2EEFA;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .layout-feed .card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      margin: 28px 40px 0;
+      padding: 34px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .layout-feed .logo-bar {
+      margin-top: auto;
+      padding: 22px 40px 26px;
+      background: rgba(255, 255, 255, 0.45);
+      border-top: 3px solid rgba(12, 73, 138, 0.12);
+    }
+    .layout-feed .bullet { font-size: 26px; }
+
+    /* Story 1080×1920 */
+    .layout-story {
+      background: #0C498A;
+      color: #FFFFFF;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .layout-story.has-photo { padding: 0; }
+    .layout-story .story-photo { position: absolute; inset: 0; }
+    .layout-story .story-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .layout-story header .datalab-logo { margin-bottom: 22px; }
+    .layout-story .badge {
+      background: #69B5FA;
+      color: #0C498A;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    .layout-story h1 { font-size: 62px; line-height: 1.05; margin-top: 28px; }
+    .layout-story .sub { font-size: 28px; margin-top: 14px; opacity: 0.95; font-weight: 600; }
+    .layout-story .story-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 20px 0 28px;
+    }
+    .layout-story .bullet { font-size: 30px; color: #FFFFFF; }
+    .layout-story .bullet::before { color: #9DC384; }
+    .layout-story .story-tag { font-size: 26px; color: #9DC384; font-weight: 600; margin-bottom: 16px; }
+    .layout-story .ph { color: #0C498A; }
+    .layout-story .logo-bar {
+      padding-top: 8px;
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }
+
+    /* Square 1080×1080 */
+    .layout-square {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: #0C498A;
+      color: #FFFFFF;
+    }
+    .layout-square .sq-top {
+      flex: 1;
+      padding: 40px 42px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+    .layout-square .sq-top.has-photo .photo-layer { position: absolute; inset: 0; }
+    .layout-square .sq-top-content { position: relative; z-index: 1; }
+    .layout-square .sq-top h1 { font-size: 52px; line-height: 1.05; }
+    .layout-square .sq-top .sub { font-size: 24px; font-weight: 600; color: #B2EEFA; }
+    .layout-square .sq-bottom {
+      background: #B2EEFA;
+      color: #0C498A;
+      padding: 24px 42px 28px;
+    }
+    .layout-square .sq-bottom .bullet { font-size: 22px; }
+
+    /* Wide banners (X, email, web, FB event) */
+    .layout-banner {
+      display: flex;
+      height: 100%;
+      align-items: stretch;
+      background: #B2EEFA;
+    }
+    .layout-banner .ban-left {
+      width: 26%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .layout-banner .ban-mid {
+      flex: 1;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    .layout-banner .ban-mid h1 { font-size: clamp(28px, 6vh, 56px); line-height: 1.05; color: #0C498A; }
+    .layout-banner .ban-mid .sub { font-size: clamp(16px, 3.5vh, 28px); font-weight: 600; color: #0C498A; }
+    .layout-banner .ban-mid .bullet { font-size: clamp(14px, 2.8vh, 22px); }
+    .layout-banner.has-photo .ban-photo {
+      width: 24%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .layout-banner .ban-foot {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #669348;
+      font-weight: 600;
+    }
+    </style>
+</head>
+<body>
+        <div class="canvas layout-linkedin has-photo">
+          <aside class="sidebar">
+            <div>
+              <img class="datalab-logo" src="../_shared/datalab-option-a-dark.png" height="78" width="312" alt="Datalab" />
+              <p class="side-note">Datalab powered by CleantechHUB<br/>24 · 11 · 2026</p>
+            </div>
+          </aside>
+          <main class="main">
+            <div class="main-top">
+              <h1 class="head">Datalab</h1>
+              <p class="sub">Datalab powered by CleantechHUB</p>
+              <p class="bullet">Sandboxes para probar flujos reales de datos ambientales</p><p class="bullet">Gobernanza de datos desde el diseño</p><p class="bullet">Fase inicial: cargas manuales (CSV/SQLite)</p><p class="bullet">Registro y sede: PENDIENTE</p>
+            </div>
+            <div class="main-bottom">
+              <p class="tag">Inspira. Actúa. Transforma.</p>
+              
+    <div class="logo-footer">
+      
+    <div class="ph partner">[LOGO AIR4U]</div>
+    <div class="ph partner">[LOGO EXTERNADO]</div>
+    
+      <div class="logo-cth"><img class="cth-logo" src="../_shared/cleantechhub-logo.png" width="167" height="44" alt="CleantechHUB" /></div>
+    </div>
+    
+            </div>
+          </main>
+          
+    <div class="photo-panel" aria-hidden="true">
+      <img src="../06-fotos/engineer-cad-19895882.jpg" alt="" />
+      <div class="photo-overlay" style="background:#0C498A;opacity:0.42;"></div>
+    </div>
+    
+        </div>
+        </body>
+</html>

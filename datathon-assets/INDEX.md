@@ -1,34 +1,57 @@
-# Datathon / Earth Observatory — asset index
+# Datathon / Earth Observatory — comms kit index
 
 **Marca:** Datalab powered by CleantechHUB (`Datalab` una palabra).
 **Evento ancla:** martes 24 de noviembre de 2026.
 **Estado:** borrador PR — NO publicar.
 
-## Archivos
+## Streams (5)
 
-| Archivo | PNG/PDF | Canal | Tamaño |
-|---------|---------|-------|--------|
-| `01-agenda/agenda-print-a4.html` | `01-agenda/agenda-print-a4.pdf` | printable | A4 |
-| `01-agenda/instagram-feed-1080x1350.html` | `01-agenda/instagram-feed-1080x1350.png` | instagram | 1080x1350 |
-| `01-agenda/linkedin-1200x627.html` | `01-agenda/linkedin-1200x627.png` | linkedin | 1200x627 |
-| `01-agenda/story-1080x1920.html` | `01-agenda/story-1080x1920.png` | story | 1080x1920 |
-| `02-earth-observatory/instagram-feed-1080x1350.html` | `02-earth-observatory/instagram-feed-1080x1350.png` | instagram | 1080x1350 |
-| `02-earth-observatory/linkedin-1200x627.html` | `02-earth-observatory/linkedin-1200x627.png` | linkedin | 1200x627 |
-| `02-earth-observatory/story-1080x1920.html` | `02-earth-observatory/story-1080x1920.png` | story | 1080x1920 |
-| `03-datalab/instagram-feed-1080x1350.html` | `03-datalab/instagram-feed-1080x1350.png` | instagram | 1080x1350 |
-| `03-datalab/linkedin-1200x627.html` | `03-datalab/linkedin-1200x627.png` | linkedin | 1200x627 |
-| `03-datalab/story-1080x1920.html` | `03-datalab/story-1080x1920.png` | story | 1080x1920 |
-| `04-datathon/instagram-feed-1080x1350.html` | `04-datathon/instagram-feed-1080x1350.png` | instagram | 1080x1350 |
-| `04-datathon/linkedin-1200x627.html` | `04-datathon/linkedin-1200x627.png` | linkedin | 1200x627 |
-| `04-datathon/story-1080x1920.html` | `04-datathon/story-1080x1920.png` | story | 1080x1920 |
-| `05-air4u-demo/instagram-feed-1080x1350.html` | `05-air4u-demo/instagram-feed-1080x1350.png` | instagram | 1080x1350 |
-| `05-air4u-demo/linkedin-1200x627.html` | `05-air4u-demo/linkedin-1200x627.png` | linkedin | 1200x627 |
-| `05-air4u-demo/story-1080x1920.html` | `05-air4u-demo/story-1080x1920.png` | story | 1080x1920 |
-| `01-agenda/copy-es.md` | — | copy | ES |
-| `02-earth-observatory/copy-es.md` | — | copy | ES |
-| `03-datalab/copy-es.md` | — | copy | ES |
-| `04-datathon/copy-es.md` | — | copy | ES |
-| `05-air4u-demo/copy-es.md` | — | copy | ES |
+| Carpeta | Tema |
+|---------|------|
+| `01-agenda/` | Agenda del evento |
+| `02-earth-observatory/` | Lanzamiento Observatorio de la Tierra |
+| `03-datalab/` | Datalab soft launch |
+| `04-datathon/` | Datathon |
+| `05-air4u-demo/` | Demo en vivo Air4U |
+
+## Canales y tamaños (cada stream)
+
+Por canal: `svg/`, `png/`, `jpg/` (+ `carousel.pdf` en carruseles). HTML fuente en la raíz del canal.
+
+| Canal | Tamaños (stem) |
+|-------|----------------|
+| `linkedin/` | 1200x627, 1080x1080 |
+| `facebook/` | 1200x630, 1920x1005 |
+| `instagram/` | 1080x1080, 1080x1350 |
+| `story/` | 1080x1920 |
+| `x/` | 1600x900 |
+| `whatsapp/` | 1080x1080, 1080x1920 |
+| `email/` | 1200x400 |
+| `web/` | 1920x600 |
+| `linkedin-carousel/` | 1080×1350 · 4 slides + PDF |
+| `instagram-carousel/` | 1080×1080 · 4 slides + PDF |
+
+## Copy por stream
+
+`posts.md` — LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.
+`copy.txt` — texto plano legacy.
+`copy-es.md` — borrador extendido.
+
+## Fotos stock (LatAm cleantech)
+
+`06-fotos/` — JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).
+
+## Agenda impresa
+
+`01-agenda/agenda-print-a4.html` → PNG/PDF vía `render-comms.sh`. En el zip: `agenda-evento.pdf`.
+
+## WhatsApp kit (`datathon-kit.zip`)
+
+~12–15 MB (JPG + SVG + PNG si cabe; repack sin PNG si supera 15 MB). Tope duro 100 MB.
+
+Regenerar: `fetch-stock-photos.sh` → `python3 build_assets.py` → `render-comms.sh` → `build-kit-zip.sh`.
+
+**Logo:** Option A grid — `brand/datalab-logo-2026-11/archive/logo/option-a.*`.
 
 ## PENDIENTE (global)
 
@@ -46,8 +69,6 @@
 
 - Copy CTH en español latinoamericano.
 - Sin ángulo cannabis; sin precios Phase 2; sin nombre Comapán.
-- Capas de datos descritas en lenguaje llano (no metáforas bronze/silver/gold).
+- Capas de datos en lenguaje llano (no bronze/silver/gold).
 - Air4U = socio de innovación; CleantechHUB = custodio.
 - Placeholders de logo hasta archivo aprobado.
-
-**Kit logo:** `brand/datalab-logo-2026-11/` (Option B).

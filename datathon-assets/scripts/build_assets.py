@@ -25,6 +25,21 @@ DATALAB_HTML = {
     "light": "../_shared/datalab-option-a-light.png",
     "dark": "../_shared/datalab-option-a-dark.png",
 }
+FOTOS_DIR = ROOT / "06-fotos"
+FOTOS_HTML = "../06-fotos"
+# Datalab + Datathon social layouts only (no personal captions).
+STREAM_PHOTOS: dict[str, dict[str, str]] = {
+    "03-datalab": {
+        "linkedin": "engineer-cad-19895882.jpg",
+        "feed": "field-engineer-laptop-442152.jpg",
+        "story": "city-mexico-21383930.jpg",
+    },
+    "04-datathon": {
+        "linkedin": "solar-bogota-8853505.jpg",
+        "feed": "solar-install-8853502.jpg",
+        "story": "solar-worker-8853507.jpg",
+    },
+}
 
 COLORS = {
     "deep": "#0C498A",
@@ -246,6 +261,45 @@ def partner_placeholders(compact: bool = False) -> str:
     """
 
 
+def stream_photo_file(stream_id: str, layout: str) -> str | None:
+    layout_key = {"linkedin": "linkedin", "feed": "feed", "story": "story"}.get(layout)
+    if not layout_key:
+        return None
+    return STREAM_PHOTOS.get(stream_id, {}).get(layout_key)
+
+
+def photo_src(stream_id: str, layout: str) -> str | None:
+    mapped = {"square": "feed", "banner": "linkedin", "carousel_slide": "feed"}.get(
+        layout, layout
+    )
+    name = stream_photo_file(stream_id, mapped)
+    if not name:
+        return None
+    path = FOTOS_DIR / name
+    if not path.is_file():
+        return None
+    return f"{FOTOS_HTML}/{name}"
+
+
+def photo_panel_html(src: str, overlay: str, opacity: float) -> str:
+    return f"""
+    <div class="photo-panel" aria-hidden="true">
+      <img src="{src}" alt="" />
+      <div class="photo-overlay" style="background:{overlay};opacity:{opacity};"></div>
+    </div>
+    """
+
+
+def photo_layer_html(src: str, overlay: str, opacity: float, extra_class: str = "") -> str:
+    cls = f"photo-layer {extra_class}".strip()
+    return f"""
+    <div class="{cls}" aria-hidden="true">
+      <img src="{src}" alt="" />
+      <div class="photo-overlay" style="background:{overlay};opacity:{opacity};"></div>
+    </div>
+    """
+
+
 def logo_footer(linkedin: bool = False) -> str:
     cth_h = 44 if linkedin else 52
     return f"""
@@ -304,9 +358,20 @@ def base_css(width: int, height: int) -> str:
     }}
     .cth-logo {{ display: block; width: auto; max-width: 100%; object-fit: contain; }}
     .datalab-logo {{ display: block; width: auto; max-width: 100%; object-fit: contain; }}
+    .photo-panel, .photo-layer {{ position: relative; overflow: hidden; }}
+    .photo-panel img, .photo-layer img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }}
+    .photo-overlay {{ position: absolute; inset: 0; pointer-events: none; }}
 
     /* LinkedIn 1200×627 */
     .layout-linkedin {{ display: flex; height: 100%; align-items: stretch; }}
+    .layout-linkedin.has-photo .sidebar {{ width: 28%; }}
+    .layout-linkedin.has-photo .main {{ flex: 1; width: 44%; }}
+    .layout-linkedin.has-photo .photo-panel {{ width: 28%; flex-shrink: 0; align-self: stretch; }}
     .layout-linkedin .sidebar {{
       width: 34%;
       background: {COLORS['deep']};
@@ -354,6 +419,19 @@ def base_css(width: int, height: int) -> str:
       flex-direction: column;
       justify-content: center;
       gap: 16px;
+      position: relative;
+    }}
+    .layout-feed .feed-top.has-photo {{ padding: 0; }}
+    .layout-feed .feed-top .photo-layer {{ position: absolute; inset: 0; }}
+    .layout-feed .feed-top-content {{
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
     }}
     .layout-feed .feed-top h1 {{ font-size: 54px; line-height: 1.05; }}
     .layout-feed .feed-top .sub {{ font-size: 26px; font-weight: 600; color: {COLORS['cyan']}; }}
@@ -392,6 +470,18 @@ def base_css(width: int, height: int) -> str:
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+    }}
+    .layout-story.has-photo {{ padding: 0; }}
+    .layout-story .story-photo {{ position: absolute; inset: 0; }}
+    .layout-story .story-content {{
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }}
     .layout-story header .datalab-logo {{ margin-bottom: 22px; }}
     .layout-story .badge {{
@@ -420,15 +510,88 @@ def base_css(width: int, height: int) -> str:
       padding-top: 8px;
       border-top: 2px solid rgba(255,255,255,0.18);
     }}
+
+    /* Square 1080×1080 */
+    .layout-square {{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: {COLORS['deep']};
+      color: {COLORS['white']};
+    }}
+    .layout-square .sq-top {{
+      flex: 1;
+      padding: 40px 42px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }}
+    .layout-square .sq-top.has-photo .photo-layer {{ position: absolute; inset: 0; }}
+    .layout-square .sq-top-content {{ position: relative; z-index: 1; }}
+    .layout-square .sq-top h1 {{ font-size: 52px; line-height: 1.05; }}
+    .layout-square .sq-top .sub {{ font-size: 24px; font-weight: 600; color: {COLORS['cyan']}; }}
+    .layout-square .sq-bottom {{
+      background: {COLORS['cyan']};
+      color: {COLORS['deep']};
+      padding: 24px 42px 28px;
+    }}
+    .layout-square .sq-bottom .bullet {{ font-size: 22px; }}
+
+    /* Wide banners (X, email, web, FB event) */
+    .layout-banner {{
+      display: flex;
+      height: 100%;
+      align-items: stretch;
+      background: {COLORS['cyan']};
+    }}
+    .layout-banner .ban-left {{
+      width: 26%;
+      background: {COLORS['deep']};
+      color: {COLORS['white']};
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }}
+    .layout-banner .ban-mid {{
+      flex: 1;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }}
+    .layout-banner .ban-mid h1 {{ font-size: clamp(28px, 6vh, 56px); line-height: 1.05; color: {COLORS['deep']}; }}
+    .layout-banner .ban-mid .sub {{ font-size: clamp(16px, 3.5vh, 28px); font-weight: 600; color: {COLORS['deep']}; }}
+    .layout-banner .ban-mid .bullet {{ font-size: clamp(14px, 2.8vh, 22px); }}
+    .layout-banner.has-photo .ban-photo {{
+      width: 24%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }}
+    .layout-banner .ban-foot {{
+      margin-top: 8px;
+      font-size: 14px;
+      color: {COLORS['forest']};
+      font-weight: 600;
+    }}
     """
 
 
 def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
     bullets_html = "".join(f'<p class="bullet">{b}</p>' for b in stream["bullets"][:4])
+    sid = stream["id"]
+    photo = photo_src(sid, layout)
     if layout == "linkedin":
         datalab = datalab_logo_img("dark", 78)
+        photo_block = photo_panel_html(photo, COLORS["deep"], 0.42) if photo else ""
+        photo_class = " has-photo" if photo else ""
         inner = f"""
-        <div class="canvas layout-linkedin">
+        <div class="canvas layout-linkedin{photo_class}">
           <aside class="sidebar">
             <div>
               {datalab}
@@ -446,17 +609,80 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
               {logo_footer(linkedin=True)}
             </div>
           </main>
+          {photo_block}
+        </div>
+        """
+    elif layout == "square":
+        datalab = datalab_logo_img("dark", 72)
+        photo = photo_src(sid, "square")
+        photo_layer = (
+            photo_layer_html(photo, COLORS["deep"], 0.65) if photo else ""
+        )
+        photo_cls = " has-photo" if photo else ""
+        inner = f"""
+        <div class="canvas layout-square">
+          <section class="sq-top{photo_cls}">
+            {photo_layer}
+            <div class="sq-top-content">
+              {datalab}
+              <h1 class="head">{stream['headline']}</h1>
+              <p class="sub">{stream['sub']}</p>
+            </div>
+          </section>
+          <section class="sq-bottom">
+            {bullets_html}
+            <div style="margin-top:16px">{logo_footer()}</div>
+          </section>
+        </div>
+        """
+    elif layout == "banner":
+        datalab = datalab_logo_img("dark", min(64, int(height * 0.35)))
+        photo = photo_src(sid, "banner")
+        photo_block = (
+            f'<div class="ban-photo">{photo_panel_html(photo, COLORS["deep"], 0.4)}</div>'
+            if photo
+            else ""
+        )
+        ban_class = " has-photo" if photo else ""
+        inner = f"""
+        <div class="canvas layout-banner{ban_class}">
+          <div class="ban-left">
+            {datalab}
+            <p class="side-note" style="color:#fff;font-size:14px;line-height:1.4;">{BRAND_LINE}<br/>{EVENT_SHORT}</p>
+          </div>
+          <div class="ban-mid">
+            <h1 class="head">{stream['headline']}</h1>
+            <p class="sub">{stream['sub']}</p>
+            {''.join(f'<p class="bullet">{stream["bullets"][i]}</p>' for i in range(min(2,len(stream["bullets"]))))}
+            <p class="ban-foot">Inspira. Actúa. Transforma. · Sede/hora: PENDIENTE</p>
+          </div>
+          {photo_block}
         </div>
         """
     elif layout == "feed":
         datalab = datalab_logo_img("dark", 86)
-        inner = f"""
-        <div class="canvas layout-feed">
+        if photo:
+            top = f"""
+          <section class="feed-top has-photo">
+            {photo_layer_html(photo, COLORS['deep'], 0.68)}
+            <div class="feed-top-content">
+              {datalab}
+              <h1 class="head">{stream['headline']}</h1>
+              <p class="sub">{stream['sub']}</p>
+            </div>
+          </section>
+            """
+        else:
+            top = f"""
           <section class="feed-top">
             {datalab}
             <h1 class="head">{stream['headline']}</h1>
             <p class="sub">{stream['sub']}</p>
           </section>
+            """
+        inner = f"""
+        <div class="canvas layout-feed">
+          {top}
           <section class="feed-bottom">
             <div class="card">{bullets_html}</div>
             <div class="logo-bar">{logo_footer()}</div>
@@ -465,7 +691,27 @@ def visual_html(stream: dict, width: int, height: int, layout: str) -> str:
         """
     else:
         datalab = datalab_logo_img("dark", 92)
-        inner = f"""
+        if photo:
+            inner = f"""
+        <div class="canvas layout-story has-photo">
+          {photo_layer_html(photo, COLORS['deep'], 0.76, extra_class="story-photo")}
+          <div class="story-content">
+            <header>
+              {datalab}
+              <span class="badge">{EVENT_SHORT}</span>
+              <h1 class="head">{stream['headline']}</h1>
+              <p class="sub">{stream['sub']}</p>
+            </header>
+            <div class="story-mid">{bullets_html}</div>
+            <footer class="logo-bar">
+              <p class="story-tag">{BRAND_LINE}</p>
+              {logo_footer()}
+            </footer>
+          </div>
+        </div>
+        """
+        else:
+            inner = f"""
         <div class="canvas layout-story">
           <header>
             {datalab}
@@ -649,7 +895,100 @@ def write_index(all_files: list[dict]) -> None:
             "",
             "## WhatsApp kit",
             "",
-            "`datathon-kit.zip` — PNGs + `copy.txt` per stream, `agenda-evento.pdf` en la raíz. Regenerar: `scripts/build-kit-zip.sh` (después de `build_assets.py` + `render-visuals.sh`).",
+            "`datathon-kit.zip` — por stream: subcarpetas de canal (`svg/`, `jpg/`, `png/` si cabe), `posts.md`, `copy.txt`; `06-fotos/` + `credits.txt`; `agenda-evento.pdf`. Regenerar: `fetch-stock-photos.sh`, `build_assets.py`, `render-comms.sh`, `build-kit-zip.sh`.",
+        ]
+    )
+    (ROOT / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_comms_index() -> None:
+    from comms_kit import CAROUSEL_CHANNELS, CHANNEL_FORMATS
+
+    pendientes = [
+        "Hora de inicio del evento",
+        "Sede / venue",
+        "Enlace RSVP / registro",
+        "Panelistas del panel de apertura",
+        "Reglas y premios del datathon",
+        "Logos finales CleantechHUB, Air4U, Externado",
+        "Mapa o foto de sede",
+        "Contacto / CTA final",
+        "Tercera fecha de pre-evento (si aplica fuera de este pack)",
+    ]
+    lines = [
+        "# Datathon / Earth Observatory — comms kit index",
+        "",
+        f"**Marca:** {BRAND_LINE} (`Datalab` una palabra).",
+        f"**Evento ancla:** {EVENT_DATE}.",
+        "**Estado:** borrador PR — NO publicar.",
+        "",
+        "## Streams (5)",
+        "",
+        "| Carpeta | Tema |",
+        "|---------|------|",
+    ]
+    for stream in STREAMS:
+        lines.append(f"| `{stream['id']}/` | {stream['title']} |")
+
+    lines.extend(
+        [
+            "",
+            "## Canales y tamaños (cada stream)",
+            "",
+            "Por canal: `svg/`, `png/`, `jpg/` (+ `carousel.pdf` en carruseles). HTML fuente en la raíz del canal.",
+            "",
+            "| Canal | Tamaños (stem) |",
+            "|-------|----------------|",
+        ]
+    )
+    for channel, formats in CHANNEL_FORMATS.items():
+        stems = ", ".join(f[0] for f in formats)
+        lines.append(f"| `{channel}/` | {stems} |")
+    for channel, (w, h, n) in CAROUSEL_CHANNELS.items():
+        lines.append(f"| `{channel}/` | {w}×{h} · {n} slides + PDF |")
+
+    lines.extend(
+        [
+            "",
+            "## Copy por stream",
+            "",
+            "`posts.md` — LinkedIn (largo/corto), Facebook, Instagram (caption, hashtags, alt), X, WhatsApp, email, CTAs.",
+            "`copy.txt` — texto plano legacy.",
+            "`copy-es.md` — borrador extendido.",
+            "",
+            "## Fotos stock (LatAm cleantech)",
+            "",
+            "`06-fotos/` — JPG + `credits.txt`. Integradas en **03-datalab** y **04-datathon** (overlays).",
+            "",
+            "## Agenda impresa",
+            "",
+            "`01-agenda/agenda-print-a4.html` → PNG/PDF vía `render-comms.sh`. En el zip: `agenda-evento.pdf`.",
+            "",
+            "## WhatsApp kit (`datathon-kit.zip`)",
+            "",
+            "~12–15 MB (JPG + SVG + PNG si cabe; repack sin PNG si supera 15 MB). Tope duro 100 MB.",
+            "",
+            "Regenerar: `fetch-stock-photos.sh` → `python3 build_assets.py` → `render-comms.sh` → `build-kit-zip.sh`.",
+            "",
+            f"**Logo:** Option A grid — `brand/datalab-logo-2026-11/archive/logo/option-a.*`.",
+            "",
+            "## PENDIENTE (global)",
+            "",
+        ]
+    )
+    for p in pendientes:
+        lines.append(f"- {p}")
+
+    lines.extend(
+        [
+            "",
+            "## Reglas aplicadas",
+            "",
+            "- Copy CTH en español latinoamericano.",
+            "- Sin ángulo cannabis; sin precios Phase 2; sin nombre Comapán.",
+            "- Capas de datos en lenguaje llano (no bronze/silver/gold).",
+            "- Air4U = socio de innovación; CleantechHUB = custodio.",
+            "- Placeholders de logo hasta archivo aprobado.",
         ]
     )
     (ROOT / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -662,17 +1001,35 @@ def main() -> None:
         action="store_true",
         help="Regenerate HTML visuals and agenda print only (do not touch copy files).",
     )
+    parser.add_argument(
+        "--full-comms",
+        action="store_true",
+        help="Generate full multi-channel comms kit (default).",
+    )
+    parser.add_argument(
+        "--legacy-only",
+        action="store_true",
+        help="Only three legacy root-level social sizes (deprecated).",
+    )
     args = parser.parse_args()
 
-    manifest: list[dict] = []
-    for stream in STREAMS:
+    if args.legacy_only:
+        manifest: list[dict] = []
+        for stream in STREAMS:
+            if not args.visuals_only:
+                write_copy(stream)
+            manifest.extend(write_visuals(stream))
+        manifest.extend(write_agenda_extras())
         if not args.visuals_only:
-            write_copy(stream)
-        manifest.extend(write_visuals(stream))
-    manifest.extend(write_agenda_extras())
+            write_index(manifest)
+        print(json.dumps({"streams": len(STREAMS), "assets": len(manifest)}, indent=2))
+        return
+
+    from comms_kit import build_full_comms
+
+    build_full_comms(visuals_only=args.visuals_only)
     if not args.visuals_only:
-        write_index(manifest)
-    print(json.dumps({"streams": len(STREAMS), "assets": len(manifest)}, indent=2))
+        write_comms_index()
 
 
 if __name__ == "__main__":
