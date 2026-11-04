@@ -27,6 +27,15 @@ Forty-one visual types. Semantic patterns describe behavior; type references des
 - **No Mermaid output:** do not ship `.mmd` or fenced Mermaid as the final CTH artifact. Imports may use `scripts/mermaid_extract.py` only to **redraw** as HTML+SVG.
 - **Smoke reference:** `assets/cth-smoke-architecture.html`.
 
+### Grant-deck workflow (AI Apps for Good — 2026-11-04)
+
+When the ticket is a **full funder or investor deck** (not a single figure):
+
+1. Run **`pitch-builder-first-draft`** — [Pitch Builder](https://aiappsforgood.org/pitchbuilder.html) for the 10-slide narrative.
+2. Build slides and figures here in **CTH HTML+SVG** (`cleantechhub-brand` + this skill).
+
+Done when: deck HTML matches the Pitch Builder story arc and brand tokens.
+
 ---
 
 ## 0. First-time setup — style guide gate
