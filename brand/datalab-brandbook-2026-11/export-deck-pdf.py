@@ -12,7 +12,11 @@ PREP_JS = """
   document.body.classList.add('print-all', 'es');
   document.querySelectorAll('.deck .slide').forEach(el => {
     el.classList.add('active');
-    el.style.display = 'flex';
+    el.style.cssText =
+      'display:flex!important;position:relative!important;inset:auto!important;width:297mm!important;height:210mm!important;max-width:297mm!important;min-height:210mm!important;page-break-after:always!important;break-after:page!important;box-sizing:border-box!important;';
+  });
+  document.querySelectorAll('.deck-viewport, .deck-frame, .deck-stage, .deck').forEach(el => {
+    el.style.cssText = 'position:static!important;display:block!important;width:297mm!important;max-width:297mm!important;height:auto!important;margin:0!important;padding:0!important;overflow:visible!important;transform:none!important;';
   });
   document.querySelectorAll('.topbar, .site-footer, .pdf-dl-fixed').forEach(el => {
     el.style.display = 'none';
@@ -30,6 +34,12 @@ PREP_JS = """
       if (src.endsWith(from)) img.setAttribute('src', to);
     });
   });
+  document.documentElement.style.margin = '0';
+  document.documentElement.style.padding = '0';
+  document.documentElement.style.width = '297mm';
+  document.body.style.margin = '0';
+  document.body.style.padding = '0';
+  document.body.style.width = '297mm';
   document.querySelectorAll('*').forEach(el => {
     el.style.setProperty('animation', 'none', 'important');
     el.style.setProperty('transition', 'none', 'important');
@@ -78,7 +88,7 @@ def main() -> None:
                 "--disable-features=FontSrcLocalMatching",
             ],
         )
-        page = browser.new_page(viewport={"width": 1280, "height": 800})
+        page = browser.new_page(viewport={"width": 1123, "height": 794})
         page.goto(index.as_uri(), wait_until="networkidle")
         page.wait_for_timeout(400)
         page.evaluate(PREP_JS)

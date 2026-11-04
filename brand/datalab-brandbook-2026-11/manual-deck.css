@@ -213,20 +213,48 @@ h3 {
 .slide--chapter {
   background: var(--deep-blue);
   color: var(--white);
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide--chapter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 100%;
+  background: var(--light-cyan);
+  z-index: 0;
+}
+
+.slide--chapter .chapter-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  min-height: 100%;
+  margin-left: 42%;
+  padding: 56px 72px 72px 40px;
 }
 
 .slide--chapter .chapter-num {
   font-family: var(--font-title);
+  font-weight: 700;
   font-size: 8rem;
   line-height: 1;
-  color: var(--sky);
+  color: var(--deep-blue);
 }
 
 .slide--chapter h2 {
   font-size: 3rem;
+  font-weight: 700;
   margin-top: 12px;
+  color: var(--white);
 }
 
 .clearspace-demo {
@@ -314,6 +342,10 @@ table.data td {
   margin-top: auto;
   font-size: 0.95rem;
   font-weight: 600;
+}
+
+#cover .cover-meta {
+  margin-top: 0;
 }
 
 .slide-head {
@@ -479,23 +511,206 @@ table.data td {
 
 .cover-stack .cover-logo {
   display: block;
-  max-width: 320px;
-  max-height: 120px;
+  width: 42%;
+  min-width: 38%;
+  height: auto;
   object-fit: contain;
 }
 
-.cover-stack .cover-cth {
+.cover-cth-panel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  padding: 14px 28px;
+  border-radius: 6px;
+  min-width: 24%;
+  max-width: 52%;
+}
+
+.cover-cth-panel .cover-cth {
   display: block;
-  max-height: 56px;
-  width: auto;
+  width: 100%;
+  max-height: 72px;
+  height: auto;
   object-fit: contain;
 }
 
 .cover-stack .brand-book {
   font-family: var(--font-title);
+  font-weight: 700;
   font-size: 5rem;
   line-height: 0.95;
   letter-spacing: 0.04em;
+}
+
+.slide-body--dense {
+  font-size: 1.12rem;
+}
+
+.lead-large {
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.logo-grid-large {
+  margin-top: 16px;
+}
+
+.logo-thumb--hero img {
+  max-height: 140px;
+}
+
+.logo-thumb--hero {
+  padding: 18px;
+}
+
+.data--large {
+  font-size: 1rem;
+}
+
+.data--large th,
+.data--large td {
+  padding: 10px 12px;
+}
+
+.icon-grid--labeled {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px 12px;
+  margin-top: 12px;
+}
+
+.icon-grid--labeled figure {
+  margin: 0;
+  text-align: center;
+}
+
+.icon-grid--labeled img {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-grid--labeled figcaption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.misuse-grid--large {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.misuse-grid--large .misuse {
+  min-height: 72px;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  padding: 16px 12px;
+}
+
+.social-showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 0.55fr;
+  gap: 16px;
+  align-items: stretch;
+  min-height: 0;
+  flex: 1;
+}
+
+.social-showcase__row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+.social-thumb {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-thumb img {
+  flex: 1;
+  max-height: none;
+  object-fit: contain;
+}
+
+.social-thumb--wide img {
+  max-height: 200px;
+}
+
+.social-thumb--story {
+  height: 100%;
+}
+
+.social-thumb--story img {
+  max-height: 100%;
+  min-height: 55%;
+}
+
+.slide-body--merch {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+}
+
+.pendiente-panel {
+  flex: 1;
+  background: var(--light-cyan);
+  border: 4px solid var(--deep-blue);
+  border-radius: 12px;
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pendiente-kicker {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--deep-blue);
+  margin: 0;
+}
+
+.pendiente-panel p {
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.download-cols {
+  columns: 2;
+  column-gap: 48px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: 1.2em;
+  flex: 1;
+}
+
+.download-cols li {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+.download-cols .file-type {
+  display: inline-block;
+  min-width: 3.2em;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85em;
+  color: var(--forest);
+}
+
+.downloads-closing {
+  margin-top: 28px;
+  font-size: 1.1rem;
 }
 
 .cover-tagline {
@@ -566,7 +781,7 @@ body.es [lang="es"] {
 }
 
 @page {
-  size: A4 landscape;
+  size: 297mm 210mm;
   margin: 0;
 }
 
@@ -574,25 +789,44 @@ body.print-all .deck-viewport {
   position: static;
   display: block;
   padding: 0;
+  margin: 0;
   min-height: 0;
   overflow: visible;
+  width: 297mm;
 }
 
 body.print-all {
-  font-size: 10.53px;
+  font-size: 22.667px;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 297mm;
+  overflow: visible;
+}
+
+body.print-all html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 297mm;
+  overflow: visible;
 }
 
 body.print-all .deck-frame {
   position: static;
   width: 297mm;
+  max-width: 297mm;
   height: auto;
-  overflow: visible;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 body.print-all .deck-stage {
   position: static;
   width: 297mm;
+  max-width: 297mm;
   height: auto;
+  margin: 0;
+  padding: 0;
   transform: none !important;
   box-shadow: none;
 }
@@ -600,7 +834,10 @@ body.print-all .deck-stage {
 body.print-all .deck {
   position: static;
   width: 297mm;
+  max-width: 297mm;
   height: auto;
+  margin: 0;
+  padding: 0;
 }
 
 body.print-all .slide {
@@ -608,14 +845,300 @@ body.print-all .slide {
   position: relative !important;
   inset: auto !important;
   width: 297mm;
-  height: 210mm;
   max-width: 297mm;
+  height: 210mm;
   min-height: 210mm;
-  padding: 33px 51px 42px;
+  margin: 0;
+  padding: 12mm 14mm 11mm 14mm;
   overflow: hidden;
   page-break-after: always;
   break-after: page;
   box-sizing: border-box;
+}
+
+body.print-all .slide {
+  padding: 10mm 12mm 11mm 12mm;
+}
+
+body.print-all .slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+  font-size: 1.18rem;
+  min-height: 0;
+}
+
+body.print-all .slide-body--dense,
+body.print-all .slide-body--dense p {
+  font-size: 1.12rem;
+  line-height: 1.5;
+}
+
+body.print-all .lead-large {
+  font-size: 1.28rem;
+}
+
+body.print-all .compact,
+body.print-all table.data,
+body.print-all .logo-thumb figcaption,
+body.print-all .icon-grid--labeled figcaption,
+body.print-all .misuse-grid .misuse,
+body.print-all .download-cols,
+body.print-all .cth-logo-slot {
+  font-size: 0.95rem;
+}
+
+body.print-all table.data th,
+body.print-all table.data td {
+  padding: 8px 10px;
+}
+
+body.print-all .slide-head h2 {
+  font-size: 2.15rem;
+}
+
+body.print-all .slide-num-big {
+  font-size: 3.5rem;
+}
+
+body.print-all .slide--chapter .chapter-inner {
+  padding: 14mm;
+}
+
+body.print-all .slide--chapter .chapter-num {
+  font-size: 8rem;
+}
+
+body.print-all .slide--chapter h2 {
+  font-size: 3.2rem;
+}
+
+body.print-all .cover-stack .cover-logo {
+  width: 77%;
+  min-width: 52%;
+  max-width: none;
+}
+
+body.print-all .cover-cth-panel {
+  min-width: 24%;
+  padding: 4mm 6mm;
+}
+
+body.print-all .cover-stack .brand-book {
+  font-size: 4.1rem;
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+body.print-all .manual-title {
+  font-size: 2.4rem;
+}
+
+body.print-all .manual-lead {
+  font-size: 1.25rem;
+}
+
+body.print-all .cover-tagline {
+  font-size: 1.65rem;
+}
+
+body.print-all .manual-meta,
+body.print-all .cover-meta {
+  font-size: 1rem;
+  margin-top: auto;
+  margin-bottom: 2mm;
+  padding-bottom: 0;
+}
+
+body.print-all #cover {
+  padding-bottom: 16mm;
+}
+
+body.print-all #cover .cover-meta {
+  order: 10;
+  margin-top: 3mm;
+  margin-bottom: 2mm;
+  flex-shrink: 0;
+  font-size: 0.95rem;
+}
+
+body.print-all #cover .cover-tagline {
+  margin-top: 2mm;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+body.print-all #cover .manual-lead {
+  font-size: 0.98rem;
+  line-height: 1.32;
+  margin-top: 2mm;
+}
+
+body.print-all #cover .manual-title {
+  font-size: 1.55rem;
+  margin-bottom: 0.15em;
+}
+
+body.print-all #cover .cover-stack {
+  margin-top: 0;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+body.print-all #s01 .slide-body--dense {
+  justify-content: space-evenly;
+  font-size: 1.22rem;
+}
+
+body.print-all #s01 .lead-large {
+  font-size: 1.42rem;
+}
+
+body.print-all #s02-variations .grid-3,
+body.print-all #s02-variations .logo-thumb {
+  flex: 1;
+}
+
+body.print-all #s02-variations .logo-thumb img {
+  min-height: 38mm;
+  max-height: 52mm;
+}
+
+body.print-all #s02-variations .slide-body {
+  min-height: 150mm;
+}
+
+body.print-all #s02-colour .swatch-row {
+  flex: 1;
+  align-items: stretch;
+  min-height: 55mm;
+}
+
+body.print-all #s02-colour .swatch .chip {
+  height: 28mm;
+}
+
+body.print-all #s02-colour .slide-body {
+  min-height: 150mm;
+}
+
+body.print-all #s04-templates .slide-body {
+  min-height: 150mm;
+}
+
+body.print-all #s04-templates .stats,
+body.print-all #s04-templates .table-wrap {
+  max-width: none !important;
+  flex: 1;
+}
+
+body.print-all #s04-templates .stats {
+  min-height: 45mm;
+}
+
+body.print-all #s04-templates .bb-clp26 .stat .num {
+  font-size: 3.8rem;
+}
+
+body.print-all #s04-templates .bb-clp26 .story,
+body.print-all #s04-templates .stats,
+body.print-all #s04-templates .table-wrap {
+  width: 100%;
+}
+
+body.print-all #s04-templates img.cth-logo-img {
+  height: 14mm !important;
+  margin-top: auto !important;
+}
+
+body.print-all .logo-grid-large,
+body.print-all .icon-grid--labeled,
+body.print-all .misuse-grid--large,
+body.print-all .social-showcase,
+body.print-all .pendiente-panel,
+body.print-all .photo-demo {
+  flex: 1;
+  min-height: 0;
+}
+
+body.print-all .logo-thumb--hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.print-all .logo-thumb--hero img {
+  flex: 1;
+  width: 100%;
+  max-height: 52mm;
+  min-height: 38mm;
+  object-fit: contain;
+}
+
+body.print-all .grid-3.logo-grid-large {
+  min-height: 95mm;
+}
+
+body.print-all .icon-grid--labeled {
+  align-content: space-evenly;
+  min-height: 120mm;
+}
+
+body.print-all .icon-grid--labeled img {
+  width: 22mm;
+  height: 22mm;
+}
+
+body.print-all .icon-grid--labeled figcaption {
+  font-size: 0.82rem;
+}
+
+body.print-all .misuse-grid--large {
+  flex: 1;
+  min-height: 120mm;
+  align-content: stretch;
+}
+
+body.print-all .misuse-grid--large .misuse {
+  min-width: 62mm;
+  min-height: 32mm;
+  font-size: 0.95rem;
+}
+
+body.print-all .social-showcase {
+  min-height: 130mm;
+}
+
+body.print-all .social-thumb img {
+  min-height: 45mm;
+}
+
+body.print-all .social-thumb--story img {
+  min-height: 115mm;
+}
+
+body.print-all .download-cols {
+  flex: 1;
+  font-size: 1.12rem;
+  line-height: 2;
+}
+
+body.print-all .data--large {
+  font-size: 1.05rem;
+}
+
+body.print-all .pendiente-panel p {
+  font-size: 1.2rem;
+}
+
+body.print-all .pendiente-kicker {
+  font-size: 2.4rem;
+}
+
+body.print-all .download-cols {
+  font-size: 1.05rem;
 }
 
 body.print-all .slide::after {
@@ -624,6 +1147,7 @@ body.print-all .slide::after {
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
   height: 5mm;
   background: var(--deep-blue);
   pointer-events: none;
