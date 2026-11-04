@@ -1,0 +1,30 @@
+# systemd unit template — install on OVH VPS only after Gideon's deploy GO
+# Copy to /etc/systemd/system/cth-apps-llm-proxy.service and adjust paths.
+
+[Unit]
+Description=CleantechHUB AI Apps LLM proxy (OpenRouter)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/cleantechhub/cth-apps-llm-proxy
+Environment=CTH_LLM_HOST=127.0.0.1
+Environment=CTH_LLM_PORT=8796
+Environment=CTH_LLM_STATE_FILE=/var/lib/cleantechhub/cth-apps-llm-proxy/daily-usage.json
+Environment=CTH_LLM_DAILY_CAP=200
+Environment=CTH_LLM_MAX_TOKENS=8192
+Environment=OPENROUTER_MODEL=google/gemini-2.0-flash-001
+# OPENROUTER_API_KEY injected at runtime — never store in this file.
+ExecStart=/usr/bin/infisical run --projectId c84fe8b3 --env prod --path / -- node server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/cleantechhub/cth-apps-llm-proxy
+
+[Install]
+WantedBy=multi-user.target

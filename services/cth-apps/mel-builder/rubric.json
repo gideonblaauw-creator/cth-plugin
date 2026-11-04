@@ -1,0 +1,118 @@
+{
+  "app": "mel-builder",
+  "framework": "BetterEvaluation MEL approach matching + design guide",
+  "intake_questions": [
+    {
+      "id": "q0",
+      "label": "Primary work type",
+      "type": "single"
+    },
+    {
+      "id": "q1",
+      "label": "Current MEL situation",
+      "type": "single"
+    },
+    {
+      "id": "q2",
+      "label": "Primary purpose of MEL",
+      "type": "multi"
+    },
+    {
+      "id": "q3",
+      "label": "Number of programs",
+      "type": "single"
+    },
+    {
+      "id": "q4",
+      "label": "MEL capacity",
+      "type": "single"
+    },
+    {
+      "id": "rc",
+      "label": "Who will do MEL work",
+      "type": "multi"
+    },
+    {
+      "id": "rs",
+      "label": "Organisation size",
+      "type": "single"
+    }
+  ],
+  "approach_catalog_slugs": [
+    {
+      "name": "Most Significant Change",
+      "slug": "most-significant-change"
+    },
+    {
+      "name": "Outcome Mapping",
+      "slug": "outcome-mapping"
+    },
+    {
+      "name": "Outcome Harvesting",
+      "slug": "outcome-harvesting"
+    },
+    {
+      "name": "Participatory Evaluation",
+      "slug": "participatory-evaluation"
+    },
+    {
+      "name": "Developmental Evaluation",
+      "slug": "developmental-evaluation"
+    },
+    {
+      "name": "Utilisation-Focused Evaluation",
+      "slug": "utilisation-focused-evaluation"
+    },
+    {
+      "name": "Contribution Analysis",
+      "slug": "contribution-analysis"
+    },
+    {
+      "name": "Empowerment Evaluation",
+      "slug": "empowerment-evaluation"
+    },
+    {
+      "name": "Beneficiary Assessment",
+      "slug": "beneficiary-assessment"
+    },
+    {
+      "name": "Realist Evaluation",
+      "slug": "realist-evaluation"
+    },
+    {
+      "name": "Causal Link Monitoring",
+      "slug": "causal-link-monitoring"
+    },
+    {
+      "name": "Qualitative Impact Protocol (QuIP)",
+      "slug": "qualitative-impact-protocol"
+    },
+    {
+      "name": "Social Return on Investment (SROI)",
+      "slug": "social-return-on-investment"
+    },
+    {
+      "name": "Positive Deviance",
+      "slug": "positive-deviance"
+    },
+    {
+      "name": "Rapid Evaluation",
+      "slug": "rapid-evaluation"
+    },
+    {
+      "name": "Case Study",
+      "slug": "case-study"
+    },
+    {
+      "name": "Laudes Foundation Rubrics",
+      "slug": "laudes-rubrics"
+    }
+  ],
+  "llm_steps": [
+    "suggest_approaches",
+    "build_design_guide"
+  ],
+  "disabled_features": [
+    "perplexity_real_world_examples"
+  ]
+}

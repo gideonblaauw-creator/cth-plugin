@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pitch Builder — Make Your Dent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0D0B1E;
+    --ink-soft: #4A4763;
+    --indigo: #4F46E5;
+    --indigo-dark: #3730A3;
+    --indigo-light: #EEF2FF;
+    --coral: #FF5533;
+    --coral-light: #FFF1EE;
+    --lime: #C8FF00;
+    --teal: #00C9A7;
+    --teal-light: #E0FAF5;
+    --yellow: #FFE234;
+    --white: #FFFFFF;
+    --off: #F7F7F5;
+    --border: #E2E2DA;
+    --muted: #8E8B9C;
+    --red: #EF4444;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: "Plus Jakarta Sans", sans-serif; background: var(--off); color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+  .screen { display: none; }
+  .screen.active { display: flex; flex-direction: column; min-height: 100vh; }
+
+  /* WELCOME */
+  #screen-welcome { background: var(--indigo); color: var(--white); align-items: center; justify-content: center; text-align: center; padding: 48px 24px; position: relative; overflow: hidden; }
+  #screen-welcome::before { content: ""; position: absolute; top: -120px; right: -120px; width: 480px; height: 480px; background: radial-gradient(circle, rgba(200,255,0,0.18) 0%, transparent 65%); pointer-events: none; }
+  #screen-welcome::after { content: ""; position: absolute; bottom: -100px; left: -60px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(255,85,51,0.22) 0%, transparent 60%); pointer-events: none; }
+  .welcome-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lime); border: 2px solid rgba(200,255,0,0.35); padding: 7px 18px; border-radius: 100px; margin-bottom: 28px; position: relative; z-index: 1; }
+  .welcome-title { font-family: "Syne", sans-serif; font-size: clamp(40px, 7vw, 72px); font-weight: 800; line-height: 1.05; margin-bottom: 10px; letter-spacing: -1.5px; position: relative; z-index: 1; }
+  .welcome-title em { font-style: italic; color: var(--lime); }
+  .welcome-sub { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.72); margin-bottom: 44px; max-width: 460px; line-height: 1.65; position: relative; z-index: 1; }
+  .welcome-steps { display: flex; gap: 16px; margin-bottom: 44px; flex-wrap: wrap; justify-content: center; max-width: 680px; position: relative; z-index: 1; }
+  .step-chip { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.18); border-radius: 16px; padding: 18px 22px; text-align: left; max-width: 210px; }
+  .step-num { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--lime); margin-bottom: 8px; text-transform: uppercase; }
+  .step-label { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); line-height: 1.45; }
+  .btn-primary { background: var(--lime); color: var(--indigo-dark); border: none; padding: 17px 44px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 16px; font-weight: 700; border-radius: 100px; cursor: pointer; transition: all 0.2s; position: relative; z-index: 1; }
+  .btn-primary:hover { background: #d9f500; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(200,255,0,0.35); }
+  .welcome-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); position: relative; z-index: 1; }
+
+  /* INTERVIEW / REVIEW HEADERS */
+  #screen-interview { background: var(--white); }
+  #screen-review { background: var(--white); }
+  .interview-header { background: var(--ink); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .interview-logo { font-family: "Syne", sans-serif; font-size: 18px; font-weight: 800; color: var(--white); }
+  .interview-logo span { color: var(--lime); }
+  .progress-wrap { display: flex; align-items: center; gap: 12px; }
+  .progress-label { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 600; }
+  .progress-bar-outer { width: 140px; height: 6px; background: rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; }
+  .progress-bar-inner { height: 100%; background: var(--lime); border-radius: 6px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+  .interview-body { flex: 1; max-width: 720px; margin: 0 auto; padding: 52px 24px 40px; width: 100%; }
+
+  /* Q LAYOUT */
+  .q-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .q-number { font-family: "Syne", sans-serif; font-size: 13px; font-weight: 800; color: var(--white); background: var(--indigo); width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .q-theme { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--indigo); background: var(--indigo-light); padding: 4px 12px; border-radius: 100px; }
+  .q-text { font-family: "Syne", sans-serif; font-size: clamp(22px, 3.5vw, 30px); font-weight: 700; line-height: 1.3; color: var(--ink); margin-bottom: 14px; }
+  .q-hint { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 28px; padding: 12px 16px; background: var(--off); border-radius: 12px; border-left: 4px solid var(--teal); }
+
+  /* RECORDER */
+  .recorder-wrap { background: var(--off); border-radius: 20px; padding: 24px; margin-bottom: 20px; border: 1.5px solid var(--border); }
+  .recorder-controls { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .btn-record { width: 56px; height: 56px; border-radius: 16px; border: none; background: var(--indigo); color: white; font-size: 22px; cursor: pointer; transition: all 0.2s; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(79,70,229,0.35); }
+  .btn-record:hover { background: var(--indigo-dark); transform: scale(1.05); }
+  .btn-record.recording { background: var(--red); box-shadow: 0 4px 14px rgba(239,68,68,0.4); animation: pulse-rec 1.2s infinite; }
+  @keyframes pulse-rec { 0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 0 10px rgba(239,68,68,0); } }
+  .recorder-status { font-size: 14px; color: var(--muted); font-weight: 500; }
+  .recorder-status strong { color: var(--red); }
+  .transcript-area { width: 100%; min-height: 120px; background: var(--white); border: 2px solid var(--border); border-radius: 14px; padding: 16px; font-family: "Plus Jakarta Sans", sans-serif; font-size: 15px; line-height: 1.65; color: var(--ink); resize: vertical; outline: none; transition: border-color 0.2s; }
+  .transcript-area:focus { border-color: var(--indigo); }
+  .transcript-area::placeholder { color: #C4C4C0; }
+  .recorder-tip { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center; }
+
+  /* NAV BUTTONS */
+  .interview-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; }
+  .btn-back { background: transparent; border: 2px solid var(--border); color: var(--muted); padding: 12px 24px; border-radius: 100px; font-size: 14px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .btn-back:hover { border-color: var(--indigo); color: var(--indigo); }
+  .btn-next { background: var(--ink); color: var(--white); border: none; padding: 14px 36px; border-radius: 100px; font-size: 15px; font-weight: 700; font-family: "Plus Jakarta Sans", sans-serif; cursor: pointer; transition: all 0.2s; }
+  .btn-next:hover { background: var(--indigo); transform: translateY(-1px); }
+  .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+  .btn-generate { background: var(--coral); color: var(--white); border: none; padding: 14px 36px; border-radius: 100px; font-size: 15px; font-weight: 700; font-family: "Plus Jakarta Sans", sans-serif; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 16px rgba(255,85,51,0.3); }
+  .btn-generate:hover { background: #e8441f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,85,51,0.4); }
+
+  /* GENERATING */
+  #screen-generating { background: var(--ink); color: var(--white); align-items: center; justify-content: center; text-align: center; padding: 40px; }
+  .gen-icon { font-size: 52px; margin-bottom: 24px; animation: spin-slow 3s linear infinite; display: inline-block; filter: drop-shadow(0 0 20px rgba(200,255,0,0.5)); }
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .gen-title { font-family: "Syne", sans-serif; font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+  .gen-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 380px; line-height: 1.65; }
+  .gen-steps { margin-top: 40px; text-align: left; max-width: 340px; width: 100%; }
+  .gen-step { display: flex; align-items: center; gap: 14px; padding: 12px 0; font-size: 14px; font-weight: 500; color: rgba(247,247,245,0.35); border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.3s; }
+  .gen-step.done { color: var(--teal); }
+  .gen-step.active { color: var(--white); }
+  .gen-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); flex-shrink: 0; transition: background 0.3s; }
+  .gen-step.done .gen-dot { background: var(--teal); }
+  .gen-step.active .gen-dot { background: var(--lime); animation: pulse-dot 0.8s infinite; }
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
+
+  /* DECK */
+  #screen-deck { background: #0A0A0A; padding: 0; }
+  .deck-topbar { background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .deck-logo { font-family: "Syne", sans-serif; font-size: 16px; font-weight: 800; color: var(--white); }
+  .deck-counter { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 500; }
+  .deck-actions { display: flex; gap: 10px; }
+  .btn-sm { padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 700; font-family: "Plus Jakarta Sans", sans-serif; cursor: pointer; transition: all 0.2s; }
+  .btn-outline-light { background: transparent; border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); }
+  .btn-outline-light:hover { background: rgba(255,255,255,0.1); }
+  .btn-gold { background: var(--lime); border: none; color: var(--indigo-dark); font-weight: 800; }
+  .btn-gold:hover { background: #d9f500; }
+  .slides-wrap { padding-top: 60px; }
+  .slide { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 80px 48px; position: relative; overflow: hidden; }
+  .slide-content { max-width: 860px; width: 100%; animation: fadeSlide 0.5s ease; position: relative; z-index: 2; }
+  @keyframes fadeSlide { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SLIDE THEMES */
+  .slide-cover { background: var(--indigo); color: var(--white); }
+  .slide-cover::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(200,255,0,0.18) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(255,85,51,0.2) 0%, transparent 55%); pointer-events: none; }
+  .slide-dark { background: #0D0B1E; color: var(--white); }
+  .slide-dark::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 90% 10%, rgba(79,70,229,0.25) 0%, transparent 55%); pointer-events: none; }
+  .slide-light { background: var(--white); color: var(--ink); }
+  .slide-gold { background: #FF5533; color: var(--white); }
+  .slide-gold::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(255,226,52,0.3) 0%, transparent 55%); pointer-events: none; }
+  .slide-forest { background: #0D2D1E; color: var(--white); }
+  .slide-forest::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 50% at 80% 30%, rgba(0,201,167,0.22) 0%, transparent 55%); pointer-events: none; }
+
+  .slide-label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; opacity: 0.55; display: inline-block; }
+  .slide-cover .slide-label, .slide-gold .slide-label { color: var(--lime); opacity: 1; }
+  .slide-forest .slide-label { color: var(--teal); opacity: 1; }
+  .slide-light .slide-label { color: var(--indigo); opacity: 1; }
+  .slide-title { font-family: "Syne", sans-serif; font-size: clamp(28px, 4.5vw, 54px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1px; }
+  .slide-light .slide-title { color: var(--ink); }
+  .slide-body { font-size: clamp(15px, 1.8vw, 18px); line-height: 1.8; max-width: 680px; opacity: 0.88; }
+  .slide-body p { margin-bottom: 14px; }
+  .slide-body p:last-child { margin-bottom: 0; }
+  .slide-body strong { opacity: 1; font-weight: 700; }
+  .slide-light .slide-body { color: var(--ink-soft); }
+  .slide-light .slide-body strong { color: var(--ink); }
+
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 32px; }
+  .stat-card { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 24px; }
+  .slide-light .stat-card { background: var(--off); border-color: var(--border); }
+  .slide-cover .stat-card, .slide-forest .stat-card { border-color: rgba(200,255,0,0.25); }
+  .slide-gold .stat-card { border-color: rgba(255,255,255,0.25); }
+  .stat-number { font-family: "Syne", sans-serif; font-size: 40px; font-weight: 800; color: var(--lime); line-height: 1; margin-bottom: 8px; letter-spacing: -1px; }
+  .slide-gold .stat-number { color: var(--yellow); }
+  .slide-light .stat-number { color: var(--indigo); }
+  .slide-forest .stat-number { color: var(--teal); }
+  .stat-desc { font-size: 13px; opacity: 0.7; line-height: 1.45; font-weight: 500; }
+
+  /* QUOTE */
+  .story-quote { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(18px, 2.8vw, 26px); font-style: italic; font-weight: 600; line-height: 1.5; color: var(--lime); border-left: 5px solid var(--coral); padding-left: 24px; margin: 28px 0; }
+  .slide-light .story-quote { color: var(--indigo); border-left-color: var(--coral); }
+  .slide-gold .story-quote { color: var(--yellow); border-left-color: rgba(255,255,255,0.5); }
+
+  /* TEAM + FUNDS */
+  .team-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+  .team-chip { background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 12px 18px; font-size: 14px; font-weight: 500; }
+  .funds-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .fund-item { display: flex; align-items: center; gap: 16px; }
+  .fund-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+  .fund-bar { height: 100%; background: var(--lime); border-radius: 4px; }
+  .fund-label { font-size: 14px; min-width: 160px; font-weight: 500; }
+  .fund-pct { font-size: 14px; font-weight: 800; color: var(--lime); min-width: 40px; text-align: right; }
+
+  /* SLIDE NAV */
+  .slide-nav { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 100; }
+  .nav-arrow { width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.18); color: white; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(8px); }
+  .nav-arrow:hover { background: rgba(255,255,255,0.2); }
+  .nav-arrow:disabled { opacity: 0.25; cursor: not-allowed; }
+  .slide-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all 0.2s; }
+  .dot.active { background: var(--lime); transform: scale(1.5); }
+
+  @media print { .deck-topbar, .slide-nav, .slide-dots { display: none !important; } .slide { page-break-after: always; min-height: 100vh; } }
+
+  /* FOLLOWUP */
+  .followup-block { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 2px dashed var(--border); }
+  .followup-block:last-of-type { border-bottom: none; }
+  .fu-why { font-size: 13px; color: var(--ink-soft); margin-bottom: 20px; padding: 12px 16px; background: var(--teal-light); border-radius: 12px; line-height: 1.55; font-weight: 500; }
+
+  @media (max-width: 600px) { .slide { padding: 80px 20px; } .welcome-steps { flex-direction: column; align-items: center; } .step-chip { max-width: 100%; } }
+</style>
+
+<style id="cth-adapt-footer-style">
+#cth-adapt-footer{margin:24px auto 16px;max-width:960px;padding:12px 16px;font-size:12px;line-height:1.5;color:#475569;text-align:center;border-top:1px solid #e2e8f0;font-family:system-ui,sans-serif}
+#cth-adapt-footer a{color:#2D6A4F}
+</style>
+
+</head>
+<body>
+
+<!-- ════════════════════════ WELCOME ════════════════════════ -->
+<div id="screen-welcome" class="screen active">
+  <div class="welcome-badge">✦ Social Enterprise Pitch Builder</div>
+  <h1 class="welcome-title">Social entrepreneurs:<br><em>build your <span style="color:var(--coral);">pitch!</span></em></h1>
+  <p class="welcome-sub">10 questions. One review round. A pitch deck that actually lands — built around what investors and funders really want to hear.</p>
+
+  <div class="welcome-steps">
+    <div class="step-chip">
+      <div class="step-num">01 — SPEAK</div>
+      <div class="step-label">Answer 10 guided questions by voice or text</div>
+    </div>
+    <div class="step-chip">
+      <div class="step-num">02 — SHARPEN</div>
+      <div class="step-label">AI finds the gaps and asks 2–3 targeted follow-ups</div>
+    </div>
+    <div class="step-chip">
+      <div class="step-num">03 — PRESENT</div>
+      <div class="step-label">10 polished slides, ready for investors</div>
+    </div>
+  </div>
+
+  <button class="btn-primary" onclick="startInterview()">Start Building Your Pitch →</button>
+  <p class="welcome-note">Takes about 10 minutes · No account needed · Free</p>
+</div>
+
+<!-- ════════════════════════ INTERVIEW ════════════════════════ -->
+<div id="screen-interview" class="screen">
+  <div class="interview-header">
+    <div class="interview-logo">Pitch<span>Builder</span></div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="prog-label">1 of 10</span>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="prog-bar" style="width:10%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interview-body">
+    <div class="q-meta">
+      <div class="q-number" id="q-num">1</div>
+      <div class="q-theme" id="q-theme">THE STORY</div>
+    </div>
+    <h2 class="q-text" id="q-text">Tell me about one real person whose life is directly affected by the problem you're solving.</h2>
+    <p class="q-hint" id="q-hint">Give them a name. Paint their situation. Make the struggle vivid and human — this will become the emotional heart of your pitch.</p>
+
+    <div class="recorder-wrap">
+      <div class="recorder-controls">
+        <button class="btn-record" id="btn-mic" onclick="toggleRecording()" title="Click to speak">🎤</button>
+        <div class="recorder-status" id="rec-status">Click the mic to start speaking — or just type below</div>
+      </div>
+      <textarea class="transcript-area" id="transcript" placeholder="Your answer will appear here as you speak, or type directly..."></textarea>
+      <div class="recorder-tip">💡 Speak naturally — don't worry about perfect sentences. The AI will craft the narrative.</div>
+    </div>
+
+    <div class="interview-nav">
+      <button class="btn-back" id="btn-back" onclick="prevQuestion()" style="visibility:hidden">← Back</button>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Next Question →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ REVIEW ════════════════════════ -->
+<div id="screen-review" class="screen">
+  <div class="interview-header">
+    <div class="interview-logo">Pitch<span>Builder</span></div>
+    <div class="progress-wrap">
+      <span class="progress-label" id="review-stage-label">Reviewing your answers…</span>
+    </div>
+  </div>
+
+  <div id="review-loading" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;background:var(--warm-white);">
+    <div style="font-size:44px;margin-bottom:24px;animation:spin-slow 3s linear infinite;display:inline-block;">✦</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:300;color:var(--forest);margin-bottom:10px;">Reading your answers…</h2>
+    <p style="color:var(--muted);font-size:15px;">Finding the gaps that matter most</p>
+  </div>
+
+  <div id="review-questions-panel" style="display:none;flex:1;flex-direction:column;background:var(--warm-white);overflow-y:auto;">
+    <div class="interview-body">
+      <div style="margin-bottom:36px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">ALMOST THERE</div>
+        <h2 style="font-family:'Fraunces',serif;font-size:clamp(22px,3.5vw,30px);font-weight:400;color:var(--forest);line-height:1.35;margin-bottom:14px;">A few things that will sharpen your pitch.</h2>
+        <p style="font-size:14px;color:var(--muted);line-height:1.65;border-left:3px solid var(--mint);padding-left:12px;">Your core answers are in. These follow-up questions target the specific gaps that stand between a good pitch and a great one.</p>
+      </div>
+      <div id="followup-container"></div>
+      <div style="padding-top:8px;padding-bottom:40px;">
+        <button class="btn-generate" onclick="generateDeck()">Generate My Pitch Deck →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════ GENERATING ════════════════════════ -->
+<div id="screen-generating" class="screen">
+  <div class="gen-icon">✦</div>
+  <h2 class="gen-title">Crafting your pitch deck…</h2>
+  <p class="gen-sub">We're weaving your answers into a compelling story for investors and funders.</p>
+  <div class="gen-steps">
+    <div class="gen-step" id="gstep-0"><div class="gen-dot"></div>Reading your story</div>
+    <div class="gen-step" id="gstep-1"><div class="gen-dot"></div>Shaping the problem narrative</div>
+    <div class="gen-step" id="gstep-2"><div class="gen-dot"></div>Building the solution arc</div>
+    <div class="gen-step" id="gstep-3"><div class="gen-dot"></div>Crafting the impact model</div>
+    <div class="gen-step" id="gstep-4"><div class="gen-dot"></div>Writing the investor ask</div>
+    <div class="gen-step" id="gstep-5"><div class="gen-dot"></div>Polishing all 10 slides</div>
+  </div>
+</div>
+
+<!-- ════════════════════════ DECK ════════════════════════ -->
+<div id="screen-deck" class="screen">
+  <div class="deck-topbar">
+    <div class="deck-logo">Pitch Builder</div>
+    <div class="deck-counter" id="slide-counter">Slide 1 of 10</div>
+    <div class="deck-actions">
+      <button class="btn-sm btn-outline-light" onclick="window.print()">🖨 Print</button>
+      <button class="btn-sm btn-gold" onclick="resetApp()">↩ Start Over</button>
+    </div>
+  </div>
+
+  <div class="slides-wrap" id="slides-wrap"></div>
+
+  <div class="slide-dots" id="slide-dots"></div>
+
+  <div class="slide-nav">
+    <button class="nav-arrow" id="nav-prev" onclick="scrollSlide(-1)" disabled>&#8593;</button>
+    <button class="nav-arrow" id="nav-next" onclick="scrollSlide(1)">&#8595;</button>
+  </div>
+</div>
+
+<script>
+// ─── STATE ───
+const QUESTIONS = [
+  {
+    theme: "THE STORY",
+    text: "Tell me about one real person whose life is directly affected by the problem you're solving.",
+    hint: "Give them a name. Paint their situation. Make the struggle vivid and human — this will become the emotional heart of your pitch.",
+    key: "story"
+  },
+  {
+    theme: "THE PROBLEM",
+    text: "What problem are you tackling — and what are its root causes?",
+    hint: "Be specific. What's broken? Who created this situation? Why hasn't it been fixed yet?",
+    key: "problem"
+  },
+  {
+    theme: "THE SCALE",
+    text: "How big is this problem? Give me the numbers — statistics, data, key figures that show its urgency.",
+    hint: "Think: how many people are affected? What's the economic or social cost? Any shocking facts that show why this can't wait?",
+    key: "scale"
+  },
+  {
+    theme: "YOUR SOLUTION",
+    text: "What exactly are you doing about this problem — and how does it work in practice?",
+    hint: "Walk me through it step by step. What makes your approach different from what's been tried before?",
+    key: "solution"
+  },
+  {
+    theme: "WHY YOU",
+    text: "Why are you and your team the right people to solve this problem?",
+    hint: "What's your background, lived experience, expertise? What's your personal connection to this issue? Why now?",
+    key: "team"
+  },
+  {
+    theme: "PROOF & TRACTION",
+    text: "What have you already achieved? Any pilots, partnerships, people reached, early results?",
+    hint: "Even small wins matter. Tell me what exists today — proof that this isn't just an idea, it's already working.",
+    key: "traction"
+  },
+  {
+    theme: "IMPACT MODEL",
+    text: "How do you measure your social impact? What changes in people's lives because of your work?",
+    hint: "Think outcomes, not outputs. Not 'we trained 200 people' but 'those people then…' What's the chain of change?",
+    key: "impact"
+  },
+  {
+    theme: "BUSINESS MODEL",
+    text: "How does your organisation sustain itself and grow? What are your revenue streams, and how will you scale?",
+    hint: "Are you grant-funded, fee-for-service, earned income, hybrid? How do you move from pilot to systemic scale?",
+    key: "model"
+  },
+  {
+    theme: "THE ASK",
+    text: "How much investment are you seeking — and what exactly will you spend it on?",
+    hint: "Break it down: what buckets of spending? Over what period? What does the money unlock?",
+    key: "ask"
+  },
+  {
+    theme: "THE RETURN",
+    text: "What's in it for investors? What financial return and social return will their money generate?",
+    hint: "Be honest about both dimensions. Timeline to financial sustainability? Social ROI per dollar? Your growth trajectory?",
+    key: "return"
+  }
+];
+
+let currentQ = 0;
+let answers = {};
+let recognition = null;
+let isRecording = false;
+
+// ─── SCREEN MANAGEMENT ───
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startInterview() {
+  showScreen('screen-interview');
+  loadQuestion(0);
+}
+
+function resetApp() {
+  currentQ = 0;
+  answers = {};
+  followupAnswers = {};
+  window._fuGaps = null;
+  showScreen('screen-welcome');
+}
+
+// ─── INTERVIEW LOGIC ───
+function loadQuestion(idx) {
+  const q = QUESTIONS[idx];
+  document.getElementById('q-num').textContent = idx + 1;
+  document.getElementById('q-theme').textContent = q.theme;
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('q-hint').textContent = q.hint;
+  document.getElementById('transcript').value = answers[q.key] || '';
+  document.getElementById('prog-label').textContent = `${idx + 1} of ${QUESTIONS.length}`;
+  document.getElementById('prog-bar').style.width = `${((idx + 1) / QUESTIONS.length) * 100}%`;
+
+  const backBtn = document.getElementById('btn-back');
+  const nextBtn = document.getElementById('btn-next');
+  backBtn.style.visibility = idx === 0 ? 'hidden' : 'visible';
+
+  if (idx === QUESTIONS.length - 1) {
+    nextBtn.textContent = 'Review My Answers →';
+    nextBtn.className = 'btn-generate';
+    nextBtn.onclick = startReview;
+  } else {
+    nextBtn.textContent = 'Next Question →';
+    nextBtn.className = 'btn-next';
+    nextBtn.onclick = nextQuestion;
+  }
+
+  // Stop any active recording
+  if (isRecording) stopRecording();
+  document.getElementById('btn-mic').className = 'btn-record';
+  document.getElementById('rec-status').innerHTML = 'Click the mic to start speaking — or just type below';
+}
+
+function saveCurrentAnswer() {
+  answers[QUESTIONS[currentQ].key] = document.getElementById('transcript').value.trim();
+}
+
+function nextQuestion() {
+  saveCurrentAnswer();
+  if (currentQ < QUESTIONS.length - 1) {
+    currentQ++;
+    loadQuestion(currentQ);
+  }
+}
+
+function prevQuestion() {
+  saveCurrentAnswer();
+  if (currentQ > 0) {
+    currentQ--;
+    loadQuestion(currentQ);
+  }
+}
+
+// ─── VOICE RECORDING ───
+function toggleRecording() {
+  if (isRecording) {
+    stopRecording();
+  } else {
+    startRecording();
+  }
+}
+
+function startRecording() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    document.getElementById('rec-status').textContent = '⚠ Voice not supported in this browser — please type your answer below.';
+    return;
+  }
+
+  recognition = new SpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'en-US';
+
+  const textarea = document.getElementById('transcript');
+  let existingText = textarea.value;
+  if (existingText && !existingText.endsWith(' ')) existingText += ' ';
+
+  recognition.onresult = (event) => {
+    let interim = '';
+    let final = '';
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      if (event.results[i].isFinal) {
+        final += event.results[i][0].transcript + ' ';
+      } else {
+        interim += event.results[i][0].transcript;
+      }
+    }
+    if (final) existingText += final;
+    textarea.value = existingText + interim;
+  };
+
+  recognition.onerror = (e) => {
+    if (e.error !== 'aborted') {
+      document.getElementById('rec-status').innerHTML = `⚠ Mic error: ${e.error}`;
+      stopRecording();
+    }
+  };
+
+  recognition.onend = () => {
+    if (isRecording) recognition.start(); // keep going
+  };
+
+  recognition.start();
+  isRecording = true;
+  document.getElementById('btn-mic').className = 'btn-record recording';
+  document.getElementById('btn-mic').textContent = '⏹';
+  document.getElementById('rec-status').innerHTML = '<strong>● Recording…</strong> Speak naturally — click ⏹ when done';
+}
+
+function stopRecording() {
+  if (recognition) {
+    recognition.onend = null;
+    recognition.stop();
+    recognition = null;
+  }
+  isRecording = false;
+  document.getElementById('btn-mic').className = 'btn-record';
+  document.getElementById('btn-mic').textContent = '🎤';
+  document.getElementById('rec-status').textContent = 'Recording stopped — edit above or record again';
+}
+
+// ─── REVIEW → GENERATE FLOW ───
+let followupAnswers = {};
+let fuRecognition = null;
+let fuIsRecording = false;
+let fuActiveIdx = null;
+
+async function startReview() {
+  saveCurrentAnswer();
+  const filled = Object.values(answers).filter(v => v && v.length > 10).length;
+  if (filled < 3) {
+    alert('Please answer at least a few questions before continuing.');
+    return;
+  }
+  showScreen('screen-review');
+  document.getElementById('review-loading').style.display = 'flex';
+  document.getElementById('review-questions-panel').style.display = 'none';
+  document.getElementById('review-stage-label').textContent = 'Reviewing your answers…';
+
+  try {
+    const response = await fetch("/api/llm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 2000,
+        system: `You are reviewing raw pitch answers before generating a pitch deck. Identify the 2-3 most important gaps that, if filled, would make the pitch significantly stronger.
+
+Check these in priority order:
+1. The problem — is it vivid and felt, or just explained abstractly?
+2. The scale — is there a specific credible number, or vague estimates?
+3. The solution — does it explain HOW distribution/reach actually works? Who are the first real users?
+4. The ask — is there one specific number, timeframe, and outcome it buys?
+5. Why us — does it name an unfair advantage (not just experience)?
+6. The story — is there a specific named person with a concrete moment and detail?
+
+Return ONLY valid JSON, no markdown, no backticks:
+{"gaps":[{"key":"fu_1","theme":"SHORT LABEL","question":"The specific follow-up question","why":"One sentence: why this gap weakens the pitch"}]}
+
+Return exactly 2-3 gaps. Be specific and targeted, not generic.`,
+        messages: [{ role: "user", content: buildPrompt() }]
+      })
+    });
+    const data = await response.json();
+    const raw = data.content.map(b => b.text || '').join('');
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const result = JSON.parse(clean);
+    renderFollowups(result.gaps || []);
+  } catch(err) {
+    console.error('Review call failed:', err);
+    // Skip review, go straight to generate
+    generateDeck();
+  }
+}
+
+function renderFollowups(gaps) {
+  document.getElementById('review-loading').style.display = 'none';
+  document.getElementById('review-questions-panel').style.display = 'flex';
+  document.getElementById('review-stage-label').textContent = 'One more round';
+  const container = document.getElementById('followup-container');
+  container.innerHTML = '';
+  const letters = ['A','B','C'];
+  gaps.forEach((gap, idx) => {
+    const block = document.createElement('div');
+    block.className = 'followup-block';
+    block.innerHTML = `
+      <div class="q-meta">
+        <div class="q-number">${letters[idx]}</div>
+        <div class="q-theme">${gap.theme || ''}</div>
+      </div>
+      <h3 class="q-text">${gap.question}</h3>
+      <div class="fu-why">${gap.why}</div>
+      <div class="recorder-wrap">
+        <div class="recorder-controls">
+          <button class="btn-record" id="fu-mic-${idx}" onclick="toggleFuRecording(${idx},'fu-mic-${idx}','fu-status-${idx}','fu-text-${idx}')">🎤</button>
+          <div class="recorder-status" id="fu-status-${idx}">Click the mic to speak — or type below</div>
+        </div>
+        <textarea class="transcript-area" id="fu-text-${idx}" placeholder="Your answer…" oninput="saveFuAnswer('${gap.key}',this.value)"></textarea>
+      </div>`;
+    container.appendChild(block);
+    followupAnswers[gap.key] = '';
+  });
+  // store gap keys for buildPrompt
+  window._fuGaps = gaps;
+}
+
+function saveFuAnswer(key, val) {
+  followupAnswers[key] = val;
+}
+
+function toggleFuRecording(idx, btnId, statusId, textId) {
+  if (fuIsRecording && fuActiveIdx === idx) {
+    stopFuRecording(btnId, statusId);
+    return;
+  }
+  if (fuIsRecording) stopFuRecording(`fu-mic-${fuActiveIdx}`, `fu-status-${fuActiveIdx}`);
+  fuActiveIdx = idx;
+  startFuRecording(idx, btnId, statusId, textId);
+}
+
+function startFuRecording(idx, btnId, statusId, textId) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { document.getElementById(statusId).textContent = '⚠ Voice not supported — type below.'; return; }
+  fuRecognition = new SR();
+  fuRecognition.continuous = true;
+  fuRecognition.interimResults = true;
+  fuRecognition.lang = 'en-US';
+  const ta = document.getElementById(textId);
+  const gap = (window._fuGaps || [])[idx];
+  let existing = ta.value;
+  if (existing && !existing.endsWith(' ')) existing += ' ';
+  fuRecognition.onresult = (event) => {
+    let interim = '', final = '';
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      if (event.results[i].isFinal) final += event.results[i][0].transcript + ' ';
+      else interim += event.results[i][0].transcript;
+    }
+    if (final) existing += final;
+    ta.value = existing + interim;
+    if (gap) followupAnswers[gap.key] = ta.value;
+  };
+  fuRecognition.onerror = (e) => { if (e.error !== 'aborted') stopFuRecording(btnId, statusId); };
+  fuRecognition.onend = () => { if (fuIsRecording && fuActiveIdx === idx) fuRecognition.start(); };
+  fuRecognition.start();
+  fuIsRecording = true;
+  document.getElementById(btnId).className = 'btn-record recording';
+  document.getElementById(btnId).textContent = '⏹';
+  document.getElementById(statusId).innerHTML = '<strong>● Recording…</strong> Click ⏹ when done';
+}
+
+function stopFuRecording(btnId, statusId) {
+  if (fuRecognition) { fuRecognition.onend = null; fuRecognition.stop(); fuRecognition = null; }
+  fuIsRecording = false;
+  fuActiveIdx = null;
+  if (btnId) { document.getElementById(btnId).className = 'btn-record'; document.getElementById(btnId).textContent = '🎤'; }
+  if (statusId) document.getElementById(statusId).textContent = 'Recording stopped — edit above or record again';
+}
+
+// ─── GENERATE DECK ───
+async function generateDeck() {
+  showScreen('screen-generating');
+  animateGenSteps();
+  const prompt = buildPrompt();
+  try {
+    const response = await fetch("/api/llm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 8000,
+        system: `You are an expert pitch deck writer. Transform raw answers into a compelling, investor-ready 10-slide pitch deck.
+
+WHAT A GREAT PITCH IS:
+A pitch is an argument, not a summary. Every slide advances a single claim. The reader should feel pulled forward, not briefed. By the end they should feel it would be a mistake not to act.
+
+SLIDE-BY-SLIDE RULES:
+- Story: One real person, one specific moment, one transformation. Name them. Give a concrete detail. End on why they represent everyone you serve.
+- Problem: Make it felt, not explained. Name who is affected, how many, what it costs them — human terms first, numbers second. The best problem slides make the reader slightly uncomfortable.
+- Scale: One or two credible numbers. No "potentially" or "approximately." If you must estimate, say so explicitly.
+- Solution: Name it in one sentence, then show the outcome. What does the world look like after this exists? Do not list features.
+- Business Model: Lead with the primary revenue bet. Three layers maximum. Never mix two unrelated hypotheses on the same slide.
+- Traction: Only things that have already happened. Specific numbers, specific outcomes. No projections here.
+- Impact: One headline number at 12 months. Specific enough that you could be held accountable to it.
+- Why Us: Unfair advantage, not just experience. End on the single thing that makes this team irreplaceable.
+- Ask: One number. One timeframe. One specific outcome it buys. Never vague. Never mix cash and in-kind.
+
+TONE RULES:
+- The last line of every slide is the most important — make it the sharpest, most memorable thing on the page
+- Never surface an unresolved problem or uncertainty
+- Short sentences land harder than long ones. Vary the length deliberately — rhythm matters.
+- Write for someone reading fast. Headline + last bullet = the whole point, even if they read nothing else.
+- Use the person's own words and details wherever possible. Fill gaps intelligently but stay true to what was shared.
+
+FORMAT: Return ONLY valid JSON — no markdown, no preamble, no backticks.
+
+Return a JSON array of exactly 10 slide objects:
+{"slideNum":1,"type":"cover|story|problem|scale|solution|team|traction|impact|model|ask","theme":"SLIDE LABEL","headline":"Punchy headline, max 12 words","body":"2-4 paragraphs separated by \\n\\n. Use **bold** for key phrases.","callout":"Single powerful pull-quote or null","stats":[{"number":"X","desc":"desc"}] or null}
+
+SLIDE ORDER: 1 Cover · 2 Story · 3 Problem · 4 Scale · 5 Solution · 6 Business Model · 7 Traction · 8 Impact · 9 Why Us · 10 The Ask`,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+    const data = await response.json();
+    const rawText = data.content.map(b => b.text || '').join('');
+    const clean = rawText.replace(/```json|```/g, '').trim();
+    const slides = JSON.parse(clean);
+    renderDeck(slides);
+  } catch (err) {
+    console.error(err);
+    renderDeck(buildFallbackDeck());
+  }
+}
+
+function buildPrompt() {
+  let prompt = `Here are the raw answers from a social entrepreneur building their pitch deck:
+
+STORY / HUMAN ANGLE:
+${answers.story || '(not provided)'}
+
+THE PROBLEM:
+${answers.problem || '(not provided)'}
+
+SCALE & STATISTICS:
+${answers.scale || '(not provided)'}
+
+THE SOLUTION:
+${answers.solution || '(not provided)'}
+
+WHY US / THE TEAM:
+${answers.team || '(not provided)'}
+
+TRACTION & PROOF:
+${answers.traction || '(not provided)'}
+
+IMPACT MODEL:
+${answers.impact || '(not provided)'}
+
+BUSINESS MODEL:
+${answers.model || '(not provided)'}
+
+THE ASK:
+${answers.ask || '(not provided)'}
+
+RETURN FOR INVESTORS:
+${answers.return || '(not provided)'}`;
+
+  // Append follow-up answers if any exist
+  const fuEntries = Object.entries(followupAnswers).filter(([k,v]) => v && v.length > 5);
+  if (fuEntries.length > 0 && window._fuGaps) {
+    prompt += '\n\nFOLLOW-UP ANSWERS (targeted clarifications):';
+    fuEntries.forEach(([key, val]) => {
+      const gap = (window._fuGaps || []).find(g => g.key === key);
+      const label = gap ? gap.theme : key;
+      prompt += `\n\n${label}:\n${val}`;
+    });
+  }
+
+  prompt += '\n\nCraft the 10-slide pitch deck as specified. Where answers are thin, use intelligent inference — but stay true to what was shared. Make it compelling, human, and investor-ready.';
+  return prompt;
+}
+
+// ─── GENERATE STEP ANIMATION ───
+function animateGenSteps() {
+  let step = 0;
+  const steps = document.querySelectorAll('.gen-step');
+  steps.forEach(s => s.className = 'gen-step');
+
+  const interval = setInterval(() => {
+    if (step < steps.length) {
+      if (step > 0) steps[step - 1].className = 'gen-step done';
+      steps[step].className = 'gen-step active';
+      step++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 900);
+}
+
+// ─── RENDER DECK ───
+let currentSlide = 0;
+
+function renderDeck(slides) {
+  const wrap = document.getElementById('slides-wrap');
+  const dotsWrap = document.getElementById('slide-dots');
+  wrap.innerHTML = '';
+  dotsWrap.innerHTML = '';
+  currentSlide = 0;
+
+  const SLIDE_THEMES = [
+    'slide-cover', 'slide-forest', 'slide-dark', 'slide-light',
+    'slide-dark', 'slide-light', 'slide-forest', 'slide-dark',
+    'slide-light', 'slide-gold'
+  ];
+
+  slides.forEach((slide, idx) => {
+    const div = document.createElement('div');
+    div.className = `slide ${SLIDE_THEMES[idx] || 'slide-dark'}`;
+    div.id = `slide-${idx}`;
+
+    let inner = `
+      <div class="slide-content">
+        <div class="slide-label">${slide.theme || ''}</div>
+        <h2 class="slide-title">${slide.headline || ''}</h2>`;
+
+    // Body text
+    if (slide.body) {
+      const formatted = slide.body
+        .split('\n\n')
+        .map(p => `<p>${p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>`)
+        .join('');
+      inner += `<div class="slide-body">${formatted}</div>`;
+    }
+
+    // Callout
+    if (slide.callout) {
+      inner += `<div class="story-quote">${slide.callout}</div>`;
+    }
+
+    // Stats
+    if (slide.stats && slide.stats.length > 0) {
+      inner += `<div class="stats-grid">`;
+      slide.stats.forEach(s => {
+        inner += `<div class="stat-card"><div class="stat-number">${s.number}</div><div class="stat-desc">${s.desc}</div></div>`;
+      });
+      inner += `</div>`;
+    }
+
+    inner += `</div>`;
+    div.innerHTML = inner;
+    wrap.appendChild(div);
+
+    // Dot
+    const dot = document.createElement('div');
+    dot.className = `dot${idx === 0 ? ' active' : ''}`;
+    dot.onclick = () => goToSlide(idx);
+    dotsWrap.appendChild(dot);
+  });
+
+  updateSlideCounter();
+  showScreen('screen-deck');
+}
+
+function updateSlideCounter() {
+  const slides = document.querySelectorAll('.slide');
+  document.getElementById('slide-counter').textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+  document.getElementById('nav-prev').disabled = currentSlide === 0;
+  document.getElementById('nav-next').disabled = currentSlide === slides.length - 1;
+  document.querySelectorAll('.dot').forEach((d, i) => d.className = `dot${i === currentSlide ? ' active' : ''}`);
+}
+
+function goToSlide(idx) {
+  currentSlide = idx;
+  const slide = document.getElementById(`slide-${idx}`);
+  if (slide) slide.scrollIntoView({ behavior: 'smooth' });
+  updateSlideCounter();
+}
+
+function scrollSlide(dir) {
+  const slides = document.querySelectorAll('.slide');
+  const next = currentSlide + dir;
+  if (next >= 0 && next < slides.length) {
+    goToSlide(next);
+  }
+}
+
+// Track scroll to update current slide
+window.addEventListener('scroll', () => {
+  const slides = document.querySelectorAll('.slide');
+  if (!slides.length) return;
+  const mid = window.scrollY + window.innerHeight / 2;
+  slides.forEach((s, i) => {
+    const top = s.offsetTop;
+    const bot = top + s.offsetHeight;
+    if (mid >= top && mid < bot) {
+      currentSlide = i;
+      updateSlideCounter();
+    }
+  });
+});
+
+// Keyboard nav
+document.addEventListener('keydown', e => {
+  if (document.getElementById('screen-deck').classList.contains('active')) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') scrollSlide(1);
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') scrollSlide(-1);
+  }
+});
+
+// ─── FALLBACK DECK (if API fails) ───
+function buildFallbackDeck() {
+  return [
+    { slideNum:1, type:"cover", theme:"YOUR MISSION", headline:"Making the World Better, One Step at a Time", body:"Your pitch deck is ready to be completed.\n\nPlease check your internet connection and try again — or continue to see the slide structure.", callout:null, stats:null },
+    { slideNum:2, type:"story", theme:"THE STORY", headline:"Every Statistic Has a Human Face", body: answers.story ? answers.story : "Share the story of one person whose life this problem affects.", callout:null, stats:null },
+    { slideNum:3, type:"problem", theme:"THE PROBLEM", headline:"A Problem Too Long Ignored", body: answers.problem || "Describe the core problem you are solving.", callout:null, stats:null },
+    { slideNum:4, type:"scale", theme:"THE SCALE", headline:"The Numbers Are Impossible to Ignore", body: answers.scale || "Share the key statistics about the scale of this problem.", callout:null, stats:null },
+    { slideNum:5, type:"solution", theme:"OUR SOLUTION", headline:"A Better Way Is Possible", body: answers.solution || "Describe your solution and how it works.", callout:null, stats:null },
+    { slideNum:6, type:"model", theme:"BUSINESS MODEL", headline:"Built to Last, Designed to Scale", body: answers.model || "Explain your revenue model and growth path.", callout:null, stats:null },
+    { slideNum:7, type:"traction", theme:"TRACTION", headline:"This Is Already Working", body: answers.traction || "Share your early results and proof points.", callout:null, stats:null },
+    { slideNum:8, type:"impact", theme:"IMPACT", headline:"Real Change, Rigorously Measured", body: answers.impact || "Explain how you measure social impact.", callout:null, stats:null },
+    { slideNum:9, type:"team", theme:"WHY US", headline:"The Right Team at the Right Moment", body: answers.team || "Describe your team's credentials and passion.", callout:null, stats:null },
+    { slideNum:10, type:"ask", theme:"THE ASK", headline:"Join Us in Changing This", body: answers.ask || "State your investment ask and use of funds.", callout: answers.return || null, stats:null }
+  ];
+}
+</script>
+</body>
+</html>

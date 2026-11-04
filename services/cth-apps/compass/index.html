@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Compass — Organisational Diagnostic for Nonprofits | Nonprofit Builder</title>
+
+<!-- Primary SEO -->
+<meta name="description" content="Compass is your start page for organisational development. Explore 80 capacity-building projects across 14 themes, find your priorities, and take the next step. Discover the capacity-building projects that will have the biggest impact on your mission.">
+<meta name="keywords" content="nonprofit capacity building, NGO organisational development, nonprofit consulting, nonprofit strategy, board governance, nonprofit leadership, organisational diagnostic">
+<meta name="author" content="Nonprofit Builder">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nonprofitbuilder.org/compass">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nonprofitbuilder.org/compass">
+<meta property="og:title" content="Compass — Build the organisation of your dreams | Nonprofit Builder">
+<meta property="og:description" content="Explore 80 organisational development projects across 14 themes. Find your priorities and get a personalised roadmap — free, fast, and fun.">
+<meta property="og:image" content="https://nonprofitbuilder.org/compass-og.png">
+<meta property="og:site_name" content="Nonprofit Builder">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nonprofitbuilder">
+<meta name="twitter:title" content="Compass — Nonprofit Organisational Diagnostic">
+<meta name="twitter:description" content="Find your nonprofit's top capacity-building priorities in 5 minutes. Free diagnostic tool by Nonprofit Builder.">
+<meta name="twitter:image" content="https://nonprofitbuilder.org/compass-og.png">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Compass",
+  "description": "A free organisational diagnostic tool that helps nonprofit leaders identify their top capacity-building priorities and find the right consulting projects.",
+  "url": "https://nonprofitbuilder.org/compass",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": {
+    "@type": "Organization",
+    "name": "Nonprofit Builder",
+    "url": "https://nonprofitbuilder.org"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & VARS ─────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#2563EB;--blue-h:#1D4ED8;--blue-xl:#EFF6FF;--blue-lt:#DBEAFE;
+  --gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;
+  --gray-300:#CBD5E1;--gray-400:#94A3B8;--gray-500:#64748B;
+  --gray-600:#475569;--gray-700:#334155;--gray-800:#1E293B;--gray-900:#0F172A;
+  --white:#FFFFFF;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow:0 4px 12px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.05);
+  --r:12px;--r-sm:8px;--r-xs:6px;
+  --t:.2s ease;
+}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--gray-100);color:var(--gray-800);min-height:100vh;line-height:1.6}
+
+/* ─── HEADER ───────────────────────────────────────────── */
+header{background:var(--white);border-bottom:1px solid var(--gray-200);padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:linear-gradient(135deg,#2563EB 0%,#06B6D4 100%);border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-size:17px}
+.logo-wordmark{font-size:15px;font-weight:800;letter-spacing:-.025em;color:var(--gray-900)}
+.logo-wordmark span{color:var(--blue)}
+.header-right{display:flex;align-items:center;gap:12px}
+.tool-chip{background:var(--blue-xl);color:var(--blue);border:1px solid var(--blue-lt);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:.02em}
+.header-link{font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;cursor:pointer}
+.header-link:hover{color:var(--blue)}
+
+/* ─── MAIN ─────────────────────────────────────────────── */
+main{max-width:880px;margin:0 auto;padding:48px 24px 80px}
+
+/* ─── ANIMATIONS ───────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.fade-up{animation:fadeUp .35s ease forwards}
+
+/* ─── INTRO ────────────────────────────────────────────── */
+.intro-hero{text-align:center;max-width:600px;margin:0 auto 52px}
+.eyebrow{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.hero-title{font-size:44px;font-weight:800;color:var(--gray-900);line-height:1.12;letter-spacing:-.035em;margin-bottom:18px}
+.hero-title .hl{color:var(--blue)}
+.hero-sub{font-size:17px;color:var(--gray-500);line-height:1.75;max-width:480px;margin:0 auto}
+.pathways{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto}
+.pathway-card{background:var(--white);border:2px solid var(--gray-200);border-radius:var(--r);padding:32px 28px;cursor:pointer;transition:border-color var(--t),box-shadow var(--t),transform var(--t);text-align:left}
+.pathway-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-3px)}
+.p-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;flex-shrink:0}
+.p-icon.g{background:#EFF6FF}.p-icon.a{background:#F0FDF4}
+.p-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:8px}
+.p-desc{font-size:14px;color:var(--gray-500);line-height:1.7}
+.p-cta{font-size:13px;font-weight:600;color:var(--blue);margin-top:18px;display:block}
+
+/* ─── PROGRESS ─────────────────────────────────────────── */
+.progress-wrap{margin-bottom:36px}
+.progress-meta{display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px}
+.progress-track{height:5px;background:var(--gray-200);border-radius:3px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--blue),#06B6D4);border-radius:3px;transition:width .45s ease}
+
+/* ─── GAME HEADER ──────────────────────────────────────── */
+.game-hd{text-align:center;margin-bottom:32px}
+.game-q{font-size:24px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:6px}
+.game-hint{font-size:14px;color:var(--gray-400)}
+
+/* ─── SYMPTOM CARDS ────────────────────────────────────── */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.s-card{background:var(--white);border:2px solid var(--gray-200);border-radius:var(--r);padding:22px 20px 18px;cursor:pointer;position:relative;overflow:hidden;transition:border-color var(--t),box-shadow var(--t),transform var(--t);animation:cardIn .3s ease forwards}
+.s-card:hover:not(.locked){border-color:var(--cc);box-shadow:var(--shadow);transform:translateY(-3px)}
+.s-card.chosen{border-color:var(--cc);background:var(--cb);box-shadow:0 0 0 2px var(--cc)20}
+.s-card.locked{opacity:.38;cursor:not-allowed}
+.s-card-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--cc);opacity:.8}
+.cat-pill{display:inline-flex;align-items:center;gap:6px;background:var(--cb);color:var(--cc);border:1px solid var(--cborder);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;margin-bottom:13px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat-dot{width:5px;height:5px;border-radius:50%;background:var(--cc);flex-shrink:0}
+.s-pain{font-size:15px;color:var(--gray-800);line-height:1.65;font-style:italic;margin-bottom:14px}
+.s-cta{font-size:12px;font-weight:700;color:var(--cc)}
+.none-cta{display:block;text-align:center;font-size:12px;color:var(--gray-400);cursor:pointer;padding:10px 0 2px;text-decoration:none;transition:color var(--t)}
+.none-cta:hover{color:var(--gray-600)}
+
+/* ─── TRANSITION ───────────────────────────────────────── */
+.transition-wrap{max-width:520px;margin:0 auto}
+.trans-box{background:var(--white);border-radius:var(--r);padding:48px 40px;box-shadow:var(--shadow-sm);text-align:center}
+.trans-title{font-size:28px;font-weight:800;color:var(--gray-900);letter-spacing:-.03em;margin:12px 0 10px}
+.trans-sub{font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:36px}
+.theme-row{display:flex;align-items:center;gap:14px;background:var(--cb);border:1px solid var(--cborder);border-radius:10px;padding:14px 18px;margin-bottom:10px;text-align:left}
+.theme-icon{width:38px;height:38px;border-radius:9px;background:var(--cc);display:flex;align-items:center;justify-content:center;color:white;font-size:16px;flex-shrink:0}
+.theme-name{font-size:14px;font-weight:700;color:var(--gray-800)}
+
+/* ─── BUTTONS ──────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-sm);font-size:14px;font-weight:600;cursor:pointer;transition:all var(--t);font-family:inherit;border:none}
+.btn-primary{background:var(--blue);color:var(--white);padding:13px 26px}
+.btn-primary:hover{background:var(--blue-h);transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.3)}
+.btn-ghost{background:var(--white);color:var(--gray-600);padding:11px 22px;border:1px solid var(--gray-200)}
+.btn-ghost:hover{border-color:var(--gray-400);color:var(--gray-800)}
+.btn-lg{padding:15px 32px;font-size:15px}
+.btn-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+/* ─── LOADING ──────────────────────────────────────────── */
+.loading-wrap{text-align:center;padding:80px 0}
+.spinner{width:46px;height:46px;border:3px solid var(--gray-200);border-top-color:var(--blue);border-radius:50%;margin:0 auto 28px;animation:spin .85s linear infinite}
+.loading-title{font-size:22px;font-weight:700;color:var(--gray-900);margin-bottom:8px}
+.loading-sub{font-size:14px;color:var(--gray-400)}
+
+/* ─── RESULTS ──────────────────────────────────────────── */
+.results-hero{margin-bottom:36px}
+.results-title{font-size:32px;font-weight:800;color:var(--gray-900);letter-spacing:-.03em;margin:6px 0 16px}
+.diagnosis{background:var(--blue-xl);border:1px solid var(--blue-lt);border-left:4px solid var(--blue);border-radius:0 var(--r) var(--r) 0;padding:20px 24px}
+.diag-label{font-size:10px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.diag-text{font-size:16px;color:var(--gray-700);line-height:1.75}
+.diag-text p{margin-bottom:12px}
+.diag-text p:last-child{margin-bottom:0}
+.section-title{font-size:18px;font-weight:700;color:var(--gray-900);margin:36px 0 18px;letter-spacing:-.01em}
+
+/* ─── PROJECT CARDS ────────────────────────────────────── */
+.proj-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:14px;transition:box-shadow var(--t)}
+.proj-card:hover{box-shadow:var(--shadow)}
+.proj-top-stripe{height:4px;background:var(--cc)}
+.proj-body{display:flex;gap:16px;padding:20px 24px}
+.proj-num{width:34px;height:34px;border-radius:8px;background:var(--cb);border:1px solid var(--cborder);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--cc);flex-shrink:0;margin-top:2px}
+.proj-content{flex:1;min-width:0}
+.proj-meta{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
+.proj-name{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:5px;line-height:1.35}
+.proj-why{font-size:14px;color:var(--gray-500);line-height:1.7}
+.proj-footer{border-top:1px solid var(--gray-100);padding:11px 24px 11px 74px;background:var(--gray-50)}
+.proj-deliverables{font-size:12px;color:var(--gray-400);line-height:1.5}
+.proj-deliverables b{color:var(--gray-600);text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+.timeline-chip{background:var(--gray-100);color:var(--gray-500);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:600}
+.ai-badge{display:inline-flex;align-items:center;gap:4px;background:#FEF9C3;color:#92400E;border:1px solid #FDE68A;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:700}
+
+/* ─── ASK PATHWAY ──────────────────────────────────────── */
+.ask-wrap{max-width:620px;margin:0 auto}
+.ask-box{background:var(--white);border-radius:var(--r);padding:40px;box-shadow:var(--shadow-sm)}
+.ask-title{font-size:26px;font-weight:800;color:var(--gray-900);letter-spacing:-.025em;margin:8px 0 10px}
+.ask-sub{font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:24px}
+textarea{width:100%;border:2px solid var(--gray-200);border-radius:var(--r-sm);padding:16px;font-size:15px;font-family:inherit;color:var(--gray-800);resize:vertical;min-height:130px;outline:none;transition:border-color var(--t);line-height:1.6;background:var(--white)}
+textarea:focus{border-color:var(--blue)}
+
+
+
+/* ─── RESULTS FOOTER ───────────────────────────────────── */
+.results-footer{display:flex;align-items:center;gap:14px;margin-top:48px;padding-top:32px;border-top:1px solid var(--gray-200);flex-wrap:wrap}
+.selected-symptoms{margin-top:28px}
+details>summary{font-size:13px;font-weight:600;color:var(--gray-400);cursor:pointer;list-style:none;user-select:none}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:'▸ ';transition:content var(--t)}
+details[open]>summary::before{content:'▾ '}
+.symp-list{margin-top:14px;background:var(--white);border-radius:var(--r-sm);border:1px solid var(--gray-200);padding:16px;display:flex;flex-direction:column;gap:10px}
+.symp-item{display:flex;gap:10px;font-size:13px;color:var(--gray-600);line-height:1.55;align-items:flex-start}
+.symp-cat{font-weight:700;color:var(--gray-700)}
+
+.feedback-btn{background:var(--blue-xl);color:var(--blue)!important;border:1px solid var(--blue-lt);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700;text-decoration:none}
+.feedback-btn:hover{background:var(--blue-lt)!important}
+
+/* ─── BROWSE ───────────────────────────────────────────── */
+.browse-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.browse-search{flex:1;min-width:200px;border:2px solid var(--gray-200);border-radius:var(--r-sm);padding:10px 14px;font-size:14px;font-family:inherit;outline:none;transition:border-color var(--t);color:var(--gray-800);background:var(--white)}
+.browse-search:focus{border-color:var(--blue)}
+.browse-search::placeholder{color:var(--gray-400)}
+.filter-scroll{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filter-btn{border:1.5px solid var(--gray-200);background:var(--white);color:var(--gray-600);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all var(--t);white-space:nowrap}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.browse-card{background:var(--white);border:2px solid var(--gray-200);border-radius:var(--r);padding:16px;cursor:pointer;position:relative;transition:all var(--t);animation:cardIn .25s ease forwards}
+.browse-card:hover:not(.bc-selected){border-color:var(--cc);box-shadow:var(--shadow)}
+.browse-card.bc-selected{border-color:var(--cc);background:var(--cb);box-shadow:0 0 0 2px color-mix(in srgb,var(--cc) 20%,transparent)}
+.browse-card.bc-hidden{display:none}
+.bc-check{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;border:2px solid var(--gray-300);background:var(--white);display:flex;align-items:center;justify-content:center;font-size:11px;transition:all var(--t)}
+.bc-selected .bc-check{background:var(--cc);border-color:var(--cc);color:white}
+.bc-name{font-size:13px;font-weight:700;color:var(--gray-900);line-height:1.4;margin:4px 0 6px;padding-right:26px}
+.bc-pain{font-size:11px;color:var(--gray-500);line-height:1.55;font-style:italic}
+.browse-sticky{position:sticky;bottom:0;background:linear-gradient(transparent,var(--gray-100) 28%);padding:16px 0 0;z-index:10}
+.browse-bar{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:var(--shadow)}
+.browse-count{font-size:14px;font-weight:600;color:var(--gray-600)}
+.browse-count span{color:var(--blue);font-weight:800}
+.empty-state{text-align:center;padding:60px 20px;color:var(--gray-400);font-size:14px}
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+.page-footer{max-width:880px;margin:0 auto;padding:0 24px 48px}
+.footer-experiment{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);padding:28px 32px;margin-bottom:16px}
+.footer-experiment h3{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:10px}
+.footer-experiment p{font-size:14px;color:var(--gray-500);line-height:1.75;margin-bottom:12px}
+.footer-experiment p:last-child{margin-bottom:0}
+.footer-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.footer-link{display:inline-flex;align-items:center;gap:6px;background:var(--blue-xl);color:var(--blue);border:1px solid var(--blue-lt);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;text-decoration:none;transition:background var(--t)}
+.footer-link:hover{background:var(--blue-lt)}
+.footer-link.green{background:#F0FDF4;color:#16A34A;border-color:#BBF7D0}
+.footer-link.green:hover{background:#DCFCE7}
+.footer-copy{text-align:center;font-size:12px;color:var(--gray-400);padding-top:8px}
+.footer-copy a{color:var(--gray-400);text-decoration:none}
+.footer-copy a:hover{color:var(--gray)}
+.error-box{background:var(--white);border-radius:var(--r);padding:48px;text-align:center;box-shadow:var(--shadow-sm);max-width:560px;margin:0 auto}
+.error-box h2{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--gray-900)}
+.error-box p{font-size:14px;color:var(--gray-500);line-height:1.7;margin-bottom:8px}
+.error-box code{background:var(--gray-100);border-radius:4px;padding:2px 6px;font-size:12px;font-family:monospace;color:var(--gray-700)}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width:640px){
+  /* Layout */
+  header{padding:0 16px;height:54px}
+  .tool-chip{display:none}
+  .header-link{font-size:12px}
+  main{padding:28px 16px 72px}
+
+  /* Intro */
+  .hero-title{font-size:28px;letter-spacing:-.02em}
+  .hero-sub{font-size:15px}
+  .pathways{grid-template-columns:1fr;gap:14px}
+  .pathway-card{padding:24px 20px}
+  .p-icon{width:44px;height:44px;font-size:20px;margin-bottom:14px}
+  .intro-hero{margin-bottom:36px}
+
+  /* Game cards — single column, bigger touch targets */
+  .cards-grid{grid-template-columns:1fr;gap:12px}
+  .s-card{padding:20px 18px 16px;min-height:auto}
+  .s-pain{font-size:14px}
+
+  /* Progress */
+  .progress-wrap{margin-bottom:24px}
+  .game-q{font-size:19px}
+
+  /* Transition */
+  .trans-box{padding:28px 20px}
+  .trans-title{font-size:22px}
+  .theme-row{padding:12px 14px}
+
+  /* Results */
+  .results-title{font-size:24px}
+  .diagnosis{padding:16px 18px}
+  .diag-text{font-size:14px}
+  .section-title{font-size:16px;margin:28px 0 14px}
+
+  /* Project cards */
+  .proj-body{padding:16px 16px;gap:12px}
+  .proj-footer{padding:10px 16px}
+  .proj-num{width:28px;height:28px;font-size:12px;margin-top:0}
+  .proj-name{font-size:15px}
+  .proj-why{font-size:13px}
+  .proj-deliverables{font-size:11px}
+
+  /* Buttons */
+  .btn-lg{padding:14px 24px;font-size:14px}
+  .results-footer{gap:10px}
+  .results-footer .btn{width:100%;justify-content:center}
+
+  /* Ask */
+  .ask-box{padding:24px 18px}
+  .ask-title{font-size:20px}
+  .ask-sub{font-size:14px}
+  textarea{font-size:16px}
+  /* Browse */
+  .browse-grid{grid-template-columns:1fr}
+  .browse-toolbar{flex-direction:column;align-items:stretch}
+  .browse-search{width:100%}
+  .browse-bar{flex-direction:column;gap:10px;align-items:stretch;text-align:center}
+  .browse-bar .btn-row{justify-content:stretch}
+  .browse-bar .btn{flex:1;justify-content:center}
+  /* Footer */
+  .footer-experiment{padding:20px 18px}
+  .footer-links{flex-direction:column}
+  .footer-link{justify-content:center}
+}
+
+/* Ensure tap targets are big enough on touch devices */
+@media(hover:none){
+  .s-card{min-height:100px}
+  .btn{min-height:46px}
+  .pathway-card{min-height:auto}
+}
+
+/* ─── ASK THREE QUESTIONS ──────────────────────────────── */
+.ask3-wrap{max-width:680px;margin:0 auto}
+.ask3-header{margin-bottom:32px;text-align:center}
+.ask3-title{font-size:28px;font-weight:800;color:var(--gray-900);letter-spacing:-.03em;margin:6px 0 10px}
+.ask3-sub{font-size:15px;color:var(--gray-500);line-height:1.7}
+.ask3-question{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);padding:24px 28px;margin-bottom:16px;box-shadow:var(--shadow-sm)}
+.ask3-q-label{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.ask3-q-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:var(--white);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.ask3-q-text{font-size:15px;font-weight:700;color:var(--gray-900);line-height:1.45}
+.ask3-q-hint{font-size:13px;color:var(--gray-400);margin-top:3px;font-weight:400}
+.ask3-textarea{width:100%;border:2px solid var(--gray-200);border-radius:var(--r-sm);padding:14px 16px;font-size:14px;font-family:inherit;color:var(--gray-800);resize:vertical;min-height:90px;outline:none;transition:border-color var(--t);line-height:1.6;background:var(--white)}
+.ask3-textarea:focus{border-color:var(--blue)}
+.ask3-textarea::placeholder{color:var(--gray-400)}
+
+/* ─── PREREQ FOLLOW-UP SCREEN ──────────────────────────── */
+.prereq-screen-wrap{max-width:680px;margin:0 auto}
+.prereq-screen-header{margin-bottom:28px;text-align:center}
+.prereq-screen-title{font-size:26px;font-weight:800;color:var(--gray-900);letter-spacing:-.025em;margin:6px 0 10px}
+.prereq-screen-sub{font-size:15px;color:var(--gray-500);line-height:1.7}
+.prereq-q-block{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);padding:24px 28px;margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.prereq-q-text{font-size:15px;font-weight:700;color:var(--gray-900);line-height:1.45;margin-bottom:6px}
+.prereq-q-why{font-size:13px;color:var(--gray-400);margin-bottom:16px;line-height:1.55}
+.prereq-options{display:flex;flex-wrap:wrap;gap:9px}
+.prereq-opt{border:2px solid var(--gray-200);background:var(--white);color:var(--gray-700);border-radius:20px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all var(--t);white-space:nowrap}
+.prereq-opt:hover{border-color:var(--blue);color:var(--blue)}
+.prereq-opt.selected{background:var(--blue);border-color:var(--blue);color:var(--white)}
+@media(max-width:640px){
+  .prereq-q-block{padding:18px 16px}
+  .prereq-options{gap:7px}
+  .prereq-opt{font-size:12px;padding:7px 14px}
+}
+
+/* ─── ROADMAP SEQUENCE ─────────────────────────────────── */
+.roadmap-wrap{max-width:680px;margin:0 auto}
+.roadmap-diagnosis{background:var(--blue-xl);border:1px solid var(--blue-lt);border-left:4px solid var(--blue);border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin-bottom:36px}
+.roadmap-diag-label{font-size:10px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.roadmap-diag-text{font-size:15px;color:var(--gray-700);line-height:1.75}
+.roadmap-seq{position:relative;padding-left:40px}
+.roadmap-seq::before{content:'';position:absolute;left:14px;top:20px;bottom:20px;width:2px;background:var(--gray-200);border-radius:2px}
+.roadmap-step{position:relative;margin-bottom:20px}
+.roadmap-step:last-child{margin-bottom:0}
+.roadmap-dot{position:absolute;left:-40px;top:20px;width:28px;height:28px;border-radius:50%;background:var(--white);border:2px solid var(--cc);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--cc);z-index:1}
+.roadmap-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:box-shadow var(--t)}
+.roadmap-card:hover{box-shadow:var(--shadow)}
+.roadmap-card-stripe{height:3px;background:var(--cc)}
+.roadmap-card-body{padding:18px 22px}
+.roadmap-card-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.roadmap-months{background:var(--gray-100);color:var(--gray-600);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;font-variant-numeric:tabular-nums}
+.roadmap-type-badge{border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700}
+.roadmap-type-project{background:#EFF6FF;color:#2563EB}
+.roadmap-type-coaching{background:#F0FDF4;color:#16A34A}
+.roadmap-type-training{background:#FEF9C3;color:#92400E}
+.roadmap-custom-badge{background:#F5F3FF;color:#7C3AED;border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700}
+.roadmap-target{font-size:11px;color:var(--gray-400);font-style:italic}
+.roadmap-name{font-size:16px;font-weight:700;color:var(--gray-900);margin-bottom:6px;line-height:1.35}
+.roadmap-why{font-size:13px;color:var(--gray-500);line-height:1.65;margin-bottom:10px}
+.roadmap-deliverables{font-size:12px;color:var(--gray-400);border-top:1px solid var(--gray-100);padding-top:10px;line-height:1.5}
+.roadmap-deliverables b{color:var(--gray-600);text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+
+/* ─── OVERVIEW & PREREQUISITES ─────────────────────────────── */
+.roadmap-overview-text{font-size:15px;color:var(--gray-700);line-height:1.8}
+.roadmap-overview-text p{margin-bottom:14px}
+.roadmap-overview-text p:last-child{margin-bottom:0}
+.prereq-callout{background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid #D97706;border-radius:0 var(--r) var(--r) 0;padding:20px 24px;margin-bottom:28px}
+.prereq-label{font-size:10px;font-weight:800;color:#92400E;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px}
+.prereq-item{font-size:14px;color:#78350F;line-height:1.7;margin-bottom:10px;padding-left:14px;border-left:2px solid #FCD34D}
+.prereq-item:last-child{margin-bottom:0}
+.prereq-item strong{color:#92400E}
+
+@media(max-width:640px){
+  .ask3-question{padding:18px 16px}
+  .roadmap-seq{padding-left:32px}
+  .roadmap-dot{left:-32px;width:22px;height:22px;font-size:10px}
+  .prereq-callout{padding:16px 16px}
+}
+
+/* ─── FEEDBACK FORM ────────────────────────────────────── */
+.feedback-wrap{max-width:560px;margin:0 auto}
+.feedback-box{background:var(--white);border-radius:var(--r);padding:40px;box-shadow:var(--shadow-sm)}
+.feedback-title{font-size:26px;font-weight:800;color:var(--gray-900);letter-spacing:-.025em;margin:8px 0 10px}
+.feedback-sub{font-size:15px;color:var(--gray-500);line-height:1.7;margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px}
+.form-input{width:100%;border:2px solid var(--gray-200);border-radius:var(--r-sm);padding:11px 14px;font-size:14px;font-family:inherit;color:var(--gray-800);outline:none;transition:border-color var(--t);background:var(--white)}
+.form-input:focus{border-color:var(--blue)}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-textarea{min-height:110px;resize:vertical;line-height:1.6}
+.form-success{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--r-sm);padding:20px;text-align:center;color:#15803D;font-size:15px;font-weight:600;margin-top:8px}
+.form-success p{font-weight:400;font-size:13px;color:#166534;margin-top:4px}
+@media(max-width:640px){.feedback-box{padding:24px 18px}}
+
+/* ─── PRINT / PDF ──────────────────────────────────────── */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  @page{margin:18mm 16mm}
+  body{background:#fff!important;font-size:13px}
+  header,footer,.page-footer,
+  .results-footer,.btn,.btn-row,
+  .browse-sticky,.none-cta,.header-right,
+  details summary~*,.selected-symptoms details summary{display:none!important}
+  details,.selected-symptoms{display:block!important}
+  details[open] .symp-list,details .symp-list{display:flex!important}
+  main{padding:0!important;max-width:100%!important}
+  .fade-up{animation:none!important;opacity:1!important;transform:none!important}
+
+  /* Results — game pathway */
+  .results-hero{margin-bottom:24px}
+  .results-title{font-size:24px}
+  .diagnosis{background:#EFF6FF!important;border-left:4px solid #2563EB!important;break-inside:avoid}
+  .section-title{margin:20px 0 12px}
+
+  /* Project cards */
+  .proj-card{break-inside:avoid;box-shadow:none!important;border:1px solid #CBD5E1!important;margin-bottom:10px}
+  .proj-top-stripe{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .proj-footer{background:#F8FAFC!important}
+
+  /* Ask / roadmap pathway */
+  .roadmap-wrap{max-width:100%!important}
+  .roadmap-diagnosis{background:#EFF6FF!important;border-left:4px solid #2563EB!important;break-inside:avoid;margin-bottom:20px}
+  .roadmap-seq{padding-left:32px}
+  .roadmap-seq::before{background:#CBD5E1!important}
+  .roadmap-step{break-inside:avoid;margin-bottom:14px}
+  .roadmap-card{box-shadow:none!important;border:1px solid #CBD5E1!important}
+  .roadmap-card-stripe{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .roadmap-dot{background:#fff!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+
+  /* Browse results */
+  .browse-grid{display:none!important}
+  .browse-toolbar,.filter-scroll{display:none!important}
+
+  /* Prerequisites */
+  .prereq-callout{background:#FFFBEB!important;border-left:4px solid #D97706!important;break-inside:avoid}
+
+  /* Category pills — force background colours */
+  .cat-pill,.roadmap-type-badge,.roadmap-months,.timeline-chip,
+  .ai-badge,.roadmap-custom-badge{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+
+  /* Eyebrow / headers */
+  .eyebrow{margin-bottom:6px}
+  h1,h2{page-break-after:avoid}
+}
+
+</style>
+
+<style id="cth-adapt-footer-style">
+#cth-adapt-footer{margin:24px auto 16px;max-width:960px;padding:12px 16px;font-size:12px;line-height:1.5;color:#475569;text-align:center;border-top:1px solid #e2e8f0;font-family:system-ui,sans-serif}
+#cth-adapt-footer a{color:#2D6A4F}
+</style>
+
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo" onclick="goIntro();return false">
+    <span style="font-size:21px;font-weight:800;color:#4B50D9;letter-spacing:-.01em;font-family:'Nunito','Plus Jakarta Sans',sans-serif">Compass</span>
+  </a>
+  <div class="header-right">
+    <a href="https://aiappsforgood.org" target="_blank" class="header-link" style="text-decoration:none;">AI Apps for Good ↗</a>
+    <a class="header-link" onclick="goIntro();return false">Home</a>
+    <a class="header-link feedback-btn" onclick="showFeedback();return false" href="#">💬 Give feedback</a>
+  </div>
+</header>
+
+<main id="app">
+  <div class="loading-wrap fade-up">
+    <div class="spinner"></div>
+    <div class="loading-title">Loading project catalogue…</div>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <div class="footer-experiment">
+    <h3>🧪 A first experiment — and we want your help to improve it</h3>
+    <p>Compass is our first experiment with gamification to make it easier and more fun to discover the many dimensions of building a great organisation, and to get a first sense of your priorities. We think it works best when done as a team — try it together and see where your instincts converge.</p>
+    <p>It's also our first experiment with Claude as an organisational development advisor. We're curious how useful it feels to you in practice — and where it falls short.</p>
+    <div class="footer-links">
+      <a class="footer-link" onclick="showFeedback();return false" href="#">💬 Give us feedback</a>
+      <a class="footer-link green" onclick="showContact();return false" href="#">👋 Talk to the NPB team</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <p>© 2025 Nonprofit Builder · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Free to use, adapt, and share — including commercially — with attribution</p>
+  </div>
+</footer>
+
+<script>
+/* ────────────────────────────────────────────────────────────────────────────
+   ⚠️  DESKTOP DEMO ONLY — API key is embedded for local/demo use.
+   Never deploy this file publicly or commit it to a public repository.
+──────────────────────────────────────────────────────────────────────────────*/
+const SERVICES_DATA = [{"id": 1, "category": "Strategy", "name": "Strategic Plan Development & Facilitation", "painPoint": "You are engaged in many good activities, but they don't add up to a coherent or powerful strategic direction.", "description": "We guide your team through a collaborative process to develop a comprehensive and actionable strategic plan. This results in a clear roadmap that aligns your organization's mission with its long-term goals and priorities.", "aspiration": "To become a forward-thinking organization with a unified vision and a clear path to sustainable, long-term impact.", "deliverables": "A documented 3-5 year Strategic Plan, including Mission, Vision, Values, Strategic Priorities, a high-level implementation roadmap and hight level monitoring plan for better accountability"}, {"id": 2, "category": "Strategy", "name": "Write a business plan for a new initiative or organization overall", "painPoint": "You have a game-changing idea for a new venture, but you can't get it on paper in a way that funders will take seriously.", "description": "We help you build a full business plan for a new product, program, or social enterprise -- including financials, risks, and execution steps.", "aspiration": "To confidently launch a new initiative with a solid foundation for success and funding.", "deliverables": "Full business plan document including goals, budget, market analysis, financial model, implementation and tracking timelines."}, {"id": 3, "category": "People, Leadership, & Culture", "name": "Develop a growth and change roadmap", "painPoint": "You are growing fast and your old ways of working are starting to break.", "description": "We help you navigate transitions--such as scaling, shifting strategies, or restructuring--by building a clear roadmap.", "aspiration": "To lead your organization through change with clarity, alignment, and minimal disruption.", "deliverables": "Change strategy, key milestones, risk mitigation plan, stakeholder communication map."}, {"id": 4, "category": "Strategy", "name": "Theory of Change (ToC) Development", "painPoint": "You have a strong belief that your work leads to impact, but you have never been explicit about why and how you think this will happen.", "description": "We facilitate the creation of a robust Theory of Change which articulates why and how you believe your interventions will have the desired impact. This provides a foundational framework for strategic planning, program design, and impact measurement.", "aspiration": "To build a deep, shared understanding of how the organization creates change, enabling more strategic decisions and powerful storytelling.", "deliverables": "A visual Theory of Change diagram and narrative statement, including the core assumptions embedded in the Theory of Change."}, {"id": 5, "category": "Strategy", "name": "Run an adaptive strategy workshop", "painPoint": "Your strategy feels stale and you need to adapt to a changing environment.", "description": "We facilitate a participatory process to reflect on your current strategy, test assumptions, and plan for adaptation in a changing context.", "aspiration": "To become an agile organization that continually evolves strategy in response to real-time learning and shifts.", "deliverables": "Workshop design and facilitation, updated assumptions map, strategic learning agenda."}, {"id": 6, "category": "Strategy", "name": "Facilitate a systems thinking workshop", "painPoint": "You are stuck solving symptoms instead of addressing the root cause of your challenges.", "description": "We help your team map complex challenges using systems thinking tools to uncover root causes and interconnections.", "aspiration": "To better understand the systems you operate in and design smarter, more resilient interventions.", "deliverables": "Systems map, causal loop diagrams, workshop materials, strategic insights brief."}, {"id": 7, "category": "Strategy", "name": "Align programming to a new ToC", "painPoint": "Your programs are not fully aligned with your new strategic direction or Theory of Change.", "description": "We help you adjust your program design, indicators, and reporting systems to reflect and reinforce your Theory of Change.", "aspiration": "To ensure your activities, measurement, and storytelling all reinforce a clear, shared logic of impact.", "deliverables": "Program redesign guidance, updated indicators, alignment checklist, updated logframe."}, {"id": 8, "category": "Strategy", "name": "Team retreat", "painPoint": "Your team needs time to reconnect, reflect, and realign around shared goals following change, conflict, growth, or remote/hybrid transitions.", "description": "A facilitated retreat that provides a structured and supportive environment to build trust, clarify roles, improve communication, and strengthen collective purpose. This reatreat helps to repair, restore and regenerate the energy and relationships, esp good for teams experiencing high stress and conflicts.", "aspiration": "To foster unity, trust, and team cohesion To align team goals with organizational priorities To surface and address team dynamics constructively", "deliverables": "Pre-retreat diagnostics (e.g. survey or interviews) Customized retreat design and facilitation Post-retreat summary report with actionable next steps"}, {"id": 9, "category": "Operations & Systems", "name": "Project Management Framework (PMO Lite)", "painPoint": "Your project timelines are constantly slipping, and everything feels rushed and last-minute.", "description": "We help you establish a lightweight, standardized approach to managing projects across your organization. This leads to more consistent project delivery, better resource allocation, and improved outcomes.", "aspiration": "To foster a culture of excellence in execution, ensuring that all projects are delivered on time, on budget, and to the highest standard of quality.", "deliverables": "A Project Management Handbook or guide, a set of standardized project templates (e.g., charter, plan, report), and training for staff."}, {"id": 10, "category": "Operations & Systems", "name": "Project Management Skills Boost", "painPoint": "Your team seems incredibly busy all the time, but you are not making progress on your most important strategic goals.", "description": "This engagement equips individuals with practical tools and best practices for managing projects effectively. The result is improved organization, timely delivery of goals, and enhanced team leadership skills.", "aspiration": "To develop confident and capable project leaders who can navigate complexity and successfully steer initiatives from concept to completion.", "deliverables": "A personalized project management toolkit, and real-time support on a live project."}, {"id": 11, "category": "Operations & Systems", "name": "Redesign your org chart and roles", "painPoint": "Your organizational chart is a rigid pyramid that stifles innovation and cross-team collaboration. You've outgrown the flat structure you started with or you're expanding into new subject areas/ geographies, or the organisation has become too silo'd.", "description": "We help clarify reporting lines, role definitions, and spans of control to support your structure as you grow or shift.", "aspiration": "To create a structure that enhances accountability, reduces confusion, and supports effective teamwork.", "deliverables": "New org chart, role descriptions, job families framework, role clarification workshop."}, {"id": 12, "category": "Operations & Systems", "name": "Improve team productivity and time use", "painPoint": "Your team seems incredibly busy all the time, but you are not making progress on your most important strategic goals.", "description": "We assess team time allocation and help reduce time spent on low-value activities through better focus, habits, and workflows.", "aspiration": "To free up time and energy for deep work and mission-critical results.", "deliverables": "Time audit, productivity workshop, \"stop/continue/start\" plan, async tools guide."}, {"id": 13, "category": "Operations & Systems", "name": "Support cross-team collaboration and role clarity", "painPoint": "Different departments feel like they're working in silos and don't communicate youll.", "description": "We improve collaboration across silos by clarifying responsibilities, communication norms, and shared goals.", "aspiration": "To break silos and enable smooth, efficient teamwork across units and roles.", "deliverables": "Collaboration map, role clarity toolkit, shared protocols, joint action sessions."}, {"id": 14, "category": "Operations & Systems", "name": "Clarify decision-making authority", "painPoint": "There's no clarity on decision-making authority, so even small decisions get escalated to the top.", "description": "We help teams understand who decides what, where input is needed, and how decisions are communicated and followed up.", "aspiration": "To reduce decision bottlenecks and confusion, and empower faster, more confident decision-making.", "deliverables": "Decision rights matrix (RACI or RAPID), decision protocol, sample use cases, staff orientation."}, {"id": 15, "category": "Operations & Systems", "name": "Improve internal workflows", "painPoint": "It feels like simple tasks require too many approvals and too much paperwork.", "description": "We help you diagnose inefficiencies in how work flows across your teams and implement improvements that reduce friction and duplication.", "aspiration": "To become a high-functioning organization where work gets done faster, smarter, and with less stress.", "deliverables": "Workflow assessment, redesigned process flows, new task management tools or protocols."}, {"id": 16, "category": "Operations & Systems", "name": "Set up a new organisation", "painPoint": "You are setting up a new organisation but you don't know where or how to go about it", "description": "We help you think through all the start-up questions, such as whether you need a new legal entity or a fiscal sponsorship; if the former, where it should be set up; what are the first steps that need to be taken; how to employ your first staff", "aspiration": "To provide a sound structural basis for you to receive income and begin work--with an eye on future evolution", "deliverables": "A legal structure, bank accounts, rollout plan for staffing"}, {"id": 17, "category": "Governance & Board", "name": "Strengthen board oversight and effectiveness", "painPoint": "The board avoids difficult conversations about financial sustainability or underperforming programs.", "description": "We assess and strengthen your board's governance structures, clarify roles, and improve performance through coaching and tools.", "aspiration": "To have a high-performing, engaged board that provides strategic oversight and fiduciary accountability.", "deliverables": "Board assessment report, governance manual, meeting templates, onboarding materials."}, {"id": 18, "category": "Governance & Board", "name": "Board reporting, data and information", "painPoint": "Your Board feels it does not have the right information to function properly", "description": "We assess the current situation and together we identify the information and data needs and explroe reporting formats and timing in the goverannce cycle", "aspiration": "To ensure the Board has the right information to be able to epxlore and discuss the signifance of that information", "deliverables": "Board reporting protol and tools"}, {"id": 19, "category": "Governance & Board", "name": "Effective Board Meetings and Decision-Making", "painPoint": "Your board meetings feel unproductive or decisions are delayed or unclear.", "description": "We help design and facilitate better board meetings, including agenda planning, decision protocols, and minute-taking practices that ensure clarity and accountability", "aspiration": "To make board meetings focused, strategic, and impactful.", "deliverables": "Agenda and minute templates, decision matrix, sample protocols, facilitation tips."}, {"id": 20, "category": "Governance & Board", "name": "Succession Planning for Board Leadership", "painPoint": "Your board chair or key members may step down soon, and there’s no clear successor.", "description": "We work with you to plan smooth transitions in board leadership, ensuring continuity and institutional memory. This includes role mapping, leadership pipeline planning, and mentorship strategies.", "aspiration": "To maintain stability and leadership continuity at the board level.", "deliverables": "Succession plan, leadership pipeline tools, board mentoring guide."}, {"id": 21, "category": "Governance & Board", "name": "Governance for Growing Organizations", "painPoint": "Your organization has grown and your governance structures haven’t kept up.", "description": "We help you adapt your governance practices to fit your organization’s size, complexity, and stage of development. This includes working on board composition, committee structure, and decision-making clarity.", "aspiration": "To ensure governance structures are fit for purpose and enable strategic oversight without bottlenecks.", "deliverables": "Governance review report, updated structure and roles, revised committee terms of reference."}, {"id": 22, "category": "Governance & Board", "name": "Governance for a new organisation", "painPoint": "Your new organisation needs a board and you don't know how or why to set one up", "description": "We help you think through what you need and want from a board, and how to go about setting one up", "aspiration": "To build a board that provides the experience, strategic guidance and support that you need as you start up your organisation", "deliverables": "A simple board manual and a first board recruited"}, {"id": 23, "category": "Governance & Board", "name": "Aligned vision for governance", "painPoint": "There are diffferent views on the Board on what the role of the Board is and how it should operate", "description": "Through interacting with the Board in different ways, the various views anre surfaced in a safe way and an agreed way to look at governance is arrived at", "aspiration": "To ensure that a shared view on the role of the Board underpins the work of the Board", "deliverables": "Session on Board roles and a faciitated exchange on how the Board should develop and why"}, {"id": 24, "category": "Governance & Board", "name": "Tension between Board and the Executive", "painPoint": "There is palpable tension between (parts of) the Board and the Executive, on key matters that need resolving", "description": "We help you identify the causes of the tensions and suggest ways to move beyond those points and identify a way to work together", "aspiration": "To ensure that a trustful and strong relation between Board and the Executive is in place", "deliverables": "Safe sessions to explore issues. Safe joint sessions to identify a way forward. Joint commitment to working together."}, {"id": 25, "category": "Governance & Board", "name": "Facilitate board review", "painPoint": "There's no formal process for evaluating the performance of the board itself.", "description": "We guide your board through a structured self-assessment and review process to improve practices and renew commitment.", "aspiration": "To refresh board engagement, resolve inefficiencies, and elevate governance standards.", "deliverables": "Governance review report, recommendations, workshop summary, updated bylaws or policy drafts."}, {"id": 26, "category": "Human Resources", "name": "Compensation & Benefits Framework", "painPoint": "There are pay discrepancies between people doing similar work that seem to have no logical justification.", "description": "We guide you in developing a fair, equitable, and competitive compensation and benefits structure. This helps you attract and retain top talent while ensuring transparency and internal consistency.", "aspiration": "To be recognized as a fair and equitable employer, empowering the organization to attract and retain the best talent for its mission.", "deliverables": "A documented Compensation Philosophy, a salary banding structure benchmarked against the market, and a summary of the benefits package."}, {"id": 27, "category": "Human Resources", "name": "Build a talent development framework", "painPoint": "You don't invest in the professional development of your staff, and people feel like their careers are stagnating.", "description": "We support you to define competencies, growth paths, and learning resources for your staff.", "aspiration": "To retain and grow your people with clear opportunities for advancement and learning.", "deliverables": "Talent framework, career progression ladders, learning and development plan."}, {"id": 28, "category": "Human Resources", "name": "Develop HR policies and procedures", "painPoint": "Your employee policies are outdated, incomplete, and not easily accessible to staff.", "description": "We create or improve your core HR policies to ensure compliance, fairness, and clarity for all staff.", "aspiration": "To operate with clear, consistent HR practices that support staff wellbeing and reduce risk.", "deliverables": "HR manual, onboarding checklist, updated job descriptions, sample contracts or SOPs."}, {"id": 29, "category": "Human Resources", "name": "Support recruitment and onboarding improvements", "painPoint": "Your hiring process is ad-hoc and inconsistent, and you frequently make bad hires.", "description": "We help improve your hiring and onboarding systems to attract better candidates and help new staff thrive from day one.", "aspiration": "To build a reputation as a great place to work with smooth, inclusive, and effective recruitment processes.", "deliverables": "Recruitment plan, interview templates, onboarding guide, first-90-days plan."}, {"id": 30, "category": "Human Resources", "name": "Create a remote onboarding experience", "painPoint": "Your onboarding process for new hires is disorganized, especially for remote staff.", "description": "We help you design a virtual onboarding journey that gives new team members clarity, connection, and confidence.", "aspiration": "To make every new hire feel welcomed, equipped, and excited--regardless of location.", "deliverables": "Onboarding plan, welcome kit templates, remote buddy system guide."}, {"id": 31, "category": "Leadership and Management", "name": "Conduct a 360-degree leadership review", "painPoint": "You know you have blind spots that are impacting your team, but I don't know what they are.", "description": "This comprehensive program uses a 360-degree feedback assessment to provide a leader with deep insights into their strengths and development areas. The subsequent coaching helps the leader process the feedback and create a targeted, actionable development plan.", "aspiration": "Enhanced self-awareness of leadership style and impact; measurable improvement in targeted leadership competencies.", "deliverables": "A full 360-degree feedback report; a personalized leadership development plan with clear goals and action steps."}, {"id": 32, "category": "Leadership and Management", "name": "Management Skills Development Program", "painPoint": "Your managers were promoted because they were good at their jobs, not because they are good at managing people.", "description": "This program equips new and existing managers with essential skills in delegation, feedback, performance management, and team motivation. The result is a stronger management layer capable of fostering high-performing and engaged teams.", "aspiration": "To build a robust and supportive management culture that empowers teams, nurtures talent, and drives performance across the organization.", "deliverables": "A series of training workshops (virtual or in-person), a manager's toolkit with practical guides, and follow-up group coaching sessions."}, {"id": 33, "category": "Leadership and Management", "name": "Develop a personal leadership growth plan", "painPoint": "You feel like I've hit a plateau in your development as a leader.", "description": "We help you identify your leadership strengths and growth areas, and build a structured plan for development.", "aspiration": "To become a more intentional and effective leader, aligned with your values and context.", "deliverables": "Leadership self-assessment, growth plan with actions and milestones, progress review session."}, {"id": 34, "category": "Leadership and Management", "name": "Develop a leadership succession plan", "painPoint": "If you're to get sick or leave suddenly, there is no one who could immediately step into your shoes.", "description": "We help you create a plan for leadership transitions, identifying key roles, potential successors, and development pathways.", "aspiration": "To ensure leadership continuity and organizational stability, even during transitions or departures.", "deliverables": "Succession plan document, role profiles, leadership pipeline map, mentoring recommendations."}, {"id": 35, "category": "Leadership and Management", "name": "Identify and prepare future leaders", "painPoint": "You have talented mid-level staff, but no clear pathway for them to grow into leadership roles.", "description": "We assess internal talent and design development plans to grow your next generation of leaders.", "aspiration": "To cultivate confident, mission-aligned leaders who are ready to step into greater responsibility.", "deliverables": "Talent review matrix, individual development plans (IDPs), coaching or mentoring roadmap."}, {"id": 36, "category": "Leadership and Management", "name": "Accountability with Impact: Leading for Performance and Engagement", "painPoint": "You are leader who is struggling to address underperformance in a way that drives accountability without causing disengagement or damaging relationships", "description": "In this course, leaders will learn practical strategies to address underperformance while maintaining trust, motivation, and respect. Participants will build skills to set clear expectations, give constructive feedback, and hold people accountable in ways that drive growth rather than disengagement.", "aspiration": "The aspirational goal of this course is to empower leaders to transform accountability into a positive, growth-oriented practice that strengthens both performance and relationships. Ultimately, leaders will be able to create a culture where high standards and genuine support coexist, enabling individuals and teams to thrive.", "deliverables": "Participants will leave with tools to balance empathy and firmness, so accountability becomes a catalyst for stronger performance and healthier relationships."}, {"id": 37, "category": "Executive Coaching", "name": "Leadership Coaching (Career Development)", "painPoint": "You're an executive, senior leader, or high-potential manager navigating complex strategic decisions, organizational change, or high-stakes leadership transitions.", "description": "A high-impact, confidential coaching engagement designed to build strategic thinking, refine executive decision-making, and align leadership behaviors to enterprise outcomes, enhance personal resilience", "aspiration": "Develop visionary leadership; elevate strategic influence; lead through complexity with confidence and clarity; motivate yourself and your team for best results.", "deliverables": "Personalized leadership development plan, stakeholder feedback (360/interviews), regular executive coaching sessions, progress tracking and alignment review"}, {"id": 38, "category": "Executive Coaching", "name": "Capacity Coaching", "painPoint": "You're managing increased responsibilities, scaling a team or program, or facing persistent challenges in time, energy, or workflow management.", "description": "A focused coaching engagement to build resilience, prioritize effectively, and lead under pressure sustainably. Each session you will focus on the most pressing issues you are facing with and the coach will guide you throught the process on how to naviagte them effectivelly.", "aspiration": "Strengthen leadership capacity to manage growth; cultivate adaptive systems; build energy and resilience for sustainable leadership.", "deliverables": "Current-state leadership assessment; Capacity-building toolkit and frameworks; Actionable 20-60-90 day capacity plan; Coaching session summary with key insights"}, {"id": 39, "category": "Team and Culture", "name": "Team Effectiveness & Collaboration (DISC)", "painPoint": "There is a palpable lack of trust and psychological safety on your team.", "description": "This workshop uses the DISC assessment to help team members understand their own communication styles and those of their colleagues. The session provides practical tools for improving collaboration, reducing conflict, and building a more effective team.", "aspiration": "To cultivate a vibrant culture of trust and collaboration where diverse teams thrive and achieve extraordinary results together.", "deliverables": "Individual and team DISC profiles; a set of shared agreements for team communication."}, {"id": 40, "category": "Team and Culture", "name": "Change Management & Organizational Transformation", "painPoint": "Every attempt to introduce a new process or system is met with powerful resistance.", "description": "This service provides expert support to guide an organization through a significant change, such as a merger, restructuring, or new strategic direction. The focus is on managing the human side of change to ensure a smooth and successful transition.", "aspiration": "Successful implementation of organizational change with high levels of staff buy-in and engagement.", "deliverables": "A comprehensive change management plan; communication and stakeholder engagement toolkits; staff training and support sessions."}, {"id": 41, "category": "Team and Culture", "name": "Address burnout and workload balance", "painPoint": "Your \"work hard\" culture is discouraging people from taking time off to rest and recharge.", "description": "We identify sources of overwork and design ways to rebalance effort and support staff wellbeing.", "aspiration": "To create a sustainable work culture that prioritizes mission without sacrificing people.", "deliverables": "Workload audit, balance recommendations, pulse survey tool, manager guide."}, {"id": 42, "category": "Team and Culture", "name": "Mediate internal team conflicts", "painPoint": "A persistent conflict between two key staff members is creating a toxic environment for everyone.", "description": "We provide confidential facilitation to resolve tensions, rebuild trust, and restore a positive team dynamic.", "aspiration": "To transform conflict into an opportunity for growth, understanding, and better collaboration.", "deliverables": "Conflict diagnosis, mediated session(s), agreement or summary of commitments, follow-up coaching if needed."}, {"id": 43, "category": "Team and Culture", "name": "Train managers in conflict resolution", "painPoint": "Managers are avoiding performance issues because they are afraid of conflict.", "description": "We equip managers with practical tools to recognize, address, and de-escalate workplace conflict early and constructively.", "aspiration": "To create a work culture where disagreements are handled with respect and resolved at the right level.", "deliverables": "Training session, toolkit for resolution strategies, real-life case simulations."}, {"id": 44, "category": "Team and Culture", "name": "Build values alignment across teams", "painPoint": "There's a disconnect between your stated values and how different teams operate.", "description": "We facilitate reflective sessions to clarify your organization's core values and explore how they're lived out in everyday work.", "aspiration": "To create a workplace where people feel deeply connected to shared values and act with integrity.", "deliverables": "Team workshop, values alignment canvas, integration ideas for HR and operations."}, {"id": 45, "category": "Fundraising & Sustainability", "name": "Design a sustainability roadmap", "painPoint": "Your organization's financial survival feels fragile and is a source of constant stress.", "description": "We assess your long-term risks and funding needs, and work with you to build a strategy for financial and operational sustainability.", "aspiration": "To build a resilient, future-ready organization that can thrive beyond project cycles and grants.", "deliverables": "Sustainability roadmap, diversified funding model, cost scenario analysis, donor engagement plan."}, {"id": 46, "category": "Fundraising & Sustainability", "name": "Fundraising & Resource Mobilization Strategy", "painPoint": "Your fundraising income has plateaued, and your old methods are bringing in diminishing returns.", "description": "We help you develop a diversified and sustainable fundraising strategy. This results in a clear plan to secure the financial resources needed to deliver and grow your impact.", "aspiration": "To build a resilient and diverse funding model that ensures the organization's long-term financial health and capacity for growth. To align with the right donors and maintain mission focus for effective fundraising.", "deliverables": "A comprehensive fundraising strategy document, a prioritized donor prospect list, and a core Case for Support narrative."}, {"id": 47, "category": "Fundraising & Sustainability", "name": "Grant Writing & Proposal Development", "painPoint": "You spend a huge amount of effort writing grant proposals that have a very low success rate.", "description": "This service provides expert support to craft compelling, high-quality funding proposals tailored to specific donor requirements. The outcome is an increased success rate in securing institutional funding for your critical work.", "aspiration": "To become highly competitive and successful in securing institutional funding, establishing a steady stream of grant revenue.", "deliverables": "A completed, submission-ready grant proposal, a template for future proposals, and a grants submission calendar."}, {"id": 48, "category": "Fundraising & Sustainability", "name": "Pitch Deck & Funder Engagement Support", "painPoint": "You need to secure a major grant or investment and your case for support isn't strong enough.", "description": "We work with you to create a powerful pitch deck and prepare for key funder meetings. This equips you to articulate your value proposition clearly and confidently, increasing your chances of securing investment.", "aspiration": "To confidently and compellingly communicate your impact and vision, inspiring new and existing funders to invest in your work.", "deliverables": "A professionally designed Pitch Deck, a set of key messages and talking points, and mock-funder presentation coaching sessions."}, {"id": 49, "category": "Fundraising & Sustainability", "name": "Build a major donor pipeline", "painPoint": "You are excellent at acquiring one-time donations but terrible at retaining donors and building loyalty.", "description": "We support you in identifying, researching, and engaging high-potential donors aligned with your mission.", "aspiration": "To secure transformative gifts and cultivate deeper relationships with individuals who believe in your work.", "deliverables": "Donor prospecting list, engagement strategy, donor pitch materials, stewardship plan."}, {"id": 50, "category": "Fundraising & Sustainability", "name": "Funder mapping", "painPoint": "You need to find new funders who's mission is aligned with yours.", "description": "We will understand your key terms and ideal funders and produce and interactive map which will reveal who could fund you and what pathways you can follow to reach these funders.", "aspiration": "To help you understand your funding ecology and how to navigate your way round it, securing new funders and protecting your existing ones.", "deliverables": "An interactive map of your funding landscape showing the pathways to funders (backed up with a spreadsheet and analyses of the funding market you are approaching)."}, {"id": 51, "category": "Fundraising & Sustainability", "name": "Fundraising Performance Metrics and Dashboards", "painPoint": "You aren’t tracking fundraising results clearly or consistently.", "description": "We co-design a simple system to track key fundraising metrics (e.g. donor retention, ROI, channel performance) and visualize them for internal learning.", "aspiration": "Aspirational Goals: To become more data-driven and strategic in your fundraising decisions.", "deliverables": "Metrics dashboard, indicator definitions, reporting templates, learning reflection guide."}, {"id": 52, "category": "Fundraising & Sustainability", "name": "Surviving the Big Grant", "painPoint": "Your main source of funding is about to disappear and you need to find other resourses", "description": "We will share strategies that have worked in sustaining organisations after the loss of major funding. We will share the five pathways for securing major funding.", "aspiration": "To create a funding model that is sustainable and predictable - one that maximises income upon a robust foundation of secure funding.", "deliverables": "A funding strategy that evolves as the organisations develops. A fundraising and communications repertoire that engages funders through all five pathways."}, {"id": 53, "category": "Financials", "name": "Financial Management Systems & Health Check", "painPoint": "Your financial reports are confusing and don't help you make strategic decisions. You are not confident that your finance processes meet minimum/good standards.", "description": "We assess and strengthen your internal financial management systems, policies, and reporting capabilities. This ensures financial compliance, transparency, and provides the data needed for strategic decision-making.", "aspiration": "To achieve impeccable financial stewardship and transparency, building trust with funders and enabling data-informed leadership.", "deliverables": "A Financial Health Check report with recommendations, updated financial policies and procedures, and customized financial reporting templates."}, {"id": 54, "category": "Financials", "name": "Improve cash flow forecasting", "painPoint": "You can't get a real-time, accurate picture of your cash flow, which makes you nervous.", "description": "We help you build a simple and reliable model for projecting income and expenses, so you can plan and adapt more confidently.", "aspiration": "To manage resources proactively and reduce uncertainty with clearer financial foresight.", "deliverables": "Cash flow projection template, training for relevant staff, financial dashboard or tracker."}, {"id": 55, "category": "Financials", "name": "Budgeting for Strategic Priorities", "painPoint": "Your budget/ financial plans doesn’t reflect your real goals or adapt to change.", "description": "We help you design a budgeting process that links directly to your strategic priorities, while building in flexibility for new opportunities and risks.", "aspiration": "To allocate resources with intention and agility.", "deliverables": "Budget planning template, cost alignment matrix, adaptive budgeting scenarios."}, {"id": 56, "category": "Financials", "name": "Build a reserves policy and financial health metrics", "painPoint": "You have no financial reserves, so any unexpected event could become an existential crisis. Or you do have some reserves, but are not confident what a 'good level' to hold is for your organisation.", "description": "We support you to define financial resilience metrics and policies for reserves and liquidity.", "aspiration": "To improve your ability to weather funding gaps or unexpected costs, and fund strategic investments.", "deliverables": "Reserves policy, financial dashboard, board finance brief."}, {"id": 57, "category": "Financials", "name": "Train program staff on financial accountability", "painPoint": "Your program staff struggle to manage their budgets effectively, leading to over/underspend.", "description": "We build program staff capacity to manage budgets, track costs, and understand compliance.", "aspiration": "To improve financial ownership and avoid under- or overspending across grants.", "deliverables": "Training sessions, finance primer for non-finance staff, accountability checklists."}, {"id": 58, "category": "Financials", "name": "Preparing for Financial Audits", "painPoint": "You’re facing your first audit or want to improve how you prepare for them.", "description": "We help you understand the audit process, organize documentation, and establish a smooth collaboration between your team and the auditor.", "aspiration": "To approach audits with clarity, preparedness, and confidence.", "deliverables": "Audit preparation checklist, document folder structure, timeline tracker, lessons learned guide."}, {"id": 59, "category": "Financials", "name": "How to create the best grant budget", "painPoint": "You want to ensure that all costs are covered within the grant budget", "description": "We help you to understand how to maximise unrestricted funding, incorporate capital expenditure and how to scrutinise your budget internally before presenting to funders", "aspiration": "To build an organisation with a diverse funding portfolio that cost covers.", "deliverables": "Training sessions on budget preparation, templates, and guidelines on how to maximise a budget."}, {"id": 60, "category": "Communications & Advocacy", "name": "Design an effective advocacy campaign", "painPoint": "You want to launch a public campaign, but you don't know how to mobilize your supporters effectively.", "description": "We help you design a focused, evidence-based advocacy campaign aligned with your mission, stakeholders, and policy goals.", "aspiration": "To become a recognized voice of influence, shaping public discourse and advancing policy change through compelling advocacy.", "deliverables": "Advocacy campaign strategy, stakeholder map, key messages, action calendar, and M&E plan."}, {"id": 61, "category": "Communications & Advocacy", "name": "Communications Strategy Development", "painPoint": "Your communications feel completely reactive and chaotic; you lurch from one announcement to the next.", "description": "We help you develop a clear and effective communications strategy to engage your key audiences and stakeholders. This results in consistent messaging that strengthens your brand and amplifies your impact.", "aspiration": "To become a powerful voice in your sector, shaping conversations and mobilizing a community of supporters around your mission.", "deliverables": "A documented Communications Strategy, including audience analysis, key messages, and a channel plan with a content calendar."}, {"id": 62, "category": "Communications & Advocacy", "name": "Social Media Audit and Strategy", "painPoint": "Your social media presence feels scattered, low-engagement, or misaligned with your brand.", "description": "We review your current social media efforts, assess performance, and help design a strategy to boost reach, engagement, and storytelling across your key platforms.", "aspiration": "To turn your social media into a vibrant extension of your mission.", "deliverables": "Social media audit report, platform-by-platform strategy, content calendar template, brand tone guidelines."}, {"id": 63, "category": "Communications & Advocacy", "name": "Brand Identity & Messaging Refresh", "painPoint": "Your logo, website, and materials look unprofessional and dated, undermining your credibility.", "description": "This service guides you through refining your brand identity and core messaging to better reflect your mission and resonate with your audience. The outcome is a stronger, more compelling brand that stands out and inspires support.", "aspiration": "To build an iconic brand that is instantly recognizable, deeply trusted, and powerfully communicates the heart of your mission.", "deliverables": "A Brand Messaging Guide, a refreshed visual identity style guide, and updated core communications assets (e.g., website copy, brochure)."}, {"id": 64, "category": "Communications & Advocacy", "name": "Advocacy & Communications Strategy", "painPoint": "Your advocacy efforts and your general communications are not aligned and feel disconnected.", "description": "This service helps an organization develop a clear strategy to influence policy and communicate its message effectively. The work includes identifying key audiences, crafting core messages, and developing a channel and content plan.", "aspiration": "A clear and proactive approach to advocacy and communications; increased visibility and influence with key stakeholders.", "deliverables": "A comprehensive advocacy and communications strategy document; a set of core messages and talking points; a content calendar."}, {"id": 65, "category": "Communications & Advocacy", "name": "Storytelling for Impact", "painPoint": "Your organization struggles to communicate its impact in an emotionally compelling way.", "description": "We work with your team to identify, craft, and share powerful stories that highlight your mission and outcomes — turning data and program results into human-centered narratives.", "aspiration": "To build empathy and connection through authentic storytelling that inspires action.", "deliverables": "Story bank, storytelling templates, messaging guidelines, staff training session."}, {"id": 66, "category": "Impact & Engagement", "name": "MEL System Design & Implementation", "painPoint": "You meticulously collect a vast amount of data, but it just sits in a database and is never used for decision-making.", "description": "We work with you to build a practical MEL system, from results frameworks to data collection tools and processes. This empowers your organization to track progress, demonstrate impact, and make data-driven decisions.", "aspiration": "To embed a culture of learning and data-driven decision-making, enabling the organization to continuously improve and maximize its impact.", "deliverables": "A complete MEL plan document, a set of data collection tools (e.g., surveys, interview guides), and a user guide for the new system."}, {"id": 67, "category": "Impact & Engagement", "name": "Impact Assessment & Reporting", "painPoint": "When a funder asks 'what was your impact?', you can only provide a list of activities you completed.", "description": "We provide technical support to conduct rigorous impact assessments and produce compelling impact reports for stakeholders. This helps you to credibly communicate the value of your work and secure ongoing support.", "aspiration": "To become a leader in impact measurement and transparency, building deep trust and credibility with funders, partners, and beneficiaries.", "deliverables": "A comprehensive Impact Assessment Report, a public-facing Impact Brief or Annual Report, and a presentation of findings."}, {"id": 68, "category": "Impact & Engagement", "name": "Design a reflective learning cycle for your programs", "painPoint": "You complete projects, but the lessons learned are never documented or shared in a systematic way.", "description": "We help you embed structured reflection into program cycles to improve adaptation and learning.", "aspiration": "To become a learning organization that continually evolves and improves based on experience.", "deliverables": "Learning cycle framework, reflection templates, facilitator guides."}, {"id": 69, "category": "Impact & Engagement", "name": "Evaluate effectiveness of existing program", "painPoint": "You deliver training, but you have no idea if it leads to any real-world change in behavior or practice.", "description": "We assess whether your training leads to knowledge retention, behavior change, or improved results--and how it can improve.", "aspiration": "To deliver learning experiences that lead to real-world application and lasting impact.", "deliverables": "Evaluation report, analysis of learning outcomes, improvement recommendations."}, {"id": 70, "category": "Impact & Engagement", "name": "Facilitate partner feedback mechanisms", "painPoint": "You don't have a good way to get honest feedback from your implementing partners.", "description": "We design systems for collecting regular, meaningful feedback from partners, grantees, or communities you serve.", "aspiration": "To learn continuously and build stronger relationships through listening and responsiveness.", "deliverables": "Feedback forms, collection SOPs, synthesis and action plan templates."}, {"id": 71, "category": "Impact & Engagement", "name": "Build an internal knowledge-sharing system", "painPoint": "When a key person leaves, all of their critical knowledge about projects and relationships leaves with them.", "description": "We help you create simple systems and incentives for capturing, organizing, and sharing internal knowledge.", "aspiration": "To become a learning organization where insights are preserved, shared, and reused.", "deliverables": "Knowledge management strategy, tool recommendations, onboarding library structure, SOP for contributions."}, {"id": 72, "category": "Technology Systems", "name": "Train staff on tech tools security", "painPoint": "A significant portion of your staff lacks the basic digital literacy to use your tools effectively.", "description": "We offer hands-on training in digital tools (Google Workspace, project platforms, cybersecurity practices) relevant to your operations.", "aspiration": "To raise digital fluency and reduce risk across your team.", "deliverables": "Customized training sessions, cheat sheets, user guides, and a tech onboarding package."}, {"id": 73, "category": "Technology Systems", "name": "Conduct a technology systems audit", "painPoint": "You are paying for multiple redundant software subscriptions but have no central tech strategy.", "description": "We assess your tech stack to identify gaps, redundancies, and risks, and recommend improvements based on your needs and growth plans.", "aspiration": "To build a lean, secure, and fit-for-purpose tech ecosystem that supports all functions.", "deliverables": "Systems inventory, audit report, priority upgrades list, and roadmap."}, {"id": 74, "category": "Technology Systems", "name": "Digital Transformation Strategy", "painPoint": "You are watching new technologies like AI from the sidelines, feeling overwhelmed and left behind.", "description": "We assess your current digital capabilities and develop a strategy to leverage technology for greater impact and efficiency. This provides a clear roadmap for digital adoption that aligns with your organizational goals.", "aspiration": "To seamlessly integrate technology into every aspect of the organization, unlocking new levels of efficiency, collaboration, and impact.", "deliverables": "A Digital Maturity Assessment report, a comprehensive Digital Transformation Strategy, and a prioritized implementation roadmap."}, {"id": 75, "category": "Technology Systems", "name": "Improve remote and hybrid team performance", "painPoint": "Your remote/hybrid team struggles with communication and collaboration.", "description": "We help you set norms, tools, and routines for effective collaboration across locations and time zones.", "aspiration": "To maintain high trust, productivity, and team cohesion in a dispersed work environment.", "deliverables": "Remote team playbook, digital tools review, team norms charter."}, {"id": 76, "category": "Technology Systems", "name": "Technology Systems Implementation (CRM, Project Management)", "painPoint": "Your data is fragmented across dozens of disconnected spreadsheets and systems.", "description": "We provide hands-on support to select, configure, and implement key technology systems like CRMs or project management tools. The outcome is improved operational efficiency, data management, and team collaboration.", "aspiration": "To empower the team with best-in-class digital tools that streamline work, automate processes, and free up time for mission-critical activities.", "deliverables": "A fully configured and launched technology platform, user training sessions and materials, and a system administration guide."}, {"id": 77, "category": "Risk & Compliance", "name": "Safeguarding Policy & Framework Development", "painPoint": "Your safeguarding policy is a generic template, not a practical document that is embedded in your daily operations.", "description": "We provide expert support to develop and implement a robust safeguarding policy framework, including procedures and a code of conduct. This ensures a safe environment for all stakeholders and compliance with donor and legal requirements.", "aspiration": "To create a culture of safety and accountability where the well-being of all participants is paramount and protected.", "deliverables": "A comprehensive Safeguarding Policy & Procedures Manual, a Code of Conduct, and materials for staff and volunteer training."}, {"id": 78, "category": "Risk & Compliance", "name": "Map and assess strategic risks", "painPoint": "When your board asks about the top risks to your strategy, you don't have a structured or comprehensive ansyour.", "description": "We help you identify potential threats to your goals--external, operational, or reputational--and assess their likelihood and impact.", "aspiration": "To build a risk-aware culture and anticipate future disruptions before they strike.", "deliverables": "Strategic risk matrix, mitigation strategies, early warning indicators, leadership workshop."}, {"id": 79, "category": "Risk & Compliance", "name": "Design a strategic foresight process", "painPoint": "You only think about risks after something bad has already happened.", "description": "We introduce methods like scenario planning or trend mapping to help your team anticipate change and make future-proof plans.", "aspiration": "To shift from reactive planning to strategic anticipation of what lies ahead.", "deliverables": "Scenario matrix, priority trends dashboard, foresight toolkit."}, {"id": 80, "category": "Risk & Compliance", "name": "Create a responsible data use policy", "painPoint": "You collect highly sensitive client information, and you're not confident your storage and access protocols are secure.", "description": "We guide your team in developing a policy that defines ethical, secure, and compliant data collection, storage, and sharing practices.", "aspiration": "To be a data-responsible organization that builds trust with users and donors through transparency and protection.", "deliverables": "Data use and protection policy, consent forms/templates, staff orientation materials."}];
+const MODEL    = 'claude-sonnet-4-6';
+
+/* ─── CATEGORY STYLES ─────────────────────────────────────────────────────*/
+const CAT = {
+  'Strategy':                              {c:'#2563EB',b:'#EFF6FF',bo:'#BFDBFE',ic:'◈'},
+  'Operations & Systems':                  {c:'#0891B2',b:'#ECFEFF',bo:'#A5F3FC',ic:'⚙'},
+  'Governance & Board':                    {c:'#7C3AED',b:'#F5F3FF',bo:'#DDD6FE',ic:'◻'},
+  'Human Resources':                       {c:'#DB2777',b:'#FDF2F8',bo:'#FBCFE8',ic:'◎'},
+  'Leadership and Management':             {c:'#D97706',b:'#FFFBEB',bo:'#FDE68A',ic:'△'},
+  'Executive Coaching':                    {c:'#059669',b:'#F0FDF4',bo:'#A7F3D0',ic:'◉'},
+  'Team and Culture':                      {c:'#DC2626',b:'#FEF2F2',bo:'#FECACA',ic:'⬡'},
+  'Fundraising & Sustainability':          {c:'#0369A1',b:'#F0F9FF',bo:'#BAE6FD',ic:'◇'},
+  'Financials':                            {c:'#0D9488',b:'#F0FDFA',bo:'#99F6E4',ic:'⬢'},
+  'Communications & Advocacy':             {c:'#6D28D9',b:'#F5F3FF',bo:'#C4B5FD',ic:'◆'},
+  'Impact & Engagement':                   {c:'#4338CA',b:'#EEF2FF',bo:'#C7D2FE',ic:'✦'},
+  'Technology Systems':                    {c:'#0F766E',b:'#F0FDFA',bo:'#5EEAD4',ic:'⬡'},
+  'Risk & Compliance':                     {c:'#9F1239',b:'#FFF1F2',bo:'#FECDD3',ic:'◈'},
+  'People, Leadership, & Culture':         {c:'#065F46',b:'#ECFDF5',bo:'#6EE7B7',ic:'◉'},
+};
+const DEF = {c:'#64748B',b:'#F8FAFC',bo:'#E2E8F0',ic:'◉'};
+const cs = cat => CAT[cat?.trim()] || DEF;
+const cv = cat => { const s=cs(cat); return `--cc:${s.c};--cb:${s.b};--cborder:${s.bo};`; };
+const ALL_CATS = Object.keys(CAT);
+
+/* ─── STATE ───────────────────────────────────────────────────────────────*/
+let services = [];
+let S = {
+  phase:'init',
+  round:1, turn:0,
+  currentCards:[],
+  groupScores:{}, topGroups:[], r2Symptoms:[],
+  symptoms:[], usedIds:new Set(),
+  pickedId:null,
+  results:null,
+  askText:'',
+  askQ1:'', askQ2:'', askQ3:'',
+  prereqQuestions:[], prereqAnswers:{},
+};
+
+/* ─── GAME LOGIC ───────────────────────────────────────────────────────────────────────────*/
+
+// 4 supergroups — each bundles several sub-categories
+// Round 1: 3 turns x 4 cards (one per supergroup) → top 2 supergroups identified
+// Round 2: 3 turns x 4 cards drawn from within the 2 winning supergroups
+const SUPERGROUPS = {
+  'Strategy & Impact': {
+    cats: ['Strategy','Impact & Engagement','Communications & Advocacy'],
+    color:'#2563EB', bg:'#EFF6FF', border:'#BFDBFE', icon:'◈'
+  },
+  'People & Leadership': {
+    cats: ['Leadership and Management','Executive Coaching','Human Resources','People, Leadership, & Culture','Team and Culture'],
+    color:'#D97706', bg:'#FFFBEB', border:'#FDE68A', icon:'△'
+  },
+  'Systems & Operations': {
+    cats: ['Operations & Systems','Technology Systems','Risk & Compliance'],
+    color:'#0891B2', bg:'#ECFEFF', border:'#A5F3FC', icon:'⚙'
+  },
+  'Governance & Resources': {
+    cats: ['Governance & Board','Fundraising & Sustainability','Financials'],
+    color:'#7C3AED', bg:'#F5F3FF', border:'#DDD6FE', icon:'◇'
+  },
+};
+const SG_NAMES = Object.keys(SUPERGROUPS);
+const R1_TURNS = 3;
+const R2_TURNS = 3;
+
+function shuffle(a){return[...a].sort(()=>Math.random()-.5)}
+
+// Return the supergroup name for a service
+function sgOf(svc){
+  return SG_NAMES.find(sg => SUPERGROUPS[sg].cats.includes(svc.category)) || SG_NAMES[0];
+}
+
+// CSS variable string for a supergroup
+function sgStyle(sgName){
+  const sg = SUPERGROUPS[sgName]||{};
+  return `--cc:${sg.color||'#64748B'};--cb:${sg.bg||'#F8FAFC'};--cborder:${sg.border||'#E2E8F0'};`;
+}
+
+// Pick one unused service from a supergroup
+function pickFromSG(sgName){
+  const cats = SUPERGROUPS[sgName].cats;
+  const pool = shuffle(services.filter(s =>
+    cats.includes(s.category) && !S.usedIds.has(s.id) && s.painPoint && s.painPoint.length > 8
+  ));
+  if(pool.length) return pool[0];
+  // fallback: allow reuse but avoid very recent
+  const recent = [...S.usedIds].slice(-4);
+  const fallback = shuffle(services.filter(s =>
+    cats.includes(s.category) && !recent.includes(s.id) && s.painPoint && s.painPoint.length > 8
+  ));
+  return fallback[0] || null;
+}
+
+// Round 1: one card per supergroup, order shuffled each turn
+function buildR1Cards(){
+  return shuffle(SG_NAMES).map(sg => pickFromSG(sg)).filter(Boolean);
+}
+
+// Round 2: 2 cards per winning supergroup (4 total), drawn from within those groups
+function buildR2Cards(){
+  const cards = [];
+  for(const sg of S.topGroups){
+    const cats = SUPERGROUPS[sg].cats;
+    let pool = shuffle(services.filter(s =>
+      cats.includes(s.category) && !S.usedIds.has(s.id) && s.painPoint && s.painPoint.length > 8
+    ));
+    if(pool.length < 2){
+      const recent = [...S.usedIds].slice(-4);
+      pool = shuffle(services.filter(s =>
+        cats.includes(s.category) && !recent.includes(s.id) && s.painPoint && s.painPoint.length > 8
+      ));
+    }
+    cards.push(...pool.slice(0,2));
+  }
+  return shuffle(cards);
+}
+
+// After R1: return top groups by score. If all picks are from one supergroup, return only that one.
+function getTop2Groups(){
+  // Ensure all supergroups have a score entry (even if 0)
+  SG_NAMES.forEach(sg => { if(!(sg in S.groupScores)) S.groupScores[sg]=0; });
+  const sorted = Object.entries(S.groupScores)
+    .sort((a,b) => {
+      if(b[1] !== a[1]) return b[1]-a[1];
+      const aPool = services.filter(s => SUPERGROUPS[a[0]].cats.includes(s.category)).length;
+      const bPool = services.filter(s => SUPERGROUPS[b[0]].cats.includes(s.category)).length;
+      return bPool - aPool;
+    });
+  // If only one supergroup has any score, return just that one
+  const withScore = sorted.filter(([,score]) => score > 0);
+  if(withScore.length <= 1) return withScore.map(([sg]) => sg);
+  return sorted.slice(0,2).map(([sg]) => sg);
+}
+
+/* ─── API ─────────────────────────────────────────────────────────────────*/
+async function callClaude(messages, system, maxTokens=4000){
+  const r = await fetch('/api/llm',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'anthropic-version':'2023-06-01',
+    },
+    body:JSON.stringify({model:MODEL,max_tokens:maxTokens,system,messages})
+  });
+  if(!r.ok){
+    const errText = await r.text();
+    throw new Error(`API ${r.status}: ${errText.slice(0,200)}`);
+  }
+  const d = await r.json();
+  if(d.error) throw new Error(d.error.message);
+  if(!d.content || !d.content[0]) throw new Error('Empty response from API');
+  return d.content[0].text;
+}
+
+async function genRoadmap(){
+  const sympText = S.symptoms.map((s,i)=>`${i+1}. [${s.category}] "${s.painPoint}"`).join('\n');
+  // Slim catalogue: id, name, category only — enough for Claude to pick the right IDs
+  const catLog = services.map(s=>`${s.id}. ${s.name} [${s.category}]`).join('\n');
+
+  const sys = `You are an expert organisational development advisor for nonprofits. Reply ONLY with a raw JSON object. No markdown, no code fences, no explanation before or after.`;
+  const msg = `A nonprofit leader identified these challenges during a quick prioritisation exercise:
+${sympText}
+
+Available projects (id. name [category]):
+${catLog}
+
+CRITICAL TONE RULES:
+1. Address the user directly as "you" and "your organisation" throughout — never "the leader", "they", or "this organisation".
+2. When raising anything beyond what they selected — especially any prerequisite or foundational suggestion — frame it explicitly as a thought offered in good faith. Use phrases like "You may already have this in place…", "One thing worth considering, if it isn't already sorted…", "This is just a suggestion — you know your situation best, but…". The user is the expert on their own organisation.
+3. Say each suggestion once, warmly, and move on.
+
+Respond with this exact JSON structure:
+{"overview":"4 substantive paragraphs addressed directly to 'you'.\n\nParagraph 1 — Name the underlying pattern across what you selected. Address them directly: 'What your choices point to…', 'You seem to be grappling with…'. Be specific — name the real issue beneath the surface, not just a restatement of the categories.\n\nParagraph 2 — Explain how the three recommended projects address that pattern and why they are sequenced this way. Name each project and connect it to what the person said.\n\nParagraph 3 — Walk them through what the work will look and feel like in practice. What should they expect? What will change? What should they watch for along the way?\n\nParagraph 4 — If the challenges include Fundraising & Sustainability or Communications & Advocacy, add a paragraph — warmly and as a suggestion — noting that these areas tend to work best when a clear strategy and MEL framework are already in place; acknowledge they may well have this covered. Otherwise use this paragraph to surface one specific watch-out or risk for their situation.","prerequisites":null or [{"title":"short title","detail":"one sentence addressed as 'you', framed as a suggestion not a requirement"}],"roadmap":[{"id":9,"priority":1,"why":"one sentence addressed as 'you', connecting this directly to what you selected","timeline":"Months 1–3"},{"id":46,"priority":2,"why":"one sentence addressed as 'you'","timeline":"Months 5–8"},{"id":23,"priority":3,"why":"one sentence addressed as 'you'","timeline":"Months 10–13"}]}
+
+Rules: pick 3 project IDs from the list above. Use real IDs only. Space timelines with recovery gaps between each project. Only include prerequisites if genuinely relevant. Return nothing except the JSON object.`;
+  const txt = await callClaude([{role:'user',content:msg}],sys);
+  const clean = txt.replace(/^[\s\S]*?(\{)/,'$1').replace(/\}[\s\S]*$/,'}');
+  try {
+    return JSON.parse(clean);
+  } catch(e) {
+    console.error('Raw response:', txt);
+    throw new Error('Invalid response format: ' + e.message + ' | Raw: ' + txt.slice(0,200));
+  }
+}
+
+async function genPrereqCheck(q1, q2, q3){
+  const sys = `You are an expert organisational development advisor for nonprofits. Reply ONLY with valid JSON — no markdown, no code fences, no explanation.`;
+  const msg = `A nonprofit leader has shared the following about their organisation:
+
+Q1 — The organisation they are building:
+"${q1}"
+
+Q2 — What is currently holding them back:
+"${q2}"
+
+Q3 — Their top priority to work on right now:
+"${q3}"
+
+Your task: identify whether any prerequisite clarifications would meaningfully improve their development roadmap. Return 0–3 short follow-up questions. Each must be genuinely useful — not box-ticking.
+
+Common prerequisites worth asking about (only include if directly relevant to what they said):
+- If they mention fundraising, resource mobilisation, or donor relations → ask whether they have a clear organisational strategy and a MEL (Monitoring, Evaluation & Learning) framework, because fundraising needs to serve strategic goals and funders need evidence of impact.
+- If they mention communications, advocacy, or storytelling → same — communications needs strategic alignment and data to be compelling.
+- If they mention scaling programmes, growing reach, or replicating their model → ask whether they have a theory of change or logic model, as scaling without one tends to dilute impact.
+- If they mention improving governance or board effectiveness → ask whether they have an up-to-date strategic plan, as governance improvements need something concrete for the board to steward.
+- If they mention growing the team, hiring, or managing people better → ask whether they have HR policies and a people/talent strategy in place.
+- If they mention technology or digital systems → ask whether they have mapped their current systems and data flows.
+
+Only ask questions where the gap is genuinely suggested by their words. Do not fabricate gaps. Aim for 1–2 questions; 3 only if multiple prerequisites are clearly relevant.
+
+IMPORTANT TONE RULES for the generated text:
+- Address the user directly as "you" and "your organisation" — never "the leader", "they", or "this organisation".
+- The "why" field must be framed as a helpful suggestion, not a prescription. Make clear you are raising something that might be worth considering, but that they know their situation best. Use phrases like "It might be worth checking in on…", "This could help make your roadmap more targeted…", "You may already have this covered — but if not…"
+
+Return exactly this JSON:
+{
+  "needs_followup": true or false,
+  "questions": [
+    {
+      "id": "short_snake_case_id",
+      "text": "The question to ask — written as 'you/your', concise, no jargon",
+      "why": "One sentence addressed to 'you' — a gentle, helpful framing of why this is worth clarifying, making clear it is a suggestion not a requirement.",
+      "options": ["Option A", "Option B", "Option C"]
+    }
+  ]
+}
+
+Each question must have exactly 3 options covering: yes/established, in progress/partial, not yet. Phrase options naturally and in first person where possible (e.g. "Yes, we have one" / "We're working on it" / "Not yet").
+If needs_followup is false, return an empty questions array.`;
+
+  const txt = await callClaude([{role:'user', content:msg}], sys, 2500);
+  try {
+    return JSON.parse(txt.replace(/```json|```/g,'').trim());
+  } catch(e) {
+    console.error('Prereq check raw response:', txt);
+    return { needs_followup: false, questions: [] };
+  }
+}
+
+async function genAskResponse(q1, q2, q3, prereqAnswers={}){
+  const catLog = services.map(s=>[
+    `ID:${s.id} | "${s.name}" [${s.category}]`,
+    `Pain: ${s.painPoint}`,
+    `Description: ${s.description}`,
+    `Deliverables: ${s.deliverables}`
+  ].join('\n')).join('\n---\n');
+
+  const prereqBlock = Object.keys(prereqAnswers).length > 0
+    ? `\nFollow-up clarifications (answered by the leader before this roadmap was built):\n${Object.entries(prereqAnswers).map(([q,a])=>`- ${q}: "${a}"`).join('\n')}\n`
+    : '';
+
+  const sys = `You are an expert organisational development advisor for nonprofits. Reply ONLY with valid JSON — no markdown, no code fences, no explanation.`;
+  const msg = `A nonprofit leader has shared the following about their organisation:
+
+Q1 — The organisation they are building:
+"${q1}"
+
+Q2 — What is currently holding them back:
+"${q2}"
+
+Q3 — Their top priority to work on right now:
+"${q3}"
+${prereqBlock}
+Project catalogue (use IDs where a catalogue project fits well):
+${catLog}
+
+Design a sequenced organisational development roadmap of natural length — as many steps as are genuinely needed, up to a maximum of 18 months. Do not pad it to fill time. Each active step is approximately 2–3 months. Leave 1–2 month breathing gaps between steps so the organisation can consolidate, reflect, and embed learning before starting the next phase. Steps must follow a logical sequence — do not group things that should be staged. Each step can be one of: a capacity-building project from the catalogue, an executive coaching engagement, or a training programme for specific staff. Use the catalogue where there is a genuine fit. Use coaching or training where it is the more appropriate intervention type. For custom projects not in the catalogue, set id to null and is_custom to true. IMPORTANT: Only recommend projects from the themes the user selected. Do not introduce projects from unrelated themes. The only exception is a prerequisite that was explicitly surfaced and confirmed as missing in the interview questions above — and only that specific prerequisite.
+
+CRITICAL TONE RULES — apply to every word of the "overview" and all "why" fields:
+1. Address the user directly as "you" and "your organisation" throughout. Never use "the leader", "they", "this organisation", or any third-person phrasing.
+2. When suggesting anything beyond what the user explicitly asked for — especially prerequisite work, foundational steps, or resequencing their stated priority — make clear this is a suggestion offered in good faith, not a prescription. Use framing like: "You may already have this covered…", "One thing worth considering, if it isn't already in place…", "This is just a suggestion — you know your situation better than we do, but…", "If this resonates, it might be worth…". The user is the expert on their own organisation. Your role is to offer a useful outside perspective, not to override their judgement.
+3. Say each suggestion once, warmly, and move on. Do not repeat or moralize.
+
+Return this exact JSON:
+{
+  "overview": "A rich, substantive overview of 500 words or more. Write in paragraphs separated by double newlines (\\n\\n). Address the user as 'you' throughout — never 'the organisation' or 'the leader'. Structure it as follows:\\n\\nParagraph 1 — Reflect back what you understand about the organisation they are building: their mission, ambition, and context. Be specific, mirroring their own words so they feel heard. Open with something like 'You are building…' or 'What you described…'\\n\\nParagraph 2 — Name the underlying pattern across their blockers. What is really going on beneath the surface? Read across all three answers to find the systemic or structural issue. Be direct, honest, and useful — not generic. Avoid clichés. Address them directly.\\n\\nParagraph 3 — Walk them through the arc of the roadmap. Explain what they will be working on in the early, middle, and later phases, and why this sequence makes sense for their situation. Use 'you' throughout.\\n\\nParagraph 4 (include ONLY if fundraising or communications is genuinely relevant to what they said) — If their answers mention fundraising, resource mobilisation, donor relations, sustainability, communications, advocacy, or storytelling: raise gently that these areas tend to work best when a clear strategy and MEL framework are already in place — because fundraising needs to serve strategic goals, and communications needs evidence of impact to be compelling. Open by acknowledging they may well have this covered already. Make clear you are raising it as a thought, not a correction. One short paragraph.\\n\\nParagraph 5 (include ONLY if another genuine prerequisite gap is clearly visible) — If their answers suggest they want to scale but haven't mentioned a theory of change; improve governance without a strategic plan; or grow the team without HR foundations — raise this once, warmly. Lead with 'You may already have this sorted…' or similar. Make clear you are not second-guessing them. Only include if there is a real, specific gap. Do not invent one.",
+  "prerequisites": null,
+  "roadmap": [
+    {
+      "step": 1,
+      "months": "Months 1–3",
+      "id": <catalogue ID as integer, or null>,
+      "name": "project or engagement name",
+      "category": "category from catalogue, or 'Executive Coaching', or 'Staff Training'",
+      "type": "project" or "coaching" or "training",
+      "target": null or "who this is for, e.g. Senior Leadership Team, Board, Finance Staff",
+      "deliverables": "concrete deliverables",
+      "why": "One sentence addressed directly to 'you', connecting this step to what you said. Not generic. Not third person.",
+      "is_custom": false or true
+    }
+  ]
+}
+
+Rules:
+- 5 to 6 active steps only
+- Month ranges must leave clear gaps between steps (e.g. Months 1–3, then Months 5–7, then Months 9–12, then Months 14–16, then Months 17–18) — the gaps are intentional breathing space
+- Do NOT use contiguous ranges with no gaps between them
+- Use real catalogue IDs where the fit is genuine — do not force a catalogue match if coaching or training is the better answer
+- The sequence must have internal logic: earlier steps should lay groundwork for later ones
+- "why" fields must be specific to the user's words, addressed as "you", never boilerplate
+- Set "prerequisites" to null
+- Return nothing except the JSON object`;
+
+  const txt = await callClaude([{role:'user',content:msg}], sys, 8000);
+  try {
+    return JSON.parse(txt.replace(/```json|```/g,'').trim());
+  } catch(e) {
+    console.error('Ask raw response:', txt);
+    throw new Error('Invalid response format');
+  }
+}
+
+async function genBrowseReport(selected){
+  const sel = selected.map(s=>`- "${s.name}" [${s.category}]\n  Pain: ${s.painPoint}\n  Deliverables: ${s.deliverables}`).join('\n');
+  const sys = `You are an expert organisational development advisor for nonprofits. Reply ONLY with valid JSON.`;
+  const msg = `A nonprofit leader has hand-picked these projects from our catalogue:
+${sel}
+
+CRITICAL TONE RULES:
+1. Address the user directly as "you" and "your organisation" — never "the leader", "they", or "this organisation".
+2. When raising anything beyond what they explicitly selected — especially any suggestion about prerequisites or foundational work — frame it clearly as a thought offered in good faith. Use phrases like "You may already have this in place…", "One thing worth considering, if it isn't already sorted…", "This is just a suggestion — you know your situation best, but…". The user is the expert on their own organisation.
+3. Say each suggestion once, warmly, and move on.
+
+Return JSON:
+{
+  "overview": "4 substantive paragraphs addressed directly to 'you'.\n\nParagraph 1 — Name the underlying theme or tension across their selection. Address them directly: 'What your choices suggest…', 'You seem to be focused on…'. Be specific and direct — not generic.\n\nParagraph 2 — Explain how these specific projects connect to each other and what working on them together could unlock. Name the projects. Be concrete about the sequence and the logic.\n\nParagraph 3 — Walk them through what the work will actually look and feel like: what they will be doing, what will change, what they should watch for. Make it tangible.\n\nParagraph 4 — If their selection includes Fundraising & Sustainability or Communications & Advocacy, raise warmly and as a suggestion that these areas tend to land better when a clear strategy and MEL framework are already in place; acknowledge they may well have this covered. Otherwise use this paragraph to name one specific risk or watch-out for their situation, based on what they selected.",
+  "synthesis": null or { "name":"...", "category":"...", "description":"...", "deliverables":"...", "why":"one sentence addressed as 'you'..." },
+  "notes": [ { "id": <project id>, "why": "one sentence addressed as 'you', on why this fits and how it connects to the others" } ]
+}
+
+Rules:
+- synthesis: ONLY include if 2+ selected projects are from the same category AND could genuinely be merged into a stronger combined engagement. Otherwise return null.
+- notes: include a "why" for every selected project id
+- IDs: ${selected.map(s=>s.id).join(', ')}`;
+  const txt = await callClaude([{role:'user',content:msg}],sys,3000);
+  try {
+    return JSON.parse(txt.replace(/```json|```/g,'').trim());
+  } catch(e) {
+    console.error('Browse raw response:', txt);
+    throw new Error('Invalid response format');
+  }
+}
+const app = document.getElementById('app');
+const set = html => { app.innerHTML=html; };
+
+function pill(cat,short=false){
+  const s=cs(cat), name=short&&cat.length>28?cat.split(',')[0].trim():cat.trim();
+  return `<span class="cat-pill" style="${cv(cat)}"><span class="cat-dot"></span>${name}</span>`;
+}
+
+function progressBar(step,total,label){
+  return `<div class="progress-wrap">
+    <div class="progress-meta"><span>${label}</span><span>Step ${step} of ${total}</span></div>
+    <div class="progress-track"><div class="progress-bar" style="width:${step/total*100}%"></div></div>
+  </div>`;
+}
+
+function projCard(p, num, timeline='', why='', isCustom=false, full=false){
+  const s=cs(p.category);
+  return `<div class="proj-card" style="${cv(p.category)}">
+    <div class="proj-top-stripe" style="background:${s.c}"></div>
+    <div class="proj-body">
+      ${num?`<div class="proj-num" style="${cv(p.category)}">${num}</div>`:''}
+      <div class="proj-content">
+        <div class="proj-meta">
+          ${pill(p.category,true)}
+          ${timeline?`<span class="timeline-chip">${timeline}</span>`:''}
+          ${isCustom?'<span class="ai-badge">✦ Claude-generated</span>':''}
+        </div>
+        <div class="proj-name">${p.name}</div>
+        ${why?`<div class="proj-why">${why}</div>`:''}
+        ${full?`<div class="proj-why" style="margin-top:8px">${p.description||''}</div>`:''}
+      </div>
+    </div>
+    <div class="proj-footer">
+      <div class="proj-deliverables"><b>Deliverables · </b>${p.deliverables||''}</div>
+    </div>
+  </div>`;
+}
+
+/* ─── SCREENS ─────────────────────────────────────────────────────────────*/
+function renderIntro(){
+  set(`<div class="fade-up">
+    <div class="intro-hero">
+      <div class="eyebrow">Nonprofit Builder · Organisational Diagnostic</div>
+      <h1 class="hero-title">Build the organisation<br><span class="hl">of your dreams.</span></h1>
+      <p class="hero-sub">Your start page for organisational development. Explore 80 projects, find your priorities, and take the next step — choose your path:</p>
+    </div>
+    <div class="pathways">
+      <div class="pathway-card" onclick="startGame()">
+        <div class="p-icon g">🎯</div>
+        <div class="p-title">Play a Five-Minute Game!</div>
+        <div class="p-desc">Pick the challenges that resonate most from a series of quick rounds. We'll reveal your priorities and map the projects that could make the biggest difference.</div>
+        <span class="p-cta">Let's play →</span>
+      </div>
+      <div class="pathway-card" onclick="showAsk()">
+        <div class="p-icon a">💬</div>
+        <div class="p-title">Ask Claude — Three Questions</div>
+        <div class="p-desc">Answer three questions about your dream organisation, whatsoever holding you back, and your top priority. Claude will design the perfectly personalised 18-month roadmap, sequenced step by step with breathing space between phases.</div>
+        <span class="p-cta">Answer three questions →</span>
+      </div>
+      <div class="pathway-card" onclick="showBrowse()">
+        <div class="p-icon" style="background:#FEF9C3">🗂️</div>
+        <div class="p-title">Browse &amp; Select</div>
+        <div class="p-desc">Explore all 80 projects across 14 themes — including all those most commonly requested by grantees. A great starting point if you already have a sense of what you need.</div>
+        <span class="p-cta">Browse the catalogue →</span>
+      </div>
+      <div class="pathway-card" onclick="showContact()">
+        <div class="p-icon" style="background:#FFF1F2">👋</div>
+        <div class="p-title">Talk to a Human</div>
+        <div class="p-desc">Whether you're new to organisational development and want to chat through your needs, or very experienced and looking for a custom project — we'd love to talk.</div>
+        <span class="p-cta" style="color:#DC2626">Get in touch →</span>
+      </div>
+    </div>
+  </div>`);
+}
+
+function renderGame(){
+  const isR1 = S.round===1;
+  const step  = isR1 ? S.turn+1 : R1_TURNS+S.turn+1;
+  const total = R1_TURNS + R2_TURNS;
+  const label = isR1 ? 'Round 1 · Finding your themes' : 'Round 2 · Going deeper';
+
+  const cardsHtml = S.currentCards.map((svc,i)=>{
+    const sg = sgOf(svc);
+    const sgData = SUPERGROUPS[sg];
+    const style = `--cc:${sgData.color};--cb:${sgData.bg};--cborder:${sgData.border};animation-delay:${i*.07}s`;
+    const chosen = S.pickedId===svc.id;
+    const locked = S.pickedId && S.pickedId!==svc.id;
+    // R1: show supergroup label. R2: show sub-category
+    const labelText = isR1 ? `${sgData.icon} ${sg}` : svc.category;
+    return `<div class="s-card${chosen?' chosen':''}${locked?' locked':''}"
+      style="${style}"
+      onclick="pickCard(${svc.id})">
+      <div class="s-card-bar"></div>
+      <span class="cat-pill" style="${style}"><span class="cat-dot"></span>${labelText}</span>
+      <p class="s-pain">"${svc.painPoint}"</p>
+      ${!locked?`<div class="s-cta">${chosen?'✓ Selected':'This is us →'}</div>`:''}
+    </div>`;
+  }).join('');
+
+  set(`<div class="fade-up">
+    ${progressBar(step,total,label)}
+    <div class="game-hd">
+      <h2 class="game-q">Which of these resonates most with your organisation?</h2>
+      <p class="game-hint">Pick the statement that best describes a current challenge</p>
+    </div>
+    <div class="cards-grid">${cardsHtml}</div>
+    ${!S.pickedId ? `<a class="none-cta" onclick="skipTurn()">None of these apply to us — skip this round</a>` : ''}
+  </div>`);
+}
+
+function renderTransition(){
+  const pillsHtml = S.topGroups.map(sg=>{
+    const sgData = SUPERGROUPS[sg];
+    const style = `--cc:${sgData.color};--cb:${sgData.bg};--cborder:${sgData.border};`;
+    return `<div class="theme-row" style="${style}">
+      <div class="theme-icon" style="background:${sgData.color};color:white">${sgData.icon}</div>
+      <div>
+        <div class="theme-name">${sg}</div>
+        <div style="font-size:11px;color:var(--gray-400);margin-top:2px">${SUPERGROUPS[sg].cats.join(' · ')}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const themeWord = S.topGroups.length === 1 ? 'One theme is emerging.' : 'Two themes are emerging.';
+  set(`<div class="fade-up transition-wrap">
+    <div class="trans-box">
+      <div class="eyebrow">Round 1 complete</div>
+      <h2 class="trans-title">${themeWord}</h2>
+      <p class="trans-sub">Round 2 drills into ${S.topGroups.length === 1 ? 'this area' : 'these areas'} to find your most pressing challenges.</p>
+      <div style="margin-bottom:32px">${pillsHtml}</div>
+      <button class="btn btn-primary btn-lg" onclick="startR2()">Continue to Round 2 →</button>
+    </div>
+  </div>`);
+}
+
+function renderLoading(msg='Building your roadmap…', sub=''){
+  set(`<div class="loading-wrap fade-up">
+    <div class="spinner"></div>
+    <div class="loading-title">${msg}</div>
+    <div class="loading-sub">${sub||'This usually takes about 10 seconds.'}</div>
+  </div>`);
+}
+
+function renderResults(){
+  const r = S.results;
+  const projsHtml = (r.roadmap||[]).map(item=>{
+    const svc = services.find(s=>s.id==item.id); // loose equality handles string/number mismatch
+    return svc ? projCard(svc,item.priority,item.timeline||item.months,item.why,false,true) : '';
+  }).join('');
+
+  const sympHtml = S.r2Symptoms.map(s=>{
+    const sg = sgOf(s);
+    const sgData = SUPERGROUPS[sg]||{};
+    const style = `--cc:${sgData.color||'#2563EB'};--cb:${sgData.bg||'#EFF6FF'};--cborder:${sgData.border||'#BFDBFE'};`;
+    return `<div class="proj-card" style="${style}">
+      <div class="proj-top-stripe" style="background:${sgData.color||'#2563EB'}"></div>
+      <div class="proj-body">
+        <div class="proj-content">
+          <div class="proj-meta">${pill(s.category,true)}</div>
+          <div class="proj-name">${s.name}</div>
+          <div class="proj-why" style="margin-top:8px;color:var(--gray-600)">${s.description||''}</div>
+          ${s.aspiration?`<div class="proj-why" style="margin-top:6px;font-style:italic;color:var(--gray-500)">Goal: ${s.aspiration}</div>`:''}
+        </div>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-deliverables"><b>Deliverables · </b>${s.deliverables||''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  set(`<div class="fade-up">
+    <div class="results-hero">
+      <div class="eyebrow">Your Organisational Development Roadmap</div>
+      <h1 class="results-title">Here's where to focus your energy.</h1>
+      <div class="diagnosis">
+        <div class="diag-label">Roadmap Overview</div>
+        <div class="diag-text">${(r.overview||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>').replace(/^(.)/,'<p>$1').replace(/(.)$/,'$1</p>')}</div>
+      </div>
+      ${r.prerequisites && r.prerequisites.length ? `<div class="prereq-callout" style="margin-top:16px">
+        <div class="prereq-label">⚑ Worth considering first</div>
+        ${r.prerequisites.map(p=>`<div class="prereq-item"><strong>${p.title}</strong> — ${p.detail}</div>`).join('')}
+      </div>` : ''}
+    </div>
+    <div class="section-title">Recommended Projects</div>
+    ${projsHtml}
+
+    <div class="results-footer">
+      <button class="btn btn-primary" onclick="startGame()">Play again</button>
+      <button class="btn btn-ghost" onclick="showAsk()">Answer three questions</button>
+      <button class="btn btn-ghost" onclick="goIntro()">← Home</button>
+    </div>
+  </div>`);
+}
+
+function renderAsk(){
+  set(`<div class="fade-up ask3-wrap">
+    <div class="ask3-header">
+      <div class="eyebrow">Ask Claude · Three Questions</div>
+      <h2 class="ask3-title">Tell us about your organisation</h2>
+      <p class="ask3-sub">Answer three questions honestly. Claude will design a personalised roadmap of up to 18 months — sequenced step by step, with breathing space built in.</p>
+    </div>
+
+    <div class="ask3-question">
+      <div class="ask3-q-label">
+        <div class="ask3-q-num">1</div>
+        <div>
+          <div class="ask3-q-text">Describe the organisation you are working to build.</div>
+          <div class="ask3-q-hint">What does it look like when it's working well? What mission are you serving?</div>
+        </div>
+      </div>
+      <textarea class="ask3-textarea" id="ask-q1" placeholder="e.g. We want to become the leading youth employment organisation in the region — a place where staff are empowered, programs are evidence-based, and funders trust us completely…">${S.askQ1}</textarea>
+    </div>
+
+    <div class="ask3-question">
+      <div class="ask3-q-label">
+        <div class="ask3-q-num">2</div>
+        <div>
+          <div class="ask3-q-text">What is currently holding you back?</div>
+          <div class="ask3-q-hint">Be specific — the real friction, the recurring problem, what keeps you up at night.</div>
+        </div>
+      </div>
+      <textarea class="ask3-textarea" id="ask-q2" placeholder="e.g. Our board is disengaged and can't make decisions. Our middle managers were promoted for technical skills but don't know how to manage people. We have no MEL system and funders are starting to ask hard questions…">${S.askQ2}</textarea>
+    </div>
+
+    <div class="ask3-question">
+      <div class="ask3-q-label">
+        <div class="ask3-q-num">3</div>
+        <div>
+          <div class="ask3-q-text">Of those things holding you back, what is your top priority to work on right now?</div>
+          <div class="ask3-q-hint">If you could only fix one thing in the next quarter, what would move the needle most?</div>
+        </div>
+      </div>
+      <textarea class="ask3-textarea" id="ask-q3" placeholder="e.g. The management problem is the most urgent — it's causing turnover and killing morale. Everything else follows from that…">${S.askQ3}</textarea>
+    </div>
+
+    <div class="btn-row" style="margin-top:8px">
+      <button class="btn btn-primary btn-lg" onclick="submitAsk()">Build my roadmap →</button>
+      <button class="btn btn-ghost" onclick="goIntro()">← Back</button>
+    </div>
+  </div>`);
+}
+
+function renderAskResults(){
+  const r = S.results;
+
+  const typeClass = t => t==='coaching' ? 'roadmap-type-coaching' : t==='training' ? 'roadmap-type-training' : 'roadmap-type-project';
+  const typeLabel = t => t==='coaching' ? '🧑‍💼 Coaching' : t==='training' ? '🎓 Training' : '📋 Project';
+
+  const stepsHtml = (r.roadmap||[]).map(step=>{
+    const svc = step.id ? services.find(s=>s.id===step.id) : null;
+    const name = step.name || (svc && svc.name) || 'Untitled';
+    const cat  = step.category || (svc && svc.category) || '';
+    const deliverables = step.deliverables || (svc && svc.deliverables) || '';
+    const s = cs(cat);
+    const styleVars = `--cc:${s.c};--cb:${s.b};--cborder:${s.bo};`;
+
+    return `<div class="roadmap-step" style="${styleVars}">
+      <div class="roadmap-dot">${step.step}</div>
+      <div class="roadmap-card">
+        <div class="roadmap-card-stripe"></div>
+        <div class="roadmap-card-body">
+          <div class="roadmap-card-meta">
+            <span class="roadmap-months">${step.months}</span>
+            <span class="cat-pill" style="${styleVars}"><span class="cat-dot"></span>${cat.split(',')[0].split(' & ')[0].trim()}</span>
+            <span class="roadmap-type-badge ${typeClass(step.type)}">${typeLabel(step.type)}</span>
+            ${step.is_custom ? '<span class="roadmap-custom-badge">✦ Custom</span>' : ''}
+            ${step.target ? `<span class="roadmap-target">For: ${step.target}</span>` : ''}
+          </div>
+          <div class="roadmap-name">${name}</div>
+          ${step.why ? `<div class="roadmap-why">${step.why}</div>` : ''}
+          ${deliverables ? `<div class="roadmap-deliverables"><b>Deliverables · </b>${deliverables}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  set(`<div class="fade-up roadmap-wrap">
+    <div style="margin-bottom:28px">
+      <div class="eyebrow">Your personalised roadmap · up to 18 months</div>
+      <h1 style="font-size:28px;font-weight:800;color:var(--gray-900);letter-spacing:-.03em;margin:6px 0 0">Here's your path forward.</h1>
+    </div>
+    <div class="roadmap-diagnosis">
+      <div class="roadmap-diag-label">Roadmap Overview</div>
+      <div class="roadmap-diag-text roadmap-overview-text">${(r.overview||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>').replace(/^(.)/,'<p>$1').replace(/(.)$/,'$1</p>')}</div>
+    </div>
+    ${r.prerequisites && r.prerequisites.length ? `<div class="prereq-callout">
+      <div class="prereq-label">⚑ Worth considering first</div>
+      ${r.prerequisites.map(p=>`<div class="prereq-item"><strong>${p.title}</strong> — ${p.detail}</div>`).join('')}
+    </div>` : ''}
+    <div class="roadmap-seq">
+      ${stepsHtml}
+    </div>
+    <div class="results-footer" style="margin-top:36px">
+      <button class="btn btn-ghost" onclick="showAsk()">← Revise my answers</button>
+      <button class="btn btn-ghost" onclick="goIntro()">← Home</button>
+    </div>
+  </div>`);
+}
+
+function renderBrowse(){
+  const MAX = 6;
+  let activeCat = 'all';
+  let searchQ = '';
+  const selected = new Set();
+
+  function filteredServices(){
+    return services.filter(s=>{
+      const catOk = activeCat==='all' || s.category===activeCat;
+      const q = searchQ.toLowerCase();
+      const searchOk = !q || s.name.toLowerCase().includes(q) || s.painPoint.toLowerCase().includes(q) || s.category.toLowerCase().includes(q);
+      return catOk && searchOk;
+    });
+  }
+
+  function countLabel(){ return selected.size===0 ? 'No projects selected yet' : `<span>${selected.size}</span> project${selected.size>1?'s':''} selected (max ${MAX})`; }
+
+  function render(){
+    const vis = filteredServices();
+    const allIds = new Set(services.map(s=>s.id));
+    const catCounts = {};
+    services.forEach(s=>{ catCounts[s.category]=(catCounts[s.category]||0)+1; });
+
+    const filterBtns = ['all',...ALL_CATS].map(cat=>{
+      const label = cat==='all' ? `All (${services.length})` : `${cat.split(',')[0].split(' & ')[0].trim()} (${catCounts[cat]||0})`;
+      return `<button class="filter-btn${activeCat===cat?' active':''}" onclick="browseCatFilter('${cat}')">${label}</button>`;
+    }).join('');
+
+    const cards = services.map(s=>{
+      const isSel = selected.has(s.id);
+      const visClass = (activeCat==='all' || s.category===activeCat) && (!searchQ || s.name.toLowerCase().includes(searchQ)||s.painPoint.toLowerCase().includes(searchQ)||s.category.toLowerCase().includes(searchQ)) ? '' : ' bc-hidden';
+      return `<div class="browse-card${isSel?' bc-selected':''}${visClass}" style="${cv(s.category)}" id="bc-${s.id}" onclick="browseToggle(${s.id})">
+        <div class="bc-check">${isSel?'✓':''}</div>
+        ${pill(s.category,true)}
+        <div class="bc-name">${s.name}</div>
+        <div class="bc-pain">"${s.painPoint}"</div>
+      </div>`;
+    }).join('');
+
+    set(`<div class="fade-up">
+      <div style="margin-bottom:24px">
+        <div class="eyebrow">Browse the catalogue</div>
+        <h2 style="font-size:26px;font-weight:800;color:var(--gray-900);letter-spacing:-.02em;margin:6px 0 6px">80 projects across 14 themes</h2>
+        <p style="font-size:14px;color:var(--gray-500)">Select up to 6 that resonate — then generate your personalised roadmap.</p>
+      </div>
+      <div class="browse-toolbar">
+        <input class="browse-search" id="browse-search" type="text" placeholder="Search by keyword, theme, or challenge…" value="${searchQ}" oninput="browseSearch(this.value)">
+      </div>
+      <div class="filter-scroll">${filterBtns}</div>
+      <div class="browse-grid" id="browse-grid">${cards}</div>
+      <div class="browse-sticky">
+        <div class="browse-bar">
+          <div class="browse-count">${countLabel()}</div>
+          <div class="btn-row">
+            <button class="btn btn-ghost" onclick="goIntro()">← Back</button>
+            <button class="btn btn-primary" ${selected.size===0?'disabled style="opacity:.4;cursor:not-allowed"':''} onclick="submitBrowse()">Generate my roadmap →</button>
+          </div>
+        </div>
+      </div>
+    </div>`);
+
+    // Expose handlers on window so inline onclick works
+    window.browseCatFilter = (cat)=>{ activeCat=cat; render(); };
+    window.browseSearch = (v)=>{ searchQ=v.toLowerCase(); render(); };
+    window.browseToggle = (id)=>{
+      if(selected.has(id)){ selected.delete(id); }
+      else if(selected.size<MAX){ selected.add(id); }
+      render();
+    };
+    window.submitBrowse = async ()=>{
+      if(!selected.size) return;
+      const sel = services.filter(s=>selected.has(s.id));
+      S.symptoms = sel;
+      renderLoading('Analysing your selection…', 'Reading across your choices and matching projects.');
+      try {
+        const r = await genBrowseReport(sel);
+        S.results = r;
+        S.results._browseSelected = sel;
+        renderBrowseResults();
+      } catch(e){
+        renderError(`Could not generate report. <code>${e.message}</code>`);
+      }
+    };
+  }
+  render();
+}
+
+function renderBrowseResults(){
+  const r = S.results;
+  const sel = r._browseSelected || [];
+
+  const selCards = sel.map(s=>{
+    const note = (r.notes||[]).find(n=>n.id===s.id);
+    return projCard(s,'','',note?note.why:'');
+  }).join('');
+
+  const synthHtml = r.synthesis ? `
+    <div class="section-title">✦ Our Recommendation</div>
+    <div style="margin-bottom:8px;font-size:13px;color:var(--gray-500)">Because several of your selections overlap, we think this combined engagement would be more powerful:</div>
+    ${projCard({...r.synthesis,id:null},'','',r.synthesis.why,true)}
+  ` : '';
+
+  set(`<div class="fade-up">
+    <div class="results-hero">
+      <div class="eyebrow">Your Selection · Organisational Roadmap</div>
+      <h1 class="results-title">Here's what your choices reveal.</h1>
+      <div class="diagnosis">
+        <div class="diag-label">Reading across your selection</div>
+        <div class="diag-text">${(r.overview||'').replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>').replace(/^(.)/,'<p>$1').replace(/(.)$/,'$1</p>')}</div>
+      </div>
+    </div>
+    ${synthHtml}
+    <div class="section-title">Your Selected Projects</div>
+    ${selCards}
+    <div class="results-footer">
+      <button class="btn btn-primary" onclick="showBrowse()">← Back to catalogue</button>
+      <button class="btn btn-ghost" onclick="startGame()">Try the game</button>
+      <button class="btn btn-ghost" onclick="goIntro()">← Home</button>
+    </div>
+  </div>`);
+}
+
+function renderError(msg){
+  set(`<div class="fade-up" style="max-width:560px;margin:0 auto">
+    <div class="error-box">
+      <h2>Something went wrong</h2>
+      <p>${msg}</p>
+      <div class="btn-row" style="justify-content:center;margin-top:20px">
+        <button class="btn btn-ghost" onclick="goIntro()">← Home</button>
+      </div>
+    </div>
+  </div>`);
+}
+
+/* ─── ACTIONS ─────────────────────────────────────────────────────────────*/
+function goIntro(){ S.phase='intro'; renderIntro(); }
+function showAsk(){ S.askText=''; S.askQ1=''; S.askQ2=''; S.askQ3=''; S.prereqQuestions=[]; S.prereqAnswers={}; S.phase='ask'; renderAsk(); }
+function showBrowse(){ S.phase='browse'; renderBrowse(); }
+
+function startGame(){
+  S = {
+    phase:'game', round:1, turn:0,
+    currentCards:[], groupScores:{}, topGroups:[], r2Symptoms:[], skips:0,
+    symptoms:[], r2Symptoms:[], usedIds:new Set(), pickedId:null,
+    results:null, askText:'',
+  };
+  S.currentCards = buildR1Cards();
+  renderGame();
+}
+
+function startR2(){
+  S.round=2; S.turn=0;
+  S.currentCards = buildR2Cards();
+  S.phase='game';
+  renderGame();
+}
+
+async function pickCard(id){
+  if(S.pickedId) return;
+  const svc = services.find(s=>s.id===id);
+  if(!svc) return;
+
+  S.pickedId = id;
+  renderGame();
+  await delay(520);
+
+  const sg = sgOf(svc);
+  S.groupScores[sg] = (S.groupScores[sg]||0)+1;
+  S.symptoms.push(svc);
+  if(S.round===2) S.r2Symptoms.push(svc);
+  S.usedIds.add(id);
+  S.pickedId = null;
+
+  if(S.round===1){
+    const next = S.turn+1;
+    if(next>=R1_TURNS){
+      S.topGroups = getTop2Groups();
+      S.phase = 'transition';
+      renderTransition();
+    } else {
+      S.turn = next;
+      S.currentCards = buildR1Cards();
+      renderGame();
+    }
+  } else {
+    const next = S.turn+1;
+    if(next>=3){
+      renderLoading();
+      try {
+        S.results = await genRoadmap();
+        renderResults();
+      } catch(e){
+        console.error(e);
+        S.results = fallbackRoadmap();
+        renderResults();
+      }
+    } else {
+      S.turn = next;
+      S.currentCards = buildR2Cards();
+      renderGame();
+    }
+  }
+}
+
+async function skipTurn(){
+  if(S.pickedId) return; // mid-animation guard
+  S.skips = (S.skips||0) + 1;
+
+  if(S.round===1){
+    const next = S.turn+1;
+    if(next>=R1_TURNS){
+      // End of R1 — check if we have enough signal
+      const totalPicks = S.symptoms.length;
+      if(totalPicks < 2){
+        // Too few picks — show nudge before transition
+        S.topGroups = getTop2Groups();
+        renderWeakSignalNudge();
+      } else {
+        S.topGroups = getTop2Groups();
+        S.phase = 'transition';
+        renderTransition();
+      }
+    } else {
+      S.turn = next;
+      S.currentCards = buildR1Cards();
+      renderGame();
+    }
+  } else {
+    const next = S.turn+1;
+    if(next>=R2_TURNS){
+      renderLoading();
+      try {
+        S.results = await genRoadmap();
+        renderResults();
+      } catch(e){
+        console.error(e);
+        S.results = fallbackRoadmap();
+        renderResults();
+      }
+    } else {
+      S.turn = next;
+      S.currentCards = buildR2Cards();
+      renderGame();
+    }
+  }
+}
+
+function renderWeakSignalNudge(){
+  set(`<div class="fade-up transition-wrap">
+    <div class="trans-box">
+      <div class="eyebrow">Just checking in</div>
+      <h2 class="trans-title" style="font-size:22px">You skipped most rounds.</h2>
+      <p class="trans-sub">The results will be quite broad with only ${S.symptoms.length} selection${S.symptoms.length===1?'':'s'}. You might get more value by going back and picking the challenge that fits <em>least badly</em> — even if it’s not a perfect match.</p>
+      <div class="btn-row" style="justify-content:center;gap:12px;margin-top:8px">
+        <button class="btn btn-ghost" onclick="startGame()">Start again</button>
+        <button class="btn btn-primary" onclick="()=>{ S.phase='transition'; renderTransition(); }">Continue anyway →</button>
+      </div>
+    </div>
+  </div>`);
+  // fix the continue button — inline onclick can't call multi-statement easily
+  document.querySelector('.trans-box .btn-primary').onclick = ()=>{
+    S.phase='transition'; renderTransition();
+  };
+}
+
+async function submitAsk(){
+  const q1 = document.getElementById('ask-q1')?.value?.trim() || '';
+  const q2 = document.getElementById('ask-q2')?.value?.trim() || '';
+  const q3 = document.getElementById('ask-q3')?.value?.trim() || '';
+  if(q1.length < 10){ document.getElementById('ask-q1')?.focus(); return; }
+  if(q2.length < 10){ document.getElementById('ask-q2')?.focus(); return; }
+  if(q3.length < 10){ document.getElementById('ask-q3')?.focus(); return; }
+  S.askQ1 = q1; S.askQ2 = q2; S.askQ3 = q3;
+  S.askText = `${q1}\n${q2}\n${q3}`;
+  S.prereqAnswers = {};
+
+  renderLoading('Reviewing your answers…');
+  try {
+    const check = await genPrereqCheck(q1, q2, q3);
+    if(check.needs_followup && check.questions && check.questions.length > 0){
+      S.prereqQuestions = check.questions;
+      renderPrereqQuestions();
+    } else {
+      renderLoading('Building your personalised roadmap…');
+      S.results = await genAskResponse(q1, q2, q3, {});
+      renderAskResults();
+    }
+  } catch(e){
+    console.error(e);
+    renderError(`Couldn't connect to the AI. Check your network and API key.<br><code>${e.message}</code>`);
+  }
+}
+
+function renderPrereqQuestions(){
+  const qs = S.prereqQuestions || [];
+  const qsHtml = qs.map((q, qi) => {
+    const optsHtml = q.options.map(opt =>
+      `<button class="prereq-opt" data-qid="${q.id}" data-val="${opt}" onclick="prereqPick(${qi},'${opt.replace(/'/g,"\\'")}',this)">${opt}</button>`
+    ).join('');
+    return `<div class="prereq-q-block" id="prereq-block-${qi}">
+      <div class="prereq-q-text">${q.text}</div>
+      <div class="prereq-q-why">${q.why}</div>
+      <div class="prereq-options">${optsHtml}</div>
+    </div>`;
+  }).join('');
+
+  set(`<div class="fade-up prereq-screen-wrap">
+    <div class="prereq-screen-header">
+      <div class="eyebrow">Ask Claude · One more step</div>
+      <h2 class="prereq-screen-title">A few quick questions</h2>
+      <p class="prereq-screen-sub">Your answers flagged some areas where a little context will make your roadmap much more useful. These will take 30 seconds.</p>
+    </div>
+    ${qsHtml}
+    <div class="btn-row" style="margin-top:24px">
+      <button class="btn btn-primary btn-lg" id="prereq-submit" onclick="submitWithPrereqs()" disabled style="opacity:.4;cursor:not-allowed">Build my roadmap →</button>
+      <button class="btn btn-ghost" onclick="renderAsk()">← Back</button>
+    </div>
+  </div>`);
+}
+
+window.prereqPick = function(qi, val, el){
+  const block = document.getElementById(`prereq-block-${qi}`);
+  block.querySelectorAll('.prereq-opt').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  const qid = S.prereqQuestions[qi].id;
+  const questionText = S.prereqQuestions[qi].text;
+  S.prereqAnswers[questionText] = val;
+
+  // Enable submit when all questions have an answer
+  const total = S.prereqQuestions.length;
+  const answered = Object.keys(S.prereqAnswers).length;
+  const btn = document.getElementById('prereq-submit');
+  if(btn){
+    btn.disabled = answered < total;
+    btn.style.opacity = answered < total ? '.4' : '1';
+    btn.style.cursor = answered < total ? 'not-allowed' : 'pointer';
+  }
+};
+
+async function submitWithPrereqs(){
+  renderLoading('Building your personalised roadmap…');
+  try {
+    S.results = await genAskResponse(S.askQ1, S.askQ2, S.askQ3, S.prereqAnswers);
+    renderAskResults();
+  } catch(e){
+    console.error(e);
+    renderError(`Couldn't connect to the AI. Check your network and API key.<br><code>${e.message}</code>`);
+  }
+}
+
+function fallbackRoadmap(){
+  const cats=[...new Set(S.symptoms.map(s=>s.category))];
+  const picks=cats.flatMap(cat=>services.filter(s=>s.category===cat).slice(0,1)).slice(0,3);
+  return {
+    overview:'Your selections reveal challenges across multiple areas of organisational health. A phased approach — starting with strategic clarity, then strengthening systems and people — is the most effective path forward. The projects below are sequenced to build on each other, with space between each phase to consolidate and embed the work.',
+    roadmap:picks.map((p,i)=>({id:p.id,priority:i+1,why:`Directly addresses the challenges you identified in ${p.category}.`,timeline:['Months 1–3','Months 5–8','Months 10–13'][i]}))
+  };
+}
+
+/* ─── CSV LOADING ─────────────────────────────────────────────────────────*/
+
+
+
+function showFeedback(){ S.phase='feedback'; renderFeedback(); }
+function showContact(){ S.phase='contact'; renderContact(); }
+
+function renderFeedback(){
+  set(`<div class="fade-up feedback-wrap">
+    <div class="feedback-box">
+      <div class="eyebrow">Compass · Nonprofit Builder</div>
+      <h2 class="feedback-title">Share your feedback</h2>
+      <p class="feedback-sub">Tell us what worked, what didn't, and what would make Compass more useful for you and your team.</p>
+      <form id="feedback-form">
+        <input type="hidden" name="access_key" value="0cb697bf-313d-40d3-b626-92957b841922">
+        <input type="hidden" name="subject" value="Compass App Feedback — Nonprofit Builder">
+        <input type="hidden" name="from_name" value="Compass App">
+        <div class="form-group">
+          <label class="form-label" for="fb-name">Your name</label>
+          <input class="form-input" id="fb-name" name="name" type="text" placeholder="e.g. Maria Santos" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fb-email">Email <span style="color:var(--gray-400);font-weight:400">(optional — only if you'd like a reply)</span></label>
+          <input class="form-input" id="fb-email" name="email" type="email" placeholder="you@organisation.org">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fb-pathway">Which pathway did you use?</label>
+          <select class="form-input form-select" id="fb-pathway" name="pathway">
+            <option value="">— Select —</option>
+            <option>Play a Five-Minute Game</option>
+            <option>Ask Claude — Three Questions</option>
+            <option>Browse &amp; Select</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fb-rating">Overall experience</label>
+          <select class="form-input form-select" id="fb-rating" name="rating" required>
+            <option value="">— Select —</option>
+            <option>⭐⭐⭐⭐⭐ Excellent</option>
+            <option>⭐⭐⭐⭐ Good</option>
+            <option>⭐⭐⭐ OK</option>
+            <option>⭐⭐ Needs work</option>
+            <option>⭐ Not useful</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fb-message">Your feedback</label>
+          <textarea class="form-input form-textarea" id="fb-message" name="message" placeholder="What worked well? What would make this more useful? What would you change?" required></textarea>
+        </div>
+        <div id="feedback-success" style="display:none" class="form-success">
+          ✓ Thank you — your feedback has been sent!
+          <p>We read every response and use it to improve Compass.</p>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <button class="btn btn-primary" type="submit" id="fb-submit">Send feedback →</button>
+          <button class="btn btn-ghost" type="button" onclick="goIntro()">← Back</button>
+        </div>
+      </form>
+    </div>
+  </div>`);
+  setupForm('feedback-form','fb-submit','feedback-success');
+}
+
+function renderContact(){
+  set(`<div class="fade-up feedback-wrap">
+    <div class="feedback-box">
+      <div class="eyebrow">Compass · Nonprofit Builder</div>
+      <h2 class="feedback-title">Talk to the NPB team</h2>
+      <p class="feedback-sub">Whether you're new to organisational development and want to chat through your needs, or very experienced and looking for something custom — we'd love to hear from you.</p>
+      <form id="contact-form">
+        <input type="hidden" name="access_key" value="0cb697bf-313d-40d3-b626-92957b841922">
+        <input type="hidden" name="subject" value="Compass App — Talk to a Human Request">
+        <input type="hidden" name="from_name" value="Compass App">
+        <div class="form-group">
+          <label class="form-label" for="ct-name">Your name</label>
+          <input class="form-input" id="ct-name" name="name" type="text" placeholder="e.g. Maria Santos" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-email">Email</label>
+          <input class="form-input" id="ct-email" name="email" type="email" placeholder="you@organisation.org" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-org">Organisation</label>
+          <input class="form-input" id="ct-org" name="organisation" type="text" placeholder="e.g. Médecins Sans Frontières">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-experience">Your experience with organisational development</label>
+          <select class="form-input form-select" id="ct-experience" name="experience">
+            <option value="">— Select —</option>
+            <option>Just getting started</option>
+            <option>Some experience</option>
+            <option>Experienced — looking for something specific</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-message">What's on your mind?</label>
+          <textarea class="form-input form-textarea" id="ct-message" name="message" placeholder="Tell us a little about your organisation and what you're trying to work on…" required></textarea>
+        </div>
+        <div id="contact-success" style="display:none" class="form-success">
+          ✓ Message sent! Someone from the NPB team will be in touch soon.
+          <p>We typically respond within 1–2 business days.</p>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <button class="btn btn-primary" type="submit" id="ct-submit">Send message →</button>
+          <button class="btn btn-ghost" type="button" onclick="goIntro()">← Back</button>
+        </div>
+      </form>
+    </div>
+  </div>`);
+  setupForm('contact-form','ct-submit','contact-success');
+}
+
+function setupForm(formId, btnId, successId){
+  const form = document.getElementById(formId);
+  const btn  = document.getElementById(btnId);
+  const succ = document.getElementById(successId);
+  if(!form) return;
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const formData = new FormData(form);
+    const orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      alert('Contact form is disabled on this CleantechHUB self-hosted copy.'); return;
+      const data = await res.json();
+      if(res.ok){
+        form.style.display='none';
+        succ.style.display='block';
+      } else {
+        alert('Error: ' + (data.message||'Unknown error'));
+        btn.textContent = orig;
+        btn.disabled = false;
+      }
+    } catch(err){
+      alert('Something went wrong. Please try again.');
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
+  });
+}
+
+function init(){
+  services = SERVICES_DATA;
+  renderIntro();
+}
+
+function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+init();
+</script>
+</body>
+</html>
