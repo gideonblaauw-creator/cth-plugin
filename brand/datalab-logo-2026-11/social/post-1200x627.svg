@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 627" width="1200" height="627" role="img" aria-label="CTH Data Lab soft launch social landscape">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap');
+      .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #0C498A; }
+      .sub { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #669348; }
+      .body { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #0C498A; }
+      .tag { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #669348; }
+      .slot { font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 11px; fill: #0C498A; }
+    </style>
+  </defs>
+  <rect width="1200" height="627" fill="#B2EEFA"/>
+  <rect x="0" y="0" width="420" height="627" fill="#0C498A"/>
+  <!-- Option A mark on left panel -->
+  <g transform="translate(64, 200) scale(1.2)">
+    <rect x="0" y="0" width="22" height="22" rx="4" fill="#B2EEFA"/>
+    <rect x="28" y="0" width="22" height="22" rx="4" fill="#FFFFFF" opacity="0.25"/>
+    <rect x="56" y="0" width="22" height="22" rx="4" fill="#FFFFFF" opacity="0.25"/>
+    <rect x="84" y="0" width="22" height="22" rx="4" fill="#69B5FA"/>
+    <rect x="28" y="28" width="22" height="22" rx="4" fill="#9DC384"/>
+    <rect x="56" y="56" width="22" height="22" rx="4" fill="#B2EEFA"/>
+  </g>
+  <text font-family="Titillium Web, sans-serif" font-weight="700" font-size="36" fill="#FFFFFF" x="64" y="120">Data Lab</text>
+  <text class="head" font-size="56" x="460" y="120">CTH Data Lab</text>
+  <text class="sub" font-size="32" x="460" y="175">Soft launch · Tue 24 Nov 2026</text>
+  <text class="body" font-size="26" x="460" y="240">Earth Observatory</text>
+  <text class="body" font-size="22" x="460" y="290">Data Lab sandboxes · Data Governance</text>
+  <text class="body" font-size="20" x="460" y="340">Time: PENDIENTE · Venue: PENDIENTE</text>
+  <text class="tag" font-size="22" x="460" y="400">Inspira. Actúa. Transforma.</text>
+  <rect x="460" y="440" width="180" height="48" rx="6" fill="#FFFFFF" opacity="0.5" stroke="#0C498A" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text class="body" font-size="12" x="468" y="470">CTH logo (official asset) PENDIENTE</text>
+  <rect x="460" y="510" width="200" height="52" rx="6" fill="#FFFFFF" stroke="#0C498A" stroke-width="1"/>
+  <text class="slot" x="472" y="542">Externado logo PENDIENTE</text>
+  <rect x="680" y="510" width="200" height="52" rx="6" fill="#FFFFFF" stroke="#0C498A" stroke-width="1"/>
+  <text class="slot" x="692" y="542">Partner logo PENDIENTE</text>
+</svg>
