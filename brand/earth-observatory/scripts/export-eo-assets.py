@@ -65,7 +65,7 @@ def main() -> None:
         browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
         page = browser.new_page()
 
-        pdf_portrait(page, brand_book, OUT / "observatorio-de-la-tierra-brand-book-v1.pdf")
+        pdf_portrait(page, brand_book, OUT / "observatorio-de-la-tierra-brand-book-v2.pdf")
         pdf_portrait(page, agenda, OUT / "agenda-24nov-eo.pdf")
         pdf_portrait(page, ROOT / "applications" / "one-pager.html", OUT / "one-pager.pdf")
         slide = ROOT / "applications" / "slide-master" / "index.html"

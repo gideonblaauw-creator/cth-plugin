@@ -1,12 +1,19 @@
 :root {
+  /* Dirección 3 · Tierra natural */
+  --eo-sand: #d4c4a8;
+  --eo-clay: #a67c52;
+  --eo-olive: #6b7b4c;
   --eo-blue: #0c498a;
-  --eo-cyan: #b2eefa;
-  --eo-lgreen: #9dc384;
-  --eo-green: #669348;
-  --eo-sky: #69b5fa;
   --eo-white: #ffffff;
-  --eo-font: "Open Sans", "PT Sans", system-ui, sans-serif;
-  --pdf-dl-bg: var(--eo-green);
-  --pdf-dl-focus: var(--eo-cyan);
+  --eo-ink: #1a1a1a;
+  --eo-font: "Open Sans", system-ui, sans-serif;
+  --eo-display: "Lora", Georgia, serif;
+  /* Legacy aliases (maps for apps that still reference) */
+  --eo-green: var(--eo-olive);
+  --eo-cyan: var(--eo-sand);
+  --eo-lgreen: var(--eo-sand);
+  --eo-sky: var(--eo-blue);
+  --pdf-dl-bg: var(--eo-olive);
+  --pdf-dl-focus: var(--eo-clay);
   --pdf-dl-text: #ffffff;
 }

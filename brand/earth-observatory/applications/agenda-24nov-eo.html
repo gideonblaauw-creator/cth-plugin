@@ -6,17 +6,17 @@
   <title>Datatón · Lanzamiento suave del Observatorio de la Tierra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/pdf-download.css"/>
   <style>
     :root {
+      --sand: #D4C4A8;
+      --clay: #A67C52;
+      --olive: #6B7B4C;
       --blue: #0C498A;
-      --cyan: #B2EEFA;
-      --lgreen: #9DC384;
-      --green: #669348;
-      --sky: #69B5FA;
       --white: #fff;
-      --font: 'Open Sans', 'PT Sans', sans-serif;
+      --font: 'Open Sans', sans-serif;
+      --display: 'Lora', Georgia, serif;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -24,7 +24,7 @@
       padding: 0;
       font-family: var(--font);
       color: var(--blue);
-      background: var(--white);
+      background: var(--sand);
       -webkit-font-smoothing: antialiased;
     }
     .sheet {
@@ -36,40 +36,36 @@
       flex-direction: column;
       overflow: hidden;
       position: relative;
-      background: var(--white);
+      background: var(--sand);
+    }
+    .block-tr {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 38%;
+      height: 32%;
+      background: var(--olive);
+      z-index: 0;
+    }
+    .block-bl {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 48%;
+      height: 18%;
+      background: var(--blue);
+      z-index: 0;
     }
     .hero {
       position: relative;
-      background: var(--blue);
+      background: var(--clay);
       color: #fff;
-      padding: 9mm 14mm 8mm;
-      overflow: hidden;
+      padding: 8mm 14mm 7mm;
+      z-index: 1;
     }
-    .hero-block {
-      position: absolute;
-      right: -48mm;
-      top: -22mm;
-      width: 95mm;
-      height: 95mm;
-      background: var(--green);
-      transform: rotate(18deg);
-      opacity: 0.88;
-      border-radius: 10mm;
-      z-index: 0;
-    }
-    .hero-block::after {
-      content: "";
-      position: absolute;
-      left: -26mm;
-      bottom: -12mm;
-      width: 52mm;
-      height: 52mm;
-      background: var(--sky);
-      border-radius: 8mm;
-    }
-    .hero-inner { position: relative; z-index: 1; }
+    .hero-inner { position: relative; z-index: 2; }
     .hero-logos img.eo-rev {
-      height: 12mm;
+      height: 11mm;
       width: auto;
       display: block;
     }
@@ -78,48 +74,52 @@
       letter-spacing: 0.14em;
       font-weight: 700;
       font-size: 7.5pt;
-      color: var(--cyan);
-      margin: 6mm 0 3mm;
+      color: var(--sand);
+      margin: 5mm 0 2.5mm;
     }
     h1 {
-      margin: 0 0 3mm;
-      font-size: 22pt;
-      font-weight: 800;
+      margin: 0 0 2.5mm;
+      font-family: var(--display);
+      font-size: 21pt;
+      font-weight: 700;
       line-height: 1.12;
       max-width: 165mm;
     }
     .subtitle {
       margin: 0;
-      font-size: 10.5pt;
+      font-size: 9.5pt;
       font-weight: 600;
       line-height: 1.35;
-      color: var(--cyan);
+      color: var(--sand);
       max-width: 168mm;
     }
     .main {
       flex: 1;
-      padding: 4mm 14mm 2mm;
+      padding: 3.5mm 14mm 2mm;
       display: flex;
       flex-direction: column;
-      gap: 2mm;
+      gap: 1.5mm;
+      position: relative;
+      z-index: 1;
     }
     .agenda-head {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 6mm;
-      border-bottom: 3px solid var(--cyan);
-      padding-bottom: 2.5mm;
+      border-bottom: 3px solid var(--olive);
+      padding-bottom: 2mm;
     }
     .agenda-head h2 {
       margin: 0;
-      font-size: 13pt;
-      font-weight: 800;
+      font-family: var(--display);
+      font-size: 12.5pt;
+      font-weight: 700;
     }
     .agenda-head .note {
-      font-size: 8pt;
+      font-size: 7.5pt;
       font-weight: 700;
-      color: var(--green);
+      color: var(--olive);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
@@ -129,47 +129,50 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 1mm;
+      gap: 0.6mm;
     }
     .tl-row {
       display: grid;
       grid-template-columns: 28mm 1fr;
       gap: 4mm;
       align-items: start;
-      padding: 0.9mm 0;
-      border-bottom: 1px solid rgba(12, 73, 138, 0.12);
+      padding: 0.75mm 0;
+      border-bottom: 1px solid rgba(12, 73, 138, 0.1);
     }
     .tl-row:last-child { border-bottom: 0; }
     .tl-time {
       font-size: 8.5pt;
       font-weight: 800;
-      color: var(--green);
+      color: var(--olive);
       line-height: 1.25;
     }
     .tl-text {
       font-size: 8.5pt;
       font-weight: 600;
-      line-height: 1.24;
+      line-height: 1.22;
     }
     .footer {
       margin-top: auto;
       background: var(--blue);
       color: #fff;
-      padding: 4mm 14mm 5mm;
+      padding: 3.5mm 14mm 4.5mm;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8mm;
+      position: relative;
+      z-index: 1;
     }
     .tagline {
-      font-weight: 800;
-      font-size: 13pt;
-      color: var(--cyan);
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 12pt;
+      color: var(--sand);
       letter-spacing: 0.02em;
       margin: 0;
     }
     .footer img.eo-rev {
-      height: 10mm;
+      height: 9mm;
       width: auto;
       display: block;
     }
@@ -186,8 +189,9 @@
 </head>
 <body>
   <article class="sheet" role="document">
+    <div class="block-tr" aria-hidden="true"></div>
+    <div class="block-bl" aria-hidden="true"></div>
     <header class="hero">
-      <div class="hero-block" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-logos">
           <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra"/>
@@ -249,7 +253,7 @@
         </li>
         <li class="tl-row avoid-break">
           <span class="tl-time">16:00</span>
-          <span class="tl-text">Pitches finales</span>
+          <span class="tl-text">Pitches finales: 6 equipos preseleccionados por los monitores</span>
         </li>
         <li class="tl-row avoid-break">
           <span class="tl-time">16:40</span>

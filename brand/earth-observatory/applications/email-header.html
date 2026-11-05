@@ -2,12 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet"/>
   <style>
     body { margin: 0; }
     .banner {
       width: 600px;
       height: 200px;
-      background: linear-gradient(120deg, #0C498A, #669348 60%, #69B5FA);
+      background: #A67C52;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -15,19 +16,26 @@
       box-sizing: border-box;
       font-family: 'Open Sans', Arial, sans-serif;
       color: #fff;
+      position: relative;
+      overflow: hidden;
     }
+    .block { position: absolute; top: 0; right: 0; width: 120px; height: 100%; background: #6B7B4C; }
+    .inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; width: 100%; }
     img { height: 56px; width: auto; }
-    .tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #B2EEFA; font-weight: 700; }
-    h1 { margin: 6px 0 0; font-size: 22px; line-height: 1.2; }
+    .tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #D4C4A8; font-weight: 700; }
+    h1 { margin: 6px 0 0; font-size: 22px; line-height: 1.2; font-family: 'Lora', Georgia, serif; font-weight: 700; }
   </style>
 </head>
 <body>
   <div class="banner" role="img" aria-label="Encabezado correo Observatorio de la Tierra">
-    <div>
-      <p class="tag">Observatorio de la Tierra</p>
-      <h1>Datalab · datos para el territorio</h1>
+    <div class="block" aria-hidden="true"></div>
+    <div class="inner">
+      <div>
+        <p class="tag">Observatorio de la Tierra</p>
+        <h1>Datalab · datos para el territorio</h1>
+      </div>
+      <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Co-brand EO"/>
     </div>
-    <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Co-brand EO"/>
   </div>
 </body>
 </html>

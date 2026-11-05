@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><style>
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Open Sans',sans-serif;background:#0C498A}
-.frame{width:1080px;height:1920px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0C498A 0%,#669348 55%,#69B5FA 100%);color:#fff}
-.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(178,238,250,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(178,238,250,.12) 1px,transparent 1px);background-size:32px 32px;opacity:.6}
-.safe{position:absolute;inset:64px;display:flex;flex-direction:column;justify-content:space-between}
-.logo{height:86px;width:auto}
-.tag{font-size:19px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#B2EEFA}
-.title{font-size:48px;font-weight:800;line-height:1.1;max-width:92%}
-.meta{font-size:15px;font-weight:600;color:#B2EEFA}
-.zone{position:absolute;border:2px dashed rgba(178,238,250,.45);border-radius:8px;pointer-events:none}
-
+<html lang="es"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+<style>
+@import url('../../shared/eo-social-tierra.css');
+.frame { width: 1080px; height: 1920px; }
+.safe { inset: 37px; }
+.logo { height: 66px; }
+.tag { font-size: 19px; }
+.title { font-size: 38px; }
+.meta { font-size: 15px; }
 </style></head><body>
 <div class="frame" role="img" aria-label="Story / Reel 1080×1920">
-  <div class="grid" aria-hidden="true"></div>
-  <div class="zone" style="inset:64px" aria-hidden="true"></div>
+  <div class="block-tr" aria-hidden="true"></div>
+  <div class="block-bl" aria-hidden="true"></div>
+  <div class="zone" style="inset:37px" aria-hidden="true"></div>
   <div class="safe">
     <div>
-      <img class="logo" src="../../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Observatorio de la Tierra"/>
-      <p class="tag" style="margin-top:32px">Story / Reel</p>
+      <img class="logo" src="../../final/cobrand/eo-cobrand-blue-transparent.png" alt="Observatorio de la Tierra"/>
+      <p class="tag" style="margin-top:18px">Story / Reel</p>
     </div>
     <div>
       <p class="title">Datos abiertos para el territorio colombiano</p>
