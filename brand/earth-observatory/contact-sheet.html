@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    @import url('shared/eo-tokens.css');
+    body { font-family: var(--eo-font); margin: 24px; color: var(--eo-blue-title); background: var(--eo-row-alt); }
+    h1 { font-family: var(--eo-display); font-size: 22px; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    figure { margin: 0; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(30, 78, 121, 0.08); }
+    figure img { width: 100%; height: auto; display: block; border: 1px solid #e0e8f0; }
+    figcaption { font-size: 11px; font-weight: 700; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Observatorio de la Tierra · Hoja de contacto · v3</h1>
+  <div class="grid" id="grid"></div>
+  <script>
+    const items = [
+      ["LinkedIn 1200×1200", "out/tpl-linkedin-1200x1200.png"],
+      ["LinkedIn 1200×627", "out/tpl-linkedin-1200x627.png"],
+      ["LinkedIn carrusel 1080×1350", "out/tpl-linkedin-carousel-1080x1350.png"],
+      ["Instagram 1080×1080", "out/tpl-instagram-1080x1080.png"],
+      ["Instagram 1080×1350", "out/tpl-instagram-1080x1350.png"],
+      ["Story / Reel 1080×1920", "out/tpl-story-1080x1920.png"],
+      ["X 1600×900", "out/tpl-x-1600x900.png"],
+      ["WhatsApp 1080×1080", "out/tpl-whatsapp-1080x1080.png"],
+      ["YouTube 1280×720", "out/tpl-youtube-1280x720.png"],
+      ["Banner evento 1584×396", "out/tpl-event-banner-1584x396.png"],
+      ["One-pager A4", "out/tpl-one-pager.png"],
+      ["Email header", "out/tpl-email-header.png"],
+      ["Agenda 24 nov", "out/agenda-24nov-eo.png"],
+    ];
+    const grid = document.getElementById("grid");
+    for (const [label, src] of items) {
+      const fig = document.createElement("figure");
+      fig.innerHTML = `<img src="${src}" alt="${label}"/><figcaption>${label}</figcaption>`;
+      grid.appendChild(fig);
+    }
+  </script>
+</body>
+</html>

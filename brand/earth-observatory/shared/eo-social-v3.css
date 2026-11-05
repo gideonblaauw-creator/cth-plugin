@@ -1,0 +1,97 @@
+/* v3 social / deck frames — deep blue + orbit (Propuesta técnica basis) */
+@import url("eo-tokens.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--eo-font);
+  background: #1a3550;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  color: var(--eo-white);
+  background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
+}
+
+.frame-inner {
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background-image: url("orbit-graphic.svg");
+  background-repeat: no-repeat;
+  background-position: 92% 42%;
+  background-size: 55% auto;
+  pointer-events: none;
+}
+
+.safe {
+  position: absolute;
+  inset: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.logo {
+  height: 52px;
+  width: auto;
+  max-width: 90%;
+}
+
+.tag {
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.title {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--eo-white);
+  max-width: 92%;
+}
+
+.title-accent {
+  color: var(--eo-green-tagline);
+}
+
+.meta {
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.zone {
+  position: absolute;
+  border: 2px dashed rgba(141, 198, 63, 0.45);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.frame-light {
+  background: var(--eo-white);
+  color: var(--eo-ink);
+}
+
+.frame-light .title {
+  color: var(--eo-blue-title);
+}
+
+.frame-light .tag {
+  color: var(--eo-green-section);
+}
+
+.frame-light .meta {
+  color: rgba(33, 37, 41, 0.72);
+}

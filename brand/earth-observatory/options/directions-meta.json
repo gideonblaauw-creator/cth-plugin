@@ -1,0 +1,41 @@
+{
+  "copy": "Datos abiertos para el territorio colombiano",
+  "directions": [
+    {
+      "id": 1,
+      "slug": "editorial-blanco",
+      "name": "Editorial blanco",
+      "palette": ["#FAFAF8", "#0C498A", "#669348", "#1A1A1A"],
+      "fonts": "Open Sans + Source Serif 4"
+    },
+    {
+      "id": 2,
+      "slug": "cartografico",
+      "name": "Cartográfico",
+      "palette": ["#EDEAE4", "#5C5348", "#669348", "#0C498A"],
+      "fonts": "Open Sans + DM Serif Display"
+    },
+    {
+      "id": 3,
+      "slug": "tierra-natural",
+      "name": "Tierra natural",
+      "palette": ["#D4C4A8", "#A67C52", "#6B7B4C", "#0C498A"],
+      "fonts": "Open Sans + Lora"
+    },
+    {
+      "id": 4,
+      "slug": "datos-grid",
+      "name": "Datos / grid",
+      "palette": ["#0A1628", "#B2EEFA", "#669348", "#E8EDF2"],
+      "fonts": "Open Sans + Space Grotesk"
+    },
+    {
+      "id": 5,
+      "slug": "foto-bloque",
+      "name": "Foto + bloque",
+      "palette": ["#0C498A", "#FFFFFF", "#669348", "#1A1A1A"],
+      "fonts": "Open Sans + Playfair Display",
+      "photo_credit": "Unsplash — photo-1563729784474-d77dbb933a9e (Colombia)"
+    }
+  ]
+}
