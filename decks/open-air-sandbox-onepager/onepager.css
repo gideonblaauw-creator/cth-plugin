@@ -61,21 +61,13 @@ body {
 }
 
 .page.page-1 {
-  display: grid;
-  grid-template-rows: 96mm minmax(0, 1fr) auto;
+  display: flex;
+  flex-direction: column;
   height: 297mm;
 }
 
-.page.page-1 .photo-hero--p1 {
-  grid-row: 1;
-}
-
-.page.page-1 .page1-cards {
-  grid-row: 2;
-}
-
 .page.page-1 > .sheet-footer {
-  grid-row: 3;
+  flex-shrink: 0;
 }
 
 .page-main {
@@ -159,13 +151,14 @@ body {
   overflow: hidden;
 }
 
-.photo-hero-bg {
+.photo-hero-bg,
+.page1-frost-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 24%;
+  object-position: center 72%;
 }
 
 .photo-hero-shade {
@@ -174,10 +167,43 @@ body {
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(6, 22, 48, 0.58) 0%,
-    rgba(6, 22, 48, 0.32) 38%,
-    rgba(6, 22, 48, 0.78) 100%
+    rgba(6, 22, 48, 0.55) 0%,
+    rgba(6, 22, 48, 0.28) 45%,
+    rgba(6, 22, 48, 0.42) 100%
   );
+}
+
+/* --- v11: page 1 full frost stack --- */
+.page1-frost {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+.page1-frost-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 18, 38, 0.62) 0%,
+    rgba(5, 18, 38, 0.38) 32%,
+    rgba(5, 18, 38, 0.48) 58%,
+    rgba(8, 22, 42, 0.62) 82%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
+}
+
+.page1-frost-stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 4.5mm 11mm 3mm;
+  min-height: 100%;
 }
 
 .photo-hero-inner {
@@ -192,11 +218,6 @@ body {
 .photo-hero-inner--compact {
   justify-content: center;
   padding: 3.5mm 11mm;
-}
-
-.photo-hero--p1 {
-  height: 100%;
-  min-height: 96mm;
 }
 
 .photo-hero--p2 {
@@ -259,6 +280,11 @@ body {
   color: #fff;
 }
 
+.page1-frost .photo-title-block {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
 .photo-title-block {
   margin-top: auto;
   padding-bottom: 1mm;
@@ -282,10 +308,15 @@ body {
 
 .photo-title-block .hero-lead {
   margin: 0;
-  font-size: 8.5pt;
-  line-height: 1.34;
+  font-size: 7.5pt;
+  line-height: 1.36;
   color: rgba(255, 255, 255, 0.94);
-  max-width: 98%;
+  max-width: 100%;
+}
+
+.page1-frost .photo-title-block h1 {
+  font-size: 23pt;
+  margin-bottom: 3px;
 }
 
 .photo-title-block .hero-lead strong {
@@ -619,24 +650,19 @@ body {
   font-size: 8pt;
 }
 
-/* --- v10: page 1 cards on / below photo --- */
+/* --- v11: page 1 cards stacked on photo --- */
 .page-1 .page1-cards {
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  margin-top: -8mm;
-  padding: 0 10mm 1.5mm;
-  position: relative;
-  z-index: 3;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(236, 242, 248, 0.72) 0%, rgba(244, 247, 251, 0.96) 28%, #f4f7fb 55%),
-    url("assets/hero.jpg") center 72% / cover no-repeat;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
 .page-1 .grid-2 {
-  gap: 2mm;
-  padding: 0 0 2mm;
+  gap: 16px;
+  padding: 0;
 }
 
 .page-1 .panel {
@@ -658,7 +684,7 @@ body {
 }
 
 .page-1 .case-strip {
-  margin: 0 0 2mm;
+  margin: 0;
   padding: 3mm 3.5mm;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(12, 73, 138, 0.1);
@@ -679,33 +705,19 @@ body {
   line-height: 1.32;
 }
 
-.page-1 .page1-cards::before {
-  content: "";
-  flex: 1 1 auto;
-  min-height: 0;
-  order: 2;
-}
-
-.page-1 .page1-cards .grid-2 {
-  order: 0;
-}
-
-.page-1 .page1-cards .case-strip {
-  order: 1;
-}
-
 .page-1-consortium {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   padding: 0;
-  margin-top: 0;
-  order: 3;
+  margin: 0;
 }
 
-.page-1-consortium h2 {
+.page1-frost .page-1-consortium h2 {
   font-size: 10.5pt;
-  margin: 0 0 1.5mm;
+  margin: 0 0 6px;
+  color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
 }
 
 .page-1 .cards {

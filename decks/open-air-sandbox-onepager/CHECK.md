@@ -17,7 +17,7 @@
 - [x] Datalab Option A datagrid SVG ≥48px + live `powered by CleantechHUB` text ≥11px
 - [x] Top bar: Datalab Option A + live powered-by (left); CTH logo (right); **no EO**
 - [x] Page 1: intro + steward + Air4U + consortium only (scaled); page 2: single 2×2 grid to dev band
-- [x] Page 1 full-bleed `hero.jpg` + logos on photo (no navy bar / pills); compact consortium; no white band above footer
+- [x] Page 1 frost stack: `hero.jpg` crop shows city (`center 72%`); full intro; ~18px gaps; compact consortium
 - [x] Page 2 short photo header + existing 2×2; ES role titles in Spanish
 - [x] Page 2 uses `assets/renderings/tiles/*-tile.png` (ImageMagick top-left pre-crop) + `object-position: top left`
 - [x] Hero/showcase `object-fit: cover`; page 2 side-by-side screenshots
