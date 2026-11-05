@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export EO brand book, agenda, social templates, and contact sheet (Playwright)."""
+"""Export EO brand book v3, agenda, social templates, and contact sheet (Playwright)."""
 from __future__ import annotations
 
 import subprocess
@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "out"
+VERIFY = OUT / "verify-v3-pages"
 
 
 def ensure_playwright() -> None:
@@ -34,6 +35,17 @@ def screenshot(page, html: Path, png: Path, width: int, height: int) -> None:
     page.set_viewport_size({"width": width, "height": height})
     page.goto(html.resolve().as_uri(), wait_until="networkidle")
     page.screenshot(path=str(png), full_page=False)
+
+
+def verify_brand_book_pages(page, html: Path) -> int:
+    """Render each .eo-page to PNG for self-verify."""
+    VERIFY.mkdir(parents=True, exist_ok=True)
+    page.goto(html.resolve().as_uri(), wait_until="networkidle")
+    sections = page.locator("section.eo-page")
+    count = sections.count()
+    for i in range(count):
+        sections.nth(i).screenshot(path=str(VERIFY / f"page-{i + 1:02d}.png"))
+    return count
 
 
 def main() -> None:
@@ -65,7 +77,10 @@ def main() -> None:
         browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
         page = browser.new_page()
 
-        pdf_portrait(page, brand_book, OUT / "observatorio-de-la-tierra-brand-book-v2.pdf")
+        pdf_portrait(page, brand_book, OUT / "observatorio-de-la-tierra-brand-book-v3.pdf")
+        n_pages = verify_brand_book_pages(page, brand_book)
+        print(f"Brand book verify PNGs: {n_pages} pages → {VERIFY}")
+
         pdf_portrait(page, agenda, OUT / "agenda-24nov-eo.pdf")
         pdf_portrait(page, ROOT / "applications" / "one-pager.html", OUT / "one-pager.pdf")
         slide = ROOT / "applications" / "slide-master" / "index.html"
@@ -85,9 +100,9 @@ def main() -> None:
             if html.is_file():
                 screenshot(page, html, png, w, h)
 
-        page.set_viewport_size({"width": 1400, "height": 2000})
+        page.set_viewport_size({"width": 1400, "height": 2400})
         page.goto(contact.resolve().as_uri(), wait_until="networkidle")
-        page.screenshot(path=str(OUT / "contact-sheet-templates.png"), full_page=True)
+        page.screenshot(path=str(OUT / "contact-sheet-templates-v3.png"), full_page=True)
 
         browser.close()
 

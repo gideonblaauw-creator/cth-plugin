@@ -2,39 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"/>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
   <style>
+    @import url('../shared/eo-tokens.css');
     body { margin: 0; }
     .banner {
       width: 600px;
       height: 200px;
-      background: #A67C52;
+      background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 24px 32px;
       box-sizing: border-box;
-      font-family: 'Open Sans', Arial, sans-serif;
+      font-family: var(--eo-font);
       color: #fff;
       position: relative;
       overflow: hidden;
     }
-    .block { position: absolute; top: 0; right: 0; width: 120px; height: 100%; background: #6B7B4C; }
+    .orbit {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 140px;
+      opacity: 0.45;
+    }
     .inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; width: 100%; }
-    img { height: 56px; width: auto; }
-    .tag { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #D4C4A8; font-weight: 700; }
-    h1 { margin: 6px 0 0; font-size: 22px; line-height: 1.2; font-family: 'Lora', Georgia, serif; font-weight: 700; }
+    img { height: 52px; width: auto; }
+    .tag { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: 0.9; font-weight: 700; }
+    h1 { margin: 6px 0 0; font-size: 20px; line-height: 1.2; font-family: var(--eo-display); font-weight: 700; }
+    .lema { font-size: 11px; font-weight: 700; color: var(--eo-green-tagline); margin-top: 6px; font-family: var(--eo-display); }
   </style>
 </head>
 <body>
   <div class="banner" role="img" aria-label="Encabezado correo Observatorio de la Tierra">
-    <div class="block" aria-hidden="true"></div>
+    <img class="orbit" src="../shared/orbit-graphic.svg" alt="" aria-hidden="true"/>
     <div class="inner">
       <div>
         <p class="tag">Observatorio de la Tierra</p>
         <h1>Datalab · datos para el territorio</h1>
+        <p class="lema">Observa. Actúa. Transforma.</p>
       </div>
-      <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Co-brand EO"/>
+      <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt=""/>
     </div>
   </div>
 </body>

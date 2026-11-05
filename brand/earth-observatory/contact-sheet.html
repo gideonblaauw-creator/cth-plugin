@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="utf-8"/>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Open+Sans:wght@600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
   <style>
-    body { font-family: 'Open Sans', sans-serif; margin: 24px; color: #0C498A; background: #D4C4A8; }
-    h1 { font-family: 'Lora', Georgia, serif; }
-    h1 { font-size: 22px; }
+    @import url('shared/eo-tokens.css');
+    body { font-family: var(--eo-font); margin: 24px; color: var(--eo-blue-title); background: var(--eo-row-alt); }
+    h1 { font-family: var(--eo-display); font-size: 22px; font-weight: 700; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    figure { margin: 0; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(12,73,138,.08); }
+    figure { margin: 0; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(30, 78, 121, 0.08); }
     figure img { width: 100%; height: auto; display: block; border: 1px solid #e0e8f0; }
     figcaption { font-size: 11px; font-weight: 700; margin-top: 8px; }
   </style>
 </head>
 <body>
-  <h1>Observatorio de la Tierra · Hoja de contacto · Tierra natural v2</h1>
+  <h1>Observatorio de la Tierra · Hoja de contacto · v3</h1>
   <div class="grid" id="grid"></div>
   <script>
     const items = [
@@ -28,7 +28,7 @@
       ["WhatsApp 1080×1080", "out/tpl-whatsapp-1080x1080.png"],
       ["YouTube 1280×720", "out/tpl-youtube-1280x720.png"],
       ["Banner evento 1584×396", "out/tpl-event-banner-1584x396.png"],
-      ["One-pager", "out/tpl-one-pager.png"],
+      ["One-pager A4", "out/tpl-one-pager.png"],
       ["Email header", "out/tpl-email-header.png"],
       ["Agenda 24 nov", "out/agenda-24nov-eo.png"],
     ];

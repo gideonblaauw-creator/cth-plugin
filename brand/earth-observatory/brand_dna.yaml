@@ -1,14 +1,13 @@
 # Observatorio de la Tierra (Earth Observatory) — co-brand DNA
-# Parent: CleantechHUB five-colour system + Universidad Externado lockups
-# Style reference: decks/earth-observatory-externado-2026-10 (eo-extra.css) when on main
+# Style basis: Propuesta técnica v3 (Gideon reference, Nov 2026)
 
 brand: Observatorio de la Tierra
 brand_en: Earth Observatory
 partners:
   - Universidad Externado de Colombia
   - CleantechHUB Foundation
-tagline: Inspira. Actúa. Transforma.
-tagline_en: Inspire. Act. Transform.
+tagline: Observa. Actúa. Transforma.
+tagline_en: Observe. Act. Transform.
 
 naming:
   official_es: Observatorio de la Tierra
@@ -19,37 +18,32 @@ naming:
     - Open Water Sandbox
 
 colors:
-  - name: Deep Blue
-    hex: "#0C498A"
-    rgb: "12, 73, 138"
-    cmyk: "91, 47, 0, 46"
-    role: primary
-  - name: Light Cyan
-    hex: "#B2EEFA"
-    rgb: "178, 238, 250"
-    cmyk: "29, 0, 0, 2"
-    role: accent
-  - name: Light Green
-    hex: "#9DC384"
-    rgb: "157, 195, 132"
-    cmyk: "40, 0, 32, 24"
-    role: accent
-  - name: Forest Green
-    hex: "#669348"
-    rgb: "102, 147, 72"
-    cmyk: "31, 0, 51, 42"
-    role: secondary
-  - name: Sky Blue
-    hex: "#69B5FA"
-    rgb: "105, 181, 250"
-    cmyk: "58, 28, 0, 2"
-    role: accent
+  - name: Blue Mid (cover)
+    hex: "#0058A3"
+    role: primary gradient
+  - name: Blue Deep (cover)
+    hex: "#061D3B"
+    role: primary gradient
+  - name: Blue Title
+    hex: "#1E4E79"
+    role: headings, table headers
+  - name: Green Section
+    hex: "#79965F"
+    role: section numbers, subheads
+  - name: Green Tagline
+    hex: "#8DC63F"
+    role: Observa. Actúa. Transforma.
+  - name: Row Alt
+    hex: "#EBF1F7"
+    role: table stripes
+  - name: Callout
+    hex: "#E3F2FD"
+    role: emphasis boxes
 
 typography:
-  web_stack: "'Open Sans', 'PT Sans', system-ui, sans-serif"
-  headline: Open Sans
+  web_stack: "'Titillium Web', 'Open Sans', system-ui, sans-serif"
+  headline: Titillium Web
   body: Open Sans
-  data: PT Sans
 
 logo:
   cobrand_dir: final/cobrand
@@ -58,3 +52,7 @@ logo:
   clear_space: "1× altura del bloque Externado en todos los lados"
   min_width_screen_px: 120
   min_width_print_mm: 25
+
+manual_version: v3
+rejects:
+  - Tierra natural (v2 gradients / sand palette)

@@ -2,187 +2,385 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<title>Observatorio de la Tierra · Manual de marca v2 · Tierra natural</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<title>Observatorio de la Tierra · Manual de marca v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../shared/pdf-download.css"/>
-<style>
-@import url('../shared/eo-tokens.css');
-* { box-sizing: border-box; }
-body { margin: 0; font-family: var(--eo-font); background: #D4C4A8; }
-.eo-page {
-  width: 210mm; min-height: 297mm; margin: 0 auto 8mm; padding: 14mm 16mm;
-  display: flex; flex-direction: column; background: #fff; color: var(--eo-blue);
-  page-break-after: always; break-after: page;
-}
-.eo-head h2 { margin: 4mm 0 0; font-size: 20pt; font-weight: 800; }
-.eo-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 8pt; font-weight: 700; color: var(--eo-olive); }
-.eo-body { flex: 1; font-size: 11pt; line-height: 1.5; }
-.eo-body ul { padding-left: 5mm; }
-.eo-foot { display: flex; justify-content: space-between; font-size: 8pt; font-weight: 700; color: var(--eo-olive); border-top: 2px solid var(--eo-clay); padding-top: 4mm; }
-.cover { background: var(--eo-sand); color: var(--eo-blue); justify-content: center; align-items: flex-start; position: relative; overflow: hidden; }
-.cover-block-tr { position: absolute; top: 0; right: 0; width: 42%; height: 38%; background: var(--eo-olive); }
-.cover-block-bl { position: absolute; bottom: 0; left: 0; width: 55%; height: 22%; background: var(--eo-blue); }
-.cover-band { position: absolute; top: 28%; left: 0; right: 0; height: 18mm; background: var(--eo-clay); opacity: .92; }
-.cover h1 { font-family: var(--eo-display); font-size: 36pt; margin: 10mm 0 4mm; position: relative; z-index: 2; }
-.cover-sub { font-size: 14pt; color: var(--eo-olive); font-weight: 700; position: relative; z-index: 2; }
-.cover-meta { font-size: 10pt; opacity: .85; position: relative; z-index: 2; }
-.cover-logo { height: 18mm; position: relative; z-index: 2; }
-
-.inline-logo { height: 22mm; margin: 6mm 0; }
-.inline-logo.wide { height: 16mm; max-width: 100%; }
-.logo-row { display: flex; gap: 10mm; align-items: center; flex-wrap: wrap; }
-.logo-row img { height: 14mm; background: var(--eo-blue); padding: 4mm; border-radius: 6px; }
-.eo-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
-.eo-table th, .eo-table td { border: 1px solid rgba(12,73,138,.15); padding: 3mm; text-align: left; }
-.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
-.tints span { display: inline-block; width: 18mm; height: 10mm; margin-right: 3mm; border-radius: 4px; }
-.sample-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
-.sample-grid img { width: 100%; border-radius: 4px; }
-.sample-grid figcaption { font-size: 8pt; color: var(--eo-green); }
-@media print {
-  body { background: #fff; }
-  .eo-page { margin: 0; box-shadow: none; }
-}
-</style>
+<link rel="stylesheet" href="../shared/eo-v3-print.css"/>
 </head>
 <body>
 
-<section class="eo-page cover">
-  <div class="cover-block-tr" aria-hidden="true"></div><div class="cover-block-bl" aria-hidden="true"></div><div class="cover-band" aria-hidden="true"></div>
-  <img class="cover-logo" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt="Observatorio de la Tierra"/>
-  <h1>Manual de marca</h1>
-  <p class="cover-sub">Observatorio de la Tierra · Earth Observatory</p>
-  <p class="cover-meta">Universidad Externado de Colombia × CleantechHUB · Dirección 3 · Tierra natural · 2026</p>
+<section class="eo-page cover-v3">
+  <svg class="cover-orbit" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0.08"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+    <ellipse cx="620" cy="420" rx="280" ry="90" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <ellipse cx="640" cy="480" rx="240" ry="70" fill="none" stroke="rgba(141,198,63,0.35)" stroke-width="1"/>
+    <path d="M0 200 Q400 100 800 280" fill="none" stroke="url(#g)" stroke-width="1"/>
+  </svg>
+  <div class="cover-logo-bar">
+    <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra"/>
+  </div>
+  <img class="orbit-graphic" src="../shared/orbit-graphic.svg" alt="" aria-hidden="true"/>
+  <div class="cover-body">
+    <p class="cover-eyebrow">Manual de marca · v3 · noviembre 2026</p>
+    <h1>Observatorio de la Tierra</h1>
+    <p class="cover-tagline">Observa. Actúa. Transforma.</p>
+    <p class="cover-lede">La colaboración es la lente. El conocimiento orienta las decisiones. El dato es la infraestructura.</p>
+    <p class="cover-footline">Universidad Externado de Colombia · CleantechHUB · Borrador de trabajo</p>
+  </div>
+  <div class="cover-band-bottom" aria-hidden="true"></div>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>1 · Propósito y voz</h2></header>
-  <div class="eo-body">
-<p>El <strong>Observatorio de la Tierra</strong> es la plataforma de cooperación que une observación terrestre, datos abiertos y emprendimiento climático en Colombia.</p>
-<ul>
-<li><strong>Voz:</strong> experta y cercana; orientada a la acción; bilingüe (ES por defecto).</li>
-<li><strong>Tono:</strong> optimista con evidencia; convoca aliados sin excluir.</li>
-<li><strong>Lema:</strong> Inspira. Actúa. Transforma.</li>
-</ul>
-</div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<!-- Inner pages: 01–21 -->
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt="Co-brand"/></div>
+  <div class="eo-layout">
+    <div class="eo-main">
+      <p class="eo-sec-num">01</p><hr class="eo-rule-thin"/>
+      <h2 class="eo-sec-title">Propósito del manual</h2><div class="eo-accent-bar"></div>
+      <div class="eo-body">
+        <p>Este manual codifica la identidad visual <strong>v3</strong> del Observatorio de la Tierra, alineada con la propuesta técnica institucional (A4, Titillium Web + Open Sans). Sustituye la dirección «Tierra natural» (v2).</p>
+        <div class="eo-callout"><span class="eo-callout-dot"></span><p>El texto en español manda. No nombrar clientes en piezas del Observatorio. Donde falte un dato, usar [PENDIENTE].</p></div>
+        <p><strong>Alcance:</strong> logo, paleta con hexes, tipografía, componentes de portada e interior, tablas, callouts, reglas de imagen y plantillas sociales.</p>
+      </div>
+    </div>
+    <aside class="eo-sidebar"><strong>Contenido</strong>01 Manual<br/>02 Voz<br/>03 Nomenclatura<br/>04 Logo<br/>05 Color<br/>06 Tipo<br/>07 Componentes<br/>08 Imagen<br/>09 Social<br/>10 Formatos</aside>
+  </div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>1 · Voice (EN)</h2></header>
-  <div class="eo-body">
-<p><strong>Earth Observatory</strong> connects territory, Earth observation data, and climate entrepreneurship through the Datalab and open sandboxes.</p>
-<ul>
-<li><strong>Voice:</strong> expert but accessible; action-oriented; bilingual-ready.</li>
-<li><strong>Tagline:</strong> Inspire. Act. Transform.</li>
-</ul>
-</div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">02</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Propósito y voz</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>El <strong>Observatorio de la Tierra</strong> conecta observación terrestre, datos abiertos y emprendimiento climático en Colombia mediante el Datalab y sandboxes temáticos.</p>
+      <ul>
+        <li><strong>Voz:</strong> experta y cercana; orientada a la acción; bilingüe (ES por defecto).</li>
+        <li><strong>Tono:</strong> optimista con evidencia; convoca aliados sin excluir.</li>
+        <li><strong>Lema oficial:</strong> Observa. Actúa. Transforma.</li>
+      </ul>
+      <h3>2.1 · Voice (EN)</h3>
+      <p><strong>Earth Observatory</strong> links territory, Earth observation data, and climate entrepreneurship. Tagline: <em>Observe. Act. Transform.</em></p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>1 · Nomenclatura</h2></header>
-  <div class="eo-body">
-<ul>
-<li><strong>Observatorio de la Tierra</strong> — nombre oficial (ES). No abreviar en piezas externas.</li>
-<li><strong>Datalab del Observatorio de la Tierra</strong> — laboratorio de datos y experimentación.</li>
-<li><strong>Open Energy Sandbox</strong> · <strong>Open Air Sandbox</strong> · <strong>Open Water Sandbox</strong> — entornos temáticos; capitalizar en EN.</li>
-</ul>
-</div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">03</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Nomenclatura</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <table class="eo-table"><thead><tr><th>Término</th><th>Uso</th></tr></thead><tbody>
+        <tr><td><strong>Observatorio de la Tierra</strong></td><td>Nombre oficial (ES). No abreviar en externo.</td></tr>
+        <tr><td><strong>Datalab del Observatorio de la Tierra</strong></td><td>Laboratorio de datos y experimentación.</td></tr>
+        <tr><td><strong>Open Energy / Air / Water Sandbox</strong></td><td>Entornos temáticos; capitalizar en EN.</td></tr>
+        <tr><td><strong>CleantechHUB</strong></td><td>Siempre una palabra, HUB en mayúsculas. No «CTH» en piezas públicas.</td></tr>
+      </tbody></table>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>2 · Sistema de logo</h2></header>
-  <div class="eo-body"><p>Usar lockups aprobados en <code>final/es</code> y co-brand en <code>final/cobrand</code>. No reconstruir tipografías ni alterar el escudo de Externado.</p><img class="inline-logo" src="../final/es/blue/lockup-cobrand.svg" alt="Lockup azul"/></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">04</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Sistema de logo</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>Usar lockups en <code>final/es</code> y co-brand en <code>final/cobrand</code>. No reconstruir tipografías ni alterar el escudo de Externado.</p>
+      <img class="inline-logo" src="../final/es/blue/lockup-cobrand.svg" alt="Lockup azul"/>
+      <p class="eo-subhead">Orden co-brand</p>
+      <p>Externado (escudo intacto) + CleantechHUB + Observatorio de la Tierra. Área de protección = altura del bloque Externado.</p>
+      <img class="inline-logo wide" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt="Co-brand"/>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>2 · Co-brand Externado × CTH</h2></header>
-  <div class="eo-body"><p>Orden: Externado (escudo intacto) + CleantechHUB + Observatorio de la Tierra. Respetar área de protección = altura del bloque Externado.</p><img class="inline-logo wide" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt="Co-brand azul"/></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">04</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Versiones y mínimos</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <div class="logo-row">
+        <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Reverso"/>
+        <img src="../final/cobrand/eo-cobrand-green-transparent.png" alt="Verde"/>
+      </div>
+      <p><strong>Azul</strong> sobre fondos claros; <strong>verde</strong> en piezas de campo; <strong>reverso</strong> sobre gradiente azul profundo (#0058A3 → #061D3B).</p>
+      <table class="eo-table"><thead><tr><th>Medio</th><th>Mínimo</th></tr></thead><tbody>
+        <tr><td>Pantalla</td><td>120 px ancho lockup completo</td></tr>
+        <tr><td>Impresión</td><td>25 mm</td></tr>
+      </tbody></table>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>2 · Versiones</h2></header>
-  <div class="eo-body"><p><strong>Azul</strong> sobre fondos claros; <strong>verde</strong> en piezas de campo; <strong>reverso</strong> sobre #0C498A o fotografía oscura.</p><div class="logo-row"><img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Reverso"/><img src="../final/cobrand/eo-cobrand-green-transparent.png" alt="Verde"/></div></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">04</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Logo · No hacer</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body"><ul>
+      <li>No rotar, sombras exageradas ni contornos no aprobados.</li>
+      <li>No recolorear el escudo Externado.</li>
+      <li>No mezclar lockups EN/ES en la misma pieza.</li>
+      <li>No sustituir CleantechHUB por siglas en externo.</li>
+      <li>No superponer texto sobre el lockup sin bloque sólido detrás.</li>
+    </ul></div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>2 · Tamaños mínimos</h2></header>
-  <div class="eo-body"><p>Pantalla: ancho mínimo 120 px del lockup completo. Impresión: 25 mm. Por debajo, usar isotipo Externado + texto plano.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">05</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Paleta de color</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <table class="eo-table"><thead><tr><th>Muestra</th><th>HEX</th><th>Uso</th></tr></thead><tbody>
+        <tr><td><span class="swatch" style="background:#0058A3"></span>Azul medio</td><td>#0058A3</td><td>Gradiente portada · acentos UI</td></tr>
+        <tr><td><span class="swatch" style="background:#061D3B"></span>Azul profundo</td><td>#061D3B</td><td>Gradiente portada · fondos oscuros</td></tr>
+        <tr><td><span class="swatch" style="background:#1E4E79"></span>Azul título</td><td>#1E4E79</td><td>Títulos · encabezados de tabla · texto fuerte</td></tr>
+        <tr><td><span class="swatch" style="background:#79965F"></span>Verde sección</td><td>#79965F</td><td>Números de sección · subtítulos 2.x</td></tr>
+        <tr><td><span class="swatch" style="background:#8DC63F"></span>Verde lema</td><td>#8DC63F</td><td>Observa. Actúa. Transforma.</td></tr>
+        <tr><td><span class="swatch" style="background:#EBF1F7"></span>Fila alterna</td><td>#EBF1F7</td><td>Tablas · fondos suaves</td></tr>
+        <tr><td><span class="swatch" style="background:#E3F2FD"></span>Callout</td><td>#E3F2FD</td><td>Cajas de énfasis</td></tr>
+      </tbody></table>
+      <p>Hexes muestreados de la propuesta técnica v3 (referencia Gideon, nov 2026).</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>2 · No hacer</h2></header>
-  <div class="eo-body"><ul><li>No rotar, sombras exageradas ni contornos no aprobados.</li><li>No recolorear el escudo Externado.</li><li>No mezclar lockups EN/ES en la misma pieza.</li><li>No sustituir CleantechHUB por siglas en externo.</li></ul></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">05</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Contraste y gráficos</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>Texto sobre blanco: #212529 o #1E4E79. Sobre azul profundo: blanco o #8DC63F (AA en titulares cortos).</p>
+      <p>Series de datos: #1E4E79, #79965F, #0058A3, #EBF1F7. Máximo cuatro tonos por gráfico. Evitar rojo/ámbar salvo alertas.</p>
+      <div class="eo-callout"><span class="eo-callout-dot"></span><p>Solo bloques sólidos detrás de texto en cuerpo e imagen social. Sin fotografía de stock genérica (comida, manos abstractas).</p></div>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>3 · Color primario</h2></header>
-  <div class="eo-body"><table class="eo-table"><thead><tr><th>Nombre</th><th>HEX</th><th>Uso</th></tr></thead><tbody><tr><td>Arena</td><td><span class="swatch" style="background:#D4C4A8"></span>#D4C4A8</td><td>Fondo principal · bloques amplios</td></tr><tr><td>Arcilla</td><td><span class="swatch" style="background:#A67C52"></span>#A67C52</td><td>Bandas hero · banners</td></tr><tr><td>Oliva</td><td><span class="swatch" style="background:#6B7B4C"></span>#6B7B4C</td><td>Acento · reglas · pills</td></tr><tr><td>Azul profundo</td><td><span class="swatch" style="background:#0C498A"></span>#0C498A</td><td>Texto · bloque inferior · co-brand azul</td></tr></tbody></table><p>Dirección 3 · Tierra natural. Bloques sólidos; <strong>sin gradientes</strong> a sangre. Co-brand en <code>final/cobrand/</code>.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">06</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Tipografía</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p><strong>Titillium Web Bold</strong> — títulos, números de sección, titulares de slide.</p>
+      <p><strong>Open Sans</strong> 400/600/700/800 — cuerpo, tablas, UI, pies de página.</p>
+      <p style="font-family:var(--eo-display);font-size:26pt;font-weight:700;color:#1E4E79;margin:4mm 0 2mm">Titular · Titillium Web 26–34 pt</p>
+      <p style="font-size:11pt">Cuerpo 10.5–11 pt · Open Sans · interlineado 1.45–1.5</p>
+      <p style="font-size:9pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#79965F">Eyebrow · Open Sans 7.5–9 pt</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>3 · Tintes y contraste</h2></header>
-  <div class="eo-body"><p>Texto sobre arena/arcilla: #0C498A. Sobre oliva o azul: blanco o #D4C4A8 (AA). Evitar gradientes; usar bloques rectos superpuestos.</p><div class="tints"><span style="background:#D4C4A8"></span><span style="background:#A67C52"></span><span style="background:#6B7B4C"></span><span style="background:#0C498A"></span></div></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">06</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Escala tipográfica</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <table class="eo-table"><thead><tr><th>Nivel</th><th>Fuente</th><th>Tamaño</th></tr></thead><tbody>
+        <tr><td>H1 portada</td><td>Titillium Web Bold</td><td>32–36 pt</td></tr>
+        <tr><td>H2 sección</td><td>Titillium Web Bold</td><td>20–22 pt</td></tr>
+        <tr><td>H3 apartado</td><td>Titillium Web Bold</td><td>11–12 pt · color #79965F</td></tr>
+        <tr><td>Cuerpo</td><td>Open Sans</td><td>10.5–11 pt</td></tr>
+        <tr><td>Tabla / nota</td><td>Open Sans</td><td>9–9.5 pt</td></tr>
+        <tr><td>Pie de página</td><td>Open Sans Semibold</td><td>7.5 pt · #0058A3</td></tr>
+      </tbody></table>
+      <p>Stack web: <code>'Titillium Web', 'Open Sans', system-ui, sans-serif</code> — Google Fonts.</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>3 · Paleta gráficos</h2></header>
-  <div class="eo-body"><p>Series de datos: azul profundo, oliva, arcilla, arena. Máximo cuatro tonos por gráfico. Evitar rojo/ámbar salvo alertas UI.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">07</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Componente · Portada</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <ul>
+        <li>Fondo: gradiente #0058A3 → #061D3B + artículo orbital fino (líneas + esfera).</li>
+        <li>Barra de logos reverso centrada arriba (semi-transparente).</li>
+        <li>Eyebrow en caps espaciadas; título blanco; lema en #8DC63F.</li>
+        <li>Banda inferior 3 mm verde → azul.</li>
+      </ul>
+      <p>Ver portada de este manual y <code>shared/orbit-graphic.svg</code>.</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>4 · Tipografía</h2></header>
-  <div class="eo-body"><p><strong>Open Sans</strong> 400/600/700/800 — cuerpo, etiquetas y UI. <strong>Lora</strong> 600/700 — titulares display y citas.</p><p class="type-sample" style="font-family:'Lora',serif;font-size:28px;font-weight:700">Titular H1 · Lora 28–32 pt</p><p class="type-sample" style="font-size:16px">Cuerpo 11–16 pt · Open Sans · interlineado 1.45</p><p class="type-sample" style="font-family:'Open Sans',sans-serif;font-size:14px;font-weight:800">Etiquetas · Open Sans 10–14 pt</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">07</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Componente · Interior</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <ul>
+        <li>Fondo blanco; co-brand azul arriba a la derecha.</li>
+        <li>Número de sección grande #79965F; regla gris; título #1E4E79; barra gradiente corta.</li>
+        <li>Sidebar opcional (índice) separada por línea #B8CCE4.</li>
+        <li>Pie: «Observatorio de la Tierra · …» + paginación.</li>
+      </ul>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>07 Interior</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>4 · Escalas web</h2></header>
-  <div class="eo-body"><p>Stack: <code>'Open Sans', 'Lora', system-ui, sans-serif</code>. Cargar Open Sans 400–800 y Lora 600–700 desde Google Fonts.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">07</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Tablas</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <table class="eo-table"><thead><tr><th>Columna A</th><th>Columna B</th><th>Columna C</th></tr></thead><tbody>
+        <tr><td>Encabezado #1E4E79, texto blanco</td><td>Filas alternas #EBF1F7</td><td>Sin bordes verticales pesados</td></tr>
+        <tr><td>Padding generoso</td><td>Alineación superior</td><td>Esquinas superiores redondeadas en thead</td></tr>
+      </tbody></table>
+      <p class="eo-subhead">Ejemplo de datos</p>
+      <table class="eo-table"><thead><tr><th>Nivel</th><th>Qué es</th><th>Uso Observatorio</th></tr></thead><tbody>
+        <tr><td>Nicho</td><td>Donde se forma lo nuevo</td><td>Living labs, sandboxes</td></tr>
+        <tr><td>Régimen</td><td>Reglas del sistema existente</td><td>Se cita, no se reemplaza</td></tr>
+        <tr><td>Paisaje</td><td>Presiones externas</td><td>Lente ambiental</td></tr>
+      </tbody></table>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>5 · Dirección de imagen</h2></header>
-  <div class="eo-body"><p>Territorio colombiano, sensores, cooperación internacional, equipos en laboratorio (ilustración). Tratamiento duotono o overlay en gama EO.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">07</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Callouts</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <div class="eo-callout"><span class="eo-callout-dot"></span><p>La colaboración se muestra. El motor no la sustituye. Una prueba tecnológica no es, por sí sola, evidencia de transformación.</p></div>
+      <p>Caja con fondo #E3F2FD → blanco, radio 8 px, sombra suave, viñeta circular #79965F. Texto bold #1E4E79.</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>5 · Muestras gráficas</h2></header>
-  <div class="eo-body"><div class="sample-grid"><figure><img src="../samples/sample-01.svg" alt="Muestra 1"/><figcaption>Muestra 1</figcaption></figure><figure><img src="../samples/sample-02.svg" alt="Muestra 2"/><figcaption>Muestra 2</figcaption></figure><figure><img src="../samples/sample-03.svg" alt="Muestra 3"/><figcaption>Muestra 3</figcaption></figure><figure><img src="../samples/sample-04.svg" alt="Muestra 4"/><figcaption>Muestra 4</figcaption></figure><figure><img src="../samples/sample-05.svg" alt="Muestra 5"/><figcaption>Muestra 5</figcaption></figure><figure><img src="../samples/sample-06.svg" alt="Muestra 6"/><figcaption>Muestra 6</figcaption></figure><figure><img src="../samples/sample-07.svg" alt="Muestra 7"/><figcaption>Muestra 7</figcaption></figure><figure><img src="../samples/sample-08.svg" alt="Muestra 8"/><figcaption>Muestra 8</figcaption></figure></div><p>Sin marcas de agua; sin personas reales sin fuente.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">08</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Imagen e iconografía</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>Territorio colombiano, sensores, cooperación, equipos en laboratorio (ilustración). Motivo orbital: elipses finas + esfera — no fotos decorativas a sangre.</p>
+      <div class="sample-grid">
+        <figure><img src="../samples/sample-01.svg" alt=""/><figcaption>Muestra 1</figcaption></figure>
+        <figure><img src="../samples/sample-02.svg" alt=""/><figcaption>Muestra 2</figcaption></figure>
+        <figure><img src="../samples/sample-03.svg" alt=""/><figcaption>Muestra 3</figcaption></figure>
+        <figure><img src="../samples/sample-04.svg" alt=""/><figcaption>Muestra 4</figcaption></figure>
+      </div>
+      <p>Iconos lineales 2 px. Gráficos: ejes discretos, etiquetas Open Sans.</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>6 · Composición en bloques</h2></header>
-  <div class="eo-body"><p>Superponer rectángulos sólidos (arena, oliva arriba-derecha, azul abajo-izquierda, banda arcilla). Sin gradientes ni grillas a sangre.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">09</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Plantillas sociales</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>HTML en <code>templates/social/</code> · estilo v3 (azul profundo + orbit). Exportar PNG por tamaño.</p>
+      <table class="eo-table"><thead><tr><th>Formato</th><th>px</th></tr></thead><tbody>
+        <tr><td>Instagram post</td><td>1080 × 1080</td></tr>
+        <tr><td>Instagram story</td><td>1080 × 1920</td></tr>
+        <tr><td>LinkedIn post</td><td>1200 × 627</td></tr>
+        <tr><td>LinkedIn banner</td><td>1584 × 396</td></tr>
+        <tr><td>Deck slide</td><td>16:9 (1920 × 1080 recomendado)</td></tr>
+        <tr><td>One-pager</td><td>A4</td></tr>
+      </tbody></table>
+      <p>Hoja de contacto: <code>contact-sheet-templates-v3.png</code>.</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>6 · Iconografía y viz</h2></header>
-  <div class="eo-body"><p>Iconos lineales 2 px, esquinas suaves. Gráficos: ejes discretos, etiquetas Open Sans, máximo cinco series.</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">09</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Do / Don't</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <table class="eo-table"><thead><tr><th>Hacer</th><th>Evitar</th></tr></thead><tbody>
+        <tr><td>Usar lema Observa. Actúa. Transforma.</td><td>Versiones antiguas (Inspira…)</td></tr>
+        <tr><td>Bloques sólidos bajo texto</td><td>Gradientes Tierra natural v2</td></tr>
+        <tr><td>Tablas y callouts de la propuesta v3</td><td>Nombres de clientes en piezas EO</td></tr>
+        <tr><td>Co-brand aprobado</td><td>Distorsionar escudo Externado</td></tr>
+      </tbody></table>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>7 · Plantillas sociales</h2></header>
-  <div class="eo-body"><p>HTML en <code>templates/social/</code> con zonas seguras. Export PNG por tamaño (ver hoja de contacto).</p><ul><li>LinkedIn 1200², 1200×627, carrusel 1080×1350</li><li>Instagram 1080², 1080×1350, Story 1080×1920</li><li>X 1600×900 · WhatsApp 1080² · YouTube 1280×720 · Banner 1584×396</li></ul></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">10</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Formatos de aplicación</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <ul>
+        <li><strong>One-pager A4</strong> — <code>applications/one-pager.html</code></li>
+        <li><strong>Slide master 16:9</strong> — <code>applications/slide-master/</code></li>
+        <li><strong>Encabezado correo</strong> 600×200</li>
+        <li><strong>Agenda evento</strong> — <code>applications/agenda-24nov-eo.html</code></li>
+      </ul>
+      <p>Botón «Descargar PDF» en HTML: pie + fijo abajo-derecha; oculto en impresión (<code>shared/pdf-download.css</code>).</p>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>8 · Formatos</h2></header>
-  <div class="eo-body"><ul><li>One-pager A4</li><li>Slide master (shell tipo CLP26, tokens EO)</li><li>Encabezado correo 600×200</li><li>Agenda de evento (A4)</li></ul></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page">
+  <div class="eo-logos-top"><img src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+  <div class="eo-layout"><div class="eo-main">
+    <p class="eo-sec-num">10</p><hr class="eo-rule-thin"/>
+    <h2 class="eo-sec-title">Agenda datatón (referencia)</h2><div class="eo-accent-bar"></div>
+    <div class="eo-body">
+      <p>Primera aplicación restylizada v3: agenda 24 nov 2026. Bloques 16:00 pitches (6 equipos preseleccionados por monitores) y 16:50 cierre top 5 — sin «por confirmar».</p>
+      <div class="eo-callout"><span class="eo-callout-dot"></span><p>Speaker confirmado: Enrique Medina (Agrometers). Demo Air4U en programa — no nombrar como cliente en piezas genéricas del Observatorio.</p></div>
+    </div>
+  </div><aside class="eo-sidebar"><strong>Contenido</strong>…</aside></div>
+  <footer class="eo-foot"><span>Observatorio de la Tierra · Manual v3</span><span class="pagenum" data-total="19"></span></footer>
 </section>
-<section class="eo-page" style="background:#fff;color:#0C498A">
-  <header class="eo-head"><span class="eo-kicker">Manual de marca v2 · Tierra natural</span><h2>9 · Agenda datatón</h2></header>
-  <div class="eo-body"><p>Primera aplicación: <code>applications/agenda-24nov-eo.html</code> — co-brand reverso en pie, sin placeholder Air4U, speaker confirmado Enrique Medina (Agrometers).</p></div>
-  <footer class="eo-foot"><span>Observatorio de la Tierra</span><span>Inspira. Actúa. Transforma.</span></footer>
+
+<section class="eo-page cover-v3" style="justify-content:center;align-items:center;text-align:center;">
+  <div class="cover-body" style="max-width:100%;text-align:center;margin:auto;padding:20mm">
+    <h1 style="font-size:28pt">¿Preguntas?</h1>
+    <p class="cover-lede">CleantechHUB Foundation · Universidad Externado de Colombia</p>
+    <p class="cover-footline">cleantechhub.net · Manual v3 · Borrador interno · Awaiting Gideon's approval</p>
+    <img class="inline-logo" style="height:16mm;margin:8mm auto 0" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt=""/>
+  </div>
+  <div class="cover-band-bottom" aria-hidden="true"></div>
 </section>
-<section class="eo-page cover back">
-  <h2>¿Preguntas?</h2>
-  <p>CleantechHUB Foundation · Universidad Externado de Colombia</p>
-  <p class="cover-meta">cleantechhub.net · Manual v2 · Borrador interno</p>
-  <img class="cover-logo" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/>
-</section>
+
 <footer style="max-width:210mm;margin:8mm auto;text-align:center">
   <div class="pdf-dl-footer">
-    <a class="pdf-dl-btn" href="../out/observatorio-de-la-tierra-brand-book-v2.pdf" download="observatorio-de-la-tierra-brand-book-v2.pdf">Descargar PDF</a>
+    <a class="pdf-dl-btn" href="../out/observatorio-de-la-tierra-brand-book-v3.pdf" download="observatorio-de-la-tierra-brand-book-v3.pdf">Descargar PDF</a>
   </div>
 </footer>
-<a class="pdf-dl-btn pdf-dl-fixed" href="../out/observatorio-de-la-tierra-brand-book-v2.pdf" download="observatorio-de-la-tierra-brand-book-v2.pdf">Descargar PDF</a>
-</body></html>
+<a class="pdf-dl-btn pdf-dl-fixed" href="../out/observatorio-de-la-tierra-brand-book-v3.pdf" download="observatorio-de-la-tierra-brand-book-v3.pdf">Descargar PDF</a>
+</body>
+</html>

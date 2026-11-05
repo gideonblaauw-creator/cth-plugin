@@ -4,7 +4,7 @@
 body.deck {
   margin: 0;
   font-family: var(--eo-font);
-  color: var(--eo-blue);
+  color: var(--eo-ink);
   background: #eef3f8;
 }
 .slide {
@@ -16,38 +16,30 @@ body.deck {
   page-break-after: always;
 }
 .slide-cover {
-  background: var(--eo-blue);
+  background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 .slide-cover img { height: 72px; margin-bottom: 48px; }
-.slide-cover h1 { font-size: 64px; margin: 0 0 16px; }
-.slide-cover p { font-size: 28px; color: var(--eo-cyan); font-weight: 600; }
+.slide-cover h1 { font-family: var(--eo-display); font-size: 64px; margin: 0 0 16px; font-weight: 700; }
+.slide-cover p { font-size: 28px; color: var(--eo-green-tagline); font-weight: 700; font-family: var(--eo-display); }
 .slide-bg {
   position: absolute;
-  right: -120px;
-  top: -80px;
-  width: 520px;
-  height: 520px;
-  background: var(--eo-green);
-  transform: rotate(18deg);
-  border-radius: 48px;
-  opacity: 0.85;
+  right: 40px;
+  top: 120px;
+  width: 480px;
+  height: 480px;
+  background: url("../../shared/orbit-graphic.svg") center/contain no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
 }
-.slide h2 { font-size: 48px; margin-top: 0; color: var(--eo-green); }
+.slide h2 { font-family: var(--eo-display); font-size: 48px; margin-top: 0; color: var(--eo-green-section); font-weight: 700; }
 .slide ul { font-size: 32px; line-height: 1.5; }
-.slide-dark { background: var(--eo-blue); color: #fff; }
-.slide-dark h2 { color: var(--eo-cyan); }
-.deck-footer {
-  max-width: 1920px;
-  margin: 24px auto;
-  text-align: center;
-  font-weight: 700;
-  color: var(--eo-green);
-}
-@media print {
-  body { background: #fff; }
-  .slide { margin: 0; }
+.slide .bar {
+  width: 120px;
+  height: 8px;
+  background: linear-gradient(90deg, var(--eo-blue-title), var(--eo-green-section));
+  margin-bottom: 32px;
 }

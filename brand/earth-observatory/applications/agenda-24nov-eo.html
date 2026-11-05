@@ -6,25 +6,17 @@
   <title>Datatón · Lanzamiento suave del Observatorio de la Tierra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../shared/pdf-download.css"/>
   <style>
-    :root {
-      --sand: #D4C4A8;
-      --clay: #A67C52;
-      --olive: #6B7B4C;
-      --blue: #0C498A;
-      --white: #fff;
-      --font: 'Open Sans', sans-serif;
-      --display: 'Lora', Georgia, serif;
-    }
+    @import url('../shared/eo-tokens.css');
     * { box-sizing: border-box; }
     html, body {
       margin: 0;
       padding: 0;
-      font-family: var(--font);
-      color: var(--blue);
-      background: var(--sand);
+      font-family: var(--eo-font);
+      color: var(--eo-ink);
+      background: #c8d4e0;
       -webkit-font-smoothing: antialiased;
     }
     .sheet {
@@ -36,91 +28,78 @@
       flex-direction: column;
       overflow: hidden;
       position: relative;
-      background: var(--sand);
-    }
-    .block-tr {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 38%;
-      height: 100%;
-      background: var(--olive);
-      z-index: 0;
-    }
-    .block-bl {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 48%;
-      height: 18%;
-      background: var(--blue);
-      z-index: 0;
+      background: var(--eo-white);
     }
     .hero {
       position: relative;
       overflow: hidden;
-      background: var(--clay);
-      color: #fff;
-      padding: 8mm 14mm 7mm;
-      z-index: 1;
+      color: var(--eo-white);
+      padding: 10mm 14mm 8mm;
+      background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
     }
-    .hero-inner { position: relative; z-index: 2; }
+    .hero-orbit {
+      position: absolute;
+      right: -8mm;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 70mm;
+      opacity: 0.5;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 72%; }
     .hero-logos img.eo-rev {
-      height: 11mm;
+      height: 10mm;
       width: auto;
       display: block;
     }
     .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       font-weight: 700;
       font-size: 7.5pt;
-      color: var(--sand);
-      margin: 5mm 0 2.5mm;
+      margin: 4mm 0 2.5mm;
+      opacity: 0.92;
     }
     h1 {
       margin: 0 0 2.5mm;
-      font-family: var(--display);
-      font-size: 21pt;
+      font-family: var(--eo-display);
+      font-size: 20pt;
       font-weight: 700;
       line-height: 1.12;
-      max-width: 165mm;
     }
     .subtitle {
       margin: 0;
       font-size: 9.5pt;
       font-weight: 600;
       line-height: 1.35;
-      color: var(--sand);
-      max-width: 168mm;
+      opacity: 0.9;
     }
     .main {
       flex: 1;
-      padding: 3.5mm 14mm 2mm;
+      padding: 4mm 14mm 2mm;
       display: flex;
       flex-direction: column;
       gap: 1.5mm;
-      position: relative;
-      z-index: 1;
     }
     .agenda-head {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 6mm;
-      border-bottom: 3px solid var(--olive);
+      border-bottom: 2px solid var(--eo-green-section);
       padding-bottom: 2mm;
+      margin-bottom: 1mm;
     }
     .agenda-head h2 {
       margin: 0;
-      font-family: var(--display);
-      font-size: 12.5pt;
+      font-family: var(--eo-display);
+      font-size: 13pt;
       font-weight: 700;
+      color: var(--eo-blue-title);
     }
     .agenda-head .note {
       font-size: 7.5pt;
       font-weight: 700;
-      color: var(--olive);
+      color: var(--eo-green-section);
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
@@ -130,21 +109,22 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.6mm;
+      gap: 0;
     }
     .tl-row {
       display: grid;
-      grid-template-columns: 28mm 1fr;
+      grid-template-columns: 26mm 1fr;
       gap: 4mm;
       align-items: start;
-      padding: 0.75mm 0;
-      border-bottom: 1px solid rgba(12, 73, 138, 0.1);
+      padding: 0.85mm 0;
+      border-bottom: 1px solid rgba(30, 78, 121, 0.12);
     }
+    .tl-row:nth-child(even) { background: var(--eo-row-alt); margin: 0 -2mm; padding-left: 2mm; padding-right: 2mm; }
     .tl-row:last-child { border-bottom: 0; }
     .tl-time {
       font-size: 8.5pt;
       font-weight: 800;
-      color: var(--olive);
+      color: var(--eo-blue-title);
       line-height: 1.25;
     }
     .tl-text {
@@ -154,32 +134,31 @@
     }
     .footer {
       margin-top: auto;
-      background: var(--blue);
+      background: var(--eo-blue-title);
       color: #fff;
-      padding: 3.5mm 14mm 4.5mm;
+      padding: 3.5mm 14mm 4mm;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8mm;
-      position: relative;
-      z-index: 1;
+      flex-wrap: wrap;
     }
     .tagline {
-      font-family: var(--display);
+      font-family: var(--eo-display);
       font-weight: 700;
-      font-size: 12pt;
-      color: var(--sand);
+      font-size: 11pt;
+      color: var(--eo-green-tagline);
       letter-spacing: 0.02em;
       margin: 0;
     }
     .footer img.eo-rev {
-      height: 9mm;
+      height: 8mm;
       width: auto;
       display: block;
     }
     .avoid-break { break-inside: avoid; page-break-inside: avoid; }
     @media print {
-      html, body { width: 210mm; min-height: 297mm; }
+      html, body { width: 210mm; min-height: 297mm; background: #fff; }
       body {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -190,9 +169,8 @@
 </head>
 <body>
   <article class="sheet" role="document">
-    <div class="block-bl" aria-hidden="true"></div>
     <header class="hero">
-      <div class="block-tr" aria-hidden="true"></div>
+      <img class="hero-orbit" src="../shared/orbit-graphic.svg" alt="" aria-hidden="true"/>
       <div class="hero-inner">
         <div class="hero-logos">
           <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra"/>
@@ -208,70 +186,25 @@
         <span class="note">Horarios orientativos</span>
       </div>
       <ol class="timeline">
-        <li class="tl-row avoid-break">
-          <span class="tl-time">08:00</span>
-          <span class="tl-text">Registro y bienvenida</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">08:30</span>
-          <span class="tl-text">Palabras de apertura (Rector)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">08:40</span>
-          <span class="tl-text">Panel: territorio, cooperación y datos (45 min)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">09:25</span>
-          <span class="tl-text">Conversatorio inspiracional (Enrique Medina, Agrometers)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">09:45</span>
-          <span class="tl-text">Observatorio de la Tierra y piloto Bolívar (Alejandro Díaz, Gideon Blaauw)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">10:05</span>
-          <span class="tl-text">Anuncio del Datalab: sandboxes y gobernanza de datos</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">10:15</span>
-          <span class="tl-text">Demo en vivo Air4U y preguntas</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">10:45</span>
-          <span class="tl-text">Instrucciones y arranque del datatón</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">11:00</span>
-          <span class="tl-text">Trabajo de equipos con monitores (bloque 1)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">12:30</span>
-          <span class="tl-text">Almuerzo</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">13:30</span>
-          <span class="tl-text">Trabajo de equipos y preparación del pitch (bloque 2)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">16:00</span>
-          <span class="tl-text">Pitches finales: 6 equipos preseleccionados por los monitores</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">16:40</span>
-          <span class="tl-text">Deliberación del jurado</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">16:50</span>
-          <span class="tl-text">Cierre: top 5 (acceso al Living Lab + mentoría CTH, paso al piloto 2027)</span>
-        </li>
-        <li class="tl-row avoid-break">
-          <span class="tl-time">17:00</span>
-          <span class="tl-text">Fin</span>
-        </li>
+        <li class="tl-row avoid-break"><span class="tl-time">08:00</span><span class="tl-text">Registro y bienvenida</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">08:30</span><span class="tl-text">Palabras de apertura (Rector)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">08:40</span><span class="tl-text">Panel: territorio, cooperación y datos (45 min)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">09:25</span><span class="tl-text">Conversatorio inspiracional (Enrique Medina, Agrometers)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">09:45</span><span class="tl-text">Observatorio de la Tierra y piloto Bolívar (Alejandro Díaz, Gideon Blaauw)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:05</span><span class="tl-text">Anuncio del Datalab: sandboxes y gobernanza de datos</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:15</span><span class="tl-text">Demo en vivo Air4U y preguntas</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:45</span><span class="tl-text">Instrucciones y arranque del datatón</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">11:00</span><span class="tl-text">Trabajo de equipos con monitores (bloque 1)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">12:30</span><span class="tl-text">Almuerzo</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">13:30</span><span class="tl-text">Trabajo de equipos y preparación del pitch (bloque 2)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:00</span><span class="tl-text">Pitches finales: 6 equipos preseleccionados por los monitores</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:40</span><span class="tl-text">Deliberación del jurado</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:50</span><span class="tl-text">Cierre: top 5 (acceso al Living Lab + mentoría CTH, paso al piloto 2027)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">17:00</span><span class="tl-text">Fin</span></li>
       </ol>
     </section>
     <footer class="footer">
-      <p class="tagline">Inspira. Actúa. Transforma.</p>
+      <p class="tagline">Observa. Actúa. Transforma.</p>
       <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Observatorio de la Tierra · co-brand"/>
       <div class="pdf-dl-footer">
         <a class="pdf-dl-btn" href="../out/agenda-24nov-eo.pdf" download="agenda-24nov-eo.pdf">Descargar PDF</a>
