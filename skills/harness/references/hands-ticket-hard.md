@@ -24,6 +24,7 @@
 - Review high-risk Hands output with a separate read-only checker (**maker ≠ checker**). A low-risk content or file job checks its own result (**Token budget protocol, 22 Oct 2026**)
 - **HITL** gates before send / post / pay / activate / cutover
 - Ready-ping Orchestrator with PR / URL / **bc-id** / paths — not process notes
+- Complete ticket **`proof:`** before **READY**; **READY without proof is invalid**. Maker ≠ checker — see **`skills/harness/references/desks-workbenches-hands-tickets.md`**
 
 ---
 

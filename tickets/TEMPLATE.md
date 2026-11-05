@@ -6,7 +6,9 @@ See `skills/harness/SKILL.md` for lane definitions, gate rules, and the full Des
 
 When opening Hands from a Cursor Project, name the Project and workspace lane so the agent lands on the correct repo or pack store.
 
-Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). **Token budget protocol (22 Oct 2026):** a separate read-only checker is mandatory only for a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content or file job checks its own result and attaches proof (a hash, an HTTP status code, or test output). n8n-li verifiers on live pilots supplement evidence. They do not replace Gideon merge. Full rules: `skills/harness/SKILL.md` § Token budget protocol.
+**Area map:** Read the **FEATURE-MAP.md** for the area first. Update **FEATURE-MAP.md** in the same PR when you change the area.
+
+Shape `done-when` as a verifiable outcome (SMART when automation pilots apply). **READY without a complete `proof:` block is invalid** — see `skills/harness/references/desks-workbenches-hands-tickets.md`. **Token budget protocol (22 Oct 2026):** a separate read-only checker is mandatory only for a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content or file job checks its own result and attaches proof (a hash, an HTTP status code, or test output). n8n-li verifiers on live pilots supplement evidence. They do not replace Gideon merge. Full rules: `skills/harness/SKILL.md` § Token budget protocol.
 
 ---
 
@@ -34,6 +36,10 @@ playground_standard: lexiscan-html-v2
 eve: yes
 hitl: nothing sent/posted/paid
 reviewer:
+proof:
+  kind: deck | data | deploy | other
+  checker: <bc-id or agent — not the maker>
+  evidence: <screenshot paths, curl/log lines, row counts, schema, served sha>
 context:
 ```
 
@@ -62,5 +68,7 @@ context:
 `files` — exact files and paths the job may open. Do not leave this blank. Do not permit an open-ended crawl of the VPS or a whole repo.
 
 `read-budget` — file count or byte cap. Stop at the cap. Do not read a file larger than 200 KB into the job. Verify decks, PDFs, transcripts, and dumps by hash, size, and grep.
+
+**Proof (Gideon 2 Nov 2026):** Decks → per-slide screenshots + logged-out HTTP 200 (page + assets). Data → CSV row counts before/after + schema. Deploys → logged-out HTTP 200 + served file sha. **Maker ≠ checker** — a different agent/model verifies and fills `proof.checker`. READY without proof is invalid. Full protocol: `skills/harness/references/desks-workbenches-hands-tickets.md`.
 
 **Hands-ticket HARD (24 Sep 2026):** Desks and Workbenches ticket craft to Cloud Hands — not local Grok executor grind. In `context:`, name **exclusive write paths** and acceptance; ready-ping must include **bc-id** + PR/URL when Hands finishes. Full lock: `skills/harness/references/hands-ticket-hard.md`.
