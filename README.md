@@ -140,6 +140,32 @@ Installing this plugin does **NOT** share any credentials or grant access to Cle
 
 ---
 
+## HTML decks (`decks/`)
+
+Interactive slide decks under `decks/<slug>/` follow the CleantechHUB house format (CleantechHUB brand tokens from `skills/cleantechhub-brand/SKILL.md`, shell patterned on the live `cth-clp26` deck). Pull requests that touch `decks/**` run the **Deck brand guard** workflow.
+
+| Check | What it enforces |
+|-------|------------------|
+| `cth.colors` | `--cth-*` CSS variables and hex values from the brand skill |
+| `cth.fonts` | Inter loaded or referenced in CSS (not prose substrings) |
+| `cth.logo` | Reference to `cth-logo.png` or `cth-globe-logo.svg` |
+| `public.no_prices` | No currency or price patterns on public slugs (see `scripts/deck-brand-guard/public_decks.txt`) |
+| `repo.no_confidential` | No confidential slugs or markers in git (server-only decks stay on the VPS) |
+
+Run locally:
+
+```bash
+pip install pyyaml
+python3 scripts/deck-brand-guard/check_decks.py
+python3 -m unittest tests/test_deck_brand_guard.py -v
+```
+
+Known violations are listed in `scripts/deck-brand-guard/baseline.json` and print as **WARNING** until fixed. New violations fail CI. Refresh the baseline after intentional cleanup with `--update-baseline` (maintainers only).
+
+Allowlists: `price_allowlist.txt`, `confidential_slugs.txt`, `confidential_markers.txt`. Expected tokens: `expected.yaml`.
+
+---
+
 ## Project Structure
 
 ```

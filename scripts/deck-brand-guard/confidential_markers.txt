@@ -1,0 +1,6 @@
+# Case-insensitive substrings; if present in index.html the deck must not ship in git.
+CONFIDENTIAL
+SERVER-ONLY
+REIN Hubs dollar
+partner terms — confidential
+funding table — internal
