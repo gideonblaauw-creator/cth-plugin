@@ -1,0 +1,103 @@
+# NCUK REIN data room — Docmost stack (VPS). Secrets via .env.generated (Infisical).
+# Caddy runs on the HOST (systemd caddy.service), not in Docker.
+# Docmost binds localhost only; host Caddy reverse_proxies to 127.0.0.1:3076.
+
+name: ncuk-dataroom
+
+services:
+  docmost:
+    image: docmost/docmost:0.96.0
+    container_name: ncuk-dataroom-docmost
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      APP_URL: ${APP_URL:-https://dataroom.cleantechhub.net}
+      APP_SECRET: ${APP_SECRET:?Set APP_SECRET via Infisical / deploy-prep.sh}
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL via deploy-prep.sh}
+      REDIS_URL: redis://ncuk-dataroom-redis:6379
+      # Outbound mail (Infisical → .env.generated). Resend SMTP: https://resend.com/docs/send-with-smtp
+      MAIL_DRIVER: ${MAIL_DRIVER:-log}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-REIN Hubs Data Room}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_SECURE: ${SMTP_SECURE:-true}
+      SMTP_IGNORETLS: ${SMTP_IGNORETLS:-false}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      POSTMARK_TOKEN: ${POSTMARK_TOKEN:-}
+    ports:
+      - "127.0.0.1:${DOCMOST_HOST_PORT:-3076}:3000"
+    volumes:
+      - docmost_storage:/app/data/storage
+    networks:
+      - ncuk_internal
+    restart: unless-stopped
+    mem_limit: 1g
+    memswap_limit: 1g
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  db:
+    image: postgres:18.2-alpine
+    container_name: ncuk-dataroom-db
+    environment:
+      POSTGRES_DB: docmost
+      POSTGRES_USER: docmost
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD via Infisical}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - ncuk_internal
+    restart: unless-stopped
+    mem_limit: 768m
+    memswap_limit: 768m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docmost -d docmost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:8.2-alpine
+    container_name: ncuk-dataroom-redis
+    command:
+      - redis-server
+      - --appendonly
+      - "yes"
+      - --maxmemory-policy
+      - noeviction
+      - --maxmemory
+      - 200mb
+    volumes:
+      - redis_data:/data
+    networks:
+      - ncuk_internal
+    restart: unless-stopped
+    mem_limit: 256m
+    memswap_limit: 256m
+
+networks:
+  ncuk_internal:
+    name: ncuk-dataroom-internal
+
+volumes:
+  docmost_storage:
+    name: ncuk-dataroom-docmost
+  db_data:
+    name: ncuk-dataroom-pg
+  redis_data:
+    name: ncuk-dataroom-redis
