@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/pdf-download.css"/>
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    body { margin: 0; font-family: 'Open Sans', sans-serif; color: #0C498A; }
+    .page { width: 210mm; min-height: 297mm; padding: 14mm; box-sizing: border-box; }
+    header { background: #0C498A; color: #fff; margin: -14mm -14mm 10mm; padding: 12mm 14mm; }
+    header img { height: 14mm; }
+    h1 { margin: 8mm 0 4mm; font-size: 22pt; }
+    p { font-size: 11pt; line-height: 1.5; max-width: 170mm; }
+    ul { font-size: 10.5pt; line-height: 1.45; }
+    .pill { display: inline-block; background: #B2EEFA; color: #0C498A; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-size: 9pt; margin-right: 6px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Observatorio de la Tierra"/>
+      <h1 style="color:#B2EEFA;margin-bottom:0">Observatorio de la Tierra</h1>
+      <p style="color:#fff;margin:4mm 0 0">Universidad Externado de Colombia × CleantechHUB · Datalab y sandboxes abiertos</p>
+    </header>
+    <p><strong>Propósito.</strong> Conectar territorio, datos de observación de la Tierra y emprendimiento climático en Colombia mediante el Datalab y los sandboxes Open Energy, Open Air y Open Water.</p>
+    <p><span class="pill">Open Energy</span><span class="pill">Open Air</span><span class="pill">Open Water</span></p>
+    <ul>
+      <li>Cooperación internacional y pilotos territoriales (p. ej. Bolívar).</li>
+      <li>Gobernanza de datos y acceso responsable para equipos y aliados.</li>
+      <li>Eventos formativos: datatones, conversatorios y living lab.</li>
+    </ul>
+    <p><strong>Contacto.</strong> cleantechhub.net · Universidad Externado de Colombia</p>
+    <footer style="margin-top:16mm;border-top:3px solid #B2EEFA;padding-top:6mm">
+      <p style="font-weight:800;color:#669348">Inspira. Actúa. Transforma.</p>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn" href="../out/one-pager.pdf" download="one-pager.pdf">Descargar PDF</a>
+      </div>
+    </footer>
+  </div>
+  <a class="pdf-dl-btn pdf-dl-fixed" href="../out/one-pager.pdf" download="one-pager.pdf">Descargar PDF</a>
+</body>
+</html>

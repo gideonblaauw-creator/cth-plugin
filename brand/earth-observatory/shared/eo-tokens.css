@@ -1,0 +1,12 @@
+:root {
+  --eo-blue: #0c498a;
+  --eo-cyan: #b2eefa;
+  --eo-lgreen: #9dc384;
+  --eo-green: #669348;
+  --eo-sky: #69b5fa;
+  --eo-white: #ffffff;
+  --eo-font: "Open Sans", "PT Sans", system-ui, sans-serif;
+  --pdf-dl-bg: var(--eo-green);
+  --pdf-dl-focus: var(--eo-cyan);
+  --pdf-dl-text: #ffffff;
+}

@@ -1,0 +1,60 @@
+# Observatorio de la Tierra (Earth Observatory) — co-brand DNA
+# Parent: CleantechHUB five-colour system + Universidad Externado lockups
+# Style reference: decks/earth-observatory-externado-2026-10 (eo-extra.css) when on main
+
+brand: Observatorio de la Tierra
+brand_en: Earth Observatory
+partners:
+  - Universidad Externado de Colombia
+  - CleantechHUB Foundation
+tagline: Inspira. Actúa. Transforma.
+tagline_en: Inspire. Act. Transform.
+
+naming:
+  official_es: Observatorio de la Tierra
+  datalab: Datalab del Observatorio de la Tierra
+  sandboxes:
+    - Open Energy Sandbox
+    - Open Air Sandbox
+    - Open Water Sandbox
+
+colors:
+  - name: Deep Blue
+    hex: "#0C498A"
+    rgb: "12, 73, 138"
+    cmyk: "91, 47, 0, 46"
+    role: primary
+  - name: Light Cyan
+    hex: "#B2EEFA"
+    rgb: "178, 238, 250"
+    cmyk: "29, 0, 0, 2"
+    role: accent
+  - name: Light Green
+    hex: "#9DC384"
+    rgb: "157, 195, 132"
+    cmyk: "40, 0, 32, 24"
+    role: accent
+  - name: Forest Green
+    hex: "#669348"
+    rgb: "102, 147, 72"
+    cmyk: "31, 0, 51, 42"
+    role: secondary
+  - name: Sky Blue
+    hex: "#69B5FA"
+    rgb: "105, 181, 250"
+    cmyk: "58, 28, 0, 2"
+    role: accent
+
+typography:
+  web_stack: "'Open Sans', 'PT Sans', system-ui, sans-serif"
+  headline: Open Sans
+  body: Open Sans
+  data: PT Sans
+
+logo:
+  cobrand_dir: final/cobrand
+  es_dir: final/es
+  manifest: final/MANIFEST.json
+  clear_space: "1× altura del bloque Externado en todos los lados"
+  min_width_screen_px: 120
+  min_width_print_mm: 25
