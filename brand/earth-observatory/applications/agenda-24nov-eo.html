@@ -43,7 +43,7 @@
       top: 0;
       right: 0;
       width: 38%;
-      height: 32%;
+      height: 100%;
       background: var(--olive);
       z-index: 0;
     }
@@ -58,6 +58,7 @@
     }
     .hero {
       position: relative;
+      overflow: hidden;
       background: var(--clay);
       color: #fff;
       padding: 8mm 14mm 7mm;
@@ -189,9 +190,9 @@
 </head>
 <body>
   <article class="sheet" role="document">
-    <div class="block-tr" aria-hidden="true"></div>
     <div class="block-bl" aria-hidden="true"></div>
     <header class="hero">
+      <div class="block-tr" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-logos">
           <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra"/>
