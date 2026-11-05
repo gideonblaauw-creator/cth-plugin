@@ -51,6 +51,7 @@ Record in `CHECK.md`:
 - Tokens and fonts from the Datalab brand book (`clp26-manual-tokens.css`, `manual-deck.css`): CTH five colours, Titillium Web titles, Open Sans body, flat fills, no em dashes.
 - Every Datalab UI or deck top bar shows the datagrid logo.
 - Datalab top bar: the light-blue partner box shows only the EO logo, with no CTH or Externado logos (Datalab is embeddable in client environments).
+- The Datalab logo in any top bar always carries "powered by CleantechHUB" (Datalab is embeddable in client environments).
 - Sandbox names: Open Energy Sandbox, Open Air Sandbox, Open Water Sandbox (planned); Air4U health room = "Clean Air for Health Sandbox" (ES subtitle "Sandbox Aire Limpio para la Salud").
 
 ## Observatorio de la Tierra (EO) (Gideon 4 Nov 20:01 COT)

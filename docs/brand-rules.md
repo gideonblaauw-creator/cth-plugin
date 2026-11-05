@@ -8,6 +8,7 @@ Short pointer for desks and Hands. Full deck contract: `docs/html-deck-protocol.
 - Naming: Datalab; endorsement "Datalab powered by CleantechHUB" (HUB caps).
 - Visuals: CTH five colours; Titillium Web titles; Open Sans body; flat fills; no em dashes; datagrid logo on every top bar.
 - Datalab top bar: the light-blue partner box shows only the EO logo, with no CTH or Externado logos (Datalab is embeddable in client environments).
+- The Datalab logo in any top bar always carries "powered by CleantechHUB" (Datalab is embeddable in client environments).
 - Sandboxes: Open Energy / Open Air / Open Water Sandbox (planned); health room "Clean Air for Health Sandbox" (ES: "Sandbox Aire Limpio para la Salud").
 
 ## Observatorio de la Tierra (EO v3)
