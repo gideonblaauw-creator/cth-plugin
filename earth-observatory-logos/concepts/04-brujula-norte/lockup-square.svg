@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 480" width="480" height="480" role="img" aria-label="North Compass square lockup">
+  <defs><style></style></defs>
+  <defs><style>
+    .title { font-family: 'Titillium Web', sans-serif; font-weight: 700; fill: #1B4332; }
+    .subtitle { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #2D6A4F; }
+    .caption { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #333333; }
+    .muted { font-family: 'Open Sans', sans-serif; font-weight: 400; fill: #2D6A4F; }
+    .partner { font-family: 'Open Sans', sans-serif; font-weight: 600; fill: #333333; }
+  </style></defs>
+  <g transform="translate(48,40) scale(1.35)">
+  <circle cx="48" cy="48" r="38" fill="none" stroke="#2D6A4F" stroke-width="2"/>
+  <polygon points="48,12 54,42 48,48 42,42" fill="#2D6A4F"/>
+  <polygon points="48,84 54,54 48,48 42,54" fill="#95D5B2"/>
+  <polygon points="12,48 42,42 48,48 42,54" fill="#95D5B2" opacity="0.85"/>
+  <polygon points="84,48 54,54 48,48 54,42" fill="#95D5B2" opacity="0.85"/>
+  <circle cx="48" cy="48" r="6" fill="#2D6A4F"/>
+</g>
+  <text class="title" font-size="28" x="240" y="300" text-anchor="middle">Observatorio de la Tierra</text>
+  <text class="subtitle" font-size="20" x="240" y="332" text-anchor="middle">Earth Observatory</text>
+</svg>
