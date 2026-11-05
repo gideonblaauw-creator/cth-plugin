@@ -15,7 +15,9 @@
 - [x] PDF page count: 2 (ES and EN), verified via `pypdf` after `export-onepager-pdf.py`
 - [x] Download PDF: footer `.pdf-dl-footer` + fixed `.pdf-dl-fixed`; `@media print` hides controls (`pdf-download.css`)
 - [x] Datalab Option A datagrid SVG ≥48px + live `powered by CleantechHUB` text ≥11px
-- [x] EO green lockup raster (`assets/logos/eo-lockup-green.png`) on top bar
+- [x] EO green SVG in light-blue `#E6F4FB` pill (no white raster block)
+- [x] Hero/showcase `object-fit: cover`; page 2 side-by-side screenshots
+- [x] Render caption (ES/EN); footer text link + single fixed Download PDF button
 - [x] Hero full-width rendering + max 3 legible showcase shots (page 1)
 - [x] Page 2 uncropped `object-fit: contain` screenshots; flex fill (no white gap)
 - [x] Consortium partner logos + stronger open-slot card (+ icon, dashed border)
