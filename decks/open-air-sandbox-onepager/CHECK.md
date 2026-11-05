@@ -31,6 +31,8 @@
 
 ```bash
 cd decks/open-air-sandbox-onepager
-python3 export-onepager-pdf.py --html open-air-sandbox-es.html --pdf open-air-sandbox-es.pdf --png-prefix es
-python3 export-onepager-pdf.py --html open-air-sandbox-en.html --pdf open-air-sandbox-en.pdf --png-prefix en
+python3 export-onepager-pdf.py --html open-air-sandbox-es.html --pdf open-air-sandbox-es.pdf --lang es
+python3 export-onepager-pdf.py --html open-air-sandbox-en.html --pdf open-air-sandbox-en.pdf --lang en
 ```
+
+Page PNGs are rasterized from the PDF via **pdftoppm** (150 DPI), not HTML screenshots.

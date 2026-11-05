@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -14,6 +15,13 @@ def ensure_playwright() -> None:
     except ImportError:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "playwright", "-q"])
         subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
+
+
+def ensure_pdftoppm() -> None:
+    if shutil.which("pdftoppm"):
+        return
+    subprocess.check_call(["sudo", "apt-get", "update", "-qq"])
+    subprocess.check_call(["sudo", "apt-get", "install", "-y", "-qq", "poppler-utils"])
 
 
 def export_pdf(html: Path, pdf: Path) -> None:
@@ -37,22 +45,23 @@ def export_pdf(html: Path, pdf: Path) -> None:
         browser.close()
 
 
-def export_page_pngs(html: Path, out_dir: Path, prefix: str) -> list[Path]:
-    ensure_playwright()
-    from playwright.sync_api import sync_playwright
-
-    uri = html.resolve().as_uri()
+def rasterize_pdf_pages(pdf: Path, out_dir: Path, stem: str) -> list[Path]:
+    """Rasterize PDF pages with pdftoppm (verification PNGs)."""
+    ensure_pdftoppm()
+    prefix = out_dir / f"{stem}-pdftoppm"
+    subprocess.check_call(
+        ["pdftoppm", "-png", "-r", "150", str(pdf.resolve()), str(prefix)],
+    )
     paths: list[Path] = []
-    with sync_playwright() as p:
-        browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
-        page = browser.new_page(viewport={"width": 794, "height": 1123})
-        page.goto(uri, wait_until="networkidle")
-        for i, sel in enumerate([".page-1", ".page-2"], start=1):
-            loc = page.locator(sel)
-            out = out_dir / f"{prefix}-page-{i}.png"
-            loc.screenshot(path=str(out))
-            paths.append(out)
-        browser.close()
+    for i in range(1, 20):
+        src = out_dir / f"{stem}-pdftoppm-{i:02d}.png"
+        if not src.is_file():
+            src = out_dir / f"{stem}-pdftoppm-{i}.png"
+        if not src.is_file():
+            break
+        dest = out_dir / f"{stem}-page-{i}.png"
+        src.replace(dest)
+        paths.append(dest)
     return paths
 
 
@@ -60,7 +69,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--html", type=Path, required=True)
     parser.add_argument("--pdf", type=Path, required=True)
-    parser.add_argument("--png-prefix", type=str, default="")
+    parser.add_argument("--lang", type=str, default="", help="es or en for output PNG names")
     args = parser.parse_args()
 
     html = args.html.resolve()
@@ -68,10 +77,11 @@ def main() -> None:
     export_pdf(html, pdf)
     print("wrote", pdf)
 
-    prefix = args.png_prefix or html.stem.replace("open-air-sandbox-", "")
-    pngs = export_page_pngs(html, html.parent, f"open-air-sandbox-{prefix}")
+    lang = args.lang or html.stem.replace("open-air-sandbox-", "")
+    stem = f"open-air-sandbox-{lang}"
+    pngs = rasterize_pdf_pages(pdf, html.parent, stem)
     for p in pngs:
-        print("wrote", p)
+        print("wrote", p, "(pdftoppm)")
 
 
 if __name__ == "__main__":
