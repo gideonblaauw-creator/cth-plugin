@@ -43,3 +43,24 @@ Record in `CHECK.md`:
 - `@media print` hides both controls (grep or manual print preview).
 - PDF page size is A4 landscape; spot-check one `.reveal` slide and one counter match final on-screen values after export.
 - No REIN dollar amounts or confidential content in repo copies.
+
+## Datalab sub-brand (Gideon 4 Nov 17:57 COT)
+
+- Master logo: Option A datagrid (`brand/datalab-brandbook-2026-11/assets/logos/datalab-logo{,-dark,-light}.png` / `.svg`). Option B (layers) secondary only. Never use B as main.
+- Name: "Datalab" one word; endorsement "Datalab powered by CleantechHUB"; CleantechHUB with HUB caps.
+- Tokens and fonts from the Datalab brand book (`clp26-manual-tokens.css`, `manual-deck.css`): CTH five colours, Titillium Web titles, Open Sans body, flat fills, no em dashes.
+- Every Datalab UI or deck top bar shows the datagrid logo.
+- Datalab top bar: the light-blue partner box shows only the EO logo, with no CTH or Externado logos (Datalab is embeddable in client environments).
+- The Datalab logo in any top bar always carries "powered by CleantechHUB" (Datalab is embeddable in client environments).
+- Sandbox names: Open Energy Sandbox, Open Air Sandbox, Open Water Sandbox (planned); Air4U health room = "Clean Air for Health Sandbox" (ES subtitle "Sandbox Aire Limpio para la Salud").
+
+## Observatorio de la Tierra (EO) (Gideon 4 Nov 20:01 COT)
+
+- Basis: Gideon's "Propuesta técnica v3" design; brand book v3 at `brand/earth-observatory/out/observatorio-de-la-tierra-brand-book-v3.pdf`.
+- Deep-blue cover with fine orbit lines; white inner pages; big light-green section numbers; blue-header tables; light callout boxes; Titillium Web + Open Sans; tagline "Observa. Actúa. Transforma."; logo row Externado | CleantechHUB | Observatorio de la Tierra.
+- Rejected: full-bleed gradients (v1), Tierra natural (v2). No stock food or unrelated photos; colour blocks never cover text.
+
+## Shared brand rules (decks and UI)
+
+- Example or synthetic data always labelled "Datos de ejemplo". No client names in public material.
+- Download PDF rule stays as in **Download PDF (HARD)** above.
