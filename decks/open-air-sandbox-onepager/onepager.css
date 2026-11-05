@@ -60,6 +60,24 @@ body {
   margin-bottom: 0;
 }
 
+.page.page-1 {
+  display: grid;
+  grid-template-rows: 96mm minmax(0, 1fr) auto;
+  height: 297mm;
+}
+
+.page.page-1 .photo-hero--p1 {
+  grid-row: 1;
+}
+
+.page.page-1 .page1-cards {
+  grid-row: 2;
+}
+
+.page.page-1 > .sheet-footer {
+  grid-row: 3;
+}
+
 .page-main {
   flex: 1 1 auto;
   min-height: 0;
@@ -133,22 +151,146 @@ body {
   display: block;
 }
 
-.page1-hero-band {
+/* --- v10: photographic hero (frost language) --- */
+.photo-hero {
+  position: relative;
   flex-shrink: 0;
   width: 100%;
-  height: 220px;
-  min-height: 200px;
-  max-height: 240px;
   overflow: hidden;
-  background: #e6f4fb;
 }
 
-.page1-hero-band img {
-  display: block;
+.photo-hero-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 24%;
+}
+
+.photo-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 22, 48, 0.58) 0%,
+    rgba(6, 22, 48, 0.32) 38%,
+    rgba(6, 22, 48, 0.78) 100%
+  );
+}
+
+.photo-hero-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5mm 11mm 4mm;
+}
+
+.photo-hero-inner--compact {
+  justify-content: center;
+  padding: 3.5mm 11mm;
+}
+
+.photo-hero--p1 {
+  height: 100%;
+  min-height: 96mm;
+}
+
+.photo-hero--p2 {
+  height: 24mm;
+}
+
+.photo-hero--p2 .photo-datalab {
+  height: 26px;
+}
+
+.photo-hero--p2 .photo-cth {
+  height: 24px;
+}
+
+.photo-hero--p2 .photo-powered {
+  font-size: 6pt;
+  margin-top: 2px;
+}
+
+.photo-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.photo-brand-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.photo-datalab {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.photo-cth {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.photo-powered {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.25;
+}
+
+.photo-powered strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.photo-title-block {
+  margin-top: auto;
+  padding-bottom: 1mm;
+}
+
+.photo-title-block .hero-kicker {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 8pt;
+  margin-bottom: 3px;
+}
+
+.photo-title-block h1 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 25pt;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0 0 4px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.photo-title-block .hero-lead {
+  margin: 0;
+  font-size: 8.5pt;
+  line-height: 1.34;
+  color: rgba(255, 255, 255, 0.94);
+  max-width: 98%;
+}
+
+.photo-title-block .hero-lead strong {
+  color: #fff;
+  font-weight: 700;
 }
 
 .hero {
@@ -477,81 +619,93 @@ body {
   font-size: 8pt;
 }
 
-/* --- v6: page 1 content-only fill (no screenshot grid) --- */
-.page-1 .page-main {
+/* --- v10: page 1 cards on / below photo --- */
+.page-1 .page1-cards {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
-}
-
-.page-1 .hero {
-  padding: 2.5mm 12mm 2mm;
-}
-
-.page-1 .hero-kicker {
-  font-size: 8.5pt;
-  margin-bottom: 2px;
-}
-
-.page-1 .hero h1 {
-  font-size: 22pt;
-  margin-bottom: 4px;
-}
-
-.page-1 .hero-lead {
-  font-size: 9.5pt;
-  line-height: 1.38;
+  min-height: 0;
+  margin-top: -8mm;
+  padding: 0 10mm 1.5mm;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(236, 242, 248, 0.72) 0%, rgba(244, 247, 251, 0.96) 28%, #f4f7fb 55%),
+    url("assets/hero.jpg") center 72% / cover no-repeat;
 }
 
 .page-1 .grid-2 {
-  gap: 2.5mm;
-  padding: 0 12mm 2.5mm;
+  gap: 2mm;
+  padding: 0 0 2mm;
 }
 
 .page-1 .panel {
-  padding: 3.5mm 3.5mm;
+  padding: 3mm 3mm;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 6px 20px rgba(12, 73, 138, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 .page-1 .panel h2 {
-  font-size: 11pt;
-  margin-bottom: 3px;
+  font-size: 10pt;
+  margin-bottom: 2px;
 }
 
 .page-1 .panel p {
-  font-size: 9pt;
-  line-height: 1.35;
+  font-size: 8.5pt;
+  line-height: 1.32;
 }
 
 .page-1 .case-strip {
-  margin: 0 12mm 2mm;
-  padding: 3.5mm 4mm;
+  margin: 0 0 2mm;
+  padding: 3mm 3.5mm;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(12, 73, 138, 0.1);
 }
 
 .page-1 .case-strip h2 {
-  font-size: 11.5pt;
+  font-size: 10.5pt;
   margin-bottom: 2px;
 }
 
 .page-1 .case-strip .sub {
-  font-size: 9pt;
+  font-size: 8.5pt;
   margin-bottom: 2px;
 }
 
 .page-1 .case-strip p {
-  font-size: 9pt;
-  line-height: 1.35;
+  font-size: 8.5pt;
+  line-height: 1.32;
+}
+
+.page-1 .page1-cards::before {
+  content: "";
+  flex: 1 1 auto;
+  min-height: 0;
+  order: 2;
+}
+
+.page-1 .page1-cards .grid-2 {
+  order: 0;
+}
+
+.page-1 .page1-cards .case-strip {
+  order: 1;
 }
 
 .page-1-consortium {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 1mm 12mm 2.5mm;
+  padding: 0;
+  margin-top: 0;
+  order: 3;
 }
 
 .page-1-consortium h2 {
-  font-size: 11.5pt;
-  margin: 0 0 2mm;
+  font-size: 10.5pt;
+  margin: 0 0 1.5mm;
 }
 
 .page-1 .cards {
@@ -641,7 +795,7 @@ body {
 
 .page2-showcase {
   flex: 1 1 auto;
-  min-height: 168mm;
+  min-height: 160mm;
   margin: 0;
   grid-template-rows: 1fr 1fr;
   align-content: stretch;
@@ -649,7 +803,7 @@ body {
 
 .page2-showcase .shot-cell {
   height: 100%;
-  min-height: 82mm;
+  min-height: 78mm;
 }
 
 .page2-grid-wrap .render-caption {
