@@ -12,11 +12,15 @@ Co-brand **Universidad Externado de Colombia × CleantechHUB**. Tokens inherit t
 | `templates/social/` | Sized social HTML templates |
 | `applications/` | Agenda, one-pager, slide master, email header |
 | `scripts/export-eo-assets.py` | Playwright PDF/PNG export → `out/` |
+| `options/` | Five visual directions (no full-bleed gradients) — IG + banner mock-ups |
 
 Regenerate exports:
 
 ```bash
 python3 brand/earth-observatory/scripts/export-eo-assets.py
+python3 brand/earth-observatory/options/export-five-directions.py
 ```
+
+**Options deliverables:** `options/eo-dir-1.png` … `eo-dir-5.png`, `options/eo-5-directions.pdf`, `options/contact-sheet.png`.
 
 Draft only — no deploy from this folder without Infra ticket.

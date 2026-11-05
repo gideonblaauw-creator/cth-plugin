@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:'Open Sans',sans-serif}
+.row{display:flex;gap:40px}
+.art{position:relative;overflow:hidden;background:#EDEAE4;color:#5C5348}
+.topo{position:absolute;inset:0;opacity:.35}
+.ig{width:1080px;height:1080px;padding:72px;display:flex;flex-direction:column;justify-content:space-between}
+.content{position:relative;z-index:1}
+.display{font-family:'DM Serif Display',serif;font-size:50px;line-height:1.1;color:#0C498A;max-width:900px}
+.logo{height:76px}
+.accent{display:inline-block;width:10px;height:10px;border-radius:50%;background:#669348;margin-right:10px;vertical-align:middle}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:24px;color:#5C5348}
+.banner{width:1584px;height:396px;padding:32px 48px;display:flex;align-items:center;justify-content:space-between}
+.banner .display{font-size:32px;max-width:680px}
+.banner .logo{height:42px}
+</style></head><body>
+<svg width="0" height="0"><defs>
+<pattern id="contour" width="200" height="200" patternUnits="userSpaceOnUse">
+  <path d="M0 100 Q50 60 100 100 T200 100" fill="none" stroke="#9A9288" stroke-width="1"/>
+  <path d="M0 140 Q60 100 120 140 T240 140" fill="none" stroke="#B5AEA4" stroke-width=".8"/>
+  <path d="M0 60 Q40 30 80 60 T160 60" fill="none" stroke="#C5BFB5" stroke-width=".8"/>
+  <path d="M-20 180 Q80 150 180 180" fill="none" stroke="#A39B90" stroke-width=".7"/>
+</pattern></defs></svg>
+<div class="row">
+  <div class="art ig">
+    <svg class="topo" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="url(#contour)"/></svg>
+    <div class="content">
+      <img class="logo" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/>
+      <p class="kicker"><span class="accent"></span>Dirección 2 · Cartográfico</p>
+    </div>
+    <p class="display content">Datos abiertos para el territorio colombiano</p>
+  </div>
+  <div class="art banner">
+    <svg class="topo" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="url(#contour)"/></svg>
+    <div class="content"><img class="logo" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/></div>
+    <p class="display content">Datos abiertos para el territorio colombiano</p>
+  </div>
+</div>
+</body></html>

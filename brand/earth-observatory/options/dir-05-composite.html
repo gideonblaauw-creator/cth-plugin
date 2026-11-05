@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:'Open Sans',sans-serif}
+.row{display:flex;gap:40px}
+.art{position:relative;overflow:hidden;color:#fff}
+.photo{position:absolute;inset:0;background:url('assets/colombia-landscape.jpg') center/cover no-repeat}
+.overlay{position:absolute;inset:0;background:rgba(12,73,138,.25)}
+.block{position:absolute;background:#0C498A;z-index:2}
+.ig{width:1080px;height:1080px}
+.ig .block{bottom:0;left:0;right:0;height:52%;padding:56px 64px;display:flex;flex-direction:column;justify-content:space-between}
+.display{font-family:'Playfair Display',serif;font-size:46px;line-height:1.12;font-weight:700}
+.logo{height:72px}
+.credit{position:absolute;top:16px;right:16px;z-index:3;font-size:10px;background:rgba(0,0,0,.45);padding:6px 10px;border-radius:4px}
+.banner{width:1584px;height:396px}
+.banner .block{left:0;top:0;bottom:0;width:58%;padding:36px 44px;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.banner .display{font-size:28px;max-width:520px}
+.banner .logo{height:38px}
+</style></head><body>
+<div class="row">
+  <div class="art ig">
+    <div class="photo"></div><div class="overlay"></div>
+    <p class="credit">Foto: Unsplash</p>
+    <div class="block">
+      <img class="logo" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt=""/>
+      <p class="display">Datos abiertos para el territorio colombiano</p>
+    </div>
+  </div>
+  <div class="art banner">
+    <div class="photo"></div><div class="overlay"></div>
+    <div class="block">
+      <img class="logo" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt=""/>
+      <p class="display">Datos abiertos para el territorio colombiano</p>
+    </div>
+  </div>
+</div>
+</body></html>
