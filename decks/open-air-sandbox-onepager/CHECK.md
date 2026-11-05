@@ -16,7 +16,8 @@
 - [x] Download PDF: footer `.pdf-dl-footer` + fixed `.pdf-dl-fixed`; `@media print` hides controls (`pdf-download.css`)
 - [x] Datalab Option A datagrid SVG ≥48px + live `powered by CleantechHUB` text ≥11px
 - [x] Top bar: Datalab Option A + live powered-by (left); CTH logo (right); **no EO**
-- [x] 2×2 screenshot grid; role-before-logo consortium; sheet footer both pages (n/2)
+- [x] Page 1: intro + steward + Air4U + consortium only (scaled); page 2: single 2×2 grid to dev band
+- [x] Air4U full-color logo; blank-band scan ≤40px on pdftoppm PNGs
 - [x] Hero/showcase `object-fit: cover`; page 2 side-by-side screenshots
 - [x] Render caption (ES/EN); footer text link + single fixed Download PDF button
 - [x] Hero full-width rendering + max 3 legible showcase shots (page 1)
