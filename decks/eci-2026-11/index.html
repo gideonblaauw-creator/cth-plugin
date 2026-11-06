@@ -14,6 +14,8 @@
 </head>
 <body>
 
+<div class="read-progress" id="readProgress" aria-hidden="true"><span id="readProgressBar"></span></div>
+
 <header class="topbar" id="top">
   <div class="logos-row">
     <a href="#cover" class="brand"><img src="img/cleantechhub.png" alt="CleantechHUB" width="150" height="44"></a>
@@ -21,27 +23,30 @@
   </div>
   <button type="button" class="burger" id="burger" aria-label="Menú">☰</button>
   <nav class="nav" id="nav" aria-label="Secciones">
-    <a href="#cover">1</a>
-    <a href="#why">2</a>
-    <a href="#who">3</a>
-    <a href="#fit">4</a>
-    <a href="#clp">5</a>
-    <a href="#datalab">6</a>
-    <a href="#datalab2">7</a>
-    <a href="#energy">8</a>
-    <a href="#work">9</a>
-    <a href="#talent">10</a>
-    <a href="#pdi">11</a>
-    <a href="#invite">12</a>
-    <a href="#next">13</a>
-    <a href="#close">14</a>
+    <a href="#cover" data-short="1"><span class="nav-label-full">Portada</span><span class="nav-label-short" aria-hidden="true">1</span></a>
+    <a href="#why" data-short="2"><span class="nav-label-full">Por qué</span><span class="nav-label-short" aria-hidden="true">2</span></a>
+    <a href="#who" data-short="3"><span class="nav-label-full">CTH</span><span class="nav-label-short" aria-hidden="true">3</span></a>
+    <a href="#fit" data-short="4"><span class="nav-label-full">HELIX-A</span><span class="nav-label-short" aria-hidden="true">4</span></a>
+    <a href="#clp" data-short="5"><span class="nav-label-full">CLP</span><span class="nav-label-short" aria-hidden="true">5</span></a>
+    <a href="#datalab" data-short="6"><span class="nav-label-full">Datalab</span><span class="nav-label-short" aria-hidden="true">6</span></a>
+    <a href="#datalab2" data-short="7"><span class="nav-label-full">Método</span><span class="nav-label-short" aria-hidden="true">7</span></a>
+    <a href="#energy" data-short="8"><span class="nav-label-full">Energía</span><span class="nav-label-short" aria-hidden="true">8</span></a>
+    <a href="#work" data-short="9"><span class="nav-label-full">Cómo</span><span class="nav-label-short" aria-hidden="true">9</span></a>
+    <a href="#talent" data-short="10"><span class="nav-label-full">Talento</span><span class="nav-label-short" aria-hidden="true">10</span></a>
+    <a href="#pdi" data-short="11"><span class="nav-label-full">PDI</span><span class="nav-label-short" aria-hidden="true">11</span></a>
+    <a href="#invite" data-short="12"><span class="nav-label-full">Invitaciones</span><span class="nav-label-short" aria-hidden="true">12</span></a>
+    <a href="#next" data-short="13"><span class="nav-label-full">Próximos</span><span class="nav-label-short" aria-hidden="true">13</span></a>
+    <a href="#close" data-short="14"><span class="nav-label-full">Cierre</span><span class="nav-label-short" aria-hidden="true">14</span></a>
   </nav>
 </header>
 
 <main>
   <!-- 1 -->
-  <section id="cover" class="sec hero-sec deck-section">
+  <section id="cover" class="sec hero-sec deck-section reveal-on-scroll">
     <div class="hero">
+      <div class="hero-globe-wrap deck-hero-3d" id="heroGlobeWrap" aria-hidden="true">
+        <canvas id="heroGlobe"></canvas>
+      </div>
       <div class="hero-inner">
         <p class="tagline-conf">Material confidencial de aliados · no distribuir</p>
         <p class="eyebrow" style="color:#B2EEFA">Jornada de trabajo · campus</p>
@@ -58,7 +63,7 @@
   </section>
 
   <!-- 2 -->
-  <section id="why" class="sec deck-section">
+  <section id="why" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Por qué estamos aquí</p>
       <h2>Innovación climática aplicada</h2>
@@ -77,7 +82,7 @@
   </section>
 
   <!-- 3 -->
-  <section id="who" class="sec alt deck-section">
+  <section id="who" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Quién es CleantechHUB</p>
       <h2>Programas y plataformas</h2>
@@ -90,12 +95,38 @@
   </section>
 
   <!-- 4 -->
-  <section id="fit" class="sec deck-section">
+  <section id="fit" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">HELIX-A × CleantechHUB</p>
       <h2>Encaje entre focos</h2>
       <p class="callout" style="margin-bottom:1.25rem">Empezamos donde nuestro trabajo se encuentra con tres núcleos: <strong>Energía y Sostenibilidad</strong>, <strong>Territorios Inteligentes</strong> e <strong>Inteligencia Digital</strong>.</p>
-      <table class="fit-table">
+      <div class="helix-priority">
+        <button type="button" class="nucleo-card" data-expanded="false" aria-expanded="false" aria-controls="nucleo-digital-body" id="nucleo-digital-btn">
+          <span class="nucleo-kicker">Núcleo</span>
+          <span class="nucleo-title">Inteligencia digital</span>
+          <span class="nucleo-hint">Clic para ver vínculo con CleantechHUB</span>
+        </button>
+        <div class="nucleo-body" id="nucleo-digital-body" hidden>
+          <p>Datalab, analítica, tableros y gobierno del dato para retos y sandboxes.</p>
+        </div>
+        <button type="button" class="nucleo-card" data-expanded="false" aria-expanded="false" aria-controls="nucleo-energia-body" id="nucleo-energia-btn">
+          <span class="nucleo-kicker">Núcleo</span>
+          <span class="nucleo-title">Energía y sostenibilidad</span>
+          <span class="nucleo-hint">Clic para ver vínculo con CleantechHUB</span>
+        </button>
+        <div class="nucleo-body" id="nucleo-energia-body" hidden>
+          <p>Emprendimiento Verde (ClimateLaunchpad), retos de cadena de valor, proyectos de electrificación y transición (p. ej. cooperativas energéticas).</p>
+        </div>
+        <button type="button" class="nucleo-card" data-expanded="false" aria-expanded="false" aria-controls="nucleo-territorio-body" id="nucleo-territorio-btn">
+          <span class="nucleo-kicker">Núcleo</span>
+          <span class="nucleo-title">Territorios inteligentes</span>
+          <span class="nucleo-hint">Clic para ver vínculo con CleantechHUB</span>
+        </button>
+        <div class="nucleo-body" id="nucleo-territorio-body" hidden>
+          <p>Sandboxes abiertos (aire, agua, energía, residuos), Living Labs con actores locales.</p>
+        </div>
+      </div>
+      <table class="fit-table fit-table-more">
         <thead>
           <tr>
             <th>HELIX-A (núcleo)</th>
@@ -103,18 +134,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Inteligencia digital</td>
-            <td>Datalab, analítica, tableros y gobierno del dato para retos y sandboxes.</td>
-          </tr>
-          <tr>
-            <td>Energía y sostenibilidad</td>
-            <td>Emprendimiento Verde (ClimateLaunchpad), retos de cadena de valor, proyectos de electrificación y transición (p. ej. cooperativas energéticas).</td>
-          </tr>
-          <tr>
-            <td>Territorios inteligentes</td>
-            <td>Sandboxes abiertos (aire, agua, energía, residuos), Living Labs con actores locales.</td>
-          </tr>
           <tr>
             <td>Salud y bio-innovación</td>
             <td>Programas y mentorías alineados con ODS; co-creación cuando exista afinidad temática.</td>
@@ -129,7 +148,7 @@
   </section>
 
   <!-- 5 -->
-  <section id="clp" class="sec alt deck-section">
+  <section id="clp" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Emprendimiento Verde</p>
       <h2>ClimateLaunchpad · cifras de referencia</h2>
@@ -155,18 +174,61 @@
           <span class="lbl">Con one-pager bilingüe en Nexus</span>
         </div>
       </div>
+      <div class="chart-global-filters" id="chartGlobalFilters">
+        <span class="filter-label">Filtros globales (gráficos)</span>
+        <select id="gfCountry" aria-label="Filtrar por país">
+          <option value="">Todos los países</option>
+        </select>
+        <select id="gfTheme" aria-label="Filtrar por tema">
+          <option value="">Todos los temas</option>
+        </select>
+        <select id="gfStage" aria-label="Filtrar por etapa">
+          <option value="">Todas las etapas</option>
+        </select>
+        <button type="button" class="btn-reset" id="gfReset">Restablecer</button>
+      </div>
       <div class="charts-row">
         <div class="chart-card">
           <h4>Por país</h4>
+          <div class="chart-filter-row" data-chart-scope="country">
+            <button type="button" class="chip-filter" data-mode="cth5" aria-pressed="false">Solo 5 países CTH</button>
+            <button type="button" class="chip-filter" data-mode="top5" aria-pressed="false">Top 5 por volumen</button>
+            <button type="button" class="chip-filter on" data-mode="all" aria-pressed="true">Todos</button>
+          </div>
           <div class="cbox"><canvas id="cCountry" aria-label="Gráfico por país"></canvas></div>
         </div>
         <div class="chart-card">
           <h4>Embudo de programa</h4>
+          <div class="chart-filter-row" data-chart-scope="funnel">
+            <button type="button" class="chip-filter on" data-mode="all" aria-pressed="true">Todas las etapas</button>
+            <button type="button" class="chip-filter" data-mode="trim" aria-pressed="false">Sin cohort</button>
+          </div>
           <div class="cbox"><canvas id="cFunnel" aria-label="Embudo"></canvas></div>
         </div>
         <div class="chart-card">
           <h4>Temáticas</h4>
+          <div class="chart-filter-row" data-chart-scope="theme">
+            <button type="button" class="chip-filter on" data-mode="coded" aria-pressed="true">Con tema codificado</button>
+            <button type="button" class="chip-filter" data-mode="all" aria-pressed="false">Incluir sin tema</button>
+          </div>
           <div class="cbox"><canvas id="cTheme" aria-label="Temas"></canvas></div>
+        </div>
+      </div>
+      <div class="explorer card">
+        <h3 class="explorer-head">Explorador de startups</h3>
+        <p class="small">Misma fuente: <code>data/startups.json</code>. Filtra por país, tema y etapa.</p>
+        <div class="explorer-filters">
+          <label>País <select id="exCountry"><option value="">Todos</option></select></label>
+          <label>Tema <select id="exTheme"><option value="">Todos</option></select></label>
+          <label>Etapa <select id="exStage"><option value="">Todas</option></select></label>
+          <label class="ex-search">Buscar <input type="search" id="exQ" placeholder="Nombre o categoría" autocomplete="off"></label>
+        </div>
+        <p class="explorer-count" id="exCount" aria-live="polite"></p>
+        <div class="explorer-table-wrap">
+          <table class="explorer-table" id="exTable">
+            <thead><tr><th>Startup</th><th>País</th><th>Tema</th><th>Etapa</th></tr></thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
       <div class="tl" role="list" aria-label="Hitos del programa (referencia)">
@@ -179,19 +241,39 @@
   </section>
 
   <!-- 6 -->
-  <section id="datalab" class="sec deck-section">
+  <section id="datalab" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Datalab · evidencia confiable</p>
       <h2>Datalab powered by CleantechHUB</h2>
-      <div class="grid-2" style="align-items:center">
+      <div class="grid-2" style="align-items:start">
         <div>
           <p class="lead"><strong>CleantechHUB</strong> actúa como custodio de datos para el modelo de trabajo; los socios conservan sus datos brutos y su propiedad intelectual según lo acordado en cada iniciativa.</p>
-          <ul>
-            <li><strong>Vitrina pública</strong> — resultados agregados y narrativa para visibilidad.</li>
-            <li><strong>Living Lab</strong> — tres actores, ventana típica 90–180 días.</li>
-            <li><strong>Producto cliente</strong> — entrega de resultados de solo lectura.</li>
-            <li><strong>Datatón</strong> — concentración exploratoria con equipos académicos y de campo.</li>
-          </ul>
+          <div class="env-tabs" role="tablist" aria-label="Entornos Datalab">
+            <button type="button" class="env-tab on" role="tab" aria-selected="true" aria-controls="env-panel-0" id="env-tab-0">Vitrina pública</button>
+            <button type="button" class="env-tab" role="tab" aria-selected="false" aria-controls="env-panel-1" id="env-tab-1">Living Lab</button>
+            <button type="button" class="env-tab" role="tab" aria-selected="false" aria-controls="env-panel-2" id="env-tab-2">Producto cliente</button>
+            <button type="button" class="env-tab" role="tab" aria-selected="false" aria-controls="env-panel-3" id="env-tab-3">Datatón</button>
+          </div>
+          <div class="env-panel on" role="tabpanel" id="env-panel-0" aria-labelledby="env-tab-0">
+            <ul>
+              <li><strong>Vitrina pública</strong> — resultados agregados y narrativa para visibilidad.</li>
+            </ul>
+          </div>
+          <div class="env-panel" role="tabpanel" id="env-panel-1" hidden aria-labelledby="env-tab-1">
+            <ul>
+              <li><strong>Living Lab</strong> — tres actores, ventana típica 90–180 días.</li>
+            </ul>
+          </div>
+          <div class="env-panel" role="tabpanel" id="env-panel-2" hidden aria-labelledby="env-tab-2">
+            <ul>
+              <li><strong>Producto cliente</strong> — entrega de resultados de solo lectura.</li>
+            </ul>
+          </div>
+          <div class="env-panel" role="tabpanel" id="env-panel-3" hidden aria-labelledby="env-tab-3">
+            <ul>
+              <li><strong>Datatón</strong> — concentración exploratoria con equipos académicos y de campo.</li>
+            </ul>
+          </div>
         </div>
         <div class="card" style="text-align:center;border-left-color:#69B5FA">
           <img class="dlma" src="img/datalab-logo-light.png" alt="Datalab powered by CleantechHUB (opción A · datagrid)">
@@ -202,7 +284,7 @@
   </section>
 
   <!-- 7 -->
-  <section id="datalab2" class="sec alt deck-section">
+  <section id="datalab2" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Método e invitación</p>
       <h2>Madurez L1–L5 en 14 criterios</h2>
@@ -216,7 +298,7 @@
   </section>
 
   <!-- 8 -->
-  <section id="energy" class="sec deck-section">
+  <section id="energy" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Ejemplo breve</p>
       <h2>Cooperativas de energía</h2>
@@ -237,23 +319,41 @@
   </section>
 
   <!-- 9 -->
-  <section id="work" class="sec alt deck-section">
+  <section id="work" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Cómo trabajamos juntos</p>
       <h2>Del reto al Living Lab</h2>
-      <p class="lead">Un reto de empresa + una startup + laboratorios de la Escuela (validación) pueden conformar un <strong>Living Lab</strong>; lo que gana tracción puede escalar con más actores y datos.</p>
-      <div class="callout">
-        Retos desde <strong>La Escuela te Visita</strong> y la <strong>Cátedra Luis Carlos Sarmiento</strong>, conectados con startups y equipos académicos.
+      <div class="stepper" id="workStepper">
+        <div class="stepper-track" aria-hidden="true"></div>
+        <div class="stepper-item is-open">
+          <button type="button" class="stepper-btn" aria-expanded="true" aria-controls="work-step-0" id="work-step-btn-0"><span class="stepper-n">1</span> Reto + startup + Escuela</button>
+          <div class="stepper-panel" id="work-step-0" role="region" aria-labelledby="work-step-btn-0">
+            <p class="lead">Un reto de empresa + una startup + laboratorios de la Escuela (validación) pueden conformar un <strong>Living Lab</strong>; lo que gana tracción puede escalar con más actores y datos.</p>
+          </div>
+        </div>
+        <div class="stepper-item">
+          <button type="button" class="stepper-btn" aria-expanded="false" aria-controls="work-step-1" id="work-step-btn-1"><span class="stepper-n">2</span> Retos La Escuela te Visita y CLSA</button>
+          <div class="stepper-panel" id="work-step-1" role="region" aria-labelledby="work-step-btn-1" hidden>
+            <div class="callout">
+              Retos desde <strong>La Escuela te Visita</strong> y la <strong>Cátedra Luis Carlos Sarmiento</strong>, conectados con startups y equipos académicos.
+            </div>
+          </div>
+        </div>
+        <div class="stepper-item">
+          <button type="button" class="stepper-btn" aria-expanded="false" aria-controls="work-step-2" id="work-step-btn-2"><span class="stepper-n">3</span> Convocatorias y priorización</button>
+          <div class="stepper-panel" id="work-step-2" role="region" aria-labelledby="work-step-btn-2" hidden>
+            <p>Los proyectos con tracción pueden postularse <strong>juntos</strong> a <strong>MinCiencias</strong>, <strong>SGR</strong> y otras convocatorias, cuando haya afinidad y capacidad por parte de ambos lados.</p>
+            <p><strong>CleantechHUB</strong> puede apoyar a <strong>priorizar retos</strong>, acotar alcances y preparar la narrativa técnica antes de postular.</p>
+          </div>
+        </div>
       </div>
-      <p>Los proyectos con tracción pueden postularse <strong>juntos</strong> a <strong>MinCiencias</strong>, <strong>SGR</strong> y otras convocatorias, cuando haya afinidad y capacidad por parte de ambos lados.</p>
-      <p><strong>CleantechHUB</strong> puede apoyar a <strong>priorizar retos</strong>, acotar alcances y preparar la narrativa técnica antes de postular.</p>
       <p class="small">Fotos de laboratorio y campus (sitio institucional).</p>
       <img src="img/lab-campus.jpg" alt="Laboratorio en campus" width="1200" height="400" style="width:100%;border-radius:12px;max-height:240px;object-fit:cover">
     </div>
   </section>
 
   <!-- 10 -->
-  <section id="talent" class="sec deck-section">
+  <section id="talent" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Puente de talento</p>
       <h2>Empleo, prácticas y formación</h2>
@@ -267,7 +367,7 @@
   </section>
 
   <!-- 11 -->
-  <section id="pdi" class="sec alt deck-section">
+  <section id="pdi" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Plan de Desarrollo Institucional</p>
       <h2>Alineación exploratoria</h2>
@@ -295,22 +395,28 @@
   </section>
 
   <!-- 12 -->
-  <section id="invite" class="sec deck-section">
+  <section id="invite" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Invitaciones</p>
       <h2>Qué explorar con HELIX-A</h2>
       <p class="lead">Invitaciones a conversar, no compromisos:</p>
-      <ul>
-        <li>Un <strong>Datatón</strong> y rutas para estudiantes.</li>
-        <li>Un asiento de investigación o laboratorio en <strong>Open Energy</strong>, <strong>Open Water</strong> u <strong>Open Waste</strong>.</li>
-        <li>Un primer <strong>Living Lab</strong> con una empresa, una startup de la red CleantechHUB y la Escuela como <strong>casa académica</strong>.</li>
-      </ul>
+      <div class="invite-cards">
+        <div class="invite-card">
+          <p>Un <strong>Datatón</strong> y rutas para estudiantes.</p>
+        </div>
+        <div class="invite-card">
+          <p>Un asiento de investigación o laboratorio en <strong>Open Energy</strong>, <strong>Open Water</strong> u <strong>Open Waste</strong>.</p>
+        </div>
+        <div class="invite-card">
+          <p>Un primer <strong>Living Lab</strong> con una empresa, una startup de la red CleantechHUB y la Escuela como <strong>casa académica</strong>.</p>
+        </div>
+      </div>
       <div class="callout">Formular proyectos juntos y buscar financiación en equipo.</div>
     </div>
   </section>
 
   <!-- 13 -->
-  <section id="next" class="sec alt deck-section">
+  <section id="next" class="sec alt deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Próximos pasos</p>
       <h2>Ruta de conversación</h2>
@@ -327,7 +433,7 @@
   </section>
 
   <!-- 14 -->
-  <section id="close" class="sec deck-section">
+  <section id="close" class="sec deck-section reveal-on-scroll">
     <div class="wrap">
       <p class="eyebrow">Cierre</p>
       <h2>Gracias</h2>
@@ -351,6 +457,7 @@
 
 <a class="pdf-dl-btn pdf-dl-fixed" href="eci-2026-11.pdf" download="eci-2026-11.pdf" aria-label="Descargar PDF">Descargar PDF</a>
 
+<script src="lib/three.min.js"></script>
 <script src="lib/chart.umd.js"></script>
 <script src="app.js"></script>
 </body>

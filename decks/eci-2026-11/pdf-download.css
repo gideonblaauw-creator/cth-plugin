@@ -57,4 +57,9 @@ footer .pdf-dl-btn {
   .pdf-dl-footer {
     display: none !important;
   }
+  /* WebGL / motion layers are screen-only; keep PDF lightweight */
+  .deck-hero-3d,
+  .read-progress {
+    display: none !important;
+  }
 }

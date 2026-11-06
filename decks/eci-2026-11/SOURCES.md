@@ -13,6 +13,7 @@ Material confidencial de trabajo (no publicar en host público).
 | Fotos campus / HELIX (tema institucional) | `escuelaing.s3.amazonaws.com` (banners HELIX-A, laboratorio) |
 | Fotografía energía (tema) | Unsplash (licencia) · `img/energy-wind.jpg` |
 | Chart.js, D3, topojson | Copiados de `decks/_templates/clp26-rein-shell/lib/` |
+| Three.js (UMD, portada 3D) | `three@0.149.0` · `build/three.min.js` desde [jsDelivr](https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js) · copia local `lib/three.min.js` |
 | ClimateLaunchpad CLP26 — texto de hitos y cifras globales | Brief verificado por Gideon (nov 2026) |
 | ClimateLaunchpad — gráficos (país, embudo, temas) | Únicamente desde `data/startups.json` (102 filas) |
 
