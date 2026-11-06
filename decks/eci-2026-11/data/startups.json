@@ -1,0 +1,2341 @@
+{
+ "startups": [
+  {
+   "name": "AirthNova",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/airthnova/",
+   "theme": "CE",
+   "category": "Climate Risk & Disclosure",
+   "desc": "Consultoría ambiental que ayuda a medir y gestionar la huella de carbono y estrategias sostenibles.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Amazóniko",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/amazoniko/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Sistema operativo de economía circular que conecta hogares y recicladores para recuperar residuos con trazabilidad.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "emc",
+     "m": [
+      "CO₂e avoided (cumulative)",
+      "CO₂e evitado (acumulado)"
+     ],
+     "v": 385.0,
+     "u": "tCO2e",
+     "st": "achieved",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "2020–2026",
+      "2020–2026"
+     ]
+    },
+    {
+     "cat": "emc",
+     "m": [
+      "CO₂e avoided (cumulative)",
+      "CO₂e evitado (acumulado)"
+     ],
+     "v": 1075.0,
+     "u": "tCO2e",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "by 2031",
+      "a 2031"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "bio.analytics",
+   "cc": "CO",
+   "stage": "semi",
+   "hub": "cth",
+   "video": "CNusrYUjSUQ",
+   "onepager": "https://nexus.cleantechhub.net/s/bio-analytics/",
+   "theme": "BIO",
+   "category": "Satellite & Deforestation Monitoring",
+   "desc": "Monitoreo de biodiversidad no invasivo mediante bioacústica y sensores ambientales, generando métricas de salud con IA.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "up",
+     "m": [
+      "Carbon uptake in monitored hectares",
+      "Captura de carbono en hectáreas monitoreadas"
+     ],
+     "v": 10000.0,
+     "u": "tCO2/year",
+     "st": "projected",
+     "sdg": [
+      "13.2",
+      "15.2"
+     ],
+     "tf": [
+      "with $10M, estimated",
+      "con USD 10M, estimado"
+     ]
+    },
+    {
+     "cat": "la",
+     "m": [
+      "Hectares under biodiversity monitoring",
+      "Hectáreas con monitoreo de biodiversidad"
+     ],
+     "v": 24567.0,
+     "u": "ha",
+     "st": "projected",
+     "sdg": [
+      "15.5"
+     ],
+     "tf": [
+      "with $10M",
+      "con USD 10M"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Circuito cero",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/circuito-cero/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Gestión de residuos involucrando a recicladores para transformarlos en recursos y mitigar el cambio climático.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Clean Sim (by IMIC)",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/clean-sim/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Simuladores hiperrealistas utilizando residuos hospitalarios no peligrosos para entrenamiento médico.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ reduced",
+      "CO₂ reducido"
+     ],
+     "v": 12000.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "at scale (deck: 12K tons)",
+      "a escala (deck: 12K toneladas)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Construyendo Redes de Paz",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/construyendo-redes-de-paz/",
+   "theme": "BIO",
+   "category": "Cacao Value Chain",
+   "desc": "Startup de biotecnología que regenera hectáreas degradadas en Tolima mediante el uso de microorganismos.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "Carbon captured",
+      "Carbono capturado"
+     ],
+     "v": 1575.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "annual",
+      "anual"
+     ]
+    },
+    {
+     "cat": "wa",
+     "m": [
+      "Water retained",
+      "Agua retenida"
+     ],
+     "v": 36100000.0,
+     "u": "L",
+     "st": "projected",
+     "sdg": [
+      "6.6"
+     ]
+    },
+    {
+     "cat": "jo",
+     "m": [
+      "Direct rural jobs",
+      "Empleos rurales directos"
+     ],
+     "v": 20.0,
+     "u": "jobs",
+     "st": "projected",
+     "sdg": [
+      "8.5"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "DANTIUM",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/dantium/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Transforma residuos plásticos en madera plástica para bloques y cercas con integración de iluminación LED.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Green Textile Solutions",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/green-textile-solutions/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Empresa que transforma residuos textiles y plásticos en resinas recicladas de alto rendimiento con trazabilidad total.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "KUO (SIGR)",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/kuo/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Papelera inteligente con IA que clasifica automáticamente residuos reciclables y orgánicos mediante visión artificial.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Planta Comunitaria WPC",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/planta-comunitaria-wpc/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Planta comunitaria que convierte residuos plásticos en madera plástica (WPC) para mobiliario urbano y rural.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Plastic diverted from disposal",
+      "Plástico desviado de la disposición final"
+     ],
+     "v": 36.0,
+     "u": "t/year",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "annual",
+      "anual"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "SOLESTRUCTURAS S.A.S. BIC",
+   "cc": "CO",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Soluciones fotovoltaicas ligeras para edificios con techos que no soportan paneles convencionales.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "ArtexLab",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/artexlab/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Fabricación de mobiliario a partir de la recuperación y reincorporación de residuos textiles.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Cacelio",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/cacelio/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Transforma residuos de la industria del café en biomateriales cultivados con micelio para arquitectura y diseño.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Coffee waste transformed",
+      "Residuos de café transformados"
+     ],
+     "v": 3000.0,
+     "u": "t",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "by 2030 (vision)",
+      "a 2030 (visión)"
+     ]
+    },
+    {
+     "cat": "pe",
+     "m": [
+      "Coffee families impacted",
+      "Familias cafeteras impactadas"
+     ],
+     "v": 11000.0,
+     "u": "families",
+     "st": "projected",
+     "sdg": [
+      "2.3"
+     ],
+     "tf": [
+      "by 2030 (vision)",
+      "a 2030 (visión)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "CLIMATIK Climate Transition Platform",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/climatik/",
+   "theme": "CE",
+   "category": "Climate Risk & Disclosure",
+   "desc": "Plataforma digital que ayuda a las PYMES a medir emisiones de GEI y evaluar riesgos climáticos con factores locales.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "communitylab",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/communitylab/",
+   "theme": "CE",
+   "category": "Industrial Symbiosis",
+   "desc": "Cleantech que transforma residuos en activos trazables y rentables mediante datos y modelos circulares.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "HoneyB",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/honeyb/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Startup de impacto que crea productos innovadores a base de miel, combinando reforestación y polinización para regenerar ecosistemas en alianza con comunidades locales.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "SEKPOS",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/sekpos/",
+   "desc": "Ecosistema de punto de venta (POS) con IA para restaurantes que optimiza inventarios y reduce desperdicio.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "AgroData Connect",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/agrodata-connect/",
+   "theme": "BIO",
+   "category": "Precision Ag & Smart Grid",
+   "desc": "Plataforma impulsada por IA que ayuda a pequeños agricultores a monitorear cultivos y detectar riesgos.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂e avoided",
+      "CO₂e evitado"
+     ],
+     "v": 33000.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "2031 (10,000 licences)",
+      "2031 (10.000 licencias)"
+     ]
+    },
+    {
+     "cat": "pe",
+     "m": [
+      "Producers using data",
+      "Productores que usan datos"
+     ],
+     "v": 10000.0,
+     "u": "producers",
+     "st": "projected",
+     "sdg": [
+      "2.4"
+     ],
+     "tf": [
+      "2031",
+      "2031"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "AGROLIDER",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/agrolider/",
+   "theme": "BIO",
+   "category": "Precision Agri Data",
+   "desc": "Monitoreo de cultivos en tiempo real mediante drones que reciben información bioclimática para predicción.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Aterna",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "desc": "Empaques con recubrimiento biodegradable y ecológico que preserva la frescura de las rosas.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "CurubaTech",
+   "cc": "CO",
+   "stage": "semi",
+   "hub": "cth",
+   "video": "Ai6mn72oVyI",
+   "onepager": "https://nexus.cleantechhub.net/s/curuba/",
+   "desc": "Asistencia agronómica remota vía WhatsApp y análisis de datos para mejorar la productividad de los agricultores.",
+   "res": [
+    [
+     "Winner of the Colombia National Final",
+     "Ganador de la Final Nacional de Colombia"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "El Ocámbulo",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/el-ocambulo/",
+   "theme": "BIO",
+   "category": "Bioeconomy & NbS",
+   "desc": "Cultivo de orellanas en espacios urbanos usando residuos orgánicos reciclados para crear proteína sostenible.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Modular Agrosolutions",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/modular-agrosolutions/",
+   "theme": "BIO",
+   "category": "Supply Chain Traceability",
+   "desc": "Infraestructura de inteligencia climática que integra imágenes satelitales y seguimiento técnico en campo.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "NextGen Nutrition (Petfly)",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "video": "E-tIY67cNRo",
+   "onepager": "https://nexus.cleantechhub.net/s/nextgen-nutrition/",
+   "theme": "BIO",
+   "category": "Bioeconomy & NbS",
+   "desc": "Biotecnología que transforma desperdicios de alimentos en ingredientes de bajo carbono para nutrición animal.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "Terra IO",
+   "cc": "CO",
+   "stage": "regional",
+   "hub": "cth",
+   "video": "rjpwJTg_bDo",
+   "onepager": "https://nexus.cleantechhub.net/s/terra-io/",
+   "theme": "BIO",
+   "category": "Precision Ag & Smart Grid",
+   "desc": "Inteligencia de suelos para pequeños agricultores mediante lecturas offline, señales climáticas e IA para optimizar recursos.",
+   "res": [
+    [
+     "One of the 8 grand finalists at the Colombia National Final",
+     "Una de las 8 grandes finalistas de la Final Nacional de Colombia"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "Direct emissions potentially avoided",
+      "Emisiones directas que se podrían evitar"
+     ],
+     "v": 1210.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "year 3, 12,600 ha",
+      "año 3, 12.600 ha"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Proyecto emprendedor con impacto ambiental",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/proyecto-impacto-ambiental/",
+   "theme": "EN",
+   "category": "Biomass & Biogas",
+   "desc": "Consiste en la siembra de 18,000 matas de coco enano de diversas variedades para comercializar agua, aceite y azúcar de coco, aprovechando los residuos (estopa y jícara) como biomasa y sustrato agrícola.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ avoided",
+      "CO₂ evitado"
+     ],
+     "v": 4284.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "Phase 1, 5 companies",
+      "fase 1, 5 empresas"
+     ]
+    },
+    {
+     "cat": "ws",
+     "m": [
+      "Biomass waste valorised",
+      "Residuos de biomasa valorizados"
+     ],
+     "v": 7280.0,
+     "u": "t/year",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "pilot basis",
+      "base piloto"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Uniqua SAS BIC",
+   "cc": "CO",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Creadores de perfiles de café con tuestes y sabores personalizados que integran un programa de formación en catación para mujeres vulnerables (madres solteras víctimas de violencia), quienes luego generan ingresos a través de una red de servicios de perfilado.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "e.WAI",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/e-wai/",
+   "theme": "WW",
+   "category": "Watershed Conservation",
+   "desc": "Plataforma de IA que automatiza el monitoreo ambiental y reportes de calidad del agua (ICA) en Colombia.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "SIÉ WAKA",
+   "cc": "CO",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/sie-waka/",
+   "theme": "WW",
+   "category": "Water Access & Treatment",
+   "desc": "Plataforma descentralizada de monitoreo de agua que combina sensores IoT y ciencia ciudadana.",
+   "res": [
+    [
+     "Pitched at the Colombia National Final",
+     "Pitch en la Final Nacional de Colombia"
+    ]
+   ]
+  },
+  {
+   "name": "HardTech",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/hardtech/",
+   "desc": "Es un proceso de carburo de silicio semiconductor producido en vacío y por calentamiento no convencional, sin emisiones al medio ambiente, limpio y patentado provisionalmente en USA.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "PezConfiable",
+   "cc": "PE",
+   "stage": "semi",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/pezconfiable/",
+   "theme": "BIO",
+   "category": "Supply Chain Traceability",
+   "desc": "Plataforma digital que conecta pescadores artesanales con compradores, integrando trazabilidad, datos oceanográficos en tiempo real y referencias de precios.",
+   "res": [
+    [
+     "Peru national ranking: 3rd",
+     "Ranking nacional Perú: 3.er"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "YakuSmart",
+   "cc": "PE",
+   "stage": "global",
+   "hub": "cth",
+   "video": "Y5f7vxqsuVI",
+   "onepager": "https://nexus.cleantechhub.net/s/yakusmart/",
+   "theme": "WW",
+   "category": "Water Efficiency & Circular Use",
+   "desc": "Asistente de riego inteligente vía WhatsApp que combina IA, sensores de suelo, datos satelitales y climáticos para indicar cuándo y cuánto regar.",
+   "res": [
+    [
+     "Peru national ranking: 1st",
+     "Ranking nacional Perú: 1.er"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ],
+    [
+     "Top 2 of the Americas: Global Grand Final, Singapore, 14 Oct",
+     "Top 2 de las Américas: Gran Final Global, Singapur, 14 oct"
+    ]
+   ]
+  },
+  {
+   "name": "PredictaMAR",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Plataforma satelital que analiza datos oceanográficos y entrega recomendaciones de zonas óptimas de pesca a embarcaciones artesanales.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "WindLever",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/windlever/",
+   "theme": "BIO",
+   "category": "Precision Ag & Smart Grid",
+   "desc": "Microgenerador eólico sin aspas que convierte vibraciones del viento en electricidad limpia para sensores y dispositivos de bajo consumo en zonas remotas",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "PectiGrow",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Bioinsumos agrícolas elaborados con pectina de cáscara de cacao y microorganismos benéficos para mejorar la productividad de cultivos de forma sostenible.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "PIROSA",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Reactores modulares de pirólisis y gasificación que transforman residuos plásticos y orgánicos en gasolina y gas de síntesis de forma autosostenible.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "FIVRA",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/fivra/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Plataforma con IA que genera fichas técnicas de producción textil a partir de bocetos, estructurando el proceso de diseño antes de llegar al taller de confección.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Textile sample waste avoided",
+      "Residuos de muestras textiles evitados"
+     ],
+     "v": 5.9,
+     "u": "t/year",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "year 1, 500 clients",
+      "año 1, 500 clientes"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Inka Green SAC",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Fertilizante mineral natural a base de Leonardita pulverizada, rico en ácidos húmicos, fúlvicos y micronutrientes que revitaliza suelos agrícolas degradados.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Kallpa Greenz Leaders",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/kallpa-greenz-leaders/",
+   "desc": "Franquicia agrícola que evalúa cada campo e implementa tecnología sostenible como riego eficiente, fertirrigación y agricultura protegida, con acompañamiento integral al agricultor.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Ecosonus",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Sensores bioacústicos de bajo costo con modelos de IA adaptados localmente que generan indicadores auditables de biodiversidad en bosques tropicales junto a comunidades indígenas.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "NanoHumi",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/nanohumi/",
+   "theme": "BIO",
+   "category": "Organic & Regenerative Ag",
+   "desc": "Biofertilizante orgánico que regenera suelos degradados, estimula la actividad microbiana y mejora la disponibilidad de nutrientes sin el uso de insumos químicos.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Wayra Watt",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/wayra-watt/",
+   "theme": "EN",
+   "category": "Wind Energy",
+   "desc": "Turbinas eólicas de bajo costo fabricadas con materiales reciclados para proveer energía limpia a comunidades y hogares sin acceso a electricidad.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "fu",
+     "m": [
+      "Gasoline avoided",
+      "Gasolina evitada"
+     ],
+     "v": 3644.9,
+     "u": "gal/year",
+     "st": "projected",
+     "sdg": [
+      "7.2"
+     ],
+     "tf": [
+      "annual",
+      "anual"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Andean Biofactories",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/andean-biofactories/",
+   "theme": "BIO",
+   "category": "Organic & Regenerative Ag",
+   "desc": "Módulos agrícolas subterráneos, solares y autónomos que aprovechan el aislamiento térmico del suelo para producir alimentos nutritivos en zonas altoandinas con climas extremos.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "pe",
+     "m": [
+      "People with greater resilience",
+      "Personas con mayor resiliencia"
+     ],
+     "v": 4800.0,
+     "u": "people",
+     "st": "projected",
+     "sdg": [
+      "13.1"
+     ],
+     "tf": [
+      "year 3, 40 biofactories",
+      "año 3, 40 biofábricas"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "AgroLens",
+   "cc": "PE",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/agrolens/",
+   "theme": "BIO",
+   "category": "Precision Agri Data",
+   "desc": "Sistema de drones con IA que detecta tempranamente estrés vegetal y riesgo de plagas en cultivos de exportación, generando alertas precisas por zonas para que el agricultor actúe a tiempo.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "VIGÍA",
+   "cc": "PE",
+   "stage": "semi",
+   "hub": "cth",
+   "video": "q1Q96OXefqU",
+   "onepager": "https://nexus.cleantechhub.net/s/vigia/",
+   "theme": "WW",
+   "category": "Water Access & Treatment",
+   "desc": "Plataforma de biovigilancia ambiental que usa metagenómica y bioinformática para monitorear genes de resistencia antimicrobiana en agua y sedimentos de ecosistemas acuáticos.",
+   "res": [
+    [
+     "Peru national ranking: 2nd",
+     "Ranking nacional Perú: 2.º"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "pe",
+     "m": [
+      "People protected",
+      "Personas protegidas"
+     ],
+     "v": 2400000.0,
+     "u": "people",
+     "st": "projected",
+     "sdg": [
+      "3.9"
+     ],
+     "tf": [
+      "year 3",
+      "año 3"
+     ]
+    },
+    {
+     "cat": "wa",
+     "m": [
+      "Safe drinking water",
+      "Agua potable segura"
+     ],
+     "v": 40000.0,
+     "u": "m3/year",
+     "st": "projected",
+     "sdg": [
+      "6.1",
+      "6.3"
+     ],
+     "tf": [
+      "year 3",
+      "año 3"
+     ]
+    },
+    {
+     "cat": "la",
+     "m": [
+      "Watersheds protected",
+      "Cuencas protegidas"
+     ],
+     "v": 451000.0,
+     "u": "km2",
+     "st": "projected",
+     "sdg": [
+      "6.6"
+     ],
+     "tf": [
+      "year 3",
+      "año 3"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Agrosenser",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Monitorea cultivos con datos IoT y satelitales, detectando alertas tempranas como estrés hídrico",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "ToyCycles",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Convierte botellas plásticas recicladas en juguetes de estimulación temprana que favorecen el desarrollo infantil en comunidades vulnerables.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Diana López-ecojoyas",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Transforma residuos de palma en joyería ecológica y productos sostenibles, integrando artesanía, innovación y economía circular",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Finca Ganadera Águilas Verdes",
+   "cc": "CR",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/finca-aguilas-verdes/",
+   "theme": "BIO",
+   "category": "Silvopastoral Systems",
+   "desc": "Finca ganadera regenerativa que contribuye a mitigar el cambio climático mediante un modelo de economía circular.",
+   "res": [
+    [
+     "One of 9 startups in the Central America Mini-final",
+     "Una de las 9 startups de la Mini-final Centroamérica"
+    ]
+   ]
+  },
+  {
+   "name": "AmbiciOsas",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Emprendimiento de economía circular que impulsa el reciclaje, la innovación y los empleos verdes mediante educación y participación comunitaria.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Plastic Free Planet",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/plastic-free-planet/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Combina educación, reciclaje y limpieza de playas para proteger los océanos y generar desarrollo comunitario",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Virgin material substituted",
+      "Material virgen sustituido"
+     ],
+     "v": 30.0,
+     "u": "t",
+     "st": "projected",
+     "sdg": [
+      "12.2"
+     ],
+     "min": 1
+    }
+   ]
+  },
+  {
+   "name": "Finca Gavilán, agroecología y turismo",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Integra turismo rural, agricultura sostenible y una economía social autosostenible para impulsar el desarrollo local.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Ecomuna",
+   "cc": "CR",
+   "stage": "semi",
+   "hub": "cth",
+   "video": "doITTcyo498",
+   "onepager": "https://nexus.cleantechhub.net/s/ecomuna/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Plataforma que conecta consumidores conscientes con productos sostenibles y alternativas ecológicas verificadas.",
+   "res": [
+    [
+     "Central America Mini-final: 3rd place",
+     "Mini-final Centroamérica: 3.er lugar"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Plastic removed",
+      "Plástico eliminado"
+     ],
+     "v": 1659.0,
+     "u": "kg/year",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "year 3, 4,000 households",
+      "año 3, 4.000 hogares"
+     ]
+    },
+    {
+     "cat": "wa",
+     "m": [
+      "Water saved",
+      "Agua ahorrada"
+     ],
+     "v": 24000.0,
+     "u": "L/year",
+     "st": "projected",
+     "sdg": [
+      "6.4"
+     ],
+     "tf": [
+      "year 3",
+      "año 3"
+     ]
+    },
+    {
+     "cat": "pe",
+     "m": [
+      "People with better health",
+      "Personas con mejor salud"
+     ],
+     "v": 16000.0,
+     "u": "people",
+     "st": "projected",
+     "sdg": [
+      "3.9"
+     ],
+     "tf": [
+      "year 3",
+      "año 3"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Providencia Regenera",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Fortalece comunidades rurales regenerativas mediante agricultura sintrópica, emprendimiento y conservación de la biodiversidad.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Sempiternal Honey",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Organización dedicada a la conservación, educación e investigación de abejas nativas en peligro, financiando sus proyectos mediante productos y servicios sostenibles.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Huertas Urbanas Orgánicas",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Promueve el cultivo de alimentos orgánicos libres de químicos para mejorar la salud y el bienestar.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Siloe Garden · Eco Sanctuary",
+   "cc": "CR",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/siloe-garden/",
+   "theme": "BIO",
+   "category": "Bioeconomy & NbS",
+   "desc": "Produce plantas sin agroquímicos y protege el bosque nuboso mediante un modelo de agricultura sostenible y ecoturismo",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "la",
+     "m": [
+      "Forest protected",
+      "Bosque protegido"
+     ],
+     "v": 1.0,
+     "u": "ha",
+     "st": "projected",
+     "sdg": [
+      "15.1"
+     ],
+     "tf": [
+      "target",
+      "meta"
+     ]
+    },
+    {
+     "cat": "pe",
+     "m": [
+      "Students reached",
+      "Estudiantes alcanzados"
+     ],
+     "v": 200.0,
+     "u": "students/year",
+     "st": "projected",
+     "sdg": [
+      "13.3"
+     ],
+     "tf": [
+      "annual target",
+      "meta anual"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Fazzty",
+   "cc": "CR",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/fazzty/",
+   "theme": "TR",
+   "category": "Electric Vehicles",
+   "desc": "Plataforma de micromovilidad Net Zero que facilita el acceso a bicicletas eléctricas mediante un modelo circular de trabajo y propiedad.",
+   "res": [
+    [
+     "One of 9 startups in the Central America Mini-final",
+     "Una de las 9 startups de la Mini-final Centroamérica"
+    ]
+   ]
+  },
+  {
+   "name": "Aura Cell",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/aura-cell/",
+   "theme": "CE",
+   "category": "Green Roofs & Infrastructure",
+   "desc": "Solución biotecnológica que captura CO₂ y partículas contaminantes, monitoreando la calidad del aire en tiempo real mediante sensores e IA.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ reduced",
+      "CO₂ reducido"
+     ],
+     "v": 29.88,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "annual, if 415 filters/yr",
+      "anual, con 415 filtros/año"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Guatepalm",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Transforma racimos de palma africana en cartón sostenible, reduciendo residuos y la contaminación ambiental.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "MUKAN",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/autogenerado-629/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Desarrolla materiales rígidos y flexibles a partir de residuos de maíz para aplicaciones sostenibles, principalmente en la industria del mueble.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Regenerative livestock farming",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Emprendimiento agrotecnológico que integra ganadería y árboles para restaurar suelos, capturar carbono y fortalecer la biodiversidad.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "NRK",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/nrk/",
+   "theme": "CE",
+   "category": "Sustainable Textiles (Wood/Fibre)",
+   "desc": "Marca de diseño consciente que crea piezas únicas y sostenibles, promoviendo la expresión personal y el respeto por el medio ambiente",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "ws",
+     "m": [
+      "Textile waste diverted",
+      "Residuos textiles desviados"
+     ],
+     "v": 66.0,
+     "u": "kg/year",
+     "st": "projected",
+     "sdg": [
+      "12.5"
+     ],
+     "tf": [
+      "2026 (120 garments)",
+      "2026 (120 prendas)"
+     ]
+    },
+    {
+     "cat": "wa",
+     "m": [
+      "Water saved",
+      "Agua ahorrada"
+     ],
+     "v": 654000.0,
+     "u": "L/year",
+     "st": "projected",
+     "sdg": [
+      "6.4"
+     ],
+     "tf": [
+      "2026",
+      "2026"
+     ]
+    },
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ avoided",
+      "CO₂ evitado"
+     ],
+     "v": 0.126,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "2026 (deck: 126 kg)",
+      "2026 (deck: 126 kg)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Crysalia Studio",
+   "cc": "GT",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/crysalia-studio/",
+   "theme": "CE",
+   "category": "Circular Economy & Clean Mfg",
+   "desc": "Crea decoración de alta gama a partir de materiales reutilizados, combinando diseño, sostenibilidad y economía circular.",
+   "res": [
+    [
+     "One of 9 startups in the Central America Mini-final",
+     "Una de las 9 startups de la Mini-final Centroamérica"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ kept sequestered",
+      "CO₂ que se mantiene secuestrado"
+     ],
+     "v": 60.48,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "at 20% of beachhead (deck: 60,480 kg)",
+      "al 20 % del mercado inicial (deck: 60.480 kg)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Abrobots",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Transforma terrenos degradados en ecosistemas productivos mediante inteligencia artificial y robótica para una agricultura sostenible",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Piña & Kakaw",
+   "cc": "GT",
+   "stage": "semi",
+   "hub": "cth",
+   "video": "DUAXecNNdFs",
+   "onepager": "https://nexus.cleantechhub.net/s/pina-kakaw/",
+   "theme": "CE",
+   "category": "Sustainable Textiles (Wood/Fibre)",
+   "desc": "Transforma residuos de hojas de piña en fibras y textiles sostenibles, reduciendo la contaminación y generando empleo rural para mujere",
+   "res": [
+    [
+     "Central America Mini-final: 1st place",
+     "Mini-final Centroamérica: 1.er lugar"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "la",
+     "m": [
+      "Hectares restored",
+      "Hectáreas restauradas"
+     ],
+     "v": 4.9,
+     "u": "ha",
+     "st": "projected",
+     "sdg": [
+      "15.3"
+     ]
+    },
+    {
+     "cat": "jo",
+     "m": [
+      "Jobs (women & youth focus)",
+      "Empleos (enfoque en mujeres y jóvenes)"
+     ],
+     "v": 7.0,
+     "u": "jobs",
+     "st": "projected",
+     "sdg": [
+      "8.5"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ZUMA",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Elimina la quema de caña de azúcar aprovechando la biomasa y promoviendo una producción más sostenible mediante certificación ambiental",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "CASA RAÍZ",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Desarrolla soluciones de vivienda modular sostenible que mejoran la calidad de vida y reducen el impacto ambiental.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Ingenicrop",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/ingenicrop/",
+   "theme": "BIO",
+   "category": "Precision Agri Data",
+   "desc": "Plataforma digital que convierte la agricultura en un sistema inteligente mediante trazabilidad, alertas climáticas e inteligencia artificial.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Cristal Coffee Guatemala",
+   "cc": "GT",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Método sostenible y eficiente para la producción de café con menor impacto ambiental.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "GMOVES",
+   "cc": "GT",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/gmoves/",
+   "theme": "CE",
+   "category": "Recycling & Materials Recovery",
+   "desc": "Transforma madera de café en mezcladores biodegradables, impulsando la economía circular y el empleo rural",
+   "res": [
+    [
+     "One of 9 startups in the Central America Mini-final",
+     "Una de las 9 startups de la Mini-final Centroamérica"
+    ]
+   ]
+  },
+  {
+   "name": "TRIADA EV",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "TRIADA EV is a fintech platform democratizing EVs using ‘Investment Cells,’ where 3 person groups co-finance one unit. Using social collateral to cut credit risk and a 24/7 triple-shift model, we maximize ROI and carbon savings in emerging markets.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Plastic River Barrier",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Plastic River Barrier develops smart floating barriers that capture plastic waste in rivers and streams before it reaches the ocean. Our system uses solar power and environmental sensors to monitor pollution",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "BioHotel Néctar",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "BioHotel Néctar is a sustainable and innovative project that promotes the conservation of pollinating insects by creating eco-friendly hotels made from recyclable and environmentally friendly materials.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "321solsv",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "321solsv is a living lab for tropical agrivoltaics. We integrate solar-powered irrigation, clean energy, and mycelium-based biomaterials to deliver water, food, and sustainable construction, validating three business lines in one demonstrative site.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "SustainSource",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "We help businesses replace wasteful branded, hospitality, and event products with circular, reusable, and sustainably sourced alternatives that reduce waste, pollution, and resource consumption while creating inclusive economic opportunities.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Agrismart",
+   "cc": "SV",
+   "stage": "national",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/agrismart/",
+   "theme": "BIO",
+   "category": "Precision Ag & Smart Grid",
+   "desc": "Agrismart develops technological solutions to optimize agriculture through automation, sensors, and data analytics. We help farmers improve resource use, reduce losses, and increase productivity in a sustainable way.",
+   "res": [
+    [
+     "One of 9 startups in the Central America Mini-final",
+     "Una de las 9 startups de la Mini-final Centroamérica"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "wa",
+     "m": [
+      "Irrigation water saved",
+      "Agua de riego ahorrada"
+     ],
+     "v": 128600000.0,
+     "u": "L/year",
+     "st": "projected",
+     "sdg": [
+      "6.4"
+     ],
+     "tf": [
+      "year 3, 3,522 systems",
+      "año 3, 3.522 sistemas"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ManglArte",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Creamos un abono orgánico y sostenible que aporta nutrientes esenciales para el desarrollo saludable de las candelas de manglar, también transformamos residuos orgánicos en abono natural para fortalecer el crecimiento y la conservación de mangle.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "AgroHotel Solidario Suchitoto",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "AgroHotel Solidario Suchitoto is a community-led, low-carbon lodging model that combines earth-built cabins with agroecological food production. Tourism income subsidizes lodging for rural patients and finances climate-resilient livelihoods.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Moskem Trade In Suits & Sewcialabs",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Moskem is El Salvador’s first circular fashion platform that rents out your clothes stored at home. It generates income for clothing owners and provides tailoring scholarships using 20% of each rental fee. It’s an Airbnb-style model that combines technology, education, and environmental impact.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Reúso de aguas de lavadoras domésticas",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "Reuso domestico de aguas de lavado",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "LEVA",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "We are a Salvadoran startup that transforms recyclable plastic fibers into contemporary-style handbags. Each piece tells a story of environmental awareness and empowerment, combining style with purpose.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "Apícola Chilín de Argueta",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "We are an initiative that works with native bees in my region. We care for them because they pollinate my crops. Without them, there is no life. We work to raise environmental awareness. We work with students in my community.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "NUTRICHAR",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/nutrichar/",
+   "theme": "BIO",
+   "category": "Organic & Regenerative Ag",
+   "desc": "Nutrichar transforms coconut waste into high-tech biochar, enriched with nutrients and nanostructures to regenerate soil. Our solution permanently sequesters carbon and boosts agricultural productivity through rigorous scientific methods.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂e avoided and sequestered",
+      "CO₂e evitado y secuestrado"
+     ],
+     "v": 2850.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "SOM 2027 (850 t/yr)",
+      "SOM 2027 (850 t/año)"
+     ]
+    },
+    {
+     "cat": "wa",
+     "m": [
+      "Water conserved",
+      "Agua conservada"
+     ],
+     "v": 1030000.0,
+     "u": "m3/year",
+     "st": "projected",
+     "sdg": [
+      "6.4"
+     ],
+     "tf": [
+      "SOM 2027",
+      "SOM 2027"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Q-Mind",
+   "cc": "SV",
+   "stage": "semi",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/q-mind/",
+   "theme": "EN",
+   "category": "Solar PV",
+   "desc": "Q-Mind is an AI-powered platform that accelerates the discovery and optimization of the next generation of solar cells made of quantum dots. Replacing costly and environmentally damaging laboratory trial-and-error methods with rapid virtual simulations",
+   "res": [
+    [
+     "Central America Mini-final: 2nd place",
+     "Mini-final Centroamérica: 2.º lugar"
+    ],
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "SELCA (Soluciones Empresariales de Centroamerica)",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "desc": "SElCA purchases used machinery, furniture, and equipment from large companies, factories, shopping centers, and NGOs in Honduras. These items are then brought to our restoration workshop, where they are refurbished and sold to entrepreneurs across the country.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ]
+  },
+  {
+   "name": "SMARTDRIVE",
+   "cc": "SV",
+   "stage": "cohort",
+   "hub": "cth",
+   "onepager": "https://nexus.cleantechhub.net/s/smartdrive/",
+   "theme": "TR",
+   "category": "Electric Vehicles",
+   "desc": "SmartDrive provides electric vehicles to delivery and ride-hailing drivers through an inclusive rent-to-own model. We expand access to financing, reduce emissions and costs, and accelerate sustainable urban mobility in Latin America.",
+   "res": [
+    [
+     "CLP26 boot camp cohort",
+     "Cohorte boot camp CLP26"
+    ]
+   ],
+   "imp": [
+    {
+     "cat": "em",
+     "m": [
+      "CO₂ avoided",
+      "CO₂ evitado"
+     ],
+     "v": 610.0,
+     "u": "tCO2e/year",
+     "st": "projected",
+     "sdg": [
+      "13.2"
+     ],
+     "tf": [
+      "beachhead, 305 drivers",
+      "mercado inicial, 305 conductores"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Requecho",
+   "cc": "AR",
+   "stage": "global",
+   "hub": "other",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ],
+    [
+     "Top 2 of the Americas: Global Grand Final, Singapore, 14 Oct",
+     "Top 2 de las Américas: Gran Final Global, Singapur, 14 oct"
+    ]
+   ]
+  },
+  {
+   "name": "KarbonLoop",
+   "cc": "AR",
+   "stage": "semi",
+   "hub": "other",
+   "video": "TeK3BzDKKZ4",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Agrosintex",
+   "cc": "AR",
+   "stage": "semi",
+   "hub": "other",
+   "video": "MdpzVR3mmHs",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Ecolure",
+   "cc": "EC",
+   "stage": "regional",
+   "hub": "other",
+   "video": "jjSGkor6lho",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Funguspack",
+   "cc": "EC",
+   "stage": "regional",
+   "hub": "other",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ]
+   ]
+  },
+  {
+   "name": "FSNR",
+   "cc": "EC",
+   "stage": "semi",
+   "hub": "other",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Téscere Biotextiles",
+   "cc": "MX",
+   "stage": "regional",
+   "hub": "other",
+   "video": "rXjQMnrHDLU",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ],
+    [
+     "One of 6 finalists in the Americas Regional Final, 4 Sep",
+     "Una de las 6 finalistas de la Final Regional de las Américas, 4 sep"
+    ]
+   ]
+  },
+  {
+   "name": "BARAYxM",
+   "cc": "MX",
+   "stage": "semi",
+   "hub": "other",
+   "video": "-Wdi91GSAH8",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Ettorett",
+   "cc": "MX",
+   "stage": "semi",
+   "hub": "other",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Envire",
+   "cc": "US",
+   "stage": "semi",
+   "hub": "other",
+   "video": "6NTOw_GJn3w",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Glacian",
+   "cc": "US",
+   "stage": "semi",
+   "hub": "other",
+   "video": "hWlcyxShsyw",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "Redyoos",
+   "cc": "US",
+   "stage": "semi",
+   "hub": "other",
+   "video": "QqOIVNx0Tuw",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "GeoRemote",
+   "cc": "BR",
+   "stage": "semi",
+   "hub": "other",
+   "video": "uHLtWHAskRo",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "AggaTech",
+   "cc": "BR",
+   "stage": "semi",
+   "hub": "other",
+   "video": "gejjsmzbRS8",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  },
+  {
+   "name": "TrackGains",
+   "cc": "BR",
+   "stage": "semi",
+   "hub": "other",
+   "video": "j53cLM0CbcU",
+   "res": [
+    [
+     "Americas Regional Semi-final, 3 Sep",
+     "Semifinal Regional de las Américas, 3 sep"
+    ]
+   ]
+  }
+ ],
+ "themes": {
+  "BIO": [
+   "Bioeconomy & agrifood",
+   "Bioeconomía y agroalimentos"
+  ],
+  "CE": [
+   "Circular economy",
+   "Economía circular"
+  ],
+  "WW": [
+   "Water",
+   "Agua"
+  ],
+  "EN": [
+   "Energy",
+   "Energía"
+  ],
+  "TR": [
+   "Mobility",
+   "Movilidad"
+  ]
+ },
+ "sdg": {
+  "2.3": [
+   "By 2030, double the agricultural productivity and incomes of small-scale food producers, in particular women, indigenous peoples, family farmers, pastoralists and fishers, including through secure and equal access to land, other productive resources and inputs, knowledge, financial services, markets and opportunities for value addition and non-farm employment",
+   "Para 2030, duplicar la productividad agrícola y los ingresos de los productores de alimentos en pequeña escala, en particular las mujeres, los pueblos indígenas, los agricultores familiares, los pastores y los pescadores, entre otras cosas mediante un acceso seguro y equitativo a las tierras, a otros recursos de producción e insumos, conocimientos, servicios financieros, mercados y oportunidades para la generación de valor añadido y empleos no agrícolas"
+  ],
+  "2.4": [
+   "By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality",
+   "Para 2030, asegurar la sostenibilidad de los sistemas de producción de alimentos y aplicar prácticas agrícolas resilientes que aumenten la productividad y la producción, contribuyan al mantenimiento de los ecosistemas, fortalezcan la capacidad de adaptación al cambio climático, los fenómenos meteorológicos extremos, las sequías, las inundaciones y otros desastres, y mejoren progresivamente la calidad del suelo y la tierra"
+  ],
+  "3.9": [
+   "By 2030, substantially reduce the number of deaths and illnesses from hazardous chemicals and air, water and soil pollution and contamination",
+   "Para 2030, reducir sustancialmente el número de muertes y enfermedades producidas por productos químicos peligrosos y la contaminación del aire, el agua y el suelo"
+  ],
+  "6.1": [
+   "By 2030, achieve universal and equitable access to safe and affordable drinking water for all",
+   "De aquí a 2030, lograr el acceso universal y equitativo al agua potable a un precio asequible para todos"
+  ],
+  "6.3": [
+   "By 2030, improve water quality by reducing pollution, eliminating dumping and minimizing release of hazardous chemicals and materials, halving the proportion of untreated wastewater and substantially increasing recycling and safe reuse globally",
+   "De aquí a 2030, mejorar la calidad del agua reduciendo la contaminación, eliminando el vertimiento y minimizando la emisión de productos químicos y materiales peligrosos, reduciendo a la mitad el porcentaje de aguas residuales sin tratar y aumentando considerablemente el reciclado y la reutilización sin riesgos a nivel mundial"
+  ],
+  "6.4": [
+   "By 2030, substantially increase water-use efficiency across all sectors and ensure sustainable withdrawals and supply of freshwater to address water scarcity and substantially reduce the number of people suffering from water scarcity",
+   "De aquí a 2030, aumentar considerablemente el uso eficiente de los recursos hídricos en todos los sectores y asegurar la sostenibilidad de la extracción y el abastecimiento de agua dulce para hacer frente a la escasez de agua y reducir considerablemente el número de personas que sufren falta de agua"
+  ],
+  "6.6": [
+   "By 2020, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes",
+   "De aquí a 2020, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los bosques, las montañas, los humedales, los ríos, los acuíferos y los lagos"
+  ],
+  "7.2": [
+   "By 2030, increase substantially the share of renewable energy in the global energy mix",
+   "De aquí a 2030, aumentar considerablemente la proporción de energía renovable en el conjunto de fuentes energéticas"
+  ],
+  "8.5": [
+   "By 2030, achieve full and productive employment and decent work for all women and men, including for young people and persons with disabilities, and equal pay for work of equal value",
+   "De aquí a 2030, lograr el empleo pleno y productivo y el trabajo decente para todas las mujeres y los hombres, incluidos los jóvenes y las personas con discapacidad, así como la igualdad de remuneración por trabajo de igual valor"
+  ],
+  "12.2": [
+   "By 2030, achieve the sustainable management and efficient use of natural resources",
+   "De aquí a 2030, lograr la gestión sostenible y el uso eficiente de los recursos naturales"
+  ],
+  "12.5": [
+   "By 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse",
+   "De aquí a 2030, reducir considerablemente la generación de desechos mediante actividades de prevención, reducción, reciclado y reutilización"
+  ],
+  "13.1": [
+   "Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters in all countries",
+   "Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales en todos los países"
+  ],
+  "13.2": [
+   "Integrate climate change measures into national policies, strategies and planning",
+   "Incorporar medidas relativas al cambio climático en las políticas, estrategias y planes nacionales"
+  ],
+  "13.3": [
+   "Improve education, awareness-raising and human and institutional capacity on climate change mitigation, adaptation, impact reduction and early warning",
+   "Mejorar la educación, la sensibilización y la capacidad humana e institucional respecto de la mitigación del cambio climático, la adaptación a él, la reducción de sus efectos y la alerta temprana"
+  ],
+  "15.1": [
+   "By 2020, ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements",
+   "Para 2020, velar por la conservación, el restablecimiento y el uso sostenible de los ecosistemas terrestres y los ecosistemas interiores de agua dulce y los servicios que proporcionan, en particular los bosques, los humedales, las montañas y las zonas áridas, en consonancia con las obligaciones contraídas en virtud de acuerdos internacionales"
+  ],
+  "15.2": [
+   "By 2020, promote the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally",
+   "Para 2020, promover la gestión sostenible de todos los tipos de bosques, poner fin a la deforestación, recuperar los bosques degradados e incrementar la forestación y la reforestación a nivel mundial"
+  ],
+  "15.3": [
+   "By 2030, combat desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world",
+   "Para 2030, luchar contra la desertificación, rehabilitar las tierras y los suelos degradados, incluidas las tierras afectadas por la desertificación, la sequía y las inundaciones, y procurar lograr un mundo con una degradación neutra del suelo"
+  ],
+  "15.5": [
+   "Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species",
+   "Adoptar medidas urgentes y significativas para reducir la degradación de los hábitats naturales, detener la pérdida de la diversidad biológica y, para 2020, proteger las especies amenazadas y evitar su extinción"
+  ]
+ }
+}
