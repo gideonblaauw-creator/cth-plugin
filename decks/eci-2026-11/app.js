@@ -1,16 +1,39 @@
 (function () {
   "use strict";
 
+  /* ---------- PDF / print export (Playwright, ?export-pdf=1) ---------- */
+  var urlParams =
+    typeof URLSearchParams !== "undefined" ? new URLSearchParams(window.location.search) : null;
+  var isExportPdf =
+    (urlParams && urlParams.get("export-pdf") === "1") ||
+    (urlParams && urlParams.get("print") === "1") ||
+    false;
+  if (isExportPdf) {
+    document.documentElement.classList.add("export-pdf");
+  }
+
+  function markExportStage(kind) {
+    if (!isExportPdf) return;
+    window.__eciExport = window.__eciExport || { charts: false, globe: false };
+    window.__eciExport[kind] = true;
+    if (window.__eciExport.charts && window.__eciExport.globe) {
+      window.__eciPdfReady = true;
+    }
+  }
+
   /* ---------- preferences ---------- */
   var mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var reducedMotion = mqReduce.matches;
+  var reducedMotion = mqReduce.matches && !isExportPdf;
 
   function isMobileWidth() {
     return window.matchMedia("(max-width: 768px)").matches;
   }
 
   /* Ancho + reduced-motion only: (pointer: coarse) is true in many headless profiles and would hide WebGL en capturas. */
-  var allow3d = typeof THREE !== "undefined" && !reducedMotion && !isMobileWidth();
+  var allow3d =
+    typeof THREE !== "undefined" &&
+    (!reducedMotion || isExportPdf) &&
+    (!isMobileWidth() || isExportPdf);
 
   /* ---------- layout: progress + nav spy + burger ---------- */
   var sections = [].slice.call(document.querySelectorAll("section[id].deck-section"));
@@ -63,7 +86,11 @@
   }
 
   /* ---------- reveal on scroll ---------- */
-  if ("IntersectionObserver" in window) {
+  if (isExportPdf) {
+    document.querySelectorAll(".reveal-on-scroll").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  } else if ("IntersectionObserver" in window) {
     var revObs = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (en) {
@@ -96,7 +123,12 @@
   }
 
   var statEls = document.querySelectorAll(".stat .num[data-count]");
-  if (statEls.length && "IntersectionObserver" in window && !reducedMotion) {
+  if (
+    statEls.length &&
+    "IntersectionObserver" in window &&
+    !reducedMotion &&
+    !isExportPdf
+  ) {
     var didCount = false;
     var countObs = new IntersectionObserver(
       function (entries) {
@@ -419,9 +451,11 @@
     var fd = funnelChartData(agg.bySt);
     var td = themeChartData(agg.byTh);
 
+    var chartUpdateMode = isExportPdf ? "none" : undefined;
     var common = {
       responsive: true,
       maintainAspectRatio: false,
+      animation: isExportPdf ? false : undefined,
       plugins: {
         legend: { display: false },
         tooltip: { enabled: true, callbacks: chartTooltip.callbacks },
@@ -435,7 +469,7 @@
       chartInstances.country.data.datasets[0].backgroundColor = cd.data.map(function (_, i) {
         return COL[i % COL.length];
       });
-      chartInstances.country.update();
+      chartInstances.country.update(chartUpdateMode);
     } else if (c1) {
       chartInstances.country = new Chart(c1, {
         type: "bar",
@@ -453,6 +487,7 @@
         },
         options: Object.assign({}, common, {
           indexAxis: "y",
+          animation: isExportPdf ? false : undefined,
           scales: {
             x: { beginAtZero: true, ticks: { precision: 0 } },
           },
@@ -464,7 +499,7 @@
     if (c2 && chartInstances.funnel) {
       chartInstances.funnel.data.labels = fd.labels;
       chartInstances.funnel.data.datasets[0].data = fd.data;
-      chartInstances.funnel.update();
+      chartInstances.funnel.update(chartUpdateMode);
     } else if (c2) {
       chartInstances.funnel = new Chart(c2, {
         type: "bar",
@@ -473,6 +508,7 @@
           datasets: [{ label: "Startups", data: fd.data, backgroundColor: "#0C498A" }],
         },
         options: Object.assign({}, common, {
+          animation: isExportPdf ? false : undefined,
           scales: {
             y: {
               ticks: { autoSkip: false, maxRotation: 65, minRotation: 0, font: { size: 10 } },
@@ -500,6 +536,7 @@
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          animation: isExportPdf ? false : undefined,
           plugins: {
             legend: {
               position: "bottom",
@@ -651,11 +688,13 @@
   function initHeroGlobe(byCc) {
     var wrap = document.getElementById("heroGlobeWrap");
     var canvas = document.getElementById("heroGlobe");
+    var imgEl = document.getElementById("heroGlobeImg");
     if (!wrap || !canvas) return;
     var heroRoot = wrap.closest(".hero");
 
     if (!allow3d) {
       wrap.style.display = "none";
+      markExportStage("globe");
       return;
     }
     if (heroRoot) heroRoot.classList.add("hero-3d-on");
@@ -665,6 +704,7 @@
       alpha: true,
       antialias: true,
       powerPreference: "low-power",
+      preserveDrawingBuffer: Boolean(isExportPdf),
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 
@@ -755,6 +795,25 @@
     var running = true;
     var t0 = performance.now();
 
+    function freezeForExport() {
+      running = false;
+      group.rotation.y = 0.35;
+      group.rotation.x = 0.06;
+      resize();
+      renderer.render(scene, camera);
+      try {
+        if (imgEl) {
+          var snap = canvas.toDataURL("image/png");
+          imgEl.src = snap;
+          imgEl.hidden = false;
+          canvas.style.display = "none";
+        }
+      } catch (e) {
+        /* keep WebGL canvas if snapshot fails */
+      }
+      markExportStage("globe");
+    }
+
     function resize() {
       var w = wrap.clientWidth || 1;
       var h = wrap.clientHeight || 1;
@@ -773,16 +832,22 @@
       group.rotation.y = t * 0.22;
       group.rotation.x = Math.sin(t * 0.15) * 0.08;
       renderer.render(scene, camera);
+      if (isExportPdf) {
+        freezeForExport();
+        return;
+      }
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
 
     document.addEventListener("visibilitychange", function () {
+      if (isExportPdf) return;
       running = document.visibilityState === "visible";
       if (running) requestAnimationFrame(tick);
     });
 
     function onReduceChange() {
+      if (isExportPdf) return;
       if (mqReduce.matches) {
         running = false;
         wrap.style.display = "none";
@@ -876,9 +941,23 @@
       wireFiltersAndExplorer();
       updateCharts(getFilteredForCharts());
       renderExplorer(applyExplorerFilters(getFilteredForCharts()));
+      if (isExportPdf) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            markExportStage("charts");
+          });
+        });
+      }
     })
     .catch(function () {
       console.warn("eci deck: no se pudo cargar data/startups.json");
       initHeroGlobe({});
+      if (isExportPdf) {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            markExportStage("charts");
+          });
+        });
+      }
     });
 })();

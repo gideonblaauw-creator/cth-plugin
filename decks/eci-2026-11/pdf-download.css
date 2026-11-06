@@ -57,9 +57,11 @@ footer .pdf-dl-btn {
   .pdf-dl-footer {
     display: none !important;
   }
-  /* WebGL / motion layers are screen-only; keep PDF lightweight */
-  .deck-hero-3d,
   .read-progress {
+    display: none !important;
+  }
+  /* Hide WebGL canvas in normal print; export mode uses a raster snapshot in the same box */
+  html:not(.export-pdf) .deck-hero-3d {
     display: none !important;
   }
 }

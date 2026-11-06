@@ -563,10 +563,12 @@ li {
     bottom: -8%;
   }
 }
-.hero-globe-wrap canvas {
+.hero-globe-wrap canvas,
+.hero-globe-wrap #heroGlobeImg {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .hero-inner {
   position: relative;
@@ -906,9 +908,24 @@ li {
   }
 }
 
+/* Export / PDF (Playwright ?export-pdf=1): full visibility; do not rely on scroll observers */
+html.export-pdf .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 @media print {
-  .deck-hero-3d,
   .read-progress {
+    display: none !important;
+  }
+  html.export-pdf .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  /* WebGL framebuffer is often empty when printing; PNG snapshot (export mode) is shown instead */
+  html:not(.export-pdf) .deck-hero-3d {
     display: none !important;
   }
 }

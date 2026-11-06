@@ -20,6 +20,7 @@ from pathlib import Path
 PREP_JS = """
 () => {
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-visible'));
   document.querySelectorAll('[data-count]').forEach(el => {
     const t = el.dataset.count;
     if (t !== undefined && t !== '') el.textContent = t;
