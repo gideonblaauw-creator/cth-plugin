@@ -637,7 +637,7 @@
     });
   }
 
-  /* ---------- Three.js hero (globe + arcs from Escuela ↔ CTH hub) ---------- */
+  /* ---------- Three.js hero (globe + arcs Bogotá hub CTH → países en cartera) ---------- */
   function latLonToVec3(lat, lon, r) {
     var phi = ((90 - lat) * Math.PI) / 180;
     var theta = ((lon + 180) * Math.PI) / 180;
@@ -702,8 +702,8 @@
     /* markers — point size encodes volume lightly via color */
     var positions = [];
     var cols = [];
-    var escuela = latLonToVec3(4.65, -74.05, 1.02);
-    var cthHub = latLonToVec3(52.37, 4.9, 1.02);
+    /* Origen único: Bogotá (hub CleantechHUB; misma ventana geográfica que la sesión con la Escuela). */
+    var hubBogota = latLonToVec3(4.65, -74.05, 1.02);
 
     Object.keys(byCc).forEach(function (cc) {
       var ll = CC_LATLON[cc];
@@ -731,21 +731,12 @@
       group.add(pts);
     }
 
-    /* arcs Escuela ↔ each country with startups (+ hub link) */
-    var lineMat = new THREE.LineBasicMaterial({
-      color: 0xb2eefa,
-      transparent: true,
-      opacity: 0.35,
-    });
-    var escuelaLineGeom = new THREE.BufferGeometry().setFromPoints([escuela, cthHub]);
-    group.add(new THREE.Line(escuelaLineGeom, lineMat));
-
     Object.keys(byCc).forEach(function (cc) {
       var ll = CC_LATLON[cc];
       if (!ll) return;
       var end = latLonToVec3(ll[0], ll[1], 1.03);
-      var mid = escuela.clone().lerp(end, 0.5).normalize().multiplyScalar(1.28);
-      var curve = new THREE.QuadraticBezierCurve3(escuela, mid, end);
+      var mid = hubBogota.clone().lerp(end, 0.5).normalize().multiplyScalar(1.28);
+      var curve = new THREE.QuadraticBezierCurve3(hubBogota, mid, end);
       var segs = Math.min(24, 8 + (byCc[cc] || 0));
       var pts2 = curve.getPoints(segs);
       var geo = new THREE.BufferGeometry().setFromPoints(pts2);
