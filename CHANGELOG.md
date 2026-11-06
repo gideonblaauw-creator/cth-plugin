@@ -6,9 +6,8 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ### Daily usage alerts — protocol prep (Gideon 6 Nov 2026)
 
-- New: `docs/daily-usage-alerts.md` — metric contract (America/Bogota day, strict >10 / >4 pp of shared weekly included allowance), official URL evidence, BLOCKED coverage table, no subtraction rule
-- New: `services/daily_usage_alerts/evaluator.py` + `tests/test_evaluator.py` — dormant evaluator, synthetic unittest only (`PYTHONPATH=. python3 -m unittest services.daily_usage_alerts.tests.test_evaluator`)
-- Updated: `skills/infrastructure-comms/SKILL.md` §9 pointer (`metadata.version` 1.8.0)
+- New: `docs/daily-usage-alerts.md` — metric contract (America/Bogota day, strict >10 / >4 pp of shared weekly included allowance), official URL evidence, both apps **BLOCKED**, user-unconfirmed denominator, account/privilege eligibility not established, **Future acceptance — NOT IMPLEMENTED** checklist, no subtraction rule; **docs only** (no in-repo evaluator or tests)
+- Updated: `skills/infrastructure-comms/SKILL.md` §9 (`metadata.version` 1.8.0)
 
 ### Token budget protocol (22 Oct 2026)
 
