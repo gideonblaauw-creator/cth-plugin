@@ -201,8 +201,8 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding: 4.5mm 11mm 3mm;
+  gap: 10px;
+  padding: 4mm 11mm 0.5mm;
   min-height: 100%;
 }
 
@@ -608,6 +608,10 @@ body {
   background: #fff;
 }
 
+.page.page-1 > .sheet-footer {
+  padding: 0 12mm 2mm;
+}
+
 .sheet-footer-rule {
   height: 1px;
   background: rgba(12, 73, 138, 0.22);
@@ -654,14 +658,14 @@ body {
 .page-1 .page1-cards {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   overflow: visible;
 }
 
 .page-1 .grid-2 {
-  gap: 16px;
+  gap: 12px;
   padding: 0;
 }
 
@@ -685,7 +689,7 @@ body {
 
 .page-1 .case-strip {
   margin: 0;
-  padding: 3mm 3.5mm;
+  padding: 2.5mm 3.5mm;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(12, 73, 138, 0.1);
 }
@@ -715,7 +719,7 @@ body {
 
 .page1-frost .page-1-consortium h2 {
   font-size: 10.5pt;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: #fff;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
 }
@@ -776,6 +780,53 @@ body {
   margin-top: 0;
 }
 
+/* --- v12: corporate seat band (city lights band) --- */
+.corporate-seat {
+  margin: -1mm 0 0;
+  padding: 2mm 3.5mm 2.25mm;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 20px rgba(12, 73, 138, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.corporate-seat h2 {
+  font-family: var(--font-title);
+  font-size: 10.5pt;
+  margin: 0 0 4px;
+  color: var(--dl-deep);
+}
+
+.corporate-seat ul {
+  margin: 0;
+  padding: 0 0 0 3.5mm;
+  font-size: 8pt;
+  line-height: 1.32;
+  color: var(--text);
+}
+
+.corporate-seat li {
+  margin: 0 0 2px;
+}
+
+.corporate-seat li:last-child {
+  margin-bottom: 0;
+}
+
+.corporate-seat li.corporate-seat-cta {
+  margin: 5px 0 0;
+  padding: 0;
+  list-style: none;
+  margin-left: -3.5mm;
+}
+
+.corporate-seat .corporate-seat-cta a {
+  color: var(--cth-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* --- v6: page 2 large 2×2 fill --- */
 .page-2 .page2-fill {
   display: flex;
@@ -787,13 +838,23 @@ body {
 
 .page-2 .page2-fill h2 {
   font-size: 12pt;
-  margin-bottom: 2mm;
+  margin-bottom: 1.5mm;
   flex-shrink: 0;
+}
+
+.page-2 .page2-framing {
+  flex-shrink: 0;
+  margin: 0 0 1.5mm;
+  padding-top: 1.5mm;
+  border-top: 1px solid rgba(12, 73, 138, 0.35);
+  font-size: 8.5pt;
+  line-height: 1.32;
+  color: var(--muted);
 }
 
 .page-2 .steward-note {
   flex-shrink: 0;
-  margin-bottom: 2mm;
+  margin-bottom: 1.5mm;
   font-size: 8.5pt;
 }
 
@@ -802,7 +863,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  gap: 2mm;
+  gap: 1.5mm;
 }
 
 .page2-showcase {
@@ -813,9 +874,35 @@ body {
   align-content: stretch;
 }
 
+.page2-showcase .shot-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 1mm;
+}
+
 .page2-showcase .shot-cell {
-  height: 100%;
-  min-height: 78mm;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;
+}
+
+.page2-showcase .shot-caption {
+  margin: 0;
+  font-size: 7.25pt;
+  line-height: 1.25;
+  color: var(--muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.page-2 .dev-bridge {
+  flex-shrink: 0;
+  margin: 0 12mm 1.5mm;
+  padding: 0;
+  font-size: 8pt;
+  line-height: 1.32;
+  color: var(--muted);
 }
 
 .page2-grid-wrap .render-caption {
