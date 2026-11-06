@@ -13,7 +13,9 @@ Material confidencial de trabajo (no publicar en host público).
 | Fotos campus / HELIX (tema institucional) | `escuelaing.s3.amazonaws.com` (banners HELIX-A, laboratorio) |
 | Fotografía energía (tema) | Unsplash (licencia) · `img/energy-wind.jpg` |
 | Chart.js, D3, topojson | Copiados de `decks/_templates/clp26-rein-shell/lib/` |
+| ClimateLaunchpad CLP26 — texto de hitos y cifras globales | Brief verificado por Gideon (nov 2026) |
+| ClimateLaunchpad — gráficos (país, embudo, temas) | Únicamente desde `data/startups.json` (102 filas) |
 
-## Datos numéricos CLP26 (hero stats y gráficos)
+## Datos del explorador (gráficos)
 
-El micrositio en vivo `https://decks.cleantechhub.net/cth-clp26/` está detrás de autenticación; no se pudieron leer los valores aprobados ni `data/startups.json`. En esta carpeta, los números del bloque ClimateLaunchpad son **ilustrativos** y deben sustituirse por los datos finales de Gideon cuando se sincronice con producción.
+Los tres gráficos de la sección 5 se calculan en tiempo de carga a partir de `data/startups.json`: conteos por `cc`, por `stage` (orden cohort → national → semi → regional → global) y por `theme` (etiquetas en español desde el bloque `themes` del JSON). Sin otros archivos ni splits regionales de postulaciones.
