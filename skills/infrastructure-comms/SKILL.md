@@ -4,7 +4,7 @@ description: >
   Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.7.0"
+  version: "1.8.0"
   category: comms
   desk: "Infrastructure"
   owner: Infrastructure desk c656afb9
@@ -191,3 +191,13 @@ Service API keys and tokens → **Infisical** only (`skills/secrets/SKILL.md`, `
 **Migration gaps (HITL — document; do not delete live secrets without Gideon):** Grok box-secrets; Orch connector-secrets (e.g. OpenRouter); Lovable env (e.g. Beehiiv); VPS leftover `infisical-creds` / OPENROUTER env files. See `skills/secrets/SKILL.md` § Migration gaps.
 
 **Carve-out:** Obsidian vault = narrative notes only — no API keys/tokens in Obsidian.
+
+## 9. Daily usage alerts (Gideon 6 Nov 2026 — prep only)
+
+**Tier 0.** This section is **protocol prep**. Gideon must approve any merge that activates monitoring, schedules, transports, or spend actions.
+
+**Metric contract (working interpretation, denominator not user-confirmed):** For each of **Grok Bot** and **Cursor**, measure consumption on one **`America/Bogota`** calendar day as **percentage points of the shared weekly included allowance**. **Strict thresholds:** Grok Bot **> 10**; Cursor **> 4** (boundary values do **not** trigger). Evaluate the two apps **separately** — **never** infer Cursor usage by subtracting Grok Bot from a pooled total.
+
+**Source + coverage:** Official evidence, blockers, and **BLOCKED/READY** table live in `docs/daily-usage-alerts.md`. Cursor Admin API (`https://cursor.com/docs/account/teams/admin-api`) documents team usage endpoints with **hourly** aggregation and request-unit fields on filtered events; **per-app Grok Bot vs Cursor daily included split** is **not** proven in that doc for the filtered-usage shape in this review — keep **BLOCKED** until Infrastructure maps a compatible denominator and app attribution. **No** Grok Bot usage-polling routines (same prohibition as built-in usage-review). **No** fake feeds, dashboard scraping, or credential/session extraction.
+
+**Implementation:** Dormant reference evaluator for synthetic tests only: `services/daily_usage_alerts/evaluator.py`. Run tests: `PYTHONPATH=. python3 -m unittest services.daily_usage_alerts.tests.test_evaluator -q`.
