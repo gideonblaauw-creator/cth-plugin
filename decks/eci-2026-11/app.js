@@ -711,7 +711,6 @@
       var n = byCc[cc];
       var p = latLonToVec3(ll[0], ll[1], 1.03);
       positions.push(p.x, p.y, p.z);
-      sizes.push(0.035 + Math.min(0.09, Math.sqrt(n) * 0.012));
       var c = new THREE.Color(n >= 10 ? 0x9dc384 : 0x69b5fa);
       cols.push(c.r, c.g, c.b);
     });
