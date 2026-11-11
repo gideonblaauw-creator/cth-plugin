@@ -11,7 +11,7 @@ ASSETS = ROOT / "assets" / "demo"
 ASSETS.mkdir(parents=True, exist_ok=True)
 DEMO_DIR = Path(__file__).resolve().parent.parent / "demo-cth-brand"
 VIEWPORT = {"width": 1440, "height": 900}
-SCREENS = 7
+SCREENS = 6
 BANNED = re.compile(r"promigas", re.I)
 PROMIGAS_SCREENS: list[int] = []
 

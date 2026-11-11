@@ -14,7 +14,9 @@ PDF_ES = ROOT / "CleantechHUB-energy-coop-embassy-es.pdf"
 PDF_EN = ROOT / "CleantechHUB-energy-coop-embassy-en.pdf"
 CONTACT = ROOT / "embassy-deck-es-contact.png"
 ART = Path("/opt/cursor/artifacts")
-EXPECTED = 17
+EXPECTED = 16
+JPEG_QUALITY = 85
+MAX_PDF_BYTES = 6 * 1024 * 1024
 BANNED_HTML = re.compile(
     r"promigas|piloto|\bpilot\b|\bgrp\b|holanda|países bajos|netherlands|\bdutch\b|\beuropa\b|escuela mou",
     re.I,
@@ -58,11 +60,22 @@ def render_pdf(html: Path, pdf_out: Path) -> list[Path]:
             tmp = ROOT / f".tmp-slide-{html.stem}-{i+1:02d}.png"
             slides.nth(i).screenshot(path=str(tmp))
             pngs.append(tmp)
+        from PIL import Image
         import img2pdf
 
+        jpegs: list[Path] = []
+        for png in pngs:
+            jpg = png.with_suffix(".jpg")
+            Image.open(png).convert("RGB").save(jpg, "JPEG", quality=JPEG_QUALITY, optimize=True)
+            jpegs.append(jpg)
         layout = img2pdf.get_layout_fun((img2pdf.mm_to_pt(508), img2pdf.mm_to_pt(285.75)))
-        pdf_out.write_bytes(img2pdf.convert([str(x) for x in pngs], layout_fun=layout))
-        print("wrote", pdf_out, len(pngs), "pages")
+        pdf_out.write_bytes(img2pdf.convert([str(x) for x in jpegs], layout_fun=layout))
+        for j in jpegs:
+            j.unlink(missing_ok=True)
+        mb = pdf_out.stat().st_size / (1024 * 1024)
+        print("wrote", pdf_out, len(jpegs), "pages", f"{mb:.2f} MB")
+        if pdf_out.stat().st_size > MAX_PDF_BYTES:
+            print(f"WARN: {pdf_out.name} exceeds 6 MB", file=sys.stderr)
         browser.close()
     return pngs
 
@@ -113,8 +126,10 @@ def main() -> int:
     pngs_es = render_pdf(ES_HTML, PDF_ES)
     pngs_en = render_pdf(EN_HTML, PDF_EN)
     contact_sheet(pngs_es, CONTACT)
+    en_contact = ROOT / "embassy-deck-en-contact.png"
+    contact_sheet(pngs_en, en_contact)
     ART.mkdir(parents=True, exist_ok=True)
-    for src in (PDF_ES, PDF_EN, CONTACT):
+    for src in (PDF_ES, PDF_EN, CONTACT, en_contact):
         dest = ART / src.name
         dest.write_bytes(src.read_bytes())
         print("copied", dest)
