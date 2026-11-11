@@ -41,12 +41,22 @@ def rein_hero(im: Image.Image) -> Image.Image:
     return crop_frac(im, (0.03, 0.30, 0.36, 0.72))
 
 
-def cover_fit(im: Image.Image, tw: int = HERO_W, th: int = HERO_H) -> Image.Image:
+def cover_fit(
+    im: Image.Image,
+    tw: int = HERO_W,
+    th: int = HERO_H,
+    *,
+    anchor: str = "center",
+) -> Image.Image:
     w, h = im.size
     scale = max(tw / w, th / h)
     nw, nh = int(w * scale), int(h * scale)
     im = im.resize((nw, nh), Image.LANCZOS)
-    left, top = (nw - tw) // 2, (nh - th) // 2
+    left = (nw - tw) // 2
+    if anchor == "top":
+        top = 0
+    else:
+        top = (nh - th) // 2
     return im.crop((left, top, left + tw, top + th))
 
 
@@ -88,17 +98,18 @@ def main() -> None:
     ]:
         save(rein_hero(load(src)), name)
 
-    hero_jobs: list[tuple[str, tuple[float, float, float, float], str]] = [
-        ("corporate/p03.jpg", (0.54, 0.03, 0.99, 0.98), "hero-cth.jpg"),
-        ("clp26/p07.jpg", (0.40, 0.05, 1.0, 0.95), "hero-clp26.jpg"),
-        ("clp26/p06.jpg", (0.62, 0.06, 0.99, 0.50), "hero-solar-field.jpg"),
-        ("rein/p03.jpg", (0.52, 0.12, 0.98, 0.96), "hero-rein.jpg"),
-        ("corporate/p22.jpg", (0.08, 0.36, 0.34, 0.58), "hero-ev.jpg"),
+    hero_jobs: list[tuple[str, tuple[float, float, float, float], str, str]] = [
+        # Team mural only — avoids COP16 banner sliced mid-phrase
+        ("corporate/p18.jpg", (0.02, 0.38, 0.52, 0.97), "hero-cth.jpg", "center"),
+        ("clp26/p07.jpg", (0.40, 0.05, 1.0, 0.95), "hero-clp26.jpg", "center"),
+        ("clp26/p06.jpg", (0.62, 0.06, 0.99, 0.50), "hero-solar-field.jpg", "center"),
+        ("corporate/p22.jpg", (0.08, 0.36, 0.34, 0.58), "hero-ev.jpg", "center"),
     ]
     root = Path(__file__).resolve().parent / "assets"
     save_hero(cover_fit(Image.open(root / "hero.jpg").convert("RGB")), "hero-tierra-grata.jpg")
-    for src, box, name in hero_jobs:
-        save_hero(cover_fit(crop_frac(load(src), box)), name)
+    for src, box, name, anchor in hero_jobs:
+        save_hero(cover_fit(crop_frac(load(src), box), anchor=anchor), name)
+    save_hero(cover_fit(Image.open(OUT / "rein-externado.jpg").convert("RGB"), anchor="top"), "hero-rein.jpg")
 
 
 if __name__ == "__main__":
