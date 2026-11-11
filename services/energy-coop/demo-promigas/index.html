@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Energy Coop — CleantechHUB</title>
+<link rel="icon" href="assets/cth-logo-white.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
@@ -456,6 +457,104 @@ html, body {
   outline: 2px solid var(--cth-accent);
   outline-offset: 1px;
 }
+.screen-lab {
+  overflow: hidden;
+  padding: 8px 14px 70px;
+  background: var(--cth-light);
+}
+.screen-lab h1 { font-size: 22px; line-height: 1.1; margin-bottom: 0; }
+.ll { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 6px; }
+.ll-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.ll-sub { font-size: 13px; line-height: 1.25; color: var(--blue); max-width: 64rem; }
+.ll-rule {
+  flex: 0 0 320px; margin: 0; background: var(--green-l); color: var(--blue);
+  border-radius: 8px; padding: 6px 10px; font-size: 12px; font-weight: 700; line-height: 1.3;
+}
+.ll-funnel { display: grid; grid-template-columns: 1.35fr 1.15fr 0.95fr minmax(150px, 0.82fr); gap: 6px; }
+.ll-step { border: 1.5px solid var(--blue); border-radius: 8px; padding: 4px 8px 5px; min-width: 0; background: var(--white); }
+.ll-step .num { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; color: var(--blue); }
+.ll-step .lbl { font-size: 11.5px; line-height: 1.2; margin-top: 2px; color: var(--blue); }
+.ll-step .src { display: block; font-size: 10px; line-height: 1.2; margin-top: 1px; color: rgba(12,73,138,.78); }
+.ll-step.s1 { background: var(--blue); }
+.ll-step.s1 .num, .ll-step.s1 .lbl, .ll-step.s1 .src { color: #fff; }
+.ll-step.s2 { background: var(--sky); }
+.ll-step.s3 { background: var(--cyan); }
+.ll-step.s4 { background: var(--green-l); }
+.ll-chip {
+  display: inline-block; border-radius: 20px; padding: 0 6px; font-size: 10px; font-weight: 800;
+  line-height: 16px; vertical-align: 1px; margin-right: 4px;
+}
+.ll-chip.pub { background: var(--cyan); color: var(--blue); }
+.ll-chip.demo { background: #fff; color: var(--blue); border: 1.5px dashed var(--sky); }
+.ll-step.s1 .ll-chip.pub { background: var(--cyan); color: var(--blue); }
+.ll-flow {
+  display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.78);
+  border-radius: 8px; padding: 3px 8px;
+}
+.ll-flow .st { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--blue); }
+.ll-flow .st small { font-weight: 600; color: rgba(12,73,138,.72); }
+.ll-flow .n {
+  width: 18px; height: 18px; border-radius: 50%; background: var(--blue); color: #fff;
+  display: inline-grid; place-items: center; font-size: 10px;
+}
+.ll-flow .st.on { background: var(--blue); color: #fff; border-radius: 14px; padding: 2px 8px 2px 2px; }
+.ll-flow .st.on small { color: var(--cyan); }
+.ll-flow .here { color: var(--cyan); font-size: 10px; font-weight: 800; letter-spacing: .02em; }
+.ll-flow .ar { color: var(--green-f); font-weight: 800; }
+.ll-body { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 8px; }
+.ll-map { min-height: 0; height: 100%; background: #d5e4ea; }
+#map-lab { width: 100%; height: 100%; min-height: 0; background: #d5e4ea; }
+.ll-map .leaflet-tile-pane { filter: grayscale(1) contrast(.9) brightness(1.05); }
+.ll-side { min-height: 0; display: flex; flex-direction: column; gap: 6px; }
+.ll-controls { background: #fff; border: 1.5px solid var(--blue); border-radius: 10px; padding: 4px 8px 6px; }
+.ll-sl { display: grid; grid-template-columns: 1fr auto; align-items: baseline; font-size: 12px; font-weight: 700; color: var(--blue); }
+.ll-sl b { font-variant-numeric: tabular-nums; font-family: var(--font-display); font-size: 14px; }
+.ll-sl input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: #0C498A; height: 14px; margin: 0; }
+.ll-note { font-size: 10.5px; font-weight: 600; line-height: 1.25; color: rgba(12,73,138,.8); margin: 1px 0 3px; }
+.ll-togs { display: flex; gap: 14px; font-size: 12px; font-weight: 700; color: var(--blue); }
+.ll-togs label { display: flex; gap: 5px; align-items: center; cursor: pointer; }
+.ll-panel {
+  flex: 1; min-height: 0; background: #fff; border: 1.5px solid var(--blue); border-radius: 10px;
+  padding: 6px 8px; overflow: hidden; display: flex; flex-direction: column;
+}
+.ll-rank-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; margin-bottom: 4px; }
+.ll-list { display: flex; flex-direction: column; gap: 3px; }
+.ll-row {
+  display: grid; grid-template-columns: 18px 1fr auto; gap: 6px; align-items: center;
+  text-align: left; width: 100%; border: 1px solid rgba(12,73,138,.22); background: #fff; color: var(--blue);
+  border-radius: 6px; padding: 2px 6px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit;
+}
+.ll-row:hover, .ll-row.on { background: var(--cyan); }
+.ll-row small { display: block; font-weight: 600; font-size: 10.5px; color: rgba(12,73,138,.75); line-height: 1.2; }
+.ll-row .sc { font-family: var(--font-display); font-size: 16px; line-height: 1; }
+.ll-card h2 {
+  font-family: var(--font-display); font-size: 14px; line-height: 1.15; margin: 2px 0;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.ll-back {
+  border: 0; background: var(--cyan); color: var(--blue); font-weight: 700; font-size: 11px;
+  border-radius: 6px; padding: 3px 8px; cursor: pointer; font-family: inherit;
+}
+.ll-meta { font-size: 11.5px; line-height: 1.3; margin-top: 2px; }
+.ll-delta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: var(--blue); color: #fff;
+  border-radius: 8px; padding: 6px 8px; margin-top: 4px;
+}
+.ll-delta h3 { color: #fff; font-size: 12px; margin: 0; display: flex; justify-content: space-between; gap: 6px; }
+.ll-delta p { font-size: 10.5px; line-height: 1.25; margin: 2px 0 0; color: var(--cyan); }
+.ll-delta .big { font-family: var(--font-display); font-size: 18px; color: var(--green-l); line-height: 1.05; margin-top: 2px; }
+.ll-delta .unit { font-size: 10px; color: var(--cyan); font-weight: 700; }
+.ll-verdict { margin-top: 4px; border-radius: 8px; padding: 5px 8px; font-weight: 800; font-size: 16px; line-height: 1.2; }
+.ll-verdict.go { background: var(--green-f); color: #fff; }
+.ll-verdict.hold { background: #fff; color: var(--blue); border: 2px dashed var(--blue); }
+.ll-verdict span { display: block; font-size: 11px; font-weight: 600; margin-top: 1px; }
+.ll-formula {
+  font-size: 10px; line-height: 1.25; color: rgba(12,73,138,.82); margin-top: 2px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.ll-flow-mini { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; margin-top: 3px; font-size: 10px; font-weight: 700; }
+.ll-flow-mini i { font-style: normal; background: var(--cyan); border-radius: 8px; padding: 1px 5px; }
+.ll-flow-mini i.on { background: var(--blue); color: #fff; }
 </style>
 </head>
 <body>
@@ -570,46 +669,25 @@ html, body {
       <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
     </section>
 
-    <!-- Screen 3 — Data Lab funnel -->
-    <section class="screen" id="screen-2" aria-labelledby="t5">
-      <h1 id="t5" data-i18n="s5.title"></h1>
-      <p class="subtitle" data-i18n-html="s5.subtitleHtml"></p>
-      <ul class="funnel-pipeline">
-        <li>
-          <strong data-i18n="s5.step0Title"></strong><br>
-          <span data-i18n-html="s5.step0Body"></span>
-          <p class="kpi-meta" data-i18n-html="s5.step0Meta"></p>
-        </li>
-        <li>
-          <strong data-i18n="s5.step1Title"></strong><br>
-          <span data-i18n-html="s5.step1Body"></span>
-          <p class="kpi-meta" data-i18n-html="s5.step1Meta"></p>
-        </li>
-        <li>
-          <strong data-i18n="s5.step2Title"></strong><br>
-          <span data-i18n-html="s5.step2Body"></span>
-          <p class="kpi-meta" data-i18n-html="s5.step2Meta"></p>
-        </li>
-      </ul>
-      <div class="funnel-wrap">
-        <span class="tag example" data-i18n="tag.example"></span>
-        <div class="funnel-steps">
-          <div class="funnel-tier w100">
-            <div class="num" data-i18n="s5.funnel100"></div>
-            <div class="lbl" data-i18n="s5.funnel100Lbl"></div>
+    <!-- Screen 3 — Living lab -->
+    <section class="screen screen-lab" id="screen-2" aria-labelledby="t5">
+      <div class="ll">
+        <div class="ll-head">
+          <div>
+            <h1 id="t5" data-i18n="ll.title"></h1>
+            <p class="ll-sub" data-i18n="ll.subtitle"></p>
           </div>
-          <div class="funnel-arrow" aria-hidden="true">↓</div>
-          <div class="funnel-tier w80">
-            <div class="num" data-i18n="s5.funnel20"></div>
-            <div class="lbl" data-i18n="s5.funnel20Lbl"></div>
-          </div>
-          <div class="funnel-arrow" aria-hidden="true">↓</div>
-          <div class="funnel-tier w55">
-            <div class="num" data-i18n="s5.funnel10"></div>
-            <div class="lbl" data-i18n="s5.funnel10Lbl"></div>
+          <p class="ll-rule" data-i18n="ll.rule"></p>
+        </div>
+        <div class="ll-funnel" id="ll-funnel"></div>
+        <div class="ll-flow" id="ll-flow" data-i18n-aria="ll.flowAria"></div>
+        <div class="ll-body">
+          <div class="map-box ll-map"><div id="map-lab" role="img" data-i18n-aria="ll.mapAria"></div></div>
+          <div class="ll-side">
+            <div class="ll-controls" id="ll-controls"></div>
+            <div class="ll-panel" id="ll-panel"></div>
           </div>
         </div>
-        <p class="cite" data-i18n="s5.funnelNote"></p>
       </div>
     </section>
 
@@ -903,6 +981,7 @@ html, body {
     if (pushHash !== false) location.hash = String(idx);
     if (idx === 0) initPaivaMap();
     if (idx === 1) initGuajiraMap();
+    if (idx === 2) initLivingLab();
     if (idx === 4) populateCommunities();
     if (idx === 3) initPasoMap();
   }
@@ -1148,6 +1227,8 @@ html, body {
   });
 
   document.addEventListener('keydown', function (e) {
+    var tag = e.target && e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
       if (e.key === ' ' || e.key === 'Enter') e.preventDefault();
       if (current === 1 && !guajiraLoaded && e.key !== 'ArrowLeft') {
@@ -1162,12 +1243,493 @@ html, body {
 
   window.addEventListener('hashchange', function () { goTo(parseHash(), false); });
 
+  /* Living lab — Energy Coop. Public rows stay public. Yield, OPEX and the gate are room assumptions. */
+  var lab = {
+    booted: false,
+    map: null,
+    geoLayer: null,
+    legend: null,
+    rows: [],
+    markers: {},
+    selected: null,
+    irrMin: 3.5,
+    irrMax: 6,
+    w: { solar: 70, zni: 40, nit: 50, social: 45 },
+    requireNit: true,
+    onlyZni: false,
+    funnelLang: ''
+  };
+  var LAB_TOP = 6;
+  var LAB_CAPEX = 90000000;
+  var LAB_TARIFF = 700;
+  var LAB_GATE_YEARS = 8;
+  var DEPTS = {
+    'VICHADA': { es: 'Vichada', en: 'Vichada', irr: null, zni: true },
+    'CAUCA': { es: 'Cauca', en: 'Cauca', irr: 'Cauca', zni: false },
+    'LA GUAJIRA': { es: 'La Guajira', en: 'La Guajira', irr: 'La Guajira', zni: false },
+    'NARIÑO': { es: 'Nariño', en: 'Nariño', irr: 'Nariño', zni: false },
+    'NARINO': { es: 'Nariño', en: 'Nariño', irr: 'Nariño', zni: false },
+    'SUCRE': { es: 'Sucre', en: 'Sucre', irr: null, zni: false },
+    'CESAR': { es: 'Cesar', en: 'Cesar', irr: 'Cesar', zni: false },
+    'CAQUETA': { es: 'Caquetá', en: 'Caquetá', irr: null, zni: false },
+    'HUILA': { es: 'Huila', en: 'Huila', irr: 'Huila', zni: false },
+    'BOLIVAR': { es: 'Bolívar', en: 'Bolívar', irr: 'Bolívar', zni: false },
+    'CALDAS': { es: 'Caldas', en: 'Caldas', irr: null, zni: false },
+    'PUTUMAYO': { es: 'Putumayo', en: 'Putumayo', irr: null, zni: false },
+    'SAN ANDRES PROVIDENCIA Y SANTA CATALINA': {
+      es: 'San Andrés, Providencia y Santa Catalina',
+      en: 'San Andrés, Providencia and Santa Catalina',
+      irr: null, zni: true
+    },
+    'BOGOTA D.C.': { es: 'Bogotá D.C.', en: 'Bogotá D.C.', irr: null, zni: false },
+    'MAGDALENA': { es: 'Magdalena', en: 'Magdalena', irr: 'Magdalena', zni: false }
+  };
+
+  function labEsc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function labNorm(s) {
+    return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toUpperCase().replace(/[^A-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  function labFmtInt(n) {
+    return Math.round(n).toLocaleString(CthI18n.localeTag());
+  }
+  function labFmt1(n) {
+    return Number(n).toLocaleString(CthI18n.localeTag(), { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  }
+  function labChip(kind) {
+    var key = kind === 'demo' ? 'tag.datosDemo' : 'tag.datoPublico';
+    return '<span class="ll-chip ' + kind + '">' + labEsc(t(key)) + '</span>';
+  }
+  function deptInfo(code) {
+    return DEPTS[code] || { es: code, en: code, irr: null, zni: false };
+  }
+  function deptLabel(code) {
+    var d = deptInfo(code);
+    return CthI18n.getLang() === 'en' ? d.en : d.es;
+  }
+  function isCoopForm(fj) {
+    return labNorm(fj).indexOf('COOPERATIV') >= 0;
+  }
+  function nameMatch(a, b) {
+    a = labNorm(a); b = labNorm(b);
+    if (!a || !b) return false;
+    return a === b || a.indexOf(b) >= 0 || b.indexOf(a) >= 0;
+  }
+  function socialIndex(row) {
+    return 0.4 + (row.coop ? 0.35 : 0) + (row.nameHit ? 0.25 : 0);
+  }
+  function solarUnit(irr) {
+    if (irr == null || !isFinite(irr)) return 0;
+    var span = lab.irrMax - lab.irrMin;
+    if (span <= 0) return 0.5;
+    return Math.max(0, Math.min(1, (irr - lab.irrMin) / span));
+  }
+  function rowScore(row) {
+    var parts = [];
+    if (lab.w.solar > 0) parts.push([lab.w.solar, solarUnit(row.irr)]);
+    if (lab.w.zni > 0) parts.push([lab.w.zni, row.zni ? 1 : 0]);
+    if (lab.w.nit > 0) parts.push([lab.w.nit, row.nit ? (row.coop ? 1 : 0.72) : 0]);
+    if (lab.w.social > 0) parts.push([lab.w.social, socialIndex(row)]);
+    var sw = 0, sv = 0;
+    parts.forEach(function (p) { sw += p[0]; sv += p[0] * p[1]; });
+    return sw ? (100 * sv / sw) : 0;
+  }
+  function labFiltered() {
+    return lab.rows.filter(function (row) {
+      if (lab.requireNit && !row.nit) return false;
+      if (lab.onlyZni && !row.zni) return false;
+      return true;
+    }).map(function (row) {
+      return { row: row, score: rowScore(row), social: socialIndex(row) };
+    }).sort(function (a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      var byName = a.row.name.localeCompare(b.row.name);
+      if (byName) return byName;
+      return String(a.row.id).localeCompare(String(b.row.id));
+    });
+  }
+  function hexLerp(a, b, t) {
+    var ah = parseInt(a.slice(1), 16), bh = parseInt(b.slice(1), 16);
+    function ch(shift, from, to) { return Math.round(((from >> shift) & 255) + (((to >> shift) & 255) - ((from >> shift) & 255)) * t); }
+    var r = ch(16, ah, bh), g = ch(8, ah, bh), bl = ch(0, ah, bh);
+    return '#' + [r, g, bl].map(function (n) { return n.toString(16).padStart(2, '0'); }).join('');
+  }
+  function scoreColor(score) {
+    if (score < 50) return hexLerp('#0C498A', '#69B5FA', score / 50);
+    return hexLerp('#69B5FA', '#669348', (score - 50) / 50);
+  }
+  function irrColor(v) {
+    if (v == null || !isFinite(v)) return '#c5d0dc';
+    var span = lab.irrMax - lab.irrMin;
+    var t = span > 0 ? (v - lab.irrMin) / span : 0.5;
+    return hexLerp('#B2EEFA', '#0C498A', Math.max(0, Math.min(1, t)));
+  }
+  function pinIcon(score, on) {
+    var s = on ? 18 : 12;
+    var m = -Math.round(s / 2);
+    var bg = scoreColor(score);
+    return L.divIcon({
+      className: '',
+      iconSize: [s, s],
+      html: '<div style="background:' + bg + ';width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:' + (on ? '3px' : '2px') + ' solid #fff;box-shadow:0 1px 4px rgba(12,73,138,.45);margin:' + m + 'px 0 0 ' + m + 'px"></div>'
+    });
+  }
+  function roomEconomics(item) {
+    var row = item.row;
+    var social = item.social;
+    if (row.irr == null) {
+      return { yieldKwh: null, years: null, pass: false, why: 'll.whyIrr' };
+    }
+    var credit = 0.35 + 0.65 * (lab.w.solar / 100);
+    var yieldKwh = row.irr * 365 * 0.75 * 20 * credit;
+    var opex = LAB_CAPEX * (0.075 - 0.045 * social * (lab.w.social / 100));
+    var net = yieldKwh * LAB_TARIFF - opex;
+    var years = net > 0 ? (LAB_CAPEX / net) : null;
+    var pass = years != null && years <= LAB_GATE_YEARS;
+    return { yieldKwh: yieldKwh, years: years, pass: pass, why: pass ? 'll.whyPass' : 'll.whyPay' };
+  }
+  function animateSlot(el, target) {
+    var from = Number(el.getAttribute('data-n') || 0);
+    if (from === target && el.textContent) {
+      el.textContent = labFmtInt(target);
+      return;
+    }
+    el.setAttribute('data-n', String(target));
+    var t0 = performance.now();
+    function frame(now) {
+      var p = Math.min(1, (now - t0) / 650);
+      var v = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3)));
+      el.textContent = labFmtInt(v);
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  function renderFlow() {
+    var root = document.getElementById('ll-flow');
+    if (!root) return;
+    var steps = [
+      ['1', 'll.flow1', 'll.flow1s', false],
+      ['2', 'll.flow2', 'll.flow2s', false],
+      ['3', 'll.flow3', 'll.flow3s', true],
+      ['4', 'll.flow4', 'll.flow4s', false]
+    ];
+    root.innerHTML = steps.map(function (s) {
+      return '<span class="st' + (s[3] ? ' on' : '') + '"><span class="n">' + s[0] + '</span><span>' +
+        labEsc(t(s[1])) + ' <small>' + labEsc(t(s[2])) + '</small>' +
+        (s[3] ? ' <span class="here">' + labEsc(t('ll.flowHere')) + '</span>' : '') +
+        '</span></span>';
+    }).join('<span class="ar" aria-hidden="true">→</span>');
+  }
+  function setSlot(el, n, animate) {
+    if (!animate) {
+      el.setAttribute('data-n', String(n));
+      el.textContent = labFmtInt(n);
+      return;
+    }
+    animateSlot(el, n);
+  }
+  function renderFunnel(count) {
+    var root = document.getElementById('ll-funnel');
+    if (!root) return;
+    var lang = CthI18n.getLang();
+    var first = !root.getAttribute('data-lang');
+    if (root.getAttribute('data-lang') !== lang) {
+      root.setAttribute('data-lang', lang);
+      root.innerHTML =
+        '<div class="ll-step s1"><div class="num" data-slot="a" data-n="0">0</div><div class="lbl">' + labChip('pub') + labEsc(t('ll.f1000lbl')) + '</div><span class="src">' + labEsc(t('ll.src1000')) + '</span></div>' +
+        '<div class="ll-step s2"><div class="num" data-slot="b" data-n="0">0</div><div class="lbl">' + labChip('pub') + labEsc(t('ll.f221lbl')) + '</div><span class="src">' + labEsc(t('ll.f221note')) + ' ' + labEsc(t('ll.src221')) + '</span></div>' +
+        '<div class="ll-step s3"><div class="num" data-slot="c" data-n="0">0</div><div class="lbl">' + labChip('pub') + labEsc(t('ll.f35lbl')) + '</div><span class="src">' + labEsc(t('ll.src35')) + '</span></div>' +
+        '<div class="ll-step s4"><div class="num" data-slot="now" data-n="' + count + '">' + labFmtInt(count) + '</div><div class="lbl">' + labChip('pub') + labEsc(t('ll.fNow')) + '</div><span class="src">' + labEsc(t('ll.togNit')) + ' · ' + labEsc(t('ll.togZni')) + '</span></div>';
+      setSlot(root.querySelector('[data-slot="a"]'), 1000, first);
+      setSlot(root.querySelector('[data-slot="b"]'), 221, first);
+      setSlot(root.querySelector('[data-slot="c"]'), 35, first);
+      if (first) {
+        var now = root.querySelector('[data-slot="now"]');
+        now.setAttribute('data-n', '0');
+        now.textContent = labFmtInt(0);
+        animateSlot(now, count);
+      }
+      return;
+    }
+    animateSlot(root.querySelector('[data-slot="now"]'), count);
+  }
+  function renderControls() {
+    var root = document.getElementById('ll-controls');
+    if (!root) return;
+    function sl(id, key, val) {
+      return '<label class="ll-sl" for="' + id + '"><span data-i18n="' + key + '">' + labEsc(t(key)) + '</span><b id="' + id + '-val">' + val + '</b>' +
+        '<input type="range" id="' + id + '" min="0" max="100" step="1" value="' + val + '"></label>';
+    }
+    root.innerHTML =
+      sl('ll-solar', 'll.wSolar', lab.w.solar) +
+      '<p class="ll-note" data-i18n="ll.solarMiss">' + labEsc(t('ll.solarMiss')) + '</p>' +
+      sl('ll-zni', 'll.wZni', lab.w.zni) +
+      sl('ll-nit', 'll.wNit', lab.w.nit) +
+      '<p class="ll-note" data-i18n="ll.nitAll">' + labEsc(t('ll.nitAll')) + '</p>' +
+      sl('ll-social', 'll.wSocial', lab.w.social) +
+      '<div class="ll-togs">' +
+        '<label><input type="checkbox" id="ll-tog-nit"' + (lab.requireNit ? ' checked' : '') + '><span data-i18n="ll.togNit">' + labEsc(t('ll.togNit')) + '</span></label>' +
+        '<label><input type="checkbox" id="ll-tog-zni"' + (lab.onlyZni ? ' checked' : '') + '><span data-i18n="ll.togZni">' + labEsc(t('ll.togZni')) + '</span></label>' +
+      '</div>';
+  }
+  function readControls() {
+    function num(id) { return Number(document.getElementById(id).value); }
+    lab.w.solar = num('ll-solar');
+    lab.w.zni = num('ll-zni');
+    lab.w.nit = num('ll-nit');
+    lab.w.social = num('ll-social');
+    lab.requireNit = document.getElementById('ll-tog-nit').checked;
+    lab.onlyZni = document.getElementById('ll-tog-zni').checked;
+    document.getElementById('ll-solar-val').textContent = String(lab.w.solar);
+    document.getElementById('ll-zni-val').textContent = String(lab.w.zni);
+    document.getElementById('ll-nit-val').textContent = String(lab.w.nit);
+    document.getElementById('ll-social-val').textContent = String(lab.w.social);
+  }
+  function renderLegend() {
+    if (!lab.map) return;
+    if (lab.legend) lab.map.removeControl(lab.legend);
+    var ctl = L.control({ position: 'bottomleft' });
+    ctl.onAdd = function () {
+      var d = L.DomUtil.create('div', 'map-legend');
+      d.style.cssText = 'background:rgba(255,255,255,.94);padding:6px 8px;border-radius:8px;font:11px/1.35 Open Sans,sans-serif;color:#0C498A;box-shadow:0 1px 4px rgba(0,0,0,.2);max-width:210px';
+      d.innerHTML =
+        '<div style="font-weight:800;margin-bottom:2px">' + labEsc(t('ll.legendScore')) + ' ' + labChip('demo') + '</div>' +
+        '<div><span style="display:inline-block;width:42px;height:8px;border-radius:4px;background:linear-gradient(90deg,#0C498A,#69B5FA,#669348);margin-right:6px"></span>' +
+        labEsc(t('ll.legendLow')) + ' → ' + labEsc(t('ll.legendHigh')) + '</div>' +
+        '<div style="font-weight:800;margin-top:4px">' + labEsc(t('ll.legendIrr')) + ' ' + labChip('pub') + '</div>' +
+        '<div><span style="display:inline-block;width:10px;height:10px;background:#c5d0dc;border:1px solid #0C498A;margin-right:6px"></span>' + labEsc(t('ll.legendMiss')) + '</div>';
+      return d;
+    };
+    ctl.addTo(lab.map);
+    lab.legend = ctl;
+  }
+  function syncMarkers(list) {
+    var visible = {};
+    list.forEach(function (item, i) {
+      visible[item.row.id] = true;
+      var marker = lab.markers[item.row.id];
+      if (!marker) return;
+      marker.setIcon(pinIcon(item.score, item.row.id === lab.selected));
+      marker.setZIndexOffset(item.row.id === lab.selected ? 800 : 200 - i);
+      var tip = item.row.name + ' · ' + labFmt1(item.score);
+      marker.setTooltipContent(tip);
+      if (!lab.map.hasLayer(marker)) marker.addTo(lab.map);
+    });
+    Object.keys(lab.markers).forEach(function (id) {
+      if (!visible[id] && lab.map.hasLayer(lab.markers[id])) lab.map.removeLayer(lab.markers[id]);
+    });
+  }
+  function renderPanel(list) {
+    var root = document.getElementById('ll-panel');
+    if (!root) return;
+    var selected = null;
+    list.forEach(function (item) { if (item.row.id === lab.selected) selected = item; });
+    if (lab.selected && !selected) lab.selected = null;
+    if (!lab.selected) {
+      var top = list.slice(0, LAB_TOP);
+      var rows = top.map(function (item, i) {
+        var row = item.row;
+        var extra = [];
+        extra.push(row.lat.toFixed(2) + ', ' + row.lng.toFixed(2));
+        if (row.zni) extra.push('ZNI');
+        if (row.irr == null) extra.push(t('ll.sinSol'));
+        if (row.coop) extra.push(t('ll.coop'));
+        return '<button type="button" class="ll-row" data-id="' + labEsc(row.id) + '">' +
+          '<span>' + (i + 1) + '</span><span>' + labEsc(row.name) +
+          '<small>' + labEsc(row.muni) + ' · ' + labEsc(deptLabel(row.dept)) +
+          ' · ' + labEsc(extra.join(' · ')) + '</small></span>' +
+          '<span class="sc" style="color:' + scoreColor(item.score) + '">' + labFmt1(item.score) + '</span></button>';
+      }).join('');
+      root.innerHTML =
+        '<div class="ll-rank-h"><strong>' + labEsc(t('ll.rank')) + '</strong><span>' +
+        labChip('demo') + labEsc(t('ll.showing', { n: top.length, total: list.length })) + '</span></div>' +
+        '<div class="ll-list">' + (rows || '<p class="ll-note">' + labEsc(t('ll.empty')) + '</p>') + '</div>';
+      return;
+    }
+    var row = selected.row;
+    var econ = roomEconomics(selected);
+    var yearsTxt = econ.years == null ? t('ll.noIrr') : t('ll.years', { n: labFmt1(econ.years) });
+    var yieldTxt = econ.yieldKwh == null ? t('ll.noIrr') : labFmtInt(econ.yieldKwh) + ' kWh/' + (CthI18n.getLang() === 'en' ? 'yr' : 'año');
+    var irrTxt = row.irr == null ? t('ll.noIrr') : labFmt1(row.irr) + ' ' + t('ll.irrUnit');
+    root.innerHTML =
+      '<div class="ll-card">' +
+        '<button type="button" class="ll-back" id="ll-back">' + labEsc(t('ll.back')) + '</button>' +
+        '<h2>' + labEsc(row.name) + '</h2>' +
+        '<p class="ll-meta">' + labChip('pub') + labEsc(row.muni) + ' · ' + labEsc(deptLabel(row.dept)) +
+        ' · ' + labEsc(t('ll.nit')) + ' ' + labEsc(row.nit) +
+        '<br>' + labChip('pub') + labEsc(irrTxt) +
+        ' ' + labChip('pub') + labEsc(row.zni ? t('ll.zniYes') : t('ll.zniNo')) +
+        '<br>' + labChip('demo') + labEsc(t('ll.score')) + ' ' + labFmt1(selected.score) +
+        ' · ' + labEsc(t('ll.social')) + ' ' + labFmt1(selected.social * 100) +
+        '</p>' +
+        '<div class="ll-delta">' +
+          '<div><h3>' + labEsc(t('ll.base')) + '</h3><p>' + labEsc(t('ll.baseBody')) + ' ' +
+            labEsc(row.zni ? t('ll.baseZni') : t('ll.baseOther')) + '</p></div>' +
+          '<div><h3>' + labEsc(t('ll.inter')) + ' ' + labChip('demo') + '</h3>' +
+            '<div class="big">' + labEsc(yieldTxt) + '</div><div class="unit">' + labEsc(t('ll.yield')) + '</div>' +
+            '<div class="big">' + labEsc(yearsTxt) + '</div><div class="unit">' + labEsc(t('ll.payback')) + '</div></div>' +
+        '</div>' +
+        '<div class="ll-verdict ' + (econ.pass ? 'go' : 'hold') + '" id="ll-verdict">' +
+          (econ.pass ? labEsc(t('ll.pass')) : labEsc(t('ll.fail'))) +
+          '<span>' + labChip('demo') + labEsc(t(econ.why)) + '</span></div>' +
+        '<div class="ll-flow-mini">' +
+          '<i>1 ' + labEsc(t('ll.flow1')) + '</i><i>2 ' + labEsc(t('ll.flow2')) + '</i>' +
+          '<i class="on">3 ' + labEsc(t('ll.flow3')) + '</i><i>4 ' + labEsc(t('ll.flow4')) + '</i></div>' +
+        '<p class="ll-formula">' + labChip('demo') + labEsc(t('ll.formula')) + '</p>' +
+      '</div>';
+  }
+  function renderLiving() {
+    if (!lab.rows.length) return;
+    var list = labFiltered();
+    renderFlow();
+    renderFunnel(list.length);
+    syncMarkers(list);
+    renderPanel(list);
+  }
+  function refreshLivingLab() {
+    renderControls();
+    renderLegend();
+    if (lab.geoLayer && lab.irrIndex) {
+      lab.geoLayer.eachLayer(function (lyr) {
+        var name = lyr.feature && lyr.feature.properties && lyr.feature.properties.name;
+        var has = name && Object.prototype.hasOwnProperty.call(lab.irrIndex, name);
+        var v = has ? lab.irrIndex[name] : null;
+        var html = '<strong>' + labEsc(name || '') + '</strong><br>' +
+          (isFinite(v) ? labEsc(labFmt1(v) + ' kWh/m²') : labEsc(t('ll.noIrr')));
+        if (lyr.getTooltip()) lyr.setTooltipContent(html);
+      });
+    }
+    renderLiving();
+    var mapEl = document.getElementById('map-lab');
+    if (mapEl) mapEl.setAttribute('aria-label', t('ll.mapAria'));
+  }
+  function selectLab(id) {
+    lab.selected = id;
+    renderLiving();
+    var marker = lab.markers[id];
+    if (marker && lab.map) {
+      var ll = marker.getLatLng();
+      if (!lab.map.getBounds().contains(ll)) lab.map.panTo(ll);
+    }
+  }
+  function bindLabUi() {
+    var controls = document.getElementById('ll-controls');
+    var panel = document.getElementById('ll-panel');
+    controls.addEventListener('input', function (e) {
+      if (e.target && e.target.type === 'range') {
+        readControls();
+        renderLiving();
+      }
+    });
+    controls.addEventListener('change', function (e) {
+      if (e.target && e.target.type === 'checkbox') {
+        readControls();
+        renderLiving();
+      }
+    });
+    panel.addEventListener('click', function (e) {
+      var back = e.target.closest('#ll-back');
+      if (back) { lab.selected = null; renderLiving(); return; }
+      var btn = e.target.closest('.ll-row');
+      if (btn) selectLab(btn.getAttribute('data-id'));
+    });
+  }
+  function drawLabMap(geo, irrIndex) {
+    var el = document.getElementById('map-lab');
+    lab.map = L.map(el, { scrollWheelZoom: true, zoomControl: true }).setView([4.6, -73.8], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap',
+      maxZoom: 12
+    }).addTo(lab.map);
+    lab.geoLayer = L.geoJSON(geo, {
+      style: function (feature) {
+        var name = feature && feature.properties && feature.properties.name;
+        var v = name && Object.prototype.hasOwnProperty.call(irrIndex, name) ? irrIndex[name] : null;
+        return { fillColor: irrColor(v), fillOpacity: 0.72, color: '#ffffff', weight: 1, opacity: 1 };
+      },
+      onEachFeature: function (feature, lyr) {
+        var name = feature && feature.properties && feature.properties.name;
+        var has = name && Object.prototype.hasOwnProperty.call(irrIndex, name);
+        var v = has ? irrIndex[name] : null;
+        lyr.bindTooltip(
+          '<strong>' + labEsc(name || '') + '</strong><br>' +
+          (isFinite(v) ? labEsc(labFmt1(v) + ' kWh/m²') : labEsc(t('ll.noIrr'))),
+          { sticky: true }
+        );
+      }
+    }).addTo(lab.map);
+    lab.rows.forEach(function (row) {
+      var marker = L.marker([row.lat, row.lng], { icon: pinIcon(0, false), keyboard: true });
+      marker.bindTooltip(row.name, { direction: 'top', offset: [0, -8] });
+      marker.on('click', function () { selectLab(row.id); });
+      lab.markers[row.id] = marker;
+    });
+    renderLegend();
+    if (lab.geoLayer.getBounds().isValid()) lab.map.fitBounds(lab.geoLayer.getBounds(), { padding: [8, 8] });
+    setTimeout(function () { lab.map.invalidateSize(); }, 80);
+  }
+  function initLivingLab() {
+    if (lab.map) {
+      setTimeout(function () { lab.map.invalidateSize(); }, 60);
+      return;
+    }
+    if (lab.booted) return;
+    lab.booted = true;
+    renderControls();
+    renderFlow();
+    bindLabUi();
+    Promise.all([
+      fetch('data/ce_priorizadas_high.json').then(function (r) { if (!r.ok) throw new Error('communities ' + r.status); return r.json(); }),
+      fetch('data/irradiacion.json').then(function (r) { if (!r.ok) throw new Error('irr ' + r.status); return r.json(); }),
+      fetch('data/colombia-departamentos.geo.json').then(function (r) { if (!r.ok) throw new Error('geo ' + r.status); return r.json(); })
+    ]).then(function (pack) {
+      var raw = pack[0], irrRaw = pack[1], geo = pack[2];
+      var irrIndex = {};
+      Object.keys(irrRaw).forEach(function (k) { irrIndex[k] = Number(irrRaw[k]); });
+      var vals = Object.keys(irrIndex).map(function (k) { return irrIndex[k]; }).filter(function (n) { return isFinite(n); });
+      lab.irrMin = Math.min.apply(null, vals);
+      lab.irrMax = Math.max.apply(null, vals);
+      lab.irrIndex = irrIndex;
+      lab.rows = raw.filter(function (d) { return d.match_confidence === 'HIGH'; }).map(function (d) {
+        var info = deptInfo(d.department);
+        var irr = null;
+        if (info.irr && Object.prototype.hasOwnProperty.call(irrIndex, info.irr) && isFinite(irrIndex[info.irr])) {
+          irr = irrIndex[info.irr];
+        }
+        return {
+          id: d.id,
+          name: d.name,
+          muni: d.municipality,
+          dept: d.department,
+          lat: d.lat,
+          lng: d.lng,
+          nit: d.nit || '',
+          forma: d.forma_juridica || '',
+          irr: irr,
+          zni: !!info.zni,
+          coop: isCoopForm(d.forma_juridica),
+          nameHit: nameMatch(d.name, d.matched_name)
+        };
+      });
+      drawLabMap(geo, irrIndex);
+      renderLiving();
+    }).catch(function (err) {
+      console.error(err);
+      var panel = document.getElementById('ll-panel');
+      if (panel) panel.textContent = t('ll.loadErr');
+    });
+  }
+
   goTo(parseHash(), false);
 
   CthI18n.onChange(function () {
     refreshActionButtons();
     populateCommunities(true);
     refreshMapPopups();
+    if (lab.booted) refreshLivingLab();
     if (flowTimer) {
       var txt = document.getElementById('flow-text');
       var sub = document.getElementById('flow-sub');
