@@ -1,7 +1,7 @@
 (function (global) {
   'use strict';
 
-  var STORAGE_KEY = 'cth-demo-promigas-lang';
+  var STORAGE_KEY = 'cth-demo-cth-brand-lang';
 
   var STRINGS = {
     es: {
@@ -47,7 +47,7 @@
       's1.popupApprox': 'Ubicación aproximada',
       's1.popupType': 'Energía solar comunitaria (CSR, no FENOGE)',
       's2.title': 'La Guajira a escala',
-      's2.subtitleHtml': 'Proyectos públicos en La Guajira (FENOGE y convocatorias relacionadas). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.',
+      's2.subtitleHtml': 'Proyectos públicos en La Guajira (FENOGE y convocatorias relacionadas). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-cth-brand/SOURCES.md</code>.',
       's2.kpiStrip': 'Indicadores territoriales La Guajira',
       's2.kpi1': 'IMPE La Guajira 63,1% (2024)',
       's2.kpi2': 'ICEE La Guajira 54,28% (UPME 2024)',
@@ -80,11 +80,11 @@
       's5.funnel10Lbl': 'Siguiente ola de acompañamiento cooperativo',
       's5.funnelNote': 'Los tres conteos finales son ilustrativos; el universo 500 CE y las cifras IMPE/ICEE/IPSE citadas son públicas.',
       's6.title': 'PASO — comunidades productivas candidatas',
-      's6.subtitleHtml': 'Territorios en diálogo para modelos cooperativos productivos. Sin cifras confidenciales de GRP; solo ubicaciones y rol de candidata.',
+      's6.subtitleHtml': 'Territorios en diálogo para modelos cooperativos productivos. Solo ubicaciones y rol de candidata.',
       's6.corozalTitle': 'Corozal, Sucre',
       's6.corozalBody': 'Cabecera municipal — punto de referencia con cobertura Google Solar BASE en chequeo de mapa (9,31778, -75,29583).',
       's6.corozalMeta': '<code>solar-api-coverage-2026-11.md</code>',
-      's6.grpIntro': 'Proyectos GRP (solo nombre territorial, sin montos ni datos reservados):',
+      's6.grpIntro': 'Comunidades productivas en diálogo (solo nombre territorial):',
       's6.grp1': 'Fonseca, La Guajira',
       's6.grp2': 'Puerto Asís / Guzmán, Putumayo',
       's6.grp3': 'La Macarena, Meta',
@@ -199,7 +199,7 @@
       's1.popupApprox': 'Approximate location',
       's1.popupType': 'Community solar (CSR, not FENOGE)',
       's2.title': 'La Guajira at scale',
-      's2.subtitleHtml': 'Public projects in La Guajira (FENOGE and related processes). Pins without official coordinates: <em>approximate location</em>. Verification: <code>docs/energy-coop/demo-promigas-fact-check.md</code>.',
+      's2.subtitleHtml': 'Public projects in La Guajira (FENOGE and related processes). Pins without official coordinates: <em>approximate location</em>. Verification: <code>docs/energy-coop/demo-cth-brand/SOURCES.md</code>.',
       's2.kpiStrip': 'La Guajira territorial indicators',
       's2.kpi1': 'IMPE La Guajira 63.1% (2024)',
       's2.kpi2': 'ICEE La Guajira 54.28% (UPME 2024)',
@@ -232,11 +232,11 @@
       's5.funnel10Lbl': 'Next cooperative accompaniment wave',
       's5.funnelNote': 'The three final counts are illustrative; the 500 EC universe and cited IMPE/ICEE/IPSE figures are public.',
       's6.title': 'PASO — productive community candidates',
-      's6.subtitleHtml': 'Territories in dialogue for productive cooperative models. No confidential GRP figures; locations and candidate status only.',
+      's6.subtitleHtml': 'Territories in dialogue for productive cooperative models. Locations and candidate status only.',
       's6.corozalTitle': 'Corozal, Sucre',
       's6.corozalBody': 'Municipal seat — reference point with Google Solar BASE coverage in map check (9.31778, -75.29583).',
       's6.corozalMeta': '<code>solar-api-coverage-2026-11.md</code>',
-      's6.grpIntro': 'GRP projects (territorial name only, no amounts or restricted data):',
+      's6.grpIntro': 'Productive communities in dialogue (territorial name only):',
       's6.grp1': 'Fonseca, La Guajira',
       's6.grp2': 'Puerto Asís / Guzmán, Putumayo',
       's6.grp3': 'La Macarena, Meta',

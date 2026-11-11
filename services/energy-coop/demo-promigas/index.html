@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Energy Coop — CleantechHUB</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
 :root {
-  --cth-primary: #2D6A4F;
-  --cth-dark: #1B4332;
-  --cth-accent: #95D5B2;
-  --cth-light: #D8F3DC;
-  --cth-white: #FFFFFF;
-  --cth-text: #333333;
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --sim-bg: color-mix(in srgb, var(--cth-accent) 35%, var(--cth-white));
-  --sim-border: var(--cth-dark);
-  --pin-map: var(--cth-primary);
+  --blue: #0C498A;
+  --cyan: #B2EEFA;
+  --green-l: #9DC384;
+  --green-f: #669348;
+  --sky: #69B5FA;
+  --white: #FFFFFF;
+  --cth-primary: var(--blue);
+  --cth-dark: var(--blue);
+  --cth-accent: var(--sky);
+  --cth-light: var(--cyan);
+  --cth-white: var(--white);
+  --cth-text: var(--blue);
+  --font-family: 'Open Sans', 'PT Sans', sans-serif;
+  --font-display: 'Titillium Web', 'Open Sans', sans-serif;
+  --sim-bg: color-mix(in srgb, var(--cyan) 55%, var(--white));
+  --sim-border: var(--blue);
+  --pin-map: var(--green-f);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -48,8 +56,9 @@ html, body {
   color: var(--cth-white);
   font-size: 14px;
 }
-.topbar .brand { font-weight: 400; letter-spacing: -0.02em; }
-.topbar .brand .hub { font-weight: 700; }
+.brand-lockup { display: flex; align-items: center; gap: 12px; }
+.topbar-logo { height: 36px; width: auto; display: block; object-fit: contain; }
+.product-name { font-family: var(--font-display); font-weight: 600; font-size: 13px; opacity: 0.95; }
 .topbar .meta { opacity: 0.9; font-size: 12px; text-align: right; }
 .progress {
   display: flex;
@@ -65,7 +74,7 @@ html, body {
   padding: 0;
 }
 .dot.active { background: var(--cth-accent); transform: scale(1.15); }
-.dot.done { background: rgba(149,213,178,0.7); }
+.dot.done { background: rgba(105,181,250,0.75); }
 .screen-wrap {
   flex: 1;
   min-height: 0;
@@ -83,6 +92,7 @@ html, body {
 }
 .screen.active { display: flex; }
 .screen h1 {
+  font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   color: var(--cth-dark);
   margin-bottom: 4px;
@@ -455,7 +465,10 @@ html, body {
 </div>
 <div class="app">
   <header class="topbar">
-    <div class="brand" aria-label="CleantechHUB" data-i18n-html="topbar.brandHtml"></div>
+    <div class="brand-lockup" aria-label="CleantechHUB">
+      <img class="topbar-logo" src="assets/cth-logo-white.png" width="200" height="36" alt="CleantechHUB">
+      <span class="product-name">Energy Coop</span>
+    </div>
     <div class="progress" role="tablist" data-i18n-aria="topbar.progress">
       <button type="button" class="dot active" data-goto="0" data-i18n-screen="1"></button>
       <button type="button" class="dot" data-goto="1" data-i18n-screen="2"></button>
@@ -604,7 +617,9 @@ html, body {
     <section class="screen" id="screen-3" aria-labelledby="t6">
       <h1 id="t6" data-i18n="s6.title"></h1>
       <p class="subtitle" data-i18n-html="s6.subtitleHtml"></p>
-      <div class="candidate-card featured" style="max-width:52rem;margin-bottom:12px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;">
+      <div>
+      <div class="candidate-card featured" style="margin-bottom:12px;">
         <span class="tag candidate" data-i18n="tag.candidate"></span>
         <h2 class="section-h2" style="margin-top:8px;" data-i18n="s6.corozalTitle"></h2>
         <p data-i18n="s6.corozalBody"></p>
@@ -621,6 +636,9 @@ html, body {
         <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp7"></span></div>
       </div>
       <p class="cite" data-i18n="s6.disclaimer"></p>
+      </div>
+      <div class="map-box" style="min-height:580px;"><div id="map-paso" style="width:100%;height:100%;min-height:580px;"></div></div>
+      </div>
     </section>
 
     <!-- Screen 5 — CEOF wizard -->
@@ -649,23 +667,23 @@ html, body {
         <div class="panel ceof-wrap" id="ceof-wrap">
           <span class="tag design" data-i18n="s3.ceofTag"></span>
           <svg class="ceof-svg" viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" data-i18n-aria="s3.ceofAria">
-            <rect x="240" y="20" width="240" height="56" rx="8" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+            <rect x="240" y="20" width="240" height="56" rx="8" fill="#B2EEFA" stroke="#0C498A" stroke-width="2"/>
             <text x="360" y="52" text-anchor="middle" class="flow-label" font-size="14" data-i18n="s3.svgCoop"></text>
-            <rect x="40" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <rect x="40" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#0C498A"/>
             <text x="120" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgInvestors"></text>
-            <rect x="280" y="120" width="160" height="48" rx="6" fill="#95D5B2" stroke="#2D6A4F"/>
+            <rect x="280" y="120" width="160" height="48" rx="6" fill="#69B5FA" stroke="#0C498A"/>
             <text x="360" y="142" text-anchor="middle" class="flow-label" data-i18n="s3.svgCommunity"></text>
             <text x="360" y="158" text-anchor="middle" font-size="10" fill="#555" data-i18n="s3.svgCommunityPct"></text>
-            <rect x="520" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <rect x="520" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#0C498A"/>
             <text x="600" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgOperator"></text>
-            <rect x="260" y="220" width="200" height="44" rx="6" fill="#1B4332"/>
+            <rect x="260" y="220" width="200" height="44" rx="6" fill="#0C498A"/>
             <text x="360" y="248" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-i18n="s3.svgMultisig"></text>
-            <line x1="120" y1="168" x2="300" y2="210" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arr)"/>
-            <line x1="360" y1="168" x2="360" y2="218" stroke="#2D6A4F" stroke-width="2"/>
-            <line x1="600" y1="168" x2="420" y2="210" stroke="#2D6A4F" stroke-width="2"/>
-            <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2D6A4F"/></marker></defs>
+            <line x1="120" y1="168" x2="300" y2="210" stroke="#0C498A" stroke-width="2" marker-end="url(#arr)"/>
+            <line x1="360" y1="168" x2="360" y2="218" stroke="#0C498A" stroke-width="2"/>
+            <line x1="600" y1="168" x2="420" y2="210" stroke="#0C498A" stroke-width="2"/>
+            <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0C498A"/></marker></defs>
             <g id="money-flow">
-              <text x="360" y="300" text-anchor="middle" font-size="13" fill="#2D6A4F" class="money-pulse" id="flow-text" data-i18n="s3.flow0"></text>
+              <text x="360" y="300" text-anchor="middle" font-size="13" fill="#0C498A" class="money-pulse" id="flow-text" data-i18n="s3.flow0"></text>
               <text x="360" y="330" text-anchor="middle" font-size="11" fill="#666" id="flow-sub" data-i18n="s3.flowSub"></text>
             </g>
           </svg>
@@ -770,7 +788,7 @@ html, body {
 
   var SCREENS = 7;
   var current = 0;
-  var maps = { paiva: null, guajira: null };
+  var maps = { paiva: null, guajira: null, paso: null };
   var guajiraLoaded = false;
   var guajiraMarkers = [];
   var paivaPopupLayer = null;
@@ -784,7 +802,7 @@ html, body {
   /** Verificado: demo-promigas-fact-check.md */
   var MAP_PROJECTS = [
     {
-      mapKey: 'p1',
+      mapKey: 'p1', status: 'current',
       lat: 11.378, lng: -72.240, approx: true, fenoge: true, dutch: false,
       kwp: 1102, kwpLabel: '1.102 kWp',
       source: 'https://fenoge.gov.co/gobierno-nacional-entrega-en-maicao-el-primer-territorio-energetico-de-la-guajira/',
@@ -792,7 +810,7 @@ html, body {
       srcLabel: 'FENOGE + MinEnergía'
     },
     {
-      mapKey: 'p2',
+      mapKey: 'p2', status: 'planned',
       lat: 12.090, lng: -72.145, approx: true, fenoge: true, dutch: false,
       kwp: 1000, kwpLabel: '1 MW',
       source: 'https://www.minenergia.gov.co/es/sala-de-prensa/noticias-index/minenerg%C3%ADa-y-fenoge-instalar%C3%A1n-parque-solar-en-el-cabo-de-la-vela-y-media-luna-que-proveer%C3%A1-energ%C3%ADa-247/',
@@ -800,7 +818,7 @@ html, body {
       srcLabel: 'MinEnergía + Review Energy'
     },
     {
-      mapKey: 'p3',
+      mapKey: 'p3', status: 'planned',
       lat: 12.199722, lng: -71.263889, approx: false, fenoge: true, dutch: false,
       kwp: null, kwpLabelKey: 'map.p3.kwpLabel',
       source: 'https://fenoge.gov.co/invitacion-abietno-006-de-2024-ia-006-2024-fenoge/',
@@ -808,7 +826,7 @@ html, body {
       srcLabel: 'IA-006-2024 + Diario del Norte'
     },
     {
-      mapKey: 'p4',
+      mapKey: 'p4', status: 'planned',
       lat: 11.157, lng: -72.592, approx: true, fenoge: false, dutch: false,
       kwp: null, kwpLabelKey: 'map.p4.kwpLabel',
       source: 'https://gutami.com/information/news/clean-energy-in-la-guajira-colombia/',
@@ -886,6 +904,7 @@ html, body {
     if (idx === 0) initPaivaMap();
     if (idx === 1) initGuajiraMap();
     if (idx === 4) populateCommunities();
+    if (idx === 3) initPasoMap();
   }
 
   function initPaivaMap() {
@@ -910,11 +929,11 @@ html, body {
     L.marker(PAIVA_APPROX, { icon: pinIcon(14) }).addTo(maps.paiva);
   }
 
-  function varPin() { return getComputedStyle(document.documentElement).getPropertyValue('--pin-map').trim() || '#2D6A4F'; }
+  function varPin() { return getComputedStyle(document.documentElement).getPropertyValue('--pin-map').trim() || '#0C498A'; }
 
   function pinIcon(size, dutch) {
-    var bg = dutch ? '#95D5B2' : varPin();
-    var border = dutch ? '#1B4332' : '#fff';
+    var bg = dutch ? '#69B5FA' : varPin();
+    var border = dutch ? '#0C498A' : '#fff';
     var s = size || 10;
     var m = -Math.round(s / 2);
     return L.divIcon({
@@ -922,6 +941,60 @@ html, body {
       html: '<div style="background:' + bg + ';width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:2px solid ' + border + ';box-shadow:0 1px 4px rgba(0,0,0,.35);margin:' + m + 'px 0 0 ' + m + 'px"></div>',
       iconSize: [s, s]
     });
+  }
+
+
+  var STATUS_COLORS = { current: '#669348', planned: '#69B5FA', paso: '#9DC384', candidate: '#0C498A' };
+  function statusIcon(status, size) {
+    var s = size || 14, m = -Math.round(s / 2);
+    var bg = STATUS_COLORS[status] || '#0C498A';
+    return L.divIcon({ className: '', iconSize: [s, s],
+      html: '<div style="background:' + bg + ';width:' + s + 'px;height:' + s + 'px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);margin:' + m + 'px 0 0 ' + m + 'px"></div>' });
+  }
+  function addLegend(map, items) {
+    var ctl = L.control({ position: 'topright' });
+    ctl.onAdd = function () {
+      var d = L.DomUtil.create('div', 'map-legend');
+      d.style.cssText = 'background:rgba(255,255,255,.92);padding:8px 10px;border-radius:8px;font:12px/1.5 "Open Sans",sans-serif;color:#0C498A;box-shadow:0 1px 4px rgba(0,0,0,.25)';
+      d.innerHTML = items.map(function (it) {
+        return '<div><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:' + STATUS_COLORS[it[0]] + ';border:2px solid #fff;box-shadow:0 0 0 1px #0C498A;margin-right:6px;vertical-align:-1px"></span>' + it[1] + '</div>';
+      }).join('');
+      return d;
+    };
+    ctl.addTo(map);
+  }
+  var PASO_SITES = [
+    { name: 'Fonseca, La Guajira', lat: 10.885, lng: -72.848 },
+    { name: 'Puerto Asís / Guzmán, Putumayo', lat: 0.505, lng: -76.495 },
+    { name: 'La Macarena, Meta', lat: 2.183, lng: -73.785 },
+    { name: 'Istmina, Chocó', lat: 5.155, lng: -76.685 },
+    { name: 'San José del Guaviare, Guaviare', lat: 2.572, lng: -72.645 },
+    { name: 'Miranda, Cauca', lat: 3.250, lng: -76.228 },
+    { name: 'Arauca, Arauca', lat: 7.084, lng: -70.759 }
+  ];
+  var COROZAL = [9.31778, -75.29583];
+  function initPasoMap() {
+    if (maps.paso) { maps.paso.invalidateSize(); if (maps.pasoBounds) maps.paso.fitBounds(maps.pasoBounds, { padding: [30, 30] }); return; }
+    var es = CthI18n.localeTag().indexOf('es') === 0;
+    maps.paso = L.map('map-paso', { scrollWheelZoom: false }).setView([5.5, -74.2], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap', maxZoom: 18 }).addTo(maps.paso);
+    var bounds = [];
+    PASO_SITES.forEach(function (p) {
+      L.marker([p.lat, p.lng], { icon: statusIcon('paso', 22) }).addTo(maps.paso)
+        .bindTooltip(p.name, { direction: 'top', offset: [0, -8] })
+        .bindPopup('<strong>' + p.name + '</strong><br>' + (es ? 'Comunidad productiva PASO (candidata)<br><em>Ubicación aproximada (cabecera municipal)</em>' : 'PASO productive community (candidate)<br><em>Approximate location (municipal seat)</em>'));
+      bounds.push([p.lat, p.lng]);
+    });
+    L.marker(COROZAL, { icon: statusIcon('candidate', 24) }).addTo(maps.paso)
+      .bindTooltip('Corozal, Sucre', { direction: 'top', offset: [0, -8] })
+      .bindPopup('<strong>Corozal, Sucre</strong><br>' + (es ? 'Comunidad candidata Energy Coop (no es proyecto PASO)' : 'Energy Coop candidate community (not a PASO project)'));
+    bounds.push(COROZAL);
+    maps.pasoBounds = bounds;
+    maps.paso.fitBounds(bounds, { padding: [30, 30] });
+    setTimeout(function () { maps.paso.invalidateSize(); maps.paso.fitBounds(bounds, { padding: [20, 20], maxZoom: 7 }); maps.paso.setView([5.3, -74.6], 6); }, 350);
+    addLegend(maps.paso, es
+      ? [['paso', 'Comunidades productivas PASO (candidatas)'], ['candidate', 'Candidata Energy Coop: Corozal']]
+      : [['paso', 'PASO productive communities (candidates)'], ['candidate', 'Energy Coop candidate: Corozal']]);
   }
 
   function initGuajiraMap() {
@@ -934,6 +1007,11 @@ html, body {
       attribution: '&copy; OpenStreetMap',
       maxZoom: 18
     }).addTo(maps.guajira);
+    var esG = CthI18n.localeTag().indexOf('es') === 0;
+    addLegend(maps.guajira, esG
+      ? [['current', 'En operación / entregado'], ['planned', 'Planeado / en convocatoria']]
+      : [['current', 'Operating / delivered'], ['planned', 'Planned / in procurement']]);
+    setTimeout(function () { if (!guajiraLoaded) document.getElementById('btn-guajira').click(); }, 500);
   }
 
   function animateValue(el, target, suffix) {
@@ -964,10 +1042,10 @@ html, body {
   function loadGuajiraPins() {
     if (guajiraLoaded || !maps.guajira) return;
     guajiraLoaded = true;
-    maps.guajira.flyTo([11.35, -72.75], 8, { duration: 1.5 });
+    maps.guajira.flyTo([11.65, -72.45], 8, { duration: 1.5 });
     MAP_PROJECTS.forEach(function (p, i) {
       setTimeout(function () {
-        var marker = L.marker([p.lat, p.lng], { icon: pinIcon(10, p.dutch) })
+        var marker = L.marker([p.lat, p.lng], { icon: statusIcon(p.status, 20) })
           .addTo(maps.guajira).bindPopup(projectPopup(p));
         guajiraMarkers.push({ marker: marker, project: p });
         if (p.approx) {
