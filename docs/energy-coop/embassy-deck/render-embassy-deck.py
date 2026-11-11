@@ -38,8 +38,16 @@ def render_pdf(html: Path, pdf_out: Path) -> list[Path]:
     with sync_playwright() as p:
         browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
         page = browser.new_page(viewport={"width": 1920, "height": 1080})
+        page.emulate_media(media="screen")
         page.goto(html.as_uri(), wait_until="networkidle")
         page.wait_for_timeout(600)
+        page.evaluate(
+            """() => {
+              document.querySelectorAll('.frost-tile, .demo-frost-cap').forEach((el) => {
+                el.classList.add('frost-pdf');
+              });
+            }"""
+        )
         slides = page.locator("section.slide")
         count = slides.count()
         if count != EXPECTED:
@@ -132,6 +140,18 @@ def main() -> int:
     for src in (PDF_ES, PDF_EN, CONTACT, en_contact):
         dest = ART / src.name
         dest.write_bytes(src.read_bytes())
+        print("copied", dest)
+    review_es = ART / "slide-review-es"
+    review_en = ART / "slide-review-en"
+    review_es.mkdir(parents=True, exist_ok=True)
+    review_en.mkdir(parents=True, exist_ok=True)
+    for i, p in enumerate(pngs_es, 1):
+        dest = review_es / f"slide-{i:02d}.png"
+        dest.write_bytes(p.read_bytes())
+        print("copied", dest)
+    for i, p in enumerate(pngs_en, 1):
+        dest = review_en / f"slide-{i:02d}.png"
+        dest.write_bytes(p.read_bytes())
         print("copied", dest)
     for p in pngs_es + pngs_en:
         p.unlink(missing_ok=True)
