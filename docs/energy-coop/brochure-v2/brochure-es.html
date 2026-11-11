@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Coop — Cooperativas energéticas · CleantechHUB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cth-primary: #2D6A4F;
+  --cth-dark: #1B4332;
+  --cth-accent: #95D5B2;
+  --cth-light: #D8F3DC;
+  --cth-white: #FFFFFF;
+  --cth-text: #333333;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 9.25pt; }
+body {
+  font-family: var(--font-family);
+  color: var(--cth-text);
+  line-height: 1.42;
+  background: #e8ece9;
+}
+@media print {
+  html, body { background: white; width: 210mm; }
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .page { page-break-after: always; box-shadow: none !important; }
+  .page:last-child { page-break-after: auto; }
+  .no-print { display: none !important; }
+  .pdf-float { display: none !important; }
+  * { animation: none !important; transition: none !important; }
+  @page { size: A4; margin: 0; }
+}
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 9mm 11mm 8mm;
+  background: var(--cth-white);
+  position: relative;
+  margin: 0 auto 12px;
+  box-shadow: 0 2px 24px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.header img.logo { height: 11mm; width: auto; }
+.meta { font-size: 7pt; color: #555; text-align: right; line-height: 1.35; }
+.hero {
+  position: relative;
+  margin: 0 -11mm 7px;
+  height: 52mm;
+  background: #1B4332 center/cover no-repeat;
+  background-image: url('assets/hero.jpg');
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(27,67,50,.88) 0%, rgba(27,67,50,.55) 48%, rgba(45,106,79,.35) 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 8mm 11mm 6mm;
+  color: #fff;
+  max-width: 72%;
+}
+.hero h1 {
+  font-size: 14.5pt;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  color: #fff;
+}
+.hero .lead {
+  font-size: 8.25pt;
+  opacity: .95;
+  line-height: 1.35;
+  color: #f0faf4;
+}
+.hero-credit {
+  position: absolute;
+  right: 8px;
+  bottom: 4px;
+  z-index: 2;
+  font-size: 5.5pt;
+  color: rgba(255,255,255,.75);
+}
+h2 {
+  font-size: 9.5pt;
+  color: var(--cth-primary);
+  font-weight: 700;
+  margin: 5px 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+h2 .num {
+  display: inline-flex;
+  width: 16px; height: 16px;
+  background: var(--cth-primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 7.5pt;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.stat {
+  background: var(--cth-light);
+  border-radius: 5px;
+  padding: 5px 6px;
+  border-top: 3px solid var(--cth-primary);
+}
+.stat .val {
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--cth-dark);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+.stat .lbl { font-size: 6.5pt; color: #444; margin-top: 2px; line-height: 1.25; }
+.pace-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 7.25pt;
+}
+.pace-box {
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 30%, #ccc);
+  border-radius: 5px;
+  padding: 5px 7px;
+  background: #fafdfb;
+}
+.pace-box strong { color: var(--cth-dark); display: block; font-size: 7pt; }
+.pace-box .yr { font-size: 13pt; font-weight: 700; color: var(--cth-primary); }
+.pace-box.muted .yr { color: #666; }
+.pace-note { font-size: 7pt; color: #444; margin-bottom: 6px; }
+.opex-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.opex-card {
+  background: #f7fbf8;
+  border-radius: 5px;
+  padding: 5px 6px;
+  border-left: 3px solid var(--cth-accent);
+  font-size: 6.75pt;
+  line-height: 1.3;
+}
+.opex-card svg { width: 18px; height: 18px; margin-bottom: 2px; color: var(--cth-primary); }
+.opex-card strong { display: block; font-size: 7pt; color: var(--cth-dark); margin-bottom: 1px; }
+.proposal {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cth-light) 70%, white), #fff);
+  border: 1.5px dashed var(--cth-primary);
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 3px 0 5px;
+  font-size: 7.5pt;
+  line-height: 1.35;
+}
+.badge {
+  display: inline-block;
+  font-size: 6pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  background: var(--cth-accent);
+  color: var(--cth-dark);
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+.nexus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 5px;
+}
+.nexus-card {
+  border: 1px solid #dde8e2;
+  border-radius: 5px;
+  padding: 4px 5px 5px;
+  background: #fff;
+  min-height: 0;
+}
+.nexus-card .init {
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  background: var(--cth-primary);
+  color: #fff;
+  font-size: 7pt;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+.nexus-card .name { font-size: 7.25pt; font-weight: 700; color: var(--cth-dark); line-height: 1.15; }
+.nexus-card .city { font-size: 6pt; color: #666; }
+.nexus-card .desc { font-size: 6.25pt; margin: 2px 0; line-height: 1.28; color: #444; }
+.nexus-card .metric { font-size: 6pt; color: var(--cth-primary); font-weight: 600; }
+.nexus-card a { font-size: 5.75pt; color: var(--cth-primary); text-decoration: none; word-break: break-all; }
+.nexus-card.highlight { border-color: var(--cth-primary); background: color-mix(in srgb, var(--cth-light) 35%, white); }
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+.territory { font-size: 6.5pt; line-height: 1.32; }
+.territory ul { padding-left: 1em; margin: 2px 0; }
+.territory li { margin-bottom: 1px; }
+.candidate {
+  font-size: 6.75pt;
+  background: var(--cth-light);
+  padding: 4px 6px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  border-left: 3px solid var(--cth-primary);
+}
+.funnel-wrap { text-align: center; }
+.funnel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--cth-dark);
+  margin: 3px 0;
+}
+.funnel span {
+  padding: 3px 7px;
+  background: var(--cth-light);
+  border-radius: 4px;
+  border: 1px solid var(--cth-primary);
+}
+.funnel .arr { font-weight: 400; color: var(--cth-primary); font-size: 8pt; }
+.funnel-label { font-size: 6.5pt; color: #666; }
+.partners {
+  font-size: 7pt;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+.cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--cth-dark);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 7.25pt;
+  margin-top: 3px;
+}
+.cta-row strong { font-size: 7.5pt; }
+.footnotes {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #ddd;
+  font-size: 5.75pt;
+  color: #555;
+  line-height: 1.28;
+  columns: 2;
+  column-gap: 8px;
+}
+.footnotes p { break-inside: avoid; margin-bottom: 1px; }
+.footer-bar {
+  position: absolute;
+  bottom: 5.5mm;
+  left: 11mm;
+  right: 11mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7pt;
+  color: var(--cth-dark);
+  border-top: 2px solid var(--cth-accent);
+  padding-top: 4px;
+}
+.footer-bar a { color: var(--cth-primary); text-decoration: none; font-weight: 600; }
+.pdf-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+}
+.pdf-float a, .footer-bar .no-print a.btn {
+  display: inline-block;
+  background: var(--cth-primary);
+  color: #fff !important;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 9pt;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(45,106,79,.35);
+}
+.talent { font-size: 7pt; margin-bottom: 4px; line-height: 1.35; }
+</style>
+</head>
+<body>
+
+<div class="pdf-float no-print"><a href="brochure-es.pdf" download>Descargar PDF</a></div>
+
+<section class="page" aria-label="Página 1">
+  <header class="header">
+    <img class="logo" src="assets/cth-logo.svg" width="200" height="30" alt="CleantechHUB">
+    <p class="meta">Energy Coop<br>Cooperativas energéticas · Nov 2026</p>
+  </header>
+
+  <div class="hero" role="img" aria-label="Casa rural con paneles solares">
+    <div class="hero-inner">
+      <h1>Comunidades energéticas: cerrar la brecha con operación local</h1>
+      <p class="lead">Datos públicos de pobreza energética, el costo del OPEX rural y la cooperativa como vehículo de sostenibilidad para utilities y fundaciones en Colombia.</p>
+    </div>
+    <span class="hero-credit">Foto: Alexander Mass / Pexels (licencia libre)</span>
+  </div>
+
+  <h2><span class="num">1</span> La brecha nacional</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="val">15,4%</div>
+      <div class="lbl">Incidencia IMPE 2024 (~8,1&nbsp;M personas)<sup>1</sup></div>
+    </div>
+    <div class="stat">
+      <div class="val">9,5%</div>
+      <div class="lbl">Meta escenario 2030 (~5,17&nbsp;M; −2,9&nbsp;M)<sup>1</sup></div>
+    </div>
+    <div class="stat">
+      <div class="val">75,9% / 93,1%</div>
+      <div class="lbl">Cobertura eléctrica rural vs nacional (ICEE 2024)<sup>2</sup></div>
+    </div>
+    <div class="stat">
+      <div class="val">63,1% / 52,8%</div>
+      <div class="lbl">IMPE La Guajira / Chocó (2024)<sup>1</sup></div>
+    </div>
+  </div>
+  <p class="pace-note">Ritmo observado ~300&nbsp;k pers./año → brecha de 2,9&nbsp;M en ~9,7 años (~2034). Escenario 2030: ~490&nbsp;k pers./año.<sup>1</sup></p>
+  <div class="pace-row">
+    <div class="pace-box muted">
+      <strong>Ritmo actual ~300&nbsp;k/año</strong>
+      <span class="yr">~2034</span>
+    </div>
+    <div class="pace-box">
+      <strong>Meta escenario ~490&nbsp;k/año</strong>
+      <span class="yr">2030</span>
+    </div>
+  </div>
+
+  <h2><span class="num">2</span> OPEX, no solo CAPEX</h2>
+  <div class="opex-grid">
+    <div class="opex-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+      <strong>Contraloría</strong>
+      Sin metodología para remunerar operación y AOM de microredes y SFV.<sup>3</sup>
+    </div>
+    <div class="opex-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+      <strong>Amazonas</strong>
+      ~$30.000&nbsp;M (regalías) en FV sin operar; baterías dañadas — riesgo de abandono.<sup>4</sup>
+    </div>
+    <div class="opex-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+      <strong>CREG</strong>
+      Miles de SFV rurales sin gestión → sistemas abandonados; faltan norma e instaladores certificados.<sup>5</sup>
+    </div>
+  </div>
+
+  <div class="footnotes">
+    <p><sup>1</sup> IMPE, Informe 2025 (base 2024), pp. 12, 22, 33. <sup>2</sup> UPME, Boletín ICEE 2024. <sup>3</sup> Contraloría, proyectos solares ZNI. <sup>4</sup> Seguimiento.co / Procuraduría, Amazonas. <sup>5</sup> CREG, Informe GEN-Renovables; Concepto 4022/2019 (AOM).</p>
+  </div>
+  <footer class="footer-bar">
+    <span>Cooperativas energéticas · CleantechHUB</span>
+    <span class="no-print"><a class="btn" href="brochure-es.pdf" download>Descargar PDF</a></span>
+    <span>Pág. 1 / 2</span>
+  </footer>
+</section>
+
+<section class="page" aria-label="Página 2">
+  <header class="header">
+    <img class="logo" src="assets/cth-logo.svg" width="200" height="30" alt="CleantechHUB">
+    <p class="meta">Propuesta Energy Coop</p>
+  </header>
+
+  <h2><span class="num">3</span> La cooperativa como herramienta</h2>
+  <div class="proposal">
+    <span class="badge">Propuesta CTH</span>
+    <strong>O&amp;M comunitario + ingresos + propiedad local.</strong> Contratos OPEX (FV, baterías, monitoreo; marco CREG/SSPD) y gobernanza cooperativa. KPIs: dimensiones acceso/calidad del IMPE — no sustituye cobertura ICEE.
+  </div>
+
+  <h2><span class="num">4</span> Startups del ecosistema</h2>
+  <div class="nexus-grid">
+    <article class="nexus-card highlight">
+      <div class="init">SC</div>
+      <div class="name">SunColombia</div>
+      <div class="city">Bogotá · cliente portfolio CTH</div>
+      <p class="desc">Diseño, construcción y O&amp;M solar on/off-grid para instituciones y zonas no interconectadas.</p>
+      <p class="metric">898&nbsp;kWp · 1.122 usuarios (DISPAC, La Guajira)<sup>11</sup></p>
+      <a href="https://suncolombia.co/">suncolombia.co</a>
+    </article>
+    <article class="nexus-card">
+      <div class="init">SE</div>
+      <div class="name">SEOS Energy</div>
+      <div class="city">Bogotá</div>
+      <p class="desc">Plataforma que conecta hogares y Pymes con instaladores certificados y financiación solar.</p>
+      <p class="metric">+75 SOLvers · 18 departamentos<sup>12</sup></p>
+      <a href="https://seosenergy.co/">seosenergy.co</a>
+    </article>
+    <article class="nexus-card">
+      <div class="init">SL</div>
+      <div class="name">Soluna Energía</div>
+      <div class="city">La Guajira · Vichada</div>
+      <p class="desc">Energía solar prepago (pay-as-you-go) para hogares fuera de red en el Caribe y Orinoquía.</p>
+      <a href="https://www.solunaenergia.com/">solunaenergia.com</a>
+    </article>
+    <article class="nexus-card">
+      <div class="init">TG</div>
+      <div class="name">Tierra Grata</div>
+      <div class="city">Cartagena</div>
+      <p class="desc">Energía descentralizada y microfinanzas en comunidades rurales remotas (modelo PayGo).</p>
+      <p class="metric">1.947 soluciones de energía limpia<sup>13</sup></p>
+      <a href="https://tierragrata.org/">tierragrata.org</a>
+    </article>
+    <article class="nexus-card">
+      <div class="init">TW</div>
+      <div class="name">TuWatt</div>
+      <div class="city">Bogotá</div>
+      <p class="desc">Estructura y opera proyectos de generación distribuida y comunidades energéticas con trazabilidad.</p>
+      <a href="https://www.tuwatt.co/">tuwatt.co</a>
+    </article>
+  </div>
+  <p class="talent"><strong>Talento local:</strong> Escuela Colombiana de Ingeniería Julio Garavito — laboratorio 101,76&nbsp;kWp, diplomados en renovables y retos del sector (Solucionatón 10X).<sup>6</sup></p>
+
+  <div class="split">
+    <div>
+      <h2 style="margin-top:0"><span class="num">5</span> PASO Colombia</h2>
+      <p class="territory"><strong>Comunidades productivas</strong> en departamentos de alta pobreza energética. <strong>PASO no ejecuta proyectos de energía.</strong><sup>10</sup></p>
+      <ul class="territory">
+        <li>Fonseca, La Guajira (IMPE 63,1%)</li>
+        <li>Puerto Asís / Guzmán, Putumayo (58,7%)</li>
+        <li>Istmina, Chocó (52,8%)</li>
+        <li>Arauca (27,9%)</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="margin-top:0"><span class="num">6</span> Data lab</h2>
+      <p class="funnel-label">Embudo sobre comunidades priorizadas MinEnergía → candidatas finales (criterios: recurso solar, ZNI, personería, licencia social).<sup>10</sup></p>
+      <div class="funnel-wrap">
+        <div class="funnel" aria-label="Embudo ilustrativo">
+          <span>~1.000</span><span class="arr">→</span><span>100</span><span class="arr">→</span><span>20</span><span class="arr">→</span><span>10</span>
+        </div>
+        <p class="funnel-label"><em>Cifras del embudo: ilustrativo.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <p class="candidate"><strong>Comunidad candidata Energy Coop:</strong> Corozal, Sucre (IMPE 43,1%) — no es proyecto PASO.<sup>10</sup></p>
+
+  <h2><span class="num">7</span> Socios y siguiente paso</h2>
+  <p class="partners"><strong>FMO</strong> y <strong>RVO</strong> (financiación/facilitación solar).<sup>8,9</sup> <strong>Green Choice</strong> y <strong>Energie Samen</strong> — aprendizaje entre pares en comunidades energéticas (objetivo; sin acuerdos firmados).<sup>10</sup></p>
+  <div class="cta-row">
+    <span><strong>Siguiente paso:</strong> sesión de co-diseño con ejecutor y comunidad candidata — gobernanza, OPEX y M&amp;E alineados al IMPE.</span>
+    <span>cleantechhub.net</span>
+  </div>
+
+  <div class="footnotes">
+    <p><sup>6</sup> escuelaing.edu.co — laboratorio renovables y formación continua. <sup>8</sup> fmo.nl, proyectos Colombia. <sup>9</sup> Facilitación comercial ecosistema solar (MCU 2023). <sup>10</sup> CTH / PASO 2026 (brief proyecto; filtro GRP). <sup>11</sup> suncolombia.co — proyecto DISPAC. <sup>12</sup> seosenergy.co. <sup>13</sup> tierragrata.org — impacto energía limpia.</p>
+  </div>
+
+  <footer class="footer-bar">
+    <a href="https://cleantechhub.net">cleantechhub.net</a>
+    <span class="no-print"><a class="btn" href="brochure-es.pdf" download>Descargar PDF</a></span>
+    <span>© 2026 CleantechHUB Foundation · Pág. 2 / 2</span>
+  </footer>
+</section>
+
+</body>
+</html>
