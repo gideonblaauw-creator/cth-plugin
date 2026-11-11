@@ -19,7 +19,7 @@
   --font-display: 'Titillium Web', 'Open Sans', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 9.25pt; }
+html { font-size: 11.05pt; }
 body {
   font-family: var(--font-family);
   color: var(--blue);
@@ -37,22 +37,33 @@ body {
 }
 .page {
   width: 210mm; height: 297mm;
-  padding: 9mm 11mm 8mm;
+  padding: 8mm 11mm 12mm;
   background: var(--white);
   position: relative;
   margin: 0 auto 12px;
   box-shadow: 0 2px 16px rgba(12,73,138,.12);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-.wordmark { font-family: var(--font-display); font-size: 15pt; color: var(--blue); line-height: 1; }
-.wordmark strong { font-weight: 700; }
+.page-fill {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-height: 0;
+}
+.page-fill .gap-chart { flex: 1 1 auto; min-height: 36mm; }
+.page-fill .split { flex: 1 1 auto; align-items: stretch; }
+.page-fill .why-cth { flex: 1 1 auto; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-shrink: 0; }
+.logo { height: 10.5mm; width: auto; display: block; object-fit: contain; }
 .meta { font-size: 7pt; color: var(--blue); text-align: right; line-height: 1.35; opacity: .85; }
 .hero {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
   margin: 0 -11mm 8px;
-  height: 86mm;
+  height: 112mm;
   border-bottom: 3px solid var(--blue);
 }
 .hero-panel {
@@ -65,13 +76,13 @@ body {
 }
 .hero-panel h1 {
   font-family: var(--font-display);
-  font-size: 13.5pt;
+  font-size: 14.5pt;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 4px;
   color: var(--white);
 }
-.hero-panel .lead { font-size: 8pt; line-height: 1.35; color: var(--cyan); }
+.hero-panel .lead { font-size: 8.75pt; line-height: 1.35; color: var(--cyan); }
 .hero-photo { position: relative; background: var(--cyan); overflow: hidden; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-credit {
@@ -83,7 +94,7 @@ body {
   line-height: 1.25;
 }
 h2 {
-  font-size: 9.5pt; color: var(--blue); font-weight: 700;
+  font-size: 10.25pt; color: var(--blue); font-weight: 700;
   margin: 5px 0 4px; display: flex; align-items: center; gap: 5px;
   font-family: var(--font-display);
 }
@@ -99,16 +110,17 @@ h2 .num {
   border-radius: 6px;
   padding: 8px 7px;
   border-top: 4px solid var(--blue);
-  min-height: 18mm;
+  min-height: 28mm;
 }
-.stat .val { font-size: 15.5pt; font-weight: 700; color: var(--blue); line-height: 1.05; font-variant-numeric: tabular-nums; }
+.stat .val { font-size: 17pt; font-weight: 700; color: var(--blue); line-height: 1.05; font-variant-numeric: tabular-nums; }
 .stat .lbl { font-size: 7pt; color: var(--blue); margin-top: 3px; line-height: 1.28; opacity: .9; }
 .gap-chart {
   background: var(--cyan);
   border: 1px solid var(--sky);
   border-radius: 6px;
   padding: 7px 9px 6px;
-  margin: 5px 0 7px;
+  margin: 5px 0 8px;
+  flex: 1 1 auto;
 }
 .gap-chart-title { font-size: 7.5pt; font-weight: 600; color: var(--blue); margin-bottom: 5px; }
 .gap-chart svg { width: 100%; height: auto; display: block; }
@@ -127,7 +139,7 @@ h2 .num {
   border-radius: 5px;
   padding: 7px;
   border-left: 3px solid var(--green-f);
-  font-size: 7.25pt; line-height: 1.32; min-height: 26mm;
+  font-size: 7.6pt; line-height: 1.35; min-height: 36mm;
   color: var(--blue);
 }
 .opex-card svg { width: 22px; height: 22px; margin-bottom: 3px; color: var(--blue); }
@@ -136,7 +148,7 @@ h2 .num {
   background: var(--cyan);
   border: 2px solid var(--blue);
   border-radius: 6px;
-  padding: 8px 10px; margin: 3px 0 6px;
+  padding: 10px 11px; margin: 4px 0 7px;
   font-size: 7.75pt; line-height: 1.35; color: var(--blue);
 }
 .badge {
@@ -150,7 +162,7 @@ h2 .num {
   border-radius: 5px;
   padding: 5px 6px 6px;
   background: var(--white);
-  min-height: 21mm;
+  min-height: 32mm;
   color: var(--blue);
 }
 .nexus-card .init {
@@ -181,7 +193,7 @@ h2 .num {
 .funnel-label { font-size: 6.5pt; color: var(--blue); opacity: .9; }
 .funnel-steps {
   display: flex; align-items: flex-end; justify-content: center; gap: 5px;
-  margin: 6px 0 4px; min-height: 20mm;
+  margin: 8px 0 6px; min-height: 34mm;
 }
 .funnel-step { flex: 1; text-align: center; max-width: 22mm; }
 .funnel-step .bar {
@@ -195,21 +207,21 @@ h2 .num {
   margin: 6px 0 10px; padding: 10px 11px; border-radius: 6px;
   background: var(--cyan);
   border: 2px solid var(--blue);
-  min-height: 28mm;
+  min-height: 46mm;
 }
 .why-cth h3 { font-size: 8.5pt; color: var(--blue); margin-bottom: 5px; font-weight: 700; font-family: var(--font-display); }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .why-grid div { font-size: 7pt; line-height: 1.35; color: var(--blue); }
 .why-grid strong { display: block; font-size: 7.25pt; color: var(--blue); margin-bottom: 2px; }
 .footnotes {
-  margin-top: 4px; padding-top: 4px;
+  margin-top: auto; padding-top: 5px; flex-shrink: 0;
   border-top: 2px solid var(--sky);
   font-size: 5.75pt; color: var(--blue); line-height: 1.28;
   columns: 2; column-gap: 8px; opacity: .92;
 }
 .footnotes p { break-inside: avoid; margin-bottom: 1px; }
 .footer-bar {
-  position: absolute; bottom: 5.5mm; left: 11mm; right: 11mm;
+  position: absolute; bottom: 4mm; left: 11mm; right: 11mm;
   display: flex; justify-content: space-between; align-items: center;
   font-size: 7pt; color: var(--blue);
   border-top: 2px solid var(--cyan);
@@ -222,16 +234,21 @@ h2 .num {
   padding: 8px 14px; border-radius: 6px; font-size: 9pt; font-weight: 600;
   text-decoration: none; box-shadow: 0 4px 14px rgba(12,73,138,.25);
 }
-.talent { font-size: 7pt; margin-bottom: 4px; line-height: 1.35; color: var(--blue); }
+.talent { font-size: 7.65pt; margin-bottom: 4px; line-height: 1.35; color: var(--blue); }
 .title-strip {
-  margin: 0 -11mm 6px;
+  margin: 0 -11mm 5px;
   background: var(--blue);
   color: var(--white);
-  padding: 3px 11mm;
+  padding: 4px 11mm;
   font-family: var(--font-display);
-  font-size: 8pt;
+  font-size: 8.5pt;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
+.strip-logo { height: 7mm; width: auto; display: block; object-fit: contain; }
 </style>
 </head>
 <body>
@@ -240,19 +257,20 @@ h2 .num {
 
 <section class="page" aria-label="Página 1">
   <header class="header">
-    <p class="wordmark" aria-label="CleantechHUB">Cleantech<strong>HUB</strong></p>
+    <img class="logo" src="assets/cth-logo-blue.png" width="250" height="66" alt="CleantechHUB">
     <p class="meta">Energy Coop<br>Cooperativas energéticas · Nov 2026</p>
   </header>
-  <p class="title-strip">Energy Coop · Cooperativas energéticas</p>
+  <p class="title-strip"><img class="strip-logo" src="assets/cth-logo-white.png" width="250" height="66" alt=""><span>Energy Coop · Cooperativas energéticas</span></p>
 
+  <div class="page-fill">
   <div class="hero">
     <div class="hero-panel">
       <h1>Comunidades energéticas: cerrar la brecha con operación local</h1>
       <p class="lead">Datos públicos de pobreza energética, el costo del OPEX rural y la cooperativa como vehículo de sostenibilidad para utilities y fundaciones en Colombia.</p>
     </div>
     <div class="hero-photo">
-      <img src="assets/hero.jpg" width="900" height="520" alt="Paneles solares en techo, Valle del Cauca, Colombia">
-      <p class="hero-credit">Foto: Jhon Kenny / Pexels — Valle del Cauca, Colombia · Licencia Pexels</p>
+      <img src="assets/hero.jpg" width="900" height="520" alt="Casa rural con paneles solares">
+      <p class="hero-credit">Foto: Alexander Mass / Pexels — instalación solar en vivienda rural (Brasil) · Licencia Pexels</p>
     </div>
   </div>
 
@@ -277,7 +295,7 @@ h2 .num {
   </div>
   <div class="gap-chart">
     <p class="gap-chart-title">¿Cuándo se cierra la brecha de 2,9&nbsp;M personas?<sup>1</sup></p>
-    <svg viewBox="0 0 520 88" role="img" aria-label="Comparación ritmos 2034 vs 2030">
+    <svg viewBox="0 0 520 102" role="img" aria-label="Comparación ritmos 2034 vs 2030">
       <text x="0" y="14" font-size="11" fill="#0C498A" font-family="Open Sans,sans-serif">Años desde 2024</text>
       <text x="0" y="38" font-size="12" fill="#0C498A" font-family="Open Sans,sans-serif">Ritmo actual (~300 k/año)</text>
       <rect x="155" y="26" width="270" height="16" rx="4" fill="#69B5FA"/>
@@ -314,6 +332,7 @@ h2 .num {
   </div>
 
   <p class="diff-band"><strong>Diferenciador CTH:</strong> no competimos con fondos de MW ni greenfield; hacemos <em>bankable</em> la capa social y de OPEX en comunidades con ejecutor y CAPEX comprometido.</p>
+  </div>
 
   <div class="footnotes">
     <p><sup>1</sup> IMPE, Informe 2025 (base 2024), pp. 12, 22, 33. <sup>2</sup> UPME, Boletín ICEE 2024. <sup>3</sup> Contraloría, proyectos solares ZNI. <sup>4</sup> Seguimiento.co / Procuraduría, Amazonas. <sup>5</sup> CREG, Informe GEN-Renovables; Concepto 4022/2019 (AOM).</p>
@@ -326,11 +345,12 @@ h2 .num {
 
 <section class="page" aria-label="Página 2">
   <header class="header">
-    <p class="wordmark" aria-label="CleantechHUB">Cleantech<strong>HUB</strong></p>
+    <img class="logo" src="assets/cth-logo-blue.png" width="250" height="66" alt="CleantechHUB">
     <p class="meta">Propuesta Energy Coop</p>
   </header>
-  <p class="title-strip">Inspira · Actúa · Transforma</p>
+  <p class="title-strip"><img class="strip-logo" src="assets/cth-logo-white.png" width="250" height="66" alt=""><span>Inspira · Actúa · Transforma</span></p>
 
+  <div class="page-fill">
   <h2><span class="num">3</span> La cooperativa como herramienta</h2>
   <div class="proposal">
     <span class="badge">Propuesta CTH</span>
@@ -397,22 +417,22 @@ h2 .num {
       <p class="funnel-label">Comunidades priorizadas MinEnergía → candidatas finales (recurso solar, ZNI, personería, licencia social).<sup>8</sup></p>
       <div class="funnel-steps" aria-label="Embudo de filtrado ilustrativo">
         <div class="funnel-step">
-          <div class="bar" style="height:15mm"></div>
+          <div class="bar" style="height:19mm"></div>
           <div class="lbl">~1.000</div>
         </div>
         <span class="funnel-arrow" aria-hidden="true">→</span>
         <div class="funnel-step">
-          <div class="bar" style="height:11mm"></div>
+          <div class="bar" style="height:14mm"></div>
           <div class="lbl">100</div>
         </div>
         <span class="funnel-arrow" aria-hidden="true">→</span>
         <div class="funnel-step">
-          <div class="bar" style="height:8mm"></div>
+          <div class="bar" style="height:11mm"></div>
           <div class="lbl">20</div>
         </div>
         <span class="funnel-arrow" aria-hidden="true">→</span>
         <div class="funnel-step">
-          <div class="bar" style="height:5mm"></div>
+          <div class="bar" style="height:9mm"></div>
           <div class="lbl">10</div>
         </div>
       </div>
@@ -429,6 +449,7 @@ h2 .num {
       <div><strong>Proyectos maduros</strong> Capa social y financiera <em>bankable</em> donde ya hay ejecutor y obra comprometida — sin greenfield ni fondos de MW.</div>
       <div><strong>KPIs IMPE + Data lab</strong> Acceso/calidad medibles y filtro de candidatas (solar, ZNI, personería, licencia social).</div>
     </div>
+  </div>
   </div>
   <div class="footnotes">
     <p><sup>6</sup> escuelaing.edu.co — laboratorio renovables y formación continua. <sup>8</sup> CTH / PASO 2026, brief de proyecto. <sup>9</sup> suncolombia.co — proyecto DISPAC; cleantechhub.net (perfil portfolio SUNCO). <sup>10</sup> seosenergy.co. <sup>11</sup> tierragrata.org — impacto energía limpia.</p>
