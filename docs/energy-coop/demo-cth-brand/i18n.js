@@ -1,0 +1,401 @@
+(function (global) {
+  'use strict';
+
+  var STORAGE_KEY = 'cth-demo-cth-brand-lang';
+
+  var STRINGS = {
+    es: {
+      'topbar.brandHtml': 'Cleantech<span class="hub">HUB</span> · Energy Coop',
+      'topbar.progress': 'Pantallas',
+      'topbar.screenN': 'Pantalla {n}',
+      'topbar.meta': 'Energy Coop · nov 2026',
+      'topbar.metaHint': 'Recorrido · ← → Espacio',
+      'nav.prev': '← Anterior',
+      'nav.next': 'Siguiente →',
+      'nav.legal': '© 2026 CleantechHUB Foundation · Flechas ← → · Espacio',
+      'lang.toggle': 'Idioma',
+      'tag.publicSource': 'Fuente pública',
+      'tag.cthDesign': 'Propuesta diseño CTH',
+      'tag.example': 'Datos de ejemplo',
+      'tag.noFenoge': 'No FENOGE',
+      'tag.partialDept': 'PARCIAL — 1.ª fuente dept.',
+      'tag.cthProposal': 'PROPUESTA CTH',
+      'tag.candidate': 'Comunidad candidata',
+      'tag.fenoge': 'FENOGE',
+      's1.title': 'Paiva: del comité a la cooperativa',
+      's1.subtitleHtml': 'Energía solar comunitaria en vereda Paiva, Bolívar (~450 habitantes), IE Chiricoco. <span class="tag csr">No FENOGE</span> Ubicación en mapa <strong>aproximada</strong>.',
+      's1.kpiStrip': 'Indicadores de pobreza energética',
+      's1.kpi1': 'Pobreza energética nacional (IMPE, índice sobre personas): 15,4% · ~8,1 M personas (2024)',
+      's1.kpi2': 'Cobertura eléctrica rural 75,92% vs nacional 93,12% (UPME ICEE 2024)',
+      's1.mapAria': 'Mapa vereda Paiva Bolívar',
+      's1.panel1': 'Proyecto comunitario de energía solar con comité local e IE Chiricoco (fuentes públicas enlazadas).',
+      's1.panel2': 'Transformación guiada: comité comunitario → cooperativa energética con ~30 % participación en clase comunitaria (propuesta CTH, no dato contractual).',
+      's1.nodeComite': 'Comité comunitario',
+      's1.nodeComiteSub': 'Organización de base',
+      's1.nodeCoop': 'Cooperativa energética',
+      's1.nodeCoopSub': 'Personería jurídica',
+      's1.btnTransform': 'Animar transformación',
+      's1.btnTransformDone': 'Transformación mostrada',
+      's1.gov1': 'Asamblea — máximo órgano social',
+      's1.gov2': 'Consejo de administración — vigilancia y estrategia',
+      's1.gov3': 'Operador — O&M técnico del activo',
+      's1.gov4': 'Aliado sector energético — know-how (rol según acuerdo local)',
+      's1.gov5': 'Clase comunitaria — ~30 % propuesta CTH en estructura de capital',
+      's1.cite': '~450 hab. y territorio: fuentes públicas (enlaces). Coordenadas del mapa: aproximadas (sin geocódigo en fuente).',
+      's1.popupTitle': 'IE Chiricoco — vereda Paiva',
+      's1.popupBody': 'Bolívar · ~450 habitantes',
+      's1.popupApprox': 'Ubicación aproximada',
+      's1.popupType': 'Energía solar comunitaria (CSR, no FENOGE)',
+      's2.title': 'La Guajira a escala',
+      's2.subtitleHtml': 'Proyectos públicos en La Guajira (FENOGE y convocatorias relacionadas). Pins sin coordenadas oficiales: <em>ubicación aproximada</em>. Verificación: <code>docs/energy-coop/demo-cth-brand/SOURCES.md</code>.',
+      's2.kpiStrip': 'Indicadores territoriales La Guajira',
+      's2.kpi1': 'IMPE La Guajira 63,1% (2024)',
+      's2.kpi2': 'ICEE La Guajira 54,28% (UPME 2024)',
+      's2.kpi3': 'Cocina con leña/carbón/residuos: 56,6% de las personas en pobreza energética (IMPE 2025)',
+      's2.statProjects': 'Proyectos en mapa',
+      's2.statKwp': 'kWp verificados (suma)',
+      's2.statMw': 'MW anunciados (gran escala)',
+      's2.totalsNote': 'Suma kWp solo incluye Maicao (1.102) + Cabo/Media Luna (1 MW = 1.000 kWp). Nazareth: kWp no publicado. Proyecto 750 MW no se suma en kWp.',
+      's2.btnGuajira': 'Ver La Guajira a escala',
+      's2.btnGuajiraDone': '{n} proyectos en mapa',
+      's2.popupApprox': 'Ubicación aproximada',
+      's2.popupCoords': 'Coord. ref. IA-006-2024 (área de obra puede variar)',
+      's2.popupSource2': 'Fuente 2',
+      's5.title': 'Data Lab — embudo de priorización',
+      's5.subtitleHtml': 'Cómo el pipeline Energy Coop estrecha candidatos antes de PASO. Cifras de política pública y cruce documentado en <code>docs/energy-coop/</code>; conteos por ola (100 → 20 → 10) son <span class="tag example">datos de ejemplo</span> para ilustrar el flujo.',
+      's5.step0Title': 'Universo público (referencia)',
+      's5.step0Body': 'Meta nacional <strong>500 comunidades energéticas 2024–2025</strong>, 40% ZNI (FENOGE). En La Guajira, IPSE reporta <strong>148 CE</strong> y <strong>1.409 familias</strong> en programa Miichi Ka\'i (dic. 2024).',
+      's5.step0Meta': 'Fuentes: <code>energy-poverty-kpis-2026-11.md</code> · FENOGE · IPSE',
+      's5.step1Title': 'Cruce IMPE / ICEE / IPEM',
+      's5.step1Body': 'Capa de despacho: incidencia IMPE departamental (p. ej. La Guajira 63,1%, Chocó 52,8%), ICEE rural vs urbano, IPEM hogares (índice distinto). No sustituye visita de campo.',
+      's5.step1Meta': 'Cross-check: <code>energy-poverty-kpis-2026-11.md</code> · IMPE 2025 PDF',
+      's5.step2Title': 'Capa recurso solar (screening)',
+      's5.step2Body': 'Google Solar BASE donde hay cobertura (p. ej. Corozal, Uribia); NASA POWER / Global Solar Atlas donde no (Quibdó, Bahía Solano). Señal de techo, no verdad de campo.',
+      's5.step2Meta': '<code>solar-api-coverage-2026-11.md</code> · <code>solar-api-integration-plan.md</code>',
+      's5.funnel100': '100',
+      's5.funnel100Lbl': 'Candidatas tras cruce público + scoring preliminar',
+      's5.funnel20': '20',
+      's5.funnel20Lbl': 'Priorizadas tras validación técnica y gobernanza',
+      's5.funnel10': '10',
+      's5.funnel10Lbl': 'Siguiente ola de acompañamiento cooperativo',
+      's5.funnelNote': 'Los tres conteos finales son ilustrativos; el universo 500 CE y las cifras IMPE/ICEE/IPSE citadas son públicas.',
+      's6.title': 'PASO — comunidades productivas candidatas',
+      's6.subtitleHtml': 'Territorios en diálogo para modelos cooperativos productivos. Solo ubicaciones y rol de candidata.',
+      's6.corozalTitle': 'Corozal, Sucre',
+      's6.corozalBody': 'Cabecera municipal — punto de referencia con cobertura Google Solar BASE en chequeo de mapa (9,31778, -75,29583).',
+      's6.corozalMeta': '<code>solar-api-coverage-2026-11.md</code>',
+      's6.grpIntro': 'Comunidades productivas en diálogo (solo nombre territorial):',
+      's6.grp1': 'Fonseca, La Guajira',
+      's6.grp2': 'Puerto Asís / Guzmán, Putumayo',
+      's6.grp3': 'La Macarena, Meta',
+      's6.grp4': 'Istmina, Chocó',
+      's6.grp5': 'San José del Guaviare, Guaviare',
+      's6.grp6': 'Miranda, Cauca',
+      's6.grp7': 'Arauca, Arauca',
+      's6.disclaimer': 'Listado de candidatas para conversación PASO; no implica selección final ni compromiso de financiación.',
+      's3.title': 'Tu cooperativa en 3 clics',
+      's3.subtitleHtml': 'Flujo ilustrativo CEOF (estructura cooperativa + inversionistas + operador). <span class="tag design">Propuesta diseño CTH</span>',
+      's3.step1': '1. Elige una comunidad',
+      's3.selectPlaceholder': '— Seleccionar —',
+      's3.step2': '2. Tamaño del sistema',
+      's3.btnCreate': 'Crear cooperativa',
+      's3.ceofTag': 'Diagrama CEOF — propuesta CTH',
+      's3.ceofAria': 'Estructura CEOF',
+      's3.svgCoop': 'Cooperativa energética',
+      's3.svgInvestors': 'Inversionistas',
+      's3.svgCommunity': 'Clase comunitaria',
+      's3.svgCommunityPct': '~30 % propuesta CTH',
+      's3.svgOperator': 'Operador O&M',
+      's3.svgMultisig': 'Pago vía multisig',
+      's3.flowSub': 'Ingresos → O&M → Fondo comunitario → Inversionistas',
+      's3.flowSubMultisig': 'Desembolso condicionado a firma multisig',
+      's3.flow0': 'kWh generados',
+      's3.flow1': 'Ingresos por venta de energía',
+      's3.flow2': 'O&M operador',
+      's3.flow3': 'Fondo comunitario',
+      's3.flow4': 'Retorno inversionistas (multisig)',
+      's3.commA': 'Corozal, Sucre (ejemplo)',
+      's3.commB': 'Uribia, La Guajira (ejemplo)',
+      's3.commC': 'Vereda Paiva, Bolívar (ejemplo)',
+      's4.title': 'Meta 2030 + talento local',
+      's4.subtitleHtml': 'Escenario IMPE país. Índice sobre <strong>personas</strong>. Fuentes: <code>energy-poverty-kpis-2026-11.md</code>.',
+      's4.kpiMeta': 'Meta IMPE 2030: 15,4% (8,11 M personas, 2024) → 9,5% (5,17 M) en 2030 · −2,9 M personas',
+      's4.gapTitle': 'Brecha de ritmo (aritmética citada)',
+      's4.gapIntroHtml': 'Personas que deben salir de pobreza energética ≈ <strong>2,9 M</strong> (8,11 M − 5,17 M; IMPE 2025 p. 33).',
+      's4.gapSlowTitle': 'Ritmo observado ~300 000 personas/año',
+      's4.gapSlowMath': '2.900.000 ÷ 300.000 ≈ 9,7 años desde 2024',
+      's4.gapSlowMetaHtml': 'IMPE 2025 p. 12 (~300 k/año) · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>',
+      's4.gapFastTitle': 'Ritmo meta escenario ~490 000 personas/año × 6 años',
+      's4.gapFastMath': '490.000 × 6 = 2.940.000 ≈ 2,9 M',
+      's4.gapFastMetaHtml': '<a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 p. 33</a> (≥1,0 p.p./año de incidencia)',
+      's4.opexTitle': 'No es un problema de CAPEX, es de OPEX',
+      's4.opex1': 'Contraloría: sin metodologías para remunerar operación, administración de microredes y SFVI → fallas en mantenimiento y monitoreo.',
+      's4.opex2': 'Amazonas (~$30.000 millones regalías): proyecto fotovoltaico abandonado; baterías dañadas — «estado crítico» por sostenibilidad.',
+      's4.opex3': 'CREG (GEN-Renovables): miles de SFV rurales sin sistema de gestión → «con frecuencia abandonados»; falta norma, instaladores certificados y AOM.',
+      's4.talentTitle': 'Talento local — vínculos documentados',
+      's4.talent1': 'Escuela Colombiana de Ingeniería Julio Garavito: Cátedra Luis Carlos Sarmiento Angulo — eje sector energético; reto académico integración mercados eléctrico y gas.',
+      's4.talent2': 'Solucionatón 10X (Connect Bogotá): reto GeoPrioriza — 3.er lugar, estudiantes Escuela (oct. 2026).',
+      's4.talent3Html': '<strong>Caribe:</strong> becas con <strong>Uninorte</strong> (ProExcelencia) <a href="https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe" target="_blank" rel="noopener">Uninorte</a>; <strong>UTB</strong> (Vamos pa’ Lante, campus solar) <a href="https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/" target="_blank" rel="noopener">UTB</a>; <strong>Uniautónoma</strong> — 30 becas Ingeniería Energética (2024) <a href="https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/" target="_blank" rel="noopener">Uniautónoma</a>',
+      's4.propIntroHtml': '<strong>Cooperativa de O&amp;M + empleos verdes</strong> (propuesta CleantechHUB):',
+      's4.prop1': 'Contratos OPEX explícitos (limpieza FV, baterías, monitoreo) alineados a marco CREG/SSPD.',
+      's4.prop2': 'Técnicos comunitarios formados vía educación continuada (p. ej. diplomado/cursos Escuela en renovables) y programas de empleo verde ampliados a técnicos FV.',
+      's4.prop3': 'Financiación blanda multianual (3–5 años) para O&M en corredores priorizados (p. ej. La Guajira).',
+      's4.prop4': 'Seguimiento con indicadores IMPE (acceso y calidad) — no sustituye ICEE/IPEM oficiales.',
+      's7.title': 'Próximo paso',
+      's7.subtitleHtml': 'Para alinear gobernanza cooperativa, Data Lab y PASO con su equipo:',
+      's7.askHtml': 'Solicitamos una <strong>sesión de seguimiento</strong> con <strong>Juan Fernando Lucio</strong> y el <strong>equipo completo</strong> para revisar candidatas, indicadores IMPE/ICEE y el plan de acompañamiento O&M.',
+      's7.ctaNote': 'CleantechHUB Energy Coop · propuesta de trabajo · nov 2026',
+      'map.p1.name': 'Maicao — población vulnerable',
+      'map.p1.ben': '~500 familias (estrato 1–2)',
+      'map.p2.name': 'Cabo de la Vela & Media Luna',
+      'map.p2.ben': '~1.500 personas; 61 comunidades wayúu (MinEnergía)',
+      'map.p3.name': 'Nazareth & Puerto Estrella',
+      'map.p3.kwpLabel': 'kWp: no publicado (IA-006-2024)',
+      'map.p3.ben': 'Ampliación: 700 usuarios + 250 adicionales (anuncio MinEnergía 2023)',
+      'map.p4.name': 'Chivo Mono 1 — anuncio gran escala',
+      'map.p4.kwpLabel': '750 MW (planeado / anunciado)',
+      'map.p4.ben': 'MOU con liderazgo wayúu; Albania, La Guajira'
+    },
+    en: {
+      'topbar.brandHtml': 'Cleantech<span class="hub">HUB</span> · Energy Coop',
+      'topbar.progress': 'Screens',
+      'topbar.screenN': 'Screen {n}',
+      'topbar.meta': 'Energy Coop · Nov 2026',
+      'topbar.metaHint': 'Walkthrough · ← → Space',
+      'nav.prev': '← Previous',
+      'nav.next': 'Next →',
+      'nav.legal': '© 2026 CleantechHUB Foundation · Arrow keys ← → · Space',
+      'lang.toggle': 'Language',
+      'tag.publicSource': 'Public source',
+      'tag.cthDesign': 'CTH design proposal',
+      'tag.example': 'Example data',
+      'tag.noFenoge': 'Not FENOGE',
+      'tag.partialDept': 'PARTIAL — 1st dept. source',
+      'tag.cthProposal': 'CTH PROPOSAL',
+      'tag.candidate': 'Candidate community',
+      'tag.fenoge': 'FENOGE',
+      's1.title': 'Paiva: from committee to cooperative',
+      's1.subtitleHtml': 'Community solar energy in vereda Paiva, Bolívar (~450 inhabitants), IE Chiricoco. <span class="tag csr">Not FENOGE</span> Map location <strong>approximate</strong>.',
+      's1.kpiStrip': 'Energy poverty indicators',
+      's1.kpi1': 'National energy poverty (IMPE, index on persons): 15.4% · ~8.1 M people (2024)',
+      's1.kpi2': 'Rural electricity coverage 75.92% vs national 93.12% (UPME ICEE 2024)',
+      's1.mapAria': 'Map vereda Paiva Bolívar',
+      's1.panel1': 'Community solar project with local committee and IE Chiricoco (linked public sources).',
+      's1.panel2': 'Guided transition: community committee → energy cooperative with ~30% participation in the community share class (CTH proposal, not a contractual figure).',
+      's1.nodeComite': 'Community committee',
+      's1.nodeComiteSub': 'Grassroots organization',
+      's1.nodeCoop': 'Energy cooperative',
+      's1.nodeCoopSub': 'Legal personality',
+      's1.btnTransform': 'Animate transition',
+      's1.btnTransformDone': 'Transition shown',
+      's1.gov1': 'General assembly — supreme social body',
+      's1.gov2': 'Board of directors — oversight and strategy',
+      's1.gov3': 'Operator — technical O&M of the asset',
+      's1.gov4': 'Energy-sector ally — know-how (role per local agreement)',
+      's1.gov5': 'Community share class — ~30% CTH proposal in capital structure',
+      's1.cite': '~450 inhabitants and territory: public sources (links). Map coordinates: approximate (no geocode in source).',
+      's1.popupTitle': 'IE Chiricoco — vereda Paiva',
+      's1.popupBody': 'Bolívar · ~450 inhabitants',
+      's1.popupApprox': 'Approximate location',
+      's1.popupType': 'Community solar (CSR, not FENOGE)',
+      's2.title': 'La Guajira at scale',
+      's2.subtitleHtml': 'Public projects in La Guajira (FENOGE and related processes). Pins without official coordinates: <em>approximate location</em>. Verification: <code>docs/energy-coop/demo-cth-brand/SOURCES.md</code>.',
+      's2.kpiStrip': 'La Guajira territorial indicators',
+      's2.kpi1': 'IMPE La Guajira 63.1% (2024)',
+      's2.kpi2': 'ICEE La Guajira 54.28% (UPME 2024)',
+      's2.kpi3': 'Cooking with firewood/charcoal/waste: 56.6% of people in energy poverty (IMPE 2025)',
+      's2.statProjects': 'Projects on map',
+      's2.statKwp': 'Verified kWp (sum)',
+      's2.statMw': 'Announced MW (utility-scale)',
+      's2.totalsNote': 'kWp sum includes only Maicao (1,102) + Cabo/Media Luna (1 MW = 1,000 kWp). Nazareth: kWp not published. 750 MW project is not added to kWp.',
+      's2.btnGuajira': 'View La Guajira at scale',
+      's2.btnGuajiraDone': '{n} projects on map',
+      's2.popupApprox': 'Approximate location',
+      's2.popupCoords': 'Ref. coords IA-006-2024 (work area may vary)',
+      's2.popupSource2': 'Source 2',
+      's5.title': 'Data Lab — prioritization funnel',
+      's5.subtitleHtml': 'How the Energy Coop pipeline narrows candidates before PASO. Public policy figures and documented cross-checks from <code>docs/energy-coop/</code>; wave counts (100 → 20 → 10) are <span class="tag example">example data</span> illustrating the flow.',
+      's5.step0Title': 'Public universe (reference)',
+      's5.step0Body': 'National target of <strong>500 energy communities 2024–2025</strong>, 40% ZNI (FENOGE). In La Guajira, IPSE reports <strong>148 EC</strong> and <strong>1,409 families</strong> under Miichi Ka\'i (Dec 2024).',
+      's5.step0Meta': 'Sources: <code>energy-poverty-kpis-2026-11.md</code> · FENOGE · IPSE',
+      's5.step1Title': 'IMPE / ICEE / IPEM cross-check',
+      's5.step1Body': 'Desk layer: departmental IMPE incidence (e.g. La Guajira 63.1%, Chocó 52.8%), rural vs urban ICEE, household IPEM (different index). Does not replace field visits.',
+      's5.step1Meta': 'Cross-check: <code>energy-poverty-kpis-2026-11.md</code> · IMPE 2025 PDF',
+      's5.step2Title': 'Solar resource layer (screening)',
+      's5.step2Body': 'Google Solar BASE where coverage exists (e.g. Corozal, Uribia); NASA POWER / Global Solar Atlas where not (Quibdó, Bahía Solano). Roof signal, not ground truth.',
+      's5.step2Meta': '<code>solar-api-coverage-2026-11.md</code> · <code>solar-api-integration-plan.md</code>',
+      's5.funnel100': '100',
+      's5.funnel100Lbl': 'Candidates after public cross-check + preliminary scoring',
+      's5.funnel20': '20',
+      's5.funnel20Lbl': 'Prioritized after technical and governance validation',
+      's5.funnel10': '10',
+      's5.funnel10Lbl': 'Next cooperative accompaniment wave',
+      's5.funnelNote': 'The three final counts are illustrative; the 500 EC universe and cited IMPE/ICEE/IPSE figures are public.',
+      's6.title': 'PASO — productive community candidates',
+      's6.subtitleHtml': 'Territories in dialogue for productive cooperative models. Locations and candidate status only.',
+      's6.corozalTitle': 'Corozal, Sucre',
+      's6.corozalBody': 'Municipal seat — reference point with Google Solar BASE coverage in map check (9.31778, -75.29583).',
+      's6.corozalMeta': '<code>solar-api-coverage-2026-11.md</code>',
+      's6.grpIntro': 'Productive communities in dialogue (territorial name only):',
+      's6.grp1': 'Fonseca, La Guajira',
+      's6.grp2': 'Puerto Asís / Guzmán, Putumayo',
+      's6.grp3': 'La Macarena, Meta',
+      's6.grp4': 'Istmina, Chocó',
+      's6.grp5': 'San José del Guaviare, Guaviare',
+      's6.grp6': 'Miranda, Cauca',
+      's6.grp7': 'Arauca, Arauca',
+      's6.disclaimer': 'Candidate list for PASO conversation; not final selection or financing commitment.',
+      's3.title': 'Your cooperative in 3 clicks',
+      's3.subtitleHtml': 'Illustrative CEOF flow (cooperative structure + investors + operator). <span class="tag design">CTH design proposal</span>',
+      's3.step1': '1. Choose a community',
+      's3.selectPlaceholder': '— Select —',
+      's3.step2': '2. System size',
+      's3.btnCreate': 'Create cooperative',
+      's3.ceofTag': 'CEOF diagram — CTH proposal',
+      's3.ceofAria': 'CEOF structure',
+      's3.svgCoop': 'Energy cooperative',
+      's3.svgInvestors': 'Investors',
+      's3.svgCommunity': 'Community share class',
+      's3.svgCommunityPct': '~30% CTH proposal',
+      's3.svgOperator': 'O&M operator',
+      's3.svgMultisig': 'Payment via multisig',
+      's3.flowSub': 'Revenue → O&M → Community fund → Investors',
+      's3.flowSubMultisig': 'Disbursement conditional on multisig signature',
+      's3.flow0': 'kWh generated',
+      's3.flow1': 'Energy sales revenue',
+      's3.flow2': 'Operator O&M',
+      's3.flow3': 'Community fund',
+      's3.flow4': 'Investor return (multisig)',
+      's3.commA': 'Corozal, Sucre (example)',
+      's3.commB': 'Uribia, La Guajira (example)',
+      's3.commC': 'Vereda Paiva, Bolívar (example)',
+      's4.title': '2030 target + local talent',
+      's4.subtitleHtml': 'National IMPE scenario. Index on <strong>persons</strong>. Sources: <code>energy-poverty-kpis-2026-11.md</code>.',
+      's4.kpiMeta': 'IMPE 2030 target: 15.4% (8.11 M people, 2024) → 9.5% (5.17 M) in 2030 · −2.9 M people',
+      's4.gapTitle': 'Pace gap (cited arithmetic)',
+      's4.gapIntroHtml': 'People who must leave energy poverty ≈ <strong>2.9 M</strong> (8.11 M − 5.17 M; IMPE 2025 p. 33).',
+      's4.gapSlowTitle': 'Observed pace ~300,000 people/year',
+      's4.gapSlowMath': '2,900,000 ÷ 300,000 ≈ 9.7 years from 2024',
+      's4.gapSlowMetaHtml': 'IMPE 2025 p. 12 (~300 k/year) · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 report (PDF)</a>',
+      's4.gapFastTitle': 'Target scenario pace ~490,000 people/year × 6 years',
+      's4.gapFastMath': '490,000 × 6 = 2,940,000 ≈ 2.9 M',
+      's4.gapFastMetaHtml': '<a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">IMPE 2025 p. 33</a> (≥1.0 p.p./year incidence)',
+      's4.opexTitle': 'Not a CAPEX problem, it is OPEX',
+      's4.opex1': 'Contraloría: no methodologies to remunerate operation, microgrid administration and SFVI → maintenance and monitoring failures.',
+      's4.opex2': 'Amazonas (~$30,000 million in royalties): abandoned photovoltaic project; damaged batteries — “critical state” due to sustainability.',
+      's4.opex3': 'CREG (GEN-Renovables): thousands of rural PV systems without management → “often abandoned”; missing regulation, certified installers and O&M.',
+      's4.talentTitle': 'Local talent — documented links',
+      's4.talent1': 'Escuela Colombiana de Ingeniería Julio Garavito: Luis Carlos Sarmiento Angulo Chair — energy sector axis; academic challenge integrating electricity and gas markets.',
+      's4.talent2': 'Solucionatón 10X (Connect Bogotá): GeoPrioriza challenge — 3rd place, Escuela students (Oct 2026).',
+      's4.talent3Html': '<strong>Caribbean:</strong> scholarships with <strong>Uninorte</strong> (ProExcelencia) <a href="https://www.uninorte.edu.co/es/web/grupo-prensa/w/promigas-y-uninorte-entregan-3-nuevas-becas-que-transforman-la-vida-de-jovenes-del-caribe" target="_blank" rel="noopener">Uninorte</a>; <strong>UTB</strong> (Vamos pa’ Lante, campus solar) <a href="https://www.utb.edu.co/blog/noticias/utb-promigas-y-surtigas-construiran-la-granja-solar-mas-grande-de-colombia-para-un-campus-universitario/" target="_blank" rel="noopener">UTB</a>; <strong>Uniautónoma</strong> — 30 Energy Engineering scholarships (2024) <a href="https://portal.uniautonoma.edu.co/uniautonoma-en-alianza-con-ceo-y-su-fundacion-promigas-entregaran-30-becas-en-el-programa-de-ingenieria-energetica/" target="_blank" rel="noopener">Uniautónoma</a>',
+      's4.propIntroHtml': '<strong>O&amp;M cooperative + green jobs</strong> (CleantechHUB proposal):',
+      's4.prop1': 'Explicit OPEX contracts (PV cleaning, batteries, monitoring) aligned with CREG/SSPD framework.',
+      's4.prop2': 'Community technicians trained via continuing education (e.g. Escuela diploma/courses in renewables) and green-jobs programs extended to PV technicians.',
+      's4.prop3': 'Soft multi-year financing (3–5 years) for O&M in prioritized corridors (e.g. La Guajira).',
+      's4.prop4': 'Tracking with IMPE indicators (access and quality) — does not replace official ICEE/IPEM.',
+      's7.title': 'Next step',
+      's7.subtitleHtml': 'To align cooperative governance, Data Lab, and PASO with your team:',
+      's7.askHtml': 'We request a <strong>follow-up session</strong> with <strong>Juan Fernando Lucio</strong> and the <strong>full team</strong> to review candidates, IMPE/ICEE indicators, and the O&M accompaniment plan.',
+      's7.ctaNote': 'CleantechHUB Energy Coop · working proposal · Nov 2026',
+      'map.p1.name': 'Maicao — vulnerable population',
+      'map.p1.ben': '~500 families (strata 1–2)',
+      'map.p2.name': 'Cabo de la Vela & Media Luna',
+      'map.p2.ben': '~1,500 people; 61 Wayúu communities (MinEnergía)',
+      'map.p3.name': 'Nazareth & Puerto Estrella',
+      'map.p3.kwpLabel': 'kWp: not published (IA-006-2024)',
+      'map.p3.ben': 'Expansion: 700 users + 250 additional (MinEnergía announcement 2023)',
+      'map.p4.name': 'Chivo Mono 1 — large-scale announcement',
+      'map.p4.kwpLabel': '750 MW (planned / announced)',
+      'map.p4.ben': 'MOU with Wayúu leadership; Albania, La Guajira'
+    }
+  };
+
+  var listeners = [];
+  var currentLang = 'es';
+
+  function resolveInitialLang() {
+    var params = new URLSearchParams(global.location.search);
+    var fromUrl = params.get('lang');
+    if (fromUrl === 'en' || fromUrl === 'es') return fromUrl;
+    try {
+      var stored = global.localStorage.getItem(STORAGE_KEY);
+      if (stored === 'en' || stored === 'es') return stored;
+    } catch (e) { /* ignore */ }
+    return 'es';
+  }
+
+  function t(key, vars) {
+    var table = STRINGS[currentLang] || STRINGS.es;
+    var s = table[key];
+    if (s == null) s = STRINGS.es[key] || key;
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        s = s.replace(new RegExp('\\{' + k + '\\}', 'g'), String(vars[k]));
+      });
+    }
+    return s;
+  }
+
+  function applyDom() {
+    document.documentElement.lang = currentLang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+    document.querySelectorAll('[data-i18n-screen]').forEach(function (el) {
+      el.setAttribute('aria-label', t('topbar.screenN', { n: el.getAttribute('data-i18n-screen') }));
+    });
+    document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+      var lang = btn.getAttribute('data-lang');
+      btn.setAttribute('aria-pressed', lang === currentLang ? 'true' : 'false');
+      btn.classList.toggle('active', lang === currentLang);
+    });
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+      titleEl.textContent = currentLang === 'en'
+        ? 'Energy Coop — CleantechHUB'
+        : 'Energy Coop — CleantechHUB';
+    }
+  }
+
+  function setLang(lang, persist) {
+    if (lang !== 'es' && lang !== 'en') lang = 'es';
+    currentLang = lang;
+    if (persist !== false) {
+      try { global.localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+    }
+    applyDom();
+    listeners.forEach(function (fn) { fn(lang); });
+  }
+
+  function getLang() { return currentLang; }
+
+  function onChange(fn) {
+    if (typeof fn === 'function') listeners.push(fn);
+  }
+
+  function localeTag() {
+    return currentLang === 'en' ? 'en-US' : 'es-CO';
+  }
+
+  global.CthI18n = {
+    t: t,
+    getLang: getLang,
+    setLang: setLang,
+    applyDom: applyDom,
+    onChange: onChange,
+    localeTag: localeTag,
+    init: function () {
+      currentLang = resolveInitialLang();
+      applyDom();
+    }
+  };
+})(window);
