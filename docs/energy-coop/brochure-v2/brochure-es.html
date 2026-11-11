@@ -58,8 +58,8 @@ body {
 .meta { font-size: 7pt; color: #555; text-align: right; line-height: 1.35; }
 .hero {
   position: relative;
-  margin: 0 -11mm 7px;
-  height: 52mm;
+  margin: 0 -11mm 8px;
+  height: 98mm;
   background: #1B4332 center/cover no-repeat;
   background-image: url('assets/hero.jpg');
 }
@@ -124,35 +124,51 @@ h2 .num {
 }
 .stat {
   background: var(--cth-light);
-  border-radius: 5px;
-  padding: 5px 6px;
-  border-top: 3px solid var(--cth-primary);
+  border-radius: 6px;
+  padding: 8px 7px;
+  border-top: 4px solid var(--cth-primary);
+  min-height: 18mm;
 }
 .stat .val {
-  font-size: 12pt;
+  font-size: 15.5pt;
   font-weight: 700;
   color: var(--cth-dark);
   line-height: 1.05;
   font-variant-numeric: tabular-nums;
 }
-.stat .lbl { font-size: 6.5pt; color: #444; margin-top: 2px; line-height: 1.25; }
-.pace-row {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 6px;
-  margin-bottom: 4px;
-  font-size: 7.25pt;
-}
-.pace-box {
-  border: 1px solid color-mix(in srgb, var(--cth-primary) 30%, #ccc);
-  border-radius: 5px;
-  padding: 5px 7px;
+.stat .lbl { font-size: 7pt; color: #444; margin-top: 3px; line-height: 1.28; }
+.gap-chart {
   background: #fafdfb;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 25%, #ccc);
+  border-radius: 6px;
+  padding: 7px 9px 6px;
+  margin: 5px 0 7px;
 }
-.pace-box strong { color: var(--cth-dark); display: block; font-size: 7pt; }
-.pace-box .yr { font-size: 13pt; font-weight: 700; color: var(--cth-primary); }
-.pace-box.muted .yr { color: #666; }
-.pace-note { font-size: 7pt; color: #444; margin-bottom: 6px; }
+.gap-chart-title {
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--cth-dark);
+  margin-bottom: 5px;
+}
+.gap-chart svg { width: 100%; height: auto; display: block; }
+.gap-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 6.5pt;
+  color: #555;
+}
+.gap-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.gap-legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.diff-band {
+  font-size: 7.25pt;
+  line-height: 1.35;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--cth-accent) 45%, white);
+  color: var(--cth-dark);
+}
 .opex-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -161,20 +177,21 @@ h2 .num {
 .opex-card {
   background: #f7fbf8;
   border-radius: 5px;
-  padding: 5px 6px;
+  padding: 7px 7px;
   border-left: 3px solid var(--cth-accent);
-  font-size: 6.75pt;
-  line-height: 1.3;
+  font-size: 7.25pt;
+  line-height: 1.32;
+  min-height: 26mm;
 }
-.opex-card svg { width: 18px; height: 18px; margin-bottom: 2px; color: var(--cth-primary); }
+.opex-card svg { width: 22px; height: 22px; margin-bottom: 3px; color: var(--cth-primary); }
 .opex-card strong { display: block; font-size: 7pt; color: var(--cth-dark); margin-bottom: 1px; }
 .proposal {
   background: linear-gradient(135deg, color-mix(in srgb, var(--cth-light) 70%, white), #fff);
   border: 1.5px dashed var(--cth-primary);
   border-radius: 6px;
-  padding: 6px 8px;
-  margin: 3px 0 5px;
-  font-size: 7.5pt;
+  padding: 8px 10px;
+  margin: 3px 0 6px;
+  font-size: 7.75pt;
   line-height: 1.35;
 }
 .badge {
@@ -198,9 +215,9 @@ h2 .num {
 .nexus-card {
   border: 1px solid #dde8e2;
   border-radius: 5px;
-  padding: 4px 5px 5px;
+  padding: 5px 6px 6px;
   background: #fff;
-  min-height: 0;
+  min-height: 21mm;
 }
 .nexus-card .init {
   width: 22px; height: 22px;
@@ -248,10 +265,30 @@ h2 .num {
   margin: 3px 0;
 }
 .funnel span {
-  padding: 3px 7px;
+  padding: 5px 10px;
   background: var(--cth-light);
   border-radius: 4px;
   border: 1px solid var(--cth-primary);
+  font-size: 9.5pt;
+}
+.funnel-viz {
+  margin: 4px 0 6px;
+}
+.funnel-viz svg { width: 100%; max-height: 28mm; }
+.partner-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 4px 0 6px;
+}
+.partner-pills span {
+  font-size: 7pt;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--cth-light);
+  color: var(--cth-dark);
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 35%, transparent);
 }
 .funnel .arr { font-weight: 400; color: var(--cth-primary); font-size: 8pt; }
 .funnel-label { font-size: 6.5pt; color: #666; }
@@ -304,7 +341,7 @@ h2 .num {
   right: 20px;
   z-index: 99;
 }
-.pdf-float a, .footer-bar .no-print a.btn {
+.pdf-float a {
   display: inline-block;
   background: var(--cth-primary);
   color: #fff !important;
@@ -355,15 +392,22 @@ h2 .num {
       <div class="lbl">IMPE La Guajira / Chocó (2024)<sup>1</sup></div>
     </div>
   </div>
-  <p class="pace-note">Ritmo observado ~300&nbsp;k pers./año → brecha de 2,9&nbsp;M en ~9,7 años (~2034). Escenario 2030: ~490&nbsp;k pers./año.<sup>1</sup></p>
-  <div class="pace-row">
-    <div class="pace-box muted">
-      <strong>Ritmo actual ~300&nbsp;k/año</strong>
-      <span class="yr">~2034</span>
-    </div>
-    <div class="pace-box">
-      <strong>Meta escenario ~490&nbsp;k/año</strong>
-      <span class="yr">2030</span>
+  <div class="gap-chart">
+    <p class="gap-chart-title">¿Cuándo se cierra la brecha de 2,9&nbsp;M personas?<sup>1</sup></p>
+    <svg viewBox="0 0 520 88" role="img" aria-label="Comparación ritmos 2034 vs 2030">
+      <text x="0" y="14" font-size="11" fill="#666" font-family="Inter,sans-serif">Años desde 2024</text>
+      <text x="0" y="38" font-size="12" fill="#444" font-family="Inter,sans-serif">Ritmo actual (~300 k/año)</text>
+      <rect x="155" y="26" width="270" height="16" rx="4" fill="#b0b0b0"/>
+      <text x="432" y="38" font-size="13" font-weight="700" fill="#666" font-family="Inter,sans-serif">~2034</text>
+      <text x="0" y="72" font-size="12" fill="#1B4332" font-family="Inter,sans-serif">Meta IMPE (~490 k/año)</text>
+      <rect x="155" y="60" width="172" height="16" rx="4" fill="#2D6A4F"/>
+      <text x="335" y="72" font-size="13" font-weight="700" fill="#2D6A4F" font-family="Inter,sans-serif">2030</text>
+      <line x1="155" y1="8" x2="155" y2="82" stroke="#ddd" stroke-width="1"/>
+      <text x="148" y="86" text-anchor="end" font-size="9" fill="#888" font-family="Inter,sans-serif">2024</text>
+    </svg>
+    <div class="gap-legend">
+      <span><i style="background:#b0b0b0"></i> ~9,7 años al ritmo observado</span>
+      <span><i style="background:#2D6A4F"></i> 6 años · escenario IMPE 2030</span>
     </div>
   </div>
 
@@ -386,12 +430,13 @@ h2 .num {
     </div>
   </div>
 
+  <p class="diff-band"><strong>Diferenciador CTH:</strong> no competimos con fondos de MW ni greenfield; hacemos <em>bankable</em> la capa social y de OPEX en comunidades con ejecutor y CAPEX comprometido.</p>
+
   <div class="footnotes">
     <p><sup>1</sup> IMPE, Informe 2025 (base 2024), pp. 12, 22, 33. <sup>2</sup> UPME, Boletín ICEE 2024. <sup>3</sup> Contraloría, proyectos solares ZNI. <sup>4</sup> Seguimiento.co / Procuraduría, Amazonas. <sup>5</sup> CREG, Informe GEN-Renovables; Concepto 4022/2019 (AOM).</p>
   </div>
   <footer class="footer-bar">
     <span>Cooperativas energéticas · CleantechHUB</span>
-    <span class="no-print"><a class="btn" href="brochure-es.pdf" download>Descargar PDF</a></span>
     <span>Pág. 1 / 2</span>
   </footer>
 </section>
@@ -411,9 +456,9 @@ h2 .num {
   <h2><span class="num">4</span> Startups del ecosistema</h2>
   <div class="nexus-grid">
     <article class="nexus-card highlight">
-      <div class="init">SC</div>
-      <div class="name">SunColombia</div>
-      <div class="city">Bogotá · cliente portfolio CTH</div>
+      <div class="init">SN</div>
+      <div class="name">Sunco (SunColombia)</div>
+      <div class="city">Bogotá</div>
       <p class="desc">Diseño, construcción y O&amp;M solar on/off-grid para instituciones y zonas no interconectadas.</p>
       <p class="metric">898&nbsp;kWp · 1.122 usuarios (DISPAC, La Guajira)<sup>11</sup></p>
       <a href="https://suncolombia.co/">suncolombia.co</a>
@@ -454,42 +499,48 @@ h2 .num {
   <div class="split">
     <div>
       <h2 style="margin-top:0"><span class="num">5</span> PASO Colombia</h2>
-      <p class="territory"><strong>Comunidades productivas</strong> en departamentos de alta pobreza energética. <strong>PASO no ejecuta proyectos de energía.</strong><sup>10</sup></p>
+      <p class="territory"><strong>Comunidades productivas</strong> en departamentos de alta pobreza energética. <strong>PASO no ejecuta proyectos de energía.</strong><sup>9</sup></p>
       <ul class="territory">
         <li>Fonseca, La Guajira (IMPE 63,1%)</li>
         <li>Puerto Asís / Guzmán, Putumayo (58,7%)</li>
         <li>Istmina, Chocó (52,8%)</li>
+        <li>San José del Guaviare (38,9%)</li>
         <li>Arauca (27,9%)</li>
       </ul>
     </div>
     <div>
       <h2 style="margin-top:0"><span class="num">6</span> Data lab</h2>
-      <p class="funnel-label">Embudo sobre comunidades priorizadas MinEnergía → candidatas finales (criterios: recurso solar, ZNI, personería, licencia social).<sup>10</sup></p>
-      <div class="funnel-wrap">
-        <div class="funnel" aria-label="Embudo ilustrativo">
-          <span>~1.000</span><span class="arr">→</span><span>100</span><span class="arr">→</span><span>20</span><span class="arr">→</span><span>10</span>
-        </div>
-        <p class="funnel-label"><em>Cifras del embudo: ilustrativo.</em></p>
+      <p class="funnel-label">Comunidades priorizadas MinEnergía → candidatas finales (recurso solar, ZNI, personería, licencia social).<sup>9</sup></p>
+      <div class="funnel-viz" aria-hidden="true">
+        <svg viewBox="0 0 240 70">
+          <polygon points="8,8 232,8 200,62 40,62" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="1.2"/>
+          <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#1B4332">~1.000</text>
+          <polygon points="48,18 192,18 168,54 72,54" fill="#95D5B2" stroke="#2D6A4F" stroke-width="1"/>
+          <text x="120" y="38" text-anchor="middle" font-size="10" font-weight="700" fill="#1B4332">100 → 20 → 10</text>
+        </svg>
       </div>
+      <p class="funnel-label"><em>Cifras del embudo: ilustrativo.</em></p>
     </div>
   </div>
 
-  <p class="candidate"><strong>Comunidad candidata Energy Coop:</strong> Corozal, Sucre (IMPE 43,1%) — no es proyecto PASO.<sup>10</sup></p>
+  <p class="candidate"><strong>Comunidad candidata Energy Coop:</strong> Corozal, Sucre (IMPE 43,1%) — no es proyecto PASO.<sup>9</sup></p>
 
   <h2><span class="num">7</span> Socios y siguiente paso</h2>
-  <p class="partners"><strong>FMO</strong> y <strong>RVO</strong> (financiación/facilitación solar).<sup>8,9</sup> <strong>Green Choice</strong> y <strong>Energie Samen</strong> — aprendizaje entre pares en comunidades energéticas (objetivo; sin acuerdos firmados).<sup>10</sup></p>
+  <div class="partner-pills" aria-label="Socios objetivo">
+    <span>FMO</span><span>RVO</span><span>Green Choice</span><span>Energie Samen</span>
+  </div>
+  <p class="partners">Financiación y facilitación solar (FMO, RVO).<sup>8</sup> Aprendizaje entre pares en comunidades energéticas — Green Choice, Energie Samen (objetivo; sin acuerdos firmados).<sup>9</sup></p>
   <div class="cta-row">
     <span><strong>Siguiente paso:</strong> sesión de co-diseño con ejecutor y comunidad candidata — gobernanza, OPEX y M&amp;E alineados al IMPE.</span>
     <span>cleantechhub.net</span>
   </div>
 
   <div class="footnotes">
-    <p><sup>6</sup> escuelaing.edu.co — laboratorio renovables y formación continua. <sup>8</sup> fmo.nl, proyectos Colombia. <sup>9</sup> Facilitación comercial ecosistema solar (MCU 2023). <sup>10</sup> CTH / PASO 2026 (brief proyecto; filtro GRP). <sup>11</sup> suncolombia.co — proyecto DISPAC. <sup>12</sup> seosenergy.co. <sup>13</sup> tierragrata.org — impacto energía limpia.</p>
+    <p><sup>6</sup> escuelaing.edu.co — laboratorio renovables y formación continua. <sup>8</sup> FMO y RVO — financiación/facilitación solar (socios objetivo). <sup>9</sup> CTH / PASO 2026, brief de proyecto. <sup>11</sup> suncolombia.co — proyecto DISPAC; cleantechhub.net (perfil portfolio SUNCO). <sup>12</sup> seosenergy.co. <sup>13</sup> tierragrata.org — impacto energía limpia.</p>
   </div>
 
   <footer class="footer-bar">
     <a href="https://cleantechhub.net">cleantechhub.net</a>
-    <span class="no-print"><a class="btn" href="brochure-es.pdf" download>Descargar PDF</a></span>
     <span>© 2026 CleantechHUB Foundation · Pág. 2 / 2</span>
   </footer>
 </section>
