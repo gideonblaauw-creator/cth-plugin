@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "assets" / "demo"
 ASSETS.mkdir(parents=True, exist_ok=True)
 DEMO_DIR = Path(__file__).resolve().parent.parent / "demo-cth-brand"
-VIEWPORT = {"width": 1440, "height": 900}
+VIEWPORT = {"width": 1600, "height": 1000}
+HIDE = ".nav-bar { display: none !important; }"
 SCREENS = 6
 BANNED = re.compile(r"promigas", re.I)
 PROMIGAS_SCREENS: list[int] = []
@@ -44,31 +45,21 @@ def capture_lang(lang: str) -> None:
         browser = p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
         page = browser.new_page(viewport=VIEWPORT)
         page.goto(DEMO_DIR.joinpath("index.html").as_uri(), wait_until="networkidle", timeout=120000)
+        page.add_style_tag(content=HIDE)
         page.wait_for_timeout(2000)
         if lang == "en":
-            for sel in (
-                "button:has-text('EN')",
-                "[data-lang='en']",
-                "button:has-text('English')",
-            ):
-                loc = page.locator(sel)
-                if loc.count():
-                    loc.first.click()
-                    page.wait_for_timeout(800)
-                    break
+            page.locator("[data-lang='en']").click(force=True)
+            page.wait_for_timeout(800)
         for i in range(SCREENS):
             path = ASSETS / f"demo-{suffix}-{i + 1:02d}.png"
             if i > 0:
-                nxt = page.locator("#nav-next")
-                if nxt.count():
-                    nxt.click()
-                else:
-                    page.keyboard.press("ArrowRight")
+                page.keyboard.press("ArrowRight")
                 page.wait_for_timeout(1800)
             if i == 0:
                 click_animate_if_present(page)
             page.wait_for_timeout(1200)
-            page.screenshot(path=str(path), full_page=False)
+            app = page.locator(".app")
+            app.screenshot(path=str(path))
             text = page.inner_text("body")
             if BANNED.search(text):
                 PROMIGAS_SCREENS.append(i + 1)

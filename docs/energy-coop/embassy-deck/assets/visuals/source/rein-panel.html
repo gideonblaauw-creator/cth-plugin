@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 920px; height: 1080px;
+    font-family: 'Open Sans', sans-serif;
+    background: #0a1628;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background: url('../cth-og.jpg') center/cover;
+    opacity: 0.25;
+  }
+  .content { position: relative; z-index: 1; padding: 40px 32px; height: 100%; display: flex; flex-direction: column; }
+  .eyebrow { font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: #69B5FA; }
+  h1 {
+    font-family: Poppins, sans-serif;
+    font-size: 38px;
+    line-height: 1.15;
+    margin: 12px 0 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    flex: 1;
+  }
+  .hub {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(178,238,250,0.35);
+    border-radius: 14px;
+    padding: 22px 18px;
+  }
+  .hub strong { display: block; font-size: 26px; font-family: Poppins, sans-serif; color: #B2EEFA; }
+  .hub span { display: block; margin-top: 8px; font-size: 17px; line-height: 1.35; opacity: 0.92; }
+  .foot {
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 16px 18px;
+    background: rgba(102,147,72,0.35);
+    border-left: 6px solid #669348;
+    border-radius: 8px;
+  }
+  .brands { margin-top: auto; display: flex; gap: 12px; flex-wrap: wrap; font-weight: 700; font-size: 15px; }
+  .brands span { padding: 8px 14px; background: #0C498A; border-radius: 8px; }
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<div class="content">
+  <p class="eyebrow">REIN Hubs · Network</p>
+  <h1>Five active hubs across Latin America</h1>
+  <div class="grid">
+    <div class="hub"><strong>Colombia</strong><span>Universidad Externado · Bogotá · Active</span></div>
+    <div class="hub"><strong>Perú</strong><span>Ecosystem partners · Lima · Active</span></div>
+    <div class="hub"><strong>Guatemala</strong><span>Ecosystem partners · Active</span></div>
+    <div class="hub"><strong>Costa Rica</strong><span>Ecosystem partners · Active</span></div>
+    <div class="hub"><strong>El Salvador</strong><span>Ecosystem partners · Active</span></div>
+    <div class="hub" style="border-style:dashed;opacity:0.85"><strong>+ ClimateLaunchpad</strong><span>Global competition pathway for alumni</span></div>
+  </div>
+  <p class="foot">Source: decks/rein-academic-city-ghana · slide Network (LATAM hubs only).</p>
+  <div class="brands"><span>PVBLIC Foundation</span><span>CleantechHUB</span><span>Kintec Academy</span></div>
+</div>
+</body>
+</html>

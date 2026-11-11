@@ -67,7 +67,17 @@ body {
   padding: 72px 80px 88px;
   max-width: 62%;
 }
-.cover-bleed .logo-cover { height: 64px; width: auto; margin-bottom: 28px; filter: brightness(0) invert(1); }
+.cover-bleed .logo-cover {
+  display: block;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  height: 72px;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 28px;
+  object-fit: contain;
+  object-position: left center;
+}
 .cover-bleed h1 {
   font-family: var(--font-display);
   font-size: 64px;
@@ -114,6 +124,24 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.visual-pane.visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  background: var(--blue);
+}
+.visual-pane.visual-grid img { min-height: 0; }
+.visual-pane.visual-grid.six-up {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.slide-project .logo-sm {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  aspect-ratio: 2221 / 588;
 }
 .slide-project .visual-pane .visual-tint {
   position: absolute;
@@ -219,7 +247,32 @@ body {
 .badge.prior { background: var(--green-f); }
 
 /* —— Energy full slides —— */
-.slide-energy { padding: 40px 48px 48px; background: linear-gradient(180deg, var(--white), var(--cyan)); }
+.slide-energy {
+  padding: 40px 48px 0;
+  background: linear-gradient(180deg, var(--white), var(--cyan));
+}
+.slide-energy .photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  height: 168px;
+  margin: 0 -48px;
+  border-top: 6px solid var(--blue);
+}
+.slide-energy .photo-strip img,
+.slide-eco2 .photo-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide-eco2 .photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 140px;
+  margin: 0 -44px;
+  border-top: 6px solid var(--green-f);
+}
 .slide-energy .energy-head {
   display: flex;
   justify-content: space-between;
@@ -282,7 +335,7 @@ body {
   line-height: 1.4;
 }
 
-.slide-eco2 { padding: 36px 44px 44px; }
+.slide-eco2 { padding: 36px 44px 0; }
 .eco2-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -355,27 +408,39 @@ body {
 .slide.demo {
   padding: 0;
   background: var(--blue);
+  position: relative;
 }
 .demo-strip {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 14px 24px;
+  padding: 10px 20px;
   background: var(--blue);
   color: var(--white);
 }
 .demo-strip .logo-sm { height: 36px; filter: brightness(0) invert(1); }
 .demo-strip h2 { font-size: 22px; font-weight: 600; color: var(--cyan); margin: 0; font-family: var(--font-display); }
 .demo-strip .cap { margin-left: auto; font-size: 15px; opacity: 0.85; max-width: 28rem; text-align: right; }
-.demo-frame { flex: 1; min-height: 0; padding: 0 8px 8px; display: flex; }
+.demo-frame {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 48px;
+  bottom: 40px;
+  overflow: hidden;
+  background: var(--cyan);
+}
 .demo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 6px 6px 0 0;
+  display: block;
+  transform: scale(1.12);
+  transform-origin: top center;
 }
+.slide.demo .footer-abs { background: rgba(12, 73, 138, 0.88); color: var(--white); border: none; }
 
 /* —— Close —— */
 .slide.live-deck {
@@ -386,7 +451,12 @@ body {
   text-align: center;
   padding: 48px;
 }
-.slide.live-deck .logo-cover { height: 72px; filter: brightness(0) invert(1); margin-bottom: 32px; }
+.slide.live-deck .logo-cover {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 32px;
+}
 .slide.live-deck h1 { color: var(--white); font-size: 52px; font-family: var(--font-display); }
 .slide.live-deck .url { font-size: 32px; margin-top: 28px; color: var(--cyan); font-weight: 700; }
 

@@ -16,7 +16,7 @@ CONTACT = ROOT / "embassy-deck-es-contact.png"
 ART = Path("/opt/cursor/artifacts")
 EXPECTED = 16
 JPEG_QUALITY = 85
-MAX_PDF_BYTES = 6 * 1024 * 1024
+MAX_PDF_BYTES = 8 * 1024 * 1024
 BANNED_HTML = re.compile(
     r"promigas|piloto|\bpilot\b|\bgrp\b|holanda|países bajos|netherlands|\bdutch\b|\beuropa\b|escuela mou",
     re.I,
