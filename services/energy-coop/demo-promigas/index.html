@@ -104,6 +104,27 @@ html, body {
   margin-bottom: 12px;
   max-width: 52rem;
 }
+.kicker {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-f);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+.screen-q {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 0 0 8px;
+  line-height: 1.3;
+  max-width: 46rem;
+}
+.nav-bar button:disabled { opacity: 0.4; cursor: default; }
+#step-count { font-weight: 700; color: var(--blue); margin-right: 8px; }
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -459,11 +480,12 @@ html, body {
 }
 .screen-lab {
   overflow: hidden;
-  padding: 8px 14px 70px;
+  padding: 4px 14px 70px;
   background: var(--cth-light);
 }
-.screen-lab h1 { font-size: 22px; line-height: 1.1; margin-bottom: 0; }
-.ll { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 6px; }
+.screen-lab h1 { font-size: 18px; line-height: 1.1; margin-bottom: 0; }
+.screen-lab .kicker { margin-bottom: 0; }
+.ll { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 4px; }
 .ll-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .ll-sub { font-size: 13px; line-height: 1.25; color: var(--blue); max-width: 64rem; }
 .ll-rule {
@@ -472,7 +494,7 @@ html, body {
 }
 .ll-funnel { display: grid; grid-template-columns: 1.35fr 1.15fr 0.95fr minmax(150px, 0.82fr); gap: 6px; }
 .ll-step { border: 1.5px solid var(--blue); border-radius: 8px; padding: 4px 8px 5px; min-width: 0; background: var(--white); }
-.ll-step .num { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1; color: var(--blue); }
+.ll-step .num { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1; color: var(--blue); }
 .ll-step .lbl { font-size: 11.5px; line-height: 1.2; margin-top: 2px; color: var(--blue); }
 .ll-step .src { display: block; font-size: 10px; line-height: 1.2; margin-top: 1px; color: rgba(12,73,138,.78); }
 .ll-step.s1 { background: var(--blue); }
@@ -531,9 +553,14 @@ html, body {
   font-family: var(--font-display); font-size: 14px; line-height: 1.15; margin: 2px 0;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
+.ll-card-actions { display: flex; align-items: center; gap: 6px; }
 .ll-back {
   border: 0; background: var(--cyan); color: var(--blue); font-weight: 700; font-size: 11px;
   border-radius: 6px; padding: 3px 8px; cursor: pointer; font-family: inherit;
+}
+.ll-goto {
+  margin-left: auto; border: 0; background: var(--blue); color: #fff; font-weight: 700;
+  font-size: 12px; border-radius: 6px; padding: 4px 10px; cursor: pointer; font-family: inherit;
 }
 .ll-meta { font-size: 11.5px; line-height: 1.3; margin-top: 2px; }
 .ll-delta {
@@ -575,15 +602,77 @@ html, body {
       <button type="button" class="dot" data-goto="3" data-i18n-screen="4"></button>
       <button type="button" class="dot" data-goto="4" data-i18n-screen="5"></button>
       <button type="button" class="dot" data-goto="5" data-i18n-screen="6"></button>
-      <button type="button" class="dot" data-goto="6" data-i18n-screen="7"></button>
     </div>
     <div class="meta"><span data-i18n="topbar.meta"></span><br><span data-i18n="topbar.metaHint"></span></div>
   </header>
 
   <main class="screen-wrap">
-    <!-- Screen 1 -->
-    <section class="screen active" id="screen-0" aria-labelledby="t1">
+    <!-- Screen 1 — Living lab -->
+    <section class="screen screen-lab active" id="screen-0" aria-labelledby="t5">
+      <div class="ll">
+        <div class="ll-head">
+          <div>
+            <p class="kicker" data-i18n="kicker.lab"></p>
+            <h1 id="t5" data-i18n="ll.title"></h1>
+            <p class="ll-sub" data-i18n="ll.subtitle"></p>
+          </div>
+          <p class="ll-rule" data-i18n="ll.rule"></p>
+        </div>
+        <div class="ll-funnel" id="ll-funnel"></div>
+        <div class="ll-flow" id="ll-flow" data-i18n-aria="ll.flowAria"></div>
+        <div class="ll-body">
+          <div class="map-box ll-map"><div id="map-lab" role="img" data-i18n-aria="ll.mapAria"></div></div>
+          <div class="ll-side">
+            <div class="ll-controls" id="ll-controls"></div>
+            <div class="ll-panel" id="ll-panel"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Screen 2 — La Guajira -->
+    <section class="screen" id="screen-1" aria-labelledby="t2">
+      <p class="kicker" data-i18n="kicker.guajira"></p>
+      <h1 id="t2" data-i18n="s2.title"></h1>
+      <p class="subtitle" data-i18n-html="s2.subtitleHtml"></p>
+      <div class="kpi-strip" data-i18n-aria="s2.kpiStrip">
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi1"></span>
+            <span class="kpi-meta">
+              <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+              · <span class="tag design" style="font-size:10px;padding:2px 6px" data-i18n="tag.partialDept"></span>
+            </span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi2"></span>
+            <span class="kpi-meta">
+              <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024</a>
+              · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia</a>
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s2.kpi3"></span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf" target="_blank" rel="noopener">Resumen ejecutivo IMPE 2025</a>
+          </span>
+        </div>
+      </div>
+      <div class="totals">
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl" data-i18n="s2.statProjects"></div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl" data-i18n="s2.statKwp"></div></div>
+        <div class="stat"><div class="val" id="stat-mw">0</div><div class="lbl" data-i18n="s2.statMw"></div></div>
+      </div>
+      <p class="totals-note" id="totals-note" hidden data-i18n="s2.totalsNote"></p>
+      <button type="button" class="transform-btn" id="btn-guajira" data-i18n="s2.btnGuajira"></button>
+      <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
+    </section>
+    <!-- Screen 3 — Paiva -->
+    <section class="screen" id="screen-2" aria-labelledby="t1">
+      <p class="kicker" data-i18n="kicker.paiva"></p>
       <h1 id="t1" data-i18n="s1.title"></h1>
+      <p class="screen-q" data-i18n="s1.question"></p>
       <p class="subtitle" data-i18n-html="s1.subtitleHtml"></p>
       <div class="kpi-strip" data-i18n-aria="s1.kpiStrip">
         <div class="kpi-card">
@@ -629,98 +718,9 @@ html, body {
         </div>
       </div>
     </section>
-
-    <!-- Screen 2 -->
-    <section class="screen" id="screen-1" aria-labelledby="t2">
-      <h1 id="t2" data-i18n="s2.title"></h1>
-      <p class="subtitle" data-i18n-html="s2.subtitleHtml"></p>
-      <div class="kpi-strip" data-i18n-aria="s2.kpiStrip">
-        <div class="kpi-row">
-          <div class="kpi-card">
-            <span class="kpi-title" data-i18n="s2.kpi1"></span>
-            <span class="kpi-meta">
-              <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
-              · <span class="tag design" style="font-size:10px;padding:2px 6px" data-i18n="tag.partialDept"></span>
-            </span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-title" data-i18n="s2.kpi2"></span>
-            <span class="kpi-meta">
-              <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024</a>
-              · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia</a>
-            </span>
-          </div>
-        </div>
-        <div class="kpi-card">
-          <span class="kpi-title" data-i18n="s2.kpi3"></span>
-          <span class="kpi-meta">
-            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
-            · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf" target="_blank" rel="noopener">Resumen ejecutivo IMPE 2025</a>
-          </span>
-        </div>
-      </div>
-      <div class="totals">
-        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl" data-i18n="s2.statProjects"></div></div>
-        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl" data-i18n="s2.statKwp"></div></div>
-        <div class="stat"><div class="val" id="stat-mw">0</div><div class="lbl" data-i18n="s2.statMw"></div></div>
-      </div>
-      <p class="totals-note" id="totals-note" hidden data-i18n="s2.totalsNote"></p>
-      <button type="button" class="transform-btn" id="btn-guajira" data-i18n="s2.btnGuajira"></button>
-      <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
-    </section>
-
-    <!-- Screen 3 — Living lab -->
-    <section class="screen screen-lab" id="screen-2" aria-labelledby="t5">
-      <div class="ll">
-        <div class="ll-head">
-          <div>
-            <h1 id="t5" data-i18n="ll.title"></h1>
-            <p class="ll-sub" data-i18n="ll.subtitle"></p>
-          </div>
-          <p class="ll-rule" data-i18n="ll.rule"></p>
-        </div>
-        <div class="ll-funnel" id="ll-funnel"></div>
-        <div class="ll-flow" id="ll-flow" data-i18n-aria="ll.flowAria"></div>
-        <div class="ll-body">
-          <div class="map-box ll-map"><div id="map-lab" role="img" data-i18n-aria="ll.mapAria"></div></div>
-          <div class="ll-side">
-            <div class="ll-controls" id="ll-controls"></div>
-            <div class="ll-panel" id="ll-panel"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screen 4 — PASO -->
-    <section class="screen" id="screen-3" aria-labelledby="t6">
-      <h1 id="t6" data-i18n="s6.title"></h1>
-      <p class="subtitle" data-i18n-html="s6.subtitleHtml"></p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;">
-      <div>
-      <div class="candidate-card featured" style="margin-bottom:12px;">
-        <span class="tag candidate" data-i18n="tag.candidate"></span>
-        <h2 class="section-h2" style="margin-top:8px;" data-i18n="s6.corozalTitle"></h2>
-        <p data-i18n="s6.corozalBody"></p>
-        <p class="kpi-meta" data-i18n-html="s6.corozalMeta"></p>
-      </div>
-      <p class="section-h2" data-i18n="s6.grpIntro"></p>
-      <div class="candidate-grid">
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp1"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp2"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp3"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp4"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp5"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp6"></span></div>
-        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp7"></span></div>
-      </div>
-      <p class="cite" data-i18n="s6.disclaimer"></p>
-      </div>
-      <div class="map-box" style="min-height:580px;"><div id="map-paso" style="width:100%;height:100%;min-height:580px;"></div></div>
-      </div>
-    </section>
-
-    <!-- Screen 5 — CEOF wizard -->
-    <section class="screen" id="screen-4" aria-labelledby="t3">
+    <!-- Screen 4 — Cooperative in 3 clicks -->
+    <section class="screen" id="screen-3" aria-labelledby="t3">
+      <p class="kicker" data-i18n="kicker.coop"></p>
       <h1 id="t3" data-i18n="s3.title"></h1>
       <p class="subtitle" data-i18n-html="s3.subtitleHtml"></p>
       <div class="grid-2" style="align-items:start;">
@@ -768,9 +768,37 @@ html, body {
         </div>
       </div>
     </section>
-
-    <!-- Screen 6 — Meta 2030 -->
+    <!-- Screen 5 — PASO candidates -->
+    <section class="screen" id="screen-4" aria-labelledby="t6">
+      <p class="kicker" data-i18n="kicker.paso"></p>
+      <h1 id="t6" data-i18n="s6.title"></h1>
+      <p class="subtitle" data-i18n-html="s6.subtitleHtml"></p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch;">
+      <div>
+      <div class="candidate-card featured" style="margin-bottom:12px;">
+        <span class="tag candidate" data-i18n="tag.candidate"></span>
+        <h2 class="section-h2" style="margin-top:8px;" data-i18n="s6.corozalTitle"></h2>
+        <p data-i18n="s6.corozalBody"></p>
+        <p class="kpi-meta" data-i18n-html="s6.corozalMeta"></p>
+      </div>
+      <p class="section-h2" data-i18n="s6.grpIntro"></p>
+      <div class="candidate-grid">
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp1"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp2"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp3"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp4"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp5"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp6"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp7"></span></div>
+      </div>
+      <p class="cite" data-i18n="s6.disclaimer"></p>
+      </div>
+      <div class="map-box" style="min-height:580px;"><div id="map-paso" style="width:100%;height:100%;min-height:580px;"></div></div>
+      </div>
+    </section>
+    <!-- Screen 6 — 2030 and OPEX -->
     <section class="screen screen-4-scroll" id="screen-5" aria-labelledby="t4">
+      <p class="kicker" data-i18n="kicker.meta"></p>
       <h1 id="t4" data-i18n="s4.title"></h1>
       <p class="subtitle" data-i18n-html="s4.subtitleHtml"></p>
 
@@ -831,19 +859,11 @@ html, body {
         </ul>
       </div>
     </section>
-
-    <!-- Screen 7 — Closing -->
-    <section class="screen" id="screen-6" aria-labelledby="t7">
-      <h1 id="t7" data-i18n="s7.title"></h1>
-      <p class="subtitle" data-i18n-html="s7.subtitleHtml"></p>
-      <div class="closing-panel" data-i18n-html="s7.askHtml"></div>
-      <p class="closing-note" data-i18n="s7.ctaNote"></p>
-    </section>
   </main>
 
   <nav class="nav-bar">
     <button type="button" class="prev" id="nav-prev" data-i18n="nav.prev"></button>
-    <span class="legal" data-i18n="nav.legal"></span>
+    <span class="legal"><span id="step-count"></span><span data-i18n="nav.legal"></span></span>
     <button type="button" class="next" id="nav-next" data-i18n="nav.next"></button>
   </nav>
 </div>
@@ -864,7 +884,7 @@ html, body {
 
   function t(key, vars) { return CthI18n.t(key, vars); }
 
-  var SCREENS = 7;
+  var SCREENS = 6;
   var current = 0;
   var maps = { paiva: null, guajira: null, paso: null };
   var guajiraLoaded = false;
@@ -979,12 +999,20 @@ html, body {
       el.classList.toggle('done', i < idx);
     });
     if (pushHash !== false) location.hash = String(idx);
-    if (idx === 0) initPaivaMap();
+    var stepCount = document.getElementById('step-count');
+    if (stepCount) stepCount.textContent = (idx + 1) + ' / ' + SCREENS;
+    var prevBtn = document.getElementById('nav-prev');
+    var nextBtn = document.getElementById('nav-next');
+    if (prevBtn) prevBtn.disabled = idx === 0;
+    if (nextBtn) nextBtn.disabled = idx === SCREENS - 1;
+    if (idx === 0) initLivingLab();
     if (idx === 1) initGuajiraMap();
-    if (idx === 2) initLivingLab();
-    if (idx === 4) populateCommunities();
-    if (idx === 3) initPasoMap();
+    if (idx === 2) initPaivaMap();
+    if (idx === 3) populateCommunities();
+    if (idx === 4) initPasoMap();
   }
+
+  window.goTo = goTo;
 
   function initPaivaMap() {
     if (maps.paiva) {
@@ -1554,9 +1582,13 @@ html, body {
     var yearsTxt = econ.years == null ? t('ll.noIrr') : t('ll.years', { n: labFmt1(econ.years) });
     var yieldTxt = econ.yieldKwh == null ? t('ll.noIrr') : labFmtInt(econ.yieldKwh) + ' kWh/' + (CthI18n.getLang() === 'en' ? 'yr' : 'año');
     var irrTxt = row.irr == null ? t('ll.noIrr') : labFmt1(row.irr) + ' ' + t('ll.irrUnit');
+    var guajiraBtn = row.dept === 'LA GUAJIRA'
+      ? '<button type="button" class="ll-goto" id="ll-goto-guajira">' + labEsc(t('ll.seeGuajira')) + '</button>'
+      : '';
     root.innerHTML =
       '<div class="ll-card">' +
-        '<button type="button" class="ll-back" id="ll-back">' + labEsc(t('ll.back')) + '</button>' +
+        '<div class="ll-card-actions"><button type="button" class="ll-back" id="ll-back">' + labEsc(t('ll.back')) + '</button>' +
+        guajiraBtn + '</div>' +
         '<h2>' + labEsc(row.name) + '</h2>' +
         '<p class="ll-meta">' + labChip('pub') + labEsc(row.muni) + ' · ' + labEsc(deptLabel(row.dept)) +
         ' · ' + labEsc(t('ll.nit')) + ' ' + labEsc(row.nit) +
@@ -1631,6 +1663,7 @@ html, body {
       }
     });
     panel.addEventListener('click', function (e) {
+      if (e.target.closest('#ll-goto-guajira')) { goTo(1); return; }
       var back = e.target.closest('#ll-back');
       if (back) { lab.selected = null; renderLiving(); return; }
       var btn = e.target.closest('.ll-row');
@@ -1742,12 +1775,12 @@ html, body {
   var params = new URLSearchParams(location.search);
   if (params.get('capture') === '1') {
     setTimeout(function () {
-      if (current === 0) document.getElementById('btn-transform').click();
+      if (current === 2) document.getElementById('btn-transform').click();
       if (current === 1) {
         initGuajiraMap();
         document.getElementById('btn-guajira').click();
       }
-      if (current === 4) {
+      if (current === 3) {
         populateCommunities();
         document.getElementById('sel-community').selectedIndex = 1;
         selectedKwp = 25;
