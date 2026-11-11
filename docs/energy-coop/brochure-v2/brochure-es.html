@@ -271,10 +271,68 @@ h2 .num {
   border: 1px solid var(--cth-primary);
   font-size: 9.5pt;
 }
-.funnel-viz {
-  margin: 4px 0 6px;
+.funnel-steps {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  margin: 6px 0 4px;
+  min-height: 20mm;
 }
-.funnel-viz svg { width: 100%; max-height: 28mm; }
+.funnel-step {
+  flex: 1;
+  text-align: center;
+  max-width: 22mm;
+}
+.funnel-step .bar {
+  width: 100%;
+  margin: 0 auto 3px;
+  border-radius: 4px;
+  border: 1.5px solid var(--cth-primary);
+  background: linear-gradient(180deg, var(--cth-accent) 0%, var(--cth-light) 100%);
+}
+.funnel-step .lbl {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--cth-dark);
+  line-height: 1.1;
+}
+.funnel-arrow {
+  flex: 0 0 auto;
+  padding-bottom: 12px;
+  font-size: 10pt;
+  font-weight: 600;
+  color: var(--cth-primary);
+}
+.why-cth {
+  margin: 6px 0 7px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  background: #f4faf6;
+  border: 1px solid color-mix(in srgb, var(--cth-primary) 28%, #ddd);
+}
+.why-cth h3 {
+  font-size: 8pt;
+  color: var(--cth-primary);
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.why-grid div {
+  font-size: 6.75pt;
+  line-height: 1.32;
+  color: #444;
+}
+.why-grid strong {
+  display: block;
+  font-size: 7pt;
+  color: var(--cth-dark);
+  margin-bottom: 2px;
+}
 .partner-pills {
   display: flex;
   flex-wrap: wrap;
@@ -511,19 +569,41 @@ h2 .num {
     <div>
       <h2 style="margin-top:0"><span class="num">6</span> Data lab</h2>
       <p class="funnel-label">Comunidades priorizadas MinEnergía → candidatas finales (recurso solar, ZNI, personería, licencia social).<sup>9</sup></p>
-      <div class="funnel-viz" aria-hidden="true">
-        <svg viewBox="0 0 240 70">
-          <polygon points="8,8 232,8 200,62 40,62" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="1.2"/>
-          <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#1B4332">~1.000</text>
-          <polygon points="48,18 192,18 168,54 72,54" fill="#95D5B2" stroke="#2D6A4F" stroke-width="1"/>
-          <text x="120" y="38" text-anchor="middle" font-size="10" font-weight="700" fill="#1B4332">100 → 20 → 10</text>
-        </svg>
+      <div class="funnel-steps" aria-label="Embudo de filtrado ilustrativo">
+        <div class="funnel-step">
+          <div class="bar" style="height:15mm"></div>
+          <div class="lbl">~1.000</div>
+        </div>
+        <span class="funnel-arrow" aria-hidden="true">→</span>
+        <div class="funnel-step">
+          <div class="bar" style="height:11mm"></div>
+          <div class="lbl">100</div>
+        </div>
+        <span class="funnel-arrow" aria-hidden="true">→</span>
+        <div class="funnel-step">
+          <div class="bar" style="height:8mm"></div>
+          <div class="lbl">20</div>
+        </div>
+        <span class="funnel-arrow" aria-hidden="true">→</span>
+        <div class="funnel-step">
+          <div class="bar" style="height:5mm"></div>
+          <div class="lbl">10</div>
+        </div>
       </div>
       <p class="funnel-label"><em>Cifras del embudo: ilustrativo.</em></p>
     </div>
   </div>
 
   <p class="candidate"><strong>Comunidad candidata Energy Coop:</strong> Corozal, Sucre (IMPE 43,1%) — no es proyecto PASO.<sup>9</sup></p>
+
+  <div class="why-cth">
+    <h3>Por qué CleantechHUB</h3>
+    <div class="why-grid">
+      <div><strong>OPEX + cooperativa</strong> Contratos de operación y gobernanza local para que el CAPEX no quede abandonado.</div>
+      <div><strong>Proyectos maduros</strong> Capa social y financiera <em>bankable</em> donde ya hay ejecutor y obra comprometida — sin greenfield ni fondos de MW.</div>
+      <div><strong>KPIs IMPE + Data lab</strong> Acceso/calidad medibles y filtro de candidatas (solar, ZNI, personería, licencia social).</div>
+    </div>
+  </div>
 
   <h2><span class="num">7</span> Socios y siguiente paso</h2>
   <div class="partner-pills" aria-label="Socios objetivo">
