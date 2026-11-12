@@ -1,20 +1,56 @@
 @charset "UTF-8";
 /**
- * CleantechHUB reveal.js theme — colours and typography from skills/cleantechhub-brand.
+ * CleantechHUB reveal.js theme — official CTH palette and typography.
  * Compile: npm run theme:compile (from tools/reveal).
  */
+/* Local OFL webfonts — no remote Google Fonts in deck builds. */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/pt-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/pt-sans-latin-700-normal.woff2") format("woff2");
+}
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 :root {
   --r-background-color: #ffffff;
-  --r-main-font: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
+  --r-main-font: Open Sans, PT Sans, sans-serif;
   --r-main-font-size: 40px;
   --r-main-color: #333333;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
-  --r-heading-color: #1b4332;
+  --r-heading-font: Open Sans, PT Sans, sans-serif;
+  --r-heading-color: #0c498a;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: uppercase;
@@ -26,11 +62,11 @@
   --r-heading3-size: 1.2em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
-  --r-link-color: #2d6a4f;
-  --r-link-color-dark: rgb(15%, 35.3333333333%, 26.3333333333%);
-  --r-link-color-hover: rgb(22.4152707441%, 52.8004155305%, 39.351253084%);
-  --r-selection-background-color: #95d5b2;
-  --r-selection-color: #1b4332;
+  --r-link-color: #0c498a;
+  --r-link-color-dark: rgb(4%, 24.3333333333%, 46%);
+  --r-link-color-hover: #69b5fa;
+  --r-selection-background-color: #b2eefa;
+  --r-selection-color: #0c498a;
   --r-overlay-element-bg-color: 240, 240, 240;
   --r-overlay-element-fg-color: 0, 0, 0;
 }
@@ -656,7 +692,7 @@
   text-transform: uppercase;
 }
 .reveal .cth-ph-img {
-  background: linear-gradient(135deg, #b2eefa 0%, rgb(62.2917264467%, 91.674796748%, 97.5514108082%) 100%);
+  background: #b2eefa;
   border: 1px solid #9dc384;
   border-radius: 8px;
   min-height: 4rem;
@@ -1019,15 +1055,15 @@
 .reveal .cth-wordmark {
   font-weight: 400;
   letter-spacing: -0.02em;
-  color: #1b4332;
+  color: #0c498a;
 }
 .reveal .cth-wordmark strong {
   font-weight: 700;
 }
 .reveal .cth-badge {
   display: inline-block;
-  background: #d8f3dc;
-  color: #1b4332;
+  background: #b2eefa;
+  color: #0c498a;
   padding: 0.25em 0.65em;
   border-radius: 4px;
   font-size: 0.55em;
@@ -1044,25 +1080,25 @@
 .reveal .cth-quote {
   font-size: 1.1em;
   font-style: italic;
-  border-left: 4px solid #2d6a4f;
+  border-left: 4px solid #669348;
   padding-left: 1rem;
-  color: #1b4332;
+  color: #0c498a;
 }
 .reveal .cth-chart-placeholder {
-  background: #d8f3dc;
-  border: 2px dashed #95d5b2;
+  background: #b2eefa;
+  border: 2px dashed #69b5fa;
   border-radius: 8px;
   padding: 2rem;
   text-align: center;
   font-size: 0.85em;
-  color: #1b4332;
+  color: #0c498a;
 }
 .reveal .progress span {
-  background: #2d6a4f;
+  background: #0c498a;
 }
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-right,
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-down {
-  color: #2d6a4f;
+  color: #0c498a;
 }

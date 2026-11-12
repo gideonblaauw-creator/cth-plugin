@@ -1,33 +1,36 @@
 /**
- * CleantechHUB reveal.js theme — colours and typography from skills/cleantechhub-brand.
+ * CleantechHUB reveal.js theme — official CTH palette and typography.
  * Compile: npm run theme:compile (from tools/reveal).
  */
+
+@import "fonts";
 
 @import "../node_modules/reveal.js/css/theme/template/mixins";
 @import "../node_modules/reveal.js/css/theme/template/settings";
 
-// CleantechHUB brand tokens
-$cth-primary: #2d6a4f;
-$cth-dark: #1b4332;
-$cth-accent: #95d5b2;
-$cth-light: #d8f3dc;
+// Official CTH palette
+$cth-deep-blue: #0c498a;
+$cth-light-cyan: #b2eefa;
+$cth-light-green: #9dc384;
+$cth-green: #669348;
+$cth-sky-blue: #69b5fa;
 $cth-white: #ffffff;
 $cth-text: #333333;
 
 // reveal.js theme mappings
 $backgroundColor: $cth-white;
-$mainFont: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-$headingFont: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$mainFont: "Open Sans", "PT Sans", sans-serif;
+$headingFont: "Open Sans", "PT Sans", sans-serif;
 $mainColor: $cth-text;
-$headingColor: $cth-dark;
+$headingColor: $cth-deep-blue;
 $headingTextShadow: none;
 $heading1Size: 2.4em;
 $heading2Size: 1.6em;
 $heading3Size: 1.2em;
-$linkColor: $cth-primary;
-$linkColorHover: lighten($cth-primary, 8%);
-$selectionBackgroundColor: $cth-accent;
-$selectionColor: $cth-dark;
+$linkColor: $cth-deep-blue;
+$linkColorHover: $cth-sky-blue;
+$selectionBackgroundColor: $cth-light-cyan;
+$selectionColor: $cth-deep-blue;
 
 @import "../node_modules/reveal.js/css/theme/template/theme";
 @import "../library/library.scss";
@@ -45,7 +48,7 @@ $selectionColor: $cth-dark;
   .cth-wordmark {
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: $cth-dark;
+    color: $cth-deep-blue;
 
     strong {
       font-weight: 700;
@@ -54,8 +57,8 @@ $selectionColor: $cth-dark;
 
   .cth-badge {
     display: inline-block;
-    background: $cth-light;
-    color: $cth-dark;
+    background: $cth-light-cyan;
+    color: $cth-deep-blue;
     padding: 0.25em 0.65em;
     border-radius: 4px;
     font-size: 0.55em;
@@ -74,29 +77,29 @@ $selectionColor: $cth-dark;
   .cth-quote {
     font-size: 1.1em;
     font-style: italic;
-    border-left: 4px solid $cth-primary;
+    border-left: 4px solid $cth-green;
     padding-left: 1rem;
-    color: $cth-dark;
+    color: $cth-deep-blue;
   }
 
   .cth-chart-placeholder {
-    background: $cth-light;
-    border: 2px dashed $cth-accent;
+    background: $cth-light-cyan;
+    border: 2px dashed $cth-sky-blue;
     border-radius: 8px;
     padding: 2rem;
     text-align: center;
     font-size: 0.85em;
-    color: $cth-dark;
+    color: $cth-deep-blue;
   }
 
   .progress span {
-    background: $cth-primary;
+    background: $cth-deep-blue;
   }
 
   .controls .navigate-left,
   .controls .navigate-right,
   .controls .navigate-up,
   .controls .navigate-down {
-    color: $cth-primary;
+    color: $cth-deep-blue;
   }
 }

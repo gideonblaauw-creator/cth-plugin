@@ -16,7 +16,23 @@ npm ci
 
 Compiles `theme/cleantechhub.css` from `skills/cleantechhub-brand` palette (Inter, CTH Green/Dark/Lime).
 
-## New deck
+## Outline (YAML)
+
+```bash
+tools/reveal/outline.sh [--force] <deck.yaml>
+```
+
+Validates against `library/schema.json`, renders typed slides into `decks/<meta.slug>/`, then runs `build.sh`. Use `--validate-only` or `--skip-build` for CI subsets.
+
+## Lint
+
+```bash
+tools/reveal/lint.sh <slug>
+```
+
+Brand palette, theme fonts, sourced stat/chart/table slides, PDF page count vs slide count, and Chromium overflow check.
+
+## New deck (legacy scaffold)
 
 ```bash
 tools/reveal/new-deck.sh <slug> [en|es] ["Optional title"]

@@ -1,0 +1,9 @@
+meta:
+  slug: reveal-test-unknown
+  lang: en
+  title: Bad type
+  client: Example
+  date: "2026-11-12"
+slides:
+  - type: not-a-real-type
+    title: Nope

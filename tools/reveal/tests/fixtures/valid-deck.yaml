@@ -1,0 +1,49 @@
+meta:
+  slug: reveal-test-valid
+  lang: en
+  title: Example outline (Job A templates)
+  client: Example Client
+  date: "2026-11-12"
+slides:
+  - type: cover
+    title: Example deck
+    subtitle: Outline test · six types
+    date: "2026-11-12"
+    notes: Speaker notes for cover.
+  - type: statement
+    text: Example statement slide — no real figures.
+    attribution: CleantechHUB
+  - type: title-bullets
+    title: Example bullets
+    eyebrow: Example
+    bullets:
+      - Example point one
+      - Example point two
+      - Example point three
+  - type: key-facts
+    title: Example facts
+    items:
+      - { icon: A, label: Example one, text: Supporting line. }
+      - { icon: B, label: Example two, text: Supporting line. }
+      - { icon: C, label: Example three, text: Supporting line. }
+  - type: stat-band
+    title: Example metrics
+    stats:
+      - value: "Example"
+        label: KPI one
+        source: Example brief 2026
+      - value: "Example"
+        label: KPI two
+        source: Example brief 2026
+      - value: "Example"
+        label: KPI three
+        source: Example brief 2026
+  - type: chart-proof
+    title: Example chart
+    chart:
+      type: bar
+      data: [10, 20, 30, 40]
+    proof: Example only — no real data.
+    source: Example brief 2026
+  - type: closing
+    text: Thank you — Example only.

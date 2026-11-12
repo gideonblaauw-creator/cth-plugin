@@ -62,6 +62,7 @@ slides:
     stats:
       - { value: Ex. 1, label: Example, source: Example source }
       - { value: Ex. 2, label: Example, source: Example source }
+      - { value: Ex. 3, label: Example, source: Example source }
   - type: team-grid
     title: Example team
     people:
