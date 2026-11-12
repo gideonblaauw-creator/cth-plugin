@@ -1,0 +1,13 @@
+<section class="cth-slide cth-slide--partner-cards" data-cth-type="partner-cards">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-grid cth-grid--3">
+    {% for p in partners %}
+    <div class="cth-panel">
+      <div class="cth-ph-logo">Example</div>
+      <p class="cth-card__title">{{ p.name }}</p>
+      <p class="cth-card__text">{{ p.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

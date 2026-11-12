@@ -1,0 +1,12 @@
+<section class="cth-slide cth-slide--offer" data-cth-type="offer">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-offer">
+    <div class="cth-panel">
+      <p class="cth-offer__price"><span class="cth-offer__currency">{{ currency }}</span> {{ price }}</p>
+      <ul class="cth-bullets">{% for item in includes %}<li>{{ item }}</li>{% endfor %}</ul>
+      {% if note %}<p class="cth-table-note">{{ note }}</p>{% endif %}
+    </div>
+    <div>{% if image %}<img src="{{ image }}" alt="" />{% else %}<div class="cth-ph-img" style="min-height:10rem;">Example</div>{% endif %}</div>
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

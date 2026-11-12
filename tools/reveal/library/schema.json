@@ -1,0 +1,621 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cleantechhub.net/schemas/reveal-slide-library.json",
+  "title": "CTH reveal slide outline",
+  "type": "object",
+  "required": ["meta", "slides"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["slug", "lang", "title", "client", "date"],
+      "properties": {
+        "slug": { "type": "string", "minLength": 1 },
+        "lang": { "type": "string", "enum": ["en", "es"] },
+        "title": { "type": "string" },
+        "client": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/slide" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "slideBase": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "slide": {
+      "oneOf": [
+        { "$ref": "#/$defs/cover" },
+        { "$ref": "#/$defs/statement" },
+        { "$ref": "#/$defs/title-bullets" },
+        { "$ref": "#/$defs/key-facts" },
+        { "$ref": "#/$defs/stat-band" },
+        { "$ref": "#/$defs/logo-wall" },
+        { "$ref": "#/$defs/map" },
+        { "$ref": "#/$defs/team-grid" },
+        { "$ref": "#/$defs/contact" },
+        { "$ref": "#/$defs/process" },
+        { "$ref": "#/$defs/timeline" },
+        { "$ref": "#/$defs/case-cards" },
+        { "$ref": "#/$defs/chart-proof" },
+        { "$ref": "#/$defs/programme-trio" },
+        { "$ref": "#/$defs/closing" },
+        { "$ref": "#/$defs/showcase" },
+        { "$ref": "#/$defs/data-table" },
+        { "$ref": "#/$defs/ecosystem" },
+        { "$ref": "#/$defs/section-title" },
+        { "$ref": "#/$defs/media-proof" },
+        { "$ref": "#/$defs/partner-cards" },
+        { "$ref": "#/$defs/partner-profile" },
+        { "$ref": "#/$defs/testimonial" },
+        { "$ref": "#/$defs/focus-areas" },
+        { "$ref": "#/$defs/offer" },
+        { "$ref": "#/$defs/contents" }
+      ]
+    },
+    "cover": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "subtitle", "date"],
+      "properties": {
+        "type": { "const": "cover" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "client": { "type": "string" },
+        "date": { "type": "string" },
+        "image": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "statement": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "const": "statement" },
+        "text": { "type": "string" },
+        "attribution": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "title-bullets": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title"],
+      "properties": {
+        "type": { "const": "title-bullets" },
+        "title": { "type": "string" },
+        "eyebrow": { "type": "string" },
+        "bullets": { "type": "array", "items": { "type": "string" } },
+        "columns": {
+          "type": "array",
+          "items": { "type": "array", "items": { "type": "string" } }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "key-facts": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "items"],
+      "properties": {
+        "type": { "const": "key-facts" },
+        "title": { "type": "string" },
+        "items": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["icon", "label"],
+            "properties": {
+              "icon": { "type": "string" },
+              "label": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "stat-band": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "stats"],
+      "properties": {
+        "type": { "const": "stat-band" },
+        "title": { "type": "string" },
+        "stats": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["value", "label", "source"],
+            "properties": {
+              "value": { "type": "string" },
+              "label": { "type": "string" },
+              "source": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "logo-wall": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "logos"],
+      "properties": {
+        "type": { "const": "logo-wall" },
+        "title": { "type": "string" },
+        "group": { "type": "string" },
+        "logos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["src", "alt"],
+            "properties": {
+              "src": { "type": "string" },
+              "alt": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "map": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "region"],
+      "properties": {
+        "type": { "const": "map" },
+        "title": { "type": "string" },
+        "region": {
+          "type": "string",
+          "enum": ["latam", "colombia", "central-america", "global"]
+        },
+        "pins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "note": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "stats": { "$ref": "#/$defs/stat-band/properties/stats" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "team-grid": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "people"],
+      "properties": {
+        "type": { "const": "team-grid" },
+        "title": { "type": "string" },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "role", "photo"],
+            "properties": {
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "photo": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "contact": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "people", "links"],
+      "properties": {
+        "type": { "const": "contact" },
+        "title": { "type": "string" },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "role"],
+            "properties": {
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "email": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "url"],
+            "properties": {
+              "kind": { "type": "string" },
+              "url": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "process": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "steps"],
+      "properties": {
+        "type": { "const": "process" },
+        "title": { "type": "string" },
+        "steps": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["label", "text"],
+            "properties": {
+              "label": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "timeline": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "items"],
+      "properties": {
+        "type": { "const": "timeline" },
+        "title": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["date", "label"],
+            "properties": {
+              "date": { "type": "string" },
+              "label": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "case-cards": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "cards"],
+      "properties": {
+        "type": { "const": "case-cards" },
+        "title": { "type": "string" },
+        "cards": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["name", "text"],
+            "properties": {
+              "name": { "type": "string" },
+              "image": { "type": "string" },
+              "logo": { "type": "string" },
+              "text": { "type": "string" },
+              "url": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "chart-proof": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "chart", "proof", "source"],
+      "properties": {
+        "type": { "const": "chart-proof" },
+        "title": { "type": "string" },
+        "chart": {
+          "type": "object",
+          "required": ["type", "data"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["bar", "line", "pie", "funnel"]
+            },
+            "data": {
+              "type": "array",
+              "items": { "type": "number" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "proof": { "type": "string" },
+        "source": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "programme-trio": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "programmes"],
+      "properties": {
+        "type": { "const": "programme-trio" },
+        "title": { "type": "string" },
+        "programmes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["name", "text"],
+            "properties": {
+              "name": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "closing": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "text"],
+      "properties": {
+        "type": { "const": "closing" },
+        "text": { "type": "string" },
+        "qr": { "type": "string" },
+        "url": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "showcase": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "text", "images"],
+      "properties": {
+        "type": { "const": "showcase" },
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": { "type": "string" }
+        },
+        "link": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "data-table": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "columns", "rows", "source"],
+      "properties": {
+        "type": { "const": "data-table" },
+        "title": { "type": "string" },
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": {
+          "type": "array",
+          "items": { "type": "array", "items": { "type": "string" } }
+        },
+        "source": { "type": "string" },
+        "note": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ecosystem": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "centre", "nodes"],
+      "properties": {
+        "type": { "const": "ecosystem" },
+        "title": { "type": "string" },
+        "centre": { "type": "string" },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label"],
+            "properties": {
+              "label": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "section-title": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title"],
+      "properties": {
+        "type": { "const": "section-title" },
+        "number": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "media-proof": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "image", "outlet", "url"],
+      "properties": {
+        "type": { "const": "media-proof" },
+        "title": { "type": "string" },
+        "image": { "type": "string" },
+        "outlet": { "type": "string" },
+        "url": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "partner-cards": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "partners"],
+      "properties": {
+        "type": { "const": "partner-cards" },
+        "title": { "type": "string" },
+        "partners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["logo", "name", "text"],
+            "properties": {
+              "logo": { "type": "string" },
+              "name": { "type": "string" },
+              "text": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "partner-profile": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "name", "logo", "photo", "text"],
+      "properties": {
+        "type": { "const": "partner-profile" },
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "photo": { "type": "string" },
+        "text": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "testimonial": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "testimonial" },
+        "quote": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "photo": { "type": "string" },
+        "quotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["quote", "name", "org"],
+            "properties": {
+              "quote": { "type": "string" },
+              "name": { "type": "string" },
+              "org": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "focus-areas": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "areas"],
+      "properties": {
+        "type": { "const": "focus-areas" },
+        "title": { "type": "string" },
+        "areas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "image"],
+            "properties": {
+              "name": { "type": "string" },
+              "image": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "offer": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "title", "price", "currency", "includes"],
+      "properties": {
+        "type": { "const": "offer" },
+        "title": { "type": "string" },
+        "price": { "type": "string" },
+        "currency": { "type": "string" },
+        "includes": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" },
+        "image": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "contents": {
+      "allOf": [{ "$ref": "#/$defs/slideBase" }],
+      "type": "object",
+      "required": ["type", "items"],
+      "properties": {
+        "type": { "const": "contents" },
+        "items": { "type": "array", "items": { "type": "string" } },
+        "image": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

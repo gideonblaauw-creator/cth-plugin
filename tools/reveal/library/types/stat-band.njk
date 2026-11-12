@@ -1,0 +1,16 @@
+<section class="cth-slide cth-slide--stat-band" data-cth-type="stat-band">
+  <div class="cth-slide__head">
+    {% if title %}<h2 class="cth-title">{{ title }}</h2>{% endif %}
+    <span class="cth-badge-example">Example</span>
+  </div>
+  <div class="cth-slide__body cth-stat-band">
+    {% for s in stats %}
+    <div class="cth-stat-tile">
+      <div class="cth-stat-tile__value">{{ s.value }}</div>
+      <div class="cth-stat-tile__label">{{ s.label }}</div>
+      <div class="cth-stat-tile__source">{{ s.source }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

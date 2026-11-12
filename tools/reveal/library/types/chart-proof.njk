@@ -1,0 +1,18 @@
+<section class="cth-slide cth-slide--chart-proof" data-cth-type="chart-proof">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-chart-proof">
+    <div>
+      <p class="cth-eyebrow" style="margin-bottom:0.35rem;">{{ chart.type }} chart</p>
+      <div class="cth-chart">
+        {% for val in chart.data %}
+        <div class="cth-chart__bar" style="height:{{ 25 + loop.index0 * 18 }}%;"></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="cth-panel">
+      <p>{{ proof }}</p>
+      <p class="cth-source">Source: {{ source }}</p>
+    </div>
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

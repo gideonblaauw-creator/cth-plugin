@@ -1,0 +1,22 @@
+<section class="cth-slide cth-slide--testimonial" data-cth-type="testimonial">
+  <span class="cth-badge-example">Example</span>
+  {% if quotes %}
+  <div class="cth-grid cth-grid--2">
+    {% for q in quotes %}
+    <div class="cth-quote-block" style="padding:0.75rem;">
+      <p class="cth-quote-block__text" style="font-size:0.85em;">{{ q.quote }}</p>
+      <p class="cth-quote-block__attr">{{ q.name }} — {{ q.org }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="cth-split" style="align-items:center;">
+    {% if photo %}<img src="{{ photo }}" alt="" class="cth-avatar" style="width:4rem;height:4rem;object-fit:cover;" />{% else %}<div class="cth-avatar" style="width:4rem;height:4rem;"></div>{% endif %}
+    <div class="cth-quote-block" style="border:none;background:transparent;padding:0;">
+      <p class="cth-quote-block__text">{{ quote }}</p>
+      <p class="cth-quote-block__attr">{{ name }}{% if role %}, {{ role }}{% endif %}</p>
+    </div>
+  </div>
+  {% endif %}
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

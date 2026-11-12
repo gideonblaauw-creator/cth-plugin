@@ -1,0 +1,13 @@
+<section class="cth-slide cth-slide--programme-trio" data-cth-type="programme-trio">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-programme-row">
+    {% for prog in programmes %}
+    <div class="cth-card">
+      <span class="cth-card__num">{{ loop.index }}</span>
+      <p class="cth-card__title">{{ prog.name }}</p>
+      <p class="cth-card__text">{{ prog.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>
