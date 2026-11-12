@@ -1,0 +1,8 @@
+{
+  "gated": true,
+  "language": "__LANG__",
+  "slug": "__SLUG__",
+  "title": "__DECK_TITLE__",
+  "toolkit": "tools/reveal",
+  "publish_note": "gated is a label only; real gate is Caddy/oauth2-proxy. Public slug needs Gideon GO per slug plus Infra Caddy change."
+}
