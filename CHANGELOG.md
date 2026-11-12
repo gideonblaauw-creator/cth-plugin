@@ -4,6 +4,11 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### Daily usage alerts — protocol prep (Gideon 6 Nov 2026)
+
+- New: `docs/daily-usage-alerts.md` — metric contract (America/Bogota day, strict >10 / >4 pp of shared weekly included allowance), official URL evidence, both apps **BLOCKED**, user-unconfirmed denominator, account/privilege eligibility not established, **Future acceptance — NOT IMPLEMENTED** checklist, no subtraction rule; **docs only** (no in-repo evaluator or tests)
+- Updated: `skills/infrastructure-comms/SKILL.md` §9 (`metadata.version` 1.8.0)
+
 ### Token budget protocol (22 Oct 2026)
 
 - Gideon approved a spend cut for Cloud Hands. One content job per wave (about 10 to 20 items). Checker by risk. Scoped tickets with a read budget. Do not read files over 200 KB into the job. No duplicate launches. Stop at about 60 steps. At most 40 launches a day. Every Cloud Hands job runs on Composer 2.5 Fast.
