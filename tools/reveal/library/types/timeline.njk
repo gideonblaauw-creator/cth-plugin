@@ -1,0 +1,13 @@
+<section class="cth-slide cth-slide--timeline" data-cth-type="timeline">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-timeline">
+    {% for item in items %}
+    <div class="cth-timeline__item">
+      <div class="cth-timeline__date">{{ item.date }}</div>
+      <p class="cth-timeline__label">{{ item.label }}</p>
+      {% if item.text %}<p class="cth-timeline__text">{{ item.text }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

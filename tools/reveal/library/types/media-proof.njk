@@ -1,0 +1,11 @@
+<section class="cth-slide cth-slide--media-proof" data-cth-type="media-proof">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-media-proof">
+    <div class="cth-phone"><div class="cth-ph-img" style="min-height:10rem;">Example</div></div>
+    <div class="cth-panel">
+      <p><strong>{{ outlet }}</strong></p>
+      <p style="font-size:0.65em;">{{ url }}</p>
+    </div>
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

@@ -1,0 +1,13 @@
+<section class="cth-slide cth-slide--process" data-cth-type="process">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body cth-stage-row">
+    {% for step in steps %}
+    <div class="cth-stage-box">
+      <div class="cth-stage-box__num">{{ loop.index }}</div>
+      <p class="cth-stage-box__label">{{ step.label }}</p>
+      <p class="cth-stage-box__text">{{ step.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

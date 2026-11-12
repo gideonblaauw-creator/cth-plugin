@@ -1,0 +1,20 @@
+<section class="cth-slide cth-slide--map" data-cth-type="map">
+  <div class="cth-slide__head">
+    <h2 class="cth-title">{{ title }}</h2>
+    <span class="cth-badge-example">Example</span>
+  </div>
+  <div class="cth-slide__body cth-map cth-map--stacked">
+    <div class="cth-map__canvas"><span class="cth-map__region">{{ region }}</span></div>
+    <div class="cth-map__footer">
+      <div class="cth-map__pins">
+        {% if pins %}{% for pin in pins %}<div class="cth-map__pin"><strong>{{ pin.name }}</strong>{% if pin.note %} — {{ pin.note }}{% endif %}</div>{% endfor %}{% endif %}
+      </div>
+      {% if stats %}
+      <div class="cth-stat-band cth-map__side-stats" style="grid-template-columns:repeat({{ stats | length }},1fr);">
+        {% for s in stats %}<div class="cth-stat-tile"><div class="cth-stat-tile__value">{{ s.value }}</div><div class="cth-stat-tile__label">{{ s.label }}</div></div>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

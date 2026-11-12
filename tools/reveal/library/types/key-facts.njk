@@ -1,0 +1,18 @@
+<section class="cth-slide cth-slide--key-facts" data-cth-type="key-facts">
+  <div class="cth-slide__head">
+    <p class="cth-eyebrow">Example</p>
+    <h2 class="cth-title">{{ title }}</h2>
+  </div>
+  <div class="cth-slide__body cth-grid{% if (items | length) >= 6 %} cth-grid--3{% elif (items | length) >= 4 %} cth-grid--3{% else %} cth-grid--2{% endif %}">
+    {% for item in items %}
+    <div class="cth-fact">
+      <div class="cth-fact__icon">{{ item.icon }}</div>
+      <div>
+        <p class="cth-fact__label">{{ item.label }}</p>
+        {% if item.text %}<p class="cth-fact__text">{{ item.text }}</p>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

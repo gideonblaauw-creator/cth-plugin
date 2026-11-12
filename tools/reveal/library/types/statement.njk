@@ -1,0 +1,8 @@
+<section class="cth-slide cth-slide--statement" data-cth-type="statement">
+  <div class="cth-quote-block">
+    <span class="cth-badge-example">Example</span>
+    <p class="cth-quote-block__text">{{ text }}</p>
+    {% if attribution %}<p class="cth-quote-block__attr">— {{ attribution }}</p>{% endif %}
+  </div>
+  {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
+</section>

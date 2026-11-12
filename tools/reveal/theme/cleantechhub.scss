@@ -30,6 +30,7 @@ $selectionBackgroundColor: $cth-accent;
 $selectionColor: $cth-dark;
 
 @import "../node_modules/reveal.js/css/theme/template/theme";
+@import "../library/library.scss";
 
 .reveal {
   .slides section {
