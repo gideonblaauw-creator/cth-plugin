@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - www/i18n.js
+    - www/app.js
+  post-render:
+    - scripts/post-render.sh
+  preview:
+    port: 8766
+
+website:
+  title: "Energy Coop — CleantechHUB"
+  site-url: https://decks.cleantechhub.net/demo-promigas-quarto/
+  navbar: false
+  search: false
+  reader-mode: false
+  page-navigation: false
+
+format:
+  html:
+    title-block: false
+    theme-mode: light
+    theme:
+      - styles/cth-brand.scss
+      - styles/demo-app-rules.scss
+    page-layout: custom
+    toc: false
+    code-copy: false
+    anchor-sections: false
+    include-in-header:
+      - includes/head-deps.html
+    include-after-body:
+      - includes/scripts.html
+    css: styles/quarto-shell.css
