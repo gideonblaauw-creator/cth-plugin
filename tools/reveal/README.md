@@ -23,7 +23,7 @@ tools/reveal/new-deck.sh <slug> [en|es] ["Optional title"]
 ```
 
 - Copies `template/` → `decks/<slug>/`
-- Sets `deck-meta.json` with **`gated: true`**
+- Sets `deck-meta.json` with **`gated: true`** (label only — see Gating below)
 - Refuses to overwrite an existing folder
 
 ## Build
@@ -48,6 +48,14 @@ Merge `theme/_quarto-revealjs.yml` into a Quarto project to reuse `theme/cleante
 ## Hands routing
 
 New reveal decks: ticket via `skills/reveal-deck-build/SKILL.md` → Cloud Hands on this repo.
+
+## Gating (label vs enforcement)
+
+`deck-meta.json` → `"gated": true` and the HTML meta tag `cth-deck-gated` are **labels only** for Hands and reviewers. They do **not** enforce access.
+
+**Real gating** is **Caddy + oauth2-proxy** on the decks server (`decks.cleantechhub.net`). Making a deck **public** requires **Gideon’s own GO per slug** plus an **Infra Caddy route change** — never done by this toolkit or Cloud Hands in a deck ticket.
+
+New scaffolds keep `gated: true` in metadata as documentation; do not treat that JSON field as security.
 
 ## Constraints (harness)
 

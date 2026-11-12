@@ -23,7 +23,7 @@ desk: Presentations
 folder: decks/<slug>/ and tools/reveal/
 cursor_project: CTH-Presentations
 cursor_workspace: cth-plugin
-done-when: tools/reveal/new-deck.sh and build.sh pass for <slug>; PDF exists; no invented numbers; gated stays true unless Gideon names public GO in ticket
+done-when: tools/reveal/new-deck.sh and build.sh pass for <slug>; PDF exists; no invented numbers; deck-meta gated label stays true unless ticket documents Gideon public GO (Caddy still separate)
 model: composer-2.5 (fast=true)
 files:
   - tools/reveal/**
@@ -32,7 +32,7 @@ files:
 read-budget: 40 files / 400 KB
 lane: github-pr
 tier: 0
-hitl: no public slug, no Caddy/VPS deploy, no changing other decks
+hitl: no public slug without Gideon GO + Infra Caddy; Hands do not change Caddy/oauth2-proxy or VPS deploy; no changing other decks
 reviewer: Presentations
 context:
   slug: <kebab-case>
@@ -49,14 +49,23 @@ context:
 2. **Scaffold** — `tools/reveal/new-deck.sh <slug> <lang> "<title>"`. Never overwrite an existing `decks/<slug>/`.
 3. **Author** — Edit `decks/<slug>/index.html` (and optional `assets/`). Keep speaker notes. Custom HTML/JS slides allowed when the brief requires interactivity.
 4. **Build** — `tools/reveal/build.sh <slug>`. Attach dist + PDF proof in the PR.
-5. **Gate** — Leave `deck-meta.json` `gated: true` unless the ticket includes Gideon public GO for this slug.
+5. **Gate label** — Leave `deck-meta.json` `gated: true` unless the ticket documents Gideon public GO for this slug. **`gated` in JSON is a label only** — it does not enforce access. **Real gating** is **Caddy + oauth2-proxy** on the decks server. Making a deck public requires **Gideon GO per slug** plus an **Infra Caddy change** (out of scope for Hands deck tickets).
 
 ## Acceptance
 
 - `build.sh` exits 0; `decks/<slug>/dist/index.html` opens in browser.
 - `decks/<slug>/<slug>.pdf` page count matches slide count (approximately one slide per page).
 - No invented financial or impact numbers; quotes attributed in `SOURCES.md`.
-- No edits to Caddy, decks server, or unrelated deck folders.
+- No edits to Caddy, oauth2-proxy, decks server, or unrelated deck folders.
+
+## Gating (do not confuse label with enforcement)
+
+| Layer | Role |
+|-------|------|
+| `deck-meta.json` `gated`, HTML `cth-deck-gated` | Documentation label for Hands/reviewers |
+| Caddy + oauth2-proxy on VPS | **Actual** access control for `decks.cleantechhub.net` |
+
+Cloud Hands **must not** claim a deck is public because metadata says `gated: false`. Public publish is Gideon GO + Infra Caddy only.
 
 ## Do not use when
 

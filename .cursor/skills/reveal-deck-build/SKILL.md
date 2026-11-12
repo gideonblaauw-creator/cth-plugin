@@ -12,4 +12,4 @@ This file is a Cursor discovery stub. The playbook source of truth is `skills/re
 
 1. Read `skills/reveal-deck-build/SKILL.md` before scaffolding or building.
 2. Follow `tools/reveal/new-deck.sh` and `tools/reveal/build.sh` — do not fork a parallel workflow.
-3. New decks stay **gated** unless the ticket names Gideon public GO.
+3. `deck-meta.json` `gated` is a **label only**; real gate is Caddy/oauth2-proxy. Public slug needs Gideon GO + Infra Caddy change (not Hands).

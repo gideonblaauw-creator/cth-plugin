@@ -27,8 +27,8 @@ fi
 
 cd "$TOOL_ROOT"
 if [[ ! -d node_modules/reveal.js ]]; then
-  echo "Installing tools/reveal npm dependencies…"
-  npm ci 2>/dev/null || npm install
+  echo "Installing tools/reveal npm dependencies (package-lock.json)…"
+  npm ci
 fi
 
 npm run theme:compile
