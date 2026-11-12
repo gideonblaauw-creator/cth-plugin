@@ -1,0 +1,32 @@
+name: Deck brand guard
+
+on:
+  pull_request:
+    paths:
+      - "decks/**"
+      - "scripts/deck-brand-guard/**"
+      - ".github/workflows/deck-brand-guard.yml"
+      - "tests/test_deck_brand_guard.py"
+
+permissions:
+  contents: read
+
+jobs:
+  deck-brand-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run deck brand guard
+        run: python3 scripts/deck-brand-guard/check_decks.py
+
+      - name: Unit tests
+        run: python3 -m unittest tests/test_deck_brand_guard.py -v

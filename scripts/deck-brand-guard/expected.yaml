@@ -1,0 +1,21 @@
+# House deck format: CleantechHUB brand (skills/cleantechhub-brand/SKILL.md) on the
+# cth-clp26-style HTML deck shell (live slug cth-clp26 on decks.cleantechhub.net).
+# Do not edit hex values here — change the skill, then regenerate or update by hand.
+
+cth_css_variables:
+  --cth-primary: "#2D6A4F"
+  --cth-dark: "#1B4332"
+  --cth-accent: "#95D5B2"
+  --cth-light: "#D8F3DC"
+  --cth-white: "#FFFFFF"
+  --cth-text: "#333333"
+
+cth_fonts:
+  - Inter
+
+# Logo asset basenames used on the CleantechHUB edition of cth-clp26 (see decks on
+# decks.cleantechhub.net and decks/afe-foundations-2026-10 on branch
+# cursor/afe-foundations-mockup).
+cth_logo_basenames:
+  - cth-logo.png
+  - cth-globe-logo.svg

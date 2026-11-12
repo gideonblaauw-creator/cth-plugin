@@ -1,0 +1,3 @@
+# Slugs that are (or will be) served without auth on decks.cleantechhub.net — price scan applies.
+# One slug per line. Decks not listed here skip public.no_prices.
+rein-academic-city-ghana

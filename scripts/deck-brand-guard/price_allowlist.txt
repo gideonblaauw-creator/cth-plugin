@@ -1,0 +1,11 @@
+# Regex patterns (one per line). Matching spans are ignored for public.no_prices.
+# Lines starting with # are comments; blank lines skipped.
+
+# COP as conference (not Colombian peso code in a price)
+\bCOP\b(?!\s*\d)
+# Climate / UN process names, not currency
+Climate Week NYC
+# English "public" near COP in prose
+public–private
+public-private
+# Spanish "precio" in non-monetary contexts (extend as needed)

@@ -1,0 +1,5 @@
+# Deck slugs that must never appear under decks/ in git (server-only on VPS).
+cth-rein-funding-oct2026
+rein-funding
+cth-clp26-rein
+aic-q1-2027-packages

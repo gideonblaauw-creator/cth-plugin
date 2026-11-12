@@ -1,0 +1,349 @@
+{
+  "violations": [
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-accent"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-dark"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-light"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-primary"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-text"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing CSS variable --cth-white"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing hex #1B4332 for --cth-dark"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing hex #2D6A4F for --cth-primary"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing hex #333333 for --cth-text"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing hex #95D5B2 for --cth-accent"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.colors",
+      "message": "missing hex #D8F3DC for --cth-light"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.fonts",
+      "message": "missing font family 'Inter'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "cth.logo",
+      "message": "no CTH logo reference (expected one of: cth-logo.png, cth-globe-logo.svg)"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$1'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$103,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$103,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$103K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$103K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$10M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$12,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$12,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$15,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$15,000,'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$18,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$18,000,'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$2'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$20,000 M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$20,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$20K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$228K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$228K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$228K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$2M'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$30,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$30,000,'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$50K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$50K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$50K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$75,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$75K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$75K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$75K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$75K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$8,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$8,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$80,000'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$80K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: '$8K'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$103'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$103'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$20'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$228'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$228'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$228'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$50'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$50'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$50'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$75'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$75'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$75'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$75'"
+    },
+    {
+      "deck": "rein-academic-city-ghana",
+      "check": "public.no_prices",
+      "message": "currency or price pattern: 'US$8'"
+    }
+  ]
+}
