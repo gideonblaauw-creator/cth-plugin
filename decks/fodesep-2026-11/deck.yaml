@@ -25,8 +25,8 @@ slides:
   - type: case-cards
     title: Vehículos que ya existen (1/2)
     cards:
-      - { name: Oxford Science Enterprises, text: "NAV · compañía evergreen. Paga: capital de accionistas (EIR, laboratorio). Fuente: OSE" }
-      - { name: IP Group / Parkwalk, text: "NAV IP Group; Parkwalk £20,6M en 2025. Tubería seed + balance sheet para seguimiento. Fuente: IP Group FY2025" }
+      - { name: Oxford Science Enterprises, stat: "£1.400M", text: "NAV · compañía evergreen. Paga: capital de accionistas (EIR, laboratorio). Fuente: OSE" }
+      - { name: IP Group / Parkwalk, stat: "£50M", text: "NAV IP Group; Parkwalk £20,6M en 2025. Tubería seed + balance sheet para seguimiento. Fuente: IP Group FY2025" }
       - { name: Cambridge Enterprise Ventures, text: "Fondo en balance de la universidad. Paga: la universidad, con el cheque. Fuente: Cambridge EV" }
       - { name: Cambridge Innovation Capital, text: "AUM · gestor aparte. Paga: inversores institucionales; Serie A ≠ seed. Fuente: British Business Bank" }
     notes: "Patrón útil: capital, venture building y segunda ronda en vehículos distintos. Cifras titulares (£1.400M, £975M, £600M, £50M) por tarjeta: tomar de la página 3 del Canva DAHaqBXodIY y verificar asignación."

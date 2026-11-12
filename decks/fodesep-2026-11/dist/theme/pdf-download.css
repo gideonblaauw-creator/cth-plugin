@@ -1,6 +1,7 @@
+/* CTH reveal deck — Download PDF (brand primary #0C498A) */
 :root {
-  --pdf-dl-bg: #2d6a4f;
-  --pdf-dl-focus: #1b4332;
+  --pdf-dl-bg: #0c498a;
+  --pdf-dl-focus: #69b5fa;
   --pdf-dl-text: #ffffff;
 }
 
@@ -13,7 +14,7 @@ footer .pdf-dl-footer {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", "PT Sans", sans-serif;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.08em;
