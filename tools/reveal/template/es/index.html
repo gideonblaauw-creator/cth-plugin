@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>__DECK_TITLE__</title>
+  <meta name="cth-deck-gated" content="true" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />
+  <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="title-slide cth-center" data-background-color="#D8F3DC">
+        <p class="cth-wordmark">Cleantech<strong>HUB</strong></p>
+        <h1>__DECK_TITLE__</h1>
+        <p><span class="cth-badge">Borrador · restringido</span></p>
+        <aside class="notes">
+          Bienvenida. Esta plantilla está restringida por defecto hasta que Gideon apruebe publicación del slug.
+          Reemplace título y texto con contenido del brief y fuentes verificadas.
+        </aside>
+      </section>
+
+      <section>
+        <h2>Agenda</h2>
+        <ol>
+          <li>Contexto y audiencia</li>
+          <li>Planteamiento del problema</li>
+          <li>Enfoque</li>
+          <li>Evidencia (solo métricas con fuente)</li>
+          <li>Próximos pasos y contacto</li>
+        </ol>
+        <aside class="notes">Ajuste los ítems al brief. No invente cifras.</aside>
+      </section>
+
+      <section>
+        <h2>Sección</h2>
+        <p>Use diapositivas de sección para orientar antes del detalle.</p>
+        <aside class="notes">Pausa para preguntas. Transición verbal al siguiente bloque.</aside>
+      </section>
+
+      <section>
+        <h2>Dos columnas</h2>
+        <div class="cth-columns">
+          <div>
+            <h3>Izquierda</h3>
+            <p>Punto clave del brief.</p>
+          </div>
+          <div>
+            <h3>Derecha</h3>
+            <p>Detalle de apoyo, diagrama o llamado.</p>
+          </div>
+        </div>
+        <aside class="notes">Se permiten diapositivas con HTML/JS propio cuando haga falta interactividad.</aside>
+      </section>
+
+      <section>
+        <h2>Gráfico / datos</h2>
+        <div class="cth-chart-placeholder">
+          <p><strong>Marcador de gráfico</strong></p>
+          <p>Inserte Chart.js, D3 o SVG con cifras <em>con fuente</em>.</p>
+        </div>
+        <aside class="notes">No fabrique métricas. Documente en SOURCES.md dentro de la carpeta del deck.</aside>
+      </section>
+
+      <section>
+        <h2>Cita</h2>
+        <blockquote class="cth-quote">
+          «Reemplace con cita verificada y atribución del brief o fuente pública.»
+        </blockquote>
+        <aside class="notes">Confirme derechos y exactitud antes de publicar.</aside>
+      </section>
+
+      <section class="cth-center">
+        <h2>Contacto</h2>
+        <p class="cth-wordmark">Cleantech<strong>HUB</strong></p>
+        <p>cleantechhub.net</p>
+        <p><small>© <span id="cth-year"></span> CleantechHUB Foundation</small></p>
+        <aside class="notes">Agregue contactos del ticket. Slug público requiere GO de Gideon.</aside>
+      </section>
+    </div>
+  </div>
+
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script src="reveal.js/plugin/notes/notes.js"></script>
+  <script src="reveal.js/plugin/search/search.js"></script>
+  <script src="reveal.js/plugin/zoom/zoom.js"></script>
+  <script src="reveal.js/plugin/highlight/highlight.js"></script>
+  <script>
+    document.getElementById("cth-year").textContent = new Date().getFullYear();
+    Reveal.initialize({
+      hash: true,
+      slideNumber: "c/t",
+      showNotes: false,
+      plugins: [RevealNotes, RevealSearch, RevealZoom, RevealHighlight],
+    });
+  </script>
+</body>
+</html>

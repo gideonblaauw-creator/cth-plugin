@@ -1,0 +1,17 @@
+# CleantechHUB Quarto revealjs partial — merge from project _quarto.yml or pass with:
+#   quarto render deck.qmd --profile cth-reveal
+#
+# Copy or symlink theme/cleantechhub.scss beside the .qmd or set theme path in project.
+
+format:
+  revealjs:
+    theme:
+      - default
+      - tools/reveal/theme/cleantechhub.scss
+    slide-number: true
+    logo: logos/cleantechhub-wordmark.svg
+    footer: "© CleantechHUB Foundation"
+    chalkboard:
+      buttons: false
+    preview-links: auto
+    highlight-style: monokai

@@ -1,0 +1,20 @@
+{
+  "name": "@cth/reveal-deck-toolkit",
+  "private": true,
+  "description": "CleantechHUB reveal.js deck scaffold, theme, and build helpers for Cloud Hands",
+  "version": "1.0.0",
+  "scripts": {
+    "theme:compile": "sass theme/cleantechhub.scss theme/cleantechhub.css --no-source-map",
+    "postinstall": "npm run theme:compile"
+  },
+  "dependencies": {
+    "reveal.js": "5.2.1"
+  },
+  "devDependencies": {
+    "decktape": "^3.14.0",
+    "sass": "^1.83.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
