@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="CleantechHUB">
+  <circle cx="60" cy="60" r="54" fill="#0C498A"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#B2EEFA" stroke-width="2"/>
+  <ellipse cx="60" cy="60" rx="46" ry="18" fill="none" stroke="#9DC384" stroke-width="1.5"/>
+  <ellipse cx="60" cy="60" rx="18" ry="46" fill="none" stroke="#69B5FA" stroke-width="1.5"/>
+  <path d="M14 60h92M60 14v92" stroke="#B2EEFA" stroke-width="1" opacity=".6"/>
+  <path d="M28 38c12 8 24 10 32 10s20-2 32-10c-8 14-20 22-32 22S36 52 28 38z" fill="#669348"/>
+  <path d="M34 78c10-6 18-8 26-8s16 2 26 8c-8 10-18 14-26 14s-18-4-26-14z" fill="#9DC384"/>
+</svg>
