@@ -1,0 +1,5 @@
+site_id,region,technology,capacity_mw,output_mwh,period,source_label
+EX-001,Andes,solar,4.2,310.5,2025-Q1,EXAMPLE DATA
+EX-002,Andes,wind,6.0,420.0,2025-Q1,EXAMPLE DATA
+EX-003,Caribbean,solar,2.8,198.2,2025-Q1,EXAMPLE DATA
+EX-004,Caribbean,biomass,1.5,95.0,2025-Q1,EXAMPLE DATA

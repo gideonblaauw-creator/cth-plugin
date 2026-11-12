@@ -1,0 +1,31 @@
+---
+title: "Sitio de informe Datalab (DATOS DE EJEMPLO)"
+---
+
+::: {.cth-example-banner}
+**DATOS DE EJEMPLO** — CSV/JSON en `data/` son sintéticos. Cite rutas reales en tickets; no pegue exportaciones de clientes.
+:::
+
+Plantilla **datalab** para informes reproducibles junto a la app JS Datalab existente (no reemplaza `/app/`).
+
+## Fuentes (plantilla)
+
+| Archivo | Rol |
+|---------|-----|
+| `data/example_metrics.csv` | Métricas de EJEMPLO |
+| `data/example_regions.json` | Agregados regionales (EJEMPLO) |
+
+Ver [informe completo](report.qmd) con gráficos Plotly y tabla filtrable.
+
+```{python}
+#| label: tbl-preview
+#| tbl-cap: "Vista previa de EJEMPLO (primeras filas)."
+
+import json
+import pandas as pd
+
+metrics = pd.read_csv("data/example_metrics.csv")
+with open("data/example_regions.json") as f:
+    regions = json.load(f)
+metrics.head()
+```

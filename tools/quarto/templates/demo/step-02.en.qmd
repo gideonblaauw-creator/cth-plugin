@@ -1,0 +1,20 @@
+---
+title: "Step 2 — Chart"
+---
+
+```{python}
+#| label: fig-step2
+#| fig-cap: "EXAMPLE DATA — regional split (synthetic)."
+#| fig-width: 7
+#| fig-height: 4
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("data/example_generation.csv")
+summary = df.groupby("region", as_index=False)["mwh"].sum()
+fig = px.pie(summary, names="region", values="mwh", title="EXAMPLE: share by region")
+fig
+```
+
+← [Step 1](step-01.qmd) · [Next: Step 3 →](step-03.qmd)

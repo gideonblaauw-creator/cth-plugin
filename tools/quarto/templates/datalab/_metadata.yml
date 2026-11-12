@@ -1,0 +1,3 @@
+website:
+  robots: noindex, nofollow
+  description: "CleantechHUB Quarto datalab scaffold (__SITE_SLUG__) — EXAMPLE DATA only."

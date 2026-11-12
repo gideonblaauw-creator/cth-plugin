@@ -1,0 +1,35 @@
+project:
+  type: website
+  preview:
+    browser: false
+    port: 4849
+
+website:
+  title: "CleantechHUB Datalab report — __SITE_SLUG__"
+  navbar:
+    background: primary
+    left:
+      - text: Overview
+        href: index.qmd
+      - text: Report
+        href: report.qmd
+
+lang: __SITE_LANG__
+
+metadata:
+  brand: __BRAND_YML__
+
+format:
+  html:
+    theme:
+      light: [__THEME_SCSS__]
+      dark: [__THEME_SCSS__]
+    toc: true
+    code-fold: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false

@@ -1,0 +1,11 @@
+---
+title: "Paso 3 — Próximos pasos"
+---
+
+## Criterios listos (bench demo)
+
+1. Render exitoso con `tools/quarto/build.sh`
+2. Cada cifra referencia **DATOS DE EJEMPLO**
+3. Sitio **restringido** hasta GO de Gideon
+
+← [Paso 2](step-02.qmd) · [Inicio](index.qmd)

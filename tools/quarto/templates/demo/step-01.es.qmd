@@ -1,0 +1,20 @@
+---
+title: "Paso 1 — Contexto"
+---
+
+::: {.cth-example-banner}
+**DATOS DE EJEMPLO** — Texto narrativo de plantilla.
+:::
+
+## Encuadre del problema
+
+CleantechHUB articula historias de datos **citadas** — sin KPI inventados.
+
+Este paso vincula el gráfico sintético con `data/example_generation.csv`.
+
+| Campo | Fuente |
+|-------|--------|
+| `mwh` | Columna de DATOS DE EJEMPLO en CSV |
+| Regiones | Etiquetas ficticias Andes / Caribe |
+
+← [Inicio](index.qmd) · [Siguiente: Paso 2 →](step-02.qmd)

@@ -1,0 +1,20 @@
+---
+title: "Paso 2 — Gráfico"
+---
+
+```{python}
+#| label: fig-step2
+#| fig-cap: "DATOS DE EJEMPLO — reparto regional (sintético)."
+#| fig-width: 7
+#| fig-height: 4
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("data/example_generation.csv")
+summary = df.groupby("region", as_index=False)["mwh"].sum()
+fig = px.pie(summary, names="region", values="mwh", title="EJEMPLO: participación por región")
+fig
+```
+
+← [Paso 1](step-01.qmd) · [Siguiente: Paso 3 →](step-03.qmd)

@@ -1,0 +1,52 @@
+/*-- scss:defaults --*/
+$primary: #2D6A4F !default;
+$secondary: #1B4332 !default;
+$success: #2D6A4F !default;
+$info: #95D5B2 !default;
+$warning: #E9C46A !default;
+$danger: #E76F51 !default;
+$light: #D8F3DC !default;
+$dark: #1B4332 !default;
+
+$body-bg: #FFFFFF !default;
+$body-color: #333333 !default;
+$link-color: $primary !default;
+$navbar-bg: $primary !default;
+$navbar-fg: #FFFFFF !default;
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;
+
+/*-- scss:rules --*/
+
+.cth-example-banner {
+  background: $light;
+  border-left: 4px solid $primary;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.cth-gated-note {
+  font-size: 0.85rem;
+  color: darken($body-color, 5%);
+  opacity: 0.9;
+}
+
+.quarto-dark {
+  $body-bg: #0f1a14;
+  $body-color: #e8f5e9;
+  $navbar-bg: $secondary;
+  background-color: $body-bg;
+  color: $body-color;
+
+  .cth-example-banner {
+    background: darken($secondary, 2%);
+    border-left-color: $info;
+    color: $body-color;
+  }
+}
+
+.navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}

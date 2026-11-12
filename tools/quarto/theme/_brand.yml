@@ -1,0 +1,24 @@
+# CleantechHUB Quarto brand tokens (self-contained under tools/quarto/theme/).
+# Light palette default; dark overrides via cleantechhub.scss.
+meta:
+  name: CleantechHUB
+  link:
+    href: https://cleantechhub.net
+    text: CleantechHUB
+  colors:
+    foreground: "#333333"
+    background: "#FFFFFF"
+    primary: "#2D6A4F"
+    secondary: "#1B4332"
+    tertiary: "#95D5B2"
+    success: "#2D6A4F"
+    info: "#95D5B2"
+    warning: "#E9C46A"
+    danger: "#E76F51"
+    light: "#D8F3DC"
+    dark: "#1B4332"
+  typography:
+    fonts:
+      - family: Inter
+        source: google
+        weight: [400, 500, 600, 700]

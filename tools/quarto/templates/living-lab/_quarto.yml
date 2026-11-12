@@ -1,0 +1,30 @@
+project:
+  type: website
+  preview:
+    browser: false
+    port: 4850
+
+website:
+  title: "CleantechHUB Living Lab — __SITE_SLUG__"
+  navbar:
+    background: primary
+    left:
+      - text: Dashboard
+        href: index.qmd
+
+lang: __SITE_LANG__
+
+metadata:
+  brand: __BRAND_YML__
+
+format:
+  dashboard:
+    theme:
+      light: [__THEME_SCSS__]
+      dark: [__THEME_SCSS__]
+    orientation: rows
+
+execute:
+  echo: false
+  warning: false
+  message: false

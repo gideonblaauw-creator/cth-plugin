@@ -1,0 +1,7 @@
+.venv/
+sites/
+_site/
+**/_freeze/
+**/.quarto/
+*.pyc
+__pycache__/

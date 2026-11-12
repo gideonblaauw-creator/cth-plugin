@@ -1,0 +1,11 @@
+---
+title: "Step 3 — Next actions"
+---
+
+## Done criteria (demo bench)
+
+1. Render passes via `tools/quarto/build.sh`
+2. Every number traces to labelled **EXAMPLE DATA**
+3. Site stays **gated** until Gideon GO
+
+← [Step 2](step-02.qmd) · [Home](index.qmd)

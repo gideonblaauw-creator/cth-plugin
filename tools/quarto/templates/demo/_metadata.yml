@@ -1,0 +1,4 @@
+# New Quarto sites are gated by default — public GO per slug is Gideon HITL.
+website:
+  robots: noindex, nofollow
+  description: "CleantechHUB Quarto demo scaffold (__SITE_SLUG__) — EXAMPLE DATA only."
