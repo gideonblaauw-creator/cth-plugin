@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleantechHUB × Fundaciones AFE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --lg: #9DC384;
+  --fg: #669348;
+  --sky: #69B5FA;
+  --white: #ffffff;
+  --stage-w: 1280px;
+  --stage-h: 720px;
+  --title: 'Titillium Web', 'Open Sans', sans-serif;
+  --body: 'Open Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; font-family: var(--body); background: var(--deep); color: var(--white); }
+.lang-en { display: none; }
+html[lang="en"] .lang-es { display: none !important; }
+html[lang="en"] .lang-en { display: revert; }
+.deck-viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+.deck-frame { position: relative; flex-shrink: 0; overflow: hidden; }
+.deck-stage { position: absolute; top: 0; left: 0; width: var(--stage-w); height: var(--stage-h); transform-origin: top left; }
+.deck { position: absolute; inset: 0; width: var(--stage-w); height: var(--stage-h); }
+.slide {
+  position: absolute; inset: 0; width: var(--stage-w); height: var(--stage-h);
+  display: none; flex-direction: column; padding: 36px 48px 32px; overflow: hidden;
+}
+.slide.active { display: flex; z-index: 2; }
+.slide::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.slide::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.88) 78%, rgba(0,0,0,0.96) 100%);
+}
+.slide.plain::before, .slide.plain::after { display: none; }
+.slide.plain { background: var(--deep); }
+.slide[data-bg="photo"]::before { background-image: var(--bg-img); }
+.slide > * { position: relative; z-index: 2; }
+.glass {
+  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(8px); border-radius: 12px; padding: 16px 20px;
+}
+.title-block {
+  background: var(--deep); padding: 12px 20px; border-radius: 8px; display: inline-block;
+  border-left: 5px solid var(--lg); margin-bottom: 12px;
+}
+.title-block h2 { margin-bottom: 0; }
+h1 { font-family: var(--title); font-size: 2.15rem; font-weight: 700; line-height: 1.12; }
+h2 { font-family: var(--title); font-size: 1.65rem; font-weight: 700; margin-bottom: 8px; color: var(--cyan); }
+h3 { font-family: var(--title); font-size: 1.05rem; font-weight: 600; color: var(--cyan); margin-bottom: 6px; }
+p, li { font-size: 0.95rem; line-height: 1.4; }
+.lead { font-size: 1.05rem; max-width: 46rem; }
+.eyebrow { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lg); font-weight: 700; margin-bottom: 6px; }
+.logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.logo-row img { height: 48px; width: auto; max-width: 180px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35)); }
+.chip {
+  display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 6px;
+  background: rgba(178,238,250,0.18); border: 1px solid var(--cyan); color: var(--cyan); margin-left: 6px; vertical-align: middle;
+}
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1; align-content: start; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; flex: 1; align-content: start; }
+.card { background: rgba(12,73,138,0.55); border: 1px solid rgba(178,238,250,0.22); border-radius: 12px; padding: 12px 14px; }
+.accent { color: var(--cyan); font-weight: 700; }
+.footer-src {
+  margin-top: auto; font-size: 0.68rem; opacity: 0.9; padding-top: 8px;
+  border-top: 1px solid rgba(178,238,250,0.2); color: var(--cyan); line-height: 1.35;
+}
+.footer-src a { color: var(--cyan); }
+.photo-credit { font-size: 0.62rem; opacity: 0.75; margin-top: 4px; }
+.nav-hint { position: fixed; bottom: 10px; right: 14px; z-index: 99; font-size: 11px; opacity: 0.45; color: var(--cyan); }
+.lang-toggle {
+  position: fixed; top: 12px; right: 14px; z-index: 100; display: flex; gap: 4px;
+  background: rgba(12,73,138,0.85); border: 1px solid rgba(178,238,250,0.35); border-radius: 8px; padding: 4px;
+}
+.lang-toggle button {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  border: none; background: transparent; color: var(--cyan); padding: 6px 10px; border-radius: 6px; cursor: pointer;
+}
+.lang-toggle button.active { background: var(--cyan); color: var(--deep); }
+ul.check { list-style: none; padding: 0; }
+ul.check li { padding-left: 1.3em; position: relative; margin-bottom: 6px; font-size: 0.9rem; }
+ul.check li::before { content: '✓'; position: absolute; left: 0; color: var(--lg); font-weight: 700; }
+.nexus-card {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(105,181,250,0.35); border-radius: 12px;
+  padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; min-height: 0;
+}
+.nexus-card .tag {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--deep); background: var(--cyan); align-self: flex-start; padding: 2px 7px; border-radius: 999px;
+}
+.nexus-card h3 { color: var(--white); font-size: 0.98rem; margin: 0; }
+.nexus-card p { font-size: 0.8rem; line-height: 1.32; flex: 1; }
+.flow-row { display: flex; gap: 8px; align-items: stretch; flex: 0 0 auto; }
+.flow-step { flex: 1; text-align: center; }
+.flow-step .num { font-family: var(--title); font-size: 1.4rem; color: var(--sky); margin-bottom: 4px; }
+.flow-arrow { align-self: center; color: var(--lg); font-size: 1.2rem; opacity: 0.8; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+.team-grid .card { text-align: center; }
+.cta { color: var(--cyan); text-decoration: underline; word-break: break-all; }
+.slide-counter { position: fixed; bottom: 10px; left: 14px; z-index: 99; font-size: 11px; opacity: 0.5; }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 10px; }
+.stat-tile {
+  background: var(--deep); border: 2px solid var(--sky); border-radius: 10px; padding: 10px 12px; text-align: center;
+}
+.stat-tile .num { font-family: var(--title); font-size: 1.85rem; font-weight: 700; color: var(--cyan); line-height: 1.1; }
+.stat-tile .lbl { font-size: 0.72rem; margin-top: 4px; line-height: 1.25; }
+.clp-band {
+  display: grid; grid-template-columns: 280px 1fr; gap: 12px; align-items: center;
+  background: rgba(12,73,138,0.75); border: 1px solid var(--lg); border-radius: 10px; padding: 10px 12px;
+}
+.clp-band img { width: 100%; height: auto; max-height: 140px; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid rgba(178,238,250,0.3); }
+.clp-figures { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+.clp-figures span { font-family: var(--title); font-size: 1.35rem; color: var(--cyan); }
+.portafolio-layout { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 12px; flex: 1; min-height: 0; }
+.portafolio-layout .shot {
+  border-radius: 10px; overflow: hidden; border: 1px solid rgba(105,181,250,0.4); background: var(--deep);
+}
+.portafolio-layout .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.portafolio-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-content: start; }
+.datalab-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; flex: 1; min-height: 0; }
+.datalab-shots img { width: 100%; height: 100%; max-height: 220px; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid rgba(178,238,250,0.35); }
+.partners-wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.partners-wrap img { flex: 1; width: 100%; object-fit: contain; object-position: center; background: var(--white); border-radius: 10px; padding: 8px; max-height: 520px; }
+body.shot-mode .lang-toggle, body.shot-mode .nav-hint, body.shot-mode .slide-counter { display: none; }
+body.shot-mode .deck-viewport { position: static; display: block; }
+body.shot-mode .deck-frame { width: var(--stage-w) !important; height: var(--stage-h) !important; }
+body.shot-mode .deck-stage { transform: none !important; }
+</style>
+</head>
+<body>
+<div class="lang-toggle" aria-label="Idioma">
+  <button type="button" id="btnEs" class="active">ES</button>
+  <button type="button" id="btnEn">EN</button>
+</div>
+<div class="deck-viewport">
+<div class="deck-frame" id="deckFrame">
+<div class="deck-stage" id="deckStage">
+<div class="deck" id="deck">
+
+<!-- 1 Portada -->
+<section class="slide active" data-bg="photo" style="--bg-img: url('img/hero-cover.jpg');">
+  <div class="logo-row">
+    <img src="assets/cth-logo.png" alt="CleantechHUB">
+  </div>
+  <div class="glass" style="max-width: 50rem;">
+    <p class="eyebrow lang-es">Uso interno · revisión Gideon Blaauw</p>
+    <p class="eyebrow lang-en">Internal · Gideon Blaauw review</p>
+    <h1 class="lang-es">CleantechHUB × Fundaciones AFE: capital filantrópico para soluciones climáticas en Colombia</h1>
+    <h1 class="lang-en">CleantechHUB × AFE Foundations: philanthropic capital for climate solutions in Colombia</h1>
+    <p class="lead lang-es" style="margin-top:12px;">Una conversación con fundaciones familiares y empresariales que movilizan recursos para el desarrollo sostenible del país.</p>
+    <p class="lead lang-en" style="margin-top:12px;">A conversation with family and corporate foundations mobilizing resources for the country’s sustainable development.</p>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://afecolombia.org/fundaciones-afe/">afecolombia.org/fundaciones-afe</a> · <a href="https://cleantechhub.net/">cleantechhub.net</a></p>
+  <p class="footer-src lang-en">Source: <a href="https://afecolombia.org/fundaciones-afe/">afecolombia.org/fundaciones-afe</a> · <a href="https://cleantechhub.net/">cleantechhub.net</a></p>
+  <p class="photo-credit lang-es">Foto: <a href="https://unsplash.com/photos/wind-turbines-on-grass-field-under-blue-sky-m-dZZDC8Q">Matthew Henry</a> / Unsplash</p>
+  <p class="photo-credit lang-en">Photo: <a href="https://unsplash.com/photos/wind-turbines-on-grass-field-under-blue-sky-m-dZZDC8Q">Matthew Henry</a> / Unsplash</p>
+</section>
+
+<!-- 2 Por qué ahora -->
+<section class="slide" data-bg="photo" style="--bg-img: url('img/hero-rural.jpg');">
+  <div class="title-block"><h2 class="lang-es">Por qué ahora</h2><h2 class="lang-en">Why now</h2></div>
+  <div class="grid-2">
+    <div class="glass">
+      <h3 class="lang-es">Brecha climática y rural</h3>
+      <h3 class="lang-en">Climate and rural gap</h3>
+      <p class="lang-es">Colombia concentra biodiversidad y territorios rurales donde la transición climática exige soluciones escalables, no solo pilotos aislados.</p>
+      <p class="lang-en">Colombia combines biodiversity and rural territories where the climate transition needs scalable solutions, not isolated pilots alone.</p>
+      <p style="margin-top:8px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Cifras nacionales de emisiones, cobertura rural y financiamiento climático</span><span class="lang-en">National figures on emissions, rural coverage, and climate finance</span></p>
+    </div>
+    <div class="glass">
+      <h3 class="lang-es">Filantropía como capital pionero</h3>
+      <h3 class="lang-en">Philanthropy as first-mover capital</h3>
+      <p class="lang-es">Las fundaciones pueden absorber riesgo temprano, co-financiar cohortes temáticas y catalizar capital privado hacia startups climáticas validadas.</p>
+      <p class="lang-en">Foundations can absorb early risk, co-finance thematic cohorts, and catalyze private capital toward vetted climate startups.</p>
+      <p style="margin-top:8px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Comparativo filantropía vs. inversión de impacto (datos)</span><span class="lang-en">Philanthropy vs. impact investment benchmark (data)</span></p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: marco narrativo CTH · cifras <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="footer-src lang-en">Source: CTH narrative frame · figures <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="photo-credit lang-es">Foto: <a href="https://unsplash.com/photos/green-grass-field-during-daytime-8manzosRGPE">Geranimo</a> / Unsplash</p>
+  <p class="photo-credit lang-en">Photo: <a href="https://unsplash.com/photos/green-grass-field-during-daytime-8manzosRGPE">Geranimo</a> / Unsplash</p>
+</section>
+
+<!-- 3 Quiénes somos -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Quiénes somos</h2><h2 class="lang-en">Who we are</h2></div>
+  <div class="glass" style="margin-bottom:10px;">
+    <p class="lang-es"><strong>CleantechHUB</strong> impulsa emprendimiento climático y ecosistemas de innovación cleantech desde 2019, con programas especializados y servicios a la medida para llevar ideas a escala.</p>
+    <p class="lang-en"><strong>CleantechHUB</strong> has driven climate entrepreneurship and cleantech innovation ecosystems since 2019, through specialized programs and tailor-made growth services.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <h3>ClimateLaunchpad Colombia</h3>
+      <p class="lang-es">Organizador nacional del concurso verde; primera edición en Colombia desde 2019.</p>
+      <p class="lang-en">National organizer of the green business competition; first Colombia edition since 2019.</p>
+    </div>
+    <div class="card">
+      <h3>REIN Hubs</h3>
+      <p class="lang-es">Redes de innovación regional que conectan startups, inversores, corporativos y cooperación internacional en LATAM.</p>
+      <p class="lang-en">Regional innovation networks connecting startups, investors, corporates, and international partners across LATAM.</p>
+    </div>
+    <div class="card">
+      <h3>Datalab</h3>
+      <p class="lang-es">Estructura CTH para flujos de datos, conjuntos y tableros orientados a impacto climático.</p>
+      <p class="lang-en">CTH structure for data flows, datasets, and dashboards focused on climate impact.</p>
+      <p style="margin-top:6px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Página pública Datalab</span><span class="lang-en">Public Datalab page</span></p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+  <p class="footer-src lang-en">Source: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+</section>
+
+<!-- 4 Trayectoria -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Trayectoria</h2><h2 class="lang-en">Track record</h2></div>
+  <div class="stat-grid">
+    <div class="stat-tile">
+      <div class="num">8</div>
+      <p class="lbl lang-es">Países de operación CTH</p>
+      <p class="lbl lang-en">Countries where CTH operates</p>
+    </div>
+    <div class="stat-tile">
+      <div class="num lang-es">1.000+</div><div class="num lang-en">1,000+</div>
+      <p class="lbl lang-es">Soluciones climáticas acompañadas</p>
+      <p class="lbl lang-en">Climate solutions supported</p>
+    </div>
+    <div class="stat-tile">
+      <div class="num">US$50M+</div>
+      <p class="lbl lang-es">Capital movilizado (aprox.)</p>
+      <p class="lbl lang-en">Capital leveraged (approx.)</p>
+    </div>
+    <div class="stat-tile">
+      <div class="num">73+</div>
+      <p class="lbl lang-es">Startups REIN Hubs</p>
+      <p class="lbl lang-en">REIN Hubs startups</p>
+    </div>
+    <div class="stat-tile">
+      <div class="num">300+</div>
+      <p class="lbl lang-es">Ideas verdes CLP Colombia</p>
+      <p class="lbl lang-en">CLP Colombia green ideas</p>
+    </div>
+    <div class="stat-tile">
+      <div class="num">40+</div>
+      <p class="lbl lang-es">Startups apoyadas CLP Colombia</p>
+      <p class="lbl lang-en">CLP Colombia startups supported</p>
+    </div>
+  </div>
+  <div class="clp-band">
+    <img src="img/clp-colombia.jpg" alt="ClimateLaunchpad Colombia">
+    <div>
+      <p class="eyebrow">ClimateLaunchpad Colombia</p>
+      <p class="lang-es" style="font-size:0.82rem;">Desde 2019, CTH organiza el concurso verde en Colombia y moviliza ideas tempranas hacia pitches competitivos.</p>
+      <p class="lang-en" style="font-size:0.82rem;">Since 2019, CTH has run Colombia’s green business competition and mobilized early-stage ideas toward competitive pitches.</p>
+      <div class="clp-figures">
+        <span>300+ <small class="lang-es">ideas</small><small class="lang-en">ideas</small></span>
+        <span>40+ <small class="lang-es">startups</small><small class="lang-en">startups</small></span>
+      </div>
+      <p style="margin-top:6px;font-size:0.78rem;" class="lang-es">Regional Finals Colombia: 3–4 sep 2026 · postulación hasta 30 may 2026</p>
+      <p style="margin-top:6px;font-size:0.78rem;" class="lang-en">Colombia Regional Finals: 3–4 Sep 2026 · apply by 30 May 2026</p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://cleantechhub.net/">cleantechhub.net</a> · <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+  <p class="footer-src lang-en">Source: <a href="https://cleantechhub.net/">cleantechhub.net</a> · <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+</section>
+
+<!-- 5 Aliados -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Aliados y partners</h2><h2 class="lang-en">Partners and allies</h2></div>
+  <div class="partners-wrap">
+    <img src="img/cth-partners-section.jpg" alt="Partners cleantechhub.net">
+  </div>
+  <p class="footer-src lang-es">Fuente: captura <a href="https://cleantechhub.net/">cleantechhub.net</a> (sección partners / aliados)</p>
+  <p class="footer-src lang-en">Source: screenshot <a href="https://cleantechhub.net/">cleantechhub.net</a> (partners / allies section)</p>
+</section>
+
+<!-- 6 Portafolio -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Portafolio (muestra)</h2><h2 class="lang-en">Portfolio (sample)</h2></div>
+  <div class="portafolio-layout">
+    <div class="shot"><img src="img/nexus-portfolio.jpg" alt="Nexus startup portfolio"></div>
+    <div class="portafolio-cards">
+      <article class="nexus-card">
+        <span class="tag lang-es">Transporte sostenible</span><span class="tag lang-en">Sustainable transportation</span>
+        <h3>Teclogi</h3>
+        <p class="lang-es">Alumni CTH. Soluciones digitales para carga, bodega e inventario con trazabilidad en tiempo real (transporte sostenible).</p>
+        <p class="lang-en">CTH alumnus. Digital solutions for freight, warehousing, and inventory with real-time tracking (sustainable transportation).</p>
+        <p style="margin-top:4px;font-size:0.75rem;"><span class="chip" style="margin-left:0;">PENDIENTE</span> <span class="lang-es">Serie A · términos y cifras</span><span class="lang-en">Series A · terms and figures</span></p>
+      </article>
+      <article class="nexus-card">
+        <span class="tag lang-es">Energy</span><span class="tag lang-en">Energy</span>
+        <h3>Novatio</h3>
+        <p class="lang-es">Empresa social que diseña y construye biodigestores para familias rurales, convirtiendo residuos orgánicos en biogás y biofertilizante.</p>
+        <p class="lang-en">Social enterprise designing and building biodigesters for rural farming families, converting organic waste into biogas energy and biofertilizer.</p>
+      </article>
+      <article class="nexus-card">
+        <span class="tag lang-es">Energy</span><span class="tag lang-en">Energy</span>
+        <h3>Istmo Verde</h3>
+        <p class="lang-es">Desarrolla proyectos de compensación de carbono en el sector forestal, habilitando empresas a compensar huella mediante reforestación y conservación verificada.</p>
+        <p class="lang-en">Develops forest-sector carbon compensation projects, enabling businesses to offset footprints through verified reforestation and conservation.</p>
+      </article>
+      <article class="nexus-card">
+        <span class="tag lang-es">Bioeconomy</span><span class="tag lang-en">Bioeconomy</span>
+        <h3>BNS</h3>
+        <p class="lang-es">Convierte residuos orgánicos agroindustriales en productos de protección agrícola libres de químicos, cerrando el ciclo productivo.</p>
+        <p class="lang-en">Converts agro-industrial organic waste into chemical-free agricultural protection products, closing the productive cycle.</p>
+      </article>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente Teclogi: <a href="https://cleantechhub.net/academy/">cleantechhub.net/academy</a> · Nexus: <a href="https://nexus.cleantechhub.net/p/startup-portfolio">nexus.cleantechhub.net</a> · otras tarjetas <span class="chip" style="margin-left:0;">PENDIENTE</span> detalle financiero</p>
+  <p class="footer-src lang-en">Teclogi source: <a href="https://cleantechhub.net/academy/">cleantechhub.net/academy</a> · Nexus: <a href="https://nexus.cleantechhub.net/p/startup-portfolio">nexus.cleantechhub.net</a> · other cards <span class="chip" style="margin-left:0;">PENDIENTE</span> financial detail</p>
+</section>
+
+<!-- 7 Lo que escuchamos -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Lo que escuchamos</h2><h2 class="lang-en">What we hear</h2></div>
+  <div class="grid-3">
+    <div class="card">
+      <h3 class="lang-es">Proyectos validados</h3><h3 class="lang-en">Vetted projects</h3>
+      <p class="lang-es">Dificultad para encontrar pipelines climáticos con due diligence técnica y alineación territorial.</p>
+      <p class="lang-en">Difficulty finding climate pipelines with technical due diligence and territorial alignment.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang-es">Medir impacto</h3><h3 class="lang-en">Measure impact</h3>
+      <p class="lang-es">Presión por indicadores comparables, frecuencia clara y evidencia para juntas y aliados.</p>
+      <p class="lang-en">Pressure for comparable indicators, clear frequency, and evidence for boards and partners.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang-es">Apalancar capital</h3><h3 class="lang-en">Leverage capital</h3>
+      <p class="lang-es">Interés en roles catalíticos que movilicen co-inversión privada sin sustituir al mercado.</p>
+      <p class="lang-en">Interest in catalytic roles that mobilize private co-investment without replacing the market.</p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: conversaciones CTH · marco AFE <a href="https://afecolombia.org/fundaciones-afe/">afecolombia.org</a></p>
+  <p class="footer-src lang-en">Source: CTH conversations · AFE frame <a href="https://afecolombia.org/fundaciones-afe/">afecolombia.org</a></p>
+</section>
+
+<!-- 8 Área 1 -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Área 1 · Co-financiar cohortes o tracks</h2><h2 class="lang-en">Area 1 · Co-finance cohorts or tracks</h2></div>
+  <div class="grid-2">
+    <div>
+      <p class="lang-es"><strong>Tracks temáticos</strong> en ClimateLaunchpad / REIN: rural, biodiversidad, economía circular.</p>
+      <p class="lang-en"><strong>Thematic tracks</strong> in ClimateLaunchpad / REIN: rural, biodiversity, circular economy.</p>
+      <p style="margin-top:8px;" class="lang-es"><strong>La fundación obtiene:</strong> visibilidad, acceso a startups filtradas, sesiones con mentores CTH y narrativa de impacto.</p>
+      <p style="margin-top:8px;" class="lang-en"><strong>The foundation gets:</strong> visibility, access to filtered startups, CTH mentor sessions, and impact narrative.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang-es">Formato muestra (3 touchpoints)</h3>
+      <h3 class="lang-en">Sample format (3 touchpoints)</h3>
+      <ol style="padding-left:1.2em;font-size:0.9rem;">
+        <li class="lang-es">Pre virtual · alineación de reto</li><li class="lang-en">Pre virtual · challenge alignment</li>
+        <li class="lang-es">Evento presencial · <strong>8 startups</strong> + <strong>1 reto</strong></li><li class="lang-en">In-person event · <strong>8 startups</strong> + <strong>1 challenge</strong></li>
+        <li class="lang-es">Post virtual · retroalimentación y siguientes pasos</li><li class="lang-en">Post virtual · feedback and next steps</li>
+      </ol>
+      <p style="margin-top:6px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Calendario, costos y criterios de selección</span><span class="lang-en">Calendar, costs, selection criteria</span></p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+  <p class="footer-src lang-en">Source: <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org/countries/colombia</a> · <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">cleantechhub.net/rein-hubs</a></p>
+</section>
+
+<!-- 9 Área 2 -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Área 2 · Blended finance y deal flow</h2><h2 class="lang-en">Area 2 · Blended finance and deal flow</h2></div>
+  <div class="glass">
+    <p class="lang-es">Pipeline de startups del portafolio CTH / REIN, con fundaciones como capital <strong>catalítico</strong> o <strong>co-inversión</strong> junto a ángels y fondos.</p>
+    <p class="lang-en">Pipeline from the CTH / REIN portfolio, with foundations as <strong>catalytic</strong> or <strong>co-investment</strong> capital alongside angels and funds.</p>
+    <ul class="check" style="margin-top:10px;">
+      <li class="lang-es">Curaduría CTH + datos operativos (cuando existan)</li>
+      <li class="lang-en">CTH curation + operational data (when available)</li>
+      <li class="lang-es">Sesiones de deal flow para family offices y comités de inversión social</li>
+      <li class="lang-en">Deal-flow sessions for family offices and social investment committees</li>
+    </ul>
+    <p style="margin-top:10px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Tickets, instrumentos y términos legales</span><span class="lang-en">Ticket sizes, instruments, and legal terms</span></p>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · términos <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="footer-src lang-en">Source: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · terms <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+</section>
+
+<!-- 10 Datalab -->
+<section class="slide" data-bg="photo" style="--bg-img: url('img/hero-data.jpg');">
+  <div class="title-block"><h2 class="lang-es">Área 3 · Datalab de medición de impacto</h2><h2 class="lang-en">Area 3 · Datalab impact measurement</h2></div>
+  <div class="flow-row">
+    <div class="glass flow-step">
+      <div class="num">1</div>
+      <h3 class="lang-es">Brecha</h3><h3 class="lang-en">Gap</h3>
+      <p class="lang-es" style="font-size:0.82rem;">Poca trazabilidad entre inversión filantrópica e indicadores climáticos comparables.</p>
+      <p class="lang-en" style="font-size:0.82rem;">Limited traceability between philanthropic investment and comparable climate indicators.</p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="glass flow-step">
+      <div class="num">2</div>
+      <h3 class="lang-es">Indicadores</h3><h3 class="lang-en">Indicators</h3>
+      <p class="lang-es" style="font-size:0.82rem;">Métricas, unidades, frecuencia <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+      <p class="lang-en" style="font-size:0.82rem;">Metrics, units, frequency <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="glass flow-step">
+      <div class="num">3</div>
+      <h3 class="lang-es">Flujo de datos</h3><h3 class="lang-en">Data flow</h3>
+      <p class="lang-es" style="font-size:0.82rem;">Campo → dataset → tablero / informe</p>
+      <p class="lang-en" style="font-size:0.82rem;">Field → dataset → dashboard / report</p>
+    </div>
+    <span class="flow-arrow">→</span>
+    <div class="glass flow-step">
+      <div class="num">4</div>
+      <h3 class="lang-es">Entregable</h3><h3 class="lang-en">Deliverable</h3>
+      <p class="lang-es" style="font-size:0.82rem;">Reporte para junta + evidencia para aliados <span class="chip" style="margin-left:0;">PENDIENTE</span> plantilla</p>
+      <p class="lang-en" style="font-size:0.82rem;">Board report + partner evidence <span class="chip" style="margin-left:0;">PENDIENTE</span> template</p>
+    </div>
+  </div>
+  <div class="datalab-shots">
+    <img src="img/datalab-live.jpg" alt="Datalab dashboard (APC capture)">
+    <img src="img/datalab-site.jpg" alt="datalab.cleantechhub.net">
+  </div>
+  <p class="footer-src lang-es">Fuente: metodología CTH · <a href="https://datalab.cleantechhub.net">datalab.cleantechhub.net</a> · indicadores <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="footer-src lang-en">Source: CTH methodology · <a href="https://datalab.cleantechhub.net">datalab.cleantechhub.net</a> · indicators <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="photo-credit lang-es">Foto fondo: <a href="https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-PypjzKP2XXM">Luke Chesser</a> / Unsplash</p>
+  <p class="photo-credit lang-en">Background photo: <a href="https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-PypjzKP2XXM">Luke Chesser</a> / Unsplash</p>
+</section>
+
+<!-- 11 Referencia AuRA -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Referencia · AuRA Pago por Resultados</h2><h2 class="lang-en">Reference · AuRA results-based payment</h2></div>
+  <div class="glass">
+    <p class="lang-es">Programa que <strong>CleantechHUB está estructurando</strong> con <strong>Fundación Bolívar Davivienda</strong> (marco AuRA, pago por resultados).</p>
+    <p class="lang-en">Programme <strong>CTH is structuring</strong> with <strong>Fundación Bolívar Davivienda</strong> (AuRA results-based payment frame).</p>
+    <p style="margin-top:10px;" class="lang-es">El acuerdo <strong>no está firmado</strong>; no se reportan resultados ni cifras hasta contar con fuente pública.</p>
+    <p style="margin-top:10px;" class="lang-en">The agreement is <strong>not signed</strong>; no results or figures are claimed without a public source.</p>
+    <p style="margin-top:10px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Alcance, indicadores, montos y calendario</span><span class="lang-en">Scope, indicators, amounts, and timeline</span></p>
+  </div>
+  <p class="footer-src lang-es">Fuente: estructuración interna CTH · términos <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+  <p class="footer-src lang-en">Source: internal CTH structuring · terms <span class="chip" style="margin-left:0;">PENDIENTE</span></p>
+</section>
+
+<!-- 12 Cómo empezamos -->
+<section class="slide plain">
+  <div class="title-block"><h2 class="lang-es">Cómo empezamos</h2><h2 class="lang-en">How we start</h2></div>
+  <div class="grid-3">
+    <div class="card">
+      <h3 class="lang-es">1 · Patrocinar un track</h3><h3 class="lang-en">1 · Sponsor a track</h3>
+      <p class="lang-es">Co-financiar cohorte temática ClimateLaunchpad / REIN.</p>
+      <p class="lang-en">Co-finance a thematic ClimateLaunchpad / REIN cohort.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang-es">2 · Sesión deal flow</h3><h3 class="lang-en">2 · Deal-flow session</h3>
+      <p class="lang-es">Conoce startups curadas y opciones de blended finance.</p>
+      <p class="lang-en">Meet curated startups and blended finance options.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang-es">3 · Piloto Datalab</h3><h3 class="lang-en">3 · Datalab pilot</h3>
+      <p class="lang-es">Indicadores, flujo de datos e informe piloto.</p>
+      <p class="lang-en">Indicators, data flow, and pilot report.</p>
+      <p style="margin-top:6px;"><span class="chip">PENDIENTE</span> <span class="lang-es">Alcance piloto</span><span class="lang-en">Pilot scope</span></p>
+    </div>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://cleantechhub.net/">cleantechhub.net</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org</a></p>
+  <p class="footer-src lang-en">Source: <a href="https://cleantechhub.net/">cleantechhub.net</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org</a></p>
+</section>
+
+<!-- 13 Equipo + CTA -->
+<section class="slide" data-bg="photo" style="--bg-img: url('img/hero-energy.jpg');">
+  <div class="title-block"><h2 class="lang-es">Equipo</h2><h2 class="lang-en">Team</h2></div>
+  <div class="team-grid">
+    <div class="card">
+      <h3>Angélica Díaz</h3>
+      <p class="lang-es">CleantechHUB <span class="chip" style="margin-left:0;">PENDIENTE</span> rol público detallado</p>
+      <p class="lang-en">CleantechHUB <span class="chip" style="margin-left:0;">PENDIENTE</span> detailed public role</p>
+    </div>
+    <div class="card">
+      <h3>Jennifer Gonzalez</h3>
+      <p class="lang-es">Growth Lead · CleantechHUB</p>
+      <p class="lang-en">Growth Lead · CleantechHUB</p>
+    </div>
+    <div class="card">
+      <h3>Gideon Blaauw</h3>
+      <p class="lang-es">Regional Lead · CleantechHUB</p>
+      <p class="lang-en">Regional Lead · CleantechHUB</p>
+    </div>
+  </div>
+  <div class="glass" style="margin-top:12px; text-align:center;">
+    <p class="eyebrow">Inspire. Act. Transform.</p>
+    <p class="lang-es">Agenda una conversación:</p>
+    <p class="lang-en">Book a conversation:</p>
+    <p><a class="cta" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">https://calendar.app.google/kzEv6jKdT4RxVeVu6</a></p>
+  </div>
+  <p class="footer-src lang-es">Fuente: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org</a> (equipo Colombia)</p>
+  <p class="footer-src lang-en">Source: <a href="https://cleantechhub.net/about/">cleantechhub.net/about</a> · <a href="https://climatelaunchpad.org/countries/colombia/">climatelaunchpad.org</a> (Colombia team)</p>
+  <p class="photo-credit lang-es">Foto: <a href="https://unsplash.com/photos/solar-panel-on-grass-field-during-daytime-1K9T5YiZ2WU">American Public Power Association</a> / Unsplash</p>
+  <p class="photo-credit lang-en">Photo: <a href="https://unsplash.com/photos/solar-panel-on-grass-field-during-daytime-1K9T5YiZ2WU">American Public Power Association</a> / Unsplash</p>
+</section>
+
+</div></div></div></div>
+<p class="slide-counter" id="slideCounter">1 / 13</p>
+<p class="nav-hint lang-es">← → flechas · clic izquierda/derecha</p>
+<p class="nav-hint lang-en">← → arrows · click left/right</p>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var idx = 0;
+  var params = new URLSearchParams(location.search);
+  var shotMode = params.has('shot');
+  if (shotMode) document.body.classList.add('shot-mode');
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.getElementById('btnEs').classList.toggle('active', lang === 'es');
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    try { localStorage.setItem('afe-deck-lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('afe-deck-lang'); } catch (e) {}
+  setLang(saved === 'en' ? 'en' : 'es');
+  document.getElementById('btnEs').addEventListener('click', function () { setLang('es'); });
+  document.getElementById('btnEn').addEventListener('click', function () { setLang('en'); });
+
+  function show(i) {
+    idx = (i + slides.length) % slides.length;
+    slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+    var c = document.getElementById('slideCounter');
+    if (c) c.textContent = (idx + 1) + ' / ' + slides.length;
+  }
+  function scale() {
+    if (shotMode) return;
+    var frame = document.getElementById('deckFrame');
+    var stage = document.getElementById('deckStage');
+    var w = 1280, h = 720;
+    var s = Math.min(window.innerWidth / w, window.innerHeight / h);
+    frame.style.width = (w * s) + 'px';
+    frame.style.height = (h * s) + 'px';
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  document.addEventListener('keydown', function (e) {
+    if (shotMode) return;
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(idx + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+  });
+  document.getElementById('deckFrame').addEventListener('click', function (e) {
+    if (shotMode) return;
+    if (e.clientX > window.innerWidth / 2) show(idx + 1); else show(idx - 1);
+  });
+  window.addEventListener('resize', scale);
+  var start = shotMode ? parseInt(params.get('shot'), 10) : 0;
+  if (isNaN(start)) start = 0;
+  show(start);
+  scale();
+})();
+</script>
+</body>
+</html>

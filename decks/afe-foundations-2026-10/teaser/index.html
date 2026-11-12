@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<!-- Hero photo: Kindel Media / Pexels (EV charging). Model: fauxels / Pexels 3184292. Cooperation: RDNE / Pexels 7688336. Numbers: Pixabay via Pexels 414535. Call: Pixabay via Pexels 356036. -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleantechHUB — De piloto a infraestructura nacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0C498A;
+  --cyan: #B2EEFA;
+  --lg: #9DC384;
+  --fg: #669348;
+  --sky: #69B5FA;
+  --white: #ffffff;
+  --ink: #083562;
+  --title: 'Titillium Web', 'Open Sans', sans-serif;
+  --body: 'Open Sans', sans-serif;
+  --panel-min: 100vh;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--body);
+  background: #051a33;
+  color: var(--white);
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+.lang-en { display: none !important; }
+html[lang="en"] .lang-es { display: none !important; }
+html[lang="en"] .lang-en { display: block !important; }
+html[lang="en"] span.lang-en,
+html[lang="en"] .pillar .lang-en,
+html[lang="en"] button .lang-en { display: inline !important; }
+html[lang="en"] a.btn.lang-en { display: inline-block !important; }
+
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 150;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px clamp(1rem, 4vw, 2.5rem);
+  pointer-events: none;
+}
+.site-header a.brand {
+  pointer-events: auto; display: flex; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--white);
+}
+.site-header img.logo-mark {
+  width: 44px; height: 44px; object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+}
+.site-header .brand-text {
+  font-family: var(--title); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.14em;
+}
+
+.lang-toggle {
+  pointer-events: auto;
+  display: flex; gap: 4px;
+  background: rgba(12,73,138,0.92); border: 1px solid rgba(178,238,250,0.35);
+  border-radius: 10px; padding: 4px;
+  backdrop-filter: blur(10px);
+}
+.lang-toggle button {
+  font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+  border: none; background: transparent; color: var(--cyan); padding: 8px 12px; border-radius: 8px; cursor: pointer;
+}
+.lang-toggle button.active { background: var(--cyan); color: var(--deep); }
+
+.panel {
+  position: relative; min-height: var(--panel-min);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(4.5rem, 10vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  overflow: hidden;
+}
+.panel::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.panel::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(165deg, rgba(5,26,51,0.55) 0%, rgba(5,26,51,0.78) 50%, rgba(5,26,51,0.92) 100%);
+}
+.panel.dark::before { display: block; }
+.panel.dark::after { display: block; }
+.panel.light::before, .panel.light::after { display: none; }
+.panel.light {
+  background: var(--white); color: var(--ink);
+}
+.panel.light h2 { color: var(--ink); }
+.panel.light .eyebrow { color: var(--fg); }
+.panel.close-band::before, .panel.close-band::after { display: none; }
+.panel.close-band {
+  background: linear-gradient(160deg, var(--sky) 0%, var(--deep) 100%);
+  color: var(--white); text-align: center;
+}
+.panel[data-bg="hero"]::before { background-image: url('img/hero-ev.jpg'); }
+.panel[data-bg="model"]::before { background-image: url('img/model-bg.jpg'); }
+.panel[data-bg="coop"]::before { background-image: url('img/coop-bg.jpg'); }
+.panel[data-bg="numbers"]::before { background-image: url('img/numbers-bg.jpg'); }
+.panel[data-bg="call"]::before { background-image: url('img/call-bg.jpg'); }
+
+.panel > .inner { position: relative; z-index: 2; max-width: 72rem; margin: 0 auto; width: 100%; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.eyebrow {
+  font-family: var(--title); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem;
+}
+.panel.light .eyebrow { color: var(--fg); }
+
+h1 {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(2.2rem, 5.5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+h2 {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.65rem); line-height: 1.12;
+  margin-bottom: 1rem;
+}
+.panel.dark h2 { color: var(--cyan); }
+.lead { font-size: clamp(1.05rem, 2vw, 1.35rem); max-width: 42rem; opacity: 0.95; }
+.sub { font-size: clamp(1rem, 1.8vw, 1.2rem); max-width: 44rem; margin-top: 0.75rem; opacity: 0.92; }
+
+.accent-bar {
+  width: 4rem; height: 5px; background: var(--fg); border-radius: 3px; margin: 1rem 0 1.5rem;
+}
+.panel.light .accent-bar { background: var(--fg); }
+
+.glass {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px; padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+}
+
+.proof-strip {
+  margin-top: 2rem; display: inline-block;
+  font-family: var(--title); font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 600;
+  letter-spacing: 0.04em; color: var(--cyan);
+  padding: 0.65rem 1.25rem; border-radius: 999px;
+  background: rgba(12,73,138,0.65); border: 1px solid rgba(178,238,250,0.35);
+}
+
+.pillar-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .pillar-grid { grid-template-columns: 1fr; } }
+.pillar {
+  border-left: 5px solid var(--cyan);
+  padding: 1.1rem 1.25rem;
+  background: rgba(255,255,255,0.09); border-radius: 0 12px 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.12); border-right: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.98rem; line-height: 1.45;
+}
+
+.tile-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .tile-grid { grid-template-columns: 1fr; } }
+
+.tile {
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12);
+  border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column; min-height: 100%;
+  box-shadow: 0 8px 28px rgba(8,53,98,0.08);
+}
+.tile img {
+  width: 100%; height: 160px; object-fit: cover; object-position: top;
+  border-bottom: 1px solid rgba(12,73,138,0.1);
+}
+.tile .tile-body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; border-left: 5px solid var(--fg); margin-left: 0; }
+.tile h3 {
+  font-family: var(--title); font-size: 1rem; color: var(--deep); margin-bottom: 0.5rem;
+}
+.tile p { font-size: 0.92rem; line-height: 1.45; color: var(--ink); }
+
+.uni-row {
+  margin-top: 0.75rem; font-size: 0.72rem; line-height: 1.5; opacity: 0.85;
+  color: var(--ink); letter-spacing: 0.01em;
+}
+
+#map-panel {
+  position: relative; min-height: 70vh; padding: 0; display: block;
+  background: #051a33; color: var(--white);
+}
+#map-panel .map-head {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 500;
+  padding: clamp(4.5rem, 9vw, 6rem) clamp(1.25rem, 4vw, 3rem) 1rem;
+  pointer-events: none;
+}
+#map-panel .map-head .inner { max-width: 72rem; margin: 0 auto; pointer-events: auto; }
+#map-panel .map-layout {
+  display: grid; grid-template-columns: 1fr min(380px, 36vw);
+  min-height: 70vh; position: relative;
+}
+@media (max-width: 960px) { #map-panel .map-layout { grid-template-columns: 1fr; } }
+#mapCanvas { width: 100%; min-height: 70vh; z-index: 1; }
+.map-sidebar {
+  background: rgba(5,26,51,0.92); border-left: 1px solid rgba(178,238,250,0.2);
+  padding: clamp(5rem, 10vw, 6.5rem) 1.25rem 1.5rem; overflow-y: auto;
+  max-height: none; z-index: 2;
+}
+@media (max-width: 960px) {
+  .map-sidebar { border-left: none; border-top: 1px solid rgba(178,238,250,0.2); max-height: 480px; }
+}
+.map-controls { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
+.map-chip {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(178,238,250,0.35); background: rgba(255,255,255,0.06); color: var(--cyan);
+}
+.map-chip.active { background: var(--cyan); color: var(--deep); border-color: var(--cyan); }
+.map-slider-row { margin: 0.85rem 0; font-size: 0.82rem; }
+.map-slider-row input[type=range] { width: 100%; accent-color: var(--lg); }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0; }
+.chart-box {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 0.65rem; min-height: 140px;
+}
+.chart-box h4 { font-family: var(--title); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.5rem; }
+.chart-box canvas { max-height: 110px; }
+.startup-table-wrap { overflow-x: auto; margin-top: 0.75rem; max-height: 220px; }
+.startup-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.startup-table th, .startup-table td { padding: 6px 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.startup-table th { cursor: pointer; color: var(--cyan); font-weight: 700; }
+.startup-table tr:hover td { background: rgba(255,255,255,0.05); }
+.map-detail {
+  margin-top: 1rem; padding: 1rem; border-radius: 12px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(178,238,250,0.25);
+  display: none;
+}
+.map-detail.open { display: block; }
+.map-detail h3 { font-family: var(--title); font-size: 1.05rem; color: var(--cyan); margin-bottom: 0.35rem; }
+.map-detail .meta { font-size: 0.78rem; opacity: 0.85; margin-bottom: 0.5rem; }
+.map-detail a { color: var(--lg); }
+.map-unmapped { font-size: 0.82rem; opacity: 0.85; margin-top: 0.5rem; }
+.map-layer-toggle {
+  position: absolute; bottom: 1rem; left: 1rem; z-index: 600;
+  display: flex; gap: 0.35rem;
+}
+.map-layer-toggle button {
+  font-size: 0.72rem; font-weight: 700; padding: 8px 12px; border-radius: 8px;
+  border: 1px solid rgba(178,238,250,0.4); background: rgba(12,73,138,0.9); color: var(--cyan); cursor: pointer;
+}
+.map-layer-toggle button.active { background: var(--cyan); color: var(--deep); }
+.panel.light .pillar-grid.light-pillars { margin-top: 1.5rem; }
+.panel.light .pillar-card {
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12); border-left: 5px solid var(--fg);
+  border-radius: 0 12px 12px 0; padding: 1.25rem 1.35rem; font-size: 0.98rem; line-height: 1.45; color: var(--ink);
+}
+.panel.light.numbers-light .stat-grid { margin-top: 1.5rem; }
+.panel.light.numbers-light .stat-tile {
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12); color: var(--ink);
+}
+.panel.light.numbers-light .stat-tile .num { color: var(--deep); }
+body[data-preview="map"] #map-panel,
+body[data-preview="map-open"] #map-panel { display: block; min-height: 900px; }
+body[data-preview="map"] .panel:not(#map-panel),
+body[data-preview="map-open"] .panel:not(#map-panel) { display: none !important; }
+body[data-preview="map-open"] #mapDetail { display: block !important; }
+body[data-preview="map"] .site-header .lang-toggle,
+body[data-preview="map-open"] .site-header .lang-toggle { display: none; }
+
+.coop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.25rem);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .coop-grid { grid-template-columns: 1fr; } }
+
+.coop-card {
+  text-align: left; cursor: pointer;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px); border-radius: 14px; padding: 1.25rem 1.35rem;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.coop-card:hover, .coop-card:focus-visible { border-color: var(--cyan); transform: translateY(-2px); outline: none; }
+.coop-card .org { font-family: var(--title); font-weight: 700; color: var(--cyan); font-size: 0.95rem; margin-bottom: 0.5rem; }
+.coop-card .teaser-line { font-size: 0.95rem; line-height: 1.4; }
+.coop-card .more { font-size: 0.8rem; opacity: 0.75; margin-top: 0.65rem; }
+.coop-card[aria-expanded="true"] { background: rgba(255,255,255,0.16); border-color: var(--cyan); }
+.coop-detail {
+  max-height: 0; overflow: hidden; opacity: 0;
+  transition: max-height 0.45s ease, opacity 0.35s ease, margin 0.35s ease;
+  font-size: 0.9rem; line-height: 1.45;
+}
+.coop-card[aria-expanded="true"] .coop-detail {
+  max-height: 12rem; opacity: 1; margin-top: 0.85rem;
+}
+.coop-close {
+  display: none; margin-top: 0.75rem;
+  font-family: var(--body); font-size: 0.78rem; font-weight: 700;
+  background: transparent; border: 1px solid rgba(178,238,250,0.45); color: var(--cyan);
+  border-radius: 8px; padding: 6px 10px; cursor: pointer;
+}
+.coop-card[aria-expanded="true"] .coop-close { display: inline-block; }
+
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+}
+@media (max-width: 800px) { .team-grid { grid-template-columns: 1fr; } }
+.team-card {
+  text-align: center; padding: clamp(1rem, 2vw, 1.5rem);
+  background: #f4f8fc; border: 1px solid rgba(12,73,138,0.12); border-radius: 14px;
+}
+.team-card img {
+  width: 100%; max-height: 220px; object-fit: cover; border-radius: 10px;
+  margin-bottom: 1rem; border: 2px solid var(--sky);
+}
+.team-card .name { font-family: var(--title); font-size: 1.15rem; color: var(--deep); margin-bottom: 0.35rem; }
+.team-card .role { font-size: 0.95rem; color: var(--ink); opacity: 0.9; }
+
+.stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  margin-top: 2rem;
+}
+@media (max-width: 1000px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .stat-grid { grid-template-columns: 1fr; } }
+.stat-tile {
+  border-radius: 12px; padding: clamp(1.25rem, 2.5vw, 2rem);
+  text-align: center; min-height: 140px; display: flex; flex-direction: column; justify-content: center;
+}
+.stat-tile:nth-child(1) { background: var(--deep); }
+.stat-tile:nth-child(2) { background: var(--fg); }
+.stat-tile:nth-child(3) { background: var(--sky); color: var(--ink); }
+.stat-tile:nth-child(4) { background: var(--lg); color: var(--ink); }
+.stat-tile .num {
+  font-family: var(--title); font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1; margin-bottom: 0.5rem;
+}
+.stat-tile .label { font-size: clamp(0.78rem, 1.4vw, 0.92rem); line-height: 1.35; font-weight: 600; }
+
+.btn {
+  display: inline-block; margin-top: 2rem;
+  font-family: var(--title); font-weight: 700; font-size: 1rem;
+  padding: 0.9rem 1.75rem; border-radius: 10px;
+  background: var(--lg); color: var(--ink); text-decoration: none;
+  border: 2px solid var(--lg);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:hover { background: transparent; color: var(--lg); transform: translateY(-2px); }
+
+.close-panel img.globe {
+  width: clamp(100px, 16vw, 160px); height: auto; margin-bottom: 1.5rem;
+  filter: brightness(0) invert(1) drop-shadow(0 8px 24px rgba(0,0,0,0.25));
+}
+.close-panel .tagline {
+  font-family: var(--title); font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.close-panel a.site {
+  font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: 0.02em;
+  border-bottom: 2px solid rgba(255,255,255,0.6);
+}
+.close-panel a.site:hover { opacity: 0.85; }
+
+body[data-preview] .site-header .lang-toggle { display: none; }
+body[data-preview] { overflow: hidden; }
+body[data-preview] .panel { display: none; min-height: 900px; padding: 4.5rem 5rem; }
+body[data-preview="1"] .panel[data-panel="1"],
+body[data-preview="2"] .panel[data-panel="2"],
+body[data-preview="3"] .panel[data-panel="3"],
+body[data-preview="4"] .panel[data-panel="4"],
+body[data-preview="5"] .panel[data-panel="5"],
+body[data-preview="6"] .panel[data-panel="6"],
+body[data-preview="7"] .panel[data-panel="7"],
+body[data-preview="8"] .panel[data-panel="8"] { display: flex; }
+body[data-preview="coop-open"] .panel[data-panel="4"] { display: flex; }
+body[data-preview] .reveal { opacity: 1; transform: none; }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] { background: rgba(255,255,255,0.16); border-color: var(--cyan); }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] .coop-detail { max-height: 12rem; opacity: 1; margin-top: 0.85rem; }
+body[data-preview="coop-open"] .coop-card[data-coop="giz"] .coop-close { display: inline-block; }
+
+/* CLP26 flat bands — overrides dark photo sections */
+body { background: var(--white); color: var(--ink); }
+.panel::before, .panel::after, .panel[data-bg]::before { display: none !important; }
+.panel.dark::before, .panel.dark::after { display: none !important; }
+.band-navy {
+  background: var(--deep); color: var(--white); min-height: var(--panel-min);
+  position: relative; overflow: hidden;
+}
+.band-navy h1, .band-navy h2, .band-navy .lead { color: var(--white); }
+.band-navy .eyebrow { color: var(--cyan); }
+.band-cyan { background: var(--cyan); color: var(--ink); }
+.band-cyan h2, .band-cyan .sub { color: var(--deep); }
+.band-cyan .eyebrow { color: var(--fg); }
+.band-white, .panel.light { background: var(--white); color: var(--ink); }
+.hero-deco::before {
+  content: ''; position: absolute; width: 42vmin; height: 42vmin; right: 8%; top: 18%;
+  background: var(--sky); opacity: 0.85; transform: rotate(12deg); border-radius: 8px; z-index: 0;
+}
+.hero-deco::after {
+  content: ''; position: absolute; width: 28vmin; height: 18vmin; right: 22%; bottom: 12%;
+  background: var(--fg); opacity: 0.9; transform: skewY(-6deg); z-index: 0;
+}
+.band-navy > .inner { position: relative; z-index: 2; }
+.site-header { background: rgba(255,255,255,0.96); border-bottom: 3px solid var(--deep); pointer-events: auto; }
+.site-header a.brand { color: var(--deep); }
+.site-header img.logo-mark { filter: none; }
+.site-header .brand-text { color: var(--deep); }
+.lang-toggle { background: var(--white); border: 2px solid var(--deep); border-radius: 999px; }
+.lang-toggle button { border-radius: 999px; color: var(--deep); }
+.lang-toggle button.active { background: var(--deep); color: var(--white); }
+.clp-card {
+  background: var(--white); color: var(--deep); border-radius: 16px;
+  border: 1px solid rgba(12,73,138,0.12); border-left: 6px solid var(--fg);
+  padding: 1.1rem 1.25rem; box-shadow: 0 8px 28px rgba(8,53,98,0.08);
+}
+.clp-card .num { font-family: var(--title); font-weight: 700; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1; color: var(--deep); }
+.clp-card .label { font-size: 0.82rem; color: var(--ink); line-height: 1.35; margin-top: 0.35rem; }
+.hero-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; max-width: 52rem; }
+@media (max-width: 760px) { .hero-stat-row { grid-template-columns: 1fr; } }
+.btn, .btn-pill {
+  display: inline-block; margin-top: 1.5rem; font-family: var(--title); font-weight: 700; font-size: 0.95rem;
+  padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; cursor: pointer;
+  border: 2px solid transparent; transition: background 0.2s, color 0.2s;
+}
+.btn, .btn-pill.sage { background: var(--lg); color: var(--ink); border-color: var(--lg); }
+.btn:hover, .btn-pill.sage:hover { background: transparent; color: var(--fg); }
+.btn-pill.outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.85); }
+.band-cyan .btn-pill.outline { color: var(--deep); border-color: var(--deep); }
+.tile, .team-card, .coop-card, .pillar-card { border-radius: 16px; border-left: 6px solid var(--fg); background: var(--white); color: var(--ink); box-shadow: 0 8px 28px rgba(8,53,98,0.08); }
+.coop-card { backdrop-filter: none; border: 1px solid rgba(12,73,138,0.12); border-left: 6px solid var(--fg); }
+.coop-card .org { color: var(--deep); }
+.coop-card:hover { border-color: var(--sky); transform: translateY(-2px); }
+.coop-card[aria-expanded="true"] { background: #f4f8fc; border-color: var(--deep); }
+.coop-close { border-radius: 999px; color: var(--deep); border-color: var(--deep); }
+.panel.close-band { background: var(--deep); }
+.stat-tile { background: var(--white) !important; color: var(--ink) !important; border-left: 6px solid var(--fg); border-radius: 16px; border: 1px solid rgba(12,73,138,0.12); border-left: 6px solid var(--fg); }
+.stat-tile .num { color: var(--deep) !important; }
+.stat-tile .label { color: var(--ink) !important; }
+.call-card { background: var(--white); border-radius: 20px; padding: 2rem; border-left: 6px solid var(--fg); max-width: 44rem; margin: 0 auto; box-shadow: 0 12px 40px rgba(8,53,98,0.1); }
+.call-card .lead { color: var(--ink); max-width: none; }
+#map-panel {
+  background: var(--cyan); color: var(--ink); min-height: auto; padding: clamp(4.5rem, 10vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  display: block;
+}
+#map-panel .map-head { position: static; padding: 0; pointer-events: auto; }
+#map-panel h2 { color: var(--deep); font-size: clamp(1.75rem, 4vw, 2.5rem); }
+#map-panel .sub { color: var(--ink); opacity: 1; }
+.explorer-filter {
+  margin: 1.5rem 0 1rem; padding: 1.25rem 1.35rem; border-radius: 18px;
+  background: var(--white); border: 1px solid rgba(12,73,138,0.12);
+  box-shadow: 0 8px 28px rgba(8,53,98,0.08);
+}
+.explorer-filter .filter-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; }
+.explorer-filter .filter-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep); width: 100%; }
+.map-chip { border: 2px solid var(--deep); background: var(--white); color: var(--deep); border-radius: 999px; }
+.map-chip.active { background: var(--deep); color: var(--white); }
+.map-slider-row { color: var(--ink); font-size: 0.85rem; }
+.explorer-map-card {
+  background: var(--white); border-radius: 18px; overflow: hidden;
+  border: 1px solid rgba(12,73,138,0.12); box-shadow: 0 8px 28px rgba(8,53,98,0.08);
+  position: relative; min-height: 420px;
+}
+#mapCanvas { min-height: 420px; height: 52vh; width: 100%; }
+.explorer-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+@media (max-width: 900px) { .explorer-lower { grid-template-columns: 1fr; } }
+.chart-box { background: var(--white); border: 1px solid rgba(12,73,138,0.12); border-radius: 16px; border-left: 6px solid var(--fg); }
+.chart-box h4 { color: var(--deep); }
+.startup-table th { color: var(--deep); }
+.startup-table td { color: var(--ink); border-bottom: 1px solid rgba(12,73,138,0.1); }
+.map-detail { background: var(--white); border: 1px solid rgba(12,73,138,0.12); border-left: 6px solid var(--fg); color: var(--ink); }
+.map-detail h3 { color: var(--deep); }
+.map-detail a { color: var(--fg); }
+.map-layer-toggle { position: absolute; bottom: 12px; left: 12px; z-index: 800; }
+.map-layer-toggle button { border-radius: 999px; background: var(--white); color: var(--deep); border: 2px solid var(--deep); }
+.map-layer-toggle button.active { background: var(--deep); color: var(--white); }
+.btn-reset { font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 2px solid var(--deep); background: var(--white); color: var(--deep); cursor: pointer; margin-left: auto; }
+.table-card { margin-top: 1rem; padding: 1rem; background: var(--white); border-radius: 16px; border: 1px solid rgba(12,73,138,0.12); border-left: 6px solid var(--fg); }
+.map-sidebar { background: transparent; border: none; padding: 0; }
+#map-panel .map-layout { display: block; min-height: 0; grid-template-columns: 1fr; }
+body[data-preview] #map-panel { display: none; }
+body[data-preview="map"] #map-panel,
+body[data-preview="map-open"] #map-panel { display: block; min-height: 900px; }
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="https://cleantechhub.net/">
+    <img class="logo-mark" src="img/cth-globe-logo.svg" alt="CleantechHUB">
+    <span class="brand-text">CLEANTECHHUB</span>
+  </a>
+  <div class="lang-toggle" aria-label="Idioma">
+    <button type="button" id="btnEs" class="active">ES</button>
+    <button type="button" id="btnEn">EN</button>
+  </div>
+</header>
+
+<section class="panel band-navy" data-panel="1" id="p1">
+  <div class="hero-deco" aria-hidden="true"></div>
+  <div class="inner hero-inner">
+    <div class="reveal">
+      <p class="eyebrow lang-es">CleantechHUB · Colombia</p>
+      <p class="eyebrow lang-en">CleantechHUB · Colombia</p>
+      <h1 class="lang-es">De piloto a infraestructura nacional.</h1>
+      <h1 class="lang-en">From pilot to national infrastructure.</h1>
+      <p class="lead lang-es">MubOn empezó como una startup de carga para vehículos eléctricos. Con el apoyo de CleantechHUB y financiación P4G administrada por WRI, hoy es uno de los operadores de carga pública en Colombia.</p>
+      <p class="lead lang-en">MubOn started as an EV-charging startup. With CleantechHUB's support and P4G funding administered by WRI, it is now one of the operators of public charging in Colombia.</p>
+      <div class="hero-stat-row">
+        <div class="clp-card"><p class="num">65</p><p class="label lang-es">ubicaciones de carga</p><p class="label lang-en">charging locations</p></div>
+        <div class="clp-card"><p class="num">99</p><p class="label lang-es">puntos activos</p><p class="label lang-en">active sites</p></div>
+        <div class="clp-card"><p class="num">2026</p><p class="label lang-es">datos a 8 de octubre</p><p class="label lang-en">data as of 8 Oct</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel band-cyan" data-panel="2" id="p2">
+  <div class="inner reveal">
+    <p class="eyebrow lang-es">Nuestro modelo</p>
+    <p class="eyebrow lang-en">Our model</p>
+    <h2 class="lang-es">Financiación combinada y filantropía de riesgo, atadas a resultados climáticos reales.</h2>
+    <h2 class="lang-en">Blended finance and venture philanthropy, tied to real climate results.</h2>
+    <div class="accent-bar"></div>
+    <div class="pillar-grid light-pillars">
+      <div class="pillar-card"><span class="lang-es">Financiación combinada · de subvención a inversión</span><span class="lang-en">Blended finance · grant → investment</span></div>
+      <div class="pillar-card"><span class="lang-es">Filantropía de riesgo · apoyo que escala</span><span class="lang-en">Venture philanthropy · support that scales</span></div>
+      <div class="pillar-card"><span class="lang-es">Resultados medidos · no conceptos</span><span class="lang-en">Measured results · not concepts</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel band-white" data-panel="3" id="p3">
+  <div class="inner">
+    <div class="reveal">
+      <p class="eyebrow lang-es">Cómo entregamos</p>
+      <p class="eyebrow lang-en">How we deliver</p>
+      <h2 class="lang-es">La infraestructura que convierte compromisos en resultados.</h2>
+      <h2 class="lang-en">The infrastructure that turns commitments into results.</h2>
+      <div class="accent-bar"></div>
+      <div class="tile-grid">
+        <article class="tile">
+          <img src="img/nexus-portfolio.jpg" alt="">
+          <div class="tile-body">
+            <h3>Nexus</h3>
+            <p class="lang-es">Plataforma de portafolio con 157 perfiles de startups climáticas, cada una con su trayectoria e impacto.</p>
+            <p class="lang-en">Portfolio platform with 157 climate-startup profiles, each with its track record and impact.</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img src="img/academy.png" alt="">
+          <div class="tile-body">
+            <h3>CleantechHUB Academy</h3>
+            <p class="lang-es">CleantechHUB Academy. Plataforma de formación propia con programas, cursos y MOOCs desarrollados junto a universidades de la región: Universidad Externado de Colombia, Universidad del Pacífico (Perú), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica) y Universidad Tecnológica de El Salvador (UTEC). 300+ personas certificadas.</p>
+            <p class="lang-en">CleantechHUB Academy. Our own learning platform: programmes, courses and MOOCs built with universities across the region: Universidad Externado de Colombia, Universidad del Pacífico (Peru), Universidad Rafael Landívar (Guatemala), Universidad LCI Veritas (Costa Rica) and Universidad Tecnológica de El Salvador (UTEC). 300+ people certified.</p>
+            <p class="uni-row">Universidad Externado de Colombia · Universidad del Pacífico · Universidad Rafael Landívar · Universidad LCI Veritas · UTEC</p>
+          </div>
+        </article>
+        <article class="tile">
+          <img src="img/datalab-site.jpg" alt="">
+          <div class="tile-body">
+            <h3>Datalab</h3>
+            <p class="lang-es">Inteligencia climática y productos de datos que hacen medible cada resultado.</p>
+            <p class="lang-en">Climate intelligence and data products that make every result measurable.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="map-panel" class="panel band-cyan" data-panel="map" aria-labelledby="map-title">
+  <div class="inner">
+    <div class="map-head reveal visible">
+      <p class="eyebrow lang-es">Presencia en Colombia</p>
+      <p class="eyebrow lang-en">Our startups across Colombia</p>
+      <h2 id="map-title" class="lang-es">Startups del portafolio Nexus en el territorio</h2>
+      <h2 class="lang-en">Nexus portfolio startups across the territory</h2>
+      <p class="sub lang-es" id="mapCountLine"></p>
+      <p class="sub lang-en" id="mapCountLineEn"></p>
+    </div>
+    <div class="explorer-filter">
+      <div class="filter-row"><span class="filter-label lang-es">Sector</span><span class="filter-label lang-en">Sector</span><div class="map-controls" id="sectorChips"></div></div>
+      <div class="filter-row"><span class="filter-label lang-es">Etapa</span><span class="filter-label lang-en">Stage</span><div class="map-controls" id="stageChips"></div></div>
+      <div class="filter-row map-slider-row" style="flex:1;">
+        <span class="lang-es">Cohorte mínima (año programa)</span>
+        <span class="lang-en">Minimum cohort (program year)</span>
+        <input type="range" id="yearSlider" min="2019" max="2024" value="2019" step="1" style="flex:1;">
+        <span id="yearSliderLabel">2019+</span>
+        <button type="button" class="btn-reset" id="mapReset">Reset</button>
+      </div>
+    </div>
+    <div class="explorer-map-card">
+      <div id="mapCanvas" role="application" aria-label="Mapa de startups"></div>
+      <div class="map-layer-toggle">
+        <button type="button" id="btnSat" class="active">Satellite</button>
+        <button type="button" id="btnOsm">OSM</button>
+      </div>
+    </div>
+    <div class="explorer-lower">
+      <div class="chart-box"><h4 class="lang-es">Por sector</h4><h4 class="lang-en">By sector</h4><canvas id="sectorChart" height="120"></canvas></div>
+      <div class="chart-box"><h4 class="lang-es">Por etapa</h4><h4 class="lang-en">By stage</h4><canvas id="stageChart" height="120"></canvas></div>
+    </div>
+    <div class="table-card">
+      <div class="startup-table-wrap">
+        <table class="startup-table" id="startupTable">
+          <thead><tr>
+            <th data-sort="n">Startup</th>
+            <th data-sort="city">City</th>
+            <th data-sort="t">Sector</th>
+            <th data-sort="st">Stage</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="map-detail" id="mapDetail">
+        <h3 id="detailName"></h3>
+        <p class="meta" id="detailMeta"></p>
+        <p class="lang-es" id="detailDescEs"></p>
+        <p class="lang-en" id="detailDescEn"></p>
+        <p><a id="detailWeb" href="#" target="_blank" rel="noopener"></a></p>
+      </div>
+      <p class="map-unmapped" id="unmappedNote" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section class="panel band-white numbers-light" data-panel="6" id="p6">
+  <div class="inner reveal">
+    <div><p class="eyebrow lang-es">Desde 2019</p>
+      <p class="eyebrow lang-en">Since 2019</p>
+      <h2 class="lang-es" >Comprobado a escala.</h2>
+      <h2 class="lang-en" >Proven at scale.</h2>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <p class="num">8</p>
+          <p class="label lang-es">países</p>
+          <p class="label lang-en">countries</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">1.000+</p>
+          <p class="label lang-es">soluciones climáticas apoyadas</p>
+          <p class="label lang-en">climate solutions supported</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">USD 50M+</p>
+          <p class="label lang-es">capital movilizado</p>
+          <p class="label lang-en">capital leveraged</p>
+        </div>
+        <div class="stat-tile">
+          <p class="num">5+ Mt</p>
+          <p class="label lang-es">CO2 evitadas</p>
+          <p class="label lang-en">CO2 saved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel band-cyan" data-panel="4" id="p4">
+  <div class="inner reveal">
+    <h2 class="lang-es">Cooperación internacional</h2>
+    <h2 class="lang-en">International cooperation</h2>
+    <p class="sub lang-es">Proyectos ejecutados junto a organizaciones internacionales.</p>
+    <p class="sub lang-en">Projects delivered with international organisations.</p>
+    <div class="coop-grid" id="coopGrid">
+      <div class="coop-card" data-coop="giz" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">GIZ</p>
+        <p class="teaser-line lang-es">Climathons en Perú, octubre de 2024</p>
+        <p class="teaser-line lang-en">Climathons in Peru, October 2024</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Climathons en Callao, Trujillo y San Martín (Perú), octubre de 2024, organizados por CleantechHUB Perú con GIZ.</p>
+          <p class="lang-en">Climathons in Callao, Trujillo and San Martín, Peru, October 2024, organised by CleantechHUB Peru with GIZ.</p>
+        </div>
+        <button type="button" class="coop-close" aria-label="Cerrar"><span class="lang-es">Cerrar</span><span class="lang-en">Close</span></button>
+      </div>
+      <div class="coop-card" data-coop="wri" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">WRI · P4G</p>
+        <p class="teaser-line lang-es">Carga eléctrica con MubOn</p>
+        <p class="teaser-line lang-en">EV charging with MubOn</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Subvención P4G administrada por WRI para escalar la infraestructura de carga de vehículos eléctricos con MubOn. WRI · P4G · Colombia · 2024</p>
+          <p class="lang-en">P4G grant administered by WRI to scale EV-charging infrastructure with MubOn. WRI · P4G · Colombia · 2024</p>
+        </div>
+        <button type="button" class="coop-close" aria-label="Cerrar"><span class="lang-es">Cerrar</span><span class="lang-en">Close</span></button>
+      </div>
+      <div class="coop-card" data-coop="undp" tabindex="0" role="button" aria-expanded="false">
+        <p class="org">UNDP · AFCIA</p>
+        <p class="teaser-line lang-es">Innovación para la adaptación</p>
+        <p class="teaser-line lang-en">Adaptation innovation</p>
+        <p class="more lang-es">+ detalle</p>
+        <p class="more lang-en">+ more</p>
+        <div class="coop-detail">
+          <p class="lang-es">Adaptation Fund Climate Innovation Accelerator (UNDP): programa de innovación en adaptación. Presentado en Adaptation Futures 2023, Montreal. UNDP · AFCIA · 2023</p>
+          <p class="lang-en">Adaptation Fund Climate Innovation Accelerator (UNDP): adaptation innovation programme. Presented at Adaptation Futures 2023, Montreal. UNDP · AFCIA · 2023</p>
+        </div>
+        <button type="button" class="coop-close" aria-label="Cerrar"><span class="lang-es">Cerrar</span><span class="lang-en">Close</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel band-white" data-panel="5" id="p5">
+  <div class="inner reveal">
+    <p class="eyebrow lang-es">Equipo</p>
+    <p class="eyebrow lang-en">Team</p>
+    <h2 class="lang-es">Las personas detrás de los resultados.</h2>
+    <h2 class="lang-en">The people behind the results.</h2>
+    <div class="accent-bar"></div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="img/team-gideon.jpg" alt="Gideon Blaauw">
+        <p class="name">Gideon Blaauw</p>
+        <p class="role lang-es">Regional Lead</p>
+        <p class="role lang-en">Regional Lead</p>
+      </div>
+      <div class="team-card">
+        <img src="img/team-jenn.jpg" alt="Jennifer Gonzalez">
+        <p class="name">Jennifer Gonzalez</p>
+        <p class="role lang-es">Growth Lead</p>
+        <p class="role lang-en">Growth Lead</p>
+      </div>
+      <div class="team-card">
+        <img src="img/team-angie.jpg" alt="Angélica Díaz">
+        <p class="name">Angélica Díaz</p>
+        <p class="role lang-es">Operaciones y plataforma</p>
+        <p class="role lang-en">Operations and platform</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="panel band-cyan" data-panel="7" id="p7">
+  <div class="inner reveal" style="text-align: center;">
+    <div class="call-card">
+      <p class="lead lang-es">Si su fundación busca que cada peso genere impacto climático medible, conversemos.</p>
+      <p class="lead lang-en">If your foundation wants every peso to deliver measurable climate impact, let's talk.</p>
+      <a class="btn btn-pill sage lang-es" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">Agendar una conversación</a>
+      <a class="btn btn-pill sage lang-en" href="https://calendar.app.google/kzEv6jKdT4RxVeVu6">Book a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section class="panel close-band close-panel" data-panel="8" id="p8">
+  <div class="inner reveal">
+    <img class="globe" src="img/cth-globe-logo.svg" alt="CleantechHUB">
+    <p class="tagline">Inspire. Act. Transform.</p>
+    <a class="site" href="https://cleantechhub.net/">cleantechhub.net</a>
+  </div>
+</section>
+
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var preview = params.get('preview');
+  if (preview === 'coop-open') {
+    document.body.setAttribute('data-preview', 'coop-open');
+    var giz = document.querySelector('.coop-card[data-coop="giz"]');
+    if (giz) giz.setAttribute('aria-expanded', 'true');
+    return;
+  }
+  if (preview === 'map' || preview === 'map-open') {
+    document.body.setAttribute('data-preview', preview);
+  }
+  if (preview && /^[1-8]$/.test(preview)) {
+    document.body.setAttribute('data-preview', preview);
+    return;
+  }
+  if (preview === 'map' || preview === 'map-open') {
+    return;
+  }
+
+  document.getElementById('btnEs').addEventListener('click', function () {
+    document.documentElement.lang = 'es';
+    document.getElementById('btnEs').classList.add('active');
+    document.getElementById('btnEn').classList.remove('active');
+  });
+  document.getElementById('btnEn').addEventListener('click', function () {
+    document.documentElement.lang = 'en';
+    document.getElementById('btnEn').classList.add('active');
+    document.getElementById('btnEs').classList.remove('active');
+  });
+
+  function collapseAll(except) {
+    document.querySelectorAll('.coop-card').forEach(function (card) {
+      if (card !== except) card.setAttribute('aria-expanded', 'false');
+    });
+  }
+  function toggleCard(card) {
+    var open = card.getAttribute('aria-expanded') === 'true';
+    collapseAll(null);
+    card.setAttribute('aria-expanded', open ? 'false' : 'true');
+  }
+  document.querySelectorAll('.coop-card').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.coop-close')) return;
+      toggleCard(card);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
+      }
+    });
+    card.querySelectorAll('.coop-close').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        card.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') collapseAll(null);
+  });
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+})();
+</script>
+
+<script type="application/json" id="startupsCoData">[{"n": "AIR 4U", "slug": "air4u", "city": "Bogota", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/air4u-air-environment", "p": "CLAC21", "t": "CE", "st": "Seed", "d": "Manufactures ozone-based air purifiers eliminating 99.99% of microbiological load in homes, offices, and food plants without filters or chemicals.", "ds": "Fabrica purificadores de aire basados en ozono que eliminan el 99,99% de la carga microbiológica en hogares, oficinas y plantas de alimentos, sin filtros ni químicos.", "w": "air4u.co"}, {"n": "APICULTORES Y RESCATISTAS", "slug": "apicultores-y-rescatistas", "city": "Cali", "department": "Valle del Cauca", "lat": 3.4516, "lng": -76.532, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/apicultores-y-rescatistas-sas-bic-food-agriculture", "p": "CLP", "t": "BIO", "st": "Pre-Seed", "d": "Provides professional bee rescue and wasp relocation services to energy, education, and residential sectors while operating an experimental apiary for rescued colonies.", "ds": "Ofrece servicios profesionales de rescate de abejas y reubicación de avispas para sectores de energía, educación y residencial, y opera un apiario experimental para colonias rescatadas.", "w": "apicultoresyrescatistas.com"}, {"n": "BIOAREA", "slug": "bioarea", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/bioarea-sas-clean-industry", "p": "CLAC22", "t": "CE", "st": "Seed", "d": "Sustainable construction and interior design studio using alternative building methods and recycled materials to reduce the footprint of residential and commercial projects.", "ds": "Estudio de diseño y construcción sostenible que usa métodos alternativos y materiales reciclados para reducir la huella ambiental de proyectos residenciales y comerciales.", "w": "bioarea.co"}, {"n": "BIOMASA", "slug": "biomasa", "city": "Bucaramanga", "department": "Santander", "lat": 7.1193, "lng": -73.1227, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/con-biomasa-protegemos-el-agua-y-rescatamos-recursos-clean-industry", "p": "CLAC22", "t": "EN", "st": "Pre-Seed", "d": "Valorizes industrial organic residues as biomass fuels, supporting Colombia's transition away from fossil fuels in industrial heat and power applications.", "ds": "Valoriza residuos orgánicos industriales como combustibles de biomasa, apoyando la transición de Colombia hacia fuentes alternativas de calor y energía industrial."}, {"n": "CLAUDIA OSORIO ARTE Y VIDRIO", "slug": "claudia-osorio-arte-y-vidrio", "city": "Manizales", "department": "Caldas", "lat": 5.07, "lng": -75.5138, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/claudia-osorio-arte-y-vidrio-air-environment", "p": "CLAC25", "t": "CE", "st": "Pre-Seed", "d": "Artisan studio upcycling glass through Tiffany, vitrofusion, and stained-glass techniques, turning waste glass into handcrafted decorative and artistic products.", "ds": "Estudio artesanal que upcycla vidrio mediante técnicas Tiffany, vitrofusión y vitral, convirtiendo vidrio de desecho en productos decorativos y artísticos hechos a mano."}, {"n": "COMPOST BALADÍ SAS", "slug": "compost-baladi-sas", "city": "Barranquilla", "department": "Atlántico", "lat": 10.9685, "lng": -74.7813, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/compost-baladi-sas-air-environment", "p": "CLAC22", "t": "BIO", "st": "Pre-Seed", "d": "Converts organic waste into natural fertilizer through community partnerships, providing composting solutions for urban and peri-urban areas in Colombia.", "ds": "Convierte residuos orgánicos en fertilizante natural a través de alianzas comunitarias, ofreciendo soluciones de compostaje para zonas urbanas y periurbanas de Colombia."}, {"n": "GALAXY PACK SAS", "slug": "galaxy-pack", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/galaxy-pack-sas-clean-industry", "p": "CLAC25", "t": "CE", "st": "Seed", "d": "Designs and manufactures reusable pallet covers replacing single-use stretch plastic wrap, eliminating industrial packaging waste for logistics clients across the Americas.", "ds": "Diseña y fabrica cobertores de palés reutilizables que reemplazan el plástico stretch desechable, eliminando residuos de embalaje industrial para clientes logísticos en las Américas.", "w": "galaxypack.co"}, {"n": "GEO GRAFISMOS", "slug": "geo-grafismos", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/geo-grafismos-clean-industry", "p": "CLAC23", "t": "CE", "st": "Pre-Seed", "d": "Applies geospatial visualization and mapping to environmental communication, helping organizations understand and act on territorial and ecological data.", "ds": "Aplica visualización geoespacial y cartografía a la comunicación ambiental, ayudando a organizaciones a comprender y actuar sobre datos territoriales y ecológicos.", "w": "geografismos.co"}, {"n": "HABITAT A VIBE COMPANY SAS", "slug": "habitat-a-vibe-company", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://nexus.cleantechhub.net/s/habitat-a-vibe-company", "p": "CLAC24", "t": "CE", "st": "Seed", "d": "Urban mining company recovering plastics from electrical and electronic waste, converting them into raw materials while generating employment for recyclers in low-income communities.", "ds": "Empresa de minería urbana que recupera plásticos de residuos eléctricos y electrónicos, convirtiéndolos en materias primas mientras genera empleo para recicladores en comunidades vulnerables.", "w": "habitatmineriaurbana.com.co"}, {"n": "HUNTER TECNOLOGÍA", "slug": "hunter-tecnologia", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://nexus.cleantechhub.net/s/hunter-tecnologia", "p": "CLAC24", "t": "CE", "st": "Seed", "d": "Collects, refurbishes, and redistributes unsold consumer electronics across Latin America, extending device lifespans and reducing e-waste and CO₂ emissions.", "ds": "Recolecta, reacondiciona y redistribuye electrónica de consumo devuelta en América Latina, extendiendo la vida útil de los dispositivos y reduciendo residuos electrónicos y CO₂.", "w": "hunter.tec.co"}, {"n": "LINKO WORKERS SAS", "slug": "linko-workers", "city": "Neiva", "department": "Huila", "lat": 2.9273, "lng": -75.2819, "source_url": "https://nexus.cleantechhub.net/s/linko-workers", "p": "CLAC24", "t": "CE", "st": "Pre-Seed", "d": "Manufactures and commercializes industrial cleaning and disinfection products for institutional and household clients in southern Colombia.", "ds": "Fabrica y comercializa productos de limpieza y desinfección industrial para clientes institucionales y domésticos en el sur de Colombia.", "w": "linko.com.co"}, {"n": "MONTE JAZMÍN", "slug": "monte-jazmin", "city": "Pereira", "department": "Risaralda", "lat": 4.8133, "lng": -75.6961, "source_url": "https://nexus.cleantechhub.net/s/monte-jazmin", "p": "CLAC22", "t": "BIO", "st": "Pre-Seed", "d": "Three-generation agroecological coffee farm offering specialty coffee and regenerative agritourism, with civil society nature reserve certification in Pereira.", "ds": "Finca cafetera agroecológica multigeneracional que ofrece café especialidad y agroturismo regenerativo, con certificación de reserva natural de la sociedad civil en Pereira.", "w": "montejazmin.com"}, {"n": "MUBON", "slug": "mubon", "city": "Cali", "department": "Valle del Cauca", "lat": 3.4516, "lng": -76.532, "source_url": "https://nexus.cleantechhub.net/s/mubon", "p": "CLAC24", "t": "EN", "st": "Seed", "d": "Manufactures locally-made EV chargers and a smart management platform for shared charging in residential and commercial spaces, expanding electric mobility infrastructure.", "ds": "Fabrica cargadores para vehículos eléctricos de producción local y una plataforma de gestión inteligente para carga compartida en espacios residenciales y comerciales.", "w": "mubon.co"}, {"n": "NOVATIO", "slug": "novatio", "city": "Cali", "department": "Valle del Cauca", "lat": 3.4516, "lng": -76.532, "source_url": "https://nexus.cleantechhub.net/s/novatio", "p": "CLAC23", "t": "EN", "st": "Seed", "d": "Social enterprise designing and building biodigesters for rural farming families, converting organic waste into biogas energy and biofertilizer while displacing wood fuel.", "ds": "Empresa social que diseña y construye biodigestores para familias campesinas, convirtiendo residuos orgánicos en energía de biogás y biofertilizante, desplazando el uso de leña.", "w": "novatio.com.co"}, {"n": "NUEVAS TECNOLOGÍAS FISICOQUÍMICAS", "slug": "nuevas-tecnologias-fisicoquimicas", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://nexus.cleantechhub.net/s/nuevas-tecnologias-fisicoquimicas", "p": "CLAC22", "t": "CE", "st": "Seed", "d": "Develops nanostructured, rinse-free cleaning products using patented hyperdegradation chemistry that significantly reduces water consumption across industrial and consumer applications.", "ds": "Desarrolla productos de limpieza nanoestructurados sin enjuague con química de hiperdegradación patentada, reduciendo significativamente el consumo de agua en aplicaciones industriales y domésticas.", "w": "nuevastecnologias.com.co"}, {"n": "OASIS GROUP", "slug": "oasis-group", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://nexus.cleantechhub.net/s/oasis-group", "p": "CLP", "t": "EN", "st": "Seed", "d": "Medellín startup promoting electric mobility through innovative charging infrastructure and technology for cleaner urban and peri-urban transportation.", "ds": "Startup de Medellín que promueve la movilidad eléctrica a través de infraestructura de carga innovadora y tecnología para transporte más limpio en zonas urbanas y periurbanas.", "w": "oasisgroup.online"}, {"n": "PLEIA", "slug": "pleia", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://nexus.cleantechhub.net/s/pleia", "p": "CLAC24", "t": "BIO", "st": "Seed", "d": "B Corp pioneering biotechnology-based pet funeral services, transforming pet remains into nutrient-rich compost and planting trees at reforestation centers across Colombia.", "ds": "B Corp pionera en servicios funerarios para mascotas basados en biotecnología, transformando los restos en compost rico en nutrientes y plantando árboles en centros de reforestación.", "w": "pleia.co"}, {"n": "R&R KELAB", "slug": "kelab", "city": "Cali", "department": "Valle del Cauca", "lat": 3.4516, "lng": -76.532, "source_url": "https://nexus.cleantechhub.net/s/kelab", "p": "CLP", "t": "CE", "st": "[PENDIENTE]", "d": "Environmental consultancy delivering circular-economy strategy, packaging-waste compliance (Clean Pack), and the Co-Workers Cloud digital marketplace for recoverable materials.", "ds": "Consultoría ambiental que ofrece estrategia de economía circular, cumplimiento en envases y empaques (Clean Pack) y el marketplace digital Co-Workers Cloud para materiales aprovechables.", "w": "kelab.com.co"}, {"n": "SIMBIOTIC SAS", "slug": "simbiotic", "city": "Cúcuta", "department": "Norte de Santander", "lat": 7.8939, "lng": -72.5078, "source_url": "https://nexus.cleantechhub.net/s/simbiotic", "p": "CLAC22", "t": "CE", "st": "Seed", "d": "Sustainability consultancy connecting businesses with certified waste networks, and developing a platform for regenerative tourism destination management in Colombia.", "ds": "Consultora de sostenibilidad que conecta empresas con redes certificadas de gestión de residuos, y desarrolla una plataforma para la gestión de destinos de turismo regenerativo.", "w": "redsimbiotic.com"}, {"n": "SLOW", "slug": "slow", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/slow-textile-recycling-solutions-air-environment", "p": "CLAC25", "t": "CE", "st": "Pre-Seed", "d": "Circular fashion platform collecting and recycling post-consumer textile waste, connecting fashion industry, consumers, and recyclers to prevent garments from reaching landfill.", "ds": "Plataforma de moda circular que recolecta y recicla residuos textiles post-consumo, conectando la industria de la moda, consumidores y recicladores para evitar que las prendas lleguen al vertedero."}, {"n": "TR GLOBAL GROUP", "slug": "tr-global-group", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://nexus.cleantechhub.net/s/tr-global-group", "p": "CLP", "t": "CE", "st": "Accel.", "d": "Operates SLOW, collecting and transforming post-consumer and post-industrial textile waste into reusable materials for fashion, furniture, and design.", "ds": "Opera SLOW, recolectando y transformando residuos textiles posconsumo e industriales en materiales reutilizables para moda, mobiliario y diseno.", "w": "www.slowreciclaje.com"}, {"n": "VALOPES", "slug": "valopes", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://wiki.cleantechhub.net/books/idea-browser/page/valopes-air-environment", "p": "CLAC22", "t": "CE", "st": "Seed", "d": "Cloud-based waste traceability platform helping companies in Colombia, Chile, and Mexico digitize waste streams and automate regulatory compliance reporting.", "ds": "Plataforma de trazabilidad de residuos en la nube que ayuda a empresas en Colombia, Chile y México a digitalizar flujos de residuos y automatizar reportes de cumplimiento regulatorio.", "w": "valopes.com"}, {"n": "WEIA", "slug": "weia", "city": "Cali", "department": "Valle del Cauca", "lat": 3.4516, "lng": -76.532, "source_url": "https://nexus.cleantechhub.net/s/weia", "p": "CLP", "t": "BIO", "st": "Seed", "d": "Fintech-agtech startup offering supply chain financing and blockchain traceability for smallholder farmers, enabling input purchases at planting and repayment post-harvest.", "ds": "Startup fintech-agtech que ofrece financiamiento de cadena de suministro y trazabilidad blockchain para pequeños agricultores, permitiendo compras de insumos al inicio y pago tras la cosecha.", "w": "weia.com.co"}, {"n": "WHEELO", "slug": "wheelo", "city": "Medellín", "department": "Antioquia", "lat": 6.2476, "lng": -75.5658, "source_url": "https://nexus.cleantechhub.net/s/wheelo", "p": "CLP", "t": "CE", "st": "Accel.", "d": "Sustainability cloud platform mapping and segmenting CleanTech, ClimateTech, and DeepTech startups across circular economy, mobility, and green energy themes.", "ds": "Plataforma cloud de sostenibilidad que mapea y segmenta startups CleanTech, ClimateTech y DeepTech en economia circular, movilidad y energia verde."}, {"n": "ZHANA SOLUTIONS", "slug": "zhana-solutions", "city": "Bogotá", "department": "Bogotá D.C.", "lat": 4.711, "lng": -74.0721, "source_url": "https://nexus.cleantechhub.net/s/zhana-solutions", "p": "CLAC21", "t": "CE", "st": "Pre-Series A", "d": "Deploys electrochemical grease traps removing 99% of oils from industrial kitchen wastewater and converting recovered grease into biodiesel feedstock.", "ds": "Despliega trampas de grasa electroquímicas que eliminan el 99% de aceites de aguas residuales industriales y convierten la grasa recuperada en materia prima para biodiésel.", "w": "zhanasolutions.com"}]</script>
+<script>
+(function mapPanel() {
+  var params = new URLSearchParams(window.location.search);
+  var preview = params.get('preview');
+  if (preview && preview !== 'map' && preview !== 'map-open' && /^[1-8]$/.test(preview)) return;
+  if (preview === 'coop-open') return;
+
+  var raw = document.getElementById('startupsCoData');
+  if (!raw) return;
+  var STARTUPS = JSON.parse(raw.textContent);
+
+  function programYear(p) {
+    if (!p) return 2019;
+    var m = p.match(/(\d{2})/);
+    if (m) return 2000 + parseInt(m[1], 10);
+    if (p.indexOf('CLP') === 0) return 2019;
+    return 2019;
+  }
+  STARTUPS.forEach(function (s) { s.y = programYear(s.p); });
+
+  var state = { sectors: new Set(), stages: new Set(), minYear: 2019 };
+
+  function mapped(s) { return s.lat != null && s.lng != null && !isNaN(s.lat); }
+  function filtered() {
+    return STARTUPS.filter(function (s) {
+      if (s.y < state.minYear) return false;
+      if (state.sectors.size && !state.sectors.has(s.t)) return false;
+      if (state.stages.size && !state.stages.has(s.st)) return false;
+      return true;
+    });
+  }
+
+  var mapEl = document.getElementById('mapCanvas');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var map = L.map(mapEl, { scrollWheelZoom: true, zoomControl: false }).setView([4.5, -74.0], 6);
+  L.control.zoom({ position: 'topright' }).addTo(map);
+  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18, attribution: 'Esri' });
+  var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: 'OSM' });
+  sat.addTo(map);
+  document.getElementById('btnSat').addEventListener('click', function () { map.hasLayer(osm) && map.removeLayer(osm); if (!map.hasLayer(sat)) sat.addTo(map); this.classList.add('active'); document.getElementById('btnOsm').classList.remove('active'); });
+  document.getElementById('btnOsm').addEventListener('click', function () { map.hasLayer(sat) && map.removeLayer(sat); if (!map.hasLayer(osm)) osm.addTo(map); this.classList.add('active'); document.getElementById('btnSat').classList.remove('active'); });
+
+  var deptLayer = L.geoJSON(null, { style: { color: '#B2EEFA', weight: 1.2, fillOpacity: 0.05, fillColor: '#69B5FA' } });
+  fetch('https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/COL/ADM1/geoBoundaries-COL-ADM1_simplified.geojson')
+    .then(function (r) { return r.json(); })
+    .then(function (geo) { deptLayer.addData(geo); deptLayer.addTo(map); })
+    .catch(function () {});
+
+  var markers = L.layerGroup().addTo(map);
+  var sectorChart, stageChart;
+
+  function renderCounts(list) {
+    var mappedN = list.filter(mapped).length;
+    var unmapped = list.length - mappedN;
+    var es = mappedN + ' startups mapeadas en ' + new Set(list.filter(mapped).map(function (s) { return s.department; })).size + ' departamentos';
+    var en = mappedN + ' startups mapped across ' + new Set(list.filter(mapped).map(function (s) { return s.department; })).size + ' departments';
+    document.getElementById('mapCountLine').textContent = es;
+    document.getElementById('mapCountLineEn').textContent = en;
+    var note = document.getElementById('unmappedNote');
+    if (unmapped > 0) {
+      note.hidden = false;
+      note.innerHTML = '<span class="lang-es">' + unmapped + ' más sin ubicación mapeada</span><span class="lang-en">' + unmapped + ' more without a mapped location</span>';
+    } else { note.hidden = true; }
+  }
+
+  function openDetail(s) {
+    var d = document.getElementById('mapDetail');
+    d.classList.add('open');
+    document.getElementById('detailName').textContent = s.n;
+    document.getElementById('detailMeta').textContent = (s.t || '') + ' · ' + (s.st || '') + ' · ' + (s.city || '') + ' · ' + (s.p || '');
+    document.getElementById('detailDescEs').textContent = s.ds || s.d || '';
+    document.getElementById('detailDescEn').textContent = s.d || s.ds || '';
+    var w = document.getElementById('detailWeb');
+    if (s.w) { w.href = 'https://' + s.w.replace(/^https?:\/\//, ''); w.textContent = s.w; w.style.display = ''; }
+    else { w.style.display = 'none'; }
+    if (preview === 'map-open') d.classList.add('open');
+  }
+
+  function renderMap(list) {
+    markers.clearLayers();
+    list.filter(mapped).forEach(function (s) {
+      var m = L.circleMarker([s.lat, s.lng], { radius: 8, color: '#B2EEFA', weight: 2, fillColor: '#669348', fillOpacity: 0.9 });
+      m.bindTooltip(s.n);
+      m.on('click', function () { openDetail(s); });
+      markers.addLayer(m);
+    });
+    renderCounts(list);
+  }
+
+  function renderCharts(list) {
+    var sectors = {}, stages = {};
+    list.forEach(function (s) {
+      var t = s.t || '—'; sectors[t] = (sectors[t] || 0) + 1;
+      var st = s.st || '—'; stages[st] = (stages[st] || 0) + 1;
+    });
+    var sLabels = Object.keys(sectors), sData = sLabels.map(function (k) { return sectors[k]; });
+    var stLabels = Object.keys(stages), stData = stLabels.map(function (k) { return stages[k]; });
+    if (sectorChart) sectorChart.destroy();
+    if (stageChart) stageChart.destroy();
+    sectorChart = new Chart(document.getElementById('sectorChart'), { type: 'bar', data: { labels: sLabels, datasets: [{ data: sData, backgroundColor: '#669348' }] }, options: { plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#083562', font: { size: 9 } } }, y: { ticks: { color: '#083562', font: { size: 9 } }, beginAtZero: true } } } });
+    stageChart = new Chart(document.getElementById('stageChart'), { type: 'doughnut', data: { labels: stLabels, datasets: [{ data: stData, backgroundColor: ['#0C498A','#669348','#69B5FA','#9DC384','#B2EEFA'] }] }, options: { plugins: { legend: { position: 'bottom', labels: { color: '#083562', font: { size: 9 } } } } } });
+  }
+
+  function renderTable(list) {
+    var tbody = document.querySelector('#startupTable tbody');
+    tbody.innerHTML = '';
+    list.forEach(function (s) {
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + s.n + '</td><td>' + (s.city || '') + '</td><td>' + (s.t || '') + '</td><td>' + (s.st || '') + '</td>';
+      tr.style.cursor = 'pointer';
+      tr.addEventListener('click', function () { openDetail(s); if (mapped(s)) map.setView([s.lat, s.lng], 8); });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function buildChips(container, key, labelFn) {
+    var vals = [];
+    STARTUPS.forEach(function (s) { if (s[key] && vals.indexOf(s[key]) === -1) vals.push(s[key]); });
+    vals.sort();
+    vals.forEach(function (v) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'map-chip'; b.textContent = labelFn ? labelFn(v) : v;
+      b.addEventListener('click', function () {
+        var set = key === 't' ? state.sectors : state.stages;
+        if (set.has(v)) { set.delete(v); b.classList.remove('active'); }
+        else { set.add(v); b.classList.add('active'); }
+        refresh();
+      });
+      container.appendChild(b);
+    });
+  }
+  buildChips(document.getElementById('sectorChips'), 't');
+  buildChips(document.getElementById('stageChips'), 'st');
+
+  document.getElementById('yearSlider').addEventListener('input', function () {
+    state.minYear = parseInt(this.value, 10);
+    document.getElementById('yearSliderLabel').textContent = state.minYear + '+';
+    refresh();
+  });
+
+  var sortState = { key: 'n', dir: 1 };
+  document.querySelectorAll('#startupTable th').forEach(function (th) {
+    th.addEventListener('click', function () {
+      var k = th.getAttribute('data-sort');
+      if (sortState.key === k) sortState.dir *= -1; else { sortState.key = k; sortState.dir = 1; }
+      refresh();
+    });
+  });
+
+  function refresh() {
+    var list = filtered().slice().sort(function (a, b) {
+      var av = (a[sortState.key] || '').toString().toLowerCase();
+      var bv = (b[sortState.key] || '').toString().toLowerCase();
+      if (av < bv) return -1 * sortState.dir;
+      if (av > bv) return 1 * sortState.dir;
+      return 0;
+    });
+    renderMap(list);
+    renderCharts(list);
+    renderTable(list);
+  }
+  refresh();
+
+  if (preview === 'map') document.body.setAttribute('data-preview', 'map');
+  if (preview === 'map-open') {
+    document.body.setAttribute('data-preview', 'map-open');
+    openDetail(STARTUPS[0]);
+  }
+  setTimeout(function () { map.invalidateSize(); }, 400);
+})();
+</script>
+</body>
+</html>
