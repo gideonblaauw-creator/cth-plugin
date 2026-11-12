@@ -1,0 +1,1272 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cleantechhub.net/schemas/reveal-deck-outline.json",
+  "title": "CTH reveal deck outline (deck.yaml)",
+  "description": "Stub schema for Job B \u2014 replace with Job A canonical schema when merged.",
+  "type": "object",
+  "required": [
+    "meta",
+    "slides"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "slug",
+        "lang",
+        "title",
+        "client",
+        "date"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"
+        },
+        "lang": {
+          "type": "string",
+          "enum": [
+            "en",
+            "es"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/slide"
+      }
+    }
+  },
+  "definitions": {
+    "notes": {
+      "type": "string"
+    },
+    "slideBase": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "notes": {
+          "$ref": "#/definitions/notes"
+        }
+      },
+      "additionalProperties": true
+    },
+    "slide": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/cover"
+        },
+        {
+          "$ref": "#/definitions/statement"
+        },
+        {
+          "$ref": "#/definitions/title-bullets"
+        },
+        {
+          "$ref": "#/definitions/key-facts"
+        },
+        {
+          "$ref": "#/definitions/stat-band"
+        },
+        {
+          "$ref": "#/definitions/logo-wall"
+        },
+        {
+          "$ref": "#/definitions/map"
+        },
+        {
+          "$ref": "#/definitions/team-grid"
+        },
+        {
+          "$ref": "#/definitions/contact"
+        },
+        {
+          "$ref": "#/definitions/process"
+        },
+        {
+          "$ref": "#/definitions/timeline"
+        },
+        {
+          "$ref": "#/definitions/case-cards"
+        },
+        {
+          "$ref": "#/definitions/chart-proof"
+        },
+        {
+          "$ref": "#/definitions/programme-trio"
+        },
+        {
+          "$ref": "#/definitions/closing"
+        },
+        {
+          "$ref": "#/definitions/showcase"
+        },
+        {
+          "$ref": "#/definitions/data-table"
+        },
+        {
+          "$ref": "#/definitions/ecosystem"
+        },
+        {
+          "$ref": "#/definitions/section-title"
+        },
+        {
+          "$ref": "#/definitions/media-proof"
+        },
+        {
+          "$ref": "#/definitions/partner-cards"
+        },
+        {
+          "$ref": "#/definitions/partner-profile"
+        },
+        {
+          "$ref": "#/definitions/testimonial"
+        },
+        {
+          "$ref": "#/definitions/focus-areas"
+        },
+        {
+          "$ref": "#/definitions/offer"
+        },
+        {
+          "$ref": "#/definitions/contents"
+        }
+      ]
+    },
+    "cover": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "cover"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            },
+            "client": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "subtitle",
+            "date"
+          ]
+        }
+      ]
+    },
+    "statement": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "statement"
+            },
+            "text": {
+              "type": "string"
+            },
+            "attribution": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ]
+        }
+      ]
+    },
+    "title-bullets": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "title-bullets"
+            },
+            "title": {
+              "type": "string"
+            },
+            "eyebrow": {
+              "type": "string"
+            },
+            "bullets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": [
+            "title"
+          ]
+        }
+      ]
+    },
+    "key-facts": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "key-facts"
+            },
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "required": [
+                  "icon",
+                  "label"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "icon": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "items"
+          ]
+        }
+      ]
+    },
+    "stat-band": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "stat-band"
+            },
+            "title": {
+              "type": "string"
+            },
+            "stats": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "required": [
+                  "value",
+                  "label",
+                  "source"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "stats"
+          ]
+        }
+      ]
+    },
+    "logo-wall": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "logo-wall"
+            },
+            "title": {
+              "type": "string"
+            },
+            "group": {
+              "type": "string"
+            },
+            "logos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "src",
+                  "alt"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "src": {
+                    "type": "string"
+                  },
+                  "alt": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "logos"
+          ]
+        }
+      ]
+    },
+    "map": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "map"
+            },
+            "title": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string",
+              "enum": [
+                "latam",
+                "colombia",
+                "central-america",
+                "global"
+              ]
+            },
+            "pins": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "stats": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "value",
+                  "label"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "region",
+            "pins"
+          ]
+        }
+      ]
+    },
+    "team-grid": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "team-grid"
+            },
+            "title": {
+              "type": "string"
+            },
+            "people": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "role",
+                  "photo"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "photo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "people"
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "contact"
+            },
+            "title": {
+              "type": "string"
+            },
+            "people": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "role"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "kind",
+                  "url"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "people",
+            "links"
+          ]
+        }
+      ]
+    },
+    "process": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "process"
+            },
+            "title": {
+              "type": "string"
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "required": [
+                  "label",
+                  "text"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "steps"
+          ]
+        }
+      ]
+    },
+    "timeline": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "timeline"
+            },
+            "title": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "date",
+                  "label"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "date": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "items"
+          ]
+        }
+      ]
+    },
+    "case-cards": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "case-cards"
+            },
+            "title": {
+              "type": "string"
+            },
+            "cards": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "text"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "logo": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "oneOf": [
+                  {
+                    "required": [
+                      "image"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "logo"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "title",
+            "cards"
+          ]
+        }
+      ]
+    },
+    "chart-proof": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "chart-proof"
+            },
+            "title": {
+              "type": "string"
+            },
+            "chart": {
+              "type": "object",
+              "required": [
+                "type",
+                "data"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "bar",
+                    "line",
+                    "pie",
+                    "funnel"
+                  ]
+                },
+                "data": {}
+              }
+            },
+            "proof": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "title",
+            "chart",
+            "proof",
+            "source"
+          ]
+        }
+      ]
+    },
+    "programme-trio": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "programme-trio"
+            },
+            "title": {
+              "type": "string"
+            },
+            "programmes": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 4,
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "text"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "programmes"
+          ]
+        }
+      ]
+    },
+    "closing": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "closing"
+            },
+            "text": {
+              "type": "string"
+            },
+            "qr": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "text"
+          ]
+        }
+      ]
+    },
+    "showcase": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "showcase"
+            },
+            "title": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "link": {
+              "type": "string"
+            },
+            "images": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "title",
+            "text",
+            "images"
+          ]
+        }
+      ]
+    },
+    "data-table": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "data-table"
+            },
+            "title": {
+              "type": "string"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "columns",
+            "rows",
+            "source"
+          ]
+        }
+      ]
+    },
+    "ecosystem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "ecosystem"
+            },
+            "title": {
+              "type": "string"
+            },
+            "centre": {
+              "type": "string"
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "label"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "centre",
+            "nodes"
+          ]
+        }
+      ]
+    },
+    "section-title": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "section-title"
+            },
+            "number": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "subtitle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title"
+          ]
+        }
+      ]
+    },
+    "media-proof": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "media-proof"
+            },
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "outlet": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "image",
+            "outlet",
+            "url"
+          ]
+        }
+      ]
+    },
+    "partner-cards": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "partner-cards"
+            },
+            "title": {
+              "type": "string"
+            },
+            "partners": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "logo",
+                  "name",
+                  "text"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "logo": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "partners"
+          ]
+        }
+      ]
+    },
+    "partner-profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "partner-profile"
+            },
+            "name": {
+              "type": "string"
+            },
+            "logo": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "logo",
+            "photo",
+            "text"
+          ]
+        }
+      ]
+    },
+    "testimonial": {
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/definitions/slideBase"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "testimonial"
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "quote",
+                "name",
+                "role"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/definitions/slideBase"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "testimonial"
+                },
+                "quotes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "quote",
+                      "name",
+                      "org"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "quote": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "org": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "quotes"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      ]
+    },
+    "focus-areas": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "focus-areas"
+            },
+            "title": {
+              "type": "string"
+            },
+            "areas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "image"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "title",
+            "areas"
+          ]
+        }
+      ]
+    },
+    "offer": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "offer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "price": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "includes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "title",
+            "price",
+            "currency",
+            "includes"
+          ]
+        }
+      ]
+    },
+    "contents": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/slideBase"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "contents"
+            },
+            "image": {
+              "type": "string"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "items"
+          ]
+        }
+      ]
+    }
+  }
+}

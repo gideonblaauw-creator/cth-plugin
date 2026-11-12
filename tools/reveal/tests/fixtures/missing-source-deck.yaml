@@ -1,0 +1,14 @@
+meta:
+  slug: reveal-test-missing-source
+  lang: en
+  title: Missing source
+  client: Example
+  date: "2026-11-12"
+slides:
+  - type: chart-proof
+    title: Example chart
+    chart:
+      type: bar
+      data: { labels: [A, B], values: [1, 2] }
+    proof: Example only — no real data.
+    source: ""

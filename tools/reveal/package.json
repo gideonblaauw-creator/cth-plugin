@@ -5,9 +5,16 @@
   "version": "1.0.0",
   "scripts": {
     "theme:compile": "sass theme/cleantechhub.scss theme/cleantechhub.css --no-source-map",
-    "postinstall": "npm run theme:compile"
+    "postinstall": "npm run theme:compile",
+    "test:outline": "bash tests/run-tests.sh"
   },
   "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "nunjucks": "^3.2.4",
+    "pdf-parse": "^1.1.1",
+    "puppeteer-core": "^24.2.0",
     "reveal.js": "5.2.1"
   },
   "devDependencies": {
