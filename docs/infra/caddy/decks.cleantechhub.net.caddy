@@ -1,6 +1,6 @@
 # decks.cleantechhub.net — CTH client decks.
 # Same Appwrite upstream as wiki /decks/<slug>/ (Host <slug>.sites.localhost -> 127.0.0.1:9080).
-# / /index.html /decks.json are the public dashboard. /<slug>/ stays open.
+# All paths gated by Google SSO (oauth2-proxy), including /rein.
 # Rollback of dashboard auth: restore the timestamped backup of this file, caddy validate, systemctl reload caddy.
 
 decks.cleantechhub.net {
@@ -9,6 +9,26 @@ decks.cleantechhub.net {
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
 	}
+
+	# Google SSO via oauth2-proxy on every path incl. /rein (REIN password removed, Gideon 22 Oct 2026).
+	# Whole site wrapped in route so the gate runs before the handle blocks.
+	route {
+		# Celsia lives on proposals (public); 301 before OAuth so old deck links redirect without login.
+		handle /celsia-teaser {
+			redir https://proposals.cleantechhub.net/celsia-snapshot/ permanent
+		}
+		handle_path /celsia-teaser/* {
+			redir https://proposals.cleantechhub.net/celsia-snapshot/{path} permanent
+		}
+
+		forward_auth 127.0.0.1:4180 {
+			uri /oauth2/auth
+			copy_headers X-Auth-Request-Email
+			@unauth status 401
+			handle_response @unauth {
+				redir * https://auth.cleantechhub.net/oauth2/start?rd={scheme}://{host}{uri} 302
+			}
+		}
 
 	@dashboard path / /index.html /decks.json /thumbs/*
 	handle @dashboard {
@@ -22,9 +42,6 @@ decks.cleantechhub.net {
 		redir * /rein/ 308
 	}
 	handle_path /rein/* {
-		basic_auth {
-			REIN $2a$14$UEAkrKVm.05H5ogjRki/z.WImQk1VEdk.fVUBzPXhw6qlVRsZbTGa
-		}
 		root * /opt/cth-decks/rein-index
 		header X-Robots-Tag "noindex, nofollow"
 		header Cache-Control "no-store"
@@ -316,5 +333,6 @@ handle_path /fibra/fibra-deploy/* {
 
 	handle {
 		respond "Not found" 404
+	}
 	}
 }

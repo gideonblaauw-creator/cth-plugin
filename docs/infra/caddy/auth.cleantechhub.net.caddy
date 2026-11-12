@@ -1,0 +1,15 @@
+auth.cleantechhub.net {
+	encode gzip
+	reverse_proxy 127.0.0.1:4180 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+	log {
+		output file /var/log/caddy/auth.cleantechhub.net.log {
+			roll_size 20mb
+			roll_keep 5
+		}
+		format json
+	}
+}
