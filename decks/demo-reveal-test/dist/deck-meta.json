@@ -1,8 +1,0 @@
-{
-  "gated": true,
-  "language": "en",
-  "slug": "demo-reveal-test",
-  "title": "Demo Reveal Test",
-  "toolkit": "tools/reveal",
-  "publish_note": "Public on decks.cleantechhub.net requires Gideon GO per slug."
-}
