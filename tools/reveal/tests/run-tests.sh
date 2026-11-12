@@ -104,6 +104,32 @@ else
   pass "off-brand colour rejected"
 fi
 
+echo "=== lint 4a: example artifacts on real deck (expect fail) ==="
+if node -e "
+const { lintExampleArtifacts } = require('./lib/lint');
+const bad = '<section data-cth-type=\"cover\"><span class=\"cth-badge-example\">Example</span></section>';
+process.exit(lintExampleArtifacts(bad, 'reveal-test-valid').length ? 0 : 1);
+" 2>/dev/null; then
+  pass "example chrome rejected on non-example deck"
+else
+  fail "lint 4a should fail when cth-badge-example present"
+fi
+
+echo "=== lint 4a: example deck allows placeholders ==="
+node -e "
+const { lintExampleArtifacts } = require('./lib/lint');
+const html = '<div class=\"cth-ph-img\">Example</div>';
+if (lintExampleArtifacts(html, 'slide-type-catalog').length) process.exit(1);
+"
+pass "example catalog may contain cth-ph-img"
+
+echo "=== lint 4b: low-content bbox reporting ==="
+if node lib/overflow-check.mjs reveal-test-no-such-deck 2>/dev/null; then
+  fail "overflow-check should fail when dist missing"
+else
+  pass "overflow-check still fails without dist"
+fi
+
 echo "=== lint: remote font URLs (expect fail) ==="
 if node -e "
 const { lintRemoteFontUrls } = require('./lib/lint');

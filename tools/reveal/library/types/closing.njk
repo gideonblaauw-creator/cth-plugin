@@ -1,8 +1,9 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--closing cth-closing" data-cth-type="closing">
   <p class="cth-wordmark">Cleantech<strong>HUB</strong></p>
-  <span class="cth-badge-example">Example</span>
+  {{ ex.exBadge() }}
   <p class="cth-closing__text">{{ text }}</p>
-  {% if qr or url %}<div class="cth-qr">Example QR</div>{% endif %}
-  {% if url %}<p style="font-size:0.6em;">{{ url }}</p>{% endif %}
+  {% if qr %}<img class="cth-qr-img" src="{{ qr }}" alt="QR code" />{% elif example %}{{ ex.exQr() }}{% endif %}
+  {% if url %}<p class="cth-closing__url"><a class="cth-link" href="{{ url }}" rel="noopener noreferrer">{{ url }}</a></p>{% endif %}
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

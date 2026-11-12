@@ -1,9 +1,10 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--focus-areas" data-cth-type="focus-areas">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body cth-grid cth-grid--3">
     {% for area in areas %}
     <div>
-      <div class="cth-ph-img">Example</div>
+      {% if example %}{{ ex.phImg() }}{% endif %}
       <p class="cth-card__title" style="text-align:center;margin-top:0.35rem;">{{ area.name }}</p>
     </div>
     {% endfor %}

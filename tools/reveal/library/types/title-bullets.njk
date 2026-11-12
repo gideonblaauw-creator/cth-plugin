@@ -1,8 +1,9 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--title-bullets" data-cth-type="title-bullets">
   <div class="cth-slide__head">
     {% if eyebrow %}<p class="cth-eyebrow">{{ eyebrow }}</p>{% endif %}
     <h2 class="cth-title">{{ title }}</h2>
-    <span class="cth-badge-example">Example</span>
+    {{ ex.exBadge() }}
   </div>
   <div class="cth-slide__body">
     {% if columns %}

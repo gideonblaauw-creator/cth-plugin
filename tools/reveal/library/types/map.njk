@@ -1,7 +1,8 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--map" data-cth-type="map">
   <div class="cth-slide__head">
     <h2 class="cth-title">{{ title }}</h2>
-    <span class="cth-badge-example">Example</span>
+    {{ ex.exBadge() }}
   </div>
   <div class="cth-slide__body cth-map cth-map--stacked">
     <div class="cth-map__canvas"><span class="cth-map__region">{{ region }}</span></div>

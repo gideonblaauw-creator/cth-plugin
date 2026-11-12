@@ -41,17 +41,28 @@ try {
     waitUntil: "networkidle0",
     timeout: 60000,
   });
-  const overflowSlides = await page.evaluate(() => {
+  const { overflowSlides, lowContentSlides } = await page.evaluate(() => {
     const sections = [
       ...document.querySelectorAll(".reveal .slides section[data-cth-type]"),
     ];
     const bad = [];
+    const shallow = [];
     sections.forEach((el, i) => {
       if (el.scrollHeight > el.clientHeight + 2) bad.push(i + 1);
+      const slideRect = el.getBoundingClientRect();
+      const slideH = slideRect.height || 1;
+      let contentBottom = slideRect.top;
+      for (const child of el.children) {
+        if (child.tagName === "ASIDE") continue;
+        const r = child.getBoundingClientRect();
+        contentBottom = Math.max(contentBottom, r.bottom);
+      }
+      const used = (contentBottom - slideRect.top) / slideH;
+      if (used < 0.5) shallow.push(i + 1);
     });
-    return bad;
+    return { overflowSlides: bad, lowContentSlides: shallow };
   });
-  console.log(JSON.stringify({ overflowSlides }));
+  console.log(JSON.stringify({ overflowSlides, lowContentSlides }));
 } finally {
   await browser.close();
 }

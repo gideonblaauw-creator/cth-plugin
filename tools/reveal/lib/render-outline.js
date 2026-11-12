@@ -18,7 +18,7 @@ const TYPES_DIR = path.join(TOOL_ROOT, "library", "types");
 
 const KNOWN_TYPES = fs
   .readdirSync(TYPES_DIR)
-  .filter((f) => f.endsWith(".njk"))
+  .filter((f) => f.endsWith(".njk") && !f.startsWith("_") && f !== "macros.njk")
   .map((f) => f.replace(/\.njk$/, ""));
 
 function loadSchema() {
@@ -45,16 +45,18 @@ function validateOutline(outline) {
   }
 }
 
-function renderSlide(slide, env) {
+function renderSlide(slide, env, exampleMode) {
   const tplPath = path.join(TYPES_DIR, `${slide.type}.njk`);
   if (!fs.existsSync(tplPath)) {
     throw new Error(`missing template for type "${slide.type}"`);
   }
-  return env.renderString(fs.readFileSync(tplPath, "utf8"), slide);
+  const ctx = { ...slide, example: !!exampleMode };
+  return env.render(tplPath, ctx);
 }
 
 function deckHtml(meta, slideSections, lang) {
   const title = meta.title.replace(/</g, "&lt;");
+  const slug = meta.slug.replace(/"/g, "");
   const sections = slideSections.join("\n      ");
   return `<!DOCTYPE html>
 <html lang="${lang}">
@@ -65,6 +67,7 @@ function deckHtml(meta, slideSections, lang) {
   <meta name="cth-deck-gated" content="true" />
   <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
   <link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />
+  <link rel="stylesheet" href="theme/pdf-download.css" />
 </head>
 <body>
   <div class="reveal">
@@ -76,6 +79,12 @@ function deckHtml(meta, slideSections, lang) {
   <script>
     Reveal.initialize({ hash: true, slideNumber: true, width: 1920, height: 1080, margin: 0.04 });
   </script>
+  <a
+    class="pdf-dl-btn pdf-dl-fixed"
+    href="${slug}.pdf"
+    download="${slug}.pdf"
+    aria-label="Download PDF"
+  >Download PDF</a>
 </body>
 </html>
 `;
@@ -98,6 +107,7 @@ function writeDeck(meta, html, { allowOverwrite }) {
     title: meta.title,
     client: meta.client,
     date: meta.date,
+    example: !!meta.example,
     toolkit: "tools/reveal",
     source: "deck.yaml",
     publish_note:
@@ -162,8 +172,12 @@ function main() {
     return;
   }
 
-  const env = nunjucks.configure({ autoescape: true, throwOnUndefined: false });
-  const sections = outline.slides.map((s) => renderSlide(s, env));
+  const exampleMode = !!outline.meta.example;
+  const env = nunjucks.configure(TYPES_DIR, {
+    autoescape: true,
+    throwOnUndefined: false,
+  });
+  const sections = outline.slides.map((s) => renderSlide(s, env, exampleMode));
   const html = deckHtml(outline.meta, sections, outline.meta.lang);
   const deckRoot = writeDeck(outline.meta, html, { allowOverwrite: force });
   console.log(`Wrote ${deckRoot}/index.html (${outline.slides.length} slides)`);

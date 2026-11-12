@@ -38,6 +38,7 @@ mkdir -p "$DIST/theme"
 
 cp "$DECK_ROOT/index.html" "$DIST/"
 cp "$TOOL_ROOT/theme/cleantechhub.css" "$DIST/theme/"
+cp "$TOOL_ROOT/theme/pdf-download.css" "$DIST/theme/"
 if [[ -d "$TOOL_ROOT/theme/fonts" ]]; then
   cp -a "$TOOL_ROOT/theme/fonts" "$DIST/theme/fonts"
 fi

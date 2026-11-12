@@ -1,0 +1,13 @@
+{% macro exBadge() %}{% if example %}<span class="cth-badge-example">Example</span>{% endif %}{% endmacro %}
+
+{% macro phImg(style) %}
+{% if example %}<div class="cth-ph-img"{% if style %} style="{{ style }}"{% endif %}>Example</div>{% endif %}
+{% endmacro %}
+
+{% macro phLogo(label, style) %}
+{% if example %}<div class="cth-ph-logo"{% if style %} style="{{ style }}"{% endif %}>{{ label or "Example" }}</div>{% endif %}
+{% endmacro %}
+
+{% macro exQr() %}
+{% if example %}<div class="cth-qr">Example QR</div>{% endif %}
+{% endmacro %}

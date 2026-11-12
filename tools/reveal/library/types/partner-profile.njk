@@ -1,9 +1,10 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--partner-profile" data-cth-type="partner-profile">
-  <span class="cth-badge-example">Example</span>
+  {{ ex.exBadge() }}
   <div class="cth-split">
-    <div class="cth-ph-img" style="min-height:12rem;">Example</div>
+    {% if example %}{{ ex.phImg("min-height:12rem;") }}{% endif %}
     <div>
-      <div class="cth-ph-logo" style="max-width:40%;margin-bottom:0.5rem;">Example</div>
+      {% if example %}{{ ex.phLogo("Example", "max-width:40%;margin-bottom:0.5rem;") }}{% endif %}
       <h2 class="cth-title">{{ name }}</h2>
       <p>{{ text }}</p>
     </div>

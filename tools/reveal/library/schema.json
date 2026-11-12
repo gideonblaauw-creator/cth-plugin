@@ -13,7 +13,8 @@
         "lang": { "type": "string", "enum": ["en", "es"] },
         "title": { "type": "string" },
         "client": { "type": "string" },
-        "date": { "type": "string" }
+        "date": { "type": "string" },
+        "example": { "type": "boolean" }
       },
       "additionalProperties": false
     },
@@ -338,6 +339,7 @@
               "image": { "type": "string" },
               "logo": { "type": "string" },
               "text": { "type": "string" },
+              "stat": { "type": "string" },
               "url": { "type": "string" }
             },
             "additionalProperties": false

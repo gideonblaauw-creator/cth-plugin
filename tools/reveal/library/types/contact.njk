@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--contact" data-cth-type="contact">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body">
     <div class="cth-contact-grid">
       {% for person in people %}
