@@ -1,0 +1,309 @@
+---
+title: "Energy Coop — CleantechHUB"
+lang: es
+---
+
+```{=html}
+<div class="lang-toggle" role="group" data-i18n-aria="lang.toggle" id="lang-toggle">
+  <button type="button" data-lang="es" aria-pressed="true">ES</button>
+  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+</div>
+<div class="app">
+  <header class="topbar">
+    <div class="brand" aria-label="CleantechHUB" data-i18n-html="topbar.brandHtml"></div>
+    <div class="progress" role="tablist" data-i18n-aria="topbar.progress">
+      <button type="button" class="dot active" data-goto="0" data-i18n-screen="1"></button>
+      <button type="button" class="dot" data-goto="1" data-i18n-screen="2"></button>
+      <button type="button" class="dot" data-goto="2" data-i18n-screen="3"></button>
+      <button type="button" class="dot" data-goto="3" data-i18n-screen="4"></button>
+      <button type="button" class="dot" data-goto="4" data-i18n-screen="5"></button>
+      <button type="button" class="dot" data-goto="5" data-i18n-screen="6"></button>
+      <button type="button" class="dot" data-goto="6" data-i18n-screen="7"></button>
+    </div>
+    <div class="meta"><span data-i18n="topbar.meta"></span><br><span data-i18n="topbar.metaHint"></span></div>
+  </header>
+
+  <main class="screen-wrap">
+    <!-- Screen 1 -->
+    <section class="screen active" id="screen-0" aria-labelledby="t1">
+      <h1 id="t1" data-i18n="s1.title"></h1>
+      <p class="subtitle" data-i18n-html="s1.subtitleHtml"></p>
+      <div class="kpi-strip" data-i18n-aria="s1.kpiStrip">
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s1.kpi1"></span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Nota IMPE, nov 2025</a>
+          </span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s1.kpi2"></span>
+          <span class="kpi-meta">
+            <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024 (UPME)</a>
+            · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia 2024</a>
+          </span>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="map-box"><div id="map-paiva" role="img" data-i18n-aria="s1.mapAria"></div></div>
+        <div class="panel">
+          <span class="tag fact" data-i18n="tag.publicSource"></span>
+          <p data-i18n="s1.panel1"></p>
+          <p class="panel-links">
+            <a href="https://fundacionpromigas.org.co/paiva-estrena-el-primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Noticia Paiva (2025)</a>
+            · <a href="https://guiadelgas.com/primer-piloto-de-energia-solar-comunitaria-de-promigas-y-su-fundacion/" target="_blank" rel="noopener">Guía del Gas</a>
+          </p>
+          <span class="tag design" data-i18n="tag.cthDesign"></span>
+          <p data-i18n="s1.panel2"></p>
+          <div class="flow-stage" id="transform-flow">
+            <div class="node comite" id="n-comite"><span data-i18n="s1.nodeComite"></span><br><small data-i18n="s1.nodeComiteSub"></small></div>
+            <div class="arrow-col" aria-hidden="true">→</div>
+            <div class="node coop dim" id="n-coop"><span data-i18n="s1.nodeCoop"></span><br><small data-i18n="s1.nodeCoopSub"></small></div>
+          </div>
+          <button type="button" class="transform-btn" id="btn-transform" data-i18n="s1.btnTransform"></button>
+          <ul class="governance-list" id="gov-list" hidden>
+            <li data-i18n="s1.gov1"></li>
+            <li data-i18n="s1.gov2"></li>
+            <li data-i18n="s1.gov3"></li>
+            <li data-i18n="s1.gov4"></li>
+            <li data-i18n="s1.gov5"></li>
+          </ul>
+          <p class="cite" data-i18n="s1.cite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2 -->
+    <section class="screen" id="screen-1" aria-labelledby="t2">
+      <h1 id="t2" data-i18n="s2.title"></h1>
+      <p class="subtitle" data-i18n-html="s2.subtitleHtml"></p>
+      <div class="kpi-strip" data-i18n-aria="s2.kpiStrip">
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi1"></span>
+            <span class="kpi-meta">
+              <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+              · <span class="tag design" style="font-size:10px;padding:2px 6px" data-i18n="tag.partialDept"></span>
+            </span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title" data-i18n="s2.kpi2"></span>
+            <span class="kpi-meta">
+              <a href="https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf" target="_blank" rel="noopener">Boletín ICEE 2024</a>
+              · <a href="https://www.upme.gov.co/upme_noticias/colombia-alcanza-9312-de-cobertura-elctrica-tras-llevar-energa-a-539351-nuevos-hogares-y-registrar-el-mayor-avance-en-la-ruralidad/" target="_blank" rel="noopener">UPME, noticia</a>
+            </span>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-title" data-i18n="s2.kpi3"></span>
+          <span class="kpi-meta">
+            <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025 (PDF)</a>
+            · <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/14145438/VF-IMPE-2025-Indice-Multidimensional-de-Pobreza-Energetica-Promigas.pdf" target="_blank" rel="noopener">Resumen ejecutivo IMPE 2025</a>
+          </span>
+        </div>
+      </div>
+      <div class="totals">
+        <div class="stat"><div class="val" id="stat-com">0</div><div class="lbl" data-i18n="s2.statProjects"></div></div>
+        <div class="stat"><div class="val" id="stat-kwp">0</div><div class="lbl" data-i18n="s2.statKwp"></div></div>
+        <div class="stat"><div class="val" id="stat-mw">0</div><div class="lbl" data-i18n="s2.statMw"></div></div>
+      </div>
+      <p class="totals-note" id="totals-note" hidden data-i18n="s2.totalsNote"></p>
+      <button type="button" class="transform-btn" id="btn-guajira" data-i18n="s2.btnGuajira"></button>
+      <div class="map-box" style="flex:1;margin-top:12px;min-height:320px;"><div id="map-guajira"></div></div>
+    </section>
+
+    <!-- Screen 3 — Data Lab funnel -->
+    <section class="screen" id="screen-2" aria-labelledby="t5">
+      <h1 id="t5" data-i18n="s5.title"></h1>
+      <p class="subtitle" data-i18n-html="s5.subtitleHtml"></p>
+      <ul class="funnel-pipeline">
+        <li>
+          <strong data-i18n="s5.step0Title"></strong><br>
+          <span data-i18n-html="s5.step0Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step0Meta"></p>
+        </li>
+        <li>
+          <strong data-i18n="s5.step1Title"></strong><br>
+          <span data-i18n-html="s5.step1Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step1Meta"></p>
+        </li>
+        <li>
+          <strong data-i18n="s5.step2Title"></strong><br>
+          <span data-i18n-html="s5.step2Body"></span>
+          <p class="kpi-meta" data-i18n-html="s5.step2Meta"></p>
+        </li>
+      </ul>
+      <div class="funnel-wrap">
+        <span class="tag example" data-i18n="tag.example"></span>
+        <div class="funnel-steps">
+          <div class="funnel-tier w100">
+            <div class="num" data-i18n="s5.funnel100"></div>
+            <div class="lbl" data-i18n="s5.funnel100Lbl"></div>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">↓</div>
+          <div class="funnel-tier w80">
+            <div class="num" data-i18n="s5.funnel20"></div>
+            <div class="lbl" data-i18n="s5.funnel20Lbl"></div>
+          </div>
+          <div class="funnel-arrow" aria-hidden="true">↓</div>
+          <div class="funnel-tier w55">
+            <div class="num" data-i18n="s5.funnel10"></div>
+            <div class="lbl" data-i18n="s5.funnel10Lbl"></div>
+          </div>
+        </div>
+        <p class="cite" data-i18n="s5.funnelNote"></p>
+      </div>
+    </section>
+
+    <!-- Screen 4 — PASO -->
+    <section class="screen" id="screen-3" aria-labelledby="t6">
+      <h1 id="t6" data-i18n="s6.title"></h1>
+      <p class="subtitle" data-i18n-html="s6.subtitleHtml"></p>
+      <div class="candidate-card featured" style="max-width:52rem;margin-bottom:12px;">
+        <span class="tag candidate" data-i18n="tag.candidate"></span>
+        <h2 class="section-h2" style="margin-top:8px;" data-i18n="s6.corozalTitle"></h2>
+        <p data-i18n="s6.corozalBody"></p>
+        <p class="kpi-meta" data-i18n-html="s6.corozalMeta"></p>
+      </div>
+      <p class="section-h2" data-i18n="s6.grpIntro"></p>
+      <div class="candidate-grid">
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp1"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp2"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp3"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp4"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp5"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp6"></span></div>
+        <div class="candidate-card"><span class="tag candidate" data-i18n="tag.candidate"></span><br><span data-i18n="s6.grp7"></span></div>
+      </div>
+      <p class="cite" data-i18n="s6.disclaimer"></p>
+    </section>
+
+    <!-- Screen 5 — CEOF wizard -->
+    <section class="screen" id="screen-4" aria-labelledby="t3">
+      <h1 id="t3" data-i18n="s3.title"></h1>
+      <p class="subtitle" data-i18n-html="s3.subtitleHtml"></p>
+      <div class="grid-2" style="align-items:start;">
+        <div class="wizard">
+          <div>
+            <label for="sel-community" data-i18n="s3.step1"></label>
+            <select id="sel-community">
+              <option value="" data-i18n="s3.selectPlaceholder"></option>
+            </select>
+          </div>
+          <div>
+            <label data-i18n="s3.step2"></label>
+            <div class="size-options" id="size-options">
+              <button type="button" data-kwp="10">10 kWp</button>
+              <button type="button" data-kwp="25">25 kWp</button>
+              <button type="button" data-kwp="50">50 kWp</button>
+              <button type="button" data-kwp="100">100 kWp</button>
+            </div>
+          </div>
+          <button type="button" class="primary" id="btn-create" disabled data-i18n="s3.btnCreate"></button>
+        </div>
+        <div class="panel ceof-wrap" id="ceof-wrap">
+          <span class="tag design" data-i18n="s3.ceofTag"></span>
+          <svg class="ceof-svg" viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" data-i18n-aria="s3.ceofAria">
+            <rect x="240" y="20" width="240" height="56" rx="8" fill="#D8F3DC" stroke="#2D6A4F" stroke-width="2"/>
+            <text x="360" y="52" text-anchor="middle" class="flow-label" font-size="14" data-i18n="s3.svgCoop"></text>
+            <rect x="40" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="120" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgInvestors"></text>
+            <rect x="280" y="120" width="160" height="48" rx="6" fill="#95D5B2" stroke="#2D6A4F"/>
+            <text x="360" y="142" text-anchor="middle" class="flow-label" data-i18n="s3.svgCommunity"></text>
+            <text x="360" y="158" text-anchor="middle" font-size="10" fill="#555" data-i18n="s3.svgCommunityPct"></text>
+            <rect x="520" y="120" width="160" height="48" rx="6" fill="#fff" stroke="#1B4332"/>
+            <text x="600" y="148" text-anchor="middle" class="flow-label" data-i18n="s3.svgOperator"></text>
+            <rect x="260" y="220" width="200" height="44" rx="6" fill="#1B4332"/>
+            <text x="360" y="248" text-anchor="middle" fill="#fff" font-size="12" font-weight="600" data-i18n="s3.svgMultisig"></text>
+            <line x1="120" y1="168" x2="300" y2="210" stroke="#2D6A4F" stroke-width="2" marker-end="url(#arr)"/>
+            <line x1="360" y1="168" x2="360" y2="218" stroke="#2D6A4F" stroke-width="2"/>
+            <line x1="600" y1="168" x2="420" y2="210" stroke="#2D6A4F" stroke-width="2"/>
+            <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2D6A4F"/></marker></defs>
+            <g id="money-flow">
+              <text x="360" y="300" text-anchor="middle" font-size="13" fill="#2D6A4F" class="money-pulse" id="flow-text" data-i18n="s3.flow0"></text>
+              <text x="360" y="330" text-anchor="middle" font-size="11" fill="#666" id="flow-sub" data-i18n="s3.flowSub"></text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 6 — Meta 2030 -->
+    <section class="screen screen-4-scroll" id="screen-5" aria-labelledby="t4">
+      <h1 id="t4" data-i18n="s4.title"></h1>
+      <p class="subtitle" data-i18n-html="s4.subtitleHtml"></p>
+
+      <div class="kpi-card">
+        <span class="kpi-title" data-i18n="s4.kpiMeta"></span>
+        <span class="kpi-meta">
+          <a href="https://fundacionpromigas-offloadmedia.s3.amazonaws.com/wp-content/uploads/2025/11/18082502/Informe-IMPE-2025.pdf" target="_blank" rel="noopener">Informe IMPE 2025, p. 33 (PDF)</a>
+          · <a href="https://fundacionpromigas.org.co/mas-de-300-000-personas-salieron-de-la-pobreza-energetica-en-2024-sin-embargo-1-de-cada-6-colombianos-continua-en-esta-situacion/" target="_blank" rel="noopener">Nota IMPE, nov 2025</a>
+        </span>
+      </div>
+
+      <h2 class="section-h2" data-i18n="s4.gapTitle"></h2>
+      <p class="kpi-meta" style="max-width:52rem;margin-bottom:8px;" data-i18n-html="s4.gapIntroHtml"></p>
+      <div class="gap-grid">
+        <div class="gap-card slow">
+          <h3 data-i18n="s4.gapSlowTitle"></h3>
+          <p class="math" data-i18n="s4.gapSlowMath"></p>
+          <p class="year">~2034</p>
+          <p class="kpi-meta" data-i18n-html="s4.gapSlowMetaHtml"></p>
+        </div>
+        <div class="gap-card fast">
+          <h3 data-i18n="s4.gapFastTitle"></h3>
+          <p class="math" data-i18n="s4.gapFastMath"></p>
+          <p class="year">2030</p>
+          <p class="kpi-meta" data-i18n-html="s4.gapFastMetaHtml"></p>
+        </div>
+      </div>
+
+      <h2 class="section-h2" data-i18n="s4.opexTitle"></h2>
+      <ul class="opex-list">
+        <li><span data-i18n="s4.opex1"></span>
+          <a href="https://www.elcolombiano.com/negocios/contraloria-advierte-sobre-dificultades-en-proyectos-solares-zonas-apartadas-JN24837952" target="_blank" rel="noopener">El Colombiano</a></li>
+        <li><span data-i18n="s4.opex2"></span>
+          <a href="https://seguimiento.co/colombia/30000-millones-se-invirtieron-en-proyecto-fotovoltaico-y-esta-abandonado-en-amazonas-68633" target="_blank" rel="noopener">Seguimiento.co / Procuraduría</a></li>
+        <li><span data-i18n="s4.opex3"></span>
+          <a href="https://gestornormativo.creg.gov.co/Publicac.nsf/52188526a7290f8505256eee0072eba7/12aca473c3be151205257b080075913a/$FILE/Circular005-13%20GEN-RENOVABLES%20Informe%20Final.pdf" target="_blank" rel="noopener">Circular 005-13 informe final</a>
+          · <a href="https://normograma.superservicios.gov.co/normograma/compilacion/docs/concepto_creg_0004022_2019.htm" target="_blank" rel="noopener">Concepto CREG 4022/2019 (AOM)</a></li>
+      </ul>
+
+      <h2 class="section-h2" data-i18n="s4.talentTitle"></h2>
+      <ul class="talent-list">
+        <li><span data-i18n="s4.talent1"></span>
+          <a href="https://www.escuelaing.edu.co/es/la-escuela/sector-energetico-grupo-promigas-gascop-mineros-sa/" target="_blank" rel="noopener">CLSA sector energético</a>
+          · <a href="https://www.escuelaing.edu.co/es/noticias/primer-reto-de-la-clsa-integrar-los-mercados-energeticos-del-pais/" target="_blank" rel="noopener">Primer reto CLSA</a></li>
+        <li><span data-i18n="s4.talent2"></span>
+          <a href="https://www.escuelaing.edu.co/es/noticias/estudiantes-de-la-escuela-obtuvieron-el-tercer-lugar-en-solucionaton-10x-de-connect-bogota/" target="_blank" rel="noopener">Noticia Escuela</a></li>
+        <li data-i18n-html="s4.talent3Html"></li>
+      </ul>
+
+      <div class="proposal-block">
+        <span class="tag design" data-i18n="tag.cthProposal"></span>
+        <p style="margin-top:8px;" data-i18n-html="s4.propIntroHtml"></p>
+        <ul>
+          <li data-i18n="s4.prop1"></li>
+          <li data-i18n="s4.prop2"></li>
+          <li data-i18n="s4.prop3"></li>
+          <li data-i18n="s4.prop4"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Screen 7 — Closing -->
+    <section class="screen" id="screen-6" aria-labelledby="t7">
+      <h1 id="t7" data-i18n="s7.title"></h1>
+      <p class="subtitle" data-i18n-html="s7.subtitleHtml"></p>
+      <div class="closing-panel" data-i18n-html="s7.askHtml"></div>
+      <p class="closing-note" data-i18n="s7.ctaNote"></p>
+    </section>
+  </main>
+
+  <nav class="nav-bar">
+    <button type="button" class="prev" id="nav-prev" data-i18n="nav.prev"></button>
+    <span class="legal" data-i18n="nav.legal"></span>
+    <button type="button" class="next" id="nav-next" data-i18n="nav.next"></button>
+  </nav>
+</div>
+```

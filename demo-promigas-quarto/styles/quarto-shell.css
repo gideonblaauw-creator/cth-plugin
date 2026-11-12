@@ -1,0 +1,23 @@
+body.quarto-light,
+body.quarto-dark {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--cth-dark, #1b4332) !important;
+}
+
+#quarto-skip-link,
+#quarto-search-results,
+.quarto-title-block {
+  display: none !important;
+}
+
+#quarto-content {
+  padding: 0 !important;
+}
+
+#quarto-appendix,
+footer,
+.page-navigation {
+  display: none !important;
+}
