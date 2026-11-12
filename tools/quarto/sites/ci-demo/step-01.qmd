@@ -1,0 +1,20 @@
+---
+title: "Step 1 — Context"
+---
+
+::: {.cth-example-banner}
+**EXAMPLE DATA** — Narrative placeholders only.
+:::
+
+## Problem framing
+
+CleantechHUB convenes teams that need a **credible, cited** data story — not invented KPIs.
+
+This step links the synthetic chart to the CSV source in `data/example_generation.csv`.
+
+| Field | Source |
+|-------|--------|
+| `mwh` | EXAMPLE DATA column in template CSV |
+| Regions | Fictional Andes / Caribbean labels |
+
+← [Home](index.qmd) · [Next: Step 2 →](step-02.qmd)

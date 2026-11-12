@@ -1,0 +1,37 @@
+project:
+  type: website
+  preview:
+    browser: false
+    port: 4849
+
+website:
+  title: "CleantechHUB Datalab report — ci-datalab"
+  navbar:
+    background: primary
+    left:
+      - text: Overview
+        href: index.qmd
+      - text: Report
+        href: report.qmd
+
+lang: en
+
+metadata:
+  brand: ../../theme/_brand.yml
+
+format:
+  html:
+    include-in-header:
+      - ../../theme/includes/robots-noindex.html
+    theme:
+      light: [../../theme/cleantechhub.scss]
+      dark: [../../theme/cleantechhub.scss]
+    toc: true
+    code-fold: true
+    smooth-scroll: true
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false

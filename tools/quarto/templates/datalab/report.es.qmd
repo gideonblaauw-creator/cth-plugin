@@ -1,0 +1,38 @@
+---
+title: "Informe de métricas"
+---
+
+```{python}
+#| label: fig-output
+#| fig-cap: "DATOS DE EJEMPLO — MWh por sitio (sintético)."
+#| fig-width: 8
+#| fig-height: 4
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("data/example_metrics.csv")
+fig = px.bar(df, x="site_id", y="output_mwh", color="technology", title="EJEMPLO: producción trimestral")
+fig
+```
+
+## Tabla filtrable (EJEMPLO)
+
+```{python}
+#| label: tbl-metrics
+
+import pandas as pd
+from itables import init_notebook_mode, show
+
+init_notebook_mode(all_interactive=True)
+df = pd.read_csv("data/example_metrics.csv")
+show(
+    df,
+    scrollY="240px",
+    paging=False,
+    columnDefs=[{"className": "dt-left", "targets": "_all"}],
+    caption="DATOS DE EJEMPLO — filtro vía cuadro de búsqueda",
+)
+```
+
+**Congelado:** `execute.freeze: auto` en `_quarto.yml` mantiene renders reproducibles.

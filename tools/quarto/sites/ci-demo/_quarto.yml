@@ -1,0 +1,41 @@
+project:
+  type: website
+  preview:
+    browser: false
+    port: 4848
+
+website:
+  title: "CleantechHUB Demo — ci-demo"
+  site-url: "/ci-demo/"
+  navbar:
+    background: primary
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Step 1
+        href: step-01.qmd
+      - text: Step 2
+        href: step-02.qmd
+      - text: Step 3
+        href: step-03.qmd
+
+lang: en
+
+metadata:
+  brand: ../../theme/_brand.yml
+
+format:
+  html:
+    include-in-header:
+      - ../../theme/includes/robots-noindex.html
+    theme:
+      light: [../../theme/cleantechhub.scss]
+      dark: [../../theme/cleantechhub.scss]
+    toc: true
+    code-fold: true
+    smooth-scroll: true
+
+execute:
+  echo: false
+  warning: false
+  message: false

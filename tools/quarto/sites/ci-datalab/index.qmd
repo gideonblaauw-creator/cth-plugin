@@ -1,0 +1,31 @@
+---
+title: "Datalab report site (EXAMPLE DATA)"
+---
+
+::: {.cth-example-banner}
+**EXAMPLE DATA** — CSV/JSON in `data/` are synthetic. Cite real paths in tickets; never paste client exports here.
+:::
+
+Quarto **datalab** template for reproducible report sites beside the existing Datalab JS app (this does **not** replace `/app/`).
+
+## Data sources (template)
+
+| File | Role |
+|------|------|
+| `data/example_metrics.csv` | Tabular EXAMPLE metrics |
+| `data/example_regions.json` | Region rollups (EXAMPLE) |
+
+Open the [full report](report.qmd) for Plotly charts and a filterable table.
+
+```{python}
+#| label: tbl-preview
+#| tbl-cap: "EXAMPLE preview (first rows)."
+
+import json
+import pandas as pd
+
+metrics = pd.read_csv("data/example_metrics.csv")
+with open("data/example_regions.json") as f:
+    regions = json.load(f)
+metrics.head()
+```

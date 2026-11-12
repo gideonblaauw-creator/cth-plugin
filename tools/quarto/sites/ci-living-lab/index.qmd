@@ -1,0 +1,105 @@
+---
+title: "Living Lab dashboard (EXAMPLE DATA)"
+format: dashboard
+---
+
+::: {.cth-example-banner}
+**EXAMPLE DATA** — Map coordinates and capacities are fictional Latin America placeholders.
+:::
+
+# KPI row
+
+## Capacity (MW) {orientation="value"}
+
+```{python}
+#| content: valuebox
+#| title: "EXAMPLE capacity"
+#| icon: "lightning-charge"
+#| color: primary
+
+import pandas as pd
+df = pd.read_csv("data/example_sites.csv")
+float(df["capacity_mw"].sum())
+```
+
+## Sites tracked {orientation="value"}
+
+```{python}
+#| content: valuebox
+#| title: "EXAMPLE sites"
+#| icon: "geo-alt"
+#| color: secondary
+
+import pandas as pd
+len(pd.read_csv("data/example_sites.csv"))
+```
+
+## Regions {orientation="value"}
+
+```{python}
+#| content: valuebox
+#| title: "EXAMPLE regions"
+#| icon: "compass"
+#| color: info
+
+import pandas as pd
+pd.read_csv("data/example_sites.csv")["region"].nunique()
+```
+
+# Map & filters
+
+## Map (EXAMPLE) {orientation="fill"}
+
+```{python}
+#| fig-cap: "EXAMPLE DATA — site locations (synthetic coordinates)."
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("data/example_sites.csv")
+fig = px.scatter_geo(
+    df,
+    lat="latitude",
+    lon="longitude",
+    color="technology",
+    size="capacity_mw",
+    hover_name="site_id",
+    title="EXAMPLE: living-lab site map",
+    scope="south america",
+)
+fig.update_layout(margin=dict(l=0, r=0, t=40, b=0))
+# Static render avoids map-tile fetch in CI/headless screenshot runs.
+import plotly.io as pio
+from IPython.display import Image
+png = pio.to_image(fig, format="png", width=900, height=420, scale=1)
+Image(png)
+```
+
+## OJS filter (EXAMPLE) {orientation="fill"}
+
+```{ojs}
+// EXAMPLE DATA — in-browser filter demo (OJS)
+sites = [
+  {site_id: "EX-101", region: "Andes", technology: "solar", capacity_mw: 3.5},
+  {site_id: "EX-102", region: "Andes", technology: "wind", capacity_mw: 5.0},
+  {site_id: "EX-201", region: "Caribbean", technology: "solar", capacity_mw: 2.2},
+  {site_id: "EX-202", region: "Caribbean", technology: "biomass", capacity_mw: 1.8}
+]
+```
+
+```{ojs}
+viewof regionFilter = Inputs.select(
+  ["All", "Andes", "Caribbean"],
+  {label: "Region (EXAMPLE filter)"}
+)
+```
+
+```{ojs}
+filteredSites = regionFilter === "All"
+  ? sites
+  : sites.filter((d) => d.region === regionFilter)
+```
+
+```{ojs}
+Inputs.table(filteredSites, {width: 640})
+```

@@ -1,0 +1,43 @@
+---
+title: "Demo interactivo (DATOS DE EJEMPLO)"
+---
+
+::: {.cth-example-banner}
+**DATOS DE EJEMPLO** — Métricas sintéticas solo para plantilla. No cite en materiales para clientes o donantes.
+:::
+
+Plantilla **demo** de CleantechHUB: sitio multi-paso para recorridos del bench de Presentaciones.
+
+## Qué incluye
+
+- Sitio Quarto con marca CleantechHUB (tema claro y oscuro)
+- Gráfico Python + Plotly desde `data/example_generation.csv`
+- Navegación en tres pasos
+
+**Iniciar recorrido:** [Paso 1 — Contexto](step-01.qmd)
+
+```{python}
+#| label: fig-home
+#| fig-cap: "DATOS DE EJEMPLO — MWh mensuales por región (sintético)."
+#| fig-width: 8
+#| fig-height: 4
+
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv("data/example_generation.csv")
+fig = px.bar(
+    df,
+    x="month",
+    y="mwh",
+    color="region",
+    title="EJEMPLO: mezcla de generación",
+    labels={"mwh": "MWh (sintético)", "month": "Mes"},
+)
+fig.update_layout(margin=dict(l=20, r=20, t=40, b=20))
+fig
+```
+
+::: {.cth-gated-note}
+**Búsqueda:** meta `noindex` solo desalienta indexación. **Acceso:** Caddy + oauth2-proxy en el host hasta GO de Gideon para slug `__SITE_SLUG__`.
+:::
