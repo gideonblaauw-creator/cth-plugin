@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CCRoster — Gideon Blaauw — Client work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --deep: #0C498A;
+      --cyan: #B2EEFA;
+      --lg: #9DC384;
+      --forest: #669348;
+      --sky: #69B5FA;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 210mm;
+      height: 297mm;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--deep);
+      background: var(--white);
+    }
+    h1, h2 { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
+    a { color: var(--deep); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+    .sheet {
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .head {
+      background: var(--deep);
+      color: var(--white);
+      padding: 11mm 14mm 10mm;
+      display: flex;
+      gap: 8mm;
+      align-items: center;
+    }
+    .logo-shield {
+      background: var(--cyan);
+      border-radius: 6px;
+      padding: 3mm;
+      flex-shrink: 0;
+      line-height: 0;
+    }
+    .logo-shield img { width: 16mm; height: auto; display: block; }
+    .head-text h1 { font-size: 19pt; }
+    .head-text .sub { font-size: 10pt; margin-top: 2mm; }
+    .tagline { color: var(--cyan); font-weight: 600; font-size: 9.5pt; margin-top: 2mm; }
+    .body {
+      flex: 1;
+      padding: 9mm 14mm 10mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .lead {
+      font-size: 11pt;
+      margin-bottom: 7mm;
+      border-left: 4px solid var(--sky);
+      padding-left: 5mm;
+      line-height: 1.5;
+    }
+    .cols {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6mm;
+    }
+    .card {
+      border-radius: 5px;
+      overflow: hidden;
+      page-break-inside: avoid;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-h {
+      background: var(--deep);
+      color: var(--white);
+      padding: 3.5mm 5mm;
+      font-size: 11.5pt;
+    }
+    .card-b {
+      padding: 5mm 5mm 5.5mm;
+      flex: 1;
+    }
+    .card.a .card-b { background: var(--cyan); }
+    .card.b .card-b { background: var(--lg); }
+    .card.c .card-b { background: var(--sky); }
+    ul { padding-left: 5mm; margin-top: 1mm; }
+    li { margin-bottom: 2.5mm; }
+    .links { margin-top: 3mm; font-size: 9.5pt; line-height: 1.55; }
+    .note {
+      margin-top: 3mm;
+      font-size: 9.5pt;
+      font-style: italic;
+    }
+    .foot {
+      margin-top: auto;
+      padding-top: 5mm;
+      border-top: 2px solid var(--forest);
+      font-size: 9pt;
+      display: flex;
+      justify-content: space-between;
+    }
+    @media print {
+      html, body { width: 210mm; height: 297mm; }
+      body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <div class="logo-shield">
+        <img src="cth-globe-logo.png" alt="CleantechHUB globe logo" />
+      </div>
+      <div class="head-text">
+        <h1>Gideon Blaauw</h1>
+        <p class="sub">Client programs · CleantechHUB</p>
+        <p class="tagline">Inspire. Act. Transform.</p>
+      </div>
+    </header>
+
+    <main class="body">
+      <p class="lead">
+        I lead client-facing work across green-business competitions, regional hub partnerships, and founder investor readiness. I keep external materials factual, concise, and safe to share with partners and donors.
+      </p>
+
+      <div class="cols">
+        <section class="card a">
+          <h2 class="card-h">ClimateLaunchpad &amp; CTH Academy</h2>
+          <div class="card-b">
+            <ul>
+              <li>I support CleantechHUB as <strong>National Organizer</strong> for ClimateLaunchpad in <strong>Colombia, Peru, El Salvador, Guatemala, and Costa Rica</strong>.</li>
+              <li>I coordinate cohort communications, trainers, and bilingual content for competition and Academy participants.</li>
+              <li>After each cycle, I connect alumni to Nexus portfolio profiles and mentor networks.</li>
+            </ul>
+            <p class="links">
+              <a href="https://cleantechhub.net/academy/">cleantechhub.net/academy/</a> ·
+              <a href="https://cleantechhub.net/growth/">cleantechhub.net/growth/</a> ·
+              <a href="https://nexus.cleantechhub.net/p/startup-portfolio">Nexus startup map</a>
+            </p>
+          </div>
+        </section>
+
+        <section class="card b">
+          <h2 class="card-h">REIN Hubs (PVBLIC × CleantechHUB)</h2>
+          <div class="card-b">
+            <ul>
+              <li>I contribute to <strong>REIN Hubs</strong> (Resilience · Entrepreneurship · Innovation · Nature)—hub activation, founder programs, and partner storytelling across Latin America.</li>
+              <li>I prepare donor- and partner-facing presentations and hub asset maps aligned with the public program narrative.</li>
+              <li>I keep sensitive proposal detail out of open materials; public program context is linked below.</li>
+            </ul>
+            <p class="links">
+              <a href="https://www.pvblic.org/rein-hubs">pvblic.org/rein-hubs</a> ·
+              <a href="https://cleantechhub.net/rein-hubs-innovacion-climatica-latam/">CTH REIN overview</a> ·
+              <a href="https://nexus.cleantechhub.net/hubs/">HubMap</a>
+            </p>
+            <p class="note">Public deck link pending.</p>
+          </div>
+        </section>
+
+        <section class="card c">
+          <h2 class="card-h">Teclogi</h2>
+          <div class="card-b">
+            <p>I provide <strong>Series A investor relations</strong> and <strong>dataroom support</strong> for <strong>Teclogi</strong>, a Colombian logistics company.</p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="foot">
+        <span>Climate Connectors · Independent Consultant Roster</span>
+        <span>cleantechhub.net</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
