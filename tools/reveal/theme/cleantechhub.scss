@@ -36,6 +36,12 @@ $selectionColor: $cth-deep-blue;
 @import "../library/library.scss";
 
 .reveal {
+  .slides > section,
+  .slides section.cth-slide {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
   .slides section {
     text-align: left;
   }

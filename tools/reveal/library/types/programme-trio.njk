@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--programme-trio" data-cth-type="programme-trio">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body cth-programme-row">
     {% for prog in programmes %}
     <div class="cth-card">

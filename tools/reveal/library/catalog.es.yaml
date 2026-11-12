@@ -4,6 +4,7 @@ meta:
   title: Catálogo de tipos de diapositiva CTH (Ejemplo)
   client: Cliente ejemplo
   date: Fecha ejemplo
+  example: true
 slides:
   - type: cover
     title: Título de ejemplo del catálogo

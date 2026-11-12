@@ -1,7 +1,8 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--stat-band" data-cth-type="stat-band">
   <div class="cth-slide__head">
     {% if title %}<h2 class="cth-title">{{ title }}</h2>{% endif %}
-    <span class="cth-badge-example">Example</span>
+    {{ ex.exBadge() }}
   </div>
   <div class="cth-slide__body cth-stat-band">
     {% for s in stats %}

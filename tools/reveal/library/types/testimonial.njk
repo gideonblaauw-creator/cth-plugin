@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--testimonial" data-cth-type="testimonial">
-  <span class="cth-badge-example">Example</span>
+  {{ ex.exBadge() }}
   {% if quotes %}
   <div class="cth-grid cth-grid--2">
     {% for q in quotes %}

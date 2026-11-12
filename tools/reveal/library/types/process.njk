@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--process" data-cth-type="process">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body cth-stage-row">
     {% for step in steps %}
     <div class="cth-stage-box">

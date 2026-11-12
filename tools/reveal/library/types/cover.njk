@@ -1,16 +1,19 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--cover" data-cth-type="cover">
-  <div class="cth-cover">
+  <div class="cth-cover{% if not image and not example %} cth-cover--single{% endif %}">
     <div>
       <p class="cth-wordmark cth-cover__brand">Cleantech<strong>HUB</strong></p>
-      <span class="cth-badge-example">Example</span>
+      {{ ex.exBadge() }}
       <h1 class="cth-title cth-title--center" style="margin-top:0.75rem">{{ title }}</h1>
       <p class="cth-subtitle">{{ subtitle }}</p>
       {% if client %}<p class="cth-cover__meta">{{ client }}</p>{% endif %}
       <p class="cth-cover__meta">{{ date }}</p>
     </div>
+    {% if image or example %}
     <div>
-      {% if image %}<img src="{{ image }}" alt="" style="max-width:100%;border-radius:12px;" />{% else %}<div class="cth-ph-img">Example</div>{% endif %}
+      {% if image %}<img src="{{ image }}" alt="" style="max-width:100%;border-radius:12px;" />{% else %}{{ ex.phImg() }}{% endif %}
     </div>
+    {% endif %}
   </div>
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--chart-proof" data-cth-type="chart-proof">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body cth-chart-proof">
     <div>
       <p class="cth-eyebrow" style="margin-bottom:0.35rem;">{{ chart.type }} chart</p>

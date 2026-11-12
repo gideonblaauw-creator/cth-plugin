@@ -1,6 +1,7 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--section-title cth-center" data-cth-type="section-title">
   {% if number %}<p class="cth-section-num">{{ number }}</p>{% endif %}
-  <span class="cth-badge-example">Example</span>
+  {{ ex.exBadge() }}
   <h2 class="cth-title cth-title--center">{{ title }}</h2>
   {% if subtitle %}<p class="cth-subtitle" style="text-align:center;">{{ subtitle }}</p>{% endif %}
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}

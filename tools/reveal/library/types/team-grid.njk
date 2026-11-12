@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--team-grid" data-cth-type="team-grid">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body cth-grid{% if (people | length) > 6 %} cth-grid--4{% elif (people | length) > 4 %} cth-grid--4{% else %} cth-grid--3{% endif %}">
     {% for person in people %}
     <div class="cth-person">

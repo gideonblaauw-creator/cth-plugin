@@ -4,6 +4,7 @@ meta:
   title: CTH Slide Type Catalog (Example)
   client: Example client
   date: Example date
+  example: true
 slides:
   - type: cover
     title: Example deck title
@@ -103,8 +104,8 @@ slides:
   - type: case-cards
     title: Example cases
     cards:
-      - { name: Example case A, text: Example blurb., logo: "" }
-      - { name: Example case B, text: Example blurb., logo: "" }
+      - { name: Example case A, text: Example blurb., logo: "", stat: "£1.2M" }
+      - { name: Example case B, text: Example blurb., logo: "", stat: "$50k" }
       - { name: Example case C, text: Example blurb., logo: "" }
       - { name: Example case D, text: Example blurb., logo: "" }
       - { name: Example case E, text: Example blurb., logo: "" }
@@ -126,7 +127,6 @@ slides:
   - type: closing
     text: Example closing — thank you.
     url: https://example.invalid
-    qr: example
   - type: showcase
     title: Example showcase
     text: Example showcase narrative for layout preview.

@@ -1,5 +1,6 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--ecosystem" data-cth-type="ecosystem">
-  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2>{{ ex.exBadge() }}</div>
   <div class="cth-slide__body">
     <div class="cth-eco">
       {% for node in nodes %}{% if loop.index0 < 3 %}<div class="cth-eco__node"><strong>{{ node.label }}</strong>{% if node.text %}<p style="margin:0.25rem 0 0;font-size:0.9em;">{{ node.text }}</p>{% endif %}</div>{% endif %}{% endfor %}

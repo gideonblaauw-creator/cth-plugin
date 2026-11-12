@@ -1,12 +1,13 @@
+{% import "macros.njk" as ex %}
 <section class="cth-slide cth-slide--logo-wall" data-cth-type="logo-wall">
   <div class="cth-slide__head">
     <h2 class="cth-title">{{ title }}</h2>
     {% if group %}<p class="cth-subtitle">{{ group }}</p>{% endif %}
-    <span class="cth-badge-example">Example</span>
+    {{ ex.exBadge() }}
   </div>
   <div class="cth-slide__body cth-logo-wall">
     {% for logo in logos %}
-    {% if logo.src %}<img src="{{ logo.src }}" alt="{{ logo.alt }}" class="cth-ph-logo" style="object-fit:contain;padding:0.25rem;" />{% else %}
+    {% if logo.src %}<img src="{{ logo.src }}" alt="{{ logo.alt }}" class="cth-logo-wall__img" style="object-fit:contain;padding:0.25rem;" />{% elif example %}
     <div class="cth-ph-logo" aria-label="{{ logo.alt }}">{{ logo.alt }}</div>
     {% endif %}
     {% endfor %}

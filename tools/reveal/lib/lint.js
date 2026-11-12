@@ -16,7 +16,43 @@ function deckPaths(slug) {
   const distHtml = path.join(deckRoot, "dist", "index.html");
   const sourceHtml = path.join(deckRoot, "index.html");
   const pdf = path.join(deckRoot, `${slug}.pdf`);
-  return { deckRoot, distHtml, sourceHtml, pdf };
+  const deckMeta = path.join(deckRoot, "deck-meta.json");
+  return { deckRoot, distHtml, sourceHtml, pdf, deckMeta };
+}
+
+function isExampleDeck(slug) {
+  if (slug === "slide-type-catalog") return true;
+  const { deckMeta } = deckPaths(slug);
+  if (!fs.existsSync(deckMeta)) return false;
+  try {
+    const meta = JSON.parse(fs.readFileSync(deckMeta, "utf8"));
+    return !!meta.example;
+  } catch {
+    return false;
+  }
+}
+
+/** 4a — example chrome must not appear on real decks */
+function lintExampleArtifacts(html, slug) {
+  if (isExampleDeck(slug)) return [];
+  const errors = [];
+  if (/class="cth-badge-example"/i.test(html)) {
+    errors.push("non-example deck: cth-badge-example present");
+  }
+  if (/\bclass="[^"]*cth-ph-img/i.test(html)) {
+    errors.push("non-example deck: cth-ph-img placeholder present");
+  }
+  if (
+    /<div[^>]*class="[^"]*cth-ph-logo[^"]*"[^>]*>\s*Example\s*<\/div>/i.test(
+      html
+    )
+  ) {
+    errors.push("non-example deck: cth-ph-logo Example placeholder present");
+  }
+  if (/Example QR/i.test(html)) {
+    errors.push('non-example deck: "Example QR" placeholder present');
+  }
+  return errors;
 }
 
 function readHtml(slug) {
@@ -167,35 +203,42 @@ function runOverflowCheck(slug) {
   });
   if (r.status !== 0) {
     const msg = (r.stderr || r.stdout || "overflow check failed").trim();
-    return [msg || "overflow check failed"];
+    return { errors: [msg || "overflow check failed"], warnings: [] };
   }
   try {
     const out = JSON.parse(r.stdout);
-    if (out.overflowSlides?.length) {
-      return out.overflowSlides.map((n) => `slide ${n}: text overflow (Chromium)`);
-    }
-    return [];
+    const errors = (out.overflowSlides || []).map(
+      (n) => `slide ${n}: text overflow (Chromium)`
+    );
+    const warnings = (out.lowContentSlides || []).map(
+      (n) => `slide ${n}: content bbox height < 50% of slide (warn)`
+    );
+    return { errors, warnings };
   } catch {
-    return ["overflow check returned invalid JSON"];
+    return { errors: ["overflow check returned invalid JSON"], warnings: [] };
   }
 }
 
 async function lintDeck(slug, opts = {}) {
   const errors = [];
+  const warnings = [];
   const html = readHtml(slug);
   errors.push(...lintColours(html));
   errors.push(...lintFonts(html));
   errors.push(...lintRemoteFontUrls(html));
   errors.push(...lintSources(html));
+  errors.push(...lintExampleArtifacts(html, slug));
   if (!opts.skipOverflow) {
-    errors.push(...runOverflowCheck(slug));
+    const ov = runOverflowCheck(slug);
+    errors.push(...ov.errors);
+    warnings.push(...ov.warnings);
   }
   const slideCount = countSlides(html);
   if (!opts.skipPdf) {
     errors.push(...(await lintPdfPageCount(slug, slideCount)));
     errors.push(...lintPdfEmbeddedOpenSans(slug));
   }
-  return errors;
+  return { errors, warnings };
 }
 
 if (require.main === module) {
@@ -208,7 +251,8 @@ if (require.main === module) {
     process.exit(1);
   }
   lintDeck(slugArg, { skipPdf, skipOverflow })
-    .then((errors) => {
+    .then(({ errors, warnings }) => {
+      for (const w of warnings) console.warn(`lint warn: ${w}`);
       if (errors.length) {
         for (const e of errors) console.error(`lint: ${e}`);
         process.exit(1);
@@ -231,4 +275,6 @@ module.exports = {
   collectColourTargets,
   lintRemoteFontUrls,
   lintPdfEmbeddedOpenSans,
+  lintExampleArtifacts,
+  isExampleDeck,
 };
