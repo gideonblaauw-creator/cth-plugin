@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 920px; height: 1080px;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(145deg, #063061 0%, #0C498A 55%, #669348 100%);
+    color: #fff;
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+  }
+  h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 48px;
+    line-height: 1.1;
+  }
+  .lede { font-size: 21px; opacity: 0.92; margin: 16px 0 28px; max-width: 32rem; line-height: 1.4; }
+  .logos {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .logos span {
+    padding: 14px 22px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgba(178,238,250,0.5);
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .map {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    border: 2px solid rgba(178,238,250,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .map svg { width: 100%; height: 100%; opacity: 0.9; }
+  .pill {
+    position: absolute;
+    bottom: 28px; left: 28px; right: 28px;
+    background: #B2EEFA;
+    color: #0C498A;
+    padding: 18px 22px;
+    border-radius: 14px;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .src { font-size: 14px; opacity: 0.75; margin-top: 16px; }
+</style>
+</head>
+<body>
+<h1>P4G · MubOn</h1>
+<p class="lede">Partnership for Green Growth competitive line · archived proposal packs in CTH grant desk (qualitative).</p>
+<div class="logos">
+  <span>P4G</span>
+  <span>MubOn</span>
+  <span>UNDP context</span>
+</div>
+<div class="map" aria-hidden="true">
+  <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="460" cy="260" rx="380" ry="200" fill="none" stroke="#B2EEFA" stroke-width="2" opacity="0.4"/>
+    <circle cx="220" cy="280" r="28" fill="#69B5FA"/><text x="220" y="288" text-anchor="middle" fill="#063061" font-size="14" font-weight="700">CO</text>
+    <circle cx="320" cy="240" r="22" fill="#9DC384"/><text x="320" y="248" text-anchor="middle" fill="#063061" font-size="12" font-weight="700">PE</text>
+    <circle cx="280" cy="340" r="20" fill="#9DC384"/><text x="280" y="348" text-anchor="middle" fill="#063061" font-size="11" font-weight="700">SV</text>
+    <circle cx="250" cy="300" r="20" fill="#9DC384"/><text x="250" y="308" text-anchor="middle" fill="#063061" font-size="11" font-weight="700">GT</text>
+    <circle cx="300" cy="200" r="20" fill="#9DC384"/><text x="300" y="208" text-anchor="middle" fill="#063061" font-size="11" font-weight="700">CR</text>
+    <circle cx="620" cy="220" r="18" fill="#B2EEFA" opacity="0.7"/>
+    <circle cx="700" cy="300" r="16" fill="#B2EEFA" opacity="0.5"/>
+  </svg>
+  <p class="pill">Co-financing rule: 50/50 · no award figures in this deck</p>
+</div>
+<p class="src">skills/cth-grant/SKILL.md</p>
+</body>
+</html>

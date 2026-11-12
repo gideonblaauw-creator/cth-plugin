@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 920px; height: 1080px;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, #B2EEFA 0%, #fff 40%, #B2EEFA 100%);
+    color: #0C498A;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .head img { height: 48px; }
+  h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 40px;
+  }
+  .grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #69B5FA;
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(12,73,138,0.12);
+  }
+  .card.hi { background: #B2EEFA; border-color: #0C498A; grid-column: span 2; flex-direction: row; gap: 20px; align-items: center; }
+  .init {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 42px; font-weight: 700;
+    color: #0C498A;
+    line-height: 1;
+  }
+  .card.hi .init { font-size: 56px; min-width: 80px; }
+  .name { font-size: 22px; font-weight: 700; }
+  .metric { font-size: 16px; color: #669348; font-weight: 600; margin-top: 6px; }
+  .foot { text-align: center; font-size: 15px; opacity: 0.85; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>Nexus</h1>
+  <img src="../../cth-logo-blue.png" alt="">
+</div>
+<div class="grid">
+  <article class="card hi">
+    <div class="init">SN</div>
+    <div><div class="name">Sunco (SunColombia)</div><div class="metric">898 kWp · La Guajira</div></div>
+  </article>
+  <article class="card"><div class="init">SE</div><div class="name">SEOS Energy</div><div class="metric">+75 SOLvers</div></article>
+  <article class="card"><div class="init">SL</div><div class="name">Soluna</div><div class="metric">ZNI prepago</div></article>
+  <article class="card"><div class="init">TG</div><div class="name">Tierra Grata</div><div class="metric">1.947 soluciones</div></article>
+  <article class="card"><div class="init">TW</div><div class="name">TuWatt</div><div class="metric">Comunidades energéticas</div></article>
+</div>
+<p class="foot">nexus.cleantechhub.net · brochure-v2</p>
+</body>
+</html>

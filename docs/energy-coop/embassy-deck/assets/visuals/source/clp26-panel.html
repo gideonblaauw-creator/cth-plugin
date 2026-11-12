@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 920px; height: 1080px;
+    font-family: 'Open Sans', sans-serif;
+    color: #1A1A1A;
+    overflow: hidden;
+  }
+  .wrap {
+    position: relative;
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #1B5E20 0%, #2E7D32 45%, #388E3C 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 48px 40px;
+  }
+  .photo {
+    position: absolute; inset: 0;
+    background: url('../cth-og.jpg') center/cover no-repeat;
+    opacity: 0.35;
+    mix-blend-mode: luminosity;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 12px;
+    background: #FFEB3B;
+  }
+  .clp-mark {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px; font-weight: 700;
+    color: #FFEB3B;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 52px; line-height: 1.05;
+    color: #fff;
+    max-width: 14ch;
+  }
+  .sub {
+    margin-top: 16px;
+    font-size: 22px;
+    color: #E8F5E9;
+    line-height: 1.35;
+    max-width: 28rem;
+  }
+  .countries {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 36px;
+  }
+  .countries span {
+    background: rgba(255,255,255,0.92);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    border-bottom: 5px solid #FFEB3B;
+  }
+  .attrib {
+    margin-top: 28px;
+    font-size: 16px;
+    color: #E8F5E9;
+  }
+  .attrib strong { color: #FFEB3B; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="photo" aria-hidden="true"></div>
+  <div class="accent-bar" aria-hidden="true"></div>
+  <p class="clp-mark">ClimateLaunchpad</p>
+  <h1>CLP26 LATAM</h1>
+  <p class="sub">Convocatoria de ideas verdes · CleantechHUB National Organizer</p>
+  <div class="countries">
+    <span>Colombia</span><span>Perú</span><span>El Salvador</span><span>Guatemala</span><span>Costa Rica</span>
+  </div>
+  <p class="attrib"><strong>#CLP2026</strong> · clp26-brand · decks.cleantechhub.net/cth-clp26</p>
+</div>
+</body>
+</html>
