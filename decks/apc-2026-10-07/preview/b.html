@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Preview · Hands B · APC 7 oct 2026</title>
+<link rel="stylesheet" href="b-contract.css">
+<style>
+.s-04 .demo-title{font-size:88px;font-weight:700;line-height:1.08;color:#fff;margin:0 0 20px}
+.s-04 .demo-url{font-size:56px;font-weight:700;color:#B2EEFA;letter-spacing:.02em;margin-bottom:28px}
+.s-04 .demo-url span{color:rgba(255,255,255,.75);font-weight:600;font-size:34px}
+.s-04 .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 24px}
+.s-04 .step.glass{padding:20px 18px;text-align:left}
+.s-04 .step-time{font-size:40px;font-weight:700;color:#B2EEFA;line-height:1;margin-bottom:8px}
+.s-04 .step-route{font-size:24px;color:#69B5FA;font-weight:600;margin-bottom:10px;font-family:ui-monospace,monospace}
+.s-04 .step-copy{font-size:30px;line-height:1.35;color:#fff;font-weight:600}
+.s-04 .fallback{font-size:28px;color:#9DC384;font-weight:600;margin-top:8px}
+.s-04 .thumbs{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.s-04 .thumbs img{height:72px;width:auto;border-radius:8px;border:2px solid rgba(255,255,255,.2);object-fit:cover}
+.s-04 .slide-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:48px}
+.s-06 h2{font-size:72px;margin:0 0 24px;color:#fff}
+.s-06 .env-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px}
+.s-06 .env-card.glass{padding:22px 20px;min-height:280px;display:flex;flex-direction:column}
+.s-06 .env-num{font-size:44px;font-weight:700;color:#B2EEFA;margin-bottom:6px}
+.s-06 .env-name{font-size:34px;font-weight:700;color:#fff;margin-bottom:12px}
+.s-06 .env-desc{font-size:30px;line-height:1.4;color:rgba(255,255,255,.92);flex:1}
+.s-06 .rule-bar{font-size:30px;line-height:1.45;padding:18px 22px;margin-bottom:16px}
+.s-06 .rule-bar strong{color:#B2EEFA}
+.s-06 .pipeline{font-size:28px;line-height:1.45;color:rgba(255,255,255,.9);padding:0 4px}
+.s-06 .pipeline em{font-style:normal;color:#9DC384;font-weight:600}
+.s-06 .slide-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+.s-07 h2{font-size:72px;margin:0 0 20px;color:#fff}
+.s-07 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;flex:1;min-height:0;align-items:stretch}
+.s-07 .shot-wrap{display:flex;flex-direction:column;gap:0;min-height:620px}
+.s-07 .shot-wrap img{width:100%;flex:1;object-fit:contain;object-position:center top;border-radius:12px;background:rgba(0,0,0,.25)}
+.s-07 .caption.glass{padding:16px 22px;font-size:30px;font-weight:600;color:#fff;border-radius:0 0 12px 12px;margin-top:-4px}
+.s-07 .caption code{font-size:28px;color:#B2EEFA;font-weight:700}
+.s-07 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:36px;min-height:0}
+.s-08 h2{font-size:72px;margin:0 0 16px;color:#fff}
+.s-08 .cap-grid{display:grid;grid-template-columns:1.05fr 0.95fr;grid-template-rows:1fr 1fr;gap:18px;flex:1;min-height:0}
+.s-08 .shot-wrap{display:flex;flex-direction:column;min-height:0}
+.s-08 .shot-wrap.hero{grid-row:span 2}
+.s-08 .shot-wrap img{width:100%;height:100%;min-height:240px;object-fit:contain;object-position:center;border-radius:12px;background:rgba(0,0,0,.22)}
+.s-08 .caption.glass{padding:14px 20px;font-size:28px;font-weight:600;color:#fff;margin-top:8px}
+.s-08 .caption code{color:#B2EEFA;font-size:26px}
+.s-08 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.s-08 .pair .shot-wrap img{min-height:200px}
+.s-08 .slide-main{flex:1;display:flex;flex-direction:column;padding-top:32px;min-height:0}
+</style>
+</head>
+<body>
+<div class="deck-preview" id="deck">
+<!--#include fragments — keep in sync with ../slides/ -->
+<section class="slide slide-deep s-04" data-slide="04">
+  <span class="block-badge">Demo en vivo · Datalab</span>
+  <div class="slide-main">
+    <h2 class="demo-title">Demo en vivo · Datalab (4 min)</h2>
+    <p class="demo-url"><span>https://</span>datalab.cleantechhub.net</p>
+    <div class="timeline">
+      <div class="step glass"><div class="step-time">1:00</div><div class="step-route">#/datalab</div><p class="step-copy">Decidimos qué construir</p></div>
+      <div class="step glass"><div class="step-time">1:00</div><div class="step-route">#/datathon</div><p class="step-copy">Una foto de datos, sale una foto</p></div>
+      <div class="step glass"><div class="step-time">1:30</div><div class="step-route">#/lab/mapa · #/lab/delta</div><p class="step-copy">Living lab Bogotá: mapa y delta</p></div>
+      <div class="step glass"><div class="step-time">0:30</div><div class="step-route">#/lab/roi</div><p class="step-copy">Compuerta ROI</p></div>
+    </div>
+    <p class="fallback">Si la conexión falla → capturas en las dos diapositivas siguientes</p>
+    <div class="thumbs" aria-hidden="true">
+      <img src="../img/b-datalab.webp" alt="" width="128" height="72">
+      <img src="../img/b-datathon.webp" alt="" width="128" height="72">
+      <img src="../img/b-lab-mapa.webp" alt="" width="128" height="72">
+      <img src="../img/b-lab-delta.webp" alt="" width="128" height="72">
+      <img src="../img/b-lab-roi.webp" alt="" width="128" height="72">
+    </div>
+  </div>
+  <footer class="deck-footer"><span>CleantechHUB · Inspira. Actúa. Transforma.</span><span class="slide-num">04</span><span>APC Colombia · 7 oct 2026</span></footer>
+</section>
+<section class="slide slide-deep s-06" data-slide="06">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Lo que acaban de ver</h2>
+    <div class="env-grid">
+      <article class="env-card glass"><div class="env-num">1</div><div class="env-name">Datalab</div><p class="env-desc">Estrategia, sin datos operativos. Decide qué construir.</p></article>
+      <article class="env-card glass"><div class="env-num">2</div><div class="env-name">Datathon</div><p class="env-desc">Efímero, por evento: entra una foto de datos, sale una foto. Se borra al cerrar.</p></article>
+      <article class="env-card glass"><div class="env-num">3</div><div class="env-name">Living lab</div><p class="env-desc">Persistente (datos, lógica, acceso). Nunca es sistema de registro.</p></article>
+      <article class="env-card glass"><div class="env-num">4</div><div class="env-name">Producto cliente</div><p class="env-desc">Lee en un solo sentido desde el living lab.</p></article>
+    </div>
+    <div class="rule-bar glass"><strong>Regla del sitio:</strong> cifras «Datos demo» = sintéticos · «Dato público» = fuente citada.</div>
+    <p class="pipeline">Pipeline presentado el 16 sep: <em>Datathon</em> climático · nov 2026 (Semana Global del Emprendimiento) → <em>Climate Data Week Bogotá</em> · 1Q 2027.</p>
+    <p class="src">Living lab en vivo: Bogotá, calidad del aire (RMCAB · panel Delta · compuerta ROI) · datalab.cleantechhub.net</p>
+  </div>
+  <footer class="deck-footer"><span>CleantechHUB · Inspira. Actúa. Transforma.</span><span class="slide-num">06</span><span>APC Colombia · 7 oct 2026</span></footer>
+</section>
+<section class="slide slide-deep s-07" data-slide="07">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Capturas · entornos 1 y 2</h2>
+    <div class="cap-grid">
+      <figure class="shot-wrap"><img src="../img/b-datalab.webp" alt="Vista Datalab" width="900" height="620"><figcaption class="caption glass">Ruta <code>#/datalab</code> · estrategia</figcaption></figure>
+      <figure class="shot-wrap"><img src="../img/b-datathon.webp" alt="Vista Datathon" width="900" height="620"><figcaption class="caption glass">Ruta <code>#/datathon</code> · evento efímero</figcaption></figure>
+    </div>
+    <p class="src">Capturas en vivo · 6 oct 2026 · datalab.cleantechhub.net</p>
+  </div>
+  <footer class="deck-footer"><span>CleantechHUB · Inspira. Actúa. Transforma.</span><span class="slide-num">07</span><span>APC Colombia · 7 oct 2026</span></footer>
+</section>
+<section class="slide slide-deep s-08" data-slide="08">
+  <span class="block-badge">Bloque 2 · Datalab</span>
+  <div class="slide-main">
+    <h2>Capturas · living lab y compuerta ROI</h2>
+    <div class="cap-grid">
+      <figure class="shot-wrap hero"><img src="../img/b-lab-mapa.webp" alt="Mapa living lab Bogotá" width="960" height="720"><figcaption class="caption glass"><code>#/lab/mapa</code> · Living lab · calidad del aire Bogotá</figcaption></figure>
+      <figure class="shot-wrap">
+        <div class="pair">
+          <div class="shot-wrap"><img src="../img/b-lab-delta.webp" alt="Panel Delta antes" width="420" height="240"><figcaption class="caption glass">Delta · antes</figcaption></div>
+          <div class="shot-wrap"><img src="../img/b-lab-delta-after.webp" alt="Panel Delta después" width="420" height="240"><figcaption class="caption glass">Delta · después</figcaption></div>
+        </div>
+        <figcaption class="caption glass" style="margin-top:10px"><code>#/lab/delta</code></figcaption>
+      </figure>
+      <figure class="shot-wrap"><img src="../img/b-lab-roi-gate.webp" alt="Compuerta ROI abierta" width="880" height="320"><figcaption class="caption glass"><code>#/lab/roi</code> · compuerta ROI</figcaption></figure>
+    </div>
+    <p class="src">Capturas en vivo · 6 oct 2026 · toggles Delta «Después» y «Abrir compuerta ROI»</p>
+  </div>
+  <footer class="deck-footer"><span>CleantechHUB · Inspira. Actúa. Transforma.</span><span class="slide-num">08</span><span>APC Colombia · 7 oct 2026</span></footer>
+</section>
+</div>
+</body>
+</html>
