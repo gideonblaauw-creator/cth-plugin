@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REIN Hubs — One-page overview</title>
+<style>
+@font-face {
+  font-family: Poppins;
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Lora;
+  src: url("fonts/Lora-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+  :root {
+    --green: #335d4f;
+    --orange: #ff6633;
+    --body: #666666;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #fff;
+    color: var(--body);
+    font-family: Lora, Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.35;
+  }
+  h1, h2, h3, .sans { font-family: Poppins, Arial, sans-serif; }
+  a { color: var(--green); }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 12px auto;
+    background: var(--white);
+    padding: 11mm 12mm 10mm;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2mm;
+    overflow: hidden;
+  }
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid var(--green);
+    padding-bottom: 2.5mm;
+  }
+  .brand {
+    margin: 0;
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gate {
+    margin: 0;
+    color: var(--orange);
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
+  }
+  h1 {
+    margin: 0;
+    color: var(--green);
+    font-size: 28px;
+    line-height: 1.05;
+    font-weight: 700;
+  }
+  .boilerplate {
+    margin: 0;
+    font-size: 12.5pt;
+    line-height: 1.4;
+  }
+  .ellipsis-note, .src, footer p { margin: 0; color: var(--body); font-size: 8.5pt; }
+  h2 {
+    margin: 0 0 1.5mm;
+    color: var(--green);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .model {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5mm;
+  }
+  .model article, .stat, .funnel span, .decision {
+    border: 1px solid var(--green);
+    background: #fff;
+    padding: 2.5mm 3mm;
+  }
+  .model h3 {
+    margin: 0;
+    color: var(--green);
+    font-size: 14px;
+  }
+  .model p { margin: 1mm 0 0; color: var(--body); font-size: 9pt; }
+  .stats {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 2.5mm;
+  }
+  .stat strong {
+    display: block;
+    font-family: Poppins, Arial, sans-serif;
+    color: var(--green);
+    font-size: 22px;
+    line-height: 1;
+  }
+  .stat b { font-family: Poppins, Arial, sans-serif; font-size: 12px; }
+  .stat p { margin: 1mm 0 0; font-size: 10pt; }
+  .funnel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2.5mm;
+  }
+  .funnel span {
+    text-align: center;
+    font-family: Poppins, Arial, sans-serif;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .decisions { display: grid; gap: 2mm; }
+  .decision {
+    border: 1.5px solid var(--orange);
+    background: #fff;
+    color: var(--orange);
+    font-family: Poppins, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+  }
+  footer {
+    margin-top: auto;
+    border-top: 2px solid var(--green);
+    padding-top: 2mm;
+    display: flex;
+    justify-content: space-between;
+    gap: 6mm;
+  }
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+  @page { size: A4; margin: 0; }
+.lockup .word, .lockup .tag { font-family: Poppins, Arial, sans-serif; font-weight: 700; color: var(--green); margin: 0; }
+  .lockup .word { font-size: 18px; letter-spacing: 0.04em; line-height: 1; }
+  .lockup .tag { font-size: 11px; letter-spacing: 0.01em; line-height: 1.25; margin-top: 1.2mm; max-width: 118mm; }
+  .cover .lockup .word, .cover .lockup .tag { color: #fff; }
+</style>
+</head>
+<body>
+<article class="page">
+  <header class="top">
+    <div class="lockup">
+      <p class="word">REIN HUBS</p>
+      <p class="tag">RESILIENCE, ENTREPRENEURSHIP, INNOVATION &amp; ENVIRONMENT</p>
+    </div>
+    <p class="gate">Awaiting Gideon's approval<br>REIN HOLD · Not for send</p>
+  </header>
+
+  <p class="boilerplate">A Global Platform for Resilient, Inclusive, Nature-Based Innovation. Led by PVBLIC Foundation and CleantechHUB, REIN carries forward the legacy of the U.S. State Department's … CCE initiative…</p>
+  <p class="ellipsis-note">Boilerplate as recorded in the 21 Oct 2026 inventory. The ellipses are in that record. Missing words are not filled in.</p>
+
+  <section>
+    <h2>Hub model</h2>
+    <div class="model">
+      <article><h3>Country &amp; Regional Hubs</h3><p>The local and regional infrastructure where ideas are developed, ventures are built, and high-potential solutions are accelerated.</p></article>
+      <article><h3>National Alignment</h3><p>Integration with national development and resilience strategies to ensure ventures respond to country priorities and have pathways for adoption and scale.</p></article>
+      <article><h3>Capital Infrastructure</h3><p>Blended finance pathways connecting investment-ready ventures with multilateral, public, and private capital partners.</p></article>
+    </div>
+    <p class="src">Definitions: https://www.pvblic.org/rein-hubs — checked 21 Oct 2026. The webinar inventory named the same three parts and did not quote these sentences.</p>
+  </section>
+
+  <section>
+    <h2>Figures used on this page</h2>
+    <div class="stats">
+      <article class="stat">
+        <strong>5</strong>
+        <b>Active hubs</b>
+        <p>Colombia, Perú, Guatemala, Costa Rica, El Salvador.</p>
+      </article>
+      <article class="stat">
+        <strong>4</strong>
+        <b>Program stages</b>
+        <p>Ideation (Activation) → Incubation → Acceleration → Growth.</p>
+      </article>
+      <article class="stat">
+        <strong>20+</strong>
+        <b>Institutional partners</b>
+        <p>Count stated in the April 2026 proposal impact block.</p>
+      </article>
+    </div>
+    <p class="src">Hubs and the stage count: inventory, “Stable across files,” 21 Oct 2026. Country names and “20+”: <code>decks/rein-academic-city-ghana/sources/academic-city-ghana-2026-04-23.html</code> (network and impact). Stage names: that file’s fact row, plus the closed label in <code>decks/rein-academic-city-ghana/PENDIENTES.md</code> (20 Oct 2026).</p>
+  </section>
+
+  <section>
+    <h2>By the Numbers</h2>
+    <div class="funnel">
+      <span>1,200+<br>Entrepreneurs supported</span>
+      <span>3,000+<br>Applications received</span>
+      <span>222<br>Startups incubated</span>
+      <span>100<br>Startups accelerated</span>
+    </div>
+    <p class="src">https://www.pvblic.org/rein-hubs, By the Numbers. Gideon, 22 Oct 2026.</p>
+  </section>
+
+  <p class="src">University partners named on https://www.pvblic.org/rein-hubs: Universidad Externado, Universidad del Pacífico, Universidad Rafael Landívar, Universidad LCI Veritas, and Universidad Tecnológica de El Salvador (UTEC). See DECISIONS.md.</p>
+
+  <footer>
+    <p>REIN Hubs · PVBLIC × CleantechHUB</p>
+    <p>Awaiting Gideon's approval · 21 Oct 2026</p>
+  </footer>
+</article>
+</body>
+</html>
