@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#B2EEFA"/>
+  <rect width="367" height="1920" fill="#0C498A"/>
+  <text x="43" y="230" fill="#FFFFFF" font-family="Titillium Web, sans-serif" font-size="153" font-weight="700">Datalab</text>
+  <text x="410" y="422" fill="#0C498A" font-family="Titillium Web, sans-serif" font-size="134" font-weight="700">Datathon</text>
+  <text x="410" y="614" fill="#0C498A" font-family="Open Sans, sans-serif" font-size="86">Breakouts colaborativos · 24 · 11 · 2026</text>
+  <text x="410" y="1689" fill="#669348" font-family="Open Sans, sans-serif" font-size="14">1080x1920 · 24 · 11 · 2026</text>
+</svg>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>02-earth-observatory banner</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Titillium+Web:wght@700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1200px;
+      height: 400px;
+      max-width: 1200px;
+      max-height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: #0C498A; background: #0C498A; }
+    .canvas {
+      position: absolute;
+      inset: 0;
+      width: 1200px;
+      height: 400px;
+      overflow: hidden;
+    }
+    .head { font-family: 'Titillium Web', sans-serif; font-weight: 700; }
+    .tag { color: #669348; font-weight: 600; }
+    .bullet { line-height: 1.35; margin: 0; padding-left: 1.1em; position: relative; }
+    .bullet + .bullet { margin-top: 0.55em; }
+    .bullet::before { content: '•'; position: absolute; left: 0; color: #669348; font-weight: 700; }
+    .ph {
+      border: 1.5px dashed #0C498A;
+      background: #FFFFFF;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .logo-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-cth {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-left: auto;
+    }
+    .cth-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+    .datalab-logo { display: block; width: auto; max-width: 100%; object-fit: contain; }
+    .photo-panel, .photo-layer { position: relative; overflow: hidden; }
+    .photo-panel img, .photo-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-overlay { position: absolute; inset: 0; pointer-events: none; }
+
+    /* LinkedIn 1200×627 */
+    .layout-linkedin { display: flex; height: 100%; align-items: stretch; }
+    .layout-linkedin.has-photo .sidebar { width: 28%; }
+    .layout-linkedin.has-photo .main { flex: 1; width: 44%; }
+    .layout-linkedin.has-photo .photo-panel { width: 28%; flex-shrink: 0; align-self: stretch; }
+    .layout-linkedin .sidebar {
+      width: 34%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main {
+      flex: 1;
+      min-height: 100%;
+      background: #B2EEFA;
+      padding: 24px 32px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-self: stretch;
+    }
+    .layout-linkedin .main-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }
+    .layout-linkedin .main-top h1 { font-size: 50px; line-height: 1.05; }
+    .layout-linkedin .main-top .sub { font-size: 26px; font-weight: 600; }
+    .layout-linkedin .bullet { font-size: 21px; }
+    .layout-linkedin .main-bottom .tag { font-size: 20px; margin-bottom: 12px; }
+    .layout-linkedin .sidebar .side-note {
+      font-size: 15px; line-height: 1.45; opacity: 0.92; margin-top: 20px;
+    }
+
+    /* Instagram feed 1080×1350 */
+    .layout-feed { display: flex; flex-direction: column; height: 100%; }
+    .layout-feed .feed-top {
+      flex: 1;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+    }
+    .layout-feed .feed-top.has-photo { padding: 0; }
+    .layout-feed .feed-top .photo-layer { position: absolute; inset: 0; }
+    .layout-feed .feed-top-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 48px 44px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .layout-feed .feed-top h1 { font-size: 54px; line-height: 1.05; }
+    .layout-feed .feed-top .sub { font-size: 26px; font-weight: 600; color: #B2EEFA; }
+    .layout-feed .feed-bottom {
+      flex: 1.08;
+      min-height: 0;
+      background: #B2EEFA;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+    .layout-feed .card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      margin: 28px 40px 0;
+      padding: 34px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+    .layout-feed .logo-bar {
+      margin-top: auto;
+      padding: 22px 40px 26px;
+      background: rgba(255, 255, 255, 0.45);
+      border-top: 3px solid rgba(12, 73, 138, 0.12);
+    }
+    .layout-feed .bullet { font-size: 26px; }
+
+    /* Story 1080×1920 */
+    .layout-story {
+      background: #0C498A;
+      color: #FFFFFF;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .layout-story.has-photo { padding: 0; }
+    .layout-story .story-photo { position: absolute; inset: 0; }
+    .layout-story .story-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 64px 48px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .layout-story header .datalab-logo { margin-bottom: 22px; }
+    .layout-story .badge {
+      background: #69B5FA;
+      color: #0C498A;
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+    .layout-story h1 { font-size: 62px; line-height: 1.05; margin-top: 28px; }
+    .layout-story .sub { font-size: 28px; margin-top: 14px; opacity: 0.95; font-weight: 600; }
+    .layout-story .story-mid {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 20px 0 28px;
+    }
+    .layout-story .bullet { font-size: 30px; color: #FFFFFF; }
+    .layout-story .bullet::before { color: #9DC384; }
+    .layout-story .story-tag { font-size: 26px; color: #9DC384; font-weight: 600; margin-bottom: 16px; }
+    .layout-story .ph { color: #0C498A; }
+    .layout-story .logo-bar {
+      padding-top: 8px;
+      border-top: 2px solid rgba(255,255,255,0.18);
+    }
+
+    /* Square 1080×1080 */
+    .layout-square {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: #0C498A;
+      color: #FFFFFF;
+    }
+    .layout-square .sq-top {
+      flex: 1;
+      padding: 40px 42px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+    }
+    .layout-square .sq-top.has-photo .photo-layer { position: absolute; inset: 0; }
+    .layout-square .sq-top-content { position: relative; z-index: 1; }
+    .layout-square .sq-top h1 { font-size: 52px; line-height: 1.05; }
+    .layout-square .sq-top .sub { font-size: 24px; font-weight: 600; color: #B2EEFA; }
+    .layout-square .sq-bottom {
+      background: #B2EEFA;
+      color: #0C498A;
+      padding: 24px 42px 28px;
+    }
+    .layout-square .sq-bottom .bullet { font-size: 22px; }
+
+    /* Wide banners (X, email, web, FB event) */
+    .layout-banner {
+      display: flex;
+      height: 100%;
+      align-items: stretch;
+      background: #B2EEFA;
+    }
+    .layout-banner .ban-left {
+      width: 26%;
+      background: #0C498A;
+      color: #FFFFFF;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+    .layout-banner .ban-mid {
+      flex: 1;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+    .layout-banner .ban-mid h1 { font-size: clamp(28px, 6vh, 56px); line-height: 1.05; color: #0C498A; }
+    .layout-banner .ban-mid .sub { font-size: clamp(16px, 3.5vh, 28px); font-weight: 600; color: #0C498A; }
+    .layout-banner .ban-mid .bullet { font-size: clamp(14px, 2.8vh, 22px); }
+    .layout-banner.has-photo .ban-photo {
+      width: 24%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .layout-banner .ban-foot {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #669348;
+      font-weight: 600;
+    }
+    </style>
+</head>
+<body>
+        <div class="canvas layout-banner">
+          <div class="ban-left">
+            <img class="datalab-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeAAAAB4CAIAAACl9LZYAAAODElEQVR4nOzdf0zb953H8Y/PYPtiEvMjBZVgWOAg5BZocjjJaJqgi+CP5CB3VXPS3VHpVkXKVUlPS1mldZPaaZ3UKd2UVlo7pZOy9I+yTWur/iAi0hKlyw8tHbGTFdKFkBQKJq7sDIyRXflLnLEvOAEbbGbz9Zd8mJ4PIQFff99vf5OQF19//Pl+vlk5u14RAAD5/IMAAEiJgAYASRHQACApAhoAJEVAA4CkCGgAkBQBDQCSIqABQFIENABIioAGAEkR0AAgKQIaACRFQAOApAhoAJAUAQ0Akspa4LHJSSEM6idhMIgU/c2STZvKW/Y4StYU5FjNIjXBkDJ8a6TjI+eVK/1L1nPN18q/XufIzSswW1LtqYSVMf/IZy7nrS/6BQBoZjRVNiV8YFJMGgxTMZt6OovpnaMlU+VibqXDUfHct/esLlhpMmWl3lPdWS3Z9ui6waHbHo9/CXrayyv+9d/25KxcmZWVRk91Z7VkbdU6/59vj/v9AgC0WdIhjpZmh9AgYbkePb/+L5p6aiwHgKjkAT0pNElUXrwmX2iQsFyPnqvyNPXUWA4AUUlfwhvSGtpIrdy6ItXx3IQSluvR02zW1FNjOQBEMYsDACRFQAOApAhoAJAUAQ0AkiKgAUBSBDQASIqABgBJEdAAICkCGgAkRUADgKQIaACQFAENAJIioAFAUkkDenJS03qjCctDXylCg4TlevRUFE09NZYDQFTyM2hNq40mLvfcGhUaJCzXo+e4X1NPjeUAELWkQxwdJ5xCg4TlevT87LKmnhrLASAq6T0JDcKg7aaxCWo8Hn//gK9g9UqLxZT6LQSDIaX/C9/x4x9fvty/ND3H/f4Rn2/FypXZ2abUb0uohJWR276usx8PD3DTWAAZYMjZ9YoAAMiHWRwAICkCGgAkRUADgKQIaACQFAENAJJaaA7Zpk3lLXscJWsKcqxmkZpgSBm+NdLxkfPKlcRTzYoL//zPFYM2a8hsiojUKBNZgZD1T5+XeXyrxVIdpx49ASAtSedBOxwVz317z+qClalPLlapO6sl2x5dNzh02+Pxz3m0pMjX4Oix/qOSZfxLyi2FurNa8rVir3/cOh6yCv2PU4+eAJCupEMcLc0OoUHC8vXlQ0KDhOV6HKcePQEgXUnPEIvX5AsNEpbbckJCg4TlehynHj0BIF1JA9q6ItWx19TLTdl3hQYJy/U4Tj16AkC6mMUBAJIioAFAUmnMUgAyxPzYM/97crdt5vu+D3698+fugNBOv87AA0BASyN71RPPP/lWvTXpDhORsWDI5w/09fu6etynXQM9fk1j+gAkR0AvH6as3Hyb+lFVUdrc5HhJhLrOOn/U7jo9rFNMG0vrNh6oz7cIEXb3Hul0++4IAEuJgF6+rFsaGt6vq3zjSMf3PxnP/G0Qs/ObW3ccrJ76CQl/HmhXA1oAWFK8SbjM5RQffPG/jjbmZ3xmn9m+9olyfn8DDxL/A+UV7nUe+o17bPpri8laVJ5fU1RQVf7wFrslfkfb3mdavP53nnd9JTLGWFtXWWsSAB4gAlpeAf+X5103h2ZGfs9FP6lDw3WH929rtsf825kKD+7feqLt4wuaLtWMYS18rL7QIgA8SAT0snN3yNX1320DB77zn4cdMVM+7OsP1rsunZ4/GG0sXVfZXG/fbM+vKikotVtzRcTrHR10j/T03Gw/feNS3FSQFU9855tvNcydSWKpaPj9hw3TX0bOv/n24x/eVhbZPy2Z65y9YnPD1rbdlZvLbUUmEQ4GunsH3vvQdcw1mvmxeyBzCOjlKXT72M/Pbi/f3Ty77If1sR320rOf3Yida2F9qHX/7tea5pwLZxUVFaofWxzr97WOvPvmyUMnv1zkTGH9+meoc3giIgrtP2j7j7ba2U6WHNsWx0b148DFM0+97rrEyoOQFW8SLlfK8M1jn4zEbsktX1ubZ5z93vqQepZ9tGnBkQpTwd7/f3yR7zHq1z+DnU2FbfHpHKusfuevnn2kJlsAciKgly/l0kV3X+yG/OJG+0xeGSt3NHzXETdYMdh99chPO7913Hni83DMZmtz69bGvOjXd/suOo91/vFt50jsHiLoO3Hqj+r2Y52ud3tDyuL7pyKTnUvrt0XTeczrOXVxoNs79zYRRY5tbfWrWN0Kcko6xBH6StGyKptaPn/jxB2jlgXt1PKET5Tx49Sjpx7Cbnff6MaqmFGOshKr2TX99Nb85iZ7bszOg6fe3/169C3Hz9rPfvnWkZbZ4ZGitU/WrDp9Th2/VnrOdR06J2x1TdsdBWUzT+S99vLrXT1xgyeL65+CjHbOLbKKoOfI4Y6XXeP3f6/sfKttY8wEFWtj49rSi5/e4DIcyCfpGbTn1qjQIGF5IGgVGiQs1+M49eipByUU8sZP27Dl3fuNa7bayiZG+9wj9z56b/ys0z0zIUTxDb3tih28tVbV2tKas6Ff/0x3Dp86fvJ+Oqvu3jh35lC7J/Y8PLe6cnuRUQDySXoG3XHC2fZsi1gstXz+xmv9pQ/VXRWLpZYnfKKMH6cePXUxEQ5MxH6fZTFlqWmlTAXZzUPP30xeqfiGQ2ExG202qzmtlwz69c9wZ+/AsU/mTNW42+3q7W4t3jJzEp1TuLnE/IvhDM4iBzIj6Rm00/n5j3/yUW+fJxhK4wW7urNaohaq5fMfHfYW/s5Z6/PblIk0Zo+oO6slaqFaLpbkOPXoqQtTlnmx15JMTW+Ib2XJ6Htl+vVPq/NY/0BPcO5Gxevr8cZuMFfZrQxDQ0ILBeWVK/0Zv0G1x7c62c25F02P49SjZ+aZzLa4gI6M+SNxb+4JY2lN9b6GyppyW1Vhfll+xmdV6tc/M5193vHA/MHliXBfKBLzw5+Vm2eJvvIApMI86GXMnFdQFjeHIeKLGZMuXFd3+JlH91bodT2gfv0z2Hnu6fY9d6e3z/7wm7moHVIioJcvY1GJvSouWcb7vEr0NNBc8sjRF3Y2zbt77dhowDd18jgd7jli0fTrr/eRA8sIAb1sZdsaG+1FsVu8nvO+e/m8uXFjXMbFTTVTGWv+fe+Z/ytd7Dmqfv0z3Fl91zTRZqMtfnsgGBGAfLhQZbkqrH3koCMupga7B7qjVy1b85vqYkMu0vXOmSOu2MnCWZbpUddF0q9/pjsXFq2yzX8LMcdSZo0N6EjAq4QFIB0CennKsx9s3VgVu2XC997Mmvoma2lObAApQ+5A3JoV2as2V+eLlM0NxEz3169zbvnamnnjIea8wpq4lx6hPl+YdwghoYWGODZtKm/Z4yhZU5CT8hykYEgZvjXS8ZEz2RQIPXpOTgphUD8Jg0Gk6G+W6HGcmWIrr/7Bs7v2VcT923kv/uFY/72QMWfPmXlmtOVYzGLmAkdjab3jQG1cuTnbuNCf02Sbmi5yR+jVX+jWuWjtvm/knz4ZOxXaXLtjQ9xS18HRS17yGTJKGtAOR8UiLtZQ46y6qrj6uT1HXu2YPx1Yj56TYtIQTdmU03lq3+jOhunyeZV6HOci2PIe3l4XGYt7Dtv2+g2t9YW5c3YdHXj5nRuzl9vdmb7CcPZE07K58Z9qL3ZdmpriYaz8xo6jz2woi2+Qm1eQGxPBYiISl1h2+97qFRfu3xAgA/2T0KGzpemppgPDHT/ruZfytnUbvrs7bhmmsd5r573cfhcyShrQLc0OoYFaPj+k9OipB0mO01LtOPpiCkcy4Xvj1c72/piICQYuDYf3xdx4Jbe2ofPNyvPXFUvJw9uj2ycC3UFb7UwUVlS37fa97Q4PXXf3+O+GQ+NjE+qJ80yDgn0//OZm55A6xq30u77fqbF/8j+L1iMXCYanc0pfOnywzT10oXd8LCd/e11xmSnub6/9w4EhFuKAlJKOQRevWdQY4oLlevRUz4E1mUz5iVKmsTw9owMvvjB1s6u4E94746dO3RyM39GSX9xUv/ZexkVXqIhbrdTW/FTLr19s+V7N1ICB4vVc6J8zscFa61j/ZNP65nKrWXP/pLR3jhshiXR3/uHE9MooufbS5qYNT9bHp7P6JuQHZ37k4iJvSCppQGtZzi1ZuR49DYZ0hjZSK9fjOHUQGbx49vG291/tSZAvvk/OPH18aCxxYbjrNx1Pd7ovnLp6Ppikd+jLN9qv9k2IZLT2Fzp1Vsej4+fPua9964e/fdedcBZduLvz5NPt7kXerADQH/Ogl53ImHf0Uve19s6rJ64vsLCpcuGdD3a6t77UuqGxwmq5X9jTO/Tu6U/fc41OpdJ119OHLa/tf6QpenIaDPR5fV33R2N9rjO7Xhg9vH/r3orZRQTH3EOnegJKJvoLPY4825wbN2dDCfgV3/VPn2pztzfWte2urCmyqgPWY15fT/fAsU7ngn+BwINnyNn1SsIHftl+SGjzP62vLUFPPSyX4wTw94150AAgKQIaACRFQAOApAhoAJAUAQ0AkiKgAUBSBDQASIqABgBJEdAAICkCGgAkRUADgKSSBnRI2zIyCcv16Dk5qWm90YTlehwnAKQraUB7bo0KDRKW69FTaFptNHG5LscJAGlKGtAdJ5xCg4TlevTUw3I5TgB/34ymyqaED3g8/v4BX8HqlRaLyWRKddnoYEjp/8J3/PjHly/3L01PgzBou2msYWmOEwDSlXQ9aADAg8UsDgCQFAENAJIioAFAUgQ0AEiKgAYASRHQACApAhoAJEVAA4CkCGgAkBQBDQCSIqABQFIENABIioAGAEkR0AAgKQIaACRFQAOApAhoAJAUAQ0AkiKgAUBSBDQASIqABgBJEdAAICkCGgAkRUADgKQIaACQ1F8BAAD//2MrsmIAAAAGSURBVAMA240zNpULLYwAAAAASUVORK5CYII=" height="64" width="256" alt="" />
+            <p class="side-note" style="color:#fff;font-size:14px;line-height:1.4;">Datalab powered by CleantechHUB<br/>24 · 11 · 2026</p>
+          </div>
+          <div class="ban-mid">
+            <h1 class="head">Observatorio de la Tierra</h1>
+            <p class="sub">Lanzamiento · martes 24 de noviembre de 2026</p>
+            <p class="bullet">Datos ambientales accionables para decisiones locales</p><p class="bullet">CleantechHUB como custodio del ecosistema</p>
+            <p class="ban-foot">Inspira. Actúa. Transforma. · Sede/hora: PENDIENTE</p>
+          </div>
+          
+        </div>
+        </body>
+</html>
