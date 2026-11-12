@@ -1,0 +1,380 @@
+@import url("eo-tokens.css");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--eo-font);
+  color: var(--eo-ink);
+  background: #c8d4e0;
+  counter-reset: eo-page;
+}
+
+.eo-page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 8mm;
+  padding: 12mm 14mm 10mm;
+  display: flex;
+  flex-direction: column;
+  background: var(--eo-white);
+  page-break-after: always;
+  break-after: page;
+  position: relative;
+}
+
+.eo-page:not(.cover-v3) {
+  counter-increment: eo-page;
+}
+
+.eo-logos-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 6mm;
+  min-height: 12mm;
+}
+
+.eo-logos-top img {
+  height: 11mm;
+  width: auto;
+}
+
+.eo-layout {
+  display: grid;
+  grid-template-columns: 1fr 22mm;
+  gap: 5mm;
+  flex: 1;
+}
+
+.eo-main {
+  min-width: 0;
+}
+
+.eo-sec-num {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 42pt;
+  line-height: 1;
+  color: var(--eo-green-section);
+  margin: 0 0 2mm;
+}
+
+.eo-rule-thin {
+  border: 0;
+  border-top: 1px solid var(--eo-rule-gray);
+  margin: 0 0 4mm;
+}
+
+.eo-sec-title {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 22pt;
+  color: var(--eo-blue-title);
+  margin: 0 0 2mm;
+  line-height: 1.15;
+}
+
+.eo-accent-bar {
+  width: 14mm;
+  height: 2.5mm;
+  margin-bottom: 5mm;
+  background: linear-gradient(90deg, var(--eo-blue-title), var(--eo-green-section));
+  border-radius: 1px;
+}
+
+.eo-body {
+  font-size: 10.5pt;
+  line-height: 1.48;
+  color: var(--eo-ink);
+}
+
+.eo-body p {
+  margin: 0 0 3.5mm;
+}
+
+.eo-body ul,
+.eo-body ol {
+  margin: 0 0 3.5mm;
+  padding-left: 5mm;
+}
+
+.eo-body h3 {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 12pt;
+  color: var(--eo-green-section);
+  margin: 5mm 0 2mm;
+}
+
+.eo-subhead {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--eo-blue-title);
+  margin: 4mm 0 2mm;
+}
+
+.eo-sidebar {
+  border-left: 1px solid var(--eo-sidebar-line);
+  padding-left: 3mm;
+  font-size: 6.5pt;
+  line-height: 1.35;
+  color: var(--eo-sidebar-line);
+}
+
+.eo-sidebar strong {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--eo-blue-mid);
+  margin-bottom: 2mm;
+}
+
+.eo-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--eo-blue-mid);
+  border-top: 1px solid var(--eo-rule-gray);
+  padding-top: 3mm;
+  margin-top: 6mm;
+}
+
+.eo-foot .pagenum::before {
+  content: counter(eo-page) " / ";
+}
+
+.eo-foot .pagenum::after {
+  content: attr(data-total);
+}
+
+.eo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 3mm 0;
+}
+
+.eo-table thead th {
+  background: var(--eo-blue-table);
+  color: var(--eo-white);
+  font-weight: 700;
+  text-align: left;
+  padding: 2.5mm 3mm;
+}
+
+.eo-table thead th:first-child {
+  border-radius: 4px 0 0 0;
+}
+
+.eo-table thead th:last-child {
+  border-radius: 0 4px 0 0;
+}
+
+.eo-table tbody td {
+  padding: 2.5mm 3mm;
+  border-bottom: 1px solid rgba(30, 78, 121, 0.12);
+  vertical-align: top;
+}
+
+.eo-table tbody tr:nth-child(even) td {
+  background: var(--eo-row-alt);
+}
+
+.eo-callout {
+  display: flex;
+  gap: 3mm;
+  align-items: flex-start;
+  padding: 4mm 4.5mm;
+  margin: 4mm 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--eo-callout-bg), var(--eo-white));
+  box-shadow: 0 2px 8px rgba(30, 78, 121, 0.08);
+}
+
+.eo-callout-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--eo-green-dot);
+}
+
+.eo-callout p {
+  margin: 0;
+  font-size: 9.5pt;
+  font-weight: 700;
+  color: var(--eo-blue-title);
+  line-height: 1.4;
+}
+
+.swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8mm;
+  align-items: center;
+  margin: 4mm 0;
+}
+
+.logo-row img {
+  height: 14mm;
+  width: auto;
+}
+
+.inline-logo {
+  height: 18mm;
+  width: auto;
+  margin: 4mm 0;
+}
+
+.inline-logo.wide {
+  height: 14mm;
+  max-width: 100%;
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+}
+
+.sample-grid img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--eo-rule-gray);
+}
+
+.sample-grid figcaption {
+  font-size: 7.5pt;
+  color: var(--eo-green-section);
+  margin-top: 1mm;
+}
+
+/* Cover */
+.eo-page.cover-v3 {
+  padding: 0;
+  color: var(--eo-white);
+  background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
+  overflow: hidden;
+  justify-content: flex-end;
+}
+
+.cover-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.cover-logo-bar {
+  position: absolute;
+  top: 14mm;
+  left: 14mm;
+  right: 14mm;
+  display: flex;
+  justify-content: center;
+  padding: 4mm 6mm;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.cover-logo-bar img {
+  height: 10mm;
+  width: auto;
+  max-width: 100%;
+}
+
+.cover-body {
+  position: relative;
+  z-index: 2;
+  padding: 0 16mm 16mm;
+  max-width: 62%;
+}
+
+.cover-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.92;
+  margin: 0 0 4mm;
+}
+
+.cover-v3 h1 {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 34pt;
+  line-height: 1.08;
+  margin: 0 0 4mm;
+}
+
+.cover-tagline {
+  font-family: var(--eo-display);
+  font-weight: 700;
+  font-size: 16pt;
+  color: var(--eo-green-tagline);
+  margin: 0 0 5mm;
+}
+
+.cover-lede {
+  font-size: 10pt;
+  line-height: 1.45;
+  opacity: 0.92;
+  margin: 0 0 6mm;
+  max-width: 95%;
+}
+
+.cover-footline {
+  font-size: 8pt;
+  opacity: 0.85;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: 3mm;
+}
+
+.cover-band-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3mm;
+  background: linear-gradient(90deg, var(--eo-green-tagline), var(--eo-blue-mid));
+}
+
+.orbit-graphic {
+  position: absolute;
+  right: 8mm;
+  top: 38%;
+  width: 95mm;
+  height: 95mm;
+  transform: translateY(-20%);
+  z-index: 1;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .eo-page {
+    margin: 0;
+    box-shadow: none;
+  }
+}

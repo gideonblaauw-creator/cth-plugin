@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Datatón · Lanzamiento suave del Observatorio de la Tierra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/pdf-download.css"/>
+  <style>
+    @import url('../shared/eo-tokens.css');
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--eo-font);
+      color: var(--eo-ink);
+      background: #c8d4e0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      background: var(--eo-white);
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--eo-white);
+      padding: 10mm 14mm 8mm;
+      background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
+    }
+    .hero-orbit {
+      position: absolute;
+      right: -8mm;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 70mm;
+      opacity: 0.5;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 72%; }
+    .hero-logos img.eo-rev {
+      height: 10mm;
+      width: auto;
+      display: block;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      font-size: 7.5pt;
+      margin: 4mm 0 2.5mm;
+      opacity: 0.92;
+    }
+    h1 {
+      margin: 0 0 2.5mm;
+      font-family: var(--eo-display);
+      font-size: 20pt;
+      font-weight: 700;
+      line-height: 1.12;
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 9.5pt;
+      font-weight: 600;
+      line-height: 1.35;
+      opacity: 0.9;
+    }
+    .main {
+      flex: 1;
+      padding: 4mm 14mm 2mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+    .agenda-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6mm;
+      border-bottom: 2px solid var(--eo-green-section);
+      padding-bottom: 2mm;
+      margin-bottom: 1mm;
+    }
+    .agenda-head h2 {
+      margin: 0;
+      font-family: var(--eo-display);
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--eo-blue-title);
+    }
+    .agenda-head .note {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--eo-green-section);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 26mm 1fr;
+      gap: 4mm;
+      align-items: start;
+      padding: 0.85mm 0;
+      border-bottom: 1px solid rgba(30, 78, 121, 0.12);
+    }
+    .tl-row:nth-child(even) { background: var(--eo-row-alt); margin: 0 -2mm; padding-left: 2mm; padding-right: 2mm; }
+    .tl-row:last-child { border-bottom: 0; }
+    .tl-time {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: var(--eo-blue-title);
+      line-height: 1.25;
+    }
+    .tl-text {
+      font-size: 8.5pt;
+      font-weight: 600;
+      line-height: 1.22;
+    }
+    .footer {
+      margin-top: auto;
+      background: var(--eo-blue-title);
+      color: #fff;
+      padding: 3.5mm 14mm 4mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8mm;
+      flex-wrap: wrap;
+    }
+    .tagline {
+      font-family: var(--eo-display);
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--eo-green-tagline);
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .footer img.eo-rev {
+      height: 8mm;
+      width: auto;
+      display: block;
+    }
+    .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+    @media print {
+      html, body { width: 210mm; min-height: 297mm; background: #fff; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet" role="document">
+    <header class="hero">
+      <img class="hero-orbit" src="../shared/orbit-graphic.svg" alt="" aria-hidden="true"/>
+      <div class="hero-inner">
+        <div class="hero-logos">
+          <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra"/>
+        </div>
+        <p class="eyebrow">Agenda · 24 noviembre 2026</p>
+        <h1>Datatón · Lanzamiento suave del Observatorio de la Tierra</h1>
+        <p class="subtitle">Soft launch del Datalab · martes 24 de noviembre de 2026 · Universidad Externado de Colombia</p>
+      </div>
+    </header>
+    <section class="main" aria-labelledby="agenda-title">
+      <div class="agenda-head">
+        <h2 id="agenda-title">Programa del día</h2>
+        <span class="note">Horarios orientativos</span>
+      </div>
+      <ol class="timeline">
+        <li class="tl-row avoid-break"><span class="tl-time">08:00</span><span class="tl-text">Registro y bienvenida</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">08:30</span><span class="tl-text">Palabras de apertura (Rector)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">08:40</span><span class="tl-text">Panel: territorio, cooperación y datos (45 min)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">09:25</span><span class="tl-text">Conversatorio inspiracional (Enrique Medina, Agrometers)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">09:45</span><span class="tl-text">Observatorio de la Tierra y piloto Bolívar (Alejandro Díaz, Gideon Blaauw)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:05</span><span class="tl-text">Anuncio del Datalab: sandboxes y gobernanza de datos</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:15</span><span class="tl-text">Demo en vivo Air4U y preguntas</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">10:45</span><span class="tl-text">Instrucciones y arranque del datatón</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">11:00</span><span class="tl-text">Trabajo de equipos con monitores (bloque 1)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">12:30</span><span class="tl-text">Almuerzo</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">13:30</span><span class="tl-text">Trabajo de equipos y preparación del pitch (bloque 2)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:00</span><span class="tl-text">Pitches finales: 6 equipos preseleccionados por los monitores</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:40</span><span class="tl-text">Deliberación del jurado</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">16:50</span><span class="tl-text">Cierre: top 5 (acceso al Living Lab + mentoría CTH, paso al piloto 2027)</span></li>
+        <li class="tl-row avoid-break"><span class="tl-time">17:00</span><span class="tl-text">Fin</span></li>
+      </ol>
+    </section>
+    <footer class="footer">
+      <p class="tagline">Observa. Actúa. Transforma.</p>
+      <img class="eo-rev" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Observatorio de la Tierra · co-brand"/>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn" href="../out/agenda-24nov-eo.pdf" download="agenda-24nov-eo.pdf">Descargar PDF</a>
+      </div>
+    </footer>
+  </article>
+  <a class="pdf-dl-btn pdf-dl-fixed" href="../out/agenda-24nov-eo.pdf" download="agenda-24nov-eo.pdf" aria-label="Descargar PDF">Descargar PDF</a>
+</body>
+</html>

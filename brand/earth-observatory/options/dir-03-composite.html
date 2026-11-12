@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e8e8e8;font-family:'Open Sans',sans-serif}
+.row{display:flex;gap:40px}
+.art{position:relative;overflow:hidden;background:#D4C4A8;color:#1A1A1A}
+.block-tr{position:absolute;top:0;right:0;width:42%;height:38%;background:#6B7B4C}
+.block-bl{position:absolute;bottom:0;left:0;width:55%;height:22%;background:#0C498A}
+.inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
+.inner-dark{color:#1A1A1A}
+.ig{width:1080px;height:1080px;padding:72px}
+.display{font-family:'Lora',serif;font-size:48px;line-height:1.12;font-weight:700}
+.logo{height:74px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.banner{width:1584px;height:396px;padding:0;display:flex}
+.banner .block-tr{position:relative;width:28%;height:100%}
+.banner .main{flex:1;background:#A67C52;padding:36px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.banner .display{font-size:30px;color:#fff;max-width:620px}
+.banner .logo{height:40px;filter:brightness(0) invert(1)}
+</style></head><body>
+<div class="row">
+  <div class="art ig">
+    <div class="block-tr"></div><div class="block-bl"></div>
+    <div class="inner inner-dark">
+      <div><img class="logo" src="../final/cobrand/eo-cobrand-blue-transparent.png" alt=""/><p class="kicker" style="margin-top:20px;color:#0C498A">Dirección 3 · Tierra natural</p></div>
+      <p class="display" style="color:#0C498A;max-width:720px">Datos abiertos para el territorio colombiano</p>
+    </div>
+  </div>
+  <div class="art banner">
+    <div class="block-tr"></div>
+    <div class="main">
+      <img class="logo" src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt=""/>
+      <p class="display">Datos abiertos para el territorio colombiano</p>
+    </div>
+  </div>
+</div>
+</body></html>

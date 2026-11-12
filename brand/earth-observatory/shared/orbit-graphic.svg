@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <ellipse cx="100" cy="100" rx="78" ry="28" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" transform="rotate(-22 100 100)"/>
+  <ellipse cx="100" cy="100" rx="72" ry="32" stroke="rgba(141,198,63,0.45)" stroke-width="1" transform="rotate(18 100 100)"/>
+  <circle cx="100" cy="100" r="38" fill="url(#earthGrad)"/>
+  <circle cx="158" cy="72" r="6" fill="#8DC63F"/>
+  <circle cx="48" cy="128" r="5" fill="#A7D8F0"/>
+  <defs>
+    <radialGradient id="earthGrad" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#95B86A"/>
+      <stop offset="100%" stop-color="#5A7A3A"/>
+    </radialGradient>
+  </defs>
+</svg>

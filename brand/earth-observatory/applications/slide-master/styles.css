@@ -1,0 +1,45 @@
+@import url("../../shared/eo-tokens.css");
+
+* { box-sizing: border-box; }
+body.deck {
+  margin: 0;
+  font-family: var(--eo-font);
+  color: var(--eo-ink);
+  background: #eef3f8;
+}
+.slide {
+  width: 1920px;
+  height: 1080px;
+  padding: 80px 96px;
+  background: var(--eo-white);
+  position: relative;
+  page-break-after: always;
+}
+.slide-cover {
+  background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.slide-cover img { height: 72px; margin-bottom: 48px; }
+.slide-cover h1 { font-family: var(--eo-display); font-size: 64px; margin: 0 0 16px; font-weight: 700; }
+.slide-cover p { font-size: 28px; color: var(--eo-green-tagline); font-weight: 700; font-family: var(--eo-display); }
+.slide-bg {
+  position: absolute;
+  right: 40px;
+  top: 120px;
+  width: 480px;
+  height: 480px;
+  background: url("../../shared/orbit-graphic.svg") center/contain no-repeat;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.slide h2 { font-family: var(--eo-display); font-size: 48px; margin-top: 0; color: var(--eo-green-section); font-weight: 700; }
+.slide ul { font-size: 32px; line-height: 1.5; }
+.slide .bar {
+  width: 120px;
+  height: 8px;
+  background: linear-gradient(90deg, var(--eo-blue-title), var(--eo-green-section));
+  margin-bottom: 32px;
+}

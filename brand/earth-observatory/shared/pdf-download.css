@@ -1,0 +1,48 @@
+@import url("eo-tokens.css");
+
+footer .pdf-dl-footer {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.pdf-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--eo-font);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pdf-dl-text) !important;
+  background: var(--pdf-dl-bg);
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(12, 73, 138, 0.2);
+}
+
+.pdf-dl-btn:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+}
+
+.pdf-dl-btn:focus-visible {
+  outline: 3px solid var(--pdf-dl-focus);
+  outline-offset: 3px;
+}
+
+.pdf-dl-fixed {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 90;
+}
+
+@media print {
+  .pdf-dl-btn,
+  .pdf-dl-fixed,
+  .pdf-dl-footer {
+    display: none !important;
+  }
+}

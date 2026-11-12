@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Titillium+Web:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared/pdf-download.css"/>
+  <style>
+    @import url('../shared/eo-tokens.css');
+    @page { size: A4 portrait; margin: 0; }
+    body { margin: 0; font-family: var(--eo-font); color: var(--eo-ink); background: #c8d4e0; }
+    .page { width: 210mm; min-height: 297mm; padding: 0; box-sizing: border-box; background: var(--eo-white); display: flex; flex-direction: column; }
+    header {
+      background: linear-gradient(135deg, var(--eo-blue-mid) 0%, var(--eo-blue-deep) 100%);
+      color: #fff;
+      padding: 12mm 14mm;
+      position: relative;
+    }
+    header img { height: 12mm; }
+    h1 { margin: 6mm 0 2mm; font-size: 22pt; font-family: var(--eo-display); font-weight: 700; }
+    .lede { font-size: 10pt; opacity: 0.92; margin: 0; }
+    .content { padding: 10mm 14mm; flex: 1; }
+    p { font-size: 11pt; line-height: 1.5; max-width: 170mm; }
+    ul { font-size: 10.5pt; line-height: 1.45; }
+    .pill { display: inline-block; background: var(--eo-blue-title); color: #fff; font-weight: 700; padding: 2px 10px; border-radius: 999px; font-size: 9pt; margin-right: 6px; }
+    footer { margin-top: auto; border-top: 3px solid var(--eo-green-tagline); padding: 6mm 14mm 10mm; }
+    .tagline { font-weight: 700; color: var(--eo-green-tagline); font-family: var(--eo-display); font-size: 13pt; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../final/cobrand/eo-cobrand-reverse-transparent.png" alt="Observatorio de la Tierra"/>
+      <h1>Observatorio de la Tierra</h1>
+      <p class="lede">Universidad Externado de Colombia × CleantechHUB · Datalab y sandboxes abiertos</p>
+    </header>
+    <div class="content">
+      <p><strong>Propósito.</strong> Conectar territorio, datos de observación de la Tierra y emprendimiento climático en Colombia mediante el Datalab y los sandboxes Open Energy, Open Air y Open Water.</p>
+      <p><span class="pill">Open Energy</span><span class="pill">Open Air</span><span class="pill">Open Water</span></p>
+      <ul>
+        <li>Cooperación internacional y pilotos territoriales (p. ej. Bolívar).</li>
+        <li>Gobernanza de datos y acceso responsable para equipos y aliados.</li>
+        <li>Eventos formativos: datatones, conversatorios y living lab.</li>
+      </ul>
+      <p><strong>Contacto.</strong> cleantechhub.net · Universidad Externado de Colombia</p>
+    </div>
+    <footer>
+      <p class="tagline">Observa. Actúa. Transforma.</p>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn" href="../out/one-pager.pdf" download="one-pager.pdf">Descargar PDF</a>
+      </div>
+    </footer>
+  </div>
+  <a class="pdf-dl-btn pdf-dl-fixed" href="../out/one-pager.pdf" download="one-pager.pdf">Descargar PDF</a>
+</body>
+</html>

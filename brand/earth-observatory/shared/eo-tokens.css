@@ -1,0 +1,30 @@
+:root {
+  /* v3 · Propuesta técnica (Gideon basis Nov 2026) — sampled from reference renders */
+  --eo-blue-deep: #061d3b;
+  --eo-blue-mid: #0058a3;
+  --eo-blue-title: #1e4e79;
+  --eo-blue-table: #1e4e79;
+  --eo-green-section: #79965f;
+  --eo-green-tagline: #8dc63f;
+  --eo-green-dot: #79965f;
+  --eo-row-alt: #ebf1f7;
+  --eo-callout-bg: #e3f2fd;
+  --eo-sidebar-line: #b8cce4;
+  --eo-rule-gray: #d9d9d9;
+  --eo-ink: #212529;
+  --eo-white: #ffffff;
+  --eo-font: "Open Sans", system-ui, sans-serif;
+  --eo-display: "Titillium Web", "Open Sans", system-ui, sans-serif;
+  /* Legacy aliases → v3 */
+  --eo-blue: var(--eo-blue-title);
+  --eo-green: var(--eo-green-section);
+  --eo-olive: var(--eo-green-section);
+  --eo-sand: var(--eo-row-alt);
+  --eo-clay: var(--eo-blue-mid);
+  --eo-cyan: var(--eo-callout-bg);
+  --eo-lgreen: var(--eo-green-tagline);
+  --eo-sky: var(--eo-blue-mid);
+  --pdf-dl-bg: var(--eo-blue-title);
+  --pdf-dl-focus: var(--eo-green-tagline);
+  --pdf-dl-text: #ffffff;
+}
