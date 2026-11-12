@@ -1,0 +1,860 @@
+{
+  "meta": {
+    "slug": "bancolombia-snapshot",
+    "company_key": "bancolombia",
+    "title": {
+      "en": "Bancolombia · gap snapshot · CleantechHUB",
+      "es": "Bancolombia · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/bancolombia-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+    "listing_url": "https://www.grupobancolombia.com/sostenibilidad",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Bancolombia · gap snapshot",
+      "hero.title": "Bancolombia · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Bancolombia S.A., Colombia. Banking and insurance",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf\">PDF</a>) linked from <a href=\"https://www.grupobancolombia.com/sostenibilidad\">www.grupobancolombia.com</a> PDF page 3",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 3)",
+      "snap.bvc": "BVC: Bancolombia is listed on the Bolsa de Valores de Colombia",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Bancolombia · panorama de brechas",
+      "hero.title": "Bancolombia · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Bancolombia S.A., Colombia. Banca y seguros",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf\">PDF</a>) enlazado desde <a href=\"https://www.grupobancolombia.com/sostenibilidad\">www.grupobancolombia.com</a> PDF página 3",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 3)",
+      "snap.bvc": "BVC: Bancolombia cotiza en la Bolsa de Valores de Colombia",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Este documento se ha elaborado de conformidad con la opción Esencial de los Estándares GRI. Continuaremos trabajando bajo esta metodología para entregar un informe sobre nuestra gestión cada vez más ajustado a los distintos grupos de relación.",
+      "quote_en": "This document has been prepared in accordance with the Essential option of the GRI Standards. We will continue working under this methodology to deliver a report on our management that is increasingly adjusted to the different relationship groups.",
+      "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+      "page": 3
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Sincarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    },
+    "KIMSA": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "Digitizes carbon measurement and traceability for companies, reducing time and cost of tracking reduction goals while connecting businesses to Colombian offset projects.",
+      "ds": "Digitaliza la medición y trazabilidad de carbono para empresas, reduciendo tiempo y costos en el seguimiento de metas y conectando negocios con proyectos de compensación colombianos."
+    },
+    "Bancóldex": {
+      "p": "",
+      "t": "",
+      "d": "The actor card describes productive credit for SMEs transitioning operations; it does not name Bancolombia.",
+      "ds": "La tarjeta del actor describe el crédito productivo para las operaciones de transición de las PYMES; no nombra a Bancolombia."
+    },
+    "FENOGE": {
+      "p": "",
+      "t": "EN",
+      "d": "The public page names financing for efficiency and non-conventional energy that supports client transition.",
+      "ds": "La página pública nombra el financiamiento para la eficiencia y la energía no convencional que apoya la transición del cliente.",
+      "funder": true
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "1. Financed emissions in SASB still use 2023 client data",
+        "es": "1. Las emisiones financiadas en SASB siguen utilizando datos de clientes de 2023"
+      },
+      "context": {
+        "en": "PDF page 312. FN-CB-410b.1 (SASB). The commercial portfolio financed-emissions table is labeled with figures at year-end 2023 because client emission reports available at publication also use a 31 December 2023 cut-off.",
+        "es": "PDF página 312. FN-CB-410b.1 (SASB). La tabla de emisiones financiadas de la cartera comercial está etiquetada con cifras al final del año 2023 porque los informes de emisiones de los clientes disponibles en la publicación también utilizan un límite del 31 de diciembre de 2023."
+      },
+      "report_evidence": {
+        "quote_es": "La información correspondiente a las emisiones financiadas de la cartera comercial aquí reportada corresponde a las emisiones del 2023 para el portafolio de cartera comercial de Bancolombia, debido a que los informes de las emisiones de nuestros clientes con los que contamos a la fecha de la presentación de este informe tienen como fecha de corte el 31 de diciembre de 2023.",
+        "quote_en": "The information corresponding to the financed issues of the commercial portfolio reported here corresponds to the 2023 issues for the Bancolombia commercial portfolio portfolio, because the reports of the issues of our clients that we have at the date of the presentation of this report have a cutoff date of December 31, 2023.",
+        "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+        "page": 312
+      },
+      "matches": [
+        {
+          "match_id": "bancolombia-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "La página nombra los alcances 1–3 del trabajo de inventario que los bancos necesitan para las emisiones financiadas por PCAF.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "La página nombra la cuantificación de emisiones en una ruta de descarbonización para clientes corporativos.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g1-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 312. FN-CB-410b.1 (SASB). The commercial portfolio financed-emissions table is labeled with figures at year-end 2023 because client emission reports available at publication also use a 31 December 2023 cut-off. Report evidence is on PDF page 312 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to SASB) for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Financed emissions in SASB still use 2023 client data”, mapped to SASB), ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 312. FN-CB-410b.1 (SASB). La tabla de emisiones financiadas de la cartera comercial está etiquetada con cifras al final del año 2023 porque los informes de emisiones de los clientes disponibles en la publicación también utilizan un límite del 31 de diciembre de 2023. La evidencia del reporte está en la página 312 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a SASB) para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Las emisiones financiadas en SASB siguen utilizando datos de clientes de 2023», mapeadas a SASB), listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 4,
+      "title": {
+        "en": "2. Only 67% of gross commercial exposure is in the financed-emissions calculation",
+        "es": "2. Solo el 67% de la exposición comercial bruta se encuentra en el cálculo de las emisiones financiadas"
+      },
+      "context": {
+        "en": "PDF page 312. FN-CB-410b.3 (SASB). SASB metric FN-CB-410b.3 states that 67% of gross exposure is included in the financed-emissions calculation for the commercial portfolio, leaving a third outside the PCAF footprint boundary disclosed.",
+        "es": "PDF página 312. FN-CB-410b.3 (SASB). La métrica SASB FN-CB-410b.3 establece que el 67% de la exposición bruta se incluye en el cálculo de emisiones financiadas para la cartera comercial, dejando un tercio fuera del límite de la huella de PCAF revelado."
+      },
+      "report_evidence": {
+        "quote_es": "El porcentaje de exposición bruta incluido en el cálculo de emisiones financiadas de la cartera comercial de Bancolombia es de 67%",
+        "quote_en": "The percentage of gross exposure included in the calculation of financed issues of Bancolombia's commercial portfolio is 67%",
+        "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+        "page": 312
+      },
+      "matches": [
+        {
+          "match_id": "bancolombia-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "La página nombra los alcances 1–3 del trabajo de inventario que los bancos necesitan para las emisiones financiadas por PCAF.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "La página nombra la cuantificación de emisiones en una ruta de descarbonización para clientes corporativos.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g2-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g2-kimsa",
+          "name": "KIMSA",
+          "stage": "Seed",
+          "website": "https://kimsa.co",
+          "why": "The page names climate-action implementation support for corporate inventories.",
+          "why_es": "La página nombra el soporte de implementación de acción climática para los inventarios corporativos.",
+          "public_quote": "Somos KIMSA una empresa de consultoría en gestión e implementación de acciones en cambio climático.",
+          "public_source_url": "https://kimsa.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 312. FN-CB-410b.3 (SASB). SASB metric FN-CB-410b.3 states that 67% of gross exposure is included in the financed-emissions calculation for the commercial portfolio, leaving a third outside the PCAF footprint boundary disclosed. Report evidence is on PDF page 312 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "KIMSA",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://kimsa.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to SASB); SASB metric FN-CB-410b for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Only 67% of gross commercial exposure is in the financed-emissions calculation”, mapped to SASB); SASB metric FN-CB-410b, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 312. FN-CB-410b.3 (SASB). La métrica SASB FN-CB-410b.3 establece que el 67% de la exposición bruta se incluye en el cálculo de emisiones financiadas para la cartera comercial, dejando un tercio fuera del límite de la huella de PCAF revelado. La evidencia del reporte está en la página 312 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "KIMSA",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://kimsa.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a SASB); SASB FN-CB-410b para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. Solo el 67% de la exposición comercial bruta se encuentra en el cálculo de las emisiones financiadas», mapeadas a SASB); SASB FN-CB-410b, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": false,
+      "journey_step": "partnerships",
+      "match_count": 3,
+      "title": {
+        "en": "3. Most engaged clients still lack science-based climate targets",
+        "es": "3. La mayoría de los clientes comprometidos aún carecen de objetivos climáticos basados en la ciencia"
+      },
+      "context": {
+        "en": "PDF page 292. After climate engagement with 45 large corporate borrowers, only five report science-based or 1.5°C targets; eleven are still defining targets and the remainder have no science-based target.",
+        "es": "PDF página 292. Después del compromiso climático con 45 grandes prestatarios corporativos, solo cinco informan objetivos basados en la ciencia o 1,5° C; once todavía están definiendo objetivos y el resto no tiene un objetivo basado en la ciencia."
+      },
+      "report_evidence": {
+        "quote_es": "En términos de definición de metas climáticas, cinco clientes cuentan con metas basadas en ciencia o alineadas con escenario climático de 1.5°C, 11 se encuentran en proceso de definición de metas o mejorando los procesos de cálculo de las emisiones de gases de efecto invernadero de sus operaciones para ajustar metas, los restantes corresponden a clientes que no han definido metas o sus metas no son basadas en la ciencia",
+        "quote_en": "In terms of defining climate goals, five clients have goals based on science or aligned with a climate scenario of 1.5°C, 11 are in the process of defining goals or improving the processes for calculating greenhouse gas emissions of their operations to adjust goals, the rest correspond to clients who have not defined goals or their goals are not based on science",
+        "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+        "page": 292
+      },
+      "matches": [
+        {
+          "match_id": "bancolombia-g3-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "La página nombra los alcances 1–3 del trabajo de inventario que los bancos necesitan para las emisiones financiadas por PCAF.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "La página nombra la cuantificación de emisiones en una ruta de descarbonización para clientes corporativos.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g3-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 292. After climate engagement with 45 large corporate borrowers, only five report science-based or 1.5°C targets; eleven are still defining targets and the remainder have no science-based target. Report evidence is on PDF page 292 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Most engaged clients still lack science-based climate targets”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 292. Después del compromiso climático con 45 grandes prestatarios corporativos, solo cinco informan objetivos basados en la ciencia o 1,5° C; once todavía están definiendo objetivos y el resto no tiene un objetivo basado en la ciencia. La evidencia del reporte está en la página 292 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. La mayoría de los clientes comprometidos aún carecen de objetivos climáticos basados en la ciencia», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": true,
+      "journey_step": "policy",
+      "match_count": 2,
+      "title": {
+        "en": "4. Net-zero portfolio ambition is set for 2050 while near-term financed metrics mature",
+        "es": "4. La ambición de cartera neta cero está establecida para 2050, mientras que las métricas financiadas a corto plazo maduran"
+      },
+      "context": {
+        "en": "PDF page 291. The climate strategy states a net-zero financed and investment portfolio by 2050 aligned to 1.5°C, while DJSI feedback still calls for clearer short- and medium-term net-zero disclosure on financed assets.",
+        "es": "PDF página 291. La estrategia climática establece una cartera de financiación e inversión neta cero para 2050 alineada a 1,5 °C, mientras que la retroalimentación del DJSI aún exige una divulgación neta cero más clara a corto y mediano plazo sobre los activos financiados."
+      },
+      "report_evidence": {
+        "quote_es": "Nuestro objetivo es lograr una cartera con cero emisiones netas al 2050 y alinear nuestros portafolios de financiación e inversión con un escenario climático de 1.5°C a través de acciones con nuestros grupos de interés internos y externos.",
+        "quote_en": "Our goal is to achieve a net-zero emissions portfolio by 2050 and align our financing and investment portfolios with a 1.5°C climate scenario through actions with our internal and external stakeholders.",
+        "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+        "page": 291
+      },
+      "matches": [
+        {
+          "match_id": "bancolombia-g4-bancoldex",
+          "name": "Bancóldex",
+          "stage": "",
+          "website": "https://www.bancoldex.com",
+          "why": "The actor card describes productive credit for SMEs transitioning operations; it does not name Bancolombia.",
+          "why_es": "La tarjeta del actor describe el crédito productivo para las operaciones de transición de las PYMES; no nombra a Bancolombia.",
+          "public_quote": "Bancóldex es el banco de desarrollo empresarial de Colombia; ofrece crédito, garantías, fondos de inversión y programas de fortalecimiento para MIPYMES y proyectos productivos.",
+          "public_source_url": "https://www.bancoldex.com",
+          "funder": true
+        },
+        {
+          "match_id": "bancolombia-g4-fenoge",
+          "name": "FENOGE",
+          "stage": "",
+          "website": "https://fenoge.gov.co",
+          "why": "The public page names financing for efficiency and non-conventional energy that supports client transition.",
+          "why_es": "La página pública nombra el financiamiento para la eficiencia y la energía no convencional que apoya la transición del cliente.",
+          "public_quote": "Somos el Fondo de Energías No Convencionales y Gestión Eficiente de la Energía. Un Fondo donde financiamos, gestionamos, ejecutamos planes, programas y proyectos alineados con el propósito de mejorar la eficiencia energética y el uso de Fuentes No Convencionales de Energía en el país.",
+          "public_source_url": "https://fenoge.gov.co",
+          "funder": true
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 291. The climate strategy states a net-zero financed and investment portfolio by 2050 aligned to 1.5°C, while DJSI feedback still calls for clearer short- and medium-term net-zero disclosure on financed assets. Report evidence is on PDF page 291 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Bancóldex",
+              "metric": "Clean energy finance or efficiency program indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://www.bancoldex.com",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "FENOGE",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://fenoge.gov.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Net-zero portfolio ambition is set for 2050 while near-term financed metrics mature”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 291. La estrategia climática establece una cartera de financiación e inversión neta cero para 2050 alineada a 1,5 °C, mientras que la retroalimentación del DJSI aún exige una divulgación neta cero más clara a corto y mediano plazo sobre los activos financiados. La evidencia del reporte está en la página 291 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Bancóldex",
+              "metric": "Indicadores de financiamiento o eficiencia energética",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://www.bancoldex.com",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "FENOGE",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://fenoge.gov.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. La ambición de cartera neta cero está establecida para 2050, mientras que las métricas financiadas a corto plazo maduran», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": true,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "5. Financed-emissions sectors use CIIU rather than SASB GICS mapping",
+        "es": "5. Los sectores de emisiones financiadas utilizan CIIU en lugar del mapeo SASB GICS"
+      },
+      "context": {
+        "en": "PDF page 311. The financed-emissions table notes sector buckets are based on CIIU because a GICS classification required by SASB is not yet available, limiting comparability with international banking peers.",
+        "es": "PDF página 311. Los segmentos del sector de notas de la tabla de emisiones financiadas se basan en CIIU porque aún no está disponible una clasificación GICS requerida por SASB, lo que limita la comparabilidad con los pares bancarios internacionales."
+      },
+      "report_evidence": {
+        "quote_es": "La clasificación sectorial está basada en la Clasificación Industrial Internacional Uniforme (CIIU) ya que actualmente no contamos con una clasificación GICS de acuerdo con lo requerido por el estándar.",
+        "quote_en": "The sectoral classification is based on the International Standard Industrial Classification (ISIC) as we do not currently have a GICs classification as required by the standard.",
+        "pdf_url": "https://media.ffycdn.net/us/grupo-bancolombia-arquitectura-y-contenidos/7aUb7RbCuJM4krkAtppV.pdf",
+        "page": 311
+      },
+      "matches": [
+        {
+          "match_id": "bancolombia-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "Auditable scope data helps map client emissions into bank PCAF categories.",
+          "why_es": "Los datos de alcance auditables ayudan a mapear las emisiones de los clientes en las categorías PCAF del banco.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "bancolombia-g5-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "GHG Protocol-aligned SaaS supports client inventories that feed financed-emissions numerators.",
+          "why_es": "El SaaS alineado con el protocolo de GEI admite inventarios de clientes que alimentan numeradores de emisiones financiadas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 311. The financed-emissions table notes sector buckets are based on CIIU because a GICS classification required by SASB is not yet available, limiting comparability with international banking peers. Report evidence is on PDF page 311 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to SASB is not yet available, limiting comparability with international banking peers for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Financed-emissions sectors use CIIU rather than SASB GICS mapping”, mapped to SASB is not yet available, limiting comparability with international banking peers, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 311. Los segmentos del sector de notas de la tabla de emisiones financiadas se basan en CIIU porque aún no está disponible una clasificación GICS requerida por SASB, lo que limita la comparabilidad con los pares bancarios internacionales. La evidencia del reporte está en la página 311 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a SASB, lo que limita la comparabilidad con los pares bancarios internacionales para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. Los sectores de emisiones financiadas utilizan CIIU en lugar del mapeo SASB GICS», mapeadas a SASB, lo que limita la comparabilidad con los pares bancarios internacionales, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}

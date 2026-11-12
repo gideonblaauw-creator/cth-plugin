@@ -1,0 +1,274 @@
+/* CleantechHUB gap snapshot — loads ./data.json from the instance folder. */
+(function () {
+  const PUBLIC_ORIGIN = "https://proposals.cleantechhub.net";
+  const UI_STATIC = {
+    en: {
+      reportVerbatim: "Sustainability report (verbatim, Spanish)",
+      translation: "Translation (English)",
+      pdfPage: "Open report PDF — page",
+      matches: "Matches",
+      theme: "Theme",
+      visit: "Visit",
+      gapLabel: "Gap",
+      datalabGapHeading: "How the Datalab closes this gap",
+      datalabA: "Reported indicator and missing data",
+      datalabB: "Data from matched startup deployments",
+      datalabC: "Datalab data flow",
+      datalabD: "Deliverable for the next report",
+    },
+    es: {
+      reportVerbatim: "Reporte de sostenibilidad (literal, español)",
+      translation: "Traducción (inglés)",
+      pdfPage: "Abrir PDF del reporte — página",
+      matches: "Coincidencias",
+      theme: "Tema",
+      visit: "Visitar",
+      gapLabel: "Brecha",
+      datalabGapHeading: "Cómo el Datalab cierra esta brecha",
+      datalabA: "Indicador reportado y dato faltante",
+      datalabB: "Datos de los despliegues de las startups coincidentes",
+      datalabC: "Flujo de datos del Datalab",
+      datalabD: "Entregable para el próximo reporte",
+    },
+  };
+
+  const THEME = {
+    EN: { CE: "Circular economy", BIO: "Bioeconomy", EN: "Energy" },
+    ES: { CE: "Economía circular", BIO: "Bioeconomía", EN: "Energía" },
+  };
+
+  let DATA = null;
+  let lang = localStorage.getItem("cth-snapshot-lang") || "en";
+
+  function t(key) {
+    const ui = DATA?.ui?.[lang]?.[key];
+    if (ui) return ui;
+    return UI_STATIC[lang][key] || UI_STATIC.en[key] || key;
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function pdfLink(ev) {
+    const base = ev.pdf_url || DATA.report.pdf_url;
+    const page = ev.page;
+    return `${base}#page=${page}`;
+  }
+
+  /** Gap sections: EN shows English translation only; ES shows PDF link only (no verbatim Spanish block). */
+  function renderDatalab(g) {
+    const dl = g.datalab && g.datalab[lang];
+    if (!dl) return "";
+    const metrics = (dl.startup_metrics || [])
+      .map((row) => {
+        const note = row.note ? ` · ${esc(row.note)}` : "";
+        return `<li><strong>${esc(row.startup)}</strong> — ${esc(row.metric)} · ${esc(row.unit)} · ${esc(
+          row.frequency
+        )} · ${esc(row.method)} · <span class="src">${esc(row.source)}</span>${note}</li>`;
+      })
+      .join("");
+    const flow = dl.flow || {};
+    const flowList = [flow.intro, flow.l1, flow.l2, flow.l3]
+      .filter(Boolean)
+      .map((line) => `<li>${esc(line)}</li>`)
+      .join("");
+    return `<div class="datalab-block">
+      <h3>${t("datalab.gapHeading") || UI_STATIC[lang].datalabGapHeading}</h3>
+      <div class="box sky">
+        <p class="dl-label">${t("datalab.aLabel") || UI_STATIC[lang].datalabA}</p>
+        <p>${esc(dl.reported_missing || "")}</p>
+      </div>
+      <div class="box">
+        <p class="dl-label">${t("datalab.bLabel") || UI_STATIC[lang].datalabB}</p>
+        <ul class="dl-metrics">${metrics}</ul>
+      </div>
+      <div class="box blue">
+        <p class="dl-label">${t("datalab.cLabel") || UI_STATIC[lang].datalabC}</p>
+        <ul class="dl-flow">${flowList}</ul>
+      </div>
+      <div class="box">
+        <p class="dl-label">${t("datalab.dLabel") || UI_STATIC[lang].datalabD}</p>
+        <p>${esc(dl.deliverable || "")}</p>
+      </div>
+    </div>`;
+  }
+
+  function renderGapReportEvidence(ev) {
+    const href = pdfLink(ev);
+    const enQ = ev.quote_en ? `"${esc(ev.quote_en)}"` : "";
+    const translationBlock =
+      lang === "en" && enQ
+        ? `<p class="quote-label">${t("translation")}</p><p class="verbatim">${enQ}</p>`
+        : "";
+    return `<div class="quote-box report-evidence">
+      ${translationBlock}
+      <p class="pdf-link"><a href="${href}" target="_blank" rel="noopener">${t("pdfPage")} ${ev.page}</a></p>
+    </div>`;
+  }
+
+  function favicon(domain) {
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`;
+  }
+
+  function normalizeMatchName(name) {
+    return String(name || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  /** First occurrence wins; prevents duplicate cards/details per startup within a gap. */
+  function dedupeMatches(matches) {
+    const seen = new Set();
+    const out = [];
+    for (const m of matches || []) {
+      const key = normalizeMatchName(m.name);
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      out.push(m);
+    }
+    return out;
+  }
+
+  function startupCard(m, gapRank) {
+    const nx = (DATA.nexus && DATA.nexus[m.name]) || {};
+    const desc = lang === "es" ? nx.ds || m.description || "" : nx.d || m.description || "";
+    const themeKey = nx.t;
+    const theme = themeKey ? THEME[lang.toUpperCase()][themeKey] : "";
+    const host = (m.website || "").replace(/^https?:\/\//, "").replace(/\/.*$/, "");
+    return `<article class="card"><div class="cb"></div><div class="ct">
+      <img class="thumb" src="${favicon(host)}" alt="" width="40" height="40" loading="lazy">
+      <div class="cn">${esc(m.name)}</div></div>
+      <div class="cd">${esc(desc)}</div>
+      <div class="cbot">
+      ${theme ? `<span class="chip">${t("theme")}: ${theme}</span>` : ""}
+      ${!m.funder && m.stage ? `<span class="chip stage">${esc(m.stage)}</span>` : ""}
+      <span class="chip gap">${t("gapLabel")} ${gapRank}</span>
+      ${nx.p ? `<span class="chip">${esc(nx.p)}</span>` : ""}
+      <a class="chip" href="${esc(m.website)}" target="_blank" rel="noopener">${t("visit")}</a>
+      </div></article>`;
+  }
+
+  function renderNav() {
+    const nav = document.getElementById("nav-gaps");
+    if (!nav || !DATA.gaps) return;
+    nav.innerHTML = DATA.gaps
+      .map((g, i) => {
+        const label = DATA.ui[lang][`nav.g${i + 1}`] || `Gap ${i + 1}`;
+        return `<a href="#${g.id}">${esc(label)}</a>`;
+      })
+      .join("");
+  }
+
+  function renderGaps() {
+    const root = document.getElementById("gaps-root");
+    if (!root) return;
+    root.innerHTML = DATA.gaps
+      .map((g, i) => {
+        const secClass = i % 2 ? "sec page" : "sec light";
+        const title = g.title[lang];
+        const ctx = g.context[lang];
+        const matches = dedupeMatches(g.matches);
+        const cards = matches.map((m) => startupCard(m, g.rank)).join("");
+        const evidence = renderGapReportEvidence(g.report_evidence);
+        const datalab = renderDatalab(g);
+        return `<section id="${g.id}" class="${secClass}"><div class="wrap">
+          <div class="gap-head"><h2>${esc(title)}</h2></div>
+          <div class="box"><p>${esc(ctx)}</p></div>
+          ${evidence}
+          ${datalab}
+          <h3>${t("matches")}</h3>
+          <div class="card-grid">${cards}</div>
+        </div></section>`;
+      })
+      .join("");
+  }
+
+  function renderTeam() {
+    const root = document.getElementById("team-grid");
+    if (!root || !DATA.team) return;
+    root.innerHTML = DATA.team
+      .map((person) => {
+        const bio = person.bio[lang] || person.bio.en;
+        const nick =
+          person.nickname && person.nickname[lang]
+            ? ` <span>(${esc(person.nickname[lang])})</span>`
+            : "";
+        return `<article class="team-card">
+          <img src="${esc(person.photo)}" alt="${esc(person.name)}" width="400" height="420">
+          <p class="kicker">${esc(person.role[lang] || person.role.en)}</p>
+          <h3>${esc(person.name)}${nick}</h3>
+          <p>${esc(bio)}</p>
+        </article>`;
+      })
+      .join("");
+  }
+
+  function applyI18n() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const k = el.getAttribute("data-i18n");
+      const v = t(k);
+      if (v) el.innerHTML = v;
+    });
+    document.querySelectorAll(".lang button").forEach((b) =>
+      b.classList.toggle("on", b.dataset.lang === lang)
+    );
+    if (DATA.meta?.title) document.title = DATA.meta.title[lang] || DATA.meta.title.en;
+    const slug = DATA.meta?.slug || DATA.meta?.company_key;
+    if (slug) {
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.appendChild(canonical);
+      }
+      const path = slug.endsWith("-snapshot") ? slug : `${slug}-snapshot`;
+      canonical.href = `${PUBLIC_ORIGIN}/${path}/`;
+    }
+    const logoPath = DATA.brand?.logo || "img/logo.png";
+    document.querySelectorAll(".brand-logo").forEach((img) => {
+      img.src = logoPath;
+    });
+    renderNav();
+    renderGaps();
+    renderTeam();
+    const ctaBtn = document.getElementById("cta-btn");
+    if (ctaBtn && DATA.cta?.url) ctaBtn.href = DATA.cta.url;
+  }
+
+  function bindLang() {
+    document.querySelectorAll(".lang button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        lang = btn.dataset.lang;
+        localStorage.setItem("cth-snapshot-lang", lang);
+        applyI18n();
+      });
+    });
+  }
+
+  function showError(msg) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      `<p style="padding:2rem;color:#0C498A">${esc(msg)}</p>`
+    );
+  }
+
+  fetch("./data.json")
+    .then((r) => {
+      if (!r.ok) throw new Error("data.json not found");
+      return r.json();
+    })
+    .then((json) => {
+      DATA = json;
+      bindLang();
+      applyI18n();
+    })
+    .catch((e) => showError("Could not load data.json. Serve this folder over HTTP (see README). " + e.message));
+})();

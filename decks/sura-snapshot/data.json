@@ -1,0 +1,737 @@
+{
+  "meta": {
+    "slug": "sura-snapshot",
+    "company_key": "sura",
+    "title": {
+      "en": "SURA · gap snapshot · CleantechHUB",
+      "es": "SURA · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/sura-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+    "listing_url": "https://www.gruposura.com/relacion-con-inversionistas/informes/informe-anual-2024/",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "SURA · gap snapshot",
+      "hero.title": "SURA · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Grupo de Inversiones Suramericana S.A. (Grupo SURA), Colombia. Banking and insurance",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf\">PDF</a>) linked from <a href=\"https://www.gruposura.com/relacion-con-inversionistas/informes/informe-anual-2024/\">www.gruposura.com</a> PDF page 2",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 2)",
+      "snap.bvc": "BVC: SURA is listed on the Bolsa de Valores de Colombia",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "SURA · panorama de brechas",
+      "hero.title": "SURA · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Grupo de Inversiones Suramericana S.A. (Grupo SURA), Colombia. Banca y seguros",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf\">PDF</a>) enlazado desde <a href=\"https://www.gruposura.com/relacion-con-inversionistas/informes/informe-anual-2024/\">www.gruposura.com</a> PDF página 2",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 2)",
+      "snap.bvc": "BVC: SURA cotiza en la Bolsa de Valores de Colombia",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "Como en anteriores reportes anuales de la Compañía, este documento toma como referencia los indicadores definidos por Global Reporting Initiative (GRI) para la elaboración de informes, los indicadores SASB para los sectores asegurador y gestión de inversiones, y el marco TCFD.",
+      "quote_en": "As in previous annual reports of the Company, this document takes as reference the indicators defined by the Global Reporting Initiative (GRI) for the preparation of reports, the SASB indicators for the insurance and investment management sectors, and the TCFD framework.",
+      "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+      "page": 2
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Sincarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    },
+    "KIMSA": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "Digitizes carbon measurement and traceability for companies, reducing time and cost of tracking reduction goals while connecting businesses to Colombian offset projects.",
+      "ds": "Digitaliza la medición y trazabilidad de carbono para empresas, reduciendo tiempo y costos en el seguimiento de metas y conectando negocios con proyectos de compensación colombianos."
+    },
+    "Fluvia": {
+      "p": "CLAC23",
+      "t": "BIO",
+      "d": "Uses fluorescent tracer technology and a proprietary app to provide real-time hydrological data — flow rates and velocities — for water resource management.",
+      "ds": "Usa tecnología de trazadores fluorescentes y una app propia para proporcionar datos hidrológicos en tiempo real — caudales y velocidades — para la gestión de recursos hídricos."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "shortfall": false,
+      "journey_step": "policy",
+      "match_count": 3,
+      "title": {
+        "en": "1. Financed-emissions reduction targets are still to be defined internally",
+        "es": "1. Los objetivos de reducción de emisiones financiadas aún deben definirse internamente"
+      },
+      "context": {
+        "en": "PDF page 38. The 2025 sustainable-finance plan says Grupo SURA will define internal targets and strategies to reduce financed emissions, with a horizon to set them for each local company across eight countries.",
+        "es": "PDF página 38. El plan de finanzas sostenibles de 2025 dice que Grupo SURA definirá metas y estrategias internas para reducir las emisiones financiadas, con un horizonte para establecerlas para cada empresa local en ocho países."
+      },
+      "report_evidence": {
+        "quote_es": "Definir internamente metas de reducción de emisiones financiadas y estrategias para su cumplimiento, con el horizonte de que puedan tenerse para cada Compañía local en los 8 países donde tiene presencia el Grupo Empresarial SURA.",
+        "quote_en": "Define internally financed emission reduction goals and strategies for their fulfillment, with the horizon that can be had for each local Company in the 8 countries where the SURA Business Group is present.",
+        "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+        "page": 38
+      },
+      "matches": [
+        {
+          "match_id": "sura-g1-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "La página nombra los alcances 1–3 del trabajo de inventario que los bancos necesitan para las emisiones financiadas por PCAF.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "sura-g1-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "La página nombra la cuantificación de emisiones en una ruta de descarbonización para clientes corporativos.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "sura-g1-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 38. The 2025 sustainable-finance plan says Grupo SURA will define internal targets and strategies to reduce financed emissions, with a horizon to set them for each local company across eight countries. Report evidence is on PDF page 38 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Financed-emissions reduction targets are still to be defined internally”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 38. El plan de finanzas sostenibles de 2025 dice que Grupo SURA definirá metas y estrategias internas para reducir las emisiones financiadas, con un horizonte para establecerlas para cada empresa local en ocho países. La evidencia del reporte está en la página 38 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Los objetivos de reducción de emisiones financiadas aún deben definirse internamente», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "shortfall": false,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Weighted carbon intensity (WACI) rose between 2023 and 2024",
+        "es": "2. La intensidad ponderada de carbono (WACI) aumentó entre 2023 y 2024"
+      },
+      "context": {
+        "en": "PDF page 96. Assurance annex reports consolidated financed emissions of 2,437,855 tCO2e in 2024 with WACI 941.9, up from 1,987,604 tCO2e and WACI 803 in 2023 for the corporate group.",
+        "es": "PDF página 96. El anexo de aseguramiento informa emisiones financiadas consolidadas de 2,437,855 tCO2e en 2024 con WACI 941.9, frente a 1,987,604 tCO2e y WACI 803 en 2023 para el grupo corporativo."
+      },
+      "report_evidence": {
+        "quote_es": "Emisiones Financiadas Consolidado Grupo Empresarial 2024: 2,437,855 TonCo2Eq WACI 2024 (intensidad de carbono media ponderadaAlcance 1 y 2): 941.9 Emisiones Financiadas Consolidado Grupo Empresarial 2023: 1,987,604 TonCo2Eq WACI 2023 (intensidad de carbono media ponderada – Alcance 1 y 2): 803",
+        "quote_en": "Financed Emissions Consolidated Business Group 2024: 2,437,855 TonCo2Eq WACI 2024 (weighted average carbon intensityScope 1 and 2): 941.9 Financed Emissions Consolidated Business Group 2023: 1,987,604 TonCo2Eq WACI 2023 (weighted average carbon intensity – Scope 1 and 2): 803",
+        "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+        "page": 96
+      },
+      "matches": [
+        {
+          "match_id": "sura-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "The page names scopes 1–3 inventory work that banks need for PCAF financed emissions.",
+          "why_es": "La página nombra los alcances 1–3 del trabajo de inventario que los bancos necesitan para las emisiones financiadas por PCAF.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "sura-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "The page names emission quantification on a decarbonization path for corporate clients.",
+          "why_es": "La página nombra la cuantificación de emisiones en una ruta de descarbonización para clientes corporativos.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "sura-g2-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 96. Assurance annex reports consolidated financed emissions of 2,437,855 tCO2e in 2024 with WACI 941.9, up from 1,987,604 tCO2e and WACI 803 in 2023 for the corporate group. Report evidence is on PDF page 96 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Weighted carbon intensity (WACI) rose between 2023 and 2024”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 96. El anexo de aseguramiento informa emisiones financiadas consolidadas de 2,437,855 tCO2e en 2024 con WACI 941.9, frente a 1,987,604 tCO2e y WACI 803 en 2023 para el grupo corporativo. La evidencia del reporte está en la página 96 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. La intensidad ponderada de carbono (WACI) aumentó entre 2023 y 2024», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "shortfall": true,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "3. Financed-emissions totals exclude sovereign bonds",
+        "es": "3. Los totales de emisiones financiadas excluyen los bonos soberanos"
+      },
+      "context": {
+        "en": "PDF page 96. The assured financed-emissions indicator for 2023 and 2024 explicitly excludes emissions from sovereign bonds, leaving part of the fixed-income portfolio outside the disclosed footprint.",
+        "es": "PDF página 96. El indicador de emisiones financiadas aseguradas para 2023 y 2024 excluye explícitamente las emisiones de bonos soberanos, dejando parte de la cartera de renta fija fuera de la huella divulgada."
+      },
+      "report_evidence": {
+        "quote_es": "Las emisiones financiadas para ambos años no incluye emisiones sobre Bonos soberanos.",
+        "quote_en": "The issues financed for both years do not include issues on sovereign bonds.",
+        "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+        "page": 96
+      },
+      "matches": [
+        {
+          "match_id": "sura-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "Consulting on corporate inventories supports issuers excluded from sovereign lines.",
+          "why_es": "La consultoría en inventarios corporativos apoya a los emisores excluidos de las líneas soberanas.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        },
+        {
+          "match_id": "sura-g3-kimsa",
+          "name": "KIMSA",
+          "stage": "Seed",
+          "website": "https://kimsa.co",
+          "why": "Climate implementation consulting helps corporate issuers in the investment book.",
+          "why_es": "La consultoría de implementación climática ayuda a los emisores corporativos en el libro de inversiones.",
+          "public_quote": "Somos KIMSA una empresa de consultoría en gestión e implementación de acciones en cambio climático.",
+          "public_source_url": "https://kimsa.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 96. The assured financed-emissions indicator for 2023 and 2024 explicitly excludes emissions from sovereign bonds, leaving part of the fixed-income portfolio outside the disclosed footprint. Report evidence is on PDF page 96 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "KIMSA",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://kimsa.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Financed-emissions totals exclude sovereign bonds”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 96. El indicador de emisiones financiadas aseguradas para 2023 y 2024 excluye explícitamente las emisiones de bonos soberanos, dejando parte de la cartera de renta fija fuera de la huella divulgada. La evidencia del reporte está en la página 96 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "KIMSA",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://kimsa.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. Los totales de emisiones financiadas excluyen los bonos soberanos», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "shortfall": true,
+      "journey_step": "data",
+      "match_count": 1,
+      "title": {
+        "en": "4. Transition-risk quantification at portfolio level remains a 2025 focus",
+        "es": "4. La cuantificación del riesgo de transición a nivel de cartera sigue siendo un enfoque para 2025"
+      },
+      "context": {
+        "en": "PDF page 42. Climate plans for 2025 call for strengthening transition-risk analysis and quantifications, noting methodological challenges when aggregating the Grupo SURA investment portfolio.",
+        "es": "PDF página 42. Los planes climáticos para 2025 requieren fortalecer el análisis y las cuantificaciones del riesgo de transición, señalando los desafíos metodológicos al agregar la cartera de inversiones de Grupo SURA."
+      },
+      "report_evidence": {
+        "quote_es": "Fortalecer el análisis de los riesgos de transición, especialmente, las cuantificaciones, dado que existen retos metodológicos al considerarlos desde una visión agregada del portafolio de Grupo SURA.",
+        "quote_en": "Strengthen the analysis of transition risks, especially quantifications, given that there are methodological challenges when considering them from an aggregated view of the Grupo SURA portfolio.",
+        "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+        "page": 42
+      },
+      "matches": [
+        {
+          "match_id": "sura-g4-sincarbono",
+          "name": "Sincarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "The page names GHG Protocol scopes 1–3 measurement for Latin American companies.",
+          "why_es": "La página nombra los alcances 1–3 de medición del Protocolo de GEI para las empresas latinoamericanas.",
+          "public_quote": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 42. Climate plans for 2025 call for strengthening transition-risk analysis and quantifications, noting methodological challenges when aggregating the Grupo SURA investment portfolio. Report evidence is on PDF page 42 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Sincarbono",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Transition-risk quantification at portfolio level remains a 2025 focus”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 42. Los planes climáticos para 2025 requieren fortalecer el análisis y las cuantificaciones del riesgo de transición, señalando los desafíos metodológicos al agregar la cartera de inversiones de Grupo SURA. La evidencia del reporte está en la página 42 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Sincarbono",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. La cuantificación del riesgo de transición a nivel de cartera sigue siendo un enfoque para 2025», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "shortfall": true,
+      "journey_step": "challenge",
+      "match_count": 1,
+      "title": {
+        "en": "5. Low-probability hurricane scenario still shows material insured loss",
+        "es": "5. El escenario de huracán de baja probabilidad aún muestra pérdidas materiales aseguradas"
+      },
+      "context": {
+        "en": "PDF page 41. Physical climate modelling for Suramericana shows a 250-year hurricane could cause COP 173,663 million in net insured losses after reinsurance, highlighting residual catastrophe risk in the insurance book.",
+        "es": "PDF página 41. El modelo de clima físico para Suramericana muestra que un huracán de 250 años podría causar $ 173,663 millones en pérdidas aseguradas netas después del reaseguro, destacando el riesgo residual de catástrofe en el libro de seguros."
+      },
+      "report_evidence": {
+        "quote_es": "Se tiene identificado que la ocurrencia de un huracán con periodo de retorno de 250 años podría representar pérdidas para esta filial del orden de COP 173,663 millones.",
+        "quote_en": "It has been identified that the occurrence of a hurricane with a return period of 250 years could represent losses for this subsidiary of the order of COP 173,663 million.",
+        "pdf_url": "https://www.gruposura.com/wp-content/uploads/2025/03/sura-grupo-informe-anual-web-2024.pdf",
+        "page": 41
+      },
+      "matches": [
+        {
+          "match_id": "sura-g5-fluvia",
+          "name": "Fluvia",
+          "stage": "Pre-Seed",
+          "website": "https://fluvia.co",
+          "why": "Flood and water-movement tracing supports physical-risk assessment for insured assets.",
+          "why_es": "El rastreo de inundaciones y movimientos de agua respalda la evaluación del riesgo físico para los activos asegurados.",
+          "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
+          "public_source_url": "https://fluvia.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 41. Physical climate modelling for Suramericana shows a 250-year hurricane could cause COP 173,663 million in net insured losses after reinsurance, highlighting residual catastrophe risk in the insurance book. Report evidence is on PDF page 41 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "field sensors or tracers",
+              "source": "https://fluvia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Low-probability hurricane scenario still shows material insured loss”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 41. El modelo de clima físico para Suramericana muestra que un huracán de 250 años podría causar $ 173,663 millones en pérdidas aseguradas netas después del reaseguro, destacando el riesgo residual de catástrofe en el libro de seguros. La evidencia del reporte está en la página 41 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "sensores o trazadores de campo",
+              "source": "https://fluvia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. El escenario de huracán de baja probabilidad aún muestra pérdidas materiales aseguradas», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}

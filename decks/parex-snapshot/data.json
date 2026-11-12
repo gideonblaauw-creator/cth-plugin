@@ -1,0 +1,738 @@
+{
+  "meta": {
+    "slug": "parex-snapshot",
+    "company_key": "parex",
+    "title": {
+      "en": "Parex · gap snapshot · CleantechHUB",
+      "es": "Parex · panorama de brechas · CleantechHUB"
+    },
+    "public_url": "https://proposals.cleantechhub.net/parex-snapshot/"
+  },
+  "brand": {
+    "logo": "img/cth-logo.png"
+  },
+  "report": {
+    "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+    "listing_url": "https://www.parexresources.com/sustainability/reporting/sustainability-reports/",
+    "accessed_on": "2026-10-22"
+  },
+  "ui": {
+    "en": {
+      "nav.snapshot": "Snapshot",
+      "nav.g1": "Gap 1",
+      "nav.g2": "Gap 2",
+      "nav.g3": "Gap 3",
+      "nav.g4": "Gap 4",
+      "nav.g5": "Gap 5",
+      "nav.team": "Team",
+      "nav.cta": "Next step",
+      "hero.eyebrow": "Parex · gap snapshot",
+      "hero.title": "Parex · environment, climate and nature — 5 material gaps from the latest sustainability report",
+      "hero.lead": "",
+      "hero.companyLbl": "Company",
+      "hero.company": "Parex Resources Inc., Colombia. Oil and gas",
+      "hero.scopeLbl": "Scope",
+      "hero.scope": "Environment, climate and nature only. Social and governance topics in the same report are out of scope",
+      "hero.reportLbl": "Report",
+      "hero.report": "Sustainability report (<a href=\"https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf\">PDF</a>) linked from <a href=\"https://www.parexresources.com/sustainability/reporting/sustainability-reports/\">www.parexresources.com</a> PDF page 3",
+      "snap.eyebrow": "Transparency frame",
+      "snap.title": "Reporting frame (PDF page 3)",
+      "snap.bvc": "BVC: Parex is listed on the Bolsa de Valores de Colombia",
+      "team.eyebrow": "CleantechHUB team",
+      "team.title": "Who shaped this snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) and Gideon — same team as the Air4U proposal deck",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Book a call",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.snapshot": "Panorama",
+      "nav.g1": "Brecha 1",
+      "nav.g2": "Brecha 2",
+      "nav.g3": "Brecha 3",
+      "nav.g4": "Brecha 4",
+      "nav.g5": "Brecha 5",
+      "nav.team": "Equipo",
+      "nav.cta": "Siguiente paso",
+      "hero.eyebrow": "Parex · panorama de brechas",
+      "hero.title": "Parex · medio ambiente, clima y naturaleza — 5 brechas materiales del reporte de sostenibilidad",
+      "hero.lead": "",
+      "hero.companyLbl": "Empresa",
+      "hero.company": "Parex Resources Inc., Colombia. Petróleo y gas",
+      "hero.scopeLbl": "Alcance",
+      "hero.scope": "Solo medio ambiente, clima y naturaleza. Los temas sociales y de gobernanza en el mismo informe están fuera de alcance",
+      "hero.reportLbl": "Reporte",
+      "hero.report": "Sustainability report (<a href=\"https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf\">PDF</a>) enlazado desde <a href=\"https://www.parexresources.com/sustainability/reporting/sustainability-reports/\">www.parexresources.com</a> PDF página 3",
+      "snap.eyebrow": "Marco de transparencia",
+      "snap.title": "Marco de reporte (PDF página 3)",
+      "snap.bvc": "BVC: Parex cotiza en la Bolsa de Valores de Colombia",
+      "team.eyebrow": "Equipo CleantechHUB",
+      "team.title": "Quién elaboró este snapshot",
+      "team.intro": "Angie (Angélica), Jenn (Jennifer) y Gideon — mismo equipo que la propuesta Air4U",
+      "cta.title": "",
+      "cta.body": "",
+      "cta.btn": "Agenda una llamada",
+      "foot.line": "",
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  },
+  "snapshot": {
+    "report_evidence": {
+      "quote_es": "El informe anual de sostenibilidad de Parex presenta un resumen de la estrategia Ambiental, Social y de Gobernanza (ASG) de la Compañía, sus actividades y desempeño del período de reporte que va desde el primero de enero hasta diciembre 31 de 2024.",
+      "quote_en": "Parex's annual sustainability report presents a summary of the Company's Environmental, Social and Governance (ESG) strategy, its activities and performance for the reporting period from January 1 to December 31, 2024.",
+      "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+      "page": 3
+    }
+  },
+  "cta": {
+    "url": "https://calendar.app.google/kzEv6jKdT4RxVeVu6"
+  },
+  "team": [
+    {
+      "name": "Gideon Blaauw",
+      "photo": "img/team-gideon.jpg",
+      "role": {
+        "en": "Regional Lead",
+        "es": "Regional Lead"
+      },
+      "bio": {
+        "en": "He drives early-stage climate entrepreneurship in Latin America, working on incubation, acceleration, and impact investment with founders and international partners.",
+        "es": "Impulsa el emprendimiento climático de etapas tempranas en América Latina. Trabaja incubación, aceleración e inversión de impacto, con emprendedores y socios internacionales."
+      }
+    },
+    {
+      "name": "Angélica Díaz",
+      "nickname": {
+        "en": "Angie",
+        "es": "Angie"
+      },
+      "photo": "img/team-angelica.jpg",
+      "role": {
+        "en": "Tech Lead",
+        "es": "Líder de Tecnología"
+      },
+      "bio": {
+        "en": "She leads hub technology, working on open source and climate-conscious infrastructure to lower the footprint of technology.",
+        "es": "Lleva la tecnología del hub. Trabaja el software libre y una infraestructura consciente del clima, para bajar la huella de la tecnología."
+      }
+    },
+    {
+      "name": "Jennifer González",
+      "nickname": {
+        "en": "Jenn",
+        "es": "Jenn"
+      },
+      "photo": "img/team-jennifer.jpg",
+      "role": {
+        "en": "Growth Lead",
+        "es": "Growth Lead"
+      },
+      "bio": {
+        "en": "Economist and international development specialist. She supports sustainability, B2B sales, and fundraising in impact-driven businesses.",
+        "es": "Economista y especialista en desarrollo internacional. Acompaña sostenibilidad, ventas entre empresas y levantamiento de fondos en negocios con impacto."
+      }
+    }
+  ],
+  "nexus": {
+    "Fluvia": {
+      "p": "CLAC23",
+      "t": "BIO",
+      "d": "Uses fluorescent tracer technology and a proprietary app to provide real-time hydrological data — flow rates and velocities — for water resource management.",
+      "ds": "Usa tecnología de trazadores fluorescentes y una app propia para proporcionar datos hidrológicos en tiempo real — caudales y velocidades — para la gestión de recursos hídricos."
+    },
+    "TOBO": {
+      "p": "CLAC22",
+      "t": "EN",
+      "d": "Provides wind-powered and solar water pumping mills for Orinoquía farms, replacing diesel pumps and mitigating CO₂ across 2,000+ Colombian farms.",
+      "ds": "Provee molinos de bombeo de agua eólicos y solares para fincas de la Orinoquía, reemplazando motobombas diésel y mitigando CO₂ en más de 2.000 fincas colombianas."
+    },
+    "CarbonBox": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "SaaS platform automating corporate carbon footprint measurement, reduction scenario planning, and offset management for businesses and events across Latin America.",
+      "ds": "Plataforma SaaS que automatiza la medición de la huella de carbono corporativa, la planificación de reducción y la gestión de compensaciones para empresas y eventos en América Latina."
+    },
+    "sinCarbono": {
+      "p": "CLP",
+      "t": "EN",
+      "d": "B2B SaaS platform enabling Latin American companies to measure, manage, and reduce corporate carbon footprints across scopes 1, 2, and 3 using GHG Protocol methodology.",
+      "ds": "Plataforma SaaS B2B que permite a empresas latinoamericanas medir, gestionar y reducir sus huellas de carbono corporativas bajo la metodología del Protocolo GHG en los alcances 1, 2 y 3."
+    },
+    "C-neutral": {
+      "p": "CLAC21",
+      "t": "EN",
+      "d": "End-to-end carbon management platform helping companies measure footprints, design decarbonization roadmaps, and access verified carbon credit portfolios.",
+      "ds": "Plataforma integral de gestión de carbono que ayuda a empresas a medir su huella, diseñar hojas de ruta de descarbonización y acceder a portafolios de créditos de carbono verificados."
+    },
+    "Novatio": {
+      "p": "CLAC23",
+      "t": "EN",
+      "d": "Social enterprise designing and building biodigesters for rural farming families, converting organic waste into biogas energy and biofertilizer while displacing wood fuel.",
+      "ds": "Empresa social que diseña y construye biodigestores para familias campesinas, convirtiendo residuos orgánicos en energía de biogás y biofertilizante, desplazando el uso de leña."
+    }
+  },
+  "gaps": [
+    {
+      "id": "gap-1",
+      "rank": 1,
+      "journey_step": "policy",
+      "match_count": 2,
+      "title": {
+        "en": "1. Water management objectives were still being set in 2024",
+        "es": "1. Los objetivos de gestión del agua aún se estaban estableciendo en 2024"
+      },
+      "context": {
+        "en": "PDF page 11. Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review.",
+        "es": "PDF página 11. Parex planeó establecer objetivos de gestión del agua y planes de acción en 2024, con actualizaciones después de la doble revisión de materialidad de 2025."
+      },
+      "report_evidence": {
+        "quote_es": "Meta 2024: Establecer objetivos de gestión del agua y planes de acción asociados.",
+        "quote_en": "Target 2024: Establish water management objectives and associated action plans.",
+        "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+        "page": 11
+      },
+      "matches": [
+        {
+          "match_id": "parex-g1-fluvia",
+          "name": "Fluvia",
+          "stage": "Pre-Seed",
+          "website": "https://fluvia.co",
+          "why": "Fluvia maps water movement and losses in operational water systems.",
+          "why_es": "Fluvia mapea el movimiento del agua y las pérdidas en los sistemas de agua operativos.",
+          "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
+          "public_source_url": "https://fluvia.co",
+          "funder": false
+        },
+        {
+          "match_id": "parex-g1-tobo",
+          "name": "TOBO",
+          "stage": "Pre-Seed",
+          "website": "https://tobo.com.co",
+          "why": "TOBO names operational efficiency and environmental responsibility in water and renewable systems.",
+          "why_es": "TOBO nombra la eficiencia operativa y la responsabilidad ambiental en sistemas de agua y renovables.",
+          "public_quote": "Estamos comprometidos con la mejora continua, la eficiencia operativa y la responsabilidad ambiental.",
+          "public_source_url": "https://tobo.com.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 11. Parex planned to establish water management objectives and action plans in 2024, with updates after the 2025 double materiality review. Report evidence is on PDF page 11 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "field sensors or tracers",
+              "source": "https://fluvia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "TOBO",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://tobo.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “1. Water management objectives were still being set in 2024”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 11. Parex planeó establecer objetivos de gestión del agua y planes de acción en 2024, con actualizaciones después de la doble revisión de materialidad de 2025. La evidencia del reporte está en la página 11 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "sensores o trazadores de campo",
+              "source": "https://fluvia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "TOBO",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://tobo.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «1. Los objetivos de gestión del agua aún se estaban estableciendo en 2024», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-2",
+      "rank": 2,
+      "journey_step": "data",
+      "match_count": 3,
+      "title": {
+        "en": "2. Scope 3 understanding and supplier engagement still expanding",
+        "es": "2. La comprensión del alcance 3 y el compromiso de los proveedores aún se están expandiendo"
+      },
+      "context": {
+        "en": "PDF page 20. GRI 305-3. Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement.",
+        "es": "PDF página 20. GRI 305-3. Parex prioriza la intensidad de los alcances 1 y 2, pero aún está ampliando la comprensión del Alcance 3 y la participación en la cadena de suministro."
+      },
+      "report_evidence": {
+        "quote_es": "Si bien las prioridades de Parex se centran en la gestión de la intensidad de las emisiones de GEI dentro de nuestro propio negocio (alcances 1 y 2), seguimos trabajando para ampliar nuestra comprensión de las emisiones indirectas (alcance 3) y buscamos oportunidades para interactuar con nuestra cadena de suministro.",
+        "quote_en": "While Parex's priorities focus on managing the intensity of GHG emissions within our own business (scopes 1 and 2), we continue to work to broaden our understanding of indirect emissions (scope 3) and look for opportunities to engage with our supply chain.",
+        "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+        "page": 20
+      },
+      "matches": [
+        {
+          "match_id": "parex-g2-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox measures scope 3 across suppliers and logistics.",
+          "why_es": "CarbonBox mide el alcance 3 entre proveedores y logística.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "parex-g2-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono connects suppliers on footprint measurement and reduction.",
+          "why_es": "sinCarbono conecta a los proveedores en la medición y reducción de la huella.",
+          "public_quote": "Las empresas líderes ya exigen acción climática a sus proveedores y clientes.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        },
+        {
+          "match_id": "parex-g2-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "C-neutral quantifies emissions along the decarbonization path.",
+          "why_es": "C-neutral cuantifica las emisiones a lo largo de la ruta de descarbonización.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 20. GRI 305-3. Parex prioritizes scopes 1 and 2 intensity but is still expanding Scope 3 understanding and supply-chain engagement. Report evidence is on PDF page 20 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 305 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “2. Scope 3 understanding and supplier engagement still expanding”, mapped to GRI 305, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 20. GRI 305-3. Parex prioriza la intensidad de los alcances 1 y 2, pero aún está ampliando la comprensión del Alcance 3 y la participación en la cadena de suministro. La evidencia del reporte está en la página 20 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 305 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «2. La comprensión del alcance 3 y el compromiso de los proveedores aún se están expandiendo», mapeadas a GRI 305, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-3",
+      "rank": 3,
+      "journey_step": "challenge",
+      "match_count": 2,
+      "title": {
+        "en": "3. Routine flaring reduction still requires technology spend",
+        "es": "3. La reducción rutinaria de la quema aún requiere gasto en tecnología"
+      },
+      "context": {
+        "en": "PDF page 18. Parex continues investing in technology and infrastructure to reduce routine flaring across operations.",
+        "es": "PDF página 18. Parex continúa invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas las operaciones."
+      },
+      "report_evidence": {
+        "quote_es": "Además, seguimos invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas nuestras operaciones.",
+        "quote_en": "In addition, we continue to invest in technology and infrastructure to reduce routine burning across our operations.",
+        "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+        "page": 18
+      },
+      "matches": [
+        {
+          "match_id": "parex-g3-novatio",
+          "name": "Novatio",
+          "stage": "Seed",
+          "website": "https://novatio.com.co",
+          "why": "Novatio valorizes gas-rich organic residues through biogas plants.",
+          "why_es": "Novatio valoriza los residuos orgánicos ricos en gas a través de plantas de biogás.",
+          "public_quote": "Transforme sus residuos en energía.",
+          "public_source_url": "https://novatio.com.co",
+          "funder": false
+        },
+        {
+          "match_id": "parex-g3-cneutral",
+          "name": "C-neutral",
+          "stage": "Pre-Series A",
+          "website": "https://c-neutral.co",
+          "why": "C-neutral supports oil and gas clients on emissions quantification.",
+          "why_es": "C-neutral apoya a los clientes de petróleo y gas en la cuantificación de emisiones.",
+          "public_quote": "En C-neutral brindamos consultoría integral hacia la ruta de descarbonización, apoyando a las empresas a identificar y cuantificar los aspectos e impactos ambientales potenciales a partir de la utilización de recursos y las emisiones producidas asociadas a su actividad económica.",
+          "public_source_url": "https://c-neutral.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 18. Parex continues investing in technology and infrastructure to reduce routine flaring across operations. Report evidence is on PDF page 18 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Novatio",
+              "metric": "Non-conventional renewable generation or capacity share",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://novatio.com.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "consulting assessment",
+              "source": "https://c-neutral.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “3. Routine flaring reduction still requires technology spend”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 18. Parex continúa invirtiendo en tecnología e infraestructura para reducir la quema rutinaria en todas las operaciones. La evidencia del reporte está en la página 18 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Novatio",
+              "metric": "Generación o participación de renovables no convencionales",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "No indicado en la página pública",
+              "source": "https://novatio.com.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "C-neutral",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "evaluación de consultoría",
+              "source": "https://c-neutral.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «3. La reducción rutinaria de la quema aún requiere gasto en tecnología», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-4",
+      "rank": 4,
+      "journey_step": "challenge",
+      "match_count": 1,
+      "title": {
+        "en": "4. Water is vital across operations and neighboring communities",
+        "es": "4. El agua es vital en todas las operaciones y comunidades vecinas"
+      },
+      "context": {
+        "en": "PDF page 28. GRI 303-1. Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal.",
+        "es": "PDF página 28. GRI 303-1. Parex considera que el agua es vital para las operaciones y las comunidades y se compromete con el uso responsable, la gestión eficiente y la eliminación."
+      },
+      "report_evidence": {
+        "quote_es": "Parex está comprometida con la conservación, el uso eficiente y sostenible de los recursos naturales y considera el agua un recurso vital y un punto de interacción entre el medio ambiente, las comunidades y las actividades operativas de la Compañía.",
+        "quote_en": "Parex is committed to the conservation, efficient and sustainable use of natural resources and considers water a vital resource and a point of interaction between the environment, communities and the Company's operational activities.",
+        "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+        "page": 28
+      },
+      "matches": [
+        {
+          "match_id": "parex-g4-fluvia",
+          "name": "Fluvia",
+          "stage": "Pre-Seed",
+          "website": "https://fluvia.co",
+          "why": "Fluvia helps locate water losses in industrial networks.",
+          "why_es": "Fluvia ayuda a localizar las pérdidas de agua en las redes industriales.",
+          "public_quote": "En Fluvia utilizamos trazadores para seguir el recorrido del agua y entender cómo se mueve, dónde se pierde, cuánto tarda en llegar a un punto y cómo transporta sustancias dentro de un sistema, entre otras aplicaciones.",
+          "public_source_url": "https://fluvia.co",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 28. GRI 303-1. Parex treats water as vital for operations and communities and commits to responsible use, efficient management and disposal. Report evidence is on PDF page 28 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Water movement or stress indicators",
+              "unit": "Not stated on the public page",
+              "frequency": "real-time",
+              "method": "field sensors or tracers",
+              "source": "https://fluvia.co",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to GRI 303 for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “4. Water is vital across operations and neighboring communities”, mapped to GRI 303, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 28. GRI 303-1. Parex considera que el agua es vital para las operaciones y las comunidades y se compromete con el uso responsable, la gestión eficiente y la eliminación. La evidencia del reporte está en la página 28 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "Fluvia",
+              "metric": "Indicadores de movimiento o estrés hídrico",
+              "unit": "No indicado en la página pública",
+              "frequency": "tiempo real",
+              "method": "sensores o trazadores de campo",
+              "source": "https://fluvia.co",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a GRI 303 para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «4. El agua es vital en todas las operaciones y comunidades vecinas», mapeadas a GRI 303, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    },
+    {
+      "id": "gap-5",
+      "rank": 5,
+      "journey_step": "data",
+      "match_count": 2,
+      "title": {
+        "en": "5. Direct methane emissions still reported alongside intensity goals",
+        "es": "5. Las emisiones directas de metano aún se informan junto con los objetivos de intensidad"
+      },
+      "context": {
+        "en": "PDF page 7. Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2.",
+        "es": "PDF página 7. Parex informó una reducción interanual del 39% en las emisiones directas de metano mientras continuaba el trabajo de intensidad de GEI en los alcances 1 y 2."
+      },
+      "report_evidence": {
+        "quote_es": "Logramos una reducción del 39 % en las emisiones directas de metano, aunque las emisiones absolutas y la intensidad de emisiones de GEI aumentaron;",
+        "quote_en": "We achieved a 39% reduction in direct methane emissions, although absolute emissions and GHG emission intensity increased;",
+        "pdf_url": "https://www.parexresources.com/wp-content/uploads/2025/09/2024-Parex-Sustainability-Report_SP_FINAL.pdf",
+        "page": 7
+      },
+      "matches": [
+        {
+          "match_id": "parex-g5-carbonbox",
+          "name": "CarbonBox",
+          "stage": "Pre-Seed",
+          "website": "https://carbonbox.app",
+          "why": "CarbonBox tracks scope 1 emissions including methane in auditable inventories.",
+          "why_es": "CarbonBox realiza un seguimiento de las emisiones de alcance 1, incluido el metano en los inventarios auditables.",
+          "public_quote": "CarbonBox mide los alcances 1, 2 y 3 con trazabilidad completa y metodología auditable, para que la cadena de valor deje de ser una caja negra.",
+          "public_source_url": "https://carbonbox.app",
+          "funder": false
+        },
+        {
+          "match_id": "parex-g5-sincarbono",
+          "name": "sinCarbono",
+          "stage": "Seed",
+          "website": "https://sincarbono.io",
+          "why": "sinCarbono builds GHG inventories ready for verification.",
+          "why_es": "sinCarbono crea inventarios de GEI listos para su verificación.",
+          "public_quote": "Calculamos la huella de carbono de tu empresa con precisión y rapidez. Basado en estándares internacionales (GHG Protocol, ISO 14064-1:2018, IPCC), obtén un diagnóstico confiable y listo para reportar.",
+          "public_source_url": "https://sincarbono.io",
+          "funder": false
+        }
+      ],
+      "datalab": {
+        "en": {
+          "reported_missing": "PDF page 7. Parex reported a 39% year-on-year reduction in direct methane emissions while continuing GHG intensity work on scopes 1 and 2. Report evidence is on PDF page 7 (see link above). Missing data: quantities the report says are still being completed, audited, or not yet published for this indicator.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Scope 1–3 greenhouse gas emissions",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "auditable methodology",
+              "source": "https://carbonbox.app",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Environmental performance indicators named on the public page",
+              "unit": "Not stated on the public page",
+              "frequency": "Not stated on the public page",
+              "method": "Not stated on the public page",
+              "source": "https://sincarbono.io",
+              "note": "Metric type (unit and frequency not stated on the public page)"
+            }
+          ],
+          "flow": {
+            "intro": "Three stacked layers on one scale (Living lab):",
+            "l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+            "l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+            "l3": "L3 — Reporting-ready output: indicators mapped to the sustainability standards cited in the gap context for the end user’s next disclosure."
+          },
+          "deliverable": "A Datalab package for the end user: validated L2 tables and L3 disclosure lines for “5. Direct methane emissions still reported alongside intensity goals”, mapped to the sustainability standards cited in the gap context, ready to paste into the next sustainability report with source links to field readings."
+        },
+        "es": {
+          "reported_missing": "PDF página 7. Parex informó una reducción interanual del 39% en las emisiones directas de metano mientras continuaba el trabajo de intensidad de GEI en los alcances 1 y 2. La evidencia del reporte está en la página 7 del PDF (ver enlace arriba). Dato faltante: cantidades que el reporte señala como aún en completación, auditoría o sin publicar para este indicador.",
+          "startup_metrics": [
+            {
+              "startup": "CarbonBox",
+              "metric": "Emisiones GEI alcances 1–3",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://carbonbox.app",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            },
+            {
+              "startup": "sinCarbono",
+              "metric": "Indicadores de desempeño ambiental nombrados en la página pública",
+              "unit": "No indicado en la página pública",
+              "frequency": "No indicado en la página pública",
+              "method": "metodología auditable",
+              "source": "https://sincarbono.io",
+              "note": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)"
+            }
+          ],
+          "flow": {
+            "intro": "Tres capas apiladas en la misma escala (Living lab):",
+            "l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+            "l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+            "l3": "L3 — Salida lista para reporte: indicadores mapeados a the sustainability standards cited in the gap context para la próxima divulgación del usuario final."
+          },
+          "deliverable": "Paquete Datalab para el usuario final: tablas L2 validadas y líneas L3 de divulgación para «5. Las emisiones directas de metano aún se informan junto con los objetivos de intensidad», mapeadas a the sustainability standards cited in the gap context, listas para el próximo reporte de sostenibilidad con enlaces a lecturas de campo."
+        }
+      }
+    }
+  ]
+}

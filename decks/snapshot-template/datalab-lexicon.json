@@ -1,0 +1,41 @@
+{
+  "source_note": "L1–L3 and Datalab phrasing aligned to datalab.cleantechhub.net (Datalab app / Air4U taller, Oct 2026) and ticket rules: end user, CTH as data steward.",
+  "ui": {
+    "en": {
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "CleantechHUB Datalab",
+      "datalab.title": "What the Datalab does",
+      "datalab.intro": "CleantechHUB Datalab is a data laboratory for strategy, information flows, a living lab, and open-platform links. CleantechHUB acts as data steward for the end user: we bring information in, validate it under agreed rules, and publish reporting-ready outputs. Each gap below shows how a Datalab pilot closes the indicator the report already names.",
+      "datalab.gapHeading": "How the Datalab closes this gap",
+      "datalab.aLabel": "Reported indicator and missing data",
+      "datalab.bLabel": "Data from matched startup deployments",
+      "datalab.cLabel": "Datalab data flow",
+      "datalab.dLabel": "Deliverable for the next report",
+      "datalab.flowIntro": "Three stacked layers on one scale (Living lab):",
+      "datalab.l1": "L1 — Raw field data: readings from matched startup deployments (startup-proprietary measurement).",
+      "datalab.l2": "L2 — Validated data: CleantechHUB, as data steward, applies agreed rules; what is not verified stays marked to validate.",
+      "datalab.l3Template": "L3 — Reporting-ready output: indicators mapped to {standard} for the end user’s next disclosure.",
+      "datalab.ctaSandbox": "Pilot a Datalab data sandbox for this gap snapshot.",
+      "datalab.metricTypeOnly": "Metric type (unit and frequency not stated on the public page)",
+      "datalab.notStated": "Not stated on the public page"
+    },
+    "es": {
+      "nav.datalab": "Datalab",
+      "datalab.eyebrow": "Datalab CleantechHUB",
+      "datalab.title": "Qué hace el Datalab",
+      "datalab.intro": "Datalab CleantechHUB es un laboratorio de datos: estrategia, flujos, living lab y enlaces a plataformas abiertas. CleantechHUB actúa como administrador de datos para el usuario final: traemos la información, la validamos con reglas acordadas y entregamos salidas listas para reporte. Cada brecha muestra cómo un piloto del Datalab cierra el indicador que el reporte ya nombra.",
+      "datalab.gapHeading": "Cómo el Datalab cierra esta brecha",
+      "datalab.aLabel": "Indicador reportado y dato faltante",
+      "datalab.bLabel": "Datos de los despliegues de las startups coincidentes",
+      "datalab.cLabel": "Flujo de datos del Datalab",
+      "datalab.dLabel": "Entregable para el próximo reporte",
+      "datalab.flowIntro": "Tres capas apiladas en la misma escala (Living lab):",
+      "datalab.l1": "L1 — Dato de campo crudo: lecturas de los despliegues de las startups coincidentes (medición propietaria del startup).",
+      "datalab.l2": "L2 — Dato validado: CleantechHUB, como administrador de datos, aplica reglas acordadas; lo no verificado queda marcado por validar.",
+      "datalab.l3Template": "L3 — Salida lista para reporte: indicadores mapeados a {standard} para la próxima divulgación del usuario final.",
+      "datalab.ctaSandbox": "Pilotea un sandbox de datos del Datalab para este panorama de brechas.",
+      "datalab.metricTypeOnly": "Tipo de métrica (unidad y frecuencia no indicadas en la página pública)",
+      "datalab.notStated": "No indicado en la página pública"
+    }
+  }
+}
