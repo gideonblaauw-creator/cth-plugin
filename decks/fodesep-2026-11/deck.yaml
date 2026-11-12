@@ -1,0 +1,107 @@
+meta:
+  slug: fodesep-2026-11
+  lang: es
+  title: Fondos climáticos, vehículos universitarios y financiamiento de seguimiento
+  client: FODESEP
+  date: 12 nov 2026
+slides:
+  - type: cover
+    title: Fondos climáticos, vehículos universitarios y financiamiento de seguimiento
+    subtitle: FODESEP × CleantechHUB
+    client: FODESEP
+    date: Reunión · 12 nov 2026 · 14:30–15:30 · Holland House, Bogotá
+  - type: title-bullets
+    eyebrow: Lo que acordamos el 9 nov
+    title: Punto de partida
+    bullets:
+      - "Red FODESEP: ~120 IES públicas y privadas; afiliación voluntaria; alcance en 24+ departamentos"
+      - "Propósito discutido: red de rectores para movilizar financiación climática internacional (KPI: recursos externos)"
+      - "CTH: ESAL; capa ambiental; pipeline; tickets maduros pre–Serie A / Serie A (~USD 1–2M región)"
+      - "Tickets locales USD 50k–200k: victorias tempranas, no el núcleo del modelo CTH"
+      - "Espacio abierto (diseño): ~20 universidades en un pool USD 5–10M → tickets USD 50k–100k; sin compromiso de rectores"
+      - "Ruta «platino»: calificación antes de co-invertir — no es un curso corto"
+      - "Match empresa: co-inversión en problema concreto (agua, aire, CO₂)"
+    notes: "Fuente: nota Granola 9 nov 2026 · brief FODESEP 9 nov (diseño conversacional, no compromisos)"
+  - type: case-cards
+    title: Vehículos que ya existen (1/2)
+    cards:
+      - { name: Oxford Science Enterprises, text: "NAV · compañía evergreen. Paga: capital de accionistas (EIR, laboratorio). Fuente: OSE" }
+      - { name: IP Group / Parkwalk, text: "NAV IP Group; Parkwalk £20,6M en 2025. Tubería seed + balance sheet para seguimiento. Fuente: IP Group FY2025" }
+      - { name: Cambridge Enterprise Ventures, text: "Fondo en balance de la universidad. Paga: la universidad, con el cheque. Fuente: Cambridge EV" }
+      - { name: Cambridge Innovation Capital, text: "AUM · gestor aparte. Paga: inversores institucionales; Serie A ≠ seed. Fuente: British Business Bank" }
+    notes: "Patrón útil: capital, venture building y segunda ronda en vehículos distintos. Cifras titulares (£1.400M, £975M, £600M, £50M) por tarjeta: tomar de la página 3 del Canva DAHaqBXodIY y verificar asignación."
+  - type: case-cards
+    title: Vehículos que ya existen (2/2)
+    cards:
+      - { name: Uniseed (AU), text: "Universidades como LPs; CSIRO. Lección: LPs = due diligence de origen. USD 250k. Fuente: Uniseed" }
+      - { name: NUS GRIP + VC Programme, text: "Hasta S$250k/equipo; luego S$150M VC. Lección: universidad paga pre-seed antes del gestor. Fuente: NUS" }
+      - { name: Know Hub Chile, text: "Corporación multi-universidad. ~USD 100k en servicios, hasta 7% equity. Fuente: Ignition 2025" }
+      - { name: Tec Ábaco, text: "Hasta USD 250k en servicios en especie. Lección: nota convertible → participación minoritaria. Fuente: TecScience" }
+      - { name: InnoEnergy, text: "Compañía EIT; 160+ portfolio. Lección: academia e industria como accionistas del builder. Fuente: InnoEnergy press kit" }
+    notes: "Copiar el patrón → separar el bolsillo de asistencia técnica (año 1: universidad + empresa) del bolsillo de capital (SAS / fiducia que poseen las IES)."
+  - type: offer
+    title: Financiamiento de seguimiento — año uno
+    price: 50k–100k
+    currency: USD
+    includes:
+      - "Asistencia técnica = equipo, cliente, gobernanza, presupuesto e historia para un ticket USD 50k–100k"
+      - "Ruta 1: presupuesto propio de cada IES piloto — única ruta cerrable el jueves"
+      - "Ruta 2: empresa en problema nombrado (monto estándar por confirmar)"
+      - "Después del piloto: red inversores CTH pre–Serie A / Serie A USD 1M+ (núcleo CTH)"
+    note: "Liderar: universidades pagan año uno. No abrir con donantes. Benchmark bolsillo AT ~5–7% del deal (Convergence AT); fee de gestión 2% no sustituye equipo (Meketa)."
+  - type: data-table
+    title: Ventanas externas (cuando exista vehículo)
+    columns: [Ventana, Monto, Encaje]
+    rows:
+      - ["DGGF Track 2 (Colombia elegible)", "Hasta EUR 1,5M", "Post pitch book; no diseño la próxima semana"]
+      - ["UK PACT Colombia", "£500k/año; £1M / 23 meses", "Solicitante: CTH (ESAL); FODESEP no lead"]
+      - ["AuRA / IDB Lab (reportado)", "Fondo catalítico USD 700k", "Co-financiar tickets pequeños; confirmar términos"]
+      - ["IDB Lab (ecosistema)", "Equity · cuasi-equity · deuda", "Ventana permanente LAC"]
+    source: "DGGF2 factsheet · UK PACT ToR · Semana 3 nov 2026 · Boletín IDB Lab"
+    note: "Ningún cheque este mes."
+  - type: data-table
+    title: Universidades candidatas al piloto — 3 de 8 afiliadas
+    columns: ["#", Universidad, Tipo, FODESEP, Evidencia]
+    rows:
+      - ["1", Externado, privada, "—", "CEE + REIN Colombia / Climate Launchpad con CTH"]
+      - ["2", Escuela Colombiana de Ingeniería, privada, afiliada, "Campus HELIX-A"]
+      - ["3", Universidad de los Andes, privada, "—", "Incuba + capital semilla"]
+      - ["4", Universidad de Antioquia, pública, afiliada, "OTRI reconocida MinCiencias, Parque E"]
+      - ["5", EAFIT, privada, "—", "8 spin-offs activas y 19 licencias"]
+      - ["6", UIS, pública, afiliada, "«Ciencia que Emprende», parque Guatiguará"]
+      - ["7", Universidad del Rosario, privada, "—", "Fondo Semilla I+D+i 2025, Start Factory"]
+      - ["8", Pontificia Universidad Javeriana, privada, "—", "Campus Nova, CI+E"]
+    source: "Afiliación: FODESEP Anexo 3, plan de mercadeo 2024"
+    note: "Las demás entran vía rectores o afiliación nueva."
+  - type: process
+    title: "¿Basta con membresía platino? No."
+    steps:
+      - { label: "1 · Platino (gate)", text: "Oficina responsable + screen CTH + empresa en problema → reglas FODESEP / afiliadas (Estatutos FODESEP 2025)" }
+      - { label: "2 · Bolsillo capital", text: "SAS co-propiedad de 3–5 IES piloto (orientativo; counsel) → universidades, no balance FODESEP" }
+      - { label: "3 · Bolsillo AT", text: "Presupuesto fijo año 1 → IES piloto + empresa; FODESEP administra (lits. k/q)" }
+      - { label: "4 · FCP regulado", text: "≥600 SMLMV por inversionista (Dec. 1984 FCP) → pospuesto, pesado para piloto pequeño" }
+    notes: "«Platino» es puerta de calificación para patrocinar un ticket — no un vehículo que recibe dinero. Orientativo, no concepto jurídico."
+  - type: title-bullets
+    eyebrow: Piloto
+    title: "Dos bolsillos · 3–5 universidades"
+    columns:
+      - ["Bolsillo inversión", "Tickets USD 50k–100k (diseño de conversación; sin número inventado por IES)", "Vehículo nuevo que poseen las universidades", "FODESEP no compra acciones en startups"]
+      - ["Bolsillo asistencia técnica", "Presupuesto fijo año 1 (universidades + empresa)", "FODESEP puede administrar flujos de terceros", "Platino: solo patrocinar cheque tras 3 pasos"]
+    notes: "Éxito a 12 meses: pocos tickets cerrados o rechazados con registro escrito; un match empresa pagado; conversación DGGF iniciada. Fuente: brief FODESEP §6 · estatutos art. 5(k)(q)"
+  - type: key-facts
+    title: Tres preguntas para Andrés
+    items:
+      - { icon: "01", label: Presupuesto y equity, text: "¿Desde qué partida puede un rector comprometer dinero este año fiscal? ¿La universidad pública puede suscribir acciones en un vehículo privado o solo cash a FODESEP / contrato de investigación?" }
+      - { icon: "02", label: Asistencia técnica, text: "¿Las IES piloto pagan una línea AT aparte ellas mismas, o esperan un donante antes de comprometer capital?" }
+      - { icon: "03", label: Precedente EU EUR 1M, text: "¿Quién firmó, qué forma legal tenía el dinero, qué parte fue asistencia vs actividades, y puede esa forma tener equity hoy?" }
+    notes: "Fuente: brief §7 · Granola 9 nov"
+  - type: title-bullets
+    eyebrow: Próximos pasos
+    title: Quién hace qué
+    columns:
+      - ["FODESEP / Andrés", "Invitar 3–5 rectores con capacidad de transaccionar", "Confirmar lista de afiliadas y precedente EU", "Validar si rectores aceptan gate platino"]
+      - ["CleantechHUB", "Screen de proyectos; definir pasos platino con alcance Datalab/REIN", "Redactar pitch DGGF cuando exista wrapper legal", "Introducir deals ≥USD 1M a red inversores post-tickets piloto"]
+    notes: "Orden al hablar de financiación: 1. Universidades pagan AT año 1 · 2. Empresa en problema nombrado · 3. DGGF track 2 (vehículo constituido) · 4. UK PACT vía CTH si hay ventana · 5. AuRA / IDB Lab para tickets individuales. Fuente: brief §9"
+  - type: closing
+    text: Gracias
+    url: https://cleantechhub.net
