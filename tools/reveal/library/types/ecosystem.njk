@@ -1,5 +1,13 @@
-<section class="cth-slide cth-slide--ecosystem" data-cth-slide-type="ecosystem">
-  <p class="cth-badge">Stub · ecosystem</p>
-  <pre class="cth-stub-json">{{ slideJson | safe }}</pre>
+<section class="cth-slide cth-slide--ecosystem" data-cth-type="ecosystem">
+  <div class="cth-slide__head"><h2 class="cth-title">{{ title }}</h2><span class="cth-badge-example">Example</span></div>
+  <div class="cth-slide__body">
+    <div class="cth-eco">
+      {% for node in nodes %}{% if loop.index0 < 3 %}<div class="cth-eco__node"><strong>{{ node.label }}</strong>{% if node.text %}<p style="margin:0.25rem 0 0;font-size:0.9em;">{{ node.text }}</p>{% endif %}</div>{% endif %}{% endfor %}
+    </div>
+    <div style="margin:0.5rem 0;"><div class="cth-eco__center">{{ centre }}</div></div>
+    <div class="cth-eco">
+      {% for node in nodes %}{% if loop.index0 >= 3 %}<div class="cth-eco__node"><strong>{{ node.label }}</strong>{% if node.text %}<p style="margin:0.25rem 0 0;font-size:0.9em;">{{ node.text }}</p>{% endif %}</div>{% endif %}{% endfor %}
+    </div>
+  </div>
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

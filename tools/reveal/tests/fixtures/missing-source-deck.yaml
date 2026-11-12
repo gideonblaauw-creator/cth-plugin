@@ -9,6 +9,5 @@ slides:
     title: Example chart
     chart:
       type: bar
-      data: { labels: [A, B], values: [1, 2] }
+      data: [1, 2, 3]
     proof: Example only — no real data.
-    source: ""

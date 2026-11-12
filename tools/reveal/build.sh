@@ -38,6 +38,9 @@ mkdir -p "$DIST/theme"
 
 cp "$DECK_ROOT/index.html" "$DIST/"
 cp "$TOOL_ROOT/theme/cleantechhub.css" "$DIST/theme/"
+if [[ -d "$TOOL_ROOT/theme/fonts" ]]; then
+  cp -a "$TOOL_ROOT/theme/fonts" "$DIST/theme/fonts"
+fi
 cp -a "$TOOL_ROOT/node_modules/reveal.js" "$DIST/reveal.js"
 
 if [[ -f "$DECK_ROOT/deck-meta.json" ]]; then

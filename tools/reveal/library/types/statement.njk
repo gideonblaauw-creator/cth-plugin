@@ -1,5 +1,8 @@
-<section class="cth-slide cth-slide--statement" data-cth-slide-type="statement">
-  <p class="cth-badge">Stub · statement</p>
-  <pre class="cth-stub-json">{{ slideJson | safe }}</pre>
+<section class="cth-slide cth-slide--statement" data-cth-type="statement">
+  <div class="cth-quote-block">
+    <span class="cth-badge-example">Example</span>
+    <p class="cth-quote-block__text">{{ text }}</p>
+    {% if attribution %}<p class="cth-quote-block__attr">— {{ attribution }}</p>{% endif %}
+  </div>
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

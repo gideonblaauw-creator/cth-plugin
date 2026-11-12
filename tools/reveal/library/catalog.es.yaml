@@ -1,0 +1,180 @@
+meta:
+  slug: slide-type-catalog
+  lang: es
+  title: Catálogo de tipos de diapositiva CTH (Ejemplo)
+  client: Cliente ejemplo
+  date: Fecha ejemplo
+slides:
+  - type: cover
+    title: Título de ejemplo del catálogo
+    subtitle: Subtítulo de ejemplo para vista previa
+    client: Cliente ejemplo
+    date: Fecha ejemplo
+  - type: statement
+    text: Texto de ejemplo para vista de diseño. Sin cifras ni afirmaciones reales.
+    attribution: Atribución ejemplo
+  - type: title-bullets
+    title: Título de sección ejemplo
+    eyebrow: Anteojera ejemplo
+    bullets:
+      - Viñeta ejemplo A
+      - Viñeta ejemplo B
+      - Viñeta ejemplo C
+      - Viñeta ejemplo D
+  - type: key-facts
+    title: Datos clave ejemplo
+    items:
+      - { icon: A, label: Dato ejemplo uno, text: Línea de apoyo ejemplo. }
+      - { icon: B, label: Dato ejemplo dos, text: Línea de apoyo ejemplo. }
+      - { icon: C, label: Dato ejemplo tres, text: Línea de apoyo ejemplo. }
+      - { icon: D, label: Dato ejemplo cuatro, text: Línea de apoyo ejemplo. }
+      - { icon: E, label: Dato ejemplo cinco, text: Línea de apoyo ejemplo. }
+      - { icon: F, label: Dato ejemplo seis, text: Línea de apoyo ejemplo. }
+  - type: stat-band
+    title: Banda de indicadores ejemplo
+    stats:
+      - { value: Ej. A, label: Etiqueta ejemplo, source: Fuente ejemplo }
+      - { value: Ej. B, label: Etiqueta ejemplo, source: Fuente ejemplo }
+      - { value: Ej. C, label: Etiqueta ejemplo, source: Fuente ejemplo }
+      - { value: Ej. D, label: Etiqueta ejemplo, source: Fuente ejemplo }
+  - type: logo-wall
+    title: Aliados ejemplo
+    logos:
+      - { src: "", alt: Ejemplo 1 }
+      - { src: "", alt: Ejemplo 2 }
+      - { src: "", alt: Ejemplo 3 }
+      - { src: "", alt: Ejemplo 4 }
+      - { src: "", alt: Ejemplo 5 }
+      - { src: "", alt: Ejemplo 6 }
+  - type: map
+    title: Mapa regional ejemplo
+    region: colombia
+    pins:
+      - { name: Pin ejemplo uno, note: Nota ejemplo }
+      - { name: Pin ejemplo dos }
+  - type: team-grid
+    title: Equipo ejemplo
+    people:
+      - { name: Nombre ejemplo A, role: Rol ejemplo, photo: "" }
+      - { name: Nombre ejemplo B, role: Rol ejemplo, photo: "" }
+      - { name: Nombre ejemplo C, role: Rol ejemplo, photo: "" }
+      - { name: Nombre ejemplo D, role: Rol ejemplo, photo: "" }
+      - { name: Nombre ejemplo E, role: Rol ejemplo, photo: "" }
+      - { name: Nombre ejemplo F, role: Rol ejemplo, photo: "" }
+  - type: contact
+    title: Contacto ejemplo
+    people:
+      - { name: Contacto A, role: Rol ejemplo, email: ejemplo-a@example.invalid }
+      - { name: Contacto B, role: Rol ejemplo }
+    links:
+      - { kind: Web ejemplo, url: https://example.invalid }
+  - type: process
+    title: Proceso ejemplo
+    steps:
+      - { label: Paso 1, text: Texto de paso ejemplo. }
+      - { label: Paso 2, text: Texto de paso ejemplo. }
+      - { label: Paso 3, text: Texto de paso ejemplo. }
+      - { label: Paso 4, text: Texto de paso ejemplo. }
+      - { label: Paso 5, text: Texto de paso ejemplo. }
+      - { label: Paso 6, text: Texto de paso ejemplo. }
+  - type: timeline
+    title: Cronograma ejemplo
+    items:
+      - { date: T1, label: Hito ejemplo, text: Detalle ejemplo. }
+      - { date: T2, label: Hito ejemplo, text: Detalle ejemplo. }
+      - { date: T3, label: Hito ejemplo, text: Detalle ejemplo. }
+      - { date: T4, label: Hito ejemplo }
+  - type: case-cards
+    title: Casos ejemplo
+    cards:
+      - { name: Caso A, text: Resumen ejemplo., logo: "" }
+      - { name: Caso B, text: Resumen ejemplo., logo: "" }
+      - { name: Caso C, text: Resumen ejemplo., logo: "" }
+      - { name: Caso D, text: Resumen ejemplo., logo: "" }
+      - { name: Caso E, text: Resumen ejemplo., logo: "" }
+      - { name: Caso F, text: Resumen ejemplo., logo: "" }
+  - type: chart-proof
+    title: Gráfico y prueba ejemplo
+    chart:
+      type: bar
+      data: [10, 22, 18, 30]
+    proof: Línea de prueba ejemplo — solo diseño.
+    source: Fuente ejemplo
+  - type: programme-trio
+    title: Programas ejemplo
+    programmes:
+      - { name: Programa A, text: Descripción ejemplo. }
+      - { name: Programa B, text: Descripción ejemplo. }
+      - { name: Programa C, text: Descripción ejemplo. }
+      - { name: Programa D, text: Descripción ejemplo. }
+  - type: closing
+    text: Cierre ejemplo — gracias.
+    url: https://example.invalid
+  - type: showcase
+    title: Escaparate ejemplo
+    text: Narrativa de ejemplo para vista previa.
+    images: ["", "", "", ""]
+  - type: data-table
+    title: Tabla ejemplo
+    columns: [Col A, Col B, Col C]
+    rows:
+      - [A1, B1, C1]
+      - [A2, B2, C2]
+      - [A3, B3, C3]
+    source: Fuente ejemplo
+  - type: ecosystem
+    title: Modelo de ecosistema ejemplo
+    centre: Centro ejemplo
+    nodes:
+      - { label: Nodo 1, text: Detalle. }
+      - { label: Nodo 2, text: Detalle. }
+      - { label: Nodo 3, text: Detalle. }
+      - { label: Nodo 4, text: Detalle. }
+      - { label: Nodo 5, text: Detalle. }
+      - { label: Nodo 6, text: Detalle. }
+  - type: section-title
+    number: "02"
+    title: Capítulo ejemplo
+    subtitle: Subtítulo ejemplo
+  - type: media-proof
+    title: Prueba mediática ejemplo
+    image: ""
+    outlet: Medio ejemplo
+    url: https://example.invalid
+  - type: partner-cards
+    title: Tarjetas de aliados ejemplo
+    partners:
+      - { logo: "", name: Aliado A, text: Texto ejemplo. }
+      - { logo: "", name: Aliado B, text: Texto ejemplo. }
+      - { logo: "", name: Aliado C, text: Texto ejemplo. }
+  - type: partner-profile
+    name: Perfil de aliado ejemplo
+    logo: ""
+    photo: ""
+    text: Cuerpo de texto ejemplo para perfil de aliado.
+  - type: testimonial
+    quote: Cita de ejemplo para diseño.
+    name: Nombre ejemplo
+    role: Rol ejemplo
+  - type: focus-areas
+    title: Áreas de enfoque ejemplo
+    areas:
+      - { name: Área A, image: "" }
+      - { name: Área B, image: "" }
+      - { name: Área C, image: "" }
+  - type: offer
+    title: Paquete ejemplo
+    price: Ejemplo
+    currency: Ej.
+    includes:
+      - Ítem incluido uno
+      - Ítem incluido dos
+      - Ítem incluido tres
+  - type: contents
+    items:
+      - Sección uno
+      - Sección dos
+      - Sección tres
+      - Sección cuatro
+      - Sección cinco
+      - Sección seis

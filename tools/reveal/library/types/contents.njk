@@ -1,5 +1,11 @@
-<section class="cth-slide cth-slide--contents" data-cth-slide-type="contents">
-  <p class="cth-badge">Stub · contents</p>
-  <pre class="cth-stub-json">{{ slideJson | safe }}</pre>
+<section class="cth-slide cth-slide--contents" data-cth-type="contents">
+  <div class="cth-contents">
+    <div>
+      <p class="cth-eyebrow">Example</p>
+      <h2 class="cth-title">Contents</h2>
+      <ol class="cth-contents__list">{% for item in items %}<li>{{ item }}</li>{% endfor %}</ol>
+    </div>
+    <div>{% if image %}<img src="{{ image }}" alt="" style="border-radius:8px;" />{% else %}<div class="cth-ph-img" style="min-height:14rem;">Example</div>{% endif %}</div>
+  </div>
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

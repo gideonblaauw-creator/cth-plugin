@@ -1,5 +1,7 @@
-<section class="cth-slide cth-slide--section-title" data-cth-slide-type="section-title">
-  <p class="cth-badge">Stub · section-title</p>
-  <pre class="cth-stub-json">{{ slideJson | safe }}</pre>
+<section class="cth-slide cth-slide--section-title cth-center" data-cth-type="section-title">
+  {% if number %}<p class="cth-section-num">{{ number }}</p>{% endif %}
+  <span class="cth-badge-example">Example</span>
+  <h2 class="cth-title cth-title--center">{{ title }}</h2>
+  {% if subtitle %}<p class="cth-subtitle" style="text-align:center;">{{ subtitle }}</p>{% endif %}
   {% if notes %}<aside class="notes">{{ notes }}</aside>{% endif %}
 </section>

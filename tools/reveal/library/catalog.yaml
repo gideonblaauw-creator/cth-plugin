@@ -1,0 +1,201 @@
+meta:
+  slug: slide-type-catalog
+  lang: en
+  title: CTH Slide Type Catalog (Example)
+  client: Example client
+  date: Example date
+slides:
+  - type: cover
+    title: Example deck title
+    subtitle: Example subtitle for catalog preview
+    client: Example client
+    date: Example date
+    notes: Catalog slide — cover type at max optional fields.
+  - type: statement
+    text: Example statement text for layout preview. No real metrics or claims.
+    attribution: Example attribution
+  - type: title-bullets
+    title: Example section title
+    eyebrow: Example eyebrow
+    columns:
+      - [Example bullet A, Example bullet B, Example bullet C]
+      - [Example bullet D, Example bullet E, Example bullet F]
+  - type: key-facts
+    title: Example key facts
+    items:
+      - { icon: A, label: Example fact one, text: Example supporting line. }
+      - { icon: B, label: Example fact two, text: Example supporting line. }
+      - { icon: C, label: Example fact three, text: Example supporting line. }
+      - { icon: D, label: Example fact four, text: Example supporting line. }
+      - { icon: E, label: Example fact five, text: Example supporting line. }
+      - { icon: F, label: Example fact six, text: Example supporting line. }
+  - type: stat-band
+    title: Example stat band
+    stats:
+      - { value: Ex. A, label: Example label, source: Example source }
+      - { value: Ex. B, label: Example label, source: Example source }
+      - { value: Ex. C, label: Example label, source: Example source }
+      - { value: Ex. D, label: Example label, source: Example source }
+  - type: logo-wall
+    title: Example partners
+    group: Example group label
+    logos:
+      - { src: "", alt: Example 1 }
+      - { src: "", alt: Example 2 }
+      - { src: "", alt: Example 3 }
+      - { src: "", alt: Example 4 }
+      - { src: "", alt: Example 5 }
+      - { src: "", alt: Example 6 }
+      - { src: "", alt: Example 7 }
+      - { src: "", alt: Example 8 }
+      - { src: "", alt: Example 9 }
+      - { src: "", alt: Example 10 }
+      - { src: "", alt: Example 11 }
+      - { src: "", alt: Example 12 }
+  - type: map
+    title: Example regional map
+    region: latam
+    pins:
+      - { name: Example pin one, note: Example note }
+      - { name: Example pin two, note: Example note }
+      - { name: Example pin three }
+    stats:
+      - { value: Ex. 1, label: Example, source: Example source }
+      - { value: Ex. 2, label: Example, source: Example source }
+      - { value: Ex. 3, label: Example, source: Example source }
+  - type: team-grid
+    title: Example team
+    people:
+      - { name: Example Name A, role: Example role, photo: "" }
+      - { name: Example Name B, role: Example role, photo: "" }
+      - { name: Example Name C, role: Example role, photo: "" }
+      - { name: Example Name D, role: Example role, photo: "" }
+      - { name: Example Name E, role: Example role, photo: "" }
+      - { name: Example Name F, role: Example role, photo: "" }
+      - { name: Example Name G, role: Example role, photo: "" }
+      - { name: Example Name H, role: Example role, photo: "" }
+  - type: contact
+    title: Example contact
+    people:
+      - { name: Example Contact A, role: Example role, email: example-a@example.invalid }
+      - { name: Example Contact B, role: Example role, email: example-b@example.invalid }
+      - { name: Example Contact C, role: Example role }
+    links:
+      - { kind: Example web, url: https://example.invalid }
+      - { kind: Example social, url: https://example.invalid }
+  - type: process
+    title: Example process
+    steps:
+      - { label: Example step 1, text: Example step text. }
+      - { label: Example step 2, text: Example step text. }
+      - { label: Example step 3, text: Example step text. }
+      - { label: Example step 4, text: Example step text. }
+      - { label: Example step 5, text: Example step text. }
+      - { label: Example step 6, text: Example step text. }
+  - type: timeline
+    title: Example timeline
+    items:
+      - { date: Example Q1, label: Example milestone, text: Example detail. }
+      - { date: Example Q2, label: Example milestone, text: Example detail. }
+      - { date: Example Q3, label: Example milestone, text: Example detail. }
+      - { date: Example Q4, label: Example milestone, text: Example detail. }
+      - { date: Example Q5, label: Example milestone, text: Example detail. }
+  - type: case-cards
+    title: Example cases
+    cards:
+      - { name: Example case A, text: Example blurb., logo: "" }
+      - { name: Example case B, text: Example blurb., logo: "" }
+      - { name: Example case C, text: Example blurb., logo: "" }
+      - { name: Example case D, text: Example blurb., logo: "" }
+      - { name: Example case E, text: Example blurb., logo: "" }
+      - { name: Example case F, text: Example blurb., logo: "" }
+  - type: chart-proof
+    title: Example chart and proof
+    chart:
+      type: bar
+      data: [12, 28, 19, 35]
+    proof: Example proof line — layout only.
+    source: Example source citation
+  - type: programme-trio
+    title: Example programmes
+    programmes:
+      - { name: Example programme A, text: Example module description. }
+      - { name: Example programme B, text: Example module description. }
+      - { name: Example programme C, text: Example module description. }
+      - { name: Example programme D, text: Example module description. }
+  - type: closing
+    text: Example closing — thank you.
+    url: https://example.invalid
+    qr: example
+  - type: showcase
+    title: Example showcase
+    text: Example showcase narrative for layout preview.
+    images: ["", "", "", ""]
+    link: https://example.invalid
+  - type: data-table
+    title: Example data table
+    columns: [Example col A, Example col B, Example col C]
+    rows:
+      - [Example A1, Example B1, Example C1]
+      - [Example A2, Example B2, Example C2]
+      - [Example A3, Example B3, Example C3]
+      - [Example A4, Example B4, Example C4]
+    source: Example source
+    note: Example table note
+  - type: ecosystem
+    title: Example ecosystem model
+    centre: Example hub
+    nodes:
+      - { label: Example node 1, text: Example detail. }
+      - { label: Example node 2, text: Example detail. }
+      - { label: Example node 3, text: Example detail. }
+      - { label: Example node 4, text: Example detail. }
+      - { label: Example node 5, text: Example detail. }
+      - { label: Example node 6, text: Example detail. }
+  - type: section-title
+    number: "03"
+    title: Example section chapter
+    subtitle: Example section subtitle
+  - type: media-proof
+    title: Example media proof
+    image: ""
+    outlet: Example outlet
+    url: https://example.invalid
+  - type: partner-cards
+    title: Example partner cards
+    partners:
+      - { logo: "", name: Example partner A, text: Example blurb. }
+      - { logo: "", name: Example partner B, text: Example blurb. }
+      - { logo: "", name: Example partner C, text: Example blurb. }
+  - type: partner-profile
+    name: Example partner profile
+    logo: ""
+    photo: ""
+    text: Example partner profile body copy for layout preview.
+  - type: testimonial
+    quotes:
+      - { quote: Example quote one., name: Example Name, org: Example org }
+      - { quote: Example quote two., name: Example Name, org: Example org }
+  - type: focus-areas
+    title: Example focus areas
+    areas:
+      - { name: Example area A, image: "" }
+      - { name: Example area B, image: "" }
+      - { name: Example area C, image: "" }
+  - type: offer
+    title: Example offer package
+    price: Example
+    currency: Ex.
+    includes:
+      - Example included item one
+      - Example included item two
+      - Example included item three
+    note: Example offer note
+  - type: contents
+    items:
+      - Example section one
+      - Example section two
+      - Example section three
+      - Example section four
+      - Example section five
+      - Example section six

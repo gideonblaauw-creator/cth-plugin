@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
  * Render deck.yaml -> decks/<slug>/index.html (+ meta), then optional build.
- * Validates against library/schema.json (stub until Job A lands).
+ * Validates against library/schema.json; renders Job A Nunjucks types/*.njk.
  */
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 const yaml = require("js-yaml");
-const Ajv = require("ajv");
+const Ajv2020 = require("ajv/dist/2020");
 const addFormats = require("ajv-formats");
 const nunjucks = require("nunjucks");
 
@@ -26,7 +26,7 @@ function loadSchema() {
 }
 
 function validateOutline(outline) {
-  const ajv = new Ajv({ allErrors: true, strict: false });
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
   const validate = ajv.compile(loadSchema());
   const ok = validate(outline);
@@ -48,14 +48,9 @@ function validateOutline(outline) {
 function renderSlide(slide, env) {
   const tplPath = path.join(TYPES_DIR, `${slide.type}.njk`);
   if (!fs.existsSync(tplPath)) {
-    throw new Error(`missing stub template for type "${slide.type}"`);
+    throw new Error(`missing template for type "${slide.type}"`);
   }
-  const { notes, ...rest } = slide;
-  const slideJson = JSON.stringify(rest, null, 2);
-  return env.renderString(
-    fs.readFileSync(tplPath, "utf8"),
-    { ...slide, slideJson, notes }
-  );
+  return env.renderString(fs.readFileSync(tplPath, "utf8"), slide);
 }
 
 function deckHtml(meta, slideSections, lang) {
@@ -68,9 +63,6 @@ function deckHtml(meta, slideSections, lang) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
   <meta name="cth-deck-gated" content="true" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
   <link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />
 </head>
@@ -170,7 +162,7 @@ function main() {
     return;
   }
 
-  const env = nunjucks.configure({ autoescape: true, throwOnUndefined: true });
+  const env = nunjucks.configure({ autoescape: true, throwOnUndefined: false });
   const sections = outline.slides.map((s) => renderSlide(s, env));
   const html = deckHtml(outline.meta, sections, outline.meta.lang);
   const deckRoot = writeDeck(outline.meta, html, { allowOverwrite: force });
