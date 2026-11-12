@@ -1,0 +1,5 @@
+site_id,region,technology,latitude,longitude,capacity_mw,source_label
+EX-101,Andes,solar,4.7110,-74.0721,3.5,EXAMPLE DATA
+EX-102,Andes,wind,6.2476,-75.5658,5.0,EXAMPLE DATA
+EX-201,Caribbean,solar,10.3932,-75.4832,2.2,EXAMPLE DATA
+EX-202,Caribbean,biomass,11.0041,-74.8070,1.8,EXAMPLE DATA

@@ -1,0 +1,5 @@
+# `website.robots` is a search-engine hint only (see theme/includes/robots-noindex.html).
+# Access control: Caddy + oauth2-proxy on the VPS host — Infra after Gideon GO per slug.
+website:
+  robots: noindex, nofollow
+  description: "CleantechHUB Quarto demo scaffold (ci-demo) — EXAMPLE DATA only."

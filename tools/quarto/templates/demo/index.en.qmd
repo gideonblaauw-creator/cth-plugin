@@ -39,5 +39,5 @@ fig
 ```
 
 ::: {.cth-gated-note}
-Site `__SITE_SLUG__` ships **noindex** until Infra records a public GO for this slug.
+**Search:** `noindex` meta discourages crawlers only. **Access:** Caddy + oauth2-proxy on the host until Gideon GO for slug `__SITE_SLUG__`.
 :::

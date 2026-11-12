@@ -18,10 +18,6 @@ website:
         href: step-02.qmd
       - text: Step 3
         href: step-03.qmd
-    right:
-      - icon: github
-        href: https://github.com/gideonblaauw-creator/cth-plugin
-        aria-label: CTH Plugin repo
 
 lang: __SITE_LANG__
 
@@ -30,6 +26,8 @@ metadata:
 
 format:
   html:
+    include-in-header:
+      - __THEME_INCLUDES__/robots-noindex.html
     theme:
       light: [__THEME_SCSS__]
       dark: [__THEME_SCSS__]

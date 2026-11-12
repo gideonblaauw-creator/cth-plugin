@@ -39,5 +39,5 @@ fig
 ```
 
 ::: {.cth-gated-note}
-El sitio `__SITE_SLUG__` usa **noindex** hasta GO público de Gideon por slug.
+**Búsqueda:** meta `noindex` solo desalienta indexación. **Acceso:** Caddy + oauth2-proxy en el host hasta GO de Gideon para slug `__SITE_SLUG__`.
 :::

@@ -1,0 +1,32 @@
+project:
+  type: website
+  preview:
+    browser: false
+    port: 4850
+
+website:
+  title: "CleantechHUB Living Lab — ci-living-lab"
+  navbar:
+    background: primary
+    left:
+      - text: Dashboard
+        href: index.qmd
+
+lang: en
+
+metadata:
+  brand: ../../theme/_brand.yml
+
+format:
+  dashboard:
+    include-in-header:
+      - ../../theme/includes/robots-noindex.html
+    theme:
+      light: [../../theme/cleantechhub.scss]
+      dark: [../../theme/cleantechhub.scss]
+    orientation: rows
+
+execute:
+  echo: false
+  warning: false
+  message: false

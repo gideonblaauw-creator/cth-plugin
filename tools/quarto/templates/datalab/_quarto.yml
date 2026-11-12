@@ -21,6 +21,8 @@ metadata:
 
 format:
   html:
+    include-in-header:
+      - __THEME_INCLUDES__/robots-noindex.html
     theme:
       light: [__THEME_SCSS__]
       dark: [__THEME_SCSS__]

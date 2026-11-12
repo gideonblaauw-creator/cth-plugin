@@ -1,3 +1,4 @@
+# noindex discourages indexing; gating is Caddy + oauth2-proxy (Infra after Gideon GO per slug).
 website:
   robots: noindex, nofollow
   description: "CleantechHUB Quarto datalab scaffold (__SITE_SLUG__) — EXAMPLE DATA only."

@@ -44,6 +44,7 @@ cp -a "$ROOT/templates/$TYPE/." "$DEST/"
 # Theme path from sites/<slug>/ to tools/quarto/theme/
 THEME_REL="../../theme/cleantechhub.scss"
 BRAND_REL="../../theme/_brand.yml"
+INCLUDES_REL="../../theme/includes"
 
 # Pick localized entry pages
 for base in index step-01 step-02 step-03 report dashboard; do
@@ -62,10 +63,11 @@ if [[ -f "$DEST/_quarto.yml" ]]; then
     -e "s|__SITE_LANG__|$LANG|g" \
     -e "s|__THEME_SCSS__|$THEME_REL|g" \
     -e "s|__BRAND_YML__|$BRAND_REL|g" \
+    -e "s|__THEME_INCLUDES__|$INCLUDES_REL|g" \
     "$DEST/_quarto.yml"
 fi
 
-# Default gate: noindex until Gideon GO per slug (documented in README + skill)
+# Search hint: noindex meta (not access control — Caddy/oauth2-proxy per README + skill)
 if [[ -f "$DEST/_metadata.yml" ]]; then
   sed -i "s|__SITE_SLUG__|$SLUG|g" "$DEST/_metadata.yml"
 fi
