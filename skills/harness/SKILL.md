@@ -64,6 +64,7 @@ Required fields:
 - `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
 - `hitl:` what must not go out
 - `reviewer:` which Desk reviews
+- `proof:` evidence before **READY** (decks, data, deploys, or other) — **READY without proof is invalid**. Maker ≠ checker: a different agent or model verifies. Canonical: `skills/harness/references/desks-workbenches-hands-tickets.md`. Read **FEATURE-MAP.md** for the area first; update it in the same PR when the area changes.
 
 Optional Lane A field: `tier:` `0` | `1` | `2` (omit → **Tier 0**). Escalation needs `escalate:` one-liner. Tier 2 must be named. Tier 1–2 also need this build’s Notion lab URLs (`lab_notion:` or `lab_context_url` / `lab_playground_url` / `lab_shared_decisions_url`). See `tickets/TEMPLATE.md` and `docs/understanding-lab-tiers.md`.
 
@@ -172,7 +173,7 @@ Desks ticket Cursor Cloud Hands workers. Desks review and escalate. They do not 
 
 **Orchestrator verify:** on miss, stop local grind, re-ticket Hands, patch profile/skill if needed; ready-ping Gideon only for HITL or blockers. Ready-ping carries PR/URL/**bc-id**/paths, not process notes. **Plan first + parallel jobs (MANDATORY, Gideon 12 Oct 2026):** before any Hands launch the desk writes an ASD-STE100 plan in the ticket (Goal / Audience / Deliverable / Done when / Constraints / Out of scope / Open questions; context check; smallest independent jobs; risks + mandatory push back). More than one code job = one Hands per independent code job, launched at once, each with a bc-id; content work uses one job per wave under Token budget protocol (22 Oct 2026); never work one code job and queue the rest; above ~8 live per desk, ping Orchestrator. Protocol changes ship as a PR to main in cth-plugin (HITL merge by Gideon). Lane A = owning repo PR; Lane B = `{type: machine, name: vps}` for Archive/Drive/packs (no `repo_url` when packs-only).
 
-Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id).
+Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. **Proof before READY (2 Nov 2026):** **`skills/harness/references/desks-workbenches-hands-tickets.md`**. Cross-link: **`skills/harness/references/harness-engineering.md`** (maker≠checker, autonomy bands). Model fill-in: `docs/hands-model-routing.md`. Ticket tip: `tickets/TEMPLATE.md` (exclusive write path + bc-id + proof).
 
 **Content waves amend the 12 Oct parallel-jobs rule.** Batch Nexus pages, wiki entries, and Datalab tasks into one job per wave. Do not open one Hands job per content item. Code builds may still split. The seven rules are in **Token budget protocol (22 Oct 2026)** below.
 

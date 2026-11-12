@@ -104,7 +104,7 @@ Canonical: `docs/software-factory.md`, `skills/software-factory/SKILL.md`.
 | Level | Check | CTH example |
 |---|---|---|
 | Schema | Required fields, types, non-empty | Ticket seven-field contract; `jq` on manifests |
-| Semantic | Output matches `done-when` | High-risk: separate read-only checker (maker ≠ checker). Low-risk: the job attaches a hash, an HTTP status code, or test output |
+| Semantic | Output matches `done-when` | Ticket **READY** needs complete `proof:` + checker ≠ maker (`skills/harness/references/desks-workbenches-hands-tickets.md`). High-risk: separate read-only checker. Low-risk launch may self-check; READY still needs a checker line |
 | Behavioral | End-to-end smoke | Factory smoke, headless Chrome on HTML artifacts, LangGraph eval hooks |
 
 ### 4.4 SMART goals + n8n-li verifiers (18 live pilots)
