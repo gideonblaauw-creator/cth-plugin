@@ -16,7 +16,7 @@ I believe the next decade of finance in the Americas will run on agents and toke
 
 I learned this first in climate and impact data, not in a cybersecurity lab.
 
-Closed, unverifiable numbers breed greenwashing. Open, verifiable data unlocks capital. That pattern shaped how I work as Co-Founder of CleantechHUB Latin America since 2019. Our work includes **Ruta Verde**, **Nexus**, and **Origo**: infrastructure that helps green finance find trustworthy impact signals across Latin America.
+Closed, unverifiable numbers breed greenwashing. Open, verifiable data unlocks capital. That pattern shaped how I work as Co-Founder Latin America at CleantechHUB since 2019. Our work includes **Ruta Verde**, **Nexus**, and **Origo**: infrastructure that helps green finance find trustworthy impact signals across Latin America.
 
 I watched funds hesitate not because the opportunity was weak, but because they could not trace a claim to evidence. I watched local innovators lose deals because their data lived in someone else's silo. Openness was not ideology. It was the difference between capital that flows and capital that stalls.
 
@@ -30,7 +30,7 @@ Three forces are converging.
 
 **Tokenized assets.** Real-world assets and impact claims are moving on-chain or through tokenized wrappers. Value follows the token; risk follows the data behind the token.
 
-**Latin America at the center.** Bay Area innovation and LatAm enterprise and finance are connecting faster than either side can audit the other's stack. Americas Innovation Council (AIC), a Run Up Holdings project where Frank connects Bay Area AI with LatAm finance and enterprise, sits in that bridge. I serve as Associate Founder at AIC. Our question is not whether AI arrives in regional finance. It is whether LatAm institutions can inspect what they are asked to trust.
+**Latin America at the center.** Bay Area innovation and LatAm enterprise and finance are connecting faster than either side can audit the other's stack. Americas Innovation Council (AIC), a Run Up Holdings project with Frank, connects Bay Area AI with LatAm finance and enterprise. I serve as Associate Founder. Our question is not whether AI arrives in regional finance. It is whether LatAm institutions can inspect what they are asked to trust.
 
 If LatAm finance runs on systems it cannot see inside, sovereignty is nominal. Compliance becomes checkbox theater. Impact becomes marketing.
 
@@ -68,7 +68,7 @@ These are the commitments I ask builders, institutions, and investors to treat a
 
 I am turning these principles into work others can use and challenge.
 
-**AIC report on AI and cybersecurity in LatAm finance.** As Associate Founder at AIC ([Americas Innovation Council on LinkedIn](https://www.linkedin.com/company/americas-innovation-council/), [joinaic.com](https://joinaic.com)), I am leading the first AIC report focused on how agentic AI and tokenized finance change the threat model for banks, funds, and regulators across the region. The goal is practical: what to audit, what to open, and what to refuse.
+**AIC report on AI and cybersecurity in LatAm finance.** As Associate Founder at AIC ([Americas Innovation Council on LinkedIn](https://www.linkedin.com/company/americas-innovation-council/), [joinaic.com](https://joinaic.com)), I am contributing to the first AIC report focused on how agentic AI and tokenized finance change the threat model for banks, funds, and regulators across the region. The goal is practical: what to audit, what to open, and what to refuse.
 
 **AIC round table (planned).** We are planning an AIC round table alongside **The AI Frontier** at Stanford. Format and participants are still being shaped. The intent is a working conversation between LatAm finance leaders and builders on open, verifiable AI, not a product showcase.
 

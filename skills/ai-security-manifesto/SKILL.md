@@ -69,7 +69,7 @@ Copy-ready for X desk; avoid hashtag spam (0–2 tags max if any).
 
 6. The open-source lesson for AI: many eyes find failure modes faster than one vendor. Security through scrutiny beats security through secrecy.
 
-7. At AIC I am writing our first report on AI and cybersecurity in LatAm finance. Practical focus: what to open, what to audit, what to refuse in procurement.
+7. At AIC I am contributing to the first report on AI and cybersecurity in LatAm finance. Practical focus: what to open, what to audit, what to refuse in procurement.
 
 8. Planning an AIC round table alongside The AI Frontier at Stanford. Topic: verifiable AI for banks and funds, not another closed-model pitch deck.
 
