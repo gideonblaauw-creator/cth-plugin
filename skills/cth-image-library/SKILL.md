@@ -31,7 +31,7 @@ Any desk that needs **CleantechHUB-owned** images for an asset:
 | Newsletter | Hero and inline story images |
 | Client desks | Co-branded assets when CTH photos are required |
 
-Load `skills/cleantechhub-brand/SKILL.md` for tone; load this skill when the ticket includes an **image request** block.
+Load `skills/cleantechhub-brand/SKILL.md` for tone; load this skill when the ticket includes an **image request** block. **Deck Hands builds** (reveal and HTML) should read this skill whenever slides need CTH photos.
 
 ## Image request in a Hands ticket
 
