@@ -12,6 +12,10 @@ INDEX = DECK_DIR / "index.html"
 ASSETS = DECK_DIR / "assets"
 QR_PATH = ASSETS / "qr-cleantechhub.png"
 QR_URL = "https://cleantechhub.net"
+LINK_CTH = "https://cleantechhub.net"
+LINK_DRIVE_REPORT = (
+    "https://docs.google.com/document/d/1cWHBm-W_MKruqRM24Y13OKJpRx95ZDrNxOc8quKrrfU/edit"
+)
 
 
 def ensure_qr() -> None:
@@ -102,6 +106,36 @@ def patch_html(html: str) -> str:
             '<link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />\n'
             '  <link rel="stylesheet" href="assets/deck-overrides.css" />',
         )
+
+    html = html.replace(
+        'class="cth-slide cth-slide--ecosystem"',
+        'class="cth-slide cth-slide--ecosystem cth-ecosystem--board"',
+    )
+    html = re.sub(
+        r"(<section class=\"cth-slide cth-slide--ecosystem cth-ecosystem--board\"[^>]*>\s*"
+        r"<div class=\"cth-slide__head\"><h2 class=\"cth-title\">Nexus — portfolio y ecosistema</h2></div>\s*)"
+        r"<div class=\"cth-slide__body\">",
+        r"\1<div class=\"cth-slide__body\">"
+        r'<p class="cth-eco-intro">nexus.cleantechhub.net — portfolio de startups y mapa del ecosistema; '
+        r"despliegue documentado con prioridad de publicación desde GitHub.</p>",
+        html,
+        count=1,
+    )
+
+    html = html.replace(
+        "<div class=\"cth-stat-tile__label\">Capital levantado</div>",
+        '<div class="cth-stat-tile__label">Capital levantado'
+        '<span class="cth-stat-tile__label-sub">acumulado, no solo 2026</span></div>',
+    )
+
+    html = html.replace(
+        "<span class=\"cth-link-chip\">Fundación CleantechHUB</span>",
+        f'<a class="cth-link-chip" href="{LINK_CTH}">Fundación CleantechHUB</a>',
+    )
+    html = html.replace(
+        "<span class=\"cth-link-chip\">Informe borrador (Drive)</span>",
+        f'<a class="cth-link-chip" href="{LINK_DRIVE_REPORT}">Informe borrador (Drive)</a>',
+    )
 
     if re.search(r">Example(?:\s|<)", html):
         print("warn: Example text still present in index.html", file=sys.stderr)

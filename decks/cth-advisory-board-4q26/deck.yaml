@@ -102,11 +102,16 @@ slides:
       - ["Publicación informe", "[PENDIENTE]", "Conteo autorizado (P12)"]
     source: 2026-10-20-nexus-origo.md; 2026-10-26-nexus-origo-desks.md
     note: No publicar número único hasta cerrar P12; mantener doble registro.
-  - type: showcase
+  - type: ecosystem
     title: Nexus — portfolio y ecosistema
-    text: nexus.cleantechhub.net — mapa Leaflet/D3 para Colombia, Perú y El Salvador; one-pagers bilingües /s/{slug}. Ola de despliegues 20–26 oct 2026 (GitHub-first).
-    images: [""]
-    link: https://nexus.cleantechhub.net
+    centre: Nexus
+    nodes:
+      - { label: Colombia, text: Mapa de ecosistema (Leaflet/D3) }
+      - { label: Perú, text: Actores e integraciones documentadas }
+      - { label: El Salvador, text: Cobertura multipaís del portfolio }
+      - { label: Fichas bilingües, text: Una ficha por empresa en el sitio público }
+      - { label: Despliegue oct 2026, text: Ola 20–26 oct · prioridad publicación desde GitHub }
+      - { label: "PR #123", text: Fusión actores Colombia desplegada 26 oct 2026 }
     notes: One-pagers publicados [PENDIENTE] (P13).
   - type: section-title
     number: "7"
@@ -122,16 +127,16 @@ slides:
         label: Postulaciones recibidas
         source: REIN_HUBS_WEBSITE_HANDOFF.md §3
       - value: "222"
-        label: Startups incubadas
+        label: Empresas incubadas
         source: REIN_HUBS_WEBSITE_HANDOFF.md §3
       - value: "23 M+ USD"
-        label: Capital levantado (acumulado, no solo 2026)
+        label: Capital levantado
         source: REIN_HUBS_WEBSITE_HANDOFF.md §3
     notes: Métricas 2025–26 por hub [PENDIENTE] (P15). Otrosí HUB REIN Colombia firmado [PENDIENTE] (P14).
   - type: key-facts
     title: REIN — gestión 2026
     items:
-      - { icon: "📁", label: "Sala de datos", text: "Auditoría NCUK/Pvblic oct 2026; 23 de 25 cuentas con acceso Viewer en Drive." }
+      - { icon: "📁", label: "Sala de datos", text: "Auditoría NCUK/Pvblic oct 2026; 23 de 25 cuentas con acceso visor en Drive." }
       - { icon: "🌎", label: "Colombia", text: "Deck REIN × NCUK × Externado en decks.cleantechhub.net (nov 2026)." }
       - { icon: "!", label: "MoUs", text: "No se hallaron MoU plenamente firmados con las cinco universidades hub (oct 2026)." }
       - { icon: "→", label: "2027", text: "Cerrar brechas sala de datos, producción web y coordinación IDB/Qatar sin contactos no confirmados." }
@@ -146,7 +151,7 @@ slides:
     title: Plataformas y operaciones 2026
     programmes:
       - name: Datalab
-        text: Vitrina, laboratorio vivo, datatón EO y API steward (cap. 5).
+        text: Vitrina, laboratorio vivo, datatón EO y API de administración (cap. 5).
       - name: Nexus
         text: Portfolio y mapa de ecosistema multipaís (cap. 6).
       - name: wiki.cleantechhub.net
@@ -163,7 +168,7 @@ slides:
   - type: timeline
     title: Proyección 2027
     items:
-      - { date: EO, label: "Externado", text: "Otrosí, Earth Data Week, white paper institucional." }
+      - { date: EO, label: "Externado", text: "Otrosí, Earth Data Week, documento institucional." }
       - { date: DL, label: "Datalab", text: "Correo transaccional, Ley 1581, vitrina ampliada." }
       - { date: NX, label: "Nexus", text: "Corpus de actores estable, PR #124, enlaces con datos públicos." }
       - { date: P4G, label: "MubOn", text: "Post-cierre, auditoría, inversión." }
@@ -174,12 +179,12 @@ slides:
     title: Decisiones y solicitudes a la Junta
     eyebrow: Sin votos estatutarios (Parte A → Asamblea 1Q27)
     bullets:
-      - Validar alcance narrativo 2026 (excluye Climathon y Aceleración como ejecución del año).
-      - "Fecha de presentación de este informe: [PENDIENTE] (P28) — Secretaría junta."
-      - Orientación sobre cierre conteo Nexus 381 vs 478 antes de cifra única pública (P12).
-      - Seguimiento Otrosí EO firmado con Externado (P06) y HUB REIN Colombia (P14).
-      - "Resumen financiero narrativo 2025: [PENDIENTE] (P02) — cuando EEFF estén listos."
-      - Cooperación en cierre auditoría BDO P4G si permanece abierta (P03).
+      - Validar alcance narrativo 2026 (sin Climathon ni Aceleración como ejecución del año).
+      - "Fecha de presentación de este informe: [PENDIENTE] (P28) — Secretaría de la junta."
+      - Orientación sobre cierre del conteo Nexus (381 vs 478) antes de una cifra pública única (P12).
+      - Seguimiento del Otrosí EO con Externado (P06) y del hub REIN Colombia (P14).
+      - "Resumen financiero narrativo 2025: [PENDIENTE] (P02) — cuando los estados financieros estén listos."
+      - Cooperación en el cierre de la auditoría BDO P4G si permanece abierta (P03).
     notes: No self-certify; checker independiente revisa borrador.
   - type: closing
     text: Gracias · CleantechHUB — Inspira. Actúa. Transforma.

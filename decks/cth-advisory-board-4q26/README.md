@@ -6,6 +6,12 @@ Built with `tools/reveal`.
 
 ## Build (this deck)
 
+Install once (QR on the closing slide):
+
+```bash
+python3 -m pip install 'qrcode[pil]'
+```
+
 ```bash
 ../../tools/reveal/outline.sh --force --skip-build "$(pwd)/deck.yaml"
 ./post-process.sh   # strips catalog Example placeholders, QR, Spanish fuente

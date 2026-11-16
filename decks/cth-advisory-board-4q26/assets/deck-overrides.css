@@ -1,4 +1,5 @@
-/* Deck overrides — advisory board 4Q26 (not library theme). */
+/* Deck overrides — advisory board 4Q26 (not library theme). FODESEP-style vertical balance. */
+
 .reveal .cth-cover--no-image .cth-cover {
   grid-template-columns: 1fr;
   max-width: 52rem;
@@ -26,4 +27,149 @@
   border-radius: 8px;
   background: #fff;
   padding: 0.35rem;
+}
+
+/* Vertical balance — do not override grid/flex children on .cth-slide__body */
+.reveal .cth-slide--stat-band .cth-slide__body.cth-stat-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  flex: 1;
+  align-content: center;
+  min-height: 10rem;
+}
+
+.reveal .cth-slide--stat-band .cth-stat-tile {
+  padding: 1.2rem 0.55rem 1rem;
+  min-height: 7.5rem;
+}
+
+.reveal .cth-slide--stat-band .cth-stat-tile__value {
+  font-size: 1.55em;
+}
+
+.reveal .cth-slide--stat-band .cth-stat-tile__label {
+  font-size: 0.62em;
+  line-height: 1.28;
+  overflow-wrap: break-word;
+}
+
+.reveal .cth-stat-tile__label-sub {
+  display: block;
+  font-size: 0.86em;
+  font-weight: 600;
+  opacity: 0.92;
+  margin-top: 0.2rem;
+  line-height: 1.22;
+}
+
+.reveal .cth-slide--key-facts .cth-slide__body.cth-grid {
+  display: grid;
+  flex: 1;
+  align-content: center;
+  gap: 0.9rem;
+  min-height: 12rem;
+}
+
+.reveal .cth-slide--key-facts .cth-fact {
+  padding: 0.15rem 0;
+}
+
+.reveal .cth-slide--key-facts .cth-fact__text {
+  font-size: 1.04em;
+  line-height: 1.38;
+}
+
+.reveal .cth-slide--data-table .cth-slide__body.cth-table-wrap {
+  display: block;
+  align-content: center;
+}
+
+.reveal .cth-slide--data-table .cth-table {
+  font-size: 1.06em;
+}
+
+.reveal .cth-slide--title-bullets .cth-slide__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .cth-slide--title-bullets .cth-bullets {
+  font-size: 1.1em;
+  line-height: 1.48;
+}
+
+.reveal .cth-slide--programme-trio .cth-slide__body.cth-programme-row {
+  display: grid;
+  align-content: center;
+}
+
+.reveal .cth-slide--programme-trio .cth-card__text {
+  font-size: 1.06em;
+  line-height: 1.38;
+}
+
+.reveal .cth-slide--timeline .cth-slide__body.cth-timeline {
+  display: grid;
+  align-content: center;
+}
+
+.reveal .cth-slide--timeline .cth-timeline__text {
+  font-size: 1.03em;
+}
+
+.reveal .cth-slide--contact .cth-slide__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Nexus ecosystem (slide 13) */
+.reveal .cth-ecosystem--board.cth-slide--ecosystem {
+  font-size: 0.85em;
+}
+
+.reveal .cth-ecosystem--board .cth-slide__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .cth-ecosystem--board .cth-eco {
+  gap: 0.7rem;
+}
+
+.reveal .cth-ecosystem--board .cth-eco__node {
+  font-size: 0.74em;
+  padding: 0.7rem 0.55rem;
+  min-height: 4.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal .cth-ecosystem--board .cth-eco__center {
+  min-width: 6.5rem;
+  min-height: 6.5rem;
+  font-size: 1.1em;
+  line-height: 1.15;
+  padding: 0.75rem;
+}
+
+.reveal .cth-ecosystem--board .cth-eco-intro {
+  font-size: 0.95em;
+  margin: 0 0 0.75rem;
+  text-align: center;
+  color: #0c498a;
+  line-height: 1.38;
+}
+
+.reveal a.cth-link-chip {
+  text-decoration: none;
+}
+
+.reveal a.cth-link-chip:hover {
+  text-decoration: underline;
 }
