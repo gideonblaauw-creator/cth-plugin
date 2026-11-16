@@ -1,5 +1,75 @@
 /* Deck overrides — advisory board 4Q26 (not library theme). FODESEP-style vertical balance. */
 
+/*
+ * Root layout: reveal.css sets .reveal .slides section { display:block }, which
+ * beats .reveal .cth-slide { display:flex } (lower specificity). Without flex on
+ * the section, __body never grows and content sits in the top band; grid children
+ * also use content-box and clip on the right.
+ */
+.reveal .slides > section.cth-slide {
+  display: flex !important;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.85rem;
+}
+
+.reveal .slides > section.cth-slide .cth-slide__head {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.reveal .slides > section.cth-slide .cth-slide__body {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.reveal .cth-stat-band,
+.reveal .cth-grid,
+.reveal .cth-eco,
+.reveal .cth-programme-row,
+.reveal .cth-timeline,
+.reveal .cth-contact-grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.reveal .cth-stat-band,
+.reveal .cth-slide--stat-band .cth-slide__body.cth-stat-band {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.reveal .cth-grid--3,
+.reveal .cth-slide--key-facts .cth-slide__body.cth-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reveal .cth-eco {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reveal .cth-stat-tile,
+.reveal .cth-fact,
+.reveal .cth-eco__node,
+.reveal .cth-card,
+.reveal .cth-panel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .reveal .cth-cover--no-image .cth-cover {
   grid-template-columns: 1fr;
   max-width: 52rem;
@@ -29,14 +99,12 @@
   padding: 0.35rem;
 }
 
-/* Vertical balance — do not override grid/flex children on .cth-slide__body */
+/* Vertical balance — grid/flex bodies center content in the flex-grown region */
 .reveal .cth-slide--stat-band .cth-slide__body.cth-stat-band {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 0.85rem;
-  flex: 1;
   align-content: center;
-  min-height: 10rem;
+  min-height: 8rem;
 }
 
 .reveal .cth-slide--stat-band .cth-stat-tile {
@@ -65,10 +133,9 @@
 
 .reveal .cth-slide--key-facts .cth-slide__body.cth-grid {
   display: grid;
-  flex: 1;
   align-content: center;
   gap: 0.9rem;
-  min-height: 12rem;
+  min-height: 8rem;
 }
 
 .reveal .cth-slide--key-facts .cth-fact {
@@ -103,6 +170,7 @@
 .reveal .cth-slide--programme-trio .cth-slide__body.cth-programme-row {
   display: grid;
   align-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .reveal .cth-slide--programme-trio .cth-card__text {
@@ -131,7 +199,6 @@
 }
 
 .reveal .cth-ecosystem--board .cth-slide__body {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;

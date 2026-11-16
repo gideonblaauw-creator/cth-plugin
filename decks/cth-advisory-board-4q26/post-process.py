@@ -114,8 +114,8 @@ def patch_html(html: str) -> str:
     html = re.sub(
         r"(<section class=\"cth-slide cth-slide--ecosystem cth-ecosystem--board\"[^>]*>\s*"
         r"<div class=\"cth-slide__head\"><h2 class=\"cth-title\">Nexus — portfolio y ecosistema</h2></div>\s*)"
-        r"<div class=\"cth-slide__body\">",
-        r"\1<div class=\"cth-slide__body\">"
+        r'<div class="cth-slide__body">',
+        r'\1<div class="cth-slide__body">'
         r'<p class="cth-eco-intro">nexus.cleantechhub.net — portfolio de startups y mapa del ecosistema; '
         r"despliegue documentado con prioridad de publicación desde GitHub.</p>",
         html,

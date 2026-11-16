@@ -261,7 +261,7 @@
 </section>
       <section class="cth-slide cth-slide--ecosystem cth-ecosystem--board" data-cth-type="ecosystem">
   <div class="cth-slide__head"><h2 class="cth-title">Nexus — portfolio y ecosistema</h2></div>
-  <div class=\"cth-slide__body\"><p class="cth-eco-intro">nexus.cleantechhub.net — portfolio de startups y mapa del ecosistema; despliegue documentado con prioridad de publicación desde GitHub.</p>
+  <div class="cth-slide__body"><p class="cth-eco-intro">nexus.cleantechhub.net — portfolio de startups y mapa del ecosistema; despliegue documentado con prioridad de publicación desde GitHub.</p>
     <div class="cth-eco">
       <div class="cth-eco__node"><strong>Colombia</strong><p style="margin:0.25rem 0 0;font-size:0.9em;">Mapa de ecosistema (Leaflet/D3)</p></div><div class="cth-eco__node"><strong>Perú</strong><p style="margin:0.25rem 0 0;font-size:0.9em;">Actores e integraciones documentadas</p></div><div class="cth-eco__node"><strong>El Salvador</strong><p style="margin:0.25rem 0 0;font-size:0.9em;">Cobertura multipaís del portfolio</p></div>
     </div>
@@ -512,7 +512,16 @@
   </div>
   <script src="reveal.js/dist/reveal.js"></script>
   <script>
-    Reveal.initialize({ hash: true, slideNumber: true, width: 1920, height: 1080, margin: 0.04 });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      width: 1920,
+      height: 1080,
+      margin: 0.04,
+      center: true,
+      minScale: 0.2,
+      maxScale: 1.0,
+    });
   </script>
 </body>
 </html>
