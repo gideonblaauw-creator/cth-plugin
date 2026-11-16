@@ -14,8 +14,10 @@ Cada cifra en diapositivas `stat-band`, `chart-proof` y `data-table` aparece aqu
 | Datalab — Datatón empresas / correos | 38 / 6 | `datalab.md` 2026-11-07 | idem |
 | Datalab — aforo Luma | 150 | `datalab.md` + Luma URL | idem |
 | Nexus — actores 20 oct | 381 | `2026-10-20-nexus-origo.md` | idem |
-| Nexus — actores 26 oct | 478 (105 co-*) | `2026-10-26-nexus-origo-desks.md` | idem |
+| Nexus — actores 26 oct | 478 | `2026-10-26-nexus-origo-desks.md` | idem |
+| Nexus — actores co-* (con PR #123) | 105 | `2026-10-26-nexus-origo-desks.md` | Informe 2026 SOURCES |
 | REIN — países / postulaciones / incubadas / capital | 5; 3 000+; 222; 23 M+ USD | `REIN_HUBS_WEBSITE_HANDOFF.md` §3 (red acumulada) | idem |
+| REIN — etiqueta capital en slide | acumulado, no solo 2026 | Confirmado Gideon 16 nov 2026; mismo handoff §3 | Deck fix pass |
 | REIN — allowlist Drive | 23/25 Viewer | `2026-10-26-rein-hubs.md` | Informe cap. 7 |
 | Junta — última sesión | 17 dic 2025 | `past-board-meetings.md`; notas `1RhC-0cS9…` | Informe cap. 10 |
 | EO — convenio | 3 jul 2024 | `1CooUhwZzijLNcUGnLYZY8F1hT7UxP8g4` | Informe cap. 4 |

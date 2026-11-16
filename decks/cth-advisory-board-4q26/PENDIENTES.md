@@ -25,3 +25,9 @@ Sincronizado con informe 2026 + REVIEW (P06, P28). Marcador en slides: `[PENDIEN
 | P28 | Portada / Decisiones | Fecha exacta presentación a junta |
 
 Lagunas completas: informe `PENDIENTES.md` en store bot/advisory-board/report-2026/.
+
+## Confirmado (no abre PENDIENTE)
+
+| Tema | Decisión |
+|------|----------|
+| REIN capital «23 M+ USD» en slide | Mantener cifra; etiqueta **acumulado, no solo 2026** en tile de capital. Confirmado Gideon 16 nov 2026. |

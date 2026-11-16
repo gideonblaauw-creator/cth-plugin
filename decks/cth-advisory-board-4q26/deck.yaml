@@ -28,7 +28,7 @@ slides:
     attribution: Informe Junta Asesora 2026 · índice aprobado v3 (16 nov 2026)
     notes: Corrige «digitales» (REVIEW). Parte A no incluida en este deck.
   - type: section-title
-    number: "02"
+    number: "2"
     title: WRI / P4G — MubOn
     subtitle: Alianza G3470 · 1 oct 2024 – 31 mar 2026
   - type: stat-band
@@ -50,12 +50,12 @@ slides:
   - type: key-facts
     title: MubOn — contexto y próximos pasos
     items:
-      - { icon: "€", label: "Ingresos brutos", text: "69 314 USD y 9 ciudades en Colombia (brief cierre)." }
+      - { icon: "$", label: "Ingresos brutos", text: "69 314 USD y 9 ciudades en Colombia (brief cierre)." }
       - { icon: "✓", label: "Convenio P4G", text: "Tres sub-objetivos completados; productos de conocimiento entregados." }
       - { icon: "!", label: "[PENDIENTE]", text: "Estado y hallazgos auditoría BDO al 16 nov 2026 (Jennifer González / WRI)." }
       - { icon: "→", label: "2027", text: "Cooperación con auditoría, SPV Axioma y continuidad comercial MubOn (sin montos no verificados)." }
   - type: section-title
-    number: "03"
+    number: "3"
     title: Incubación — ClimateLaunchpad
     subtitle: Convocatoria nacional donde hubo documentación
   - type: key-facts
@@ -66,9 +66,9 @@ slides:
       - { icon: "?", label: "[PENDIENTE]", text: "Resultados cuantitativos CLP 2025–2026 — equipos, regionales, retrasos (P04)." }
       - { icon: "→", label: "2027", text: "Coordinación CEE y programas (Angélica Díaz) tras resultados verificados." }
   - type: section-title
-    number: ""
+    number: "4"
     title: Lo que construimos en 2026
-    subtitle: EO × Externado · Datalab · Nexus
+    subtitle: EO × Externado · Datalab · Nexus (cap. 4–6)
   - type: key-facts
     title: EO — Observatorio de la Tierra × Externado
     items:
@@ -109,7 +109,7 @@ slides:
     link: https://nexus.cleantechhub.net
     notes: One-pagers publicados [PENDIENTE] (P13).
   - type: section-title
-    number: "07"
+    number: "7"
     title: REIN Hubs
     subtitle: Red latinoamericana — avances 2026
   - type: stat-band
@@ -125,7 +125,7 @@ slides:
         label: Startups incubadas
         source: REIN_HUBS_WEBSITE_HANDOFF.md §3
       - value: "23 M+ USD"
-        label: Capital levantado
+        label: Capital levantado (acumulado, no solo 2026)
         source: REIN_HUBS_WEBSITE_HANDOFF.md §3
     notes: Métricas 2025–26 por hub [PENDIENTE] (P15). Otrosí HUB REIN Colombia firmado [PENDIENTE] (P14).
   - type: key-facts
@@ -139,7 +139,7 @@ slides:
     title: Cleantech Academy
     eyebrow: Producto digital
     bullets:
-      - Curso ABC de emprendimiento climático y cohortes documentados en informes previos.
+      - Curso ABC de emprendimiento climático y cohortes documentadas en informes previos.
       - "Actualización de ejecución y métricas 2026: [PENDIENTE] (P16) — export LMS/Moodle."
       - Próximo paso cuando exista extracto con trazabilidad Drive.
   - type: programme-trio

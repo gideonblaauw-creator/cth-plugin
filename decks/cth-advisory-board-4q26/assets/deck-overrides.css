@@ -1,0 +1,29 @@
+/* Deck overrides — advisory board 4Q26 (not library theme). */
+.reveal .cth-cover--no-image .cth-cover {
+  grid-template-columns: 1fr;
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reveal .cth-contents--no-image .cth-contents {
+  grid-template-columns: 1fr;
+  max-width: 48rem;
+}
+
+.reveal .cth-showcase--no-img .cth-slide__body.cth-split {
+  display: block;
+  max-width: 56rem;
+}
+
+.reveal .cth-showcase--no-img .cth-showcase-imgs {
+  display: none;
+}
+
+.reveal img.cth-qr {
+  display: inline-block;
+  margin: 0.75rem auto 0.25rem;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.35rem;
+}
