@@ -27,20 +27,20 @@ Referencias sin cifra en slide: Google Doc informe `1cWHBm-W_MKruqRM24Y13OKJpRx9
 
 ## Fotografía (CTH Image Library `1ZgrwVzJePYvMo8rRRJMSgVrYidBl6UQM`)
 
-Inventario completo: `/opt/claude-files/Projects/Advisory-Board/04-deck/image-library-inventory.md`.
+Solo fondos full-bleed en portada, statement, section-title y cierre. Sin fotos de personas ni paneles laterales. Inventario: `/opt/claude-files/Projects/Advisory-Board/04-deck/image-library-inventory.md`.
 
-| Slide (orden) | Tipo | Archivo deck | Drive file ID | Contenido |
-|---------------|------|--------------|---------------|-----------|
-| 1 | cover | `assets/photos/cover-event-img-1298.jpg` | `1nINVHdVVEi37HgAbbF9VnLFr6oulQSRK` | Evento CTH — participantes (IMG_1298, mar 2024) |
-| 2 | contents | `assets/photos/team-undp-cth.jpg` | `1u52rJ6wxlefrn2qbGv6GDRDrWJK-MrCW` | Foto grupal equipo CTH (UNDP, dic 2023) |
-| 3 | statement | `assets/photos/cleantech-collective-agosto-2025.jpg` | `1Xa-QtlR2CNNVsnhRRJHxqdl8GB8Ts0fp` | Comunidad Cleantech Collective (ago 2025) |
-| 4 | section-title | `assets/photos/p4g-impactignite-2025.jpg` | `1Cq3hVzP059rjKmWzgznS_jg0p_g7vf17` | Emprendimiento climático / alianza P4G |
-| 7 | section-title | `assets/photos/clp-national-2023.jpg` | `1vdMYSKow_7fVjBjakXQTJRsUq2ZulyJz` | ClimateLaunchpad — escenario nacional |
-| 8 | key-facts | `assets/photos/externado-conference-2024.jpg` | `1hdgwgqht8NwJ-moNZ_bP14t9d8L-JxAf` | Conferencia Universidad Externado |
-| 9 | section-title | `assets/photos/datalab-data-first-2026.jpg` | `1bveAIfU_Xp9omZ5NbIUzb8id-ku5WS-2` | Arquitectura data-first Datalab |
-| 11 | stat-band | `assets/photos/datalab-climaccelerator-application.jpg` | `1lqQTkXuTlaB-_hGjezQ2hicmTaahWcEM` | Postulación ClimAccelerator IDB — innovación |
-| 14 | section-title | `assets/photos/rein-hubs-session-2025.jpg` | `1ueoqkjkOlHYwK_6LvGUqmzlAA_HCPPmz` | Sesión REIN Hubs (nov 2025) |
-| 16 | key-facts | `assets/photos/rein-latam25-2024.jpg` | `19oH27BjIS5vs3JpTEjCQO-SbIJcJyN5g` | REIN Hubs — LATAM25 2024 (banner red) |
-| 17 | title-bullets | `assets/photos/startup-weekend-santander.jpg` | `1ov_e5o_542B0b7Mk0DFvtEWFx2WUN0en` | Startup Weekend Santander |
-| 19 | key-facts | `assets/photos/cth-event-oct-2024.jpg` | `1ESskvVX-AMSlJeAQuhMy3SX9YHbQV-Nn` | Evento CTH con participantes (oct 2024) |
-| 22 | closing | `assets/photos/workshop-undp-2023.jpg` | `1TO6pRCAu6gwnIH1CLQbq7Y7uraqgCsaV` | Taller / trabajo en equipo (UNDP, oct 2023) |
+| Slide (orden) | Tipo | Archivo deck | Drive file ID | Contenido (verificado) |
+|---------------|------|--------------|---------------|------------------------|
+| 1 | cover | `assets/photos/bg-aerial-cape-town.jpg` | `1WZ4m3uRmqi7ciMZ4iDpsjZSvKqRjiOBq` | Vista aérea costera/montaña (Resilience Evidence Forum, Cabo) — sin personas |
+| 2 | contents | — | — | Sin foto (ícono `assets/tree.png`) |
+| 3 | statement | `assets/photos/bg-jungle-innovation.jpg` | `1R4BfktpLy0SXEcPCRfDyjIdB56eFPbwV` | Selva / innovación para la naturaleza (COP16 promo) — oso de anteojos, sin personas |
+| 4 | section-title | `assets/photos/bg-agriculture-green.jpg` | `1xXr6fmmDnvp-1Y3dRpJDoKy52hmSk7xN` | Gráfica verde bioinsumos / agricultura sostenible — sin personas |
+| 7 | section-title | `assets/photos/bg-city-bogota.jpg` | `1-15DdalXux3fcBwIX92nTuQ72WkdT062` | Panorámica urbana Bogotá (BID Lab Forum banner, zona ciudad) — sin personas como sujeto |
+| 9 | section-title | `assets/photos/datalab-data-first-2026.jpg` | `1bveAIfU_Xp9omZ5NbIUzb8id-ku5WS-2` | Diagrama «Data First Architecture» (Datalab) — sin personas |
+| 14 | section-title | `assets/photos/bg-ecosystem-bogota.jpg` | `1_Y-kq8W8xtdETZZQgdIUUVRih9zpjbRZ` | Skyline Bogotá / ecosistema (ANDE encuentro) — sin personas como sujeto |
+| 22 | closing | `assets/photos/bg-aerial-cape-town.jpg` | `1WZ4m3uRmqi7ciMZ4iDpsjZSvKqRjiOBq` | Mismo fondo atmosférico portada/cierre |
+| — | (resto) | — | — | Sin foto de fondo (layouts fp-* en blanco) |
+
+### Fotos eliminadas (personas / paneles laterales v5)
+
+`cover-event-img-1298.jpg`, `team-undp-cth.jpg`, `cleantech-collective-agosto-2025.jpg`, `p4g-impactignite-2025.jpg`, `clp-national-2023.jpg`, `externado-conference-2024.jpg`, `datalab-climaccelerator-application.jpg`, `rein-hubs-session-2025.jpg`, `rein-latam25-2024.jpg`, `startup-weekend-santander.jpg`, `cth-event-oct-2024.jpg`, `workshop-undp-2023.jpg`.
