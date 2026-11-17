@@ -25,24 +25,22 @@ Cada cifra en diapositivas `stat-band`, `chart-proof` y `data-table` aparece aqu
 
 Referencias sin cifra en slide: Google Doc informe `1cWHBm-W_MKruqRM24Y13OKJpRx95ZDrNxOc8quKrrfU`; índice `report-2026-index-v3.md`.
 
-## Fotografía (v7 — desk review 17 nov 2026)
+## Fotografía (v8 — desk MubOn 17 nov 2026)
 
-Reglas: solo fotografías reales (sin texto/logos/gráficos incrustados en la imagen), sin personas como sujeto, tema Colombia/CTH. Preferencia MubOn estación de carga → páramo Chingaza (FODESEP) → Commons CC → fondo azul sólido.
-
-**MubOn EV (no disponible en v7):** `mubon.co` devuelve 403 al scraper. En Drive/Gmail (gws) no hubo JPEG limpio de estación: candidatos descartados incluyen retratos (`cand-mubon-nelson.jpg` etc.), slides con texto (`dl-wa-2024.jpg`), afiches con tipografía (`1B0qUXIanhsoTyTFB58Je0G73O53XV0tu`), eventos con personas (`dl-f7067.jpg`, `dl-3d7fc6.jpg`), gráficos (`mubon-web-*.png`) y facturas (`dl-wa-2025.jpg`). La sección WRI/P4G usa fondo azul sólido hasta que exista foto de estación verificada.
+Reglas: fotografías reales verificadas en desk, sin personas como sujeto, scrim azul y legibilidad. Crédito MubOn on-slide: `Foto: MubOn (mubon.co) · uso con permiso de MubOn [PENDIENTE]`.
 
 | Slide (orden) | Tipo | Fondo | Archivo | Fuente | Licencia / crédito |
 |---------------|------|-------|---------|--------|-------------------|
-| 1 | cover | Páramo lagunas, Chingaza | `assets/photos/bg-chingaza-water.jpg` | [FODESEP deck](https://decks.cleantechhub.net/fodesep-partnership/assets/photos/water.jpg) (mismo JPEG aprobado en partnership deck) | EXIF Artist: **Jed Horne**. Crédito on-slide. No se identificó archivo Wikimedia idéntico; páramo equivalente documentado en [Category:Parque Nacional Natural Chingaza](https://commons.wikimedia.org/wiki/Category:Parque_Nacional_Natural_Chingaza) (varias CC BY-SA 4.0, p. ej. [Chingaza National Park 2,1.jpg](https://commons.wikimedia.org/wiki/File:Chingaza_National_Park_2,1.jpg) — Juan Manuel García Mejía, CC BY-SA 4.0). |
+| 1 | cover | Páramo lagunas, Chingaza | `assets/photos/bg-chingaza-water.jpg` | [FODESEP deck](https://decks.cleantechhub.net/fodesep-partnership/assets/photos/water.jpg) | EXIF **Jed Horne**. On-slide: *Páramo de Chingaza · Jed Horne · asset FODESEP CleantechHUB*. |
 | 2 | contents | Sin foto | `assets/tree.png` | Kit CTH | — |
-| 3 | statement | Azul sólido `#0C498A` | — | — | — |
-| 4 | section-title (P4G/MubOn) | Azul sólido | — | — | — |
+| 3 | statement | Azul sólido | — | — | — |
+| 4 | section-title (P4G/MubOn) | Estación de carga MubOn (exterior) | `assets/photos/bg-mubon-cargador-comercial.jpg` | https://mubon.co/wp-content/uploads/2024/09/MubOn-estaciones-de-carga-comercial.jpg | MubOn / CleantechHUB — permiso formal [PENDIENTE]. Crédito on-slide. |
 | 5–6 | content | Blanco | — | — | — |
 | 7 | section-title (CLP) | Azul sólido | — | — | — |
 | 8 | content | Blanco | — | — | — |
 | 9 | section-title (EO/Datalab/Nexus) | Azul sólido | — | — | — |
 | 10–13 | content | Blanco | — | — | — |
-| 14 | section-title (REIN) | Azul sólido | — | — | — |
+| 14 | section-title (REIN) | Azul sólido (v8: no foto MubOn — tema REIN; alternativa verificada [estaciones parqueadero](https://mubon.co/wp-content/uploads/2026/07/estaciones-de-carga-mubon.png) reservada por legibilidad/marca) | — | https://mubon.co/wp-content/uploads/2026/07/estaciones-de-carga-mubon.png (no usada en deck) | — |
 | 15–21 | content | Blanco | — | — | — |
 | 22 | closing | Páramo Chingaza | `assets/photos/bg-chingaza-water.jpg` | Idem slide 1 | Idem slide 1 |
 | 23 | contact | Blanco | — | — | — |
