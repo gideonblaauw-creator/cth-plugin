@@ -25,21 +25,31 @@ Cada cifra en diapositivas `stat-band`, `chart-proof` y `data-table` aparece aqu
 
 Referencias sin cifra en slide: Google Doc informe `1cWHBm-W_MKruqRM24Y13OKJpRx95ZDrNxOc8quKrrfU`; índice `report-2026-index-v3.md`.
 
-## Fotografía (CTH Image Library `1ZgrwVzJePYvMo8rRRJMSgVrYidBl6UQM`)
+## Fotografía (v7 — desk review 17 nov 2026)
 
-Solo fondos full-bleed en portada, statement, section-title y cierre. Sin fotos de personas ni paneles laterales. Inventario: `/opt/claude-files/Projects/Advisory-Board/04-deck/image-library-inventory.md`.
+Reglas: solo fotografías reales (sin texto/logos/gráficos incrustados en la imagen), sin personas como sujeto, tema Colombia/CTH. Preferencia MubOn estación de carga → páramo Chingaza (FODESEP) → Commons CC → fondo azul sólido.
 
-| Slide (orden) | Tipo | Archivo deck | Drive file ID | Contenido (verificado) |
-|---------------|------|--------------|---------------|------------------------|
-| 1 | cover | `assets/photos/bg-aerial-cape-town.jpg` | `1WZ4m3uRmqi7ciMZ4iDpsjZSvKqRjiOBq` | Vista aérea costera/montaña (Resilience Evidence Forum, Cabo) — sin personas |
-| 2 | contents | — | — | Sin foto (ícono `assets/tree.png`) |
-| 3 | statement | `assets/photos/bg-jungle-innovation.jpg` | `1R4BfktpLy0SXEcPCRfDyjIdB56eFPbwV` | Selva / innovación para la naturaleza (COP16 promo) — oso de anteojos, sin personas |
-| 4 | section-title | `assets/photos/bg-agriculture-green.jpg` | `1xXr6fmmDnvp-1Y3dRpJDoKy52hmSk7xN` | Gráfica verde bioinsumos / agricultura sostenible — sin personas |
-| 7 | section-title | `assets/photos/bg-city-bogota.jpg` | `1-15DdalXux3fcBwIX92nTuQ72WkdT062` | Panorámica urbana Bogotá (BID Lab Forum banner, zona ciudad) — sin personas como sujeto |
-| 9 | section-title | `assets/photos/datalab-data-first-2026.jpg` | `1bveAIfU_Xp9omZ5NbIUzb8id-ku5WS-2` | Diagrama «Data First Architecture» (Datalab) — sin personas |
-| 14 | section-title | `assets/photos/bg-ecosystem-bogota.jpg` | `1_Y-kq8W8xtdETZZQgdIUUVRih9zpjbRZ` | Skyline Bogotá / ecosistema (ANDE encuentro) — sin personas como sujeto |
-| 22 | closing | `assets/photos/bg-aerial-cape-town.jpg` | `1WZ4m3uRmqi7ciMZ4iDpsjZSvKqRjiOBq` | Mismo fondo atmosférico portada/cierre |
-| — | (resto) | — | — | Sin foto de fondo (layouts fp-* en blanco) |
+**MubOn EV (no disponible en v7):** `mubon.co` devuelve 403 al scraper. En Drive/Gmail (gws) no hubo JPEG limpio de estación: candidatos descartados incluyen retratos (`cand-mubon-nelson.jpg` etc.), slides con texto (`dl-wa-2024.jpg`), afiches con tipografía (`1B0qUXIanhsoTyTFB58Je0G73O53XV0tu`), eventos con personas (`dl-f7067.jpg`, `dl-3d7fc6.jpg`), gráficos (`mubon-web-*.png`) y facturas (`dl-wa-2025.jpg`). La sección WRI/P4G usa fondo azul sólido hasta que exista foto de estación verificada.
+
+| Slide (orden) | Tipo | Fondo | Archivo | Fuente | Licencia / crédito |
+|---------------|------|-------|---------|--------|-------------------|
+| 1 | cover | Páramo lagunas, Chingaza | `assets/photos/bg-chingaza-water.jpg` | [FODESEP deck](https://decks.cleantechhub.net/fodesep-partnership/assets/photos/water.jpg) (mismo JPEG aprobado en partnership deck) | EXIF Artist: **Jed Horne**. Crédito on-slide. No se identificó archivo Wikimedia idéntico; páramo equivalente documentado en [Category:Parque Nacional Natural Chingaza](https://commons.wikimedia.org/wiki/Category:Parque_Nacional_Natural_Chingaza) (varias CC BY-SA 4.0, p. ej. [Chingaza National Park 2,1.jpg](https://commons.wikimedia.org/wiki/File:Chingaza_National_Park_2,1.jpg) — Juan Manuel García Mejía, CC BY-SA 4.0). |
+| 2 | contents | Sin foto | `assets/tree.png` | Kit CTH | — |
+| 3 | statement | Azul sólido `#0C498A` | — | — | — |
+| 4 | section-title (P4G/MubOn) | Azul sólido | — | — | — |
+| 5–6 | content | Blanco | — | — | — |
+| 7 | section-title (CLP) | Azul sólido | — | — | — |
+| 8 | content | Blanco | — | — | — |
+| 9 | section-title (EO/Datalab/Nexus) | Azul sólido | — | — | — |
+| 10–13 | content | Blanco | — | — | — |
+| 14 | section-title (REIN) | Azul sólido | — | — | — |
+| 15–21 | content | Blanco | — | — | — |
+| 22 | closing | Páramo Chingaza | `assets/photos/bg-chingaza-water.jpg` | Idem slide 1 | Idem slide 1 |
+| 23 | contact | Blanco | — | — | — |
+
+### Eliminados en v7 (gráficos promocionales, off-theme o con texto)
+
+`bg-aerial-cape-town.jpg`, `bg-jungle-innovation.jpg`, `bg-agriculture-green.jpg`, `bg-city-bogota.jpg`, `bg-ecosystem-bogota.jpg`, `datalab-data-first-2026.jpg`, plus candidatos de búsqueda MubOn (`cand-*`, `dl-*`, `mubon-web-*`).
 
 ### Fotos eliminadas (personas / paneles laterales v5)
 

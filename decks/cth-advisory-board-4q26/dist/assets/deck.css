@@ -109,6 +109,12 @@
 }
 .reveal .fp-cover__meta--on-dark { font-size: 24px; color: #9DC384; }
 .reveal .fp-closing__logo--inline { position: relative !important; top: auto; right: auto; height: 96px; margin-bottom: 48px; }
+.reveal .fp-photo-credit {
+  position: absolute; left: 96px; bottom: 58px; z-index: 2; pointer-events: none;
+  font-size: 13px; line-height: 1.35; font-weight: 600; color: rgba(178, 238, 250, 0.88);
+  max-width: 720px; text-shadow: 0 1px 8px rgba(8, 40, 80, 0.65);
+}
+.reveal .fp-foot--dark ~ .fp-photo-credit { bottom: 58px; }
 
 /* statement */
 .reveal .fp-statement { justify-content: center; }
