@@ -1,7 +1,7 @@
 ---
 name: socials-loop
 description: >
-  Socials Desk weekly content loop — ingest (optional X research signal) →
+  Socials Desk weekly content loop: ingest (optional X research signal) →
   Hands research → Hands copy → Hands stills → Desk review → Gideon HITL →
   Workbench post (only if Hands cannot). Trigger on "socials loop", "weekly
   social", "social post pack",

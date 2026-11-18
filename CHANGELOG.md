@@ -4,9 +4,9 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
-### Socials Loop — X research ingest (18 Nov 2026)
+### Socials Loop: X research ingest (18 Nov 2026)
 
-- Updated: `skills/socials-loop/SKILL.md` — optional X Desk daily **X signal** + Gideon-shared post URLs feed §3 Hands research only; hard rules (zero X spend, HITL, Slack `#CTH_OPS`, brand separation, source links); X is not a publish channel in the loop
+- Updated: `skills/socials-loop/SKILL.md`: optional X Desk daily **X signal** + Gideon-shared post URLs feed §3 Hands research only; hard rules (zero X spend, HITL, Slack `#CTH_OPS`, brand separation, source links); X is not a publish channel in the loop
 - HITL: Gideon merges. Hands does not merge.
 
 ### Token budget protocol (22 Oct 2026)
