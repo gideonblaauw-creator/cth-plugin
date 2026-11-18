@@ -1,9 +1,10 @@
 ---
 name: socials-loop
 description: >
-  Socials Desk weekly content loop — ingest → Hands research → Hands copy →
-  Hands stills → Desk review → Gideon HITL → Workbench post (only if Hands
-  cannot). Trigger on "socials loop", "weekly social", "social post pack",
+  Socials Desk weekly content loop: ingest (optional X research signal) →
+  Hands research → Hands copy → Hands stills → Desk review → Gideon HITL →
+  Workbench post (only if Hands cannot). Trigger on "socials loop", "weekly
+  social", "social post pack",
   "LI/IG/FB pack", "social stills", or Socials Desk content production.
 metadata:
   version: "1.0.0"
@@ -27,7 +28,7 @@ Grok Bot on Socials Desk is **coordination only** (Token lock 2026-08-26). Route
 ## 1. Locked loop (Orchestrator wire 2026-08-27)
 
 ```
-ingest (URL / week topic / Drive)
+ingest (URL / week topic / Drive / optional X signal)
   → Hands research (Flash)
   → Hands copy (Flash, LI/IG/FB)
   → Hands stills (Images + OpenRouter or Canva)
@@ -47,14 +48,42 @@ Socials Desk or Orchestrator supplies one of:
 | URL | link to article, event page, partner page | Hands research ticket cites URL |
 | Week topic | Desk brief (one sentence + brand) | No invented angles — use Desk brief |
 | Drive | Archive path under `/opt/claude-files/Projects/…` or shared Drive folder | Lane B `drive-folder`; Hands returns bc-id |
+| X signal (optional) | Daily **X signal** file from **X Desk**; X post URLs Gideon shares in chat | Research input only; see **X research ingest** below |
 
 Archive stays source of truth. Do not clone VPS files into this repo. Fetch via Drive MCP / Composio / VPS `gws` per Hands-shift lock in harness §5.
+
+### X research ingest (optional)
+
+Gideon approved **2026-11-18** (X Desk ticket J2). Use when the weekly pack should include public X context. This step **feeds §3 Hands research only**. X is **not** a publish channel in this loop.
+
+**Sources (read-only):**
+
+1. The X Desk daily **X signal** file (public X trends, news, and verified posts summarized for research).
+2. Public X reads via **Grok Bot** built-in public X reads (no paid X API).
+3. Individual **X post URLs** Gideon pastes into the owning chat or ticket.
+
+**Flow:** Socials or Orchestrator tickets Hands to merge X signal + URLs into the research pack inputs. Do **not** ticket X copy, X stills, or X scheduling in this loop.
+
+**Hard rules:**
+
+| Rule | Detail |
+|---|---|
+| Zero X spend | No paid X API, no purchased X credits. Reads of Gideon's bookmarks via his X connection stay **disabled** until confirmed free. |
+| HITL | Every post in the loop stays HITL (§7). X ingest does not bypass Gideon yes. |
+| Alerts | Slack `#CTH_OPS` when that channel exists. Never Telegram. |
+| Language / topics | No German. No war, weapons, military, or defence topics. |
+| Typography | No em dashes in loop copy or research notes. |
+| Source links | Every fact taken from X keeps its **source post URL** in the research pack. |
+| Brand separation | **CTH** and **AIC** content stay separate. AIC material never mentions Run Up, Bravo Bridge, or CleantechHUB (CTH). |
+| Publish boundary | Do **not** add X copy to LinkedIn, Instagram, or Facebook drafts. Research may cite X; platforms stay LI / IG / FB only (§4). |
 
 ## 3. Hands research (Flash)
 
 **Model:** `gemini-3.7-flash`
 
 Desk tickets Cloud Hands. Output: short research pack (facts, quotes, links, audience hook). No copy yet.
+
+When **X research ingest** (§2) ran, fold X-sourced facts into this pack with post URLs attached. Drop any X item that breaks §2 hard rules (topics, language, brand separation).
 
 - Cite sources. No invented statistics.
 - Brand context: read `skills/cleantechhub-brand/SKILL.md` (default) or campaign brand skill (`clp26-brand`, etc.) per `skills/socials-comms/SKILL.md` §2.
@@ -145,6 +174,7 @@ This loop does **not** introduce:
 - Supabase asset DB
 - A new repo
 - A second orchestrator
+- **X as a publish channel** in this loop (X is research ingest only, §2)
 
 ## 11. Keep
 
