@@ -13,6 +13,10 @@ metadata:
 
 Search, read, and post messages in Slack — find conversations, read channel history and threads, send or draft messages, manage Canvases, and schedule posts for the CTH workspace.
 
+## CTH_OPS (internal ops channel)
+
+**Gideon lock 18 Nov 2026:** routine results, ops alerts, HITL pings, and workflow approvals for CTH infrastructure land in the **CTH_OPS** channel on the **existing CTH Slack workspace (Slack Free)**. n8n routes them via **`CTH-OPS · Core · notify-ops`**; audited run results use **`CTH-OPS · Core · log-run`** (see `skills/infrastructure-comms/SKILL.md` § 6.1 and `skills/hands-model-routing/SKILL.md` § Routines). **Telegram CTH_OPS is on hold** unless Gideon reopens it. Cutover: verify Slack path, three good logged runs, then Gideon's OK before dropping Telegram from a workflow.
+
 ## Channel Resolution
 
 Always resolve channel names to IDs before any operation that requires a channel. Use `slack_search_channels` with the channel name (without the # prefix) to find the correct ID.

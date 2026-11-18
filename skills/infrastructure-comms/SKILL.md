@@ -83,6 +83,19 @@ Shared across Desks: **WhatsApp** reports to Orchestrator (not this Desk). Drive
 
 Workbench is **not** a default and **not** a second Hands. Use only when Hands cannot do the step (no CLI, no connector, no API). HITL before send/post/pay.
 
+## 6.1 CTH_OPS channel (Slack Free, Gideon 18 Nov 2026)
+
+**Decision (17:49–17:50 COT, 18 Nov 2026):** use **Slack Free** on the **existing CTH Slack workspace** as the ops channel. Drop **Telegram** from CTH ops, alert, HITL, and approval workflows unless Gideon reopens Telegram.
+
+| Path | n8n sub-workflow | Purpose |
+|---|---|---|
+| Audited execution log | **`CTH-OPS · Core · log-run`** | Every routine / workflow run result → `run_log` |
+| Ops alerts and approvals | **`CTH-OPS · Core · notify-ops`** | HITL pings, failures, approvals → **CTH_OPS** Slack channel |
+
+**n8n-li** is the system of record for schedules and execution logs. Canonical routine wording: `skills/hands-model-routing/SKILL.md` § Routines. Slack connector playbook: `skills/slack/SKILL.md`.
+
+**Cutover gate (all workflows):** verify the Slack replacement (side-by-side with any legacy Telegram path), log **three good runs** in `run_log`, then get **Gideon's OK** before removing Telegram from that workflow.
+
 ## 7. HITL
 
 Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the owning chat.

@@ -60,7 +60,7 @@ When reporting, always lead with RED items, then AMBER, then a summary count of 
 Doctor_Bot runs on the OVH VPS at `/opt/doctor-bot/`. It produces:
 
 - **JSON health report** — written to `/opt/doctor-bot/reports/` with a timestamped filename. Canonical output.
-- **Slack digest** — formatted summary to the infrastructure channel using traffic-light emoji (green_circle, large_orange_circle, red_circle).
+- **Slack digest** — formatted summary to the **CTH_OPS** channel on the CTH Slack workspace (via **`CTH-OPS · Core · notify-ops`** when wired through n8n) using traffic-light emoji (green_circle, large_orange_circle, red_circle). Telegram is not used for this digest (Gideon **18 Nov 2026**).
 - **Cowork dashboard artifact** — color-coded service tiles, updated via the `live-artifact-build` skill.
 
 ### Manual Run
