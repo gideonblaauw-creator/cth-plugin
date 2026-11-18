@@ -33,4 +33,7 @@ Sonnet, Opus, Grok, Fable, Sol, GPT high tiers, Auto-as-a-spend, Max mode, Fast 
 One Hands = one artifact + one acceptance check, with exclusive write targets. Run independent jobs in parallel, about 3-5 live per workstream. Cancel and re-ticket a Hands that runs more than 30 min with no shippable result.
 
 ## Routines
-Target state (Gideon, 7 Nov 2026): routines run as deterministic scripts or Hands, and every run result goes to Telegram CTH_OPS. Infrastructure owns the migration. Do not disable an old routine before its replacement is verified.
+
+Target state (Gideon, 7 Nov 2026, ops channel lock **18 Nov 2026**): routines run as deterministic scripts or Hands. **Every run result** is written to the audited `run_log` through the n8n **`CTH-OPS · Core · log-run`** sub-workflow. **Alerts and approvals** go to the **CTH_OPS** Slack channel on the **existing CTH Slack workspace (Slack Free)** through **`CTH-OPS · Core · notify-ops`**. **Telegram** is on hold and is used only if Gideon reopens it. **n8n-li** is the system of record for schedules and execution logs.
+
+Infrastructure owns the migration. **Cutover gate:** run old Grok routines side by side with the Slack replacements until you log **three good runs**, then get **Gideon's OK** before you remove Telegram from any workflow. Do not disable an old routine before its replacement is verified.

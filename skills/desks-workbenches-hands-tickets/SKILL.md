@@ -45,7 +45,7 @@ More than one job means one Hands agent per independent job, all launched at the
 - Exception: browser and channel jobs that share one account or session (for example LinkedIn, Instagram, WhatsApp/Babo) run one at a time, to avoid account restrictions. All non-browser work for those desks still runs in parallel.
 
 ## Blocker escalation (MANDATORY, Gideon 12 Oct 2026)
-Any blocker or slowdown that delays a deliverable (site/LinkedIn stall, tab crash, rate limit, warning banner, box freeze, Tailscale exit offline, failed or skipped routine, target/quota at risk) is escalated up the chain to Gideon as a HITL alert immediately, even if a retry is planned. Never log it silently.
+Any blocker or slowdown that delays a deliverable (site/LinkedIn stall, tab crash, rate limit, warning banner, box freeze, Tailscale exit offline, failed or skipped routine, target/quota at risk) is escalated up the chain to Gideon as a HITL alert immediately, even if a retry is planned. Never log it silently. Automated ops surfacing for routines and infra failures uses **CTH_OPS** on the CTH Slack workspace via n8n **`CTH-OPS · Core · notify-ops`** (Gideon **18 Nov 2026**; **Telegram CTH_OPS on hold**). Canonical: `skills/hands-model-routing/SKILL.md` § Routines.
 
 ## Official CTH letterhead (HARD, Gideon 17 Nov 2026)
 Every CTH letter, agreement, MOU or other formal document starts from the official blank Word letterhead. This applies to desks, workbenches and every Hands ticket.
