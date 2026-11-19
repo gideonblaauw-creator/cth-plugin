@@ -33,7 +33,7 @@ Construir un **blend** verificable de:
 - **Inteligencia territorial y de datos** (plataforma Energy Coop, Datalab CTH).
 - Enlace con agendas de **biodiversidad y pobreza energética** en territorios colombianos, sin afirmar que el DGGF financia directamente redes 30×30 ni proyectos WWF — esas narrativas aparecen en las notas y requieren separación de instrumentos (DFCD u otros; véase 2.4).
 
-**Corozal** (trabajo conocido de PASO Colombia) se menciona solo como **comunidad candidata** para futura preselección territorial, **nunca** como piloto comprometido en este borrador.
+**Corozal** (trabajo conocido de PASO Colombia) se menciona solo como **comunidad candidata** para futura preselección territorial.
 
 ---
 
@@ -73,7 +73,7 @@ Instrumentos publicados en la misma página (no equivalentes a los nombres de la
 
 | Instrumento público | Descripción breve | Tickets publicados |
 | --- | --- | --- |
-| **Pre-investment support** | Subvención de etapa temprana para piloto local o validación técnica/comercial antes de deuda DGGF; **aporte propio mínimo 20%** | Monto máximo **no publicado** en la web oficial consultada |
+| **Pre-investment support** | Subvención de etapa temprana para validación técnica o comercial local antes de deuda DGGF; **aporte propio mínimo 20%** | Monto máximo **no publicado** en la web oficial consultada |
 | **Pre-finance** | Préstamo de corto plazo (primer envío, etc.) | **€50.000 – €200.000**, hasta 15 meses |
 | **Start-up investment loan** | Préstamo de inversión | **€200.000 – €600.000**, 5–7 años |
 | **Scale-up import finance** | Importación | ≤ **€1,5 millones** |
@@ -185,7 +185,7 @@ Esto puede **encajar conceptualmente** con la idea de las notas de anclar un **b
 
 - **Contraparte territorial** y articulación con comunidades y actores locales.
 - **PASO no ejecuta proyectos energéticos** como operador técnico; su rol es convocatoria, organización social y puente territorial.
-- **Corozal** = candidata de referencia que Fundación Promigas ya conoce (notas); **no** piloto designado.
+- **Corozal** = **comunidad candidata** de referencia que Fundación Promigas ya conoce (notas).
 
 ### 5.4 Vehículos financieros (abierto)
 
@@ -212,7 +212,7 @@ Esto puede **encajar conceptualmente** con la idea de las notas de anclar un **b
 1. ¿Qué **BV neerlandesa** sostiene el vínculo ≥51% con economía NL y qué flujo de ingresos/exportación justifica DGGF Track 1?
 2. ¿La etapa 1 apunta a **Pre-investment support**, **Pre-finance**, **SCBD (≤€1,5M)** o a una **combinación**? ¿Quién aporta el **20%** exigido públicamente?
 3. ¿La microfinanciera bajo NDA califica como **intermediario DGGF2** o como contraparte comercial del BV neerlandés?
-4. ¿Qué territorios y **estado legal cooperativo** tendrían dos **candidatas** concretas (sin llamar piloto a Corozal)?
+4. ¿Qué territorios y **estado legal cooperativo** tendrían dos **comunidades candidatas** concretas (incl. Corozal)?
 5. ¿Cómo se separa en contabilidad y narrativa el posible **DFCD/biodiversidad** del **DGGF/energía**?
 6. ¿Fundación Promigas entraría como **co-inversor**, **cliente de exportación**, **garantía local** o solo como aliado de escalamiento post-financiación?
 7. ¿Cuál es el **encargo remunerado** mínimo para PASO durante diseño local (las notas de Read AI mencionan USD 100k de diseño como estimación de Gideon en otro contexto — **indicativo, a validar**)?
