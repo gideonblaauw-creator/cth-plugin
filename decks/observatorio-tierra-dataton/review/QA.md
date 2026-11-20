@@ -1,68 +1,71 @@
-# QA — Observatorio de la Tierra Datatón (repair 2)
+# QA — Observatorio de la Tierra Datatón (repair 3)
 
 **Verdict: Pass** (repair 20 Nov 2026)
 
 - Branch: `cursor/observatorio-tierra-dataton-8f62`
-- Parent start: `fe4a812f17f7e900f4991eb64bcbf8ec29502d11`
+- Parent start: `d0293a18de3a7c0b87f8cfa2c945b9796cd6981b` (repair 2)
 - Scope: `decks/observatorio-tierra-dataton/` only
+- Draft PR: #163
+
+## Repair 3 fixes verified
+
+| Check | Result |
+| --- | --- |
+| Official EO lockup in `observatorio-color.png` / `observatorio-white.png` (not CTH bytes) | Pass |
+| Cover cobrand: Externado + CTH + Observatorio (three distinct marks) | Pass |
+| Cover `.fp-cover__meta` computed colour | `rgb(255, 255, 255)` (#ffffff), opacity 1 |
+| Cover `.fp-photo-bg` height | 1080px, `position: absolute` |
+| Bottom 40px strip on cover (not flat navy bar) | ~2.3% navy-like pixels; mean RGB (21, 72, 124) |
+| Removed cover `height: 1000px` photo stack cap | Pass |
+
+Logo byte identity: `observatorio-white.png` ≠ `cleantechhub-white.png`; `observatorio-color.png` ≠ `cleantechhub.png`.
 
 ## Photo layer / computed style
 
 | Slide | `.fp-photo-bg` position | height (px) | Pass |
 | --- | --- | --- | --- |
-| 1 | absolute | 1000 | Yes (≥1000) |
+| 1 | absolute | 1080 | Yes (≥1070) |
 | 2 | absolute | 1080 | Yes |
 | 7 | absolute | 1080 | Yes |
 | 9 | absolute | 1080 | Yes |
 | 11 | absolute | 1080 | Yes |
 
-Cover uses a 1000px-tall photo stack plus navy section fallback so Chromium lint stays stable; slides 2, 7, 9, and 11 are full 1080px bleed.
-
 ## White-pixel ratios (1920×1080 captures)
 
 | Slide | Near-white % | Pass | PNG bytes |
 | --- | --- | --- | --- |
-| 1 (full frame) | 1.30% | Yes (<25%) | 2,124,942 |
-| 2 (full frame) | 2.58% | Yes | 2,603,798 |
-| 7 (top 200px band) | 7.67% | Yes (<30%) | 1,924,356 |
-| 9 (top 200px band) | 6.42% | Yes | 1,092,370 |
-| 11 (full frame) | 3.92% | Yes | 1,865,527 |
+| 1 (full frame) | 1.32% | Yes (<25%) | 2,267,911 |
+| 2 (full frame) | 2.59% | Yes | 2,603,933 |
+| 7 (top 200px band) | 8.25% | Yes (<30%) | 1,925,460 |
+| 9 (top 200px band) | 6.95% | Yes | 1,094,926 |
+| 11 (full frame) | 3.93% | Yes | 1,866,968 |
 
-Source: `review/qa-metrics.json` from `review/capture.mjs` (HTTP `dist/`, image decode wait).
+Source: `review/qa-metrics.json` from `review/capture.mjs`.
 
 ## Screenshot hashes (11 distinct)
 
 ```
-4ff9f93bde3d5ba9f5d4785ec13ed9f4  slide-01.png
-05cb3d07a07a4ee970c01da7966b05f5  slide-02.png
-1b5c3bd5a1d0e8839c4ff5a2a25f0d5b  slide-03.png
-31379b68915e896b1d5b444114e91b5e  slide-04.png
-87d57eda50998cee04c143733534aa2f  slide-05.png
-39d56e15217ea37f13bb5d2e0bac28ba  slide-06.png
-9b3a723bc27050590e326fbe4c73008c  slide-07.png
-a93ae943f9fd1ed270971ac564f973ed  slide-08.png
-80a331e7aded78e266b109bcbd69ad4c  slide-09.png
-92a03f43d08e91477ae60b9dbf89b63b  slide-10.png
-bbeff5c962317a94c31346661e67cc7b  slide-11.png
+76877b088ec98da18a79b2ed23c52d7e  slide-01.png
+e2b829488ec84494e2fe8fb0e8f38760  slide-02.png
+6b34ca0a51bc09c53ad5136e48f1a967  slide-03.png
+4e3bd13b92586ef016c32ed2115a5065  slide-04.png
+bcc6ec87ee2292f2c0a6aa29ed2a2304  slide-05.png
+1ced85da8b1a85ec130195a987f371bd  slide-06.png
+99be39a32637cea8abaa288b58fd3550  slide-07.png
+ddd7a668bcd4699f5917513062c13166  slide-08.png
+b9ec4470d84b756e750e54c74a85fe04  slide-09.png
+ba04ac0e977e5e3ffa07071b3f2a1b62  slide-10.png
+0c21189e49e99433bd5ed52a44415852  slide-11.png
 ```
 
 Contact sheet: `review/contact-sheet.png`
 
-## Logos / chrome
-
-| Check | Pass |
-| --- | --- |
-| Externado colour mark on slide 5 (rasterised `uec.svg`) | Yes |
-| Cobrand white RGBA logos on 1, 2, 11 (no invert) | Yes |
-| Observatorio head mark slides 7 / 9 (white RGBA, no blue bar) | Yes |
-| Cover pill short (`align-self: flex-start`) | Yes |
-
 ## Tooling
 
-- `tools/reveal/build.sh observatorio-tierra-dataton` → PDF **11 pages** (~11.3 MB)
-- `tools/reveal/outline.sh …/deck.yaml --validate-only` → **deck.yaml OK**
+- `tools/reveal/build.sh observatorio-tierra-dataton` → PDF **11 pages**
+- `deck.yaml` validate → **OK**
 - `tools/reveal/lint.sh observatorio-tierra-dataton` → **lint OK**
-- `bash review/lint-deck.sh` → retry helper when a one-off lint flakes on cover fonts
+- `node review/capture.mjs` → **capture ok**
 
 ## Content gates
 
