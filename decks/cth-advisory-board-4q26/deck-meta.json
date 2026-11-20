@@ -1,0 +1,11 @@
+{
+  "gated": true,
+  "language": "es",
+  "slug": "cth-advisory-board-4q26",
+  "title": "Informe 2026 a la Junta Asesora — 4Q26",
+  "client": "Fundación CleantechHUB — Junta Asesora",
+  "date": "Fecha de junta: [PENDIENTE] (P28)",
+  "toolkit": "tools/reveal",
+  "source": "deck.yaml",
+  "publish_note": "gated is a label only; real gate is Caddy/oauth2-proxy."
+}

@@ -1,0 +1,199 @@
+meta:
+  slug: cth-advisory-board-4q26
+  lang: es
+  title: Informe 2026 a la Junta Asesora — 4Q26
+  client: Fundación CleantechHUB — Junta Asesora
+  date: "Fecha de junta: [PENDIENTE] (P28)"
+slides:
+  - type: cover
+    title: Informe 2026 a la Junta Asesora
+    subtitle: Junta Asesora · ejecución documentada 2025–2026
+    client: Fundación CleantechHUB
+    date: "Fecha de junta: [PENDIENTE] (P28)"
+    notes: Elaboración del informe 16 nov 2026. Parte A estatutaria diferida a Asamblea 1Q27.
+  - type: contents
+    items:
+      - 2026 en una frase
+      - Alianza WRI / P4G — MubOn
+      - Incubación — ClimateLaunchpad
+      - Lo que construimos — EO, Datalab, Nexus
+      - REIN Hubs
+      - Cleantech Academy
+      - Plataformas, equipo y cumplimiento
+      - Proyección 2027
+      - Decisiones y solicitudes a la Junta
+    notes: Sin Climathon ni Aceleración como ejecución 2026 (índice v3).
+  - type: statement
+    text: Alianzas de datos e institucionales, incubación donde hubo convocatoria y plataformas digitales propias — con la marca «Inspira. Actúa. Transforma.»
+    attribution: Informe Junta Asesora 2026 · índice aprobado v3 (16 nov 2026)
+    notes: Corrige «digitales» (REVIEW). Parte A no incluida en este deck.
+  - type: section-title
+    number: "2"
+    title: WRI / P4G — MubOn
+    subtitle: Alianza G3470 · 1 oct 2024 – 31 mar 2026
+  - type: stat-band
+    title: Cierre de subvención P4G (marzo 2026)
+    stats:
+      - value: "115"
+        label: Puntos de carga desplegados
+        source: MUBON_P4G_PROJECT_BRIEF.md §4
+      - value: "411 752 kWh"
+        label: Energía entregada
+        source: MUBON_P4G_PROJECT_BRIEF.md §4
+      - value: "14 000"
+        label: Usuarios registrados
+        source: MUBON_P4G_PROJECT_BRIEF.md §4
+      - value: "157 tCO₂e"
+        label: Emisiones evitadas (terceros)
+        source: MUBON_P4G_PROJECT_BRIEF.md §4
+    notes: "Auditoría BDO: [PENDIENTE] (P03). Rechazo P4G R5: 28 mar 2026."
+  - type: key-facts
+    title: MubOn — contexto y próximos pasos
+    items:
+      - { icon: "$", label: "Ingresos brutos", text: "69 314 USD y 9 ciudades en Colombia (brief cierre)." }
+      - { icon: "✓", label: "Convenio P4G", text: "Tres sub-objetivos completados; productos de conocimiento entregados." }
+      - { icon: "!", label: "[PENDIENTE]", text: "Estado y hallazgos auditoría BDO al 16 nov 2026 (Jennifer González / WRI)." }
+      - { icon: "→", label: "2027", text: "Cooperación con auditoría, SPV Axioma y continuidad comercial MubOn (sin montos no verificados)." }
+  - type: section-title
+    number: "3"
+    title: Incubación — ClimateLaunchpad
+    subtitle: Convocatoria nacional donde hubo documentación
+  - type: key-facts
+    title: ClimateLaunchpad 2026
+    items:
+      - { icon: "CLP", label: "Cohorte 8", text: "Universidad Externado como coanfitriona de la final nacional Colombia 2026." }
+      - { icon: "Ago", label: "Preparación", text: "Visita técnica al campus y jurado en maratón de emprendimiento (ago 2026)." }
+      - { icon: "?", label: "[PENDIENTE]", text: "Resultados cuantitativos CLP 2025–2026 — equipos, regionales, retrasos (P04)." }
+      - { icon: "→", label: "2027", text: "Coordinación CEE y programas (Angélica Díaz) tras resultados verificados." }
+  - type: section-title
+    number: "4"
+    title: Lo que construimos en 2026
+    subtitle: EO × Externado · Datalab · Nexus (cap. 4–6)
+  - type: key-facts
+    title: EO — Observatorio de la Tierra × Externado
+    items:
+      - { icon: "📜", label: "Convenio marco", text: "Firmado 3 jul 2024; vigencia cinco años (CEE × CleantechHUB)." }
+      - { icon: "△", label: "Cuatro líneas", text: "Datatón, Climate Data Week, Data Lab e Investigación — tagline «Observa. Actúa. Transforma.»" }
+      - { icon: "!", label: "[PENDIENTE]", text: "Otrosí EO firmado (P06). Resultado reunión 1 oct 2026 (P05). KPIs públicos (P08)." }
+      - { icon: "→", label: "2027", text: "Firmar Otrosí, validar denominación Observatorio, calendarizar Earth Data Week [PENDIENTE] (P09)." }
+    notes: White paper v3 preparado; envío formal a junta [PENDIENTE] (P07).
+  - type: stat-band
+    title: Datalab — vitrina y datatón EO
+    stats:
+      - value: "93"
+        label: Perfiles en vitrina (12 oct 2026)
+        source: Informe 2026 SOURCES.md — brief Datalab 1JKiD8u_*
+      - value: "3"
+        label: Datasets de innovación
+        source: Informe 2026 SOURCES.md — índice v4.1.0
+      - value: "38"
+        label: Empresas en lista Datatón
+        source: datalab.md 2026-11-07
+      - value: "6"
+        label: Correos confirmados
+        source: datalab.md 2026-11-07
+    notes: Registros Luma verificados [PENDIENTE] (P10). Aforo evento 150 presencial. Laboratorio vivo en datalab.cleantechhub.net.
+  - type: data-table
+    title: Nexus — actores en mapa (oct 2026)
+    columns: [Registro, Actores, Nota]
+    rows:
+      - ["Reconciliación post-PR 75 (20 oct)", "381", "Fuente sesión 20 oct"]
+      - ["Tras merge PR 123 (26 oct)", "478", "105 con prefijo co-*"]
+      - ["Publicación informe", "[PENDIENTE]", "Conteo autorizado (P12)"]
+    source: 2026-10-20-nexus-origo.md; 2026-10-26-nexus-origo-desks.md
+    note: No publicar número único hasta cerrar P12; mantener doble registro.
+  - type: ecosystem
+    title: Nexus — portfolio y ecosistema
+    centre: Nexus
+    nodes:
+      - { label: Colombia, text: Mapa de ecosistema (Leaflet/D3) }
+      - { label: Perú, text: Actores e integraciones documentadas }
+      - { label: El Salvador, text: Cobertura multipaís del portfolio }
+      - { label: Fichas bilingües, text: Una ficha por empresa en el sitio público }
+      - { label: Despliegue oct 2026, text: Ola 20–26 oct · prioridad publicación desde GitHub }
+      - { label: "PR #123", text: Fusión actores Colombia desplegada 26 oct 2026 }
+    notes: One-pagers publicados [PENDIENTE] (P13).
+  - type: section-title
+    number: "7"
+    title: REIN Hubs
+    subtitle: Red latinoamericana — avances 2026
+  - type: stat-band
+    title: Impacto red REIN (acumulado — no solo 2026)
+    stats:
+      - value: "5"
+        label: Países con hubs activos
+        source: REIN_HUBS_WEBSITE_HANDOFF.md §3
+      - value: "3 000+"
+        label: Postulaciones recibidas
+        source: REIN_HUBS_WEBSITE_HANDOFF.md §3
+      - value: "222"
+        label: Empresas incubadas
+        source: REIN_HUBS_WEBSITE_HANDOFF.md §3
+      - value: "23 M+ USD"
+        label: Capital levantado
+        source: REIN_HUBS_WEBSITE_HANDOFF.md §3
+    notes: Métricas 2025–26 por hub [PENDIENTE] (P15). Otrosí HUB REIN Colombia firmado [PENDIENTE] (P14).
+  - type: key-facts
+    title: REIN — gestión 2026
+    items:
+      - { icon: "📁", label: "Sala de datos", text: "Auditoría NCUK/Pvblic oct 2026; 23 de 25 cuentas con acceso visor en Drive." }
+      - { icon: "🌎", label: "Colombia", text: "Deck REIN × NCUK × Externado en decks.cleantechhub.net (nov 2026)." }
+      - { icon: "!", label: "MoUs", text: "No se hallaron MoU plenamente firmados con las cinco universidades hub (oct 2026)." }
+      - { icon: "→", label: "2027", text: "Cerrar brechas sala de datos, producción web y coordinación IDB/Qatar sin contactos no confirmados." }
+  - type: title-bullets
+    title: Cleantech Academy
+    eyebrow: Producto digital
+    bullets:
+      - Curso ABC de emprendimiento climático y cohortes documentadas en informes previos.
+      - "Actualización de ejecución y métricas 2026: [PENDIENTE] (P16) — export LMS/Moodle."
+      - Próximo paso cuando exista extracto con trazabilidad Drive.
+  - type: programme-trio
+    title: Plataformas y operaciones 2026
+    programmes:
+      - name: Datalab
+        text: Vitrina, laboratorio vivo, datatón EO y API de administración (cap. 5).
+      - name: Nexus
+        text: Portfolio y mapa de ecosistema multipaís (cap. 6).
+      - name: wiki.cleantechhub.net
+        text: Base de perfiles Datalab (BookStack).
+    notes: "Detalle operativo Moodle/Odoo 2026: [PENDIENTE] (P17)."
+  - type: key-facts
+    title: Equipo y cumplimiento
+    items:
+      - { icon: "📅", label: "Junta", text: "Última sesión inventariada 17 dic 2025 (4Q25, notas Drive)." }
+      - { icon: "!", label: "[PENDIENTE]", text: "Transiciones de roles y contratación 2026 (P18)." }
+      - { icon: "⚖", label: "Ética", text: "Programa de ética — Angélica Díaz (designación 28 feb 2024, acta votación)." }
+      - { icon: "!", label: "[PENDIENTE]", text: "Matriz de riesgos operativos 2026 y SST (P19)." }
+    notes: Representación legal periodo asociada a Gideon Blaauw (board-roster.md).
+  - type: timeline
+    title: Proyección 2027
+    items:
+      - { date: EO, label: "Externado", text: "Otrosí, Earth Data Week, documento institucional." }
+      - { date: DL, label: "Datalab", text: "Correo transaccional, Ley 1581, vitrina ampliada." }
+      - { date: NX, label: "Nexus", text: "Corpus de actores estable, PR #124, enlaces con datos públicos." }
+      - { date: P4G, label: "MubOn", text: "Post-cierre, auditoría, inversión." }
+      - { date: CLP, label: "ClimateLaunchpad", text: "Resultados cohorte nacional." }
+      - { date: REIN, label: "REIN Hubs", text: "Web en producción, sala de datos, MoUs." }
+    notes: "Detalle presupuestal 2027: [PENDIENTE] (P20) — Asamblea 1Q27."
+  - type: title-bullets
+    title: Decisiones y solicitudes a la Junta
+    eyebrow: Sin votos estatutarios (Parte A → Asamblea 1Q27)
+    bullets:
+      - Validar alcance narrativo 2026 (sin Climathon ni Aceleración como ejecución del año).
+      - "Fecha de presentación de este informe: [PENDIENTE] (P28) — Secretaría de la junta."
+      - Orientación sobre cierre del conteo Nexus (381 vs 478) antes de una cifra pública única (P12).
+      - Seguimiento del Otrosí EO con Externado (P06) y del hub REIN Colombia (P14).
+      - "Resumen financiero narrativo 2025: [PENDIENTE] (P02) — cuando los estados financieros estén listos."
+      - Cooperación en el cierre de la auditoría BDO P4G si permanece abierta (P03).
+    notes: No self-certify; checker independiente revisa borrador.
+  - type: closing
+    text: Gracias · CleantechHUB — Inspira. Actúa. Transforma.
+    url: https://cleantechhub.net
+    notes: Deck gated; publicación requiere GO de Gideon + Infra Caddy.
+  - type: contact
+    title: Contacto
+    people:
+      - { name: Gideon Blaauw, role: Representación legal (periodo documentado), email: gideon.blaauw@cleantechhub.net }
+    links:
+      - { kind: Fundación CleantechHUB, url: https://cleantechhub.net }
+      - { kind: Informe borrador (Drive), url: https://docs.google.com/document/d/1cWHBm-W_MKruqRM24Y13OKJpRx95ZDrNxOc8quKrrfU/edit }
