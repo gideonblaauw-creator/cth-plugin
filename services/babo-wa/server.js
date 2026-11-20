@@ -1,1 +1,1 @@
-PLACEHOLDER_SERVER
+FILE:/tmp/server-js-content.txt
