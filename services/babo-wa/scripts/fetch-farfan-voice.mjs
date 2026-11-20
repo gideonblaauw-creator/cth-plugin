@@ -10,12 +10,13 @@ import pino from "pino";
 const AUTH = "/opt/babo-wa/session";
 const OUT = "/opt/babo-wa/tmp/farfan-voice";
 const TARGET_IDS = new Set([
-  "3AF59BA14985D1A41D55",
-  "AC46F93AEE324CCA35200806D14966AC",
+  "3AF59BA14985D1A41D55", // newest inbound from Jorge
+  "AC46F93AEE324CCA35200806D14966AC", // newest overall voice (fromMe)
 ]);
 const PREFERRED = "3AF59BA14985D1A41D55";
 const LID = "112936769048804@lid";
 const ALT_JIDS = [LID, "18495813474@s.whatsapp.net", "573143807350@s.whatsapp.net"];
+// Real message NEWER than targets so history walks back over them
 const CURSOR = {
   remoteJid: LID,
   id: "3B081B3F29CD30B90BB5",
