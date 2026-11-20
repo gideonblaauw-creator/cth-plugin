@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:43011/index.html",
+  "reducedMotion": false,
+  "bodyClass": "reveal-viewport",
+  "printPdf": false,
+  "exportClass": false,
+  "kenburns": {
+    "animationName": "eo-kenburns",
+    "animationDuration": "28s",
+    "transform": "matrix(1.00007, 0, 0, 1.00007, 0, 0)",
+    "scale": 1
+  },
+  "orbit": {
+    "animationName": "eo-orbit-drift",
+    "animationDuration": "42s",
+    "transform": "matrix(0.994524, 0.104512, -0.104512, 0.994524, 0, 0)",
+    "scale": 1
+  }
+}

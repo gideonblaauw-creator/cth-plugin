@@ -59,6 +59,11 @@
   overflow: hidden;
 }
 
+/* Clip Ken Burns scale on the cover without killing present-mode motion */
+.fp-cover--eo > .fp-photo-bg.fp-kenburns {
+  overflow: hidden;
+}
+
 .reveal .slides section.fp.fp--photo {
   background-color: #0c498a;
   overflow: hidden;
@@ -187,12 +192,6 @@ body.print-pdf .fp-orbit-drift,
   margin-bottom: 4px;
   padding: 8px 18px;
   font-size: 18px;
-}
-
-.fp-cover--eo .fp-kenburns,
-.fp-cover--eo .fp-orbit-drift {
-  animation: none;
-  transform: none;
 }
 
 .reveal .fp-cover.fp-cover--eo .fp-cover__main {

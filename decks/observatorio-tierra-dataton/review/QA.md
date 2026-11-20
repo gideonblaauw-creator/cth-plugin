@@ -1,61 +1,57 @@
-# QA — Observatorio de la Tierra Datatón (repair 3)
+# QA — Observatorio de la Tierra Datatón (repair 4)
 
-**Verdict: Pass** (repair 20 Nov 2026)
+**Verdict: Pass** (repair 4, 20 Nov 2026)
 
 - Branch: `cursor/observatorio-tierra-dataton-8f62`
-- Parent start: `d0293a18de3a7c0b87f8cfa2c945b9796cd6981b` (repair 2)
+- Parent start: `8d8a1d353c5bd72a666a7de5bd2a9bd3862ad5ac` (repair 3)
 - Scope: `decks/observatorio-tierra-dataton/` only
 - Draft PR: #163
 
-## Repair 3 fixes verified
+## Repair 4 — cover motion in present mode
 
-| Check | Result |
+Removed the unconditional `.fp-cover--eo` animation freeze in `assets/eo-skin.css`. Print / export / `prefers-reduced-motion` freezes unchanged (lines 88–93, 127–140).
+
+Orbit drift animation runs on an inner `<g class="fp-orbit-drift">` inside the cover SVG so Chromium lint does not treat rotated SVG bounds as slide overflow.
+
+### Present-mode computed styles (slide 1)
+
+| Element | `animation-name` | Duration |
+| --- | --- | --- |
+| Cover `.fp-kenburns` | `eo-kenburns` | 28s |
+| Cover `.fp-orbit-drift` | `eo-orbit-drift` | 42s |
+
+Source: `review/motion/present-mode-computed.json`
+
+### Cover timed stills (0 / 2.5 / 5 / 8 s)
+
+| Pair (vs t=0) | RMS |
 | --- | --- |
-| Official EO lockup in `observatorio-color.png` / `observatorio-white.png` (not CTH bytes) | Pass |
-| Cover cobrand: Externado + CTH + Observatorio (three distinct marks) | Pass |
-| Cover `.fp-cover__meta` computed colour | `rgb(255, 255, 255)` (#ffffff), opacity 1 |
-| Cover `.fp-photo-bg` height | 1080px, `position: absolute` |
-| Bottom 40px strip on cover (not flat navy bar) | ~2.3% navy-like pixels; mean RGB (21, 72, 124) |
-| Removed cover `height: 1000px` photo stack cap | Pass |
+| t=2500 ms | 131.89 |
+| t=5000 ms | 142.16 |
+| t=8000 ms | 143.10 |
 
-Logo byte identity: `observatorio-white.png` ≠ `cleantechhub-white.png`; `observatorio-color.png` ≠ `cleantechhub.png`.
+Artifacts: `review/motion/cover-t0000ms.png` … `cover-t8000ms.png`, `review/motion/cover-timed-contact.png`
 
-## Photo layer / computed style
+`node review/motion-check.mjs` → **motion-check ok**
 
-| Slide | `.fp-photo-bg` position | height (px) | Pass |
-| --- | --- | --- | --- |
-| 1 | absolute | 1080 | Yes (≥1070) |
-| 2 | absolute | 1080 | Yes |
-| 7 | absolute | 1080 | Yes |
-| 9 | absolute | 1080 | Yes |
-| 11 | absolute | 1080 | Yes |
+## Repair 3 checks (unchanged)
 
-## White-pixel ratios (1920×1080 captures)
-
-| Slide | Near-white % | Pass | PNG bytes |
-| --- | --- | --- | --- |
-| 1 (full frame) | 1.32% | Yes (<25%) | 2,267,911 |
-| 2 (full frame) | 2.59% | Yes | 2,603,933 |
-| 7 (top 200px band) | 8.25% | Yes (<30%) | 1,925,460 |
-| 9 (top 200px band) | 6.95% | Yes | 1,094,926 |
-| 11 (full frame) | 3.93% | Yes | 1,866,968 |
-
-Source: `review/qa-metrics.json` from `review/capture.mjs`.
+Official EO lockups, white cover meta ≥ 4.5:1, cover photo 1080px height, card contrast, notes-only “Recortar con Alejandro”, no Confidencial, Bolívar not named — still pass.
 
 ## Screenshot hashes (11 distinct)
 
 ```
-76877b088ec98da18a79b2ed23c52d7e  slide-01.png
-e2b829488ec84494e2fe8fb0e8f38760  slide-02.png
+f5ab2c313be9ad6c13ba14041259cfdd  slide-01.png
+31f710fed791dab0b075b3b586358cc0  slide-02.png
 6b34ca0a51bc09c53ad5136e48f1a967  slide-03.png
 4e3bd13b92586ef016c32ed2115a5065  slide-04.png
-bcc6ec87ee2292f2c0a6aa29ed2a2304  slide-05.png
+d859ef9ba47db0f8fa80e1d5a4d500a0  slide-05.png
 1ced85da8b1a85ec130195a987f371bd  slide-06.png
-99be39a32637cea8abaa288b58fd3550  slide-07.png
-ddd7a668bcd4699f5917513062c13166  slide-08.png
-b9ec4470d84b756e750e54c74a85fe04  slide-09.png
-ba04ac0e977e5e3ffa07071b3f2a1b62  slide-10.png
-0c21189e49e99433bd5ed52a44415852  slide-11.png
+6327450b670cb3bf483afb403b9d9170  slide-07.png
+87caea76748b00cb46d73d6c6ff31ba1  slide-08.png
+59ae5274218ff9cfc41568f160f260e3  slide-09.png
+ceeaa09f4163ffd2cec613c882ca874f  slide-10.png
+6bd65e356471467b13208a1074b4eea7  slide-11.png
 ```
 
 Contact sheet: `review/contact-sheet.png`
@@ -66,12 +62,3 @@ Contact sheet: `review/contact-sheet.png`
 - `deck.yaml` validate → **OK**
 - `tools/reveal/lint.sh observatorio-tierra-dataton` → **lint OK**
 - `node review/capture.mjs` → **capture ok**
-
-## Content gates
-
-| Item | Pass |
-| --- | --- |
-| No Confidencial | Yes |
-| “Recortar con Alejandro” notes-only | Yes |
-| Bolívar department not named | Yes |
-| Slide 9 roadmap body navy-on-white | Yes |
