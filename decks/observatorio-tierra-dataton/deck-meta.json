@@ -1,0 +1,12 @@
+{
+  "gated": false,
+  "language": "es",
+  "slug": "observatorio-tierra-dataton",
+  "title": "El Observatorio de la Tierra abre hoy su colaboración en el Externado",
+  "client": "Observatorio de la Tierra",
+  "date": "2026-11-24",
+  "served_at": "/observatorio-tierra-dataton/",
+  "toolkit": "tools/reveal",
+  "source": "deck.yaml",
+  "publish_note": "Public GO 20 Nov 2026 16:23 COT (Gideon). gated:false is a label only; live URL still needs Infrastructure · Desks Caddy route on decks.cleantechhub.net after merge."
+}
