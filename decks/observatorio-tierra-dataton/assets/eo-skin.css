@@ -1,0 +1,516 @@
+/* EO skin on FODESEP fp-* frame — variables, Titillium, photo slides, contrast fixes */
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/TitilliumWeb-Bold.ttf") format("truetype");
+}
+
+:root {
+  --eo-deep: #0c498a;
+  --eo-cyan: #b2eefa;
+  --eo-lime: #9dc384;
+  --eo-green: #669348;
+  --eo-sky: #69b5fa;
+  --eo-white: #ffffff;
+}
+
+/* Theme cannot force caps / navy on photo slides */
+.reveal h1,
+.reveal h2,
+.reveal .fp-title,
+.reveal .fp-cover__title {
+  font-family: "Titillium Web", "Open Sans", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: -0.01em;
+}
+
+.reveal .fp-title,
+.reveal .fp-cover__title {
+  color: var(--eo-deep);
+}
+
+/* Photo / dark slides */
+.reveal .fp--photo {
+  color: var(--eo-white);
+}
+
+.reveal .fp--photo .fp-title,
+.reveal .fp--photo .fp-cover__title,
+.reveal .fp--photo h1,
+.reveal .fp--photo h2 {
+  color: var(--eo-white) !important;
+}
+
+.reveal .fp--photo .fp-title::after {
+  background: var(--eo-lime);
+}
+
+.fp-photo-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.fp-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.72) 0%,
+    rgba(12, 73, 138, 0.55) 45%,
+    rgba(12, 73, 138, 0.88) 100%
+  );
+}
+
+.fp-kenburns {
+  animation: eo-kenburns 28s ease-in-out infinite alternate;
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+@keyframes eo-kenburns {
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.fp-orbit-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.fp-orbit-svg ellipse {
+  fill: none;
+  stroke: var(--eo-cyan);
+  stroke-width: 1.2;
+}
+
+.fp-orbit-drift {
+  animation: eo-orbit-drift 42s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes eo-orbit-drift {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-kenburns,
+  .fp-orbit-drift {
+    animation: none !important;
+  }
+}
+
+body.print-pdf .fp-kenburns,
+body.print-pdf .fp-orbit-drift,
+.export .fp-kenburns,
+.export .fp-orbit-drift {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Cobrand */
+.fp-cobrand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.fp-cobrand img {
+  height: 44px;
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+}
+
+.fp-cobrand--photo img {
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.fp-cobrand--color img {
+  height: 42px;
+}
+
+/* Cover (photo) */
+.fp-cover--eo {
+  padding: 56px 96px 84px;
+  justify-content: space-between;
+}
+
+.fp-cover--eo .fp-cover__main {
+  display: block;
+  max-width: 1480px;
+}
+
+.fp-cover--eo .fp-cover__title {
+  font-size: 72px;
+  line-height: 1.08;
+  color: var(--eo-white) !important;
+  margin: 24px 0 20px;
+}
+
+.fp-cover--eo .fp-cover__sub {
+  font-size: 32px;
+  line-height: 1.35;
+  color: var(--eo-cyan);
+  max-width: 1200px;
+}
+
+.fp-cover__tagline {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--eo-lime) !important;
+  margin: 28px 0 16px !important;
+}
+
+.fp-cover__meta {
+  font-size: 24px;
+  color: var(--eo-white);
+  opacity: 0.95;
+  margin-bottom: 8px !important;
+}
+
+.fp-cover__speakers {
+  font-size: 22px;
+  color: var(--eo-cyan);
+  margin-top: 12px !important;
+}
+
+.fp-pill--eo {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid var(--eo-cyan);
+  color: var(--eo-white);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+/* Statement on photo */
+.fp-statement--photo {
+  padding: 64px 96px 84px;
+  justify-content: flex-end;
+}
+
+.fp-statement--photo .fp-statement__text {
+  font-size: 54px;
+  color: var(--eo-white);
+}
+
+.fp-statement--photo .fp-statement__attr {
+  color: var(--eo-cyan);
+}
+
+.fp-statement__kicker {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--eo-lime);
+  margin-bottom: 24px !important;
+}
+
+/* Cards on photo slides — navy text always */
+.reveal .fp--photo .fp-card,
+.reveal .fp--photo .fp-step,
+.reveal .fp--photo .fp-step__body,
+.reveal .fp--photo .fp-lens-card,
+.reveal .fp--photo .fp-callout--light {
+  color: var(--eo-deep) !important;
+}
+
+.reveal .fp--photo .fp-card__title,
+.reveal .fp--photo .fp-card__text,
+.reveal .fp--photo .fp-step__body,
+.reveal .fp--photo .fp-step__body p,
+.reveal .fp--photo .fp-lens-card h4,
+.reveal .fp--photo .fp-lens-card p {
+  color: var(--eo-deep) !important;
+}
+
+.fp-steps--3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Ecosystem / Carapulica */
+.fp-eco-helix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.fp-eco-helix .fp-card__title {
+  font-size: 24px;
+}
+
+.fp-eco-helix .fp-card__text {
+  font-size: 21px;
+}
+
+.fp-eco-band {
+  font-size: 22px;
+  line-height: 1.4;
+  padding: 16px 22px;
+  border-radius: 14px;
+  background: rgba(178, 238, 250, 0.35);
+  border: 2px solid var(--eo-cyan);
+  margin: 16px 0;
+}
+
+.fp-invite-ring {
+  margin-top: 18px;
+  padding: 14px 22px;
+  border: 3px dashed var(--eo-lime);
+  border-radius: 40px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--eo-green);
+  text-align: center;
+}
+
+/* Partner row */
+.fp-partners--2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-content: start;
+}
+
+.fp-partners--2 .fp-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fp-partners--2 .fp-partner-logo {
+  height: 48px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+}
+
+.fp-partners--2 .fp-card__text {
+  font-size: 23px;
+  flex: 1;
+}
+
+.fp-note-line {
+  font-size: 20px;
+  line-height: 1.35;
+  margin-top: 18px !important;
+  padding-left: 16px;
+  border-left: 5px solid var(--eo-lime);
+  color: var(--eo-deep);
+}
+
+/* Key facts — 3 up */
+.fp-facts--3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: auto !important;
+}
+
+.fp-facts--3 .fp-fact {
+  min-height: 380px;
+}
+
+/* Lenses on photo */
+.fp-lenses-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.fp-tech-thread {
+  font-size: 22px;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid var(--eo-lime);
+  border-radius: 16px;
+  padding: 16px 22px;
+  color: var(--eo-deep) !important;
+}
+
+.fp-lenses {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.fp-lens-card {
+  background: var(--eo-white);
+  border: 3px solid var(--eo-cyan);
+  border-radius: 16px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.fp-lens-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.fp-lens-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px !important;
+}
+
+.fp-lens-card p {
+  font-size: 15px;
+  line-height: 1.32;
+}
+
+/* Datalab environments */
+.fp-env-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+  align-content: start;
+}
+
+.fp-env-card {
+  border: 3px solid var(--eo-cyan);
+  border-radius: 18px;
+  padding: 22px 20px;
+  background: var(--eo-white);
+  min-height: 280px;
+}
+
+.fp-env-card--hi {
+  border-color: var(--eo-deep);
+  background: rgba(178, 238, 250, 0.25);
+}
+
+.fp-env-card img {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 10px;
+}
+
+.fp-env-card h4 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px !important;
+}
+
+.fp-env-card p {
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.fp-handoff-bar {
+  margin-top: 22px;
+  padding: 18px 24px;
+  background: var(--eo-deep);
+  color: var(--eo-white) !important;
+  font-size: 26px;
+  font-weight: 700;
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* Closing */
+.fp-closing--photo {
+  padding: 64px 96px 84px;
+}
+
+.fp-closing--photo .fp-closing__text {
+  font-size: 44px;
+  line-height: 1.28;
+  color: var(--eo-white);
+}
+
+.fp-closing__tagline {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--eo-lime) !important;
+  margin: 32px 0 24px !important;
+}
+
+.fp-handoff-card {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--eo-deep) !important;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: 14px;
+  border: 3px solid var(--eo-lime);
+}
+
+/* Bullets list (single column) */
+.fp-asks--1 {
+  max-width: none;
+}
+
+.fp-asks--1 li {
+  font-size: 26px;
+}
+
+.fp-callout--light {
+  margin-top: 20px;
+  padding: 16px 22px;
+  background: rgba(178, 238, 250, 0.35);
+  border: 3px solid var(--eo-sky);
+  border-radius: 14px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.fp-callout-box {
+  margin-top: 16px;
+  padding: 14px 20px;
+  background: var(--eo-white);
+  border: 3px solid var(--eo-lime);
+  border-radius: 12px;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--eo-deep) !important;
+}
+
+/* Credits */
+.fp-credit--dark {
+  color: var(--eo-cyan) !important;
+  font-size: 15px;
+  margin-top: 12px !important;
+}
+
+.reveal .fp-foot {
+  right: 96px;
+}
+
+.reveal .fp-foot--dark {
+  color: var(--eo-cyan);
+}
+
+.reveal .fp-foot--dark span {
+  color: var(--eo-cyan);
+}
+
+/* Hide default conf slot */
+.fp-foot .fp-conf {
+  display: none;
+}

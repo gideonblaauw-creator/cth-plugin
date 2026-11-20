@@ -1,29 +1,62 @@
-# Visual QA — Observatorio de la Tierra · Datatón (EO brand v3)
+# QA — Observatorio de la Tierra Datatón (FODESEP frame + EO skin)
 
-Compared `review/slide-*.png` (1920×1080, print-pdf / final fragments) to Gideon basis 4 Nov 2026 (`review/refs/` and uploaded `gideon-basis.pdf`).
+**Verdict: Pass** (rebuild 20 Nov 2026 — requires Gideon approval before publish)
 
-| Slide | Check | Result |
+- Branch: `cursor/observatorio-tierra-dataton-8f62`
+- Starting SHA: `81bc910005832277c6801789726dfdd633e0f145`
+- Layout: FODESEP `fp-*` + `assets/deck.css`; EO typography/logos via `assets/eo-skin.css`
+- Capture: `review/capture.sh` (committed) — `Reveal.slide(i)`, final fragment state, 1920×1080
+
+## Screenshot hash assertion
+
+```
+md5sum review/slide-*.png | awk '{print $1}' | sort -u | wc -l  → 11
+```
+
+| Slide | MD5 | Type |
 | --- | --- | --- |
-| 01 | Cover: `#0C498A` scrim, orbit lines, reverse cobrand, green tagline, photo credit | Pass |
-| 02 | Statement: full-bleed Apaporis, white quote type, green rule on attribution | Pass |
-| 03–06 | White inner: large light-green section number, Titillium title, thin cyan rule, Open Sans body | Pass |
-| 04 | Helix + dashed invitation circle (staged fragments in present mode) | Pass |
-| 05–06 | Cards filled; slides marked for Alejandro trim 23 Nov in speaker notes | Pass (copy as shipped) |
-| 07 | Cacao full-bleed, five solid lens cards + tech thread; CC BY-SA line | Pass |
-| 08 | Five palanca questions + callout (lower third filled) | Pass |
-| 09 | Magdalena photo (not pilot territory), three phase cards, open-time callout, no Bolívar name | Pass |
-| 10 | Four Datalab environments, Datatón highlight, 10:05 handoff bar | Pass |
-| 11 | Cocora close, handoff card, tagline, no Confidencial | Pass |
+| 01 | `cb41ec67b2eda259ceaaf53fab565851` | cover |
+| 02 | `e57a4256a5482194cbc71404e5083cf0` | statement |
+| 03 | `129102ead8c5a56d9ed2dc3a30d8e925` | title-bullets |
+| 04 | `60e88bb8b1263228e068856642aa2bf3` | ecosystem |
+| 05 | `b8bf92e763e3a785433719048b07fd9d` | partner-cards |
+| 06 | `c974db02ddaed41d1eca05b543df2384` | key-facts |
+| 07 | `ed41df7ba92f9144842f70b182b6bd58` | focus-areas (photo) |
+| 08 | `9a19e6c0c627b52d5431a5797619438e` | title-bullets |
+| 09 | `17ef4cd391e23e1e03ff8d45bc7278f6` | process (photo) |
+| 10 | `06b6879a8239a1483c74afa90e92848e` | focus-areas |
+| 11 | `2388eb66f206ddd4a29ef74a59e846ca` | closing |
 
-## Lint / build
+Contact sheet: `review/contact-sheet.png` (11 distinct tiles; visually verified).
 
-- `tools/reveal/lint.sh observatorio-tierra-dataton` — exit 0
-- `tools/reveal/outline.sh --validate-only decks/observatorio-tierra-dataton/deck.yaml` — deck.yaml OK
-- PDF `observatorio-tierra-dataton.pdf` — 11 pages (matches slide count)
-- Motion: Ken Burns + orbit drift under `prefers-reduced-motion: no-preference`; static in print/`print-pdf`
+FODESEP type compares: `review/refs/compare-*.png` (read-only live layer under `/tmp/fodesep`).
 
-## Notes
+## WCAG AA contrast (sampled)
 
-- Photos: Colombian CC BY-SA only; no people observed in hires stills.
-- Palette: official EO hex set only in deck CSS (`#0C498A`, `#B2EEFA`, `#9DC384`, `#669348`, `#69B5FA`, white).
-- Public route still requires Infrastructure · Desks Caddy after merge (`/observatorio-tierra-dataton/`).
+| Element | Foreground | Background | Ratio (approx.) | Pass |
+| --- | --- | --- | --- | --- |
+| Cover title | `#FFFFFF` | `#0C498A` scrim ~88% | 8.5:1 | Yes |
+| Cover tagline | `#9DC384` | scrim | 5.2:1 | Yes |
+| Statement quote | `#FFFFFF` | scrim | 8.5:1 | Yes |
+| Close tagline | `#9DC384` | scrim | 5.2:1 | Yes |
+| Slide 9 phase body | `#0C498A` | `#FFFFFF` card | 8.6:1 | Yes |
+| White-slide card body | `#0C498A` | `#FFFFFF` | 8.6:1 | Yes |
+
+## Tooling
+
+- `tools/reveal/build.sh observatorio-tierra-dataton` → PDF **11 pages**
+- `tools/reveal/lint.sh observatorio-tierra-dataton` → **lint OK** (requires `pypdf` in environment)
+- `tools/reveal/outline.sh …/deck.yaml --validate-only` → **deck.yaml OK**
+
+## Content gates
+
+- No Confidencial / Confidential footer
+- "Recortar con Alejandro" only in speaker notes (slides 5–6), not on canvas
+- Official logo PNGs from brand-book v3 cover (not text-SVG cobrand)
+- Tagline: **Observa. Actúa. Transforma.** (sentence case)
+
+## Per-slide visual pass
+
+| # | Pass | Notes |
+| --- | --- | --- |
+| 01–11 | Yes | Verified from `review/slide-*.png`; slide 9 roadmap body readable (navy on white) |
