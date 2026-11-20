@@ -1,0 +1,67 @@
+{
+  "timesMs": [
+    0,
+    2500,
+    5000,
+    8000
+  ],
+  "transforms": [
+    {
+      "t": 0,
+      "kenburns": "matrix(1.00007, 0, 0, 1.00007, 0, 0)",
+      "orbit": "matrix(0.994524, 0.104512, -0.104512, 0.994524, 0, 0)"
+    },
+    {
+      "t": 2500,
+      "kenburns": "matrix(1.00225, 0, 0, 1.00225, 0, 0)",
+      "orbit": "matrix(0.840039, 0.542526, -0.542526, 0.840039, 0, 0)"
+    },
+    {
+      "t": 5000,
+      "kenburns": "matrix(1.0076, 0, 0, 1.0076, 0, 0)",
+      "orbit": "matrix(0.508659, 0.860968, -0.860968, 0.508659, 0, 0)"
+    },
+    {
+      "t": 8000,
+      "kenburns": "matrix(1.01784, 0, 0, 1.01784, 0, 0)",
+      "orbit": "matrix(-0.0123835, 0.999923, -0.999923, -0.0123835, 0, 0)"
+    }
+  ],
+  "rmsFromT0": [
+    {
+      "from": 0,
+      "to": 2500,
+      "rms": 131.8874057109788
+    },
+    {
+      "from": 0,
+      "to": 5000,
+      "rms": 142.15917611778767
+    },
+    {
+      "from": 0,
+      "to": 8000,
+      "rms": 143.10197058566405
+    }
+  ],
+  "maxRmsFromT0": 143.10197058566405,
+  "computed": {
+    "url": "http://127.0.0.1:43011/index.html",
+    "reducedMotion": false,
+    "bodyClass": "reveal-viewport",
+    "printPdf": false,
+    "exportClass": false,
+    "kenburns": {
+      "animationName": "eo-kenburns",
+      "animationDuration": "28s",
+      "transform": "matrix(1.00007, 0, 0, 1.00007, 0, 0)",
+      "scale": 1
+    },
+    "orbit": {
+      "animationName": "eo-orbit-drift",
+      "animationDuration": "42s",
+      "transform": "matrix(0.994524, 0.104512, -0.104512, 0.994524, 0, 0)",
+      "scale": 1
+    }
+  }
+}
