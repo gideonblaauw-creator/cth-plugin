@@ -1,0 +1,43 @@
+{
+  "computed": {
+    "1": {
+      "position": "absolute",
+      "height": "1000px",
+      "heightPx": 1000
+    },
+    "2": {
+      "position": "absolute",
+      "height": "1080px",
+      "heightPx": 1080
+    },
+    "7": {
+      "position": "absolute",
+      "height": "1080px",
+      "heightPx": 1080
+    },
+    "9": {
+      "position": "absolute",
+      "height": "1080px",
+      "heightPx": 1080
+    },
+    "11": {
+      "position": "absolute",
+      "height": "1080px",
+      "heightPx": 1080
+    }
+  },
+  "whiteRatios": {
+    "1": 0.012999131944444445,
+    "2": 0.025789448302469136,
+    "7": 0.07669010416666666,
+    "9": 0.06416145833333334,
+    "11": 0.03923755787037037
+  },
+  "fileSizes": {
+    "1": 2124942,
+    "2": 2603798,
+    "7": 1924356,
+    "9": 1092370,
+    "11": 1865527
+  }
+}
