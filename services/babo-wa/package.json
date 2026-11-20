@@ -1,1 +1,20 @@
-PLACEHOLDER_PACKAGE
+{
+  "name": "babo-wa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Babo WhatsApp Web pairing (QR only, send disabled)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test groups.test.js groups.routes.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "pino": "^9.6.0",
+    "qrcode": "^1.5.4"
+  }
+}
