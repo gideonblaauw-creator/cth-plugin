@@ -6,17 +6,18 @@ meta:
   date: "2026-11-24"
 slides:
   - type: cover
-    title: Datatón + CTH Datalab
+    title: El piloto del 24 de noviembre guía equipos del Datatón con el método del Datalab
     subtitle: Qué hacemos hoy, cómo se decide y qué sigue después del piloto del 24 de noviembre de 2026
     client: CleantechHUB · piloto Air4U
     date: 24 noviembre 2026
-    notes: "[1/16 · cover] Piloto 24 nov 2026. Fuente: methodology-v0.3.md; agenda-equipos.md v0.3-es."
+    image: assets/method-flow.svg
+    notes: "[1/17 · cover] Piloto 24 nov 2026. Fuente: methodology-v0.3.md; agenda-equipos.md v0.3-es."
   - type: statement
     text: Sin datos listos para una decisión real, no hay escalera honesta ni pantalla útil para el usuario que usted nombra.
-    attribution: "methodology-v0.3.md (principio del método)"
-    notes: "[2/16 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula."
+    attribution: methodology-v0.3.md (principio del método)
+    notes: "[2/17 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula."
   - type: ecosystem
-    title: El CTH Datalab es el laboratorio de datos de la Fundación
+    title: El CTH Datalab concentra al método, los mentores y la salida hacia 2027
     centre: CTH Datalab
     nodes:
       - label: Equipos del Datatón
@@ -27,9 +28,9 @@ slides:
         text: 3 ganadores entran a la vía Datalab en 2027 (beneficio piloto; detalle con mesa CTH).
       - label: Sandbox de aire abierto
         text: Tres paneles — línea base, delta, paisaje — en cada número.
-    notes: "[3/16 · ecosystem] methodology-v0.3.md; facilitator-guide.md."
+    notes: "[3/17 · ecosystem] methodology-v0.3.md; facilitator-guide.md."
   - type: process
-    title: El embudo del piloto es claro y está contado en la metodología
+    title: El embudo del piloto deja claro quién avanza de 20 equipos a 3 ganadores
     steps:
       - label: Campo
         text: Hasta 20 equipos en el piloto del 24 nov 2026.
@@ -39,9 +40,9 @@ slides:
         text: 16:00 — los 6 equipos presentan; jueces puntúan utilidad e honestidad.
       - label: Salida
         text: 3 ganadores hacia la vía CTH Datalab 2027.
-    notes: "[4/16 · process] methodology-v0.3.md tabla mentor shortlist; agenda-equipos.md (20→6→3)."
+    notes: "[4/17 · process] methodology-v0.3.md tabla mentor shortlist; agenda-equipos.md (20→6→3)."
   - type: timeline
-    title: Agenda del día — confirmar horas salvo finales
+    title: Confirme las horas del día con el facilitador, excepto la final a las 16:00
     items:
       - date: "[confirmar]"
         label: Bloque 1 mañana
@@ -59,53 +60,59 @@ slides:
       - date: "[confirmar]"
         label: Cierre
         text: 3 ganadores y siguientes pasos hacia Datalab 2027.
-    notes: "[5/16 · timeline] agenda-equipos.md v0.3-es; facilitator-guide.md."
+    notes: "[5/17 · timeline] agenda-equipos.md v0.3-es; facilitator-guide.md."
+  - type: statement
+    text: Pasamos del calendario confirmado al ejemplo Air4U que el paquete de equipo documenta para copiar hoy.
+    attribution: Guía equipos · transición mañana / tarde
+    notes: "[6/17 · statement] Puente navy entre agenda y ejemplo trabajado."
   - type: showcase
-    title: El método en una imagen — de lienzo a pantalla de una hoja
+    title: El método recorre nueve bloques del lienzo hasta una pantalla de una hoja
     text: Recorren nueve bloques del BMC, pintan dónde vive cada dato, suben la escalera Medallion, nombran un usuario y una decisión, y cierran con un boceto de tres paneles.
     images:
       - assets/method-flow.svg
     link: "Fuente: methodology-v0.3.md (diagrama de flujo)."
-    notes: "[6/16 · showcase] Diagrama Hands; flujo textual en methodology-v0.3.md."
+    notes: "[7/17 · showcase] Diagrama Hands; flujo textual en methodology-v0.3.md."
   - type: showcase
-    title: "Ejemplo Air4U — lienzo BMC (cliente: una clínica en Bogotá, piloto)"
+    title: El ejemplo Air4U muestra el lienzo BMC de una clínica en Bogotá en piloto
     text: El BMC de Air4U (ilustrativo, sin diligenciar por la empresa) muestra sensores indoor, ventas citadas en pitch y reseñas en marketplace. Nombre Air4U permitido; la clínica piloto queda anónima.
     images:
       - assets/Air4U_BMC_preview.png
     link: "Fuente: bmc/Air4U_BMC.html v0.1, 21 nov 2026; air4u-worked-example.md."
-    notes: "[7/16 · showcase] Tarjeta de bundles; sin teléfonos ni nombres de personas."
+    notes: "[8/17 · showcase] Tarjeta de bundles; sin teléfonos ni nombres de personas."
   - type: case-cards
-    title: Mapa de calor — D1 sensores en Propuestas de valor (escenario estricto)
+    title: El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto
     cards:
       - name: Puntaje D1
+        image: assets/air4u-drl-heatmap-ladder-confirmed.png
         text: "D=10, banda WARM; enlaza VP, KA y KR. Etiquetas LEGAL?, TECH?, QUALITY? — avisan, no excluyen."
       - name: Qué copiar hoy
         text: Fundador y operador marcan conjuntos por bloque; CTH devuelve bloques para la tarde. Debajo de Bronce sigue siendo válido.
-    notes: "[8/16 · case-cards] air4u-worked-example.md §Block 1 strict; scoring-rubric.md v0.3."
+    notes: "[9/17 · case-cards] air4u-worked-example.md §Block 1 strict; scoring-rubric.md v0.3."
   - type: case-cards
-    title: Escalera Medallion — debajo de Bronce es normal en el ejemplo
+    title: La escalera Medallion deja el ejemplo debajo de Bronce sin penalizar al equipo
     cards:
       - name: Tarjeta A (sensores D1)
+        image: assets/air4u-drl-heatmap-ladder-confirmed.png
         text: "Nivel alcanzado: Ninguno (debajo de C1/Bronce). Siguiente grada: B5 almacenamiento nombrado, B6 derechos escritos, B7 exportación."
       - name: Lección
         text: La grada se calcula con casillas B/S/G, no se declara. Sin ONAC acreditado — CTH en camino hacia ONAC, sin afirmar acreditación.
-    notes: "[9/16 · case-cards] air4u-worked-example.md §Block 2; q2-data-workflow.md v0.3."
+    notes: "[10/17 · case-cards] air4u-worked-example.md §Block 2; q2-data-workflow.md v0.3."
   - type: showcase
-    title: Tarjeta dato-a-valor — gestor del sitio piloto
+    title: La tarjeta dato a valor nombra al gestor del sitio piloto y su decisión semanal
     text: "Usuario: gestor de instalaciones. Decisión: ¿activar ventilación o revisar filtros esta semana si el PM₂.₅ indoor podría superar la referencia? Todos los números en estimado mientras la escalera está en Ninguno."
     images:
       - assets/Air4U_BMC_preview_p2.png
     link: "Fuente: team-pack-es/ejemplo-air4u.md; tests/air4u/q3-worked-example.md."
-    notes: "[10/16 · showcase] Rol genérico, sin nombre de persona."
+    notes: "[11/17 · showcase] Rol genérico, sin nombre de persona."
   - type: showcase
-    title: Boceto de tablero — sandbox en tres paneles
+    title: El boceto de tablero organiza línea base, delta y paisaje en tres paneles
     text: "Línea base (cliente), delta (innovador) y paisaje (aire abierto). Tablero público: NO mientras derechos abiertos. Honestidad — firmar solo en Plata+."
     images:
       - assets/dashboard-sketch.svg
     link: "Fuente: ejemplo-air4u.md boceto; methodology-v0.3.md tabla Open Air Sandbox."
-    notes: "[11/16 · showcase] Ilustración Hands alineada al texto del team pack."
+    notes: "[12/17 · showcase] Ilustración Hands alineada al texto del team pack."
   - type: key-facts
-    title: Reglas de honestidad que los jueces esperan
+    title: Las reglas de honestidad son las que los jueces esperan en la final de las 16:00
     items:
       - icon: Ag
         label: Plata+ para firmes
@@ -116,18 +123,18 @@ slides:
       - icon: Pub
         label: Sin tablero público
         text: Mientras acceso legal o ético siga abierto en cualquier dato usado.
-    notes: "[12/16 · key-facts] finals-judging-sheet-v0.3.md recordatorio juez; data-rights-note.md."
+    notes: "[13/17 · key-facts] finals-judging-sheet-v0.3.md recordatorio juez; data-rights-note.md."
   - type: title-bullets
-    title: Cómo se califica — corta de mentores y finales
+    title: Los mentores y jueces califican con reglas de utilidad, honestidad y bono Plata
     eyebrow: Piloto 24 nov 2026
     bullets:
       - "Mentores eligen 6 finalistas con avance de escalera, completitud de Hoja 3 y bono Plata (+1 por número firme en Plata u Oro en la tarjeta, máx. +3)."
       - "Finales 16:00 — Parte A utilidad 0–5; Parte B honestidad 0–5 (total /10)."
       - "Empate en utilidad y honestidad — gana la historia solo si ambas partes empataron."
       - "Un tablero simple y honesto gana a uno llamativo sin respaldo en la hoja."
-    notes: "[13/16 · title-bullets] finals-judging-sheet.md v0.3; facilitator-guide.md §Silver bonus."
+    notes: "[14/17 · title-bullets] finals-judging-sheet.md v0.3; facilitator-guide.md §Silver bonus."
   - type: offer
-    title: Qué recibe cada equipo hoy
+    title: Cada equipo recibe hoy el paquete v0.3-es y apoyo del facilitador
     price: Incluido
     currency: piloto
     includes:
@@ -135,9 +142,9 @@ slides:
       - Plantilla de carpeta Drive cuando el facilitador la active.
       - Prompts de IA del team pack para acelerar redacción, no para inventar cifras.
     note: Sin costo de entrada en el piloto; beneficio Datalab 2027 para 3 ganadores según mesa CTH.
-    notes: "[14/16 · offer] team-pack-es/*; guia-carpeta-drive.md; prompts-ia.md."
+    notes: "[15/17 · offer] team-pack-es/*; guia-carpeta-drive.md; prompts-ia.md."
   - type: key-facts
-    title: Derechos de datos — reglas prácticas (no es asesoría legal)
+    title: Las reglas prácticas de derechos de datos protegen sitios y personas sin ser asesoría legal
     items:
       - icon: NP
         label: Solo datos permitidos
@@ -148,9 +155,9 @@ slides:
       - icon: Leg
         label: Si hay duda
         text: Marque LEGAL? en el mapa y pida mentor; pare en asesoría legal formal.
-    notes: "[15/16 · key-facts] data-rights-note.md v0.3; nota-derechos-datos.md equipo."
+    notes: "[16/17 · key-facts] data-rights-note.md v0.3; nota-derechos-datos.md equipo."
   - type: contact
-    title: Contacto CleantechHUB (genérico)
+    title: La mesa del Datatón atiende dudas operativas por el canal genérico de CleantechHUB
     people:
       - name: Fundación CleantechHUB
         role: Mesa Datatón / Datalab
@@ -160,4 +167,4 @@ slides:
         url: https://cleantechhub.net
       - kind: Wiki
         url: https://wiki.cleantechhub.net
-    notes: "[16/16 · contact] Sin nombres personales ni teléfonos. Cierre del deck."
+    notes: "[17/17 · contact] Sin nombres personales ni teléfonos. Cierre del deck."
