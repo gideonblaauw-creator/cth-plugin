@@ -29,6 +29,7 @@ import {
   persistPollCreation,
 } from './polls.js';
 import { fetchChatAudio, fetchChatMedia } from './media-fetch.js';
+import { createGroupRouteHandlers } from './route-handlers.js';
 
 const HOST = '127.0.0.1';
 const PORT = 8790;
@@ -47,6 +48,27 @@ let activeSock = null;
 let sendEnabled = false;
 
 const logger = pino({ level: 'warn' });
+
+function relockSend() {
+  sendEnabled = false;
+}
+
+const groupRoutes = createGroupRouteHandlers({
+  get sendEnabled() {
+    return sendEnabled;
+  },
+  get connectionState() {
+    return connectionState;
+  },
+  get activeSock() {
+    return activeSock;
+  },
+  get channelId() {
+    return channelId;
+  },
+  logger,
+  relockSend,
+});
 
 function sendJson(res, status, body) {
   res.writeHead(status, { 'Content-Type': 'application/json' });
@@ -517,6 +539,44 @@ const server = http.createServer(async (req, res) => {
       const notFound = /item-not-found|not found|404|no profile|exist/i.test(msg);
       return sendJson(res, notFound ? 404 : 500, { ok: false, jid, error: msg });
     }
+  }
+
+  if (pathname === '/group-create' && req.method === 'POST') {
+    const raw = await readBody(req);
+    let body = {};
+    try {
+      body = raw.trim() ? JSON.parse(raw) : {};
+    } catch {
+      return sendJson(res, 400, { error: 'invalid JSON body', sendEnabled });
+    }
+    return groupRoutes.handleGroupCreate(body, res, sendJson);
+  }
+
+  if (pathname === '/group-description' && req.method === 'POST') {
+    const raw = await readBody(req);
+    let body = {};
+    try {
+      body = raw.trim() ? JSON.parse(raw) : {};
+    } catch {
+      return sendJson(res, 400, { error: 'invalid JSON body', sendEnabled });
+    }
+    return groupRoutes.handleGroupDescription(body, res, sendJson);
+  }
+
+  if (pathname.startsWith('/group-invite/') && req.method === 'GET') {
+    const parsed = groupRoutes.parseGroupJidFromPath(pathname.slice('/group-invite/'.length));
+    if (parsed.error) {
+      return sendJson(res, 400, { error: parsed.error, sendEnabled });
+    }
+    return groupRoutes.handleGroupInvite(parsed.jid, res, sendJson);
+  }
+
+  if (pathname.startsWith('/group-meta/') && req.method === 'GET') {
+    const parsed = groupRoutes.parseGroupJidFromPath(pathname.slice('/group-meta/'.length));
+    if (parsed.error) {
+      return sendJson(res, 400, { error: parsed.error });
+    }
+    return groupRoutes.handleGroupMeta(parsed.jid, res, sendJson);
   }
 
   if (pathname === '/status') {

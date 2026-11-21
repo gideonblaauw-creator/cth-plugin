@@ -6,7 +6,8 @@
   "description": "Babo WhatsApp Web pairing (QR only, send disabled)",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test groups.test.js groups.routes.test.js"
   },
   "engines": {
     "node": ">=20"
