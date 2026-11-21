@@ -81,22 +81,60 @@ function makeHandlers(overrides = {}) {
 
 describe('group routes (mocked socket)', () => {
   it('POST /group-create returns 403 when send lock closed', async () => {
-    const { handlers } = makeHandlers({ sendEnabled: false });
-    const { res, state } = mockRes();
+    const { handlers, state } = makeHandlers({ sendEnabled: false });
+    const { res, state: http } = mockRes();
     await handlers.handleGroupCreate(
       { name: 'x', participants: ['5730000000001'] },
       res,
       sendJson,
     );
-    assert.equal(state.status, 403);
-    assert.match(state.body.error, /disabled/);
+    assert.equal(http.status, 403);
+    assert.match(http.body.error, /disabled/);
+    assert.equal(state.relocked, false);
   });
 
-  it('POST /group-create returns 400 for bad input', async () => {
-    const { handlers } = makeHandlers();
-    const { res, state } = mockRes();
+  it('POST /group-create returns 400 for bad input and relocks', async () => {
+    const { handlers, state } = makeHandlers();
+    const { res, state: http } = mockRes();
     await handlers.handleGroupCreate({ name: '', participants: [] }, res, sendJson);
-    assert.equal(state.status, 400);
+    assert.equal(http.status, 400);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
+  });
+
+  it('POST /group-create returns 400 when numbers not on WhatsApp and relocks', async () => {
+    const { handlers, state } = makeHandlers({
+      sock: {
+        onWhatsApp: async () => [{ jid: '5730000000009@s.whatsapp.net', exists: false }],
+      },
+    });
+    const { res, state: http } = mockRes();
+    await handlers.handleGroupCreate(
+      { name: 'MentorXs', participants: ['5730000000009'] },
+      res,
+      sendJson,
+    );
+    assert.equal(http.status, 400);
+    assert.match(http.body.error, /not on WhatsApp/i);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
+  });
+
+  it('POST /group-create returns 500 on socket error and relocks', async () => {
+    const { handlers, state } = makeHandlers({
+      groupCreate: async () => {
+        throw new Error('group create failed');
+      },
+    });
+    const { res, state: http } = mockRes();
+    await handlers.handleGroupCreate(
+      { name: 'MentorXs', participants: ['5730000000001'] },
+      res,
+      sendJson,
+    );
+    assert.equal(http.status, 500);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
   });
 
   it('POST /group-create parses partial add failures and relocks', async () => {
@@ -128,12 +166,52 @@ describe('group routes (mocked socket)', () => {
     assert.equal(state.relocked, true);
   });
 
+  it('POST /group-description returns 400 for bad input and relocks', async () => {
+    const { handlers, state } = makeHandlers();
+    const { res, state: http } = mockRes();
+    await handlers.handleGroupDescription({ jid: '', description: '' }, res, sendJson);
+    assert.equal(http.status, 400);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
+  });
+
+  it('POST /group-description returns 500 on socket error and relocks', async () => {
+    const { handlers, state } = makeHandlers({
+      groupUpdateDescription: async () => {
+        throw new Error('description update failed');
+      },
+    });
+    const { res, state: http } = mockRes();
+    await handlers.handleGroupDescription(
+      { jid: GROUP_JID, description: 'Dataton group' },
+      res,
+      sendJson,
+    );
+    assert.equal(http.status, 500);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
+  });
+
   it('GET /group-invite behind send lock', async () => {
-    const { handlers } = makeHandlers();
-    const { res, state } = mockRes();
+    const { handlers, state } = makeHandlers();
+    const { res, state: http } = mockRes();
     await handlers.handleGroupInvite(GROUP_JID, res, sendJson);
-    assert.equal(state.status, 200);
-    assert.match(state.body.link, /^https:\/\/chat\.whatsapp\.com\//);
+    assert.equal(http.status, 200);
+    assert.match(http.body.link, /^https:\/\/chat\.whatsapp\.com\//);
+    assert.equal(state.relocked, true);
+  });
+
+  it('GET /group-invite returns 500 on socket error and relocks', async () => {
+    const { handlers, state } = makeHandlers({
+      groupInviteCode: async () => {
+        throw new Error('invite code failed');
+      },
+    });
+    const { res, state: http } = mockRes();
+    await handlers.handleGroupInvite(GROUP_JID, res, sendJson);
+    assert.equal(http.status, 500);
+    assert.equal(state.relocked, true);
+    assert.equal(state.sendEnabled, false);
   });
 
   it('GET /group-meta is read-only without send lock', async () => {
