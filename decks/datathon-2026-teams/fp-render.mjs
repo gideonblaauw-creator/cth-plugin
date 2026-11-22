@@ -48,7 +48,7 @@ function photoLayers(bg, pos, scrim) {
 function sectionOpen(cls, type, bg, extra = "", pos, scrim) {
   const photo = bg && bg !== "navy" ? " fp-has-photo" : "";
   const navy = bg === "navy" ? " fp--navy-only" : "";
-  const bgColor = navy ? "#0C498A" : "#FFFFFF";
+  const bgColor = navy || photo ? "#0C498A" : "#FFFFFF";
   return `<section class="fp ${cls}${photo}${navy}${extra}" data-cth-type="${esc(type)}" data-background-color="${bgColor}">
   ${photoLayers(bg, pos, scrim)}`;
 }

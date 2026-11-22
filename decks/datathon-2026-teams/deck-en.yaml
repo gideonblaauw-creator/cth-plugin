@@ -64,7 +64,6 @@ slides:
     source: "Datathon team pack (EN/ES)"
   - type: statement
     text: "Now we walk through the method step by step with a real example: a clinic in Bogotá."
-    attribution: Team guide · morning / afternoon bridge
   - type: showcase
     kicker: Air4U pilot example
     title: The method crosses nine BMC blocks to a one-screen dashboard

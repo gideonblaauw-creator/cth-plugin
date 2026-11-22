@@ -62,7 +62,6 @@ slides:
     notes: "[5/17 · timeline]"
   - type: statement
     text: "Ahora vemos el método paso a paso con un ejemplo real: una clínica en Bogotá."
-    attribution: Guía equipos · transición mañana / tarde
     notes: "[6/17 · statement]"
   - type: showcase
     title: El método recorre nueve bloques del lienzo hasta una pantalla de una hoja
