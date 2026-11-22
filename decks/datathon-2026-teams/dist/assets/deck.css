@@ -279,6 +279,65 @@
 .lang-toggle .sep { width: 0; }
 html.export .lang-toggle, .print-pdf .lang-toggle { display: none !important; }
 
+/* i18n (fix2) */
+body[data-lang="en"] .l-es { display: none !important; }
+body[data-lang="es"] .l-en { display: none !important; }
+
+/* Photo backgrounds — strong navy scrim */
+.reveal .fp-has-photo { position: relative; color: #FFFFFF; }
+.reveal .fp-has-photo .fp-photo-bg {
+  position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center;
+}
+.reveal .fp-has-photo .fp-photo-scrim {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(12,73,138,0.78) 0%, rgba(12,73,138,0.62) 40%, rgba(12,73,138,0.9) 100%);
+}
+.reveal .fp-has-photo > :not(.fp-photo-bg):not(.fp-photo-scrim):not(.fp-deco-wrap) { position: relative; z-index: 1; }
+.reveal .fp-has-photo .fp-title, .reveal .fp-has-photo .fp-eyebrow { color: #FFFFFF; }
+.reveal .fp-has-photo .fp-eyebrow { color: #9DC384; }
+.reveal .fp-has-photo .fp-card { background: rgba(255,255,255,0.96); color: #0C498A; border-color: #B2EEFA; }
+.reveal .fp-has-photo .fp-foot, .reveal .fp-has-photo .fp-foot .fp-conf { color: #B2EEFA; }
+.reveal .fp-cover--photo .fp-cover__title, .reveal .fp-cover--photo .fp-cover__sub, .reveal .fp-cover--photo .fp-cover__meta { color: #FFFFFF; }
+.reveal .fp-cover--photo .fp-eyebrow--lg { color: #9DC384; }
+.reveal .fp-cover__main--chips { grid-template-columns: 1fr; }
+.reveal .fp-method-chips { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.reveal .fp-method-chip {
+  background: rgba(157,195,132,0.95); color: #0C498A; font-weight: 700; font-size: 22px;
+  padding: 10px 22px; border-radius: 999px; border: 2px solid #669348;
+}
+.reveal .fp-takeaway {
+  font-size: 26px; font-weight: 700; line-height: 1.35; color: #669348; margin: 18px 0 8px !important;
+  padding-left: 16px; border-left: 6px solid #9DC384;
+}
+.reveal .fp-has-photo .fp-takeaway { color: #B2EEFA; border-left-color: #9DC384; }
+.reveal .fp-source { font-size: 17px; margin-top: 12px !important; }
+.reveal .fp-chart-proof--photo .fp-cp__cap { color: #FFFFFF; border-left-color: #9DC384; }
+.reveal .fp-cp__shot--zoom { overflow: hidden; max-height: 780px; }
+.reveal .fp-cp__shot--tall { max-height: none; }
+.reveal .fp-dash-duo .fp-title { font-size: 46px; max-width: 1500px; }
+.reveal .fp-dash-duo .fp-head { margin-bottom: 14px; }
+.reveal .fp-dash__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 12px; max-height: 520px; }
+.reveal .fp-dash__fig { margin: 0; border-radius: 14px; overflow: hidden; border: 3px solid #B2EEFA; background: #FFFFFF; height: 100%; display: flex; flex-direction: column; }
+.reveal .fp-dash__fig img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: contain; object-position: top; background: #FFFFFF; }
+.reveal .fp-dash__fig figcaption { font-size: 18px; font-weight: 700; padding: 10px 14px; color: #0C498A; background: #F2FAF0; }
+.reveal .fp-dash__bridge {
+  font-size: 22px; font-weight: 700; color: #669348; margin-bottom: 10px !important;
+  padding: 8px 14px; background: #F2FAF0; border-radius: 12px; border: 2px dashed #9DC384;
+}
+.reveal .fp-dash-duo .fp-cp__cap { font-size: 22px; margin-bottom: 8px !important; }
+.reveal .fp-dash-duo .fp-takeaway { font-size: 21px; margin: 8px 0 !important; }
+.reveal .fp-dash__caption { font-size: 19px; color: #69B5FA; margin-top: 10px !important; }
+.reveal .fp-person__link a { color: #669348; font-weight: 700; font-size: 22px; text-decoration: none; }
+/* Lower-half fill slides */
+.reveal .fp-card--fill .fp-card__text { font-size: 26px; line-height: 1.42; }
+.reveal .fp-card--fill { padding: 32px 36px; min-height: 0; }
+.reveal .fp-ecosystem--fill .fp-eco__node { min-height: 200px; }
+.reveal .fp-process--fill .fp-step { min-height: 680px; }
+.reveal .fp-key-facts--fill .fp-fact { min-height: 320px; padding: 34px 30px; }
+.reveal .fp-title-bullets--fill .fp-bullets { font-size: 28px; line-height: 1.45; }
+.reveal .fp-title-bullets--fill .fp-bullets li { margin-bottom: 14px; }
+.reveal .fp-offer--fill .fp-checks { font-size: 28px; line-height: 1.45; }
+
 /* chart-proof: live model screenshot + proof (v5) */
 .reveal .fp-chart-proof .fp-head { margin-bottom: 28px; }
 .reveal .fp-cp { display: grid; grid-template-columns: 846px 1fr; gap: 48px; align-items: stretch; min-height: 0; }

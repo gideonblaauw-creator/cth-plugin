@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Export 1280px slide PNGs + contact sheet + slide-2 vs FODESEP side-by-side. */
+/** Export 1280px slide PNGs + contact sheets (ES + EN). */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath, pathToFileURL } from "url";
@@ -18,68 +18,84 @@ fs.mkdirSync(artDir, { recursive: true });
 
 const chrome = process.env.CHROME_PATH || "/usr/bin/google-chrome-stable";
 
-const browser = await puppeteer.launch({
-  executablePath: chrome,
-  headless: true,
-  args: ["--no-sandbox", "--disable-gpu"],
-});
-
-const page = await browser.newPage();
-await page.goto(`file://${distHtml}`, { waitUntil: "networkidle0", timeout: 120000 });
-const count = await page.evaluate(
-  () => document.querySelectorAll(".reveal .slides section[data-cth-type]").length
-);
-
-const slidePngs = [];
-for (let i = 0; i < count; i++) {
-  await page.evaluate((n) => window.Reveal.slide(n), i);
-  await new Promise((r) => setTimeout(r, 450));
-  const name = `slide-${String(i + 1).padStart(2, "0")}-1280.png`;
-  const local = path.join(outDir, name);
-  await page.setViewport({ width: 1280, height: 720 });
-  await page.screenshot({ path: local, type: "png" });
-  const art = path.join(artDir, name);
-  fs.copyFileSync(local, art);
-  slidePngs.push(art);
-  console.log(name);
+function contactSheet(paths, dest) {
+  const py = spawnSync(
+    "python3",
+    [
+      "-c",
+      `from PIL import Image
+import sys
+paths=sys.argv[1:-1]
+dest=sys.argv[-1]
+cols=4
+pad=8
+w,h=320,180
+rows=(len(paths)+cols-1)//cols
+W=cols*w+(cols+1)*pad
+H=rows*h+(rows+1)*pad
+out=Image.new("RGB",(W,H),"white")
+for i,p in enumerate(paths):
+  im=Image.open(p).resize((w,h))
+  c,r=i%cols,i//cols
+  out.paste(im,(pad+c*(w+pad),pad+r*(h+pad)))
+out.save(dest)`,
+      ...paths,
+      dest,
+    ],
+    { encoding: "utf8" }
+  );
+  if (py.status !== 0) {
+    throw new Error(py.stderr || py.stdout || "contact sheet failed");
+  }
 }
 
-const contactLocal = path.join(outDir, "contact-sheet.png");
-const contactArt = path.join(artDir, "datathon-2026-teams-contact-sheet.png");
-const montage = spawnSync(
-  "montage",
-  [...slidePngs, "-tile", "4x", "-geometry", "+8+8", "-background", "white", contactArt],
-  { encoding: "utf8" }
-);
-if (montage.status !== 0) {
-  console.error(montage.stderr);
-  process.exit(1);
+async function exportLang(lang) {
+  const browser = await puppeteer.launch({
+    executablePath: chrome,
+    headless: true,
+    args: ["--no-sandbox", "--disable-gpu"],
+  });
+  const page = await browser.newPage();
+  const url = `file://${distHtml}?lang=${lang}`;
+  await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
+  await page.evaluate((l) => {
+    document.body.setAttribute("data-lang", l);
+    document.documentElement.setAttribute("lang", l);
+    document.querySelectorAll(".lang-toggle button").forEach((b) => {
+      b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === l ? "true" : "false");
+    });
+  }, lang);
+  const count = await page.evaluate(
+    () => document.querySelectorAll(".reveal .slides section[data-cth-type]").length
+  );
+  const slidePngs = [];
+  for (let i = 0; i < count; i++) {
+    await page.evaluate((n) => window.Reveal.slide(n), i);
+    await new Promise((r) => setTimeout(r, 500));
+    const name = `slide-${String(i + 1).padStart(2, "0")}-1280-${lang}.png`;
+    const local = path.join(outDir, name);
+    await page.setViewport({ width: 1280, height: 720 });
+    await page.screenshot({ path: local, type: "png" });
+    const art = path.join(artDir, name);
+    fs.copyFileSync(local, art);
+    slidePngs.push(art);
+    console.log(name);
+  }
+  const contactName = `datathon-2026-teams-contact-sheet-${lang}.png`;
+  const contactArt = path.join(artDir, contactName);
+  contactSheet(slidePngs, contactArt);
+  fs.copyFileSync(contactArt, path.join(outDir, contactName));
+  console.log("contact-sheet:", contactArt);
+  await browser.close();
+  return { slidePngs, contactArt };
 }
-fs.copyFileSync(contactArt, contactLocal);
 
-const fodepPage = await browser.newPage();
-await fodepPage.setViewport({ width: 1280, height: 720 });
-await fodepPage.goto("https://decks.cleantechhub.net/fodesep-partnership/#/2", {
-  waitUntil: "networkidle0",
-  timeout: 120000,
-});
-await new Promise((r) => setTimeout(r, 1200));
-const fodesepStmt = path.join(artDir, "fodesep-statement-ref.png");
-await fodepPage.screenshot({ path: fodesepStmt, type: "png" });
-
-const sidePath = path.join(artDir, "slide-2-vs-fodesep-statement.png");
-const sideLocal = path.join(outDir, "slide-2-vs-fodesep-statement.png");
-const side = spawnSync(
-  "montage",
-  [slidePngs[1], fodesepStmt, "-tile", "2x", "-geometry", "+12+12", "-background", "#f0f0f0", sidePath],
-  { encoding: "utf8" }
-);
-if (side.status !== 0) {
-  console.error(side.stderr);
-  process.exit(1);
-}
-fs.copyFileSync(sidePath, sideLocal);
-
-await browser.close();
-console.log("contact-sheet:", contactArt);
-console.log("side-by-side:", sidePath);
+const es = await exportLang("es");
+const en = await exportLang("en");
+const manifest = {
+  es: { contact: es.contactArt, slides: es.slidePngs },
+  en: { contact: en.contactArt, slides: en.slidePngs },
+};
+const manifestPath = path.join(artDir, "datathon-2026-teams-export-manifest.json");
+fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+console.log("manifest:", manifestPath);

@@ -1,33 +1,38 @@
 # Sources — datathon-2026-teams
 
-Deck for Datatón pilot (24 Nov 2026). Spanish copy from team-pack-es and methodology v0.3. No invented figures.
+Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No invented figures.
 
-| Claim / slide | Source | Retrieved |
-|---------------|--------|-----------|
-| Pilot date 24 Nov 2026 | `methodology-v0.3.md`, `agenda-equipos.md` (bundle) | 2026-11-21 |
-| Funnel 20 → 6 → 3 → Datalab 2027 | `methodology-v0.3.md` § Mentor shortlist; `agenda-equipos.md` | 2026-11-21 |
-| Finals time 16:00 | `agenda-equipos.md`, `facilitator-guide.md` | 2026-11-21 |
-| Agenda `[confirmar]` placeholders | `agenda-equipos.md` v0.3-es | 2026-11-21 |
-| Method flow BMC → dashboard | `methodology-v0.3.md` § The flow | 2026-11-21 |
-| Air4U BMC visuals | `bmc/Air4U_BMC.html` v0.1 + `Air4U_BMC_preview.png` (bundle) | 2026-11-21 |
-| Heatmap D1 D=10 WARM strict | `air4u-worked-example.md` § Block 1 strict scoring | 2026-11-21 |
-| Ladder None below Bronze | `air4u-worked-example.md` § Block 2 Card A | 2026-11-21 |
-| ONAC path not accredited | `air4u-worked-example.md` Card A footnote | 2026-11-21 |
-| Q3 user/decision (clinic manager) | `team-pack-es/ejemplo-air4u.md` | 2026-11-21 |
-| Dashboard three panels | `methodology-v0.3.md` Open Air Sandbox; `ejemplo-air4u.md` boceto | 2026-11-21 |
-| Silver bonus +1 per firm Silver+ number, max +3 | `facilitator-guide.md`, `finals-judging-sheet.md` v0.3 | 2026-11-21 |
-| Finals usefulness / honesty 0–5 | `finals-judging-sheet-v0.3.md` | 2026-11-21 |
-| Data rights rules | `data-rights-note.md` v0.3; `team-pack-es/nota-derechos-datos.md` | 2026-11-21 |
-| Team pack deliverables | `team-pack-es/` filenames in ticket | 2026-11-21 |
-| CTH contact email | `artifacts/cleantechhub-privacy-policy-README.md` (info@cleantechhub.net) | repo main |
-| method-flow.svg, dashboard-sketch.svg | Hands illustration from methodology text (no numeric claims) | 2026-11-21 |
+## Background photos
 
-## Missing from bundle (not used)
+**Air4U × Datalab social set**, provided by Gideon 21 Nov 2026 (819×1024 portrait JPEGs). Cropped to text-free bands under `assets/photos/*-crop.jpg`. Full-bleed under navy scrim per FODESEP rule.
 
-| Item | Note |
-|------|------|
-| `screenshots/air4u-drl-heatmap-ladder-confirmed.png` | Not present in `air4u-deck-src.tgz`; heatmap slide uses textual case-cards from `air4u-worked-example.md` instead. |
+| Crop file | Source | Slide | Crop |
+|-----------|--------|-------|------|
+| air4u-05-crop.jpg | air4u-05.jpg | 1 cover | y 0–520 |
+| air4u-08-crop.jpg | air4u-08.jpg | 2 statement | y 0–480 |
+| air4u-13-crop.jpg | air4u-13.jpg | 6 statement | y 0–500 |
+| air4u-04-crop.jpg | air4u-04.jpg | 7, 11 | y 0–500 |
+| air4u-11-crop.jpg | air4u-11.jpg | 8, 12 | y 0–520 |
+| air4u-10-crop.jpg | air4u-10.jpg | 9 case-cards | y 0–520 |
+| air4u-02-crop.jpg | air4u-02.jpg | 10 case-cards | x 0–580, y 80–620 (person cropped out) |
 
-## Style reference
+Skipped (people or navy-only): 01, 03, 06, 07, 09, 12, 14. Reference only: 13 partners on social asset 13; 14 launch facts (9:00, Auditorio Edificio H Externado) — **not** on agenda slide; confirm with Gideon.
 
-Live FODESEP deck (`https://decks.cleantechhub.net/fodesep-partnership/`) uses custom `deck.css` and `fp-*` components. This slug is built with **`tools/reveal`** (`theme/cleantechhub.css`, typed slide library) pending a fp-style merge on main.
+## Content
+
+| Claim / slide | Reader-facing source on slide |
+|---------------|-------------------------------|
+| Method, funnel, agenda | Metodología Datatón CTH v0.3 (21 nov 2026); Paquete de equipo Datatón (ES) |
+| Air4U clinic example | Paquete de equipo Datatón (ES) |
+| Hoja 4b filled dashboard | Copied from team-pack `hoja-4b-ejemplo-air4u.png` / `.md` — `[sin dato]` and OMS 5 µg/m³ benchmark as in pack |
+| Hoja 4 template | `hoja-4-plantilla-tablero.png` |
+| Heatmap D1 | `air4u-drl-heatmap-ladder-confirmed.png` |
+| Finals 16:00 | Team pack agenda |
+| Contact | info@cleantechhub.net |
+
+## Figures / screenshots
+
+| Asset | Source |
+|-------|--------|
+| Air4U_BMC_preview*.png | Bundle bmc previews |
+| method-flow.svg | Hands illustration from methodology (no numeric claims) |
