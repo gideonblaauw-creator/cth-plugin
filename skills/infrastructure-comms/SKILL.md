@@ -1,16 +1,16 @@
 ---
 name: infrastructure-comms
 description: >
-  Communications protocol for the Infrastructure Desk. Trigger on Infrastructure Desk comms, harness tickets, or stack coordination.
+  Communications protocol for Control Tower · Infra. Trigger on Infra desk comms, harness tickets, or stack coordination.
   Grok Bot coordination only; file/copy/code → Cloud Hands (Token lock 2026-08-26).
 metadata:
-  version: "1.7.0"
+  version: "1.8.0"
   category: comms
-  desk: "Infrastructure"
-  owner: Infrastructure desk c656afb9
+  desk: "Control Tower · Infra"
+  owner: Control Tower · Infra c656afb9-5323-440c-b90a-e3abf72135c4
 ---
 
-# Infrastructure — Comms
+# Control Tower · Infra — Comms
 
 Desk communications playbook. Grok Bot = **coordination only** (Token lock 2026-08-26). Read `skills/harness/SKILL.md` before any ticket.
 
@@ -18,7 +18,7 @@ Desk communications playbook. Grok Bot = **coordination only** (Token lock 2026-
 
 - **End clients:** Internal CTH stack operators and vendors. Named vendor contacts: **[PENDIENTE]** per ticket.
 - **Who hears what:** Internal ops → **English**. Gideon ↔ Desk → **English**.
-- **Internal:** Gideon Blaauw (HITL). Owner profile: Infrastructure desk **c656afb9**. Read `skills/app-build/SKILL.md` and `skills/doctor-bot/SKILL.md`.
+- **Internal:** Gideon Blaauw (HITL). Owner profile: Control Tower · Infra **c656afb9-5323-440c-b90a-e3abf72135c4**. Org lock: `docs/operating-protocol/infra-control-tower.md`. Read `skills/app-build/SKILL.md` and `skills/doctor-bot/SKILL.md`.
 
 ## 2. Brand skill to follow
 
@@ -50,7 +50,7 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 
 ### Cursor Projects ↔ Desk map (Infra ownership)
 
-Desk structure trickles into **Cursor IDE Projects** — not one Project per chat. Orchestrator routes; **Infrastructure** owns the map; Hands plants repo docs; **Gideon** creates/merges Projects (no Projects API from code).
+Desk structure trickles into **Cursor IDE Projects** — not one Project per chat. Orchestrator routes; **Control Tower · Infra** owns the map; Hands plants repo docs; **Gideon** creates/merges Projects (no Projects API from code).
 
 | Rule | Detail |
 |---|---|
@@ -63,25 +63,27 @@ When ticketing Hands for a desk, optional fields `cursor_project` + `cursor_work
 
 **Peer docs (Infra pointers):** `docs/cursor-projects.md` (Cursor Projects ↔ Desks); **`docs/rakazo-plan-b-pointer.md`** (Plan B emergency failover — Phases 0–4 in `gideonblaauw-creator/rakazo-plan-b`; desk playbook `skills/rakazo-failover-comms/SKILL.md`).
 
-## 5. Lowest-tier model
+## 5. Hands model
 
-**Token budget protocol (22 Oct 2026):** every Cloud Hands job runs on Composer 2.5 Fast (`composer-2.5`, `fast=true`). Do not fill Flash. Do not HOLD a review job for a missing model. The table below is the 13 Sep record. It is not the launch fill-in. Canonical: `skills/harness/SKILL.md` § Token budget protocol and `docs/hands-model-routing.md`.
+**Gideon GO 22 Nov 2026:** every Cloud Hands job uses `composer-2.5` with **Fast OFF** (`fast=false`). Canonical: `skills/hands-model-routing/SKILL.md`. Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. `composer-2.5 (fast=true)` → miss: remap to `fast=false` and flag.
 
-| Job | Model | Notes |
-|-----|-------|-------|
-| Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | 13 Sep record. Retired as launch fill-in on 22 Oct 2026 |
-| Repo / code / build Hands (Signal Radar, LexiScan, scanner, harness, LangGraph) | `composer-2.5` (`fast=true`) | Fast ON. After 22 Oct 2026 this model covers every Cloud Hands job |
-| Review / eval / brand with no model | **HOLD** | 13 Sep record. Retired 22 Oct 2026. Launch Composer 2.5 Fast |
+**Checker:** Control Tower reviews **every** Cloud Hands result (maker ≠ checker). High-risk work still gets a separate read-only checker when required (`skills/harness/SKILL.md` § Token budget protocol).
 
-Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Every Cloud Hands job uses Composer 2.5 Fast ON (Token budget protocol, 22 Oct 2026). `composer-2.5 (fast=false)` on a build → miss: remap to `fast=true` and flag.
+## 6. Workbenches under Control Tower
 
-## 6. Workbench exception
+| Workbench | Agent id | Scope |
+|---|---|---|
+| Engine Room · Workbench | `85949e8a-e9c8-44ff-9396-5b03e29be062` | Server/box, disk, backups, containers, DNS/vhosts, uptime; **Health** (Doctor_Bot) |
+| Autopilot · Workbench | `f8b4b4c2-28a1-45c1-849f-bbb6b5776819` | n8n-li, Slack CTH_OPS, routines, workflow forensics |
+| Vault · Workbench | `c0a4443d-afff-4949-8b3e-21a4cb4e3c98` | Meetings DB, Cognee, Docmost, BookStack, Infisical **names** only |
 
-No standing Workbench. Infrastructure tickets Hands — does not SSH-inventory itself.
+Control Tower tickets Hands — does not SSH-inventory itself. **Toolbox** (diagram/Mermaid+Graphviz, IOPaint, GINA): desks request via Control Tower; Hands runs; Control Tower reviews. Deck/image library review → Presentations + Images, not Control Tower.
 
 Shared across Desks: **WhatsApp** reports to Orchestrator (not this Desk). Drive, GitHub, Buffer, Monday, Notion are **Tools**, not Workbenches.
 
-Workbench is **not** a default and **not** a second Hands. Use only when Hands cannot do the step (no CLI, no connector, no API). HITL before send/post/pay.
+Channel workbench is **not** a default and **not** a second Hands. Use only when Hands cannot do the step (no CLI, no connector, no API). HITL before send/post/pay.
+
+**Gideon queue:** one backlog queue for Infra items awaiting Gideon's yes — no parallel hidden queues.
 
 ## 6.1 CTH_OPS channel (Slack Free, Gideon 18 Nov 2026)
 
@@ -100,6 +102,8 @@ Workbench is **not** a default and **not** a second Hands. Use only when Hands c
 
 Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the owning chat.
 
+**HITL gates (unchanged):** merge, deploy, public change, DNS, send/post, spend, credential activation/deletion, restarts.
+
 Gideon merges and deploys. Hands does not deploy.
 
 ### View Understanding Lab — Hands completion in Gideon chat
@@ -114,7 +118,7 @@ CTA **View Understanding Lab** and full five-beat PASS apply **only** when the t
 
 Never lead with the lab CTA.
 
-On **Tier 0** (default, or `tier:` omitted), Infrastructure **MUST** in Gideon chat — in this order:
+On **Tier 0** (default, or `tier:` omitted), Control Tower · Infra **MUST** in Gideon chat — in this order:
 
 1. **Lead with the Tier label:** `**Tier 0** — Ship`
 2. **Send the cloud-agent card** (View PR) plus short what/why.
@@ -122,7 +126,7 @@ On **Tier 0** (default, or `tier:` omitted), Infrastructure **MUST** in Gideon c
 
 Merge bar is Infra review + short what/why — no lab PASS.
 
-On **Tier 1 or Tier 2** Lane A Hands completion, Infrastructure **MUST** in Gideon chat — in this order:
+On **Tier 1 or Tier 2** Lane A Hands completion, Control Tower · Infra **MUST** in Gideon chat — in this order:
 
 1. **Lead with the Tier label:** `**Tier 1** — Light Understanding` or `**Tier 2** — Full Lab + ledger`
 2. **Send the cloud-agent card** (View PR).
