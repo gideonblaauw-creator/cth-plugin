@@ -99,3 +99,19 @@ const manifest = {
 const manifestPath = path.join(artDir, "datathon-2026-teams-export-manifest.json");
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 console.log("manifest:", manifestPath);
+
+const { runPixelBleedCheck } = await import("./pixel-bleed-check.mjs");
+const bleedReport = runPixelBleedCheck({
+  artDir,
+  distHtml,
+  outPath: path.join(artDir, "datathon-2026-teams-pixel-bleed-report.json"),
+});
+console.log(`\nPixel bleed check: ${bleedReport.pass ? "PASS" : "FAIL"} (${bleedReport.rows.length} navy/photo samples)`);
+if (!bleedReport.pass) {
+  for (const row of bleedReport.rows.filter((r) => !r.pass)) {
+    console.error(
+      `FAIL slide ${row.slide} ${row.lang}: y100=(${row.y100.r},${row.y100.g},${row.y100.b}) y360=(${row.y360.r},${row.y360.g},${row.y360.b}) y620=(${row.y620.r},${row.y620.g},${row.y620.b})`
+    );
+  }
+  process.exit(1);
+}
