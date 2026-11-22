@@ -104,10 +104,10 @@ slides:
     link: Paquete de equipo Datatón (ES)
     notes: "[11/17 · showcase]"
   - type: showcase
-    title: Plantilla Hoja 4 — boceto de tablero en una pantalla
+    title: La plantilla Hoja 4 pone la decisión, el delta y su rango en una sola pantalla
     text: Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.
     images:
-      - assets/hoja-4-plantilla-tablero-hero.png
+      - assets/method-flow.svg
     link: Paquete de equipo Datatón (ES)
     notes: "[12/17 · dashboard-template]"
   - type: key-facts

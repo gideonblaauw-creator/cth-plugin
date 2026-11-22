@@ -1,6 +1,8 @@
 # FODESEP fp overlay (merged in fp-render.mjs; not validated by outline.sh)
 slides:
-  - bg: navy
+  - bg: assets/photos/air4u-05-crop.jpg
+    bg_position: center top
+    photo_scrim: light
     method_chips: [Mapa de calor, Escalera, Tarjeta, Tablero]
   - bg: assets/photos/air4u-08-crop.jpg
     bg_position: center center
@@ -22,7 +24,9 @@ slides:
     source: Paquete de equipo Datatón (ES)
   - kicker: Metodología
     source: Paquete de equipo Datatón (ES)
-  - bg: navy
+  - bg: assets/photos/air4u-10-crop.jpg
+    bg_position: center center
+    photo_scrim: light
   - kicker: Ejemplo · piloto Air4U
     bg: assets/photos/air4u-04-crop.jpg
     takeaway: Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.
@@ -46,6 +50,7 @@ slides:
     takeaway: Firme solo en Plata+ en pantalla — si no, marque estimado.
     shot_zoom: 1.18
   - render_as: dashboard-template
+    native_template: true
     kicker: Ejemplo · piloto Air4U
     template_caption_es: "Ejemplo diligenciado: ver Hoja 4b en el paquete de equipo v0.3-es."
     template_caption_en: "Filled example: see Sheet 4b in the team pack v0.3-es."

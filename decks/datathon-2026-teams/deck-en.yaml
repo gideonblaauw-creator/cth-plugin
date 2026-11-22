@@ -105,8 +105,10 @@ slides:
     link: "Datathon team pack (EN/ES)"
   - type: showcase
     kicker: Air4U pilot example
-    title: Sheet 4 template — one-screen dashboard sketch
+    title: The Sheet 4 template puts the decision, the delta and its range on one screen
     text: User, decision, delta box, and one number panel. Firm confidence only at Silver+.
+    images:
+      - assets/method-flow.svg
     link: "Datathon team pack (EN/ES)"
   - type: key-facts
     kicker: Finals

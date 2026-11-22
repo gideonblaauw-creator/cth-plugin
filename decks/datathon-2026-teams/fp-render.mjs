@@ -37,19 +37,20 @@ function pick(es, en) {
   return { es, en: en ?? es };
 }
 
-function photoLayers(bg, pos) {
+function photoLayers(bg, pos, scrim) {
   if (!bg || bg === "navy") return "";
   const position = pos ? `background-position:${esc(pos)};` : "";
+  const scrimCls = scrim === "light" ? " fp-photo-scrim--light" : "";
   return `<div class="fp-photo-bg" style="background-image:url('${esc(bg)}');${position}" role="presentation"></div>
-  <div class="fp-photo-scrim" aria-hidden="true"></div>`;
+  <div class="fp-photo-scrim${scrimCls}" aria-hidden="true"></div>`;
 }
 
-function sectionOpen(cls, type, bg, extra = "", pos) {
+function sectionOpen(cls, type, bg, extra = "", pos, scrim) {
   const photo = bg && bg !== "navy" ? " fp-has-photo" : "";
   const navy = bg === "navy" ? " fp--navy-only" : "";
   const bgColor = navy ? "#0C498A" : "#FFFFFF";
   return `<section class="fp ${cls}${photo}${navy}${extra}" data-cth-type="${esc(type)}" data-background-color="${bgColor}">
-  ${photoLayers(bg, pos)}`;
+  ${photoLayers(bg, pos, scrim)}`;
 }
 
 function renderCpStats(stats, statsEn) {
@@ -152,7 +153,7 @@ function renderCover(s, sEn) {
   const chipRow = chips
     ? `<div class="fp-method-chips" role="list">${chips}</div>`
     : "";
-  return `${sectionOpen("fp-cover", "cover", bg, bg ? " fp-cover--photo" : "")}
+  return `${sectionOpen("fp-cover", "cover", bg, bg ? " fp-cover--photo" : "", s.bg_position, s.photo_scrim)}
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob" src="assets/blob-cyan.png" alt="" /></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob2" src="assets/blob-green.png" alt="" /></div>
   <div class="fp-cover__top">
@@ -177,7 +178,7 @@ function renderStatement(s, sEn, stmtIndex = 1) {
       ? pick("Principio del método", "Method principle")
       : pick("Siguiente bloque", "Next block");
   const bg = s.bg;
-  return `${sectionOpen("fp-statement fp--dark", "statement", bg)}
+  return `${sectionOpen("fp-statement fp--dark", "statement", bg, "", s.bg_position, s.photo_scrim)}
   <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
   <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
   <div class="fp-statement__body">
@@ -308,11 +309,59 @@ function renderCaseCards(s, sEn) {
 </section>`;
 }
 
+function renderHoja4Native() {
+  const nd = pick("[sin dato]", "[no data]");
+  const field = (labEs, labEn, placeholder = nd) =>
+    `<div class="fp-h4__row"><span class="fp-h4__lab">${T(labEs, labEn)}</span><span class="fp-h4__val">${T(placeholder.es, placeholder.en)}</span></div>`;
+  const panels = [
+    {
+      title: pick("Línea base del cliente", "Client baseline"),
+      role: pick("(entrada)", "(input)"),
+    },
+    {
+      title: pick("Delta del innovador", "Innovator delta"),
+      role: pick("(salida)", "(output)"),
+    },
+    {
+      title: pick("Panorama de datos abiertos", "Open-data landscape"),
+      role: pick("(entrada)", "(input)"),
+    },
+  ];
+  const panelHtml = panels
+    .map(
+      (p) => `<div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title">${T(p.title.es, p.title.en)} <span class="fp-h4__panel-role">${T(p.role.es, p.role.en)}</span></p>
+      ${field("Valor", "Value")}
+      ${field("Rango", "Range")}
+      ${field("Confianza", "Confidence", pick("firme / estimado", "firm / estimated"))}
+      ${field("Por qué", "Why")}
+      ${field("Grada", "Ladder step")}
+    </div>`
+    )
+    .join("\n      ");
+  const bridge = pick(
+    "Delta: donde el dato se vuelve valor",
+    "Delta: where data becomes value"
+  );
+  const flow = pick("entradas → salida → línea de valor", "inputs → output → value line");
+  const foot = pick(
+    "sin tablero público mientras los derechos de datos estén abiertos",
+    "no public dashboard while data rights remain open"
+  );
+  return `<div class="fp-h4 fp-dash__solo" role="img" aria-label="Hoja 4 plantilla">
+    <div class="fp-h4__head">
+      <div class="fp-h4__hdr">${T("Usuario", "User")}<span class="fp-h4__blank"></span></div>
+      <div class="fp-h4__hdr">${T("Decisión", "Decision")}<span class="fp-h4__blank"></span></div>
+    </div>
+    <p class="fp-h4__delta"><span class="fp-h4__delta-label">${T(bridge.es, bridge.en)}</span><span class="fp-h4__delta-flow">${T(flow.es, flow.en)}</span></p>
+    <div class="fp-h4__panels">${panelHtml}</div>
+    <p class="fp-h4__foot">${T(foot.es, foot.en)}</p>
+  </div>`;
+}
+
 function renderDashboardTemplate(s, sEn) {
-  const img = (s.images || [])[0];
-  const shot = img
-    ? `<div class="fp-dash__solo"><img src="${esc(img)}" alt="" /></div>`
-    : "";
+  const img = s.native_template ? null : (s.images || [])[0];
+  const shot = img ? `<div class="fp-dash__solo"><img src="${esc(img)}" alt="" /></div>` : renderHoja4Native();
   const capEs =
     s.template_caption_es ??
     "Ejemplo diligenciado (Hoja 4b): en el paquete de equipo v0.3-es — no en esta lámina.";

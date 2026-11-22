@@ -16,8 +16,9 @@
   </div>
   <div class="reveal">
     <div class="slides">
-      <section class="fp fp-cover fp--navy-only fp-cover--photo" data-cth-type="cover" data-background-color="#0C498A">
-  
+      <section class="fp fp-cover fp-has-photo fp-cover--photo" data-cth-type="cover" data-background-color="#FFFFFF">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/air4u-05-crop.jpg');background-position:center top;" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob" src="assets/blob-cyan.png" alt="" /></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob2" src="assets/blob-green.png" alt="" /></div>
   <div class="fp-cover__top">
@@ -36,7 +37,7 @@
   <aside class="notes">[1/17 · cover] Piloto 24 nov 2026.</aside>
 </section>
       <section class="fp fp-statement fp--dark fp-has-photo" data-cth-type="statement" data-background-color="#FFFFFF">
-  <div class="fp-photo-bg" style="background-image:url('assets/photos/air4u-08-crop.jpg');" role="presentation"></div>
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/air4u-08-crop.jpg');background-position:center center;" role="presentation"></div>
   <div class="fp-photo-scrim" aria-hidden="true"></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
   <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
@@ -138,8 +139,9 @@
   </footer>
   <aside class="notes">[5/17 · timeline]</aside>
 </section>
-      <section class="fp fp-statement fp--dark fp--navy-only" data-cth-type="statement" data-background-color="#0C498A">
-  
+      <section class="fp fp-statement fp--dark fp-has-photo" data-cth-type="statement" data-background-color="#FFFFFF">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/air4u-10-crop.jpg');background-position:center center;" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
   <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
   <div class="fp-statement__body">
@@ -239,9 +241,40 @@
 </section>
       <section class="fp fp-chart-proof fp-dash-solo" data-cth-type="dashboard-template" data-background-color="#FFFFFF">
   
-  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">Plantilla Hoja 4 — boceto de tablero en una pantalla</span><span class="l-en">Sheet 4 template — one-screen dashboard sketch</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">La plantilla Hoja 4 pone la decisión, el delta y su rango en una sola pantalla</span><span class="l-en">The Sheet 4 template puts the decision, the delta and its range on one screen</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
   <div class="fp-body fp-dash-solo__body">
-    <div class="fp-dash__solo"><img src="assets/hoja-4-plantilla-tablero-hero.png" alt="" /></div>
+    <div class="fp-h4 fp-dash__solo" role="img" aria-label="Hoja 4 plantilla">
+    <div class="fp-h4__head">
+      <div class="fp-h4__hdr"><span class="l-es">Usuario</span><span class="l-en">User</span><span class="fp-h4__blank"></span></div>
+      <div class="fp-h4__hdr"><span class="l-es">Decisión</span><span class="l-en">Decision</span><span class="fp-h4__blank"></span></div>
+    </div>
+    <p class="fp-h4__delta"><span class="fp-h4__delta-label"><span class="l-es">Delta: donde el dato se vuelve valor</span><span class="l-en">Delta: where data becomes value</span></span><span class="fp-h4__delta-flow"><span class="l-es">entradas → salida → línea de valor</span><span class="l-en">inputs → output → value line</span></span></p>
+    <div class="fp-h4__panels"><div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Línea base del cliente</span><span class="l-en">Client baseline</span> <span class="fp-h4__panel-role"><span class="l-es">(entrada)</span><span class="l-en">(input)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div>
+      <div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Delta del innovador</span><span class="l-en">Innovator delta</span> <span class="fp-h4__panel-role"><span class="l-es">(salida)</span><span class="l-en">(output)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div>
+      <div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Panorama de datos abiertos</span><span class="l-en">Open-data landscape</span> <span class="fp-h4__panel-role"><span class="l-es">(entrada)</span><span class="l-en">(input)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div></div>
+    <p class="fp-h4__foot"><span class="l-es">sin tablero público mientras los derechos de datos estén abiertos</span><span class="l-en">no public dashboard while data rights remain open</span></p>
+  </div>
     <p class="fp-dash__pack-ref"><span class="l-es">Ejemplo diligenciado: ver Hoja 4b en el paquete de equipo v0.3-es.</span><span class="l-en">Filled example: see Sheet 4b in the team pack v0.3-es.</span></p>
     <p class="fp-cp__cap"><span class="l-es">Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.</span><span class="l-en">User, decision, delta box, and one number panel. Firm confidence only at Silver+.</span></p>
     

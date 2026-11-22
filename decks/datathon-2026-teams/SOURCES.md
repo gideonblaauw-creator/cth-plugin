@@ -8,10 +8,10 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 
 | Slide | Background |
 |-------|------------|
-| 1 cover | navy |
+| 1 cover | air4u-05-crop.jpg (480,0,1080,250) |
 | 2 statement | air4u-08-crop.jpg (780,300,1080,980) |
 | 3–5 | white |
-| 6 statement | navy |
+| 6 statement | air4u-10-crop.jpg (650,50,1080,720) |
 | 7 showcase | air4u-04-crop.jpg (800,700,1080,1150) |
 | 8 showcase | air4u-11-crop.jpg (380,500,720,780) |
 | 9 case-cards | navy |
@@ -19,7 +19,7 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 | 11 showcase | navy |
 | 12 dashboard-template | navy |
 
-Skipped sources (no clean band): air4u-13, air4u-10, air4u-05, air4u-02, plus 01, 03, 06, 07, 09, 12, 14 in social numbering.
+Skipped sources (no clean band): air4u-13, air4u-02, plus 01, 03, 06, 07, 09, 12, 14 in social numbering.
 
 ## Content
 
@@ -27,7 +27,7 @@ Skipped sources (no clean band): air4u-13, air4u-10, air4u-05, air4u-02, plus 01
 |---------------|-------------------------------|
 | Method, funnel, agenda | Metodología Datatón CTH v0.3 (21 nov 2026); Paquete de equipo Datatón (ES) |
 | Air4U clinic example | Paquete de equipo Datatón (ES) |
-| Hoja 4 template (slide 12) | `hoja-4-plantilla-tablero-hero.png`; **Hoja 4b** in pack only (caption) |
+| Hoja 4 template (slide 12) | Native HTML fp-h4 (team pack template); **Hoja 4b** in pack only (caption) |
 | Heatmap D1 | `air4u-drl-heatmap-ladder-confirmed.png` |
 | Finals 16:00 | Team pack agenda |
 | Contact | info@cleantechhub.net |

@@ -12,13 +12,15 @@ OUT = REPO / "assets" / "photos"
 
 # Text-free regions only (1080×1350 sources). None = skip file (use navy on slide).
 CROPS: dict[str, tuple[int, int, int, int] | None] = {
-    "air4u-05.jpg": (0, 0, 1080, 200),
-    "air4u-08.jpg": (780, 300, 1080, 980),
-    "air4u-13.jpg": None,
-    "air4u-04.jpg": (800, 700, 1080, 1150),
-    "air4u-11.jpg": (380, 500, 720, 780),
-    "air4u-10.jpg": None,
-    "air4u-02.jpg": (740, 480, 1060, 880),
+  # Slide 1 cover — right-side sky band (no letterforms)
+  "air4u-05.jpg": (480, 0, 1080, 250),
+  "air4u-08.jpg": (780, 300, 1080, 980),
+  "air4u-13.jpg": None,
+  "air4u-04.jpg": (800, 700, 1080, 1150),
+  "air4u-11.jpg": (380, 500, 720, 780),
+  # Slide 6 statement — mountains / city (no letterforms)
+  "air4u-10.jpg": (650, 50, 1080, 720),
+  "air4u-02.jpg": (740, 480, 1060, 880),
 }
 
 
