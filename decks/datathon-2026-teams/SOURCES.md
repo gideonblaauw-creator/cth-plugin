@@ -4,19 +4,22 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 
 ## Background photos
 
-**Air4U × Datalab social set**, provided by Gideon 21 Nov 2026 (819×1024 portrait JPEGs). Cropped to text-free bands under `assets/photos/*-crop.jpg`. Full-bleed under navy scrim per FODESEP rule.
+**Air4U × Datalab social set**, provided by Gideon 21 Nov 2026 (1080×1350 portrait JPEGs). Cropped to **text-free bands only** under `assets/photos/*-crop.jpg` (`scripts/crop-air4u-photos.py`). Strong navy scrim. **No slide reuses the same crop.** Slides without a clean 16:9 band use **solid navy** (no social JPEG).
 
-| Crop file | Source | Slide | Crop |
-|-----------|--------|-------|------|
-| air4u-05-crop.jpg | air4u-05.jpg | 1 cover | y 0–520 |
-| air4u-08-crop.jpg | air4u-08.jpg | 2 statement | y 0–480 |
-| air4u-13-crop.jpg | air4u-13.jpg | 6 statement | y 0–500 |
-| air4u-04-crop.jpg | air4u-04.jpg | 7, 11 | y 0–500 |
-| air4u-11-crop.jpg | air4u-11.jpg | 8, 12 | y 0–520 |
-| air4u-10-crop.jpg | air4u-10.jpg | 9 case-cards | y 0–520 |
-| air4u-02-crop.jpg | air4u-02.jpg | 10 case-cards | x 0–580, y 80–620 (person cropped out) |
+| Slide | Background |
+|-------|------------|
+| 1 cover | navy |
+| 2 statement | air4u-08-crop.jpg (780,300,1080,980) |
+| 3–5 | white |
+| 6 statement | navy |
+| 7 showcase | air4u-04-crop.jpg (800,700,1080,1150) |
+| 8 showcase | air4u-11-crop.jpg (380,500,720,780) |
+| 9 case-cards | navy |
+| 10 case-cards | navy |
+| 11 showcase | navy |
+| 12 dashboard-template | navy |
 
-Skipped (people or navy-only): 01, 03, 06, 07, 09, 12, 14. Reference only: 13 partners on social asset 13; 14 launch facts (9:00, Auditorio Edificio H Externado) — **not** on agenda slide; confirm with Gideon.
+Skipped sources (no clean band): air4u-13, air4u-10, air4u-05, air4u-02, plus 01, 03, 06, 07, 09, 12, 14 in social numbering.
 
 ## Content
 
@@ -24,8 +27,7 @@ Skipped (people or navy-only): 01, 03, 06, 07, 09, 12, 14. Reference only: 13 pa
 |---------------|-------------------------------|
 | Method, funnel, agenda | Metodología Datatón CTH v0.3 (21 nov 2026); Paquete de equipo Datatón (ES) |
 | Air4U clinic example | Paquete de equipo Datatón (ES) |
-| Hoja 4b filled dashboard | Copied from team-pack `hoja-4b-ejemplo-air4u.png` / `.md` — `[sin dato]` and OMS 5 µg/m³ benchmark as in pack |
-| Hoja 4 template | `hoja-4-plantilla-tablero.png` |
+| Hoja 4 template (slide 12) | `hoja-4-plantilla-tablero-hero.png`; **Hoja 4b** in pack only (caption) |
 | Heatmap D1 | `air4u-drl-heatmap-ladder-confirmed.png` |
 | Finals 16:00 | Team pack agenda |
 | Contact | info@cleantechhub.net |

@@ -37,16 +37,83 @@ function pick(es, en) {
   return { es, en: en ?? es };
 }
 
-function photoLayers(bg) {
-  if (!bg) return "";
-  return `<div class="fp-photo-bg" style="background-image:url('${esc(bg)}');" role="presentation"></div>
+function photoLayers(bg, pos) {
+  if (!bg || bg === "navy") return "";
+  const position = pos ? `background-position:${esc(pos)};` : "";
+  return `<div class="fp-photo-bg" style="background-image:url('${esc(bg)}');${position}" role="presentation"></div>
   <div class="fp-photo-scrim" aria-hidden="true"></div>`;
 }
 
-function sectionOpen(cls, type, bg, extra = "") {
-  const photo = bg ? " fp-has-photo" : "";
-  return `<section class="fp ${cls}${photo}${extra}" data-cth-type="${esc(type)}" data-background-color="#FFFFFF">
-  ${photoLayers(bg)}`;
+function sectionOpen(cls, type, bg, extra = "", pos) {
+  const photo = bg && bg !== "navy" ? " fp-has-photo" : "";
+  const navy = bg === "navy" ? " fp--navy-only" : "";
+  const bgColor = navy ? "#0C498A" : "#FFFFFF";
+  return `<section class="fp ${cls}${photo}${navy}${extra}" data-cth-type="${esc(type)}" data-background-color="${bgColor}">
+  ${photoLayers(bg, pos)}`;
+}
+
+function renderCpStats(stats, statsEn) {
+  if (!stats?.length) return "";
+  const tiles = stats
+    .map((st, i) => {
+      const stEn = statsEn?.[i] || {};
+      const lab = st.label ?? st.label_es;
+      const labEn = stEn.label ?? st.label_en ?? st.label_es;
+      return `<div class="fp-cp__stat"><span class="fp-cp__v">${esc(st.value)}</span><span class="fp-cp__l">${T(lab, labEn)}</span></div>`;
+    })
+    .join("");
+  return `<div class="fp-cp__stats">${tiles}</div>`;
+}
+
+function renderTrioRow(cards, cardsEn) {
+  if (!cards?.length) return "";
+  const n = Math.min(cards.length, 4);
+  const items = cards
+    .map((c, i) => {
+      const cEn = cardsEn?.[i] || {};
+      const title = c.title ?? c.title_es ?? c.name;
+      const titleEn = cEn.title ?? c.title_en ?? cEn.name;
+      return `<div class="fp-card fp-trio__card fp-card--fill"><p class="fp-card__title">${T(title, titleEn)}</p><p class="fp-card__text">${T(c.text ?? c.text_es, cEn.text ?? c.text_en)}</p></div>`;
+    })
+    .join("");
+  return `<div class="fp-trio fp-trio--${n}">${items}</div>`;
+}
+
+function renderCalloutBand(s, sEn) {
+  const text = s.callout ?? s.callout_es;
+  if (!text) return "";
+  const textEn = sEn?.callout ?? s.callout_en;
+  return `<p class="fp-note fp-note--box fp-fill-callout">${T(text, textEn ?? text)}</p>`;
+}
+
+function renderCtas(ctas, ctasEn) {
+  if (!ctas?.length) return "";
+  const btns = ctas
+    .map((c, i) => {
+      const cEn = ctasEn?.[i] || {};
+      return `<a class="fp-btn" href="${esc(c.url)}">${T(c.label ?? c.label_es, cEn.label ?? c.label_en)}</a>`;
+    })
+    .join("");
+  return `<div class="fp-cp__cta fp-contact__cta">${btns}</div>`;
+}
+
+function fillExtras(s, sEn) {
+  const parts = [
+    renderCpStats(s.stat_strip, sEn?.stat_strip),
+    renderTrioRow(s.trio_row, sEn?.trio_row),
+    renderCalloutBand(s, sEn),
+    renderCtas(s.ctas, sEn?.ctas),
+  ].filter(Boolean);
+  if (!parts.length) return "";
+  return `<div class="fp-fill-extras">${parts.join("\n    ")}</div>`;
+}
+
+function timelineDate(it) {
+  if (it.date === "16:00") return esc(it.date);
+  if (it.date === "confirm" || it.date === "[confirmar]" || it.date === "[confirm]") {
+    return `<span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span>`;
+  }
+  return esc(it.date);
 }
 
 function head(title, kicker, titleEn, kickerEn) {
@@ -143,9 +210,10 @@ function renderEcosystem(s, sEn) {
       `<div class="fp-eco__row">${row2.map((n, i) => card(n, nodesEn[i + 3], false)).join("")}</div>`
     );
   const fill = s.layout === "fill" ? " fp-ecosystem--fill" : "";
-  return `${sectionOpen(`fp-ecosystem${fill}`, "ecosystem", s.bg)}
+  return `${sectionOpen(`fp-ecosystem${fill}`, "ecosystem", s.bg, "", s.bg_position)}
   ${head(s.title, s.kicker ?? "Metodología", sEn.title, sEn.kicker ?? "Methodology")}
   <div class="fp-body fp-eco">${rows.join("\n    ")}</div>
+  ${fillExtras(s, sEn)}
   ${sourceLine(s, sEn)}
   ${foot(false)}${notes(s)}
 </section>`;
@@ -180,7 +248,7 @@ function renderTimeline(s, sEn) {
     .map(
       (it, i) => `<div class="fp-tl__item${it.date === "16:00" ? " fp-tl__item--key" : ""}">
       <div class="fp-tl__dot"></div>
-      <div class="fp-tl__date">${esc(it.date)}</div>
+      <div class="fp-tl__date">${timelineDate(it)}</div>
       <p class="fp-tl__label">${T(it.label, itemsEn[i]?.label)}</p>
       ${it.text ? `<p class="fp-tl__text">${T(it.text, itemsEn[i]?.text)}</p>` : ""}
     </div>`
@@ -240,6 +308,31 @@ function renderCaseCards(s, sEn) {
 </section>`;
 }
 
+function renderDashboardTemplate(s, sEn) {
+  const img = (s.images || [])[0];
+  const shot = img
+    ? `<div class="fp-dash__solo"><img src="${esc(img)}" alt="" /></div>`
+    : "";
+  const capEs =
+    s.template_caption_es ??
+    "Ejemplo diligenciado (Hoja 4b): en el paquete de equipo v0.3-es — no en esta lámina.";
+  const capEn =
+    sEn?.template_caption_en ??
+    s.template_caption_en ??
+    "Filled example (Sheet 4b): in team pack v0.3-es — not on this slide.";
+  return `${sectionOpen("fp-chart-proof fp-dash-solo", "dashboard-template", s.bg)}
+  ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
+  <div class="fp-body fp-dash-solo__body">
+    ${shot}
+    <p class="fp-dash__pack-ref">${T(capEs, capEn)}</p>
+    <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
+    ${takeaway(s, sEn)}
+    ${sourceLine(s, sEn)}
+  </div>
+  ${foot(false)}${notes(s)}
+</section>`;
+}
+
 function renderDashboardDuo(s, sEn) {
   const imgs = s.images || [];
   const labels = pick("Plantilla en blanco", "Blank template");
@@ -282,6 +375,7 @@ function renderKeyFacts(s, sEn) {
   <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-cyan.png" alt="" /></div>
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-facts">${facts}</div>
+  ${fillExtras(s, sEn)}
   ${sourceLine(s, sEn)}
   ${foot(false)}${notes(s)}
 </section>`;
@@ -300,6 +394,7 @@ function renderTitleBullets(s, sEn) {
       <ul class="fp-bullets">${lis}</ul>
     </div>
   </div>
+  ${fillExtras(s, sEn)}
   ${sourceLine(s, sEn)}
   ${foot(false)}${notes(s)}
 </section>`;
@@ -319,6 +414,7 @@ function renderOffer(s, sEn) {
       ${s.note ? `<p class="fp-cp__honest" style="margin-top:20px;">${T(s.note, sEn.note)}</p>` : ""}
     </div>
   </div>
+  ${fillExtras(s, sEn)}
   ${sourceLine(s, sEn)}
   ${foot(false)}${notes(s)}
 </section>`;
@@ -341,6 +437,7 @@ function renderContact(s, sEn) {
   <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
   ${head(s.title, s.kicker ?? "Contacto", sEn.title, sEn.kicker ?? "Contact")}
   <div class="fp-body fp-contact__grid" style="grid-template-columns:1fr;">${body}</div>
+  ${fillExtras(s, sEn)}
   ${foot(false)}${notes(s)}
 </section>`;
 }
@@ -354,6 +451,7 @@ const RENDERERS = {
   showcase: renderShowcase,
   "case-cards": renderCaseCards,
   "dashboard-duo": renderDashboardDuo,
+  "dashboard-template": renderDashboardTemplate,
   "key-facts": renderKeyFacts,
   "title-bullets": renderTitleBullets,
   offer: renderOffer,

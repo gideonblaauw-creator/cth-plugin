@@ -1,17 +1,28 @@
 # FODESEP fp overlay (merged in fp-render.mjs; not validated by outline.sh)
 slides:
-  - bg: assets/photos/air4u-05-crop.jpg
+  - bg: navy
     method_chips: [Mapa de calor, Escalera, Tarjeta, Tablero]
   - bg: assets/photos/air4u-08-crop.jpg
+    bg_position: center center
   - kicker: Metodología
     layout: fill
     source: Metodología Datatón CTH v0.3 (21 nov 2026)
+    stat_strip:
+      - value: "20"
+        label_es: Equipos en el piloto
+        label_en: Teams in the pilot
+      - value: "6"
+        label_es: Finalistas (corte mentores)
+        label_en: Finalists (mentor cut)
+      - value: "3"
+        label_es: Ganadores hacia Datalab 2027
+        label_en: Winners toward Datalab 2027
   - kicker: Metodología
     layout: fill
     source: Paquete de equipo Datatón (ES)
   - kicker: Metodología
     source: Paquete de equipo Datatón (ES)
-  - bg: assets/photos/air4u-13-crop.jpg
+  - bg: navy
   - kicker: Ejemplo · piloto Air4U
     bg: assets/photos/air4u-04-crop.jpg
     takeaway: Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.
@@ -21,34 +32,71 @@ slides:
     takeaway: Empiece por VP1 — el mapa de calor solo colorea bloques ligados a propuestas de valor.
     shot_zoom: 1.2
   - kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-10-crop.jpg
+    bg: navy
     takeaway: Mañana es entrada abierta — esto no es la escalera todavía.
     source: Paquete de equipo Datatón (ES)
     shot_tall: true
   - kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-02-crop.jpg
+    bg: navy
     takeaway: "Esto no es la escalera: use la tarjeta de arranque solo si ningún bloque VP quedó tibio."
     source: Paquete de equipo Datatón (ES)
     shot_tall: true
   - kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-04-crop.jpg
+    bg: navy
     takeaway: Firme solo en Plata+ en pantalla — si no, marque estimado.
     shot_zoom: 1.18
-  - render_as: dashboard-duo
+  - render_as: dashboard-template
     kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-11-crop.jpg
-    caption_en: "EN: traducción fiel de etiquetas; PNG en español; cifras del paquete."
-    takeaway: "Delta: donde el dato se vuelve valor — entradas (línea base + paisaje) a salida (delta) hacia el pie de valor."
+    template_caption_es: "Ejemplo diligenciado: ver Hoja 4b en el paquete de equipo v0.3-es."
+    template_caption_en: "Filled example: see Sheet 4b in the team pack v0.3-es."
   - kicker: Final
     layout: fill
     source: Paquete de equipo Datatón (ES)
+    callout_es: "Sin tablero público si los derechos siguen abiertos. La honestidad en estimado puede ganar a pantallas bonitas sin soporte."
+    callout_en: "No public dashboard while data rights stay open. Honest estimated numbers can beat flashy screens with no sheet backup."
   - kicker: Final
     layout: fill
     source: Paquete de equipo Datatón (ES)
+    stat_strip:
+      - value: "0–5"
+        label_es: Parte A · utilidad
+        label_en: Part A · usefulness
+      - value: "0–5"
+        label_es: Parte B · honestidad
+        label_en: Part B · honesty
+      - value: "/10"
+        label_es: Total en finales 16:00
+        label_en: Total at 16:00 finals
   - kicker: Metodología
     layout: fill
     source: Paquete de equipo Datatón (ES)
+    trio_row:
+      - title_es: Hojas 1–4
+        title_en: Sheets 1–4
+        text_es: Mapa de calor, escalera Medallion, tarjeta y plantilla de tablero v0.3-es.
+        text_en: Heatmap, Medallion ladder, value card, and dashboard template v0.3-es.
+      - title_es: Carpeta Drive
+        title_en: Drive folder
+        text_es: Plantilla cuando el facilitador la active (guía en el paquete).
+        text_en: Template when the facilitator enables it (guide in the pack).
+      - title_es: Prompts IA
+        title_en: AI prompts
+        text_es: Aceleran redacción — no inventan cifras ni gradas.
+        text_en: Speed drafting — do not invent figures or ladder steps.
   - kicker: Derechos de datos
     layout: fill
     source: Paquete de equipo Datatón (ES)
+    callout_es: "Mañana: etiquetas, no exclusiones. Tarde: la grada se calcula, no se declara."
+    callout_en: "Morning: labels, not exclusions. Afternoon: the step is calculated, not declared."
   - kicker: Contacto
+    layout: fill
+    ctas:
+      - label_es: Escribir a la mesa
+        label_en: Email the desk
+        url: "mailto:info@cleantechhub.net"
+      - label_es: cleantechhub.net
+        label_en: cleantechhub.net
+        url: "https://cleantechhub.net"
+      - label_es: wiki.cleantechhub.net
+        label_en: wiki.cleantechhub.net
+        url: "https://wiki.cleantechhub.net"

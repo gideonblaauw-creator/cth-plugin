@@ -290,8 +290,29 @@ body[data-lang="es"] .l-en { display: none !important; }
 }
 .reveal .fp-has-photo .fp-photo-scrim {
   position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(180deg, rgba(12,73,138,0.78) 0%, rgba(12,73,138,0.62) 40%, rgba(12,73,138,0.9) 100%);
+  background: linear-gradient(180deg, rgba(12,73,138,0.92) 0%, rgba(12,73,138,0.82) 35%, rgba(12,73,138,0.97) 100%);
 }
+.reveal .fp--navy-only { background: #0C498A !important; color: #FFFFFF; }
+.reveal .fp--navy-only .fp-title, .reveal .fp--navy-only .fp-eyebrow { color: #FFFFFF; }
+.reveal .fp--navy-only .fp-eyebrow { color: #9DC384; }
+.reveal .fp--navy-only .fp-card { background: rgba(255,255,255,0.96); color: #0C498A; }
+.reveal .fp--navy-only .fp-cp__cap, .reveal .fp--navy-only .fp-takeaway { color: #FFFFFF; border-left-color: #9DC384; }
+.reveal .fp-tl__confirm {
+  display: inline-block; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  color: #5a6b7d; background: rgba(90,107,125,0.12); border-radius: 8px; padding: 4px 10px;
+}
+.reveal .fp-tl__item--key .fp-tl__confirm { color: #B2EEFA; background: rgba(178,238,250,0.15); }
+.reveal .fp-fill-extras { margin-top: auto; padding-top: 18px; }
+.reveal .fp-ecosystem--fill .fp-body { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.reveal .fp-ecosystem--fill .fp-eco { flex: 1 1 auto; }
+.reveal .fp-key-facts--fill .fp-body { justify-content: space-between; }
+.reveal .fp-dash-solo .fp-title { font-size: 44px; max-width: 1680px; }
+.reveal .fp-dash-solo .fp-head { margin-bottom: 18px; }
+.reveal .fp-dash-solo__body .fp-cp__cap { font-size: 26px; margin-bottom: 8px !important; }
+.reveal .fp-dash__solo { border-radius: 16px; overflow: hidden; border: 3px solid #B2EEFA; background: #FFFFFF; max-height: 500px; margin-bottom: 8px; }
+.reveal .fp-dash__solo img { display: block; width: 100%; height: auto; max-height: 480px; object-fit: contain; object-position: top center; }
+.reveal .fp-dash__pack-ref { font-size: 20px; font-weight: 700; color: #669348; margin: 6px 0 10px !important; padding: 8px 14px; background: #F2FAF0; border-radius: 12px; border: 2px dashed #9DC384; }
+.reveal .fp-contact__cta { margin-top: 28px; flex-wrap: wrap; }
 .reveal .fp-has-photo > :not(.fp-photo-bg):not(.fp-photo-scrim):not(.fp-deco-wrap) { position: relative; z-index: 1; }
 .reveal .fp-has-photo .fp-title, .reveal .fp-has-photo .fp-eyebrow { color: #FFFFFF; }
 .reveal .fp-has-photo .fp-eyebrow { color: #9DC384; }

@@ -45,20 +45,20 @@ slides:
     kicker: Methodology
     title: Confirm times with the facilitator, except finals at 16:00
     items:
-      - date: "[confirm]"
+      - date: confirm
         label: Morning block 1
         text: BMC, Sheet 1 heatmap, CTH scoring, share labels.
-      - date: "[confirm]"
+      - date: confirm
         label: Lunch
-      - date: "[confirm]"
+      - date: confirm
         label: Afternoon block 2
         text: Sheet 2 Medallion ladder, Sheet 3 value card and dashboard sketch, mentors.
-      - date: "[confirm]"
+      - date: confirm
         label: Six finalists announced
       - date: "16:00"
         label: Finals
         text: Six teams — pitch with sketch; judges use finals judging sheet v0.3.
-      - date: "[confirm]"
+      - date: confirm
         label: Close
         text: 3 winners and next steps toward Datalab 2027.
     source: "Datathon team pack (EN/ES)"
@@ -103,12 +103,10 @@ slides:
     text: "User: facilities manager. Decision: activate ventilation or filter review this week if indoor PM₂.₅ might exceed the reference? All numbers stay estimated while the ladder is at None."
     takeaway: Silver+ only for firm numbers on screen — otherwise mark estimated.
     link: "Datathon team pack (EN/ES)"
-  - type: dashboard-duo
+  - type: showcase
     kicker: Air4U pilot example
-    title: The dashboard sketch shows template and filled Air4U example side by side
-    text: Client baseline, innovator delta, and open-data landscape — plus the value bridge. Firm confidence only at Silver+.
-    caption_en: "EN labels match the ES template; filled sheet numbers are copied exactly from the team pack."
-    takeaway: "Delta: where data becomes value — inputs (baseline + landscape) to output (delta) to the worth line."
+    title: Sheet 4 template — one-screen dashboard sketch
+    text: User, decision, delta box, and one number panel. Firm confidence only at Silver+.
     link: "Datathon team pack (EN/ES)"
   - type: key-facts
     kicker: Finals

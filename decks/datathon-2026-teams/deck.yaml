@@ -43,20 +43,20 @@ slides:
   - type: timeline
     title: Confirme las horas del día con el facilitador, excepto la final a las 16:00
     items:
-      - date: "[confirmar]"
+      - date: confirm
         label: Bloque 1 mañana
         text: BMC, Hoja 1 mapa de calor, calificación CTH, compartir etiquetas.
-      - date: "[confirmar]"
+      - date: confirm
         label: Almuerzo
-      - date: "[confirmar]"
+      - date: confirm
         label: Bloque 2 tarde
         text: Hoja 2 escalera Medallion, Hoja 3 tarjeta y boceto de tablero, mentores.
-      - date: "[confirmar]"
+      - date: confirm
         label: Anuncio de 6 finalistas
       - date: "16:00"
         label: Finales
         text: Seis equipos — pitch con boceto; jueces con hoja finals-judging-sheet v0.3.
-      - date: "[confirmar]"
+      - date: confirm
         label: Cierre
         text: 3 ganadores y siguientes pasos hacia Datalab 2027.
     notes: "[5/17 · timeline]"
@@ -104,13 +104,12 @@ slides:
     link: Paquete de equipo Datatón (ES)
     notes: "[11/17 · showcase]"
   - type: showcase
-    title: El tablero muestra la plantilla en blanco junto al ejemplo Air4U diligenciado
-    text: Línea base del cliente, delta del innovador y panorama de datos abiertos, más el puente de valor. Confianza firme solo en Plata+.
+    title: Plantilla Hoja 4 — boceto de tablero en una pantalla
+    text: Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.
     images:
-      - assets/hoja-4-plantilla-tablero.png
-      - assets/hoja-4b-ejemplo-air4u.png
+      - assets/hoja-4-plantilla-tablero-hero.png
     link: Paquete de equipo Datatón (ES)
-    notes: "[12/17 · dashboard-duo]"
+    notes: "[12/17 · dashboard-template]"
   - type: key-facts
     title: Las reglas de honestidad son las que los jueces esperan en la final de las 16:00
     items:
