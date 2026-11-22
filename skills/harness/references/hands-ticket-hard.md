@@ -20,7 +20,7 @@
 ## What the agent keeps
 
 - Own the subject / channel
-- Write Hands tickets (outcome, sources, **exclusive write path**, acceptance, model from `docs/hands-model-routing.md`)
+- Write Hands tickets (outcome, sources, **exclusive write path**, acceptance, model from `skills/hands-model-routing/SKILL.md`)
 - Review high-risk Hands output with a separate read-only checker (**maker ≠ checker**). A low-risk content or file job checks its own result (**Token budget protocol, 22 Oct 2026**)
 - **HITL** gates before send / post / pay / activate / cutover
 - Ready-ping Orchestrator with PR / URL / **bc-id** / paths — not process notes
@@ -50,7 +50,7 @@ Content work (Nexus pages, wiki entries, Datalab tasks) follows **Token budget p
 - Each code job gets its own bc-id in the turn it arrives; only true dependencies wait, and they are written down.
 - Keep a job list (job, bc-id, state): live, blocked on a named HITL/blocker, or done. Nothing is 'queued' without a bc-id.
 - Above ~8 live per desk, ping Orchestrator instead of serializing.
-- Every Cloud Hands job runs on Composer 2.5 Fast (`composer-2.5`, `fast=true`). See the model rule below.
+- Every Cloud Hands job runs on `composer-2.5` with Fast OFF (`fast=false`). See `skills/hands-model-routing/SKILL.md`.
 
 ## Token budget protocol (22 Oct 2026)
 
@@ -60,7 +60,7 @@ Content work (Nexus pages, wiki entries, Datalab tasks) follows **Token budget p
 
 This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record. This section is the launch rule.
 
-**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+**Model rule (Gideon, 22 Nov 2026).** Run every Cloud Hands job on `composer-2.5` with **Fast OFF** (`fast=false`). Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`. Canonical: `skills/hands-model-routing/SKILL.md`.
 
 1. **One job per wave, not per item.** Batch content work into one job per wave. Put about 10 to 20 items in one wave. Content work means Nexus pages, wiki entries, and Datalab tasks. This replaces "one Hands per smallest independent job" for content work. Code builds may still split.
 2. **Checker by risk.** Launch a separate read-only checker job only for high-risk work. High-risk work is a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content job checks its own result. A low-risk file job checks its own result. Attach proof on that job. Use a hash, an HTTP status code, or test output.

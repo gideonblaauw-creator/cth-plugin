@@ -18,7 +18,7 @@ metadata:
 **Status:** adopted in Grok Bot; `cth-plugin` update via Cloud Hands
 **Source of truth:** VPS Archive `/opt/claude-files/` and GitHub Repos. The Mac `~/Documents/Claude/` tree is a leftover mirror, not a layer.
 
-This file is the rulebook. Orchestrator routes. Desks ticket. Workbench talks to people. Cloud Hands writes files. Tools are not chats.
+This file is the rulebook. Orchestrator routes. Desks ticket. Workbench talks to people. Cloud Hands writes files. Tools are not chats. Operating-protocol supplements: `docs/operating-protocol/README.md`.
 
 ## 1. Why v3
 
@@ -58,7 +58,7 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `model:` `composer-2.5` (`fast=true`) — every Cloud Hands job (Token budget protocol 22 Oct 2026)
+- `model:` `composer-2.5` (`fast=false`) — every Cloud Hands job (Gideon GO 22 Nov 2026; canonical: `skills/hands-model-routing/SKILL.md`)
 - `files:` exact files and paths the job may open
 - `read-budget:` read cap for the job (file count, or a byte cap)
 - `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
@@ -122,20 +122,20 @@ Box is a Tool used by Workbench. It is not a layer Gideon names.
 
 Create Project modal defaulting to `cth-matters` is correct for packs, **wrong** for product code. Project name = desk slug; align with Grok Bot sidebar and VPS `/opt/claude-files/Projects/…`. Isolated grant desks = chats inside CTH-Grants, not separate Projects.
 
-**Ownership:** Orchestrator → **Infrastructure** → Hands. Gideon creates/merges Cursor IDE Projects; Infra seeds map + Grok Bot shards; Hands plants docs. Optional ticket fields: `cursor_project`, `cursor_workspace` — see `tickets/TEMPLATE.md`.
+**Ownership:** Orchestrator → **Control Tower · Infra** → Hands. Gideon creates/merges Cursor IDE Projects; Control Tower seeds map + Grok Bot shards; Hands plants docs. Optional ticket fields: `cursor_project`, `cursor_workspace` — see `tickets/TEMPLATE.md`.
 
-Full desk → Project → workspace tables, pods, rollout: **`docs/cursor-projects.md`**.
+Full desk → Project → workspace tables, pods, rollout: **`docs/cursor-projects.md`**. Infra org lock: **`docs/operating-protocol/infra-control-tower.md`**.
 
 ## 4. Org
 
 ### Orchestrator
-Routes. Does not draft grants, decks, or posts. Picks Desk, Workbench, or Hands lane. HITL before send/post/pay.
+Routes. Does not draft grants, decks, or posts. Picks Desk, Workbench, or Hands lane. HITL before send/post/pay. Routes Infra backlog and standards through **Control Tower · Infra** (`c656afb9-5323-440c-b90a-e3abf72135c4`). Deck / image library reviews → **Presentations** and **Images**, not Control Tower. Client-specific Toolbox jobs → client desk first, then Control Tower.
 
 ### Desks that exist
 Grants (plus isolated live drafts: CTCN Suriname, GRP, TNS VerdeXcelerate — max two live drafts), Proposals, Meetings, Inbox, Socials (was CTH Social Media), Strategy, GTM, Energy Coop, Mubon, Sustenttia, AIC, AURA, Legal (`legal-comms`, `legal-eval`; owner **4b96b1e8**; first matter AURA), Teclogi, Embassy, REIN Hubs, Almendra.
 
 ### Desks to stand up when a ticket hits (Claude folders already exist)
-Budget (`CTH - 2026 Budget`), Academy/CLP (`CTH - Academy`, `CTH - CLP 2026`), Origo/Data (`CTH - Climate_Data_Platform`, Nexus, WIKI), Investor Matching, Newsletter (`CTH Newsletter System`), Ruta Verde, Apps, Bosque Soberano, Run Up parent, Infrastructure (`Claude Infrastructure`, Chief of Staff).
+Budget (`CTH - 2026 Budget`), Academy/CLP (`CTH - Academy`, `CTH - CLP 2026`), Origo/Data (`CTH - Climate_Data_Platform`, Nexus, WIKI), Investor Matching, Newsletter (`CTH Newsletter System`), Ruta Verde, Apps, Bosque Soberano, Run Up parent, **Control Tower · Infra** (`CTH-Infrastructure` / `Claude Infrastructure`, Chief of Staff).
 
 ### Workbench map
 | Workbench | Reports to | HITL |
@@ -147,6 +147,12 @@ Budget (`CTH - 2026 Budget`), Academy/CLP (`CTH - Academy`, `CTH - CLP 2026`), O
 | Instagram | Socials | post |
 | Facebook | Socials | post |
 | Google Ads | Socials | spend / launch / pause |
+| Engine Room · Workbench | Control Tower · Infra | DNS / deploy / restarts (HITL) |
+| Autopilot · Workbench | Control Tower · Infra | n8n-li activate / cutover (HITL) |
+| Vault · Workbench | Control Tower · Infra | credential activation / deletion (HITL) |
+| Health (Doctor_Bot) | Engine Room · Workbench | read-only checks; remediation HITL |
+
+**Toolbox** (shared tools, not agents): diagram standard (Mermaid + Graphviz), IOPaint, GINA — request via Control Tower · Infra; Hands runs; Control Tower reviews. Full map: `docs/operating-protocol/infra-control-tower.md`.
 
 Shared by every Desk: WhatsApp, Gmail, Calendar. Drive is a Tool.
 
@@ -178,13 +184,13 @@ Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link:
 
 ## Token budget protocol (22 Oct 2026)
 
-**Locked:** Gideon **22 Oct 2026**
+**Locked:** Gideon **22 Oct 2026** (spend rules). **Model default amended 22 Nov 2026** — see `skills/hands-model-routing/SKILL.md` (`composer-2.5`, Fast OFF).
 **Goal:** Cut Cloud Hands token spend.
-**Canonical:** this section. Repeat it in the Hands-ticket, harness-engineering, and model-routing files. Do not drift.
+**Canonical:** this section for batching, scoping, and checker-by-risk. Model launch: `skills/hands-model-routing/SKILL.md`. Do not drift.
 
-This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record. This section is the launch rule.
+This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record.
 
-**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+**Model rule (Gideon, 22 Nov 2026).** Run every Cloud Hands job on `composer-2.5` with **Fast OFF** (`fast=false`). Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
 
 1. **One job per wave, not per item.** Batch content work into one job per wave. Put about 10 to 20 items in one wave. Content work means Nexus pages, wiki entries, and Datalab tasks. This replaces "one Hands per smallest independent job" for content work. Code builds may still split.
 2. **Checker by risk.** Launch a separate read-only checker job only for high-risk work. High-risk work is a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content job checks its own result. A low-risk file job checks its own result. Attach proof on that job. Use a hash, an HTTP status code, or test output.

@@ -1,6 +1,6 @@
 # Cursor Projects ↔ Desk map (Infra lock)
 
-**Owner:** Infrastructure (Orchestrator routes; Infra seeds map + Grok Bot project shards; Gideon creates/merges Cursor IDE Projects; Hands plants repo docs).
+**Owner:** Control Tower · Infra (Orchestrator routes; Control Tower seeds map + Grok Bot project shards; Gideon creates/merges Cursor IDE Projects; Hands plants repo docs). Org lock: `docs/operating-protocol/infra-control-tower.md`.
 
 **One-liner:** One Cursor Project ≈ one durable workstream (desk / client / product), not one chat.
 
@@ -27,7 +27,7 @@ Canonical lock for desk → Project → workspace routing. Playbook surfaces: `s
 
 | Repo | Typical desk / subject |
 |---|---|
-| `https://github.com/gideonblaauw-creator/cth-plugin` | CTH-Infrastructure, harness, skills |
+| `https://github.com/gideonblaauw-creator/cth-plugin` | Control Tower · Infra (`CTH-Infrastructure` Project), harness, skills |
 | `https://github.com/gideonblaauw-creator/signal-radar` | Signal Radar product |
 | `https://github.com/gideonblaauw-creator/cth-data-room-scanner` | CTH-Teclogi / dataroom scanner **only** |
 | `https://github.com/gideonblaauw-creator/fabfloow-lexiscan` | FabFlow / LexiScan |
@@ -62,7 +62,7 @@ Orchestrator lives **outside** pods — it is not a Project.
 
 | Desk | Cursor Project | Lane | Workspace |
 |---|---|---|---|
-| CTH-Infrastructure | `CTH-Infrastructure` | A | `cth-plugin` |
+| Control Tower · Infra | `CTH-Infrastructure` | A | `cth-plugin` |
 | CTH-Grants | `CTH-Grants` | B | `cth-matters` + VPS worker |
 | CTH-Proposals | `CTH-Proposals` | B | `cth-matters` + VPS worker |
 | CTH-Meetings | `CTH-Meetings` | B | `cth-matters` + VPS worker |

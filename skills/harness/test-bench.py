@@ -273,23 +273,21 @@ def run_bench():
     ))
 
     # -------------------------------------------------------------
-    # Lane 7: Composer 2.5 build default (BUILDING t1263u — Fast ON)
+    # Lane 7: Composer 2.5 default (Gideon GO 22 Nov 2026 — Fast OFF)
     # -------------------------------------------------------------
-    routing_doc = REPO_ROOT / "docs/hands-model-routing.md"
+    routing_doc = REPO_ROOT / "skills/hands-model-routing/SKILL.md"
     routing_text = routing_doc.read_text(encoding="utf-8") if routing_doc.exists() else ""
-    fast_on_ok = (
+    fast_off_ok = (
         "composer-2.5" in routing_text
-        and "fast=true" in routing_text
-        and "Fast ON" in routing_text
-        and "fast=false" in routing_text  # documented as miss/remap, not default
-        and "Token budget protocol (22 Oct 2026)" in routing_text
+        and "Fast OFF" in routing_text
+        and ("fast: false" in routing_text or "fast=false" in routing_text)
     )
     results.append((
-        "7. Composer 2.5 Fast ON",
-        "PASS" if fast_on_ok else "FAIL",
-        "docs/hands-model-routing.md: Composer 2.5 (fast=true) Fast ON, including Token budget protocol (22 Oct 2026)."
-        if fast_on_ok
-        else "Missing BUILDING Fast ON clauses in docs/hands-model-routing.md."
+        "7. Composer 2.5 Fast OFF",
+        "PASS" if fast_off_ok else "FAIL",
+        "skills/hands-model-routing/SKILL.md: composer-2.5 default Fast OFF (22 Nov 2026)."
+        if fast_off_ok
+        else "Missing Fast OFF default in skills/hands-model-routing/SKILL.md."
     ))
 
     # -------------------------------------------------------------

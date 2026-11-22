@@ -16,7 +16,7 @@ folder:
 cursor_project:
 cursor_workspace:
 done-when:
-model: composer-2.5 (fast=true)
+model: composer-2.5 (fast=false)
 files:
 read-budget:
 lane: github-pr | drive-folder
@@ -57,7 +57,7 @@ context:
 
 `eve` — optional. Set `eve: yes` on **product-agent-loop** tickets (Signal Radar, dataroom-scanner agent loops, LexiScan runner, Origo agent loops, new Lane A “app is an agent” products). Hands plants under locked `agent/` paths per `docs/eve-convention.md`. **Not** Vercel Agent Runs. Desk / pack / channel jobs **must not** invent Eve trees — omit `eve: yes`. Playground UI (Tier 1–2) stays LexiScan house-tour HTML — Eve is agent runtime files only.
 
-`model` — every Cloud Hands job uses `composer-2.5` with **Fast ON** (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Empty `model:` fills Fast ON. Do not fill Flash. Do not HOLD a review job for a missing model. `fast=false` is a miss. Private data that must stay on 127.0.0.1 uses local Ollama `LFM2.5-VL-3B`. Canonical: `docs/hands-model-routing.md`.
+`model` — every Cloud Hands job uses `composer-2.5` with **Fast OFF** (`fast=false`) (Gideon GO **22 Nov 2026**). Empty `model:` fills Fast OFF. Do not fill Flash. `fast=true` is a miss — remap to `fast=false` and flag. Private data that must stay on 127.0.0.1 uses local Ollama `LFM2.5-VL-3B`. Canonical: `skills/hands-model-routing/SKILL.md`.
 
 `files` — exact files and paths the job may open. Do not leave this blank. Do not permit an open-ended crawl of the VPS or a whole repo.
 
