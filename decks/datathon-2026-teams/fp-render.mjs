@@ -485,22 +485,25 @@ function renderLivingLabL1(s, sEn) {
       )
     : pick("Mochuelo: sin dato.", "Mochuelo: no data.");
   const shot = img
-    ? `<img class="fp-living-lab-l1__img" src="${esc(img)}" alt="" />`
+    ? `<div class="fp-living-lab-l1__map-card">${`<img class="fp-living-lab-l1__img" src="${esc(img)}" alt="" />`}</div>`
     : "";
   return `${sectionOpen("fp-chart-proof fp-living-lab fp-living-lab--l1", "living-lab-l1")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-living-lab-l1">
     <p class="fp-cp__cap fp-living-lab-l1__intro">${T(s.text, sEn.text)}</p>
-  <p class="fp-living-lab__meta fp-living-lab-l1__stamp">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
-    <div class="fp-living-lab-l1__columns">
+    <div class="fp-living-lab-l1__main">
       <div class="fp-living-lab-l1__map">${shot}</div>
       <div class="fp-living-lab-l1__data">
+        <p class="fp-living-lab__meta fp-living-lab-l1__stamp">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
         ${renderLabTablePair(headers, rows)}
-        <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
-        <p class="fp-living-lab__meta">${T(ica.es, ica.en)} · ${T(mochLine.es, mochLine.en)}</p>
+        <div class="fp-living-lab-l1__notes">
+          <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
+          <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(ica.es, ica.en)}</p>
+          <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(mochLine.es, mochLine.en)}</p>
+        </div>
       </div>
     </div>
-    ${sourceLine(s, sEn)}
+    <div class="fp-living-lab-l1__source">${sourceLine(s, sEn)}</div>
   </div>
   ${foot(false)}${notes(s)}
 </section>`;

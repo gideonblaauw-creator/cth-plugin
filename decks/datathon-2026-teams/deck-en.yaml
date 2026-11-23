@@ -87,7 +87,7 @@ slides:
   - type: showcase
     kicker: Open-air sandbox · L2
     title: The client baseline compares each site with the nearest RMCAB station
-    text: "Client proprietary context for the pilot site: indoor and outdoor PM₂.₅ vs the public network, with illustrative branches (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
+    text: "Client proprietary context for the pilot site: indoor and outdoor PM₂.₅ vs the public network, with illustrative example slots (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
     images:
       - assets/method-flow.svg
     link: "CTH Datalab living lab, snapshot 4 Oct 2026 · Air4U Datatón workshop"

@@ -86,7 +86,7 @@ slides:
     notes: "[9/21 · living-lab L1]"
   - type: showcase
     title: La línea base del cliente compara cada sitio con la estación RMCAB más cercana
-    text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ramas ilustrativas (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
+    text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ranuras de ejemplo ilustrativo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
     images:
       - assets/method-flow.svg
     link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
