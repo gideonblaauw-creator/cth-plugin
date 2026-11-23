@@ -102,7 +102,9 @@ Base: `ccd4f011fe3872456f1bd20c5ab15f6744ad6053` · Scope: slide 9 L1 map markup
 
 **Layout boxes @1280 (ES screen):** map img 70–496×249–505; ICA 70–519×521–617; tables 531–1212×249–439; notes 531–1212×444–476; source 64–1216×631–646; foot 64–1133×677–705 (no intersections).
 
-**PDFs (committed after push):**
+**HEAD (maps-3 commit):** `1c8622d45498cd88699a992403d282322b93eb5b`
+
+**PDFs (committed):**
 
 | Artifact | sha256 | Pages | `pdftotext` grep |
 |----------|--------|------:|-----------------|
