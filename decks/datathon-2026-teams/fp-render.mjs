@@ -58,15 +58,16 @@ function sectionOpen(cls, type, bg, extra = "", pos, scrim, boost, bleed, scrimV
 
 function renderCpStats(stats, statsEn) {
   if (!stats?.length) return "";
+  const n = Math.min(stats.length, 4);
   const tiles = stats
     .map((st, i) => {
       const stEn = statsEn?.[i] || {};
       const lab = st.label ?? st.label_es;
       const labEn = stEn.label ?? st.label_en ?? st.label_es;
-      return `<div class="fp-cp__stat"><span class="fp-cp__v">${esc(st.value)}</span><span class="fp-cp__l">${T(lab, labEn)}</span></div>`;
+      return `<div class="fp-stat"><span class="fp-stat__value">${esc(st.value)}</span><span class="fp-stat__label">${T(lab, labEn)}</span></div>`;
     })
     .join("");
-  return `<div class="fp-cp__stats">${tiles}</div>`;
+  return `<div class="fp-stats fp-stats--${n}">${tiles}</div>`;
 }
 
 function renderTrioRow(cards, cardsEn) {
@@ -87,7 +88,7 @@ function renderCalloutBand(s, sEn) {
   const text = s.callout ?? s.callout_es;
   if (!text) return "";
   const textEn = sEn?.callout ?? s.callout_en;
-  return `<p class="fp-note fp-note--box fp-fill-callout">${T(text, textEn ?? text)}</p>`;
+  return `<p class="cth-source fp-fill-callout">${T(text, textEn ?? text)}</p>`;
 }
 
 function renderCtas(ctas, ctasEn) {
@@ -120,12 +121,18 @@ function timelineDate(it) {
   return esc(it.date);
 }
 
-function head(title, kicker, titleEn, kickerEn) {
+function head(title, kicker, titleEn, kickerEn, { dark = false } = {}) {
   const ey = kicker
     ? `<p class="fp-eyebrow">${T(kicker, kickerEn)}</p>`
     : "";
-  return `<header class="fp-head"><div class="fp-head__text">${ey}<h2 class="fp-title">${T(title, titleEn)}</h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>`;
+  const logo = dark ? "assets/cth-logo-white.png" : "assets/cth-logo.png";
+  return `<header class="fp-head"><div class="fp-head__text">${ey}<h2 class="fp-title">${T(title, titleEn)}</h2></div><img class="fp-head__logo" src="${logo}" alt="CleantechHUB" /></header>`;
 }
+
+function isPhotoBg(bg) {
+  return Boolean(bg && bg !== "navy");
+}
+
 
 function notes(slide) {
   return slide.notes
@@ -206,9 +213,7 @@ function renderEcosystem(s, sEn) {
       `<div class="fp-eco__row">${row1.map((n, i) => card(n, nodesEn[i], true)).join("")}</div>`
     );
   if (s.centre)
-    rows.push(
-      `<p class="fp-credit" style="text-align:center;font-weight:700;font-size:32px;color:#669348;margin:12px 0;">${esc(s.centre)}</p>`
-    );
+    rows.push(`<p class="fp-eco__centre">${esc(s.centre)}</p>`);
   if (row2.length)
     rows.push(
       `<div class="fp-eco__row">${row2.map((n, i) => card(n, nodesEn[i + 3], false)).join("")}</div>`
@@ -268,14 +273,24 @@ function renderTimeline(s, sEn) {
 
 function renderShowcase(s, sEn) {
   const img = (s.images || [])[0];
-  const zoom = s.shot_zoom ? ` transform:scale(${s.shot_zoom}); transform-origin:top center;` : "";
-  const shot = img
-    ? `<div class="fp-cp__shot fp-cp__shot--zoom"><img src="${esc(img)}" alt="" style="${zoom}" /></div>`
+  const zoomStyle = s.shot_zoom
+    ? ` style="transform:scale(${s.shot_zoom}); transform-origin:top center;"`
     : "";
-  const dark = s.bg ? " fp-chart-proof--photo" : "";
+  const shotInner = img
+    ? img.endsWith("method-flow.svg")
+      ? `<span class="l-es"><img src="assets/method-flow.svg" alt=""${zoomStyle} /></span><span class="l-en"><img src="assets/method-flow-en.svg" alt=""${zoomStyle} /></span>`
+      : `<img src="${esc(img)}" alt=""${zoomStyle} />`
+    : "";
+  const zoomCls = s.shot_zoom ? " fp-cp__shot--zoom" : "";
+  const shot = img ? `<div class="fp-cp__shot${zoomCls}">${shotInner}</div>` : "";
+  const photo = isPhotoBg(s.bg);
+  const dark = photo ? " fp-chart-proof--photo" : "";
+  const deco = photo
+    ? ""
+    : `<div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>`;
   return `${sectionOpen(`fp-chart-proof fp-cp--mix${dark}`, "showcase", s.bg, "", s.bg_position, s.photo_scrim, s.photo_boost, s.photo_bleed, s.photo_scrim_variant)}
-  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
-  ${head(s.title, s.kicker ?? "Ejemplo · piloto Air4U", sEn.title, sEn.kicker)}
+  ${deco}
+  ${head(s.title, s.kicker ?? "Ejemplo · piloto Air4U", sEn.title, sEn.kicker, { dark: photo })}
   <div class="fp-body fp-cp">
     ${shot}
     <div class="fp-cp__proof">
@@ -284,7 +299,7 @@ function renderShowcase(s, sEn) {
       ${sourceLine(s, sEn)}
     </div>
   </div>
-  ${foot(false)}${notes(s)}
+  ${foot(photo)}${notes(s)}
 </section>`;
 }
 
@@ -301,14 +316,15 @@ function renderCaseCards(s, sEn) {
       (c, i) => `<div class="fp-card fp-card--fill" style="margin-bottom:18px;"><p class="fp-card__title">${T(c.name, cardsEn[i]?.name)}</p><p class="fp-card__text">${T(c.text, cardsEn[i]?.text)}</p></div>`
     )
     .join("\n      ");
-  const dark = s.bg ? " fp-chart-proof--photo" : "";
+  const photo = isPhotoBg(s.bg);
+  const dark = photo ? " fp-chart-proof--photo" : "";
   return `${sectionOpen(`fp-chart-proof${dark}`, "case-cards", s.bg)}
-  ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
-  <div class="fp-body fp-cp">
+  ${head(s.title, s.kicker, sEn.title, sEn.kicker, { dark: photo })}
+  <div class="fp-body fp-cp fp-cp--case">
     ${shot}
     <div class="fp-cp__proof">${cardHtml}${takeaway(s, sEn)}${sourceLine(s, sEn)}</div>
   </div>
-  ${foot(false)}${notes(s)}
+  ${foot(photo)}${notes(s)}
 </section>`;
 }
 
@@ -372,7 +388,7 @@ function renderDashboardTemplate(s, sEn) {
     sEn?.template_caption_en ??
     s.template_caption_en ??
     "Filled example (Sheet 4b): in team pack v0.3-es — not on this slide.";
-  return `${sectionOpen("fp-chart-proof fp-dash-solo", "dashboard-template", s.bg)}
+  return `${sectionOpen("fp-chart-proof fp-dash-solo", "showcase", s.bg)}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-dash-solo__body">
     ${shot}
@@ -461,7 +477,7 @@ function renderOffer(s, sEn) {
   ${head(s.title, s.kicker ?? "Metodología", sEn.title, sEn.kicker)}
   <div class="fp-body fp-offer__grid" style="grid-template-columns:1fr;">
     <div class="fp-card fp-col fp-card--fill">
-      <p class="fp-col__head"><span style="text-transform:uppercase;font-size:22px;color:#669348;">${esc(s.currency)}</span> · ${T(s.price, sEn.price)}</p>
+      <p class="fp-col__head"><span class="fp-offer__tier">${T(s.currency, sEn.currency)}</span> · ${T(s.price, sEn.price)}</p>
       <ul class="fp-checks">${items}</ul>
       ${s.note ? `<p class="fp-cp__honest" style="margin-top:20px;">${T(s.note, sEn.note)}</p>` : ""}
     </div>
@@ -575,7 +591,7 @@ async function main() {
   </div>
   <script src="reveal.js/dist/reveal.js"></script>
   <script>
-    Reveal.initialize({ hash: true, slideNumber: true, width: 1920, height: 1080, margin: 0.04 });
+    Reveal.initialize({ hash: true, slideNumber: "c/t", width: 1920, height: 1080, margin: 0, center: false, transition: "fade" });
     ${LANG_SCRIPT}
   </script>
 </body>

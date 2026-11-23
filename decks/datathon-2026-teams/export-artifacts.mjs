@@ -63,6 +63,9 @@ async function exportLang(lang) {
   const page = await browser.newPage();
   const url = `file://${distHtml}?lang=${lang}`;
   await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
+  await page.evaluate(() => {
+    document.documentElement.classList.add("export");
+  });
   await page.evaluate((l) => {
     document.body.setAttribute("data-lang", l);
     document.documentElement.setAttribute("lang", l);

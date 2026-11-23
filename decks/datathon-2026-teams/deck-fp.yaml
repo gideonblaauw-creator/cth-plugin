@@ -26,32 +26,28 @@ slides:
   - kicker: Metodología
     source: Paquete de equipo Datatón (ES)
   - bg: assets/photos/canva-g2-crop.jpg
-    bg_position: center center
+    bg_position: 62% center
     photo_scrim: light
     photo_bleed: full
     photo_scrim_variant: g2
   - kicker: Ejemplo · piloto Air4U
     bg: assets/photos/canva-g6-crop.jpg
     takeaway: Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.
-    shot_zoom: 1.15
+    photo_scrim: light
   - kicker: Ejemplo · piloto Air4U
     bg: assets/photos/canva-g7-crop.jpg
     takeaway: Empiece por VP1 — el mapa de calor solo colorea bloques ligados a propuestas de valor.
-    shot_zoom: 1.2
+    photo_scrim: light
   - kicker: Ejemplo · piloto Air4U
-    bg: navy
     takeaway: Mañana es entrada abierta — esto no es la escalera todavía.
     source: Paquete de equipo Datatón (ES)
     shot_tall: true
   - kicker: Ejemplo · piloto Air4U
-    bg: navy
     takeaway: "Esto no es la escalera: use la tarjeta de arranque solo si ningún bloque VP quedó tibio."
     source: Paquete de equipo Datatón (ES)
     shot_tall: true
   - kicker: Ejemplo · piloto Air4U
-    bg: navy
     takeaway: Firme solo en Plata+ en pantalla — si no, marque estimado.
-    shot_zoom: 1.18
   - render_as: dashboard-template
     native_template: true
     kicker: Ejemplo · piloto Air4U
