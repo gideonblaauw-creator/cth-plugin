@@ -63,7 +63,12 @@ async function exportSlides(width, height, suffix) {
   const page = await browser.newPage();
   const url = `file://${distHtml}?export=1`;
   await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
-  await page.evaluate(() => document.documentElement.classList.add("export"));
+  await page.evaluate(() => {
+    document.documentElement.classList.add("export");
+    if (window.Reveal) {
+      Reveal.configure({ transition: "none" });
+    }
+  });
   const count = await page.evaluate(
     () => document.querySelectorAll(".reveal .slides section[data-cth-type]").length
   );
@@ -71,7 +76,7 @@ async function exportSlides(width, height, suffix) {
   await page.setViewport({ width, height, deviceScaleFactor: 1 });
   for (let i = 0; i < count; i++) {
     await page.evaluate((n) => window.Reveal.slide(n), i);
-    await new Promise((r) => setTimeout(r, 400));
+    await new Promise((r) => setTimeout(r, 650));
     const name = `slide-${String(i + 1).padStart(2, "0")}-${width}x${height}.png`;
     const local = path.join(outDir, name);
     await page.screenshot({ path: local, type: "png" });
