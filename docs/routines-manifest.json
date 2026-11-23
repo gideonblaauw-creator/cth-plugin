@@ -1,0 +1,184 @@
+{
+  "$schema": "./routines-manifest.schema.json",
+  "manifest_owner": "Control Tower · Infra",
+  "manifest_owner_agent_id": "c656afb9-5323-440c-b90a-e3abf72135c4",
+  "updated": "2026-11-22",
+  "routines": [
+    {
+      "agent_id": "76808b5e-b99c-4678-8f1d-558bc9b4f732",
+      "agent_name": "Datalab",
+      "routine_name": "Daily LinkedIn outreach to-do",
+      "schedule": "UNKNOWN",
+      "runner": "hands",
+      "status": "active",
+      "owner_desk": "Datalab",
+      "last_run_artifact_path": "/workspace/datalab-outreach-todo-2026-11-20.md",
+      "source": "coverage-audit-2026-11-22; workspace artifacts through 20 Nov 2026; not in automations/"
+    },
+    {
+      "agent_id": "d3d9dd60-1b7f-4c22-9911-1d2318522e52",
+      "agent_name": "Inbox",
+      "routine_name": "Morning inbox dashboard",
+      "schedule": "UNKNOWN",
+      "runner": "hands",
+      "status": "active",
+      "owner_desk": "Inbox",
+      "last_run_artifact_path": "/workspace/inbox-triage-* through 20 Nov 2026",
+      "source": "coverage-audit-2026-11-22; workspace artifacts; automations/ on agent"
+    },
+    {
+      "agent_id": "d3d9dd60-1b7f-4c22-9911-1d2318522e52",
+      "agent_name": "Inbox",
+      "routine_name": "Daily inbox triage/archive",
+      "schedule": "UNKNOWN",
+      "runner": "hands",
+      "status": "active",
+      "owner_desk": "Inbox",
+      "last_run_artifact_path": "/workspace/inbox-triage-* through 20 Nov 2026",
+      "source": "coverage-audit-2026-11-22; workspace artifacts; automations/ on agent"
+    },
+    {
+      "agent_id": "0255b102-946f-476f-ae16-95e94f0bb644",
+      "agent_name": "Careers",
+      "routine_name": "Weekly openings scan",
+      "schedule": "UNKNOWN",
+      "runner": "hands",
+      "status": "active",
+      "owner_desk": "Careers",
+      "last_run_artifact_path": "/workspace/careers-scan/",
+      "source": "coverage-audit-2026-11-22; protocol-review 17 Nov 2026; not in automations/"
+    },
+    {
+      "agent_id": "fbc6f772-82d8-40d5-92b8-cbefe7d5f1fc",
+      "agent_name": "Health",
+      "routine_name": "Site/egress heartbeat + VPS disk/memory watch + GitHub drift check",
+      "schedule": "UNKNOWN",
+      "runner": "hands",
+      "status": "active",
+      "owner_desk": "Health",
+      "last_run_artifact_path": "/workspace/health-workbench-run-* through 20 Nov 2026",
+      "source": "coverage-audit-2026-11-22; workspace artifacts; not in automations/"
+    },
+    {
+      "agent_id": "7ffbe815-dc6a-45d1-86ee-ed5b0aed83c4",
+      "agent_name": "Sustenttia",
+      "routine_name": "Retry Sustenttia graph-map Cursor worker",
+      "schedule": "UNKNOWN",
+      "runner": "local_automation",
+      "status": "disabled",
+      "owner_desk": "Sustenttia",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/ (disabled)"
+    },
+    {
+      "agent_id": "98feb964-3e74-450b-82b6-8f2a7e6ce6b2",
+      "agent_name": "LinkedIn · Workbench",
+      "routine_name": "LinkedIn session check",
+      "schedule": "UNKNOWN",
+      "runner": "local_automation",
+      "status": "disabled",
+      "owner_desk": "LinkedIn · Workbench",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/ (disabled)"
+    },
+    {
+      "agent_id": "2592cf74-3a18-4284-87da-e270a6a8fc8e",
+      "agent_name": "Monday · Teclogi",
+      "routine_name": "Teclogi Monday CRM standup",
+      "schedule": "UNKNOWN",
+      "runner": "local_automation",
+      "status": "active",
+      "owner_desk": "Monday · Teclogi",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "5dc64ea4-b416-4da3-bc8b-12fb507256f7",
+      "agent_name": "Orchestrator",
+      "routine_name": "Weekday morning Daily Note",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "active",
+      "owner_desk": "Orchestrator",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "5dc64ea4-b416-4da3-bc8b-12fb507256f7",
+      "agent_name": "Orchestrator",
+      "routine_name": "CTH Monday grant watch",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "active",
+      "owner_desk": "Orchestrator",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "5dc64ea4-b416-4da3-bc8b-12fb507256f7",
+      "agent_name": "Orchestrator",
+      "routine_name": "Daily Claude → VPS file push",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "active",
+      "owner_desk": "Orchestrator",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "5dc64ea4-b416-4da3-bc8b-12fb507256f7",
+      "agent_name": "Orchestrator",
+      "routine_name": "Weekly Mac storage hygiene",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "active",
+      "owner_desk": "Orchestrator",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "5dc64ea4-b416-4da3-bc8b-12fb507256f7",
+      "agent_name": "Orchestrator",
+      "routine_name": "Daily chat session dump",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "active",
+      "owner_desk": "Orchestrator",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "coverage-audit-2026-11-22; automations/"
+    },
+    {
+      "agent_id": "f1a2eba2-ce31-484a-8515-b0915e181d28",
+      "agent_name": "X · Desks",
+      "routine_name": "8am AI-security picks",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "unknown",
+      "owner_desk": "X · Desks",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "protocol-review 2026-11-17 mention only; paused 14 Nov per review; unverified 22 Nov 2026"
+    },
+    {
+      "agent_id": "f1a2eba2-ce31-484a-8515-b0915e181d28",
+      "agent_name": "X · Desks",
+      "routine_name": "Weekday 07:20 status notes",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "unknown",
+      "owner_desk": "X · Desks",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "protocol-review 2026-11-17 mention only; unverified 22 Nov 2026"
+    },
+    {
+      "agent_id": "f1a2eba2-ce31-484a-8515-b0915e181d28",
+      "agent_name": "X · Desks",
+      "routine_name": "07:30 zero-cost drafter",
+      "schedule": "UNKNOWN",
+      "runner": "grok_routine",
+      "status": "unknown",
+      "owner_desk": "X · Desks",
+      "last_run_artifact_path": "UNKNOWN",
+      "source": "protocol-review 2026-11-17 mention only; unverified 22 Nov 2026"
+    }
+  ]
+}
