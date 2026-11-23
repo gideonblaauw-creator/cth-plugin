@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Certificado de participación — Datatón 2026</title>
+  <link rel="stylesheet" href="certificate.css" />
+</head>
+<body>
+  <article class="certificate" data-nombre-length="{{NOMBRE_LENGTH}}">
+    <header class="header">
+      <object
+        class="header-object"
+        type="image/svg+xml"
+        data="logos/datalab-logo-endorsed.svg"
+        aria-label="Datalab powered by CleantechHUB"
+      >
+        Datalab powered by CleantechHUB
+      </object>
+    </header>
+
+    <h1 class="title">Certificado de participación</h1>
+    <p class="lead">Se otorga el presente certificado a</p>
+
+    <div class="name-block">
+      <p class="participant-name" id="participant-name">{{NOMBRE}}</p>
+    </div>
+
+    <p class="body-text" id="body-text">{{BODY}}</p>
+
+    <p class="programme-line">
+      Un evento de Datalab powered by CleantechHUB, la Universidad Externado de Colombia y el Centro de Emprendimiento Externadista (CEE), en el marco del lanzamiento del Observatorio de la Tierra.
+    </p>
+
+    <p class="date-line">Bogotá, {{FECHA}}</p>
+
+    <div class="signatures">
+      <div class="sig-block">
+        <hr class="sig-rule" />
+        <p class="sig-name">Gideon Blaauw</p>
+        <p class="sig-title">Representante Legal</p>
+        <p class="sig-org">Fundación CleantechHUB</p>
+      </div>
+      <div class="sig-block">
+        <hr class="sig-rule" />
+        <p class="sig-name">[Nombre por confirmar]</p>
+        <p class="sig-title">[Cargo por confirmar]</p>
+        <p class="sig-org">Universidad Externado de Colombia — CEE</p>
+      </div>
+    </div>
+
+    <div class="partners">
+      <div class="partner-cell">
+        <img src="logos/externado-color.png" alt="Universidad Externado de Colombia" />
+      </div>
+      <div class="partner-cell">
+        <div class="cee-slot" role="img" aria-label="Espacio reservado para logo CEE">
+          Logo CEE — archivo oficial pendiente (fondo claro)
+        </div>
+      </div>
+      <div class="partner-cell partner-cth">
+        <img src="logos/cleantechhub-official.png" alt="CleantechHUB" />
+      </div>
+    </div>
+
+    <p class="footer-tagline">Inspira. Actúa. Transforma.</p>
+  </article>
+  <script>
+    (function () {
+      const nameEl = document.getElementById("participant-name");
+      const len = parseInt(document.querySelector(".certificate").dataset.nombreLength || "0", 10);
+      const name = nameEl.textContent.trim();
+      const chars = len || name.length;
+      let sizePt = 26;
+      if (chars > 32) sizePt = 18;
+      else if (chars > 26) sizePt = 21;
+      else if (chars > 20) sizePt = 24;
+      nameEl.style.fontSize = sizePt + "pt";
+    })();
+  </script>
+</body>
+</html>
