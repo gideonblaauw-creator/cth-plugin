@@ -2,16 +2,25 @@
 """16:9 crops from Canva-cleaned Air4U PNGs → assets/photos/canva-g*-crop.jpg."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from PIL import Image
 
 REPO = Path(__file__).resolve().parents[1]
 OUT = REPO / "assets" / "photos"
-SRC = Path("/opt/cth-decks/archive/air4u-datathon-2026/canva-compare/canva-out")
+SRC = Path(
+    os.environ.get(
+        "CANVA_OUT",
+        "/opt/cth-decks/archive/air4u-datathon-2026/canva-compare/canva-out",
+    )
+)
+if not SRC.is_dir():
+    SRC = REPO / "assets" / "canva-src"
 
 # (source file, crop box x0,y0,x1,y1) on 1080×1350 canvas
 CROPS: dict[str, tuple[str, tuple[int, int, int, int]]] = {
+    "canva-g2-crop.jpg": ("g2-canva.png", (0, 500, 1080, 1108)),  # slide 6 — technician
     "canva-g3-crop.jpg": ("g3-canva.png", (0, 500, 1080, 1108)),  # slide 1 — Medellín
     "canva-g4-crop.jpg": ("g4-canva.png", (0, 380, 1080, 988)),  # slide 2 — gloved hand
     "canva-g5-crop.jpg": ("g5-canva.png", (0, 680, 1080, 1288)),  # slide 6 — café
@@ -53,8 +62,16 @@ def save_web(im: Image.Image, path: Path) -> None:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    for out_name, (src_name, box) in CROPS.items():
-        im = Image.open(SRC / src_name).convert("RGB")
+    only = os.environ.get("CROP_ONLY")
+    crops = CROPS.items()
+    if only:
+        crops = [(k, v) for k, v in CROPS.items() if k == only]
+    for out_name, (src_name, box) in crops:
+        src = SRC / src_name
+        if not src.is_file():
+            print(f"skip {out_name}: missing {src}")
+            continue
+        im = Image.open(src).convert("RGB")
         crop = to_16x9(im.crop(box))
         save_web(crop, OUT / out_name)
         print(f"  box={box}")

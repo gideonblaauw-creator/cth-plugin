@@ -4,14 +4,14 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 
 ## Background photos
 
-**Canva-cleaned Air4U photos** (1080×1350 PNG, `/opt/cth-decks/.../canva-out/g*-canva.png`). Full-bleed **16:9** crops under `assets/photos/canva-g*-crop.jpg` (`scripts/crop-canva-air4u.py`, 1920px JPEG). Photo slides use a **light scrim** in `assets/deck.css` (~50% flat navy + L→R text gradient; faint g5 uses `photo_boost: strong` and masked scrim). People/logos allowed on this deck. **One unique crop per photo slide.**
+**Canva-cleaned Air4U photos** (1080×1350 PNG, `/opt/cth-decks/.../canva-out/g*-canva.png`). Full-bleed **16:9** crops under `assets/photos/canva-g*-crop.jpg` (`scripts/crop-canva-air4u.py`, 1920px JPEG). Photo slides use a **light scrim** in `assets/deck.css` (~50% flat navy + L→R text gradient). People/logos allowed on this deck. **One unique crop per photo slide.**
 
 | Slide | g-source | Crop box (x0,y0,x1,y1) | Asset |
 |-------|----------|-------------------------|-------|
 | 1 cover | g3 Medellín | (0,500,1080,1108) | canva-g3-crop.jpg |
 | 2 statement | g4 gloved hand | (0,380,1080,988) | canva-g4-crop.jpg |
 | 3–5 | white | — | — |
-| 6 statement | g5 café | (0,680,1080,1288) | canva-g5-crop.jpg |
+| 6 statement | g2 technician | (0,500,1080,1108) | canva-g2-crop.jpg |
 | 7 showcase | g6 AHU | (0,220,1080,828) | canva-g6-crop.jpg |
 | 8 showcase | g7 nurse | (0,300,1080,908) | canva-g7-crop.jpg |
 | 9–11 | navy | — | — |
