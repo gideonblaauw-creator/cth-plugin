@@ -104,6 +104,10 @@
   padding-bottom: 72px;
 }
 .reveal .fp-statement.fp-has-photo .fp-statement__attr { margin-top: 24px !important; }
+/* Slide 6 only (bleed-full photo statement): keep EN copy clear of the technician face */
+.reveal .fp-statement.fp-has-photo.fp-photo-bleed--full .fp-statement__body {
+  max-width: 900px !important;
+}
 
 /* stat band */
 .reveal .fp-stats { display: grid; gap: 32px; align-content: center; }
@@ -473,40 +477,53 @@ body[data-lang="es"] .l-en { display: none !important; }
 .reveal .fp-ecosystem--fill .fp-body { display: flex; flex-direction: column; flex: 0 1 auto; min-height: 0; }
 .reveal .fp-ecosystem--fill .fp-eco {
   flex: 0 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px 22px;
-  align-content: start;
-}
-.reveal .fp-ecosystem--fill .fp-eco__row {
-  display: contents;
+  gap: 20px;
+  justify-content: flex-start;
 }
 .reveal .fp-ecosystem--fill .fp-eco__centre {
-  grid-column: 1 / 2;
   align-self: center;
-  justify-self: stretch;
-  margin: 0;
-  padding: 16px 20px;
-  font-size: 24px;
-  box-shadow: 0 0 0 8px #B2EEFA;
+  margin: 4px auto 6px;
+  padding: 22px 48px;
+  font-size: 28px;
+  box-shadow: 0 0 0 10px #B2EEFA;
 }
-.reveal .fp-ecosystem--fill .fp-eco__row:nth-child(3) .fp-eco__node {
-  grid-column: 2 / 4;
+.reveal .fp-ecosystem--fill .fp-eco__row:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.reveal .fp-ecosystem--fill .fp-eco__row:last-child .fp-eco__node:only-child {
+  grid-column: 2;
 }
 .reveal .fp-ecosystem--fill .fp-eco__node {
   min-height: 0;
-  padding: 16px 20px;
+  padding: 22px 28px;
 }
-.reveal .fp-ecosystem--fill .fp-eco__node .fp-card__title { font-size: 24px; margin-bottom: 6px !important; }
-.reveal .fp-ecosystem--fill .fp-eco__node .fp-card__text { font-size: 19px; line-height: 1.34; }
+.reveal .fp-ecosystem--fill .fp-eco__node .fp-card__title {
+  font-size: 27px;
+  margin-bottom: 8px !important;
+}
+.reveal .fp-ecosystem--fill .fp-eco__node .fp-card__text {
+  font-size: 22px;
+  line-height: 1.38;
+}
 .reveal .fp-ecosystem--fill .fp-fill-extras {
-  margin-top: 22px;
+  margin-top: 26px;
   flex-shrink: 0;
   padding-top: 0;
 }
-.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat { min-height: 168px; padding: 22px 20px 18px; }
-.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat__value { font-size: 54px; margin-bottom: 8px; }
-.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat__label { font-size: 20px; line-height: 1.25; }
+.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat {
+  min-height: 200px;
+  padding: 28px 24px 22px;
+}
+.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat__value {
+  font-size: 62px;
+  margin-bottom: 12px;
+}
+.reveal .fp-ecosystem--fill .fp-fill-extras .fp-stat__label {
+  font-size: 24px;
+  line-height: 1.3;
+}
 .reveal .fp-key-facts--fill .fp-body { justify-content: space-between; }
 .reveal .fp-key-facts--fill .fp-body.fp-facts {
   flex: 1 1 auto;
@@ -516,13 +533,20 @@ body[data-lang="es"] .l-en { display: none !important; }
   height: auto;
 }
 .reveal .fp-key-facts--fill .fp-body.fp-facts:not(:has(.fp-fact:nth-child(4))) {
-  grid-template-rows: 1fr;
-  min-height: 420px;
+  grid-template-rows: auto;
+  min-height: 0;
+  align-content: center;
+  flex: 1 1 auto;
 }
 .reveal .fp-key-facts--fill .fp-body.fp-facts:not(:has(.fp-fact:nth-child(4))) .fp-fact {
-  min-height: 380px;
-  align-items: center;
+  min-height: 0;
+  height: auto;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: 30px 28px;
 }
+.reveal .fp-key-facts--fill .fp-fact__label { font-size: 29px; }
+.reveal .fp-key-facts--fill .fp-fact__text { font-size: 24px; line-height: 1.4; }
 .reveal .fp-dash-solo .fp-title { font-size: 44px; max-width: 1680px; }
 .reveal .fp-dash-solo .fp-head { margin-bottom: 12px; }
 .reveal .fp-dash-solo .fp-dash-solo__body {
@@ -621,7 +645,6 @@ body[data-lang="es"] .l-en { display: none !important; }
 /* Lower-half fill slides */
 .reveal .fp-card--fill .fp-card__text { font-size: 26px; line-height: 1.42; }
 .reveal .fp-card--fill { padding: 32px 36px; min-height: 0; }
-.reveal .fp-ecosystem--fill .fp-eco__node { min-height: 200px; }
 .reveal .fp-process--fill .fp-steps { align-content: center; }
 .reveal .fp-process--fill .fp-step { min-height: 0; }
 .reveal .fp-process--fill .fp-step--fill .fp-step__body { flex: 0 0 auto; }
