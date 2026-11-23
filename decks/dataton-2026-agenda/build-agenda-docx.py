@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build editable agenda-dataton-24nov-v5.docx (CTH letterhead fallback)."""
+"""Build agenda-dataton-24nov-v5.docx from CTH official letterhead template."""
 from __future__ import annotations
 
 import pathlib
@@ -12,8 +12,13 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Mm, Pt, RGBColor
 
 ROOT = pathlib.Path(__file__).resolve().parent
+LETTERHEAD = ROOT / "assets" / "letterhead"
+TEMPLATE = LETTERHEAD / "CTH_Letterhead_Official.docx"
+HEADER_BAND = LETTERHEAD / "CTH_header_band.png"
+FOOTER_BAND = LETTERHEAD / "CTH_footer_band.png"
 OUT = ROOT / "agenda-dataton-24nov-v5.docx"
 LOGOS = ROOT / "logos"
+A4_WIDTH = Inches(210 / 25.4)
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
 CYAN = RGBColor(0xB2, 0xEE, 0xFA)
@@ -92,55 +97,96 @@ def set_cell_shading(cell, fill_hex: str) -> None:
 
 def set_run_font(run, size_pt: float, bold: bool = False, color: RGBColor | None = None) -> None:
     run.font.name = BODY_FONT
-    run._element.rPr.rFonts.set(qn("w:ascii"), BODY_FONT)
-    run._element.rPr.rFonts.set(qn("w:hAnsi"), BODY_FONT)
+    r_pr = run._element.get_or_add_rPr()
+    rfonts = r_pr.find(qn("w:rFonts"))
+    if rfonts is None:
+        rfonts = OxmlElement("w:rFonts")
+        r_pr.insert(0, rfonts)
+    rfonts.set(qn("w:ascii"), BODY_FONT)
+    rfonts.set(qn("w:hAnsi"), BODY_FONT)
     run.font.size = Pt(size_pt)
     run.font.bold = bold
     if color is not None:
         run.font.color.rgb = color
 
 
-def add_header_logos(paragraph) -> None:
+def clear_element_children(element) -> None:
+    for child in list(element):
+        element.remove(child)
+
+
+def add_cobrand_color(paragraph) -> None:
     for idx, name in enumerate(
-        ("externado-white.png", "cleantechhub-white.png", "observatorio-white.png")
+        ("externado-color.png", "cleantechhub-color.png", "observatorio-color.png")
     ):
-        path = LOGOS / name
         if idx:
             paragraph.add_run("   ")
         run = paragraph.add_run()
-        run.add_picture(str(path), height=Inches(0.22))
+        run.add_picture(str(LOGOS / name), height=Inches(0.18))
+
+
+def setup_header_footer(section) -> None:
+    header = section.header
+    clear_element_children(header._element)
+    hp = header.add_paragraph()
+    hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    hp.paragraph_format.space_before = Pt(0)
+    hp.paragraph_format.space_after = Pt(2)
+    hp.add_run().add_picture(str(HEADER_BAND), width=A4_WIDTH)
+    lp = header.add_paragraph()
+    lp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    lp.paragraph_format.space_after = Pt(0)
+    add_cobrand_color(lp)
+
+    footer = section.footer
+    clear_element_children(footer._element)
+    fp = footer.add_paragraph()
+    fp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    ft = fp.add_run("Observa. Actúa. Transforma.")
+    set_run_font(ft, 9, bold=True, color=NAVY)
+    fp.add_run("    ")
+    add_cobrand_color(fp)
+    bp = footer.add_paragraph()
+    bp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    bp.paragraph_format.space_before = Pt(2)
+    bp.paragraph_format.space_after = Pt(0)
+    bp.add_run().add_picture(str(FOOTER_BAND), width=A4_WIDTH)
+
+
+def clear_body(doc: Document) -> None:
+    body = doc.element.body
+    for child in list(body):
+        if child.tag != qn("w:sectPr"):
+            body.remove(child)
 
 
 def build() -> None:
-    doc = Document()
+    doc = Document(str(TEMPLATE))
     section = doc.sections[0]
     section.page_height = Mm(297)
     section.page_width = Mm(210)
-    section.top_margin = Inches(0.35)
-    section.bottom_margin = Inches(0.32)
+    section.top_margin = Inches(1.55)
+    section.bottom_margin = Inches(0.65)
     section.left_margin = Inches(0.45)
     section.right_margin = Inches(0.45)
+    section.header_distance = Inches(0)
+    section.footer_distance = Inches(0.15)
 
-    header = section.header
-    hp = header.paragraphs[0]
-    hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    set_cell_shading_table_paragraph(hp, "0C498A")
-    add_header_logos(hp)
+    setup_header_footer(section)
+    clear_body(doc)
 
-    # Title block (body)
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(2)
-    p.paragraph_format.space_before = Pt(0)
     r = p.add_run("AGENDA · 24 NOVIEMBRE 2026")
     set_run_font(r, 8, bold=True, color=GREEN)
 
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(2)
     r = p.add_run("Datatón · Lanzamiento suave del Observatorio de la Tierra")
-    set_run_font(r, 14, bold=True, color=NAVY)
+    set_run_font(r, 13, bold=True, color=NAVY)
 
     p = doc.add_paragraph()
-    p.paragraph_format.space_after = Pt(4)
+    p.paragraph_format.space_after = Pt(3)
     r = p.add_run(
         "Soft launch del Datalab · martes 24 de noviembre de 2026 · Universidad Externado de Colombia"
     )
@@ -160,7 +206,6 @@ def build() -> None:
     set_cell_bottom_border(head)
 
     table = doc.add_table(rows=1 + len(ROWS), cols=2)
-    table.style = "Table Grid"
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = False
     table.columns[0].width = Inches(0.72)
@@ -198,25 +243,8 @@ def build() -> None:
             else:
                 set_run_font(run, 9, bold=False, color=BLUE_TEXT)
 
-    footer = section.footer
-    fp = footer.paragraphs[0]
-    set_cell_shading_table_paragraph(fp, "0C498A")
-    ft = fp.add_run("Observa. Actúa. Transforma.")
-    set_run_font(ft, 10, bold=True, color=CYAN)
-    fp.add_run("    ")
-    add_header_logos(fp)
-
     doc.save(OUT)
     print(OUT)
-
-
-def set_cell_shading_table_paragraph(paragraph, fill_hex: str) -> None:
-    p_pr = paragraph._p.get_or_add_pPr()
-    shd = OxmlElement("w:shd")
-    shd.set(qn("w:val"), "clear")
-    shd.set(qn("w:color"), "auto")
-    shd.set(qn("w:fill"), fill_hex)
-    p_pr.append(shd)
 
 
 def set_cell_bottom_border(table) -> None:

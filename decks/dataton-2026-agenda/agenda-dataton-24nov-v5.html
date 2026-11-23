@@ -56,37 +56,19 @@
       position: relative;
       background: var(--white);
     }
-    .hero {
-      position: relative;
-      background: var(--blue);
-      color: #fff;
-      padding: 6.5mm 14mm 6mm;
-      overflow: hidden;
+    .letterhead-top,
+    .letterhead-bottom {
+      width: 100%;
+      height: auto;
+      display: block;
       flex-shrink: 0;
     }
-    .hero-block {
-      position: absolute;
-      right: -70mm;
-      top: -22mm;
-      width: 95mm;
-      height: 95mm;
-      background: var(--green);
-      transform: rotate(18deg);
-      opacity: 0.88;
-      border-radius: 10mm;
-      z-index: 0;
+    .title-block {
+      flex-shrink: 0;
+      padding: 2mm 14mm 3mm;
+      color: var(--blue);
+      background: var(--white);
     }
-    .hero-block::after {
-      content: "";
-      position: absolute;
-      left: -26mm;
-      bottom: -12mm;
-      width: 52mm;
-      height: 52mm;
-      background: var(--sky);
-      border-radius: 8mm;
-    }
-    .hero-inner { position: relative; z-index: 1; }
     .cobrand-row {
       display: flex;
       align-items: center;
@@ -96,40 +78,44 @@
     .hero-logos {
       margin-bottom: 1.5mm;
     }
-    .hero-logos img {
-      height: 8.5mm;
+    .title-block .cobrand-row img {
+      height: 7mm;
       width: auto;
       display: block;
       object-fit: contain;
     }
+    .title-block .cobrand-row {
+      margin-bottom: 2mm;
+    }
     .eyebrow {
       font-weight: 700;
       font-size: 7.25pt;
-      color: var(--cyan);
-      margin: 3.5mm 0 2mm;
+      color: var(--green);
+      margin: 0 0 1.5mm;
       letter-spacing: 0.12em;
     }
     h1 {
-      margin: 0 0 2mm;
-      font-size: 20pt;
+      margin: 0 0 1.5mm;
+      font-size: 18.5pt;
       font-weight: 700;
       line-height: 1.12;
-      max-width: 120mm;
+      max-width: 178mm;
       letter-spacing: normal;
       word-spacing: normal;
+      color: var(--blue);
     }
     .subtitle {
       margin: 0;
-      font-size: 10pt;
+      font-size: 9.5pt;
       font-weight: 600;
-      line-height: 1.35;
-      color: var(--cyan);
-      max-width: 120mm;
+      line-height: 1.32;
+      color: var(--blue);
+      max-width: 178mm;
     }
     .main {
       flex: 1 1 auto;
       min-height: 0;
-      padding: 2.5mm 14mm 1.5mm;
+      padding: 1.5mm 14mm 1mm;
       display: flex;
       flex-direction: column;
       gap: 1mm;
@@ -209,22 +195,23 @@
       border-bottom: 1px solid rgba(12, 73, 138, 0.08);
     }
     .sandbox-block .tl-row:last-child { border-bottom: 0; }
-    .footer {
+    .sheet-foot {
       flex-shrink: 0;
-      background: var(--blue);
-      color: #fff;
-      padding: 3.5mm 14mm 4mm;
+      background: var(--white);
+    }
+    .footer-meta {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      gap: 5mm;
+      gap: 4mm;
+      padding: 1.5mm 14mm 1mm;
     }
     .tagline {
       font-weight: 700;
-      font-size: 12pt;
-      color: var(--cyan);
+      font-size: 10pt;
+      color: var(--blue);
       margin: 0;
       letter-spacing: 0.01em;
       white-space: nowrap;
@@ -235,22 +222,16 @@
       flex-wrap: nowrap;
       align-items: center;
       flex-shrink: 0;
+      gap: 3mm;
     }
     .footer-cobrand img {
-      height: 6.5mm;
+      height: 5.5mm;
       width: auto;
       display: block;
       object-fit: contain;
     }
     .footer-cobrand .logo-cth {
-      height: 7.1mm;
-    }
-    .cobrand-divider {
-      flex-shrink: 0;
-      width: 1px;
-      height: 5mm;
-      margin: 0 2.8mm;
-      background: rgba(255, 255, 255, 0.5);
+      height: 6mm;
     }
     .avoid-break { break-inside: avoid; page-break-inside: avoid; }
 
@@ -275,19 +256,17 @@
 </head>
 <body>
   <article class="sheet" role="document">
-    <header class="hero">
-      <div class="hero-block" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-logos cobrand-row">
-          <img src="logos/externado-white.png" alt="Universidad Externado de Colombia"/>
-          <img src="logos/cleantechhub-white.png" alt="CleantechHUB"/>
-          <img src="logos/observatorio-white.png" alt="Observatorio de la Tierra"/>
-        </div>
-        <p class="eyebrow">AGENDA · 24 NOVIEMBRE 2026</p>
-        <h1>Datatón · Lanzamiento suave del Observatorio de la Tierra</h1>
-        <p class="subtitle">Soft launch del Datalab · martes 24 de noviembre de 2026 · Universidad Externado de Colombia</p>
+    <img class="letterhead-top" src="assets/letterhead/CTH_header_band.png" alt="CleantechHUB"/>
+    <div class="title-block">
+      <div class="cobrand-row">
+        <img src="logos/externado-color.png" alt="Universidad Externado de Colombia"/>
+        <img src="logos/cleantechhub-color.png" alt="CleantechHUB"/>
+        <img src="logos/observatorio-color.png" alt="Observatorio de la Tierra"/>
       </div>
-    </header>
+      <p class="eyebrow">AGENDA · 24 NOVIEMBRE 2026</p>
+      <h1>Datatón · Lanzamiento suave del Observatorio de la Tierra</h1>
+      <p class="subtitle">Soft launch del Datalab · martes 24 de noviembre de 2026 · Universidad Externado de Colombia</p>
+    </div>
     <section class="main" aria-labelledby="agenda-title">
       <div class="agenda-head">
         <h2 id="agenda-title">Programa del día</h2>
@@ -378,16 +357,17 @@
         </li>
       </ol>
     </section>
-    <footer class="footer">
-      <p class="tagline">Observa. Actúa. Transforma.</p>
-      <div class="footer-cobrand" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
-        <img src="logos/externado-white.png" alt=""/>
-        <span class="cobrand-divider" aria-hidden="true"></span>
-        <img class="logo-cth" src="logos/cleantechhub-white.png" alt=""/>
-        <span class="cobrand-divider" aria-hidden="true"></span>
-        <img src="logos/observatorio-white.png" alt=""/>
+    <section class="sheet-foot">
+      <div class="footer-meta">
+        <p class="tagline">Observa. Actúa. Transforma.</p>
+        <div class="footer-cobrand" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
+          <img src="logos/externado-color.png" alt=""/>
+          <img class="logo-cth" src="logos/cleantechhub-color.png" alt=""/>
+          <img src="logos/observatorio-color.png" alt=""/>
+        </div>
       </div>
-    </footer>
+      <img class="letterhead-bottom" src="assets/letterhead/CTH_footer_band.png" alt=""/>
+    </section>
   </article>
 </body>
 </html>
