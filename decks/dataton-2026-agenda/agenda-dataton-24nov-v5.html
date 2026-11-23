@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Datatón · Lanzamiento suave del Observatorio de la Tierra</title>
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url("fonts/open-sans-latin-400-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-display: block;
+      src: url("fonts/open-sans-latin-600-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-display: block;
+      src: url("fonts/open-sans-latin-700-normal.woff2") format("woff2");
+    }
+
+    :root {
+      --blue: #0C498A;
+      --cyan: #B2EEFA;
+      --lgreen: #9DC384;
+      --green: #669348;
+      --sky: #69B5FA;
+      --white: #fff;
+      --font: "Open Sans", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      color: var(--blue);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      background: var(--white);
+    }
+    .hero {
+      position: relative;
+      background: var(--blue);
+      color: #fff;
+      padding: 6.5mm 14mm 6mm;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hero-block {
+      position: absolute;
+      right: -70mm;
+      top: -22mm;
+      width: 95mm;
+      height: 95mm;
+      background: var(--green);
+      transform: rotate(18deg);
+      opacity: 0.88;
+      border-radius: 10mm;
+      z-index: 0;
+    }
+    .hero-block::after {
+      content: "";
+      position: absolute;
+      left: -26mm;
+      bottom: -12mm;
+      width: 52mm;
+      height: 52mm;
+      background: var(--sky);
+      border-radius: 8mm;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .cobrand-row {
+      display: flex;
+      align-items: center;
+      gap: 4.5mm;
+      flex-wrap: wrap;
+    }
+    .hero-logos {
+      margin-bottom: 1.5mm;
+    }
+    .hero-logos img {
+      height: 8.5mm;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .eyebrow {
+      font-weight: 700;
+      font-size: 7.25pt;
+      color: var(--cyan);
+      margin: 3.5mm 0 2mm;
+      letter-spacing: 0.12em;
+    }
+    h1 {
+      margin: 0 0 2mm;
+      font-size: 20pt;
+      font-weight: 700;
+      line-height: 1.12;
+      max-width: 120mm;
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 10pt;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--cyan);
+      max-width: 120mm;
+    }
+    .main {
+      flex: 1 1 auto;
+      min-height: 0;
+      padding: 2.5mm 14mm 1.5mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+    }
+    .agenda-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4mm;
+      border-bottom: 3px solid var(--cyan);
+      padding-bottom: 2mm;
+      flex-shrink: 0;
+    }
+    .agenda-head h2 {
+      margin: 0;
+      font-size: 14pt;
+      font-weight: 700;
+    }
+    .agenda-head .note {
+      font-size: 7.75pt;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 24mm 1fr;
+      gap: 3mm;
+      align-items: start;
+      padding: 1.15mm 0;
+      border-bottom: 1px solid rgba(12, 73, 138, 0.1);
+    }
+    .tl-row:last-child { border-bottom: 0; }
+    .tl-time {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.18;
+    }
+    .tl-text {
+      font-size: 9pt;
+      font-weight: 600;
+      line-height: 1.18;
+    }
+    .tl-moderator {
+      display: block;
+      margin-top: 0.6mm;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.02em;
+    }
+    .sandbox-block {
+      list-style: none;
+      margin: 0;
+      padding: 1mm 2.5mm 1mm 3mm;
+      background: rgba(105, 181, 250, 0.14);
+      border: 1px solid rgba(105, 181, 250, 0.45);
+      border-left: 4px solid var(--sky);
+      border-radius: 0 4px 4px 0;
+    }
+    .sandbox-block .tl-row {
+      padding: 0.9mm 0;
+      border-bottom: 1px solid rgba(12, 73, 138, 0.08);
+    }
+    .sandbox-block .tl-row:last-child { border-bottom: 0; }
+    .footer {
+      flex-shrink: 0;
+      background: var(--blue);
+      color: #fff;
+      padding: 3.5mm 14mm 4mm;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5mm;
+    }
+    .tagline {
+      font-weight: 700;
+      font-size: 12pt;
+      color: var(--cyan);
+      margin: 0;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .footer-cobrand {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-cobrand img {
+      height: 6.5mm;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-cobrand .logo-cth {
+      height: 7.1mm;
+    }
+    .cobrand-divider {
+      flex-shrink: 0;
+      width: 1px;
+      height: 5mm;
+      margin: 0 2.8mm;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+
+    @media print {
+      html, body { width: 210mm; height: 297mm; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      .sheet {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet" role="document">
+    <header class="hero">
+      <div class="hero-block" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-logos cobrand-row">
+          <img src="logos/externado-white.png" alt="Universidad Externado de Colombia"/>
+          <img src="logos/cleantechhub-white.png" alt="CleantechHUB"/>
+          <img src="logos/observatorio-white.png" alt="Observatorio de la Tierra"/>
+        </div>
+        <p class="eyebrow">AGENDA · 24 NOVIEMBRE 2026</p>
+        <h1>Datatón · Lanzamiento suave del Observatorio de la Tierra</h1>
+        <p class="subtitle">Soft launch del Datalab · martes 24 de noviembre de 2026 · Universidad Externado de Colombia</p>
+      </div>
+    </header>
+    <section class="main" aria-labelledby="agenda-title">
+      <div class="agenda-head">
+        <h2 id="agenda-title">Programa del día</h2>
+        <span class="note">HORARIOS ORIENTATIVOS</span>
+      </div>
+      <ol class="timeline">
+        <li class="tl-row avoid-break">
+          <span class="tl-time">08:00</span>
+          <span class="tl-text">Registro y bienvenida</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">08:30</span>
+          <span class="tl-text">Palabras de apertura (Gideon Blaauw, CleantechHUB, y Marlene Díaz, Universidad Externado)</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">08:40</span>
+          <span class="tl-text">Panel: Innovación y emprendimiento en el territorio a través de los datos (ODS 13), 30 min. Natalia&nbsp;Vargas (APC-Colombia), Rector de la Universidad Externado, RAP Pacífico y Óscar (Apix Pharma).
+            <span class="tl-moderator">Modera Gideon Blaauw</span>
+          </span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">09:10</span>
+          <span class="tl-text">Lanzamiento del Observatorio de la Tierra y presentación del Datalab</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">09:25</span>
+          <span class="tl-text">Pausa de café</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">09:40</span>
+          <span class="tl-text">Conversatorio: Alejandro Díaz (Universidad Externado), el Sr. Cortés (Constructora Bolívar) y Gideon Blaauw</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">09:55</span>
+          <span class="tl-text">Conversatorio: Digitalización como habilitador para la competitividad del territorio. Presentación de Enrique Medina (Agrometers) y conversación con Gideon Blaauw</span>
+        </li>
+        <li class="sandbox-block avoid-break">
+          <div class="tl-row">
+            <span class="tl-time">10:05</span>
+            <span class="tl-text">Data Sandbox de Innovación (1/3): presentación de Air4U</span>
+          </div>
+          <div class="tl-row">
+            <span class="tl-time">10:10</span>
+            <span class="tl-text">Data Sandbox de Innovación (2/3): demo en vivo Air4U</span>
+          </div>
+          <div class="tl-row">
+            <span class="tl-time">10:20</span>
+            <span class="tl-text">Data Sandbox de Innovación (3/3): conversatorio Air4U y Óscar (Apix Pharma).
+              <span class="tl-moderator">Modera Gideon Blaauw</span>
+            </span>
+          </div>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">10:45</span>
+          <span class="tl-text">Instrucciones y arranque del datatón</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">11:00</span>
+          <span class="tl-text">Trabajo de equipos con monitores (bloque 1)</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">12:30</span>
+          <span class="tl-text">Almuerzo y networking</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">13:30</span>
+          <span class="tl-text">Trabajo de equipos y preparación del pitch (bloque 2)</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">15:30</span>
+          <span class="tl-text">Refrigerio</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">16:00</span>
+          <span class="tl-text">Pitches finales: 6 equipos preseleccionados por los monitores</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">16:40</span>
+          <span class="tl-text">Deliberación del jurado</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">16:50</span>
+          <span class="tl-text">Cierre: anuncio de 3 ganadores y entrega de certificados</span>
+        </li>
+        <li class="tl-row avoid-break">
+          <span class="tl-time">17:00</span>
+          <span class="tl-text">Fin</span>
+        </li>
+      </ol>
+    </section>
+    <footer class="footer">
+      <p class="tagline">Observa. Actúa. Transforma.</p>
+      <div class="footer-cobrand" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
+        <img src="logos/externado-white.png" alt=""/>
+        <span class="cobrand-divider" aria-hidden="true"></span>
+        <img class="logo-cth" src="logos/cleantechhub-white.png" alt=""/>
+        <span class="cobrand-divider" aria-hidden="true"></span>
+        <img src="logos/observatorio-white.png" alt=""/>
+      </div>
+    </footer>
+  </article>
+</body>
+</html>
