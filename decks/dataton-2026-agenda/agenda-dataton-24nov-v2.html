@@ -191,11 +191,13 @@
       flex-shrink: 0;
       background: var(--blue);
       color: #fff;
-      padding: 3.5mm 14mm 4.5mm;
+      padding: 3.5mm 14mm 4mm;
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      gap: 8mm;
+      gap: 5mm;
     }
     .tagline {
       font-weight: 700;
@@ -203,12 +205,30 @@
       color: var(--cyan);
       margin: 0;
       letter-spacing: 0.01em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .footer-cobrand {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      flex-shrink: 0;
     }
     .footer-cobrand img {
-      height: 8mm;
+      height: 6.5mm;
       width: auto;
       display: block;
       object-fit: contain;
+    }
+    .footer-cobrand .logo-cth {
+      height: 7.1mm;
+    }
+    .cobrand-divider {
+      flex-shrink: 0;
+      width: 1px;
+      height: 5mm;
+      margin: 0 2.8mm;
+      background: rgba(255, 255, 255, 0.5);
     }
     .avoid-break { break-inside: avoid; page-break-inside: avoid; }
 
@@ -320,9 +340,11 @@
     </section>
     <footer class="footer">
       <p class="tagline">Observa. Actúa. Transforma.</p>
-      <div class="footer-cobrand cobrand-row" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
+      <div class="footer-cobrand" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
         <img src="logos/externado-white.png" alt=""/>
-        <img src="logos/cleantechhub-white.png" alt=""/>
+        <span class="cobrand-divider" aria-hidden="true"></span>
+        <img class="logo-cth" src="logos/cleantechhub-white.png" alt=""/>
+        <span class="cobrand-divider" aria-hidden="true"></span>
         <img src="logos/observatorio-white.png" alt=""/>
       </div>
     </footer>
