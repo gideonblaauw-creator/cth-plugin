@@ -488,6 +488,18 @@ function renderOffer(s, sEn) {
 </section>`;
 }
 
+function renderClosing(s, sEn) {
+  const tagline = s.text ?? "Inspira. Actúa. Transforma.";
+  const taglineEn = sEn.text ?? tagline;
+  return `${sectionOpen("fp-closing fp--dark", "closing", "navy")}
+  <div class="fp-closing__body">
+    <img class="fp-closing__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
+    <p class="fp-closing__tag">${T(tagline, taglineEn)}</p>
+  </div>
+  ${foot(true)}${notes(s)}
+</section>`;
+}
+
 function renderContact(s, sEn) {
   const people = s.people || [];
   const peopleEn = sEn.people || [];
@@ -524,6 +536,7 @@ const RENDERERS = {
   "title-bullets": renderTitleBullets,
   offer: renderOffer,
   contact: renderContact,
+  closing: renderClosing,
 };
 
 const LANG_SCRIPT = `
