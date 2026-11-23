@@ -1,0 +1,18 @@
+/* Pitch template — solid navy cover legibility */
+.reveal .fp-cover[data-background-color="#0C498A"] .fp-cover__title,
+.reveal .fp-cover[data-background-color="#0C498A"] .fp-cover__sub,
+.reveal .fp-cover[data-background-color="#0C498A"] .fp-eyebrow {
+  color: #FFFFFF;
+}
+.reveal .fp-cover[data-background-color="#0C498A"] .fp-cover__meta {
+  color: #B2EEFA;
+}
+.reveal .fp-cover[data-background-color="#0C498A"] .fp-cover__logo {
+  content: url("cth-logo-white.png");
+}
+.reveal .fp-stats--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.reveal .fp-steps--2 {
+  grid-template-columns: repeat(2, 1fr);
+}

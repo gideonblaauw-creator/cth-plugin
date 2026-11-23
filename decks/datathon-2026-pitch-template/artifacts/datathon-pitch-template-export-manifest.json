@@ -1,0 +1,22 @@
+{
+  "slides": 7,
+  "contact": "/opt/cursor/artifacts/datathon-pitch-template-contact-sheet.png",
+  "png1920": [
+    "/opt/cursor/artifacts/slide-01-1920x1080.png",
+    "/opt/cursor/artifacts/slide-02-1920x1080.png",
+    "/opt/cursor/artifacts/slide-03-1920x1080.png",
+    "/opt/cursor/artifacts/slide-04-1920x1080.png",
+    "/opt/cursor/artifacts/slide-05-1920x1080.png",
+    "/opt/cursor/artifacts/slide-06-1920x1080.png",
+    "/opt/cursor/artifacts/slide-07-1920x1080.png"
+  ],
+  "png1280": [
+    "/opt/cursor/artifacts/slide-01-1280x720.png",
+    "/opt/cursor/artifacts/slide-02-1280x720.png",
+    "/opt/cursor/artifacts/slide-03-1280x720.png",
+    "/opt/cursor/artifacts/slide-04-1280x720.png",
+    "/opt/cursor/artifacts/slide-05-1280x720.png",
+    "/opt/cursor/artifacts/slide-06-1280x720.png",
+    "/opt/cursor/artifacts/slide-07-1280x720.png"
+  ]
+}
