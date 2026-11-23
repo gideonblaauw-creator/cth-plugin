@@ -40,7 +40,7 @@ Nombre sugerido: `Dataton-Air4U-[codigo-equipo]-2026`
 3. No active «cualquier persona con el enlace» en el piloto.
 4. En el chat del equipo, envíe solo el **nombre de la carpeta** y confirme que CTH tiene acceso; el facilitador validará sin pedir contraseñas por chat.
 
-CTH usa lectura para **verificar** que las exportaciones y hojas coinciden con lo presentado en finales. No publica el contenido sin aprobación del desk.
+CleantechHUB usa lectura para **verificar** que las exportaciones y hojas coinciden con lo presentado en finales. No publica el contenido sin aprobación del equipo organizador.
 
 ---
 

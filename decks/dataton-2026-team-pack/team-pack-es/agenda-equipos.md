@@ -4,10 +4,10 @@
 |---|---|
 | Fecha evento | 24 nov 2026 |
 | Versión equipo | v0.4-es |
-| Lugar | Universidad Externado — Bloque I, piso 2 |
+| Lugar | Auditorio del Bloque I, piso 2 · Av. Circunvalar No. 12B-54 |
 | Embudo | **14** equipos Externado → **6** finalistas → **3** ganadores (ruta CTH Datalab 2027) |
 
-Horas alineadas a la agenda pública del evento (**v5**, `decks/dataton-2026-agenda`).
+Horas alineadas a la agenda pública del evento.
 
 ---
 

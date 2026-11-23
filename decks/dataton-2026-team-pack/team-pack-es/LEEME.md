@@ -10,12 +10,10 @@
 | `hoja-3-dato-a-valor.pdf` | De dato a valor | v0.3-es → v0.4 pack |
 | `hoja-4-plantilla-tablero.pdf` | Plantilla tablero una pantalla | v0.3-es → v0.4 pack |
 | `hoja-4b-ejemplo-air4u.pdf` | Ejemplo Air4U (Hoja 4) | Ilustrativo |
-| `hoja-5-plantilla-pitch.pdf` | Pitch 5 min finales | **BORRADOR** (PR #172) |
+| `hoja-5-plantilla-pitch.pdf` | Pitch 5 min finales | Borrador: versión final el día del Datatón |
 | `ejemplo-air4u.pdf` | Ejemplo Hojas 1–3 Air4U | Ilustrativo |
 | `fuentes-datos-abiertos.pdf` | Fuentes verificadas (aire) | v0.3-es |
-| `nota-derechos-datos.pdf` | Reglas derechos de datos | Borrador Legal |
+| `nota-derechos-datos.pdf` | Reglas derechos de datos | Borrador — revisión jurídica |
 | `guia-carpeta-drive.pdf` | Plantilla carpeta por equipo | Plantilla |
-
-`test-notes` **no** va en el zip de mesa.
 
 CleantechHUB · Datatón Observatorio de la Tierra · 24 nov 2026

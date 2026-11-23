@@ -1,6 +1,6 @@
 # Nota de derechos de datos para equipos del Datatón
 
-**No es asesoría legal. Borrador para revisión del Legal desk.**
+**No es asesoría legal. Borrador sujeto a revisión jurídica del evento.**
 
 | Campo | Valor |
 |---|---|
@@ -12,7 +12,7 @@
 
 ## Por qué existe esta nota
 
-El método pide nombrar los datos con honestidad: dónde viven, quién puede usarlos y qué pueden mostrar en un tablero. Son **reglas prácticas del piloto**. Para contratos, consentimiento de clientes o dudas regulatorias, **deténgase y consulte al Legal desk**.
+El método pide nombrar los datos con honestidad: dónde viven, quién puede usarlos y qué pueden mostrar en un tablero. Son **reglas prácticas del piloto**. Para contratos, consentimiento de clientes o dudas regulatorias, **deténgase y consulte al equipo jurídico del Datatón**.
 
 ---
 
@@ -46,7 +46,7 @@ El método pide nombrar los datos con honestidad: dónde viven, quién puede usa
 ## Si se atora
 
 - Etiqueta **ACCESO LEGAL NO CLARO** en el mapa y trabaje exportación, responsable y base escrita en la tarde.
-- Pida al mentor contacto con **Legal desk** — no adivine.
+- Pida al mentor contacto con el **equipo jurídico del Datatón** — no adivine.
 - Puede competir con números **estimados** y boceto **interno**; la honestidad puntúa más que un mapa llamativo sin soporte.
 
 ---

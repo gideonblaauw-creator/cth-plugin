@@ -92,7 +92,11 @@ def sha256_file(path: Path) -> str:
 
 def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
     body = markdown.markdown(md_text, extensions=["tables", "fenced_code", "nl2br"])
-    banner = '<p class="borrador">BORRADOR — pendiente GO de Gideon en PR #172</p>' if borrador else ""
+    banner = (
+        '<p class="borrador">BORRADOR — borrador para finales; versión final el día del Datatón.</p>'
+        if borrador
+        else ""
+    )
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -125,13 +129,11 @@ def write_leeme() -> str:
         "| `hoja-3-dato-a-valor.pdf` | De dato a valor | v0.3-es → v0.4 pack |",
         "| `hoja-4-plantilla-tablero.pdf` | Plantilla tablero una pantalla | v0.3-es → v0.4 pack |",
         "| `hoja-4b-ejemplo-air4u.pdf` | Ejemplo Air4U (Hoja 4) | Ilustrativo |",
-        "| `hoja-5-plantilla-pitch.pdf` | Pitch 5 min finales | **BORRADOR** (PR #172) |",
+        "| `hoja-5-plantilla-pitch.pdf` | Pitch 5 min finales | Borrador: versión final el día del Datatón |",
         "| `ejemplo-air4u.pdf` | Ejemplo Hojas 1–3 Air4U | Ilustrativo |",
         "| `fuentes-datos-abiertos.pdf` | Fuentes verificadas (aire) | v0.3-es |",
-        "| `nota-derechos-datos.pdf` | Reglas derechos de datos | Borrador Legal |",
+        "| `nota-derechos-datos.pdf` | Reglas derechos de datos | Borrador — revisión jurídica |",
         "| `guia-carpeta-drive.pdf` | Plantilla carpeta por equipo | Plantilla |",
-        "",
-        "`test-notes` **no** va en el zip de mesa.",
         "",
         "CleantechHUB · Datatón Observatorio de la Tierra · 24 nov 2026",
     ]
@@ -228,6 +230,70 @@ async def render_all() -> None:
     print("zip_sha256", sha256_file(zip_path))
 
 
+TEAM_SOURCE_GLOBS = ("*.md",)
+PRINT_HTML_IN_ZIP = (
+    "plantilla-bmc.html",
+    "prompts-ia-v2.html",
+    "hoja-5-plantilla-pitch.html",
+)
+INTERNAL_TEXT_PATTERNS = [
+    (re.compile(r"\bPR\s*#?\d+", re.I), "PR number"),
+    (re.compile(r"PR\s+#\d+", re.I), "PR number hash"),
+    (re.compile(r"\bHands\b"), "Hands"),
+    (re.compile(r"\bOrchestrator\b", re.I), "Orchestrator"),
+    (re.compile(r"\bOrch\b"), "Orch"),
+    (re.compile(r"\bCursor\b"), "Cursor"),
+    (re.compile(r"test-notes", re.I), "test-notes"),
+    (re.compile(r"\bdecks/", re.I), "decks/ path"),
+    (re.compile(r"Legal desk", re.I), "Legal desk"),
+    (re.compile(r"\bdesk\b", re.I), "desk"),
+    (re.compile(r"\bGO\b"), "GO"),
+    (re.compile(r"Gideon", re.I), "Gideon"),
+    (re.compile(r"github\.com", re.I), "github"),
+    (re.compile(r"gideonblaauw", re.I), "repo user"),
+]
+
+
+def audit_team_facing_text() -> dict:
+    """Scan zip PDFs and their md/html sources for internal-only references."""
+    import fitz
+    import zipfile
+
+    hits: list[dict] = []
+    zip_path = ROOT / ZIP_NAME
+    with zipfile.ZipFile(zip_path) as zf:
+        pdf_names = sorted(n for n in zf.namelist() if n.lower().endswith(".pdf"))
+
+    for pdf_name in pdf_names:
+        doc = fitz.open(OUT / pdf_name)
+        text = "\n".join(page.get_text() for page in doc)
+        doc.close()
+        for rx, label in INTERNAL_TEXT_PATTERNS:
+            for m in rx.finditer(text):
+                hits.append({"file": pdf_name, "kind": "pdf", "pattern": label, "match": m.group(0)})
+
+    for md in TEAM.glob("*.md"):
+        if md.name == "team-pack-es-manifest-sha256.md":
+            continue
+        text = md.read_text(encoding="utf-8")
+        for rx, label in INTERNAL_TEXT_PATTERNS:
+            for m in rx.finditer(text):
+                hits.append({"file": str(md.relative_to(ROOT)), "kind": "md", "pattern": label, "match": m.group(0)})
+
+    for html_name in PRINT_HTML_IN_ZIP:
+        text = (PRINT / html_name).read_text(encoding="utf-8")
+        for rx, label in INTERNAL_TEXT_PATTERNS:
+            for m in rx.finditer(text):
+                hits.append({"file": f"print/{html_name}", "kind": "html", "pattern": label, "match": m.group(0)})
+
+    report = {"hits": hits, "ok": len(hits) == 0, "pdfs_scanned": pdf_names}
+    (OUT / "team-pack-text-audit.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    if hits:
+        raise SystemExit(f"team-facing text audit failed: {len(hits)} hit(s)")
+    print("team_pack_text_audit", "OK", len(pdf_names), "pdfs")
+    return report
+
+
 def field_name_audit() -> list[str]:
     """Return field tokens quoted in prompts that appear in hoja sources."""
     prompts_html = (PRINT / "prompts-ia-v2.html").read_text(encoding="utf-8")
@@ -244,6 +310,7 @@ def field_name_audit() -> list[str]:
 
 def main() -> None:
     asyncio.run(render_all())
+    audit_team_facing_text()
     matched = field_name_audit()
     print("field_names_matched", ",".join(matched))
 

@@ -4,10 +4,10 @@
 |---|---|
 | Versión equipo | v0.4-es |
 | Fecha | 2026-11-23 |
-| Estado | **BORRADOR** — pendiente GO de Gideon en PR #172 |
+| Estado | Borrador: versión final el día del Datatón |
 | Evento | Datatón Observatorio de la Tierra (24 nov 2026) |
 
-> **BORRADOR:** esta hoja sigue en revisión. Úsela para preparar finales; la versión final puede cambiar tras el GO en PR #172.
+> **BORRADOR:** use esta plantilla para preparar las finales. La versión final se confirma el día del Datatón.
 
 Complete cada bloque para las finales de las **16:00**. Los jueces puntúan **Parte A** utilidad y **Parte B** honestidad (0–5 cada una). Marque **estimado** si la grada no es Plata+. Seis equipos presentan. Si empatan en utilidad y honestidad, desempata la historia.
 
