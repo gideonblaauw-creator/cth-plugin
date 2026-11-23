@@ -6,6 +6,6 @@ No official CEE mark on a light or transparent ground exists in `cth-plugin` on 
 
 The certificate template reserves a partner slot labelled:
 
-**Logo CEE — archivo oficial pendiente (fondo claro)**
+**Logo CEE · archivo oficial pendiente (fondo claro)**
 
 Do not place the workspace-only dark-ground raster or any invented artwork in this slot.

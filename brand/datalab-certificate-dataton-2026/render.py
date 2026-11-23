@@ -21,9 +21,30 @@ EVENT_NAME = "el Datatón · Lanzamiento del Observatorio de la Tierra"
 def ensure_playwright() -> None:
     try:
         from playwright.sync_api import sync_playwright  # noqa: F401
+        return
     except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "playwright", "-q"])
-        subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
+        pass
+
+    for extra in ([], ["--user"]):
+        try:
+            subprocess.check_call(
+                [sys.executable, "-m", "pip", "install", "playwright", "-q", *extra],
+            )
+            from playwright.sync_api import sync_playwright  # noqa: F401
+            subprocess.check_call([sys.executable, "-m", "playwright", "install", "chromium"])
+            return
+        except (subprocess.CalledProcessError, ImportError):
+            continue
+
+    venv_dir = ROOT / ".venv"
+    venv_python = venv_dir / "bin" / "python"
+    if not venv_python.is_file():
+        subprocess.check_call([sys.executable, "-m", "venv", str(venv_dir)])
+    subprocess.check_call([str(venv_python), "-m", "pip", "install", "playwright", "-q"])
+    subprocess.check_call([str(venv_python), "-m", "playwright", "install", "chromium"])
+    import os
+
+    os.execv(str(venv_python), [str(venv_python), *sys.argv])
 
 
 def body_for_role(rol: str, fecha: str, equipo: str | None) -> str:

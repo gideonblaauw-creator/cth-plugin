@@ -1,6 +1,6 @@
-# Acceptance checks (Hands run 23 Nov 2026)
+# Acceptance checks (Hands run 23 Nov 2026, fix round 2)
 
-Environment: Cloud Agent VM. `pdfinfo` / `pdffonts` (poppler) not installed; dimensions and fonts verified with PyMuPDF.
+Environment: Cloud Agent VM. `pdfinfo` / `pdffonts` (poppler) not installed; dimensions and footer clearances verified with PyMuPDF (`review/measure_footer.py`).
 
 ## Page size (A4 landscape)
 
@@ -8,10 +8,16 @@ All sample PDFs under `review/batch/` and `review/plantilla.pdf`:
 
 | File | Size (pt) | Pages |
 | --- | --- | --- |
-| Each single sample | 842.88 × 595.92 | 1 |
-| `all.pdf` | 842.88 × 595.92 | 5 |
+| Each single sample | 841.92 × 594.96 | 1 |
+| `all.pdf` | 841.92 × 594.96 | 5 |
 
-Expected A4 landscape: 841.89 × 595.28 pt — match within rounding.
+## Footer clearance (40-char sample)
+
+`python3 review/measure_footer.py` on `maria-alejandra-rodriguez-de-santamarias-participante.pdf`:
+
+- Tagline bottom from trim: **12.05 mm** (≥ 12 mm)
+- Partner logo row bottom from trim: **19.39 mm**
+- Logo row above tagline: **7.34 mm** (no overlap)
 
 ## Fonts
 
@@ -25,7 +31,7 @@ No Tinos or system fallbacks after path fix.
 
 ## Safe margin
 
-Layout uses 12 mm padding on `.certificate` (`certificate.css`). Decorative top rule and footer tagline sit inside the padded area; type and logos respect the 12 mm inset.
+Layout uses 12 mm padding on `.certificate` (`certificate.css`). Footer uses flex band `.certificate-bottom` (partner row, then tagline); tagline is no longer absolutely positioned at 6 mm.
 
 ## Logos
 

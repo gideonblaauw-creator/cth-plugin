@@ -25,7 +25,19 @@ Outputs one PDF per row plus `review/batch/all.pdf`.
 
 ## Dependencies
 
-Playwright + Chromium (installed on first run). Optional: `pypdf` for batch merge, `pymupdf` + `pillow` for `review/make_contact_sheet.py`.
+Playwright + Chromium (installed on first run). On PEP 668–managed hosts, `render.py` tries `pip install --user`, then creates a local `.venv` and re-invokes itself automatically.
+
+Optional manual venv:
+
+```bash
+cd brand/datalab-certificate-dataton-2026
+python3 -m venv .venv
+.venv/bin/pip install playwright pypdf
+.venv/bin/playwright install chromium
+.venv/bin/python render.py --csv examples/sample.csv --outdir review/batch/
+```
+
+Optional: `pypdf` for batch merge, `pymupdf` + `pillow` for `review/make_contact_sheet.py`.
 
 ## Push back (summary)
 

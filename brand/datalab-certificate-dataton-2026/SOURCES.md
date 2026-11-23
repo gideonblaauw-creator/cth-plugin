@@ -13,7 +13,7 @@
 
 ## CEE gap
 
-No official Centro de Emprendimiento Externadista (CEE) mark on a light or transparent ground exists in this repository. The certificate shows a dashed placeholder: **Logo CEE — archivo oficial pendiente (fondo claro)**. Do not use the workspace-only dark-ground raster or any invented artwork.
+No official Centro de Emprendimiento Externadista (CEE) mark on a light or transparent ground exists in this repository. The certificate shows a dashed placeholder: **Logo CEE · archivo oficial pendiente (fondo claro)**. Do not use the workspace-only dark-ground raster or any invented artwork.
 
 ## Open questions (defaults in template)
 
