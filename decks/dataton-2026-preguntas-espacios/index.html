@@ -218,9 +218,26 @@ body.print-mode .page { margin: 0; box-shadow: none; }
 .page--space.page--fit-d {
   --turn-q: 10pt;
   --turn-a: 9pt;
-  --turn-gap: 1.6mm;
+  --turn-gap: 6pt;
   --turn-pad-top: 2.6mm;
   --turn-pad-bottom: 6pt;
+}
+
+.page--space.page--fit-b .page-main,
+.page--space.page--fit-c .page-main,
+.page--space.page--fit-d .page-main {
+  gap: 6pt;
+}
+
+.page--space.page--fit-e {
+  --turn-q: 10pt;
+  --turn-a: 9pt;
+  --turn-gap: 5pt;
+  --turn-pad-top: 2.2mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-e .page-main {
+  gap: 5pt;
 }
 
 .nota-moderacion {
