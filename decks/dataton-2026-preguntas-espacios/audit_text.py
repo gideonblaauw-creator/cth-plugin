@@ -27,6 +27,7 @@ BANNED = [
     r"\bdos\s+mil\b",
     r"\bloop\b",
     r"cit-able",
+    r"sin\s+costo",
 ]
 
 

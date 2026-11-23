@@ -278,8 +278,15 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   background: var(--white);
   border: 2px solid var(--cyan);
   border-radius: 4mm;
-  padding: 4mm;
+  padding: 3mm 4mm;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page--thread .thread-grid {
+  flex: 1;
+  min-height: 0;
+  align-content: start;
 }
 .page--thread h2 {
   font-size: 13pt;
@@ -297,9 +304,9 @@ body.print-mode .page { margin: 0; box-shadow: none; }
 .thread-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 4mm;
-  font-size: 7.8pt;
-  line-height: 1.28;
+  gap: 2.2mm;
+  font-size: 8.6pt;
+  line-height: 1.26;
   overflow: hidden;
 }
 .thread-col h3 {
@@ -314,8 +321,8 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   display: block;
   background: var(--cyan);
   border-radius: 2mm;
-  padding: 1.4mm 2mm;
-  margin-bottom: 1.2mm;
+  padding: 1.7mm 2.2mm;
+  margin-bottom: 0.9mm;
   color: var(--navy);
   font-weight: 600;
 }
@@ -326,8 +333,8 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   background: var(--white);
   border: 1px solid var(--cyan);
   border-radius: 2mm;
-  padding: 2mm;
-  margin-bottom: 1.6mm;
+  padding: 1.8mm 2mm;
+  margin-bottom: 1mm;
 }
 .thread-note strong { display: block; font-size: 8pt; margin-bottom: 0.5mm; }
 .thread-macro {
@@ -450,7 +457,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   <div class="page-main">
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Natalia, desde la cooperación internacional, ¿qué presión llega al territorio que no puede ignorarse?</p><p class="anticipada">[Transportan exigencias de trazabilidad y clima; no son el territorio entero, pero lo activan.]</p><p class="repregunta">Repregunta: Rector, cuando esa presión de trazabilidad choca con capacidad local, ¿qué rol ve para la universidad?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Rector, ¿cómo articula usted gobierno, empresa y sociedad sin convertirse en un actor más de la mesa?</p><p class="anticipada">[La universidad formula la pregunta y sostiene la ética del dato; no es un vértice más de la hélice.]</p><p class="repregunta">Repregunta: Cuando usted habla de ética del dato, ¿qué decisión territorial le gustaría ver respaldada por datos abiertos este año?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Rector, ¿cómo articula usted gobierno, empresa y sociedad sin convertirse en un actor más de la mesa?</p><p class="anticipada">[La universidad formula la pregunta y sostiene la ética del dato; no es un actor más en la mesa.]</p><p class="repregunta">Repregunta: Cuando usted habla de ética del dato, ¿qué decisión territorial le gustaría ver respaldada por datos abiertos este año?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Viviana, desde el Pacífico, ¿qué problema del territorio merece un tablero y no solo un discurso?</p><p class="anticipada">[Presiones de biodiversidad y economías locales que necesitan evidencia antes de invertir.]</p><p class="repregunta">Repregunta: Para ese tablero en el Pacífico, ¿con qué empresa o entidad pública necesita sentarse primero para que el dato sea citable?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Óscar, desde farmacéutica, ¿qué indicador de sostenibilidad necesita ver antes de adoptar una innovación?</p><p class="anticipada">[Aire limpio y ODS 13 en plantas sensibles; hay que ver lo invisible antes de comprar.]</p><p class="repregunta">Repregunta: Si la evidencia de aire limpio llegara en nivel Oro, ¿qué adoptaría primero en su operación?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Cierre al panel: ¿en una frase, qué pregunta le entregan al lanzamiento del Observatorio a las 09:10?</p><p class="anticipada">[¿Cómo convertimos colaboración en capacidad verificable con datos que aguantan una conclusión?]</p><p class="repregunta">Repregunta: Natalia, ¿quién en esta sala se ofrece como comprador o adoptante si esa evidencia llega en Plata u Oro?</p></div>
@@ -481,7 +488,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
       <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿por qué «Observatorio de la Tierra» y no otro nombre para este programa?</p><p class="anticipada">[Es el lugar donde casa académica y custodia trabajan juntas con la hélice.]</p><p class="repregunta">Repregunta: Alejandro, cuando escucha «casa académica y custodia», ¿qué es Carapulica para usted sin convertirlo en bodega de datos?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿qué es el Datalab dentro de ese relato?</p><p class="anticipada">[El motor dentro del observatorio; el dato queda debajo, como infraestructura.]</p><p class="repregunta">Repregunta: Alejandro, si el dato es infraestructura, ¿qué aporta Externado que no sea «otra aceleradora» al lado?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Alejandro, usted menciona estudiantes y ética; ¿qué revisan ustedes antes de decir que un dato «aguanta» una conclusión?</p><p class="anticipada">[Revisamos método, vacíos honestos y si la pregunta de negocio está bien planteada.]</p><p class="repregunta">Repregunta: Gideon, con esa revisión en mente, ¿cuáles son los cuatro entornos del Datalab que sí pueden nombrar hoy?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿en qué momento del programa cae este datatón de hoy?</p><p class="anticipada">[Es el entorno datathon del motor: reglas de evento que preparan un piloto por lente, sin confundirlo con la cohorte REIN.]</p><p class="repregunta">Repregunta: Alejandro, para quien llega del lienzo nuevo, ¿qué significan Bronce, Plata y Oro en una frase?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿en qué momento del programa cae este datatón de hoy?</p><p class="anticipada">[Es el datatón del Datalab: un evento con reglas propias que ensaya un piloto por tema, y no es una cohorte de emprendimiento.]</p><p class="repregunta">Repregunta: Alejandro, si hoy es un ensayo y no una cohorte, ¿qué debería llevarse cada equipo al salir esta tarde?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿Bronce, Plata y Oro son premios del día?</p><p class="anticipada">[No: son niveles de confianza del dato, de bruto a accionable en tablero.]</p><p class="repregunta">Repregunta: Con esa escala clara, ¿qué pregunta de negocio quieren que los equipos lleven al conversatorio de las 09:40?</p></div>
     </div>
     <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> No anunciar territorio piloto ni fechas cerradas del Observatorio.</p>
@@ -508,7 +515,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   <div class="page-main">
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Representante de Constructora Bolívar, ¿qué cambio institucional buscan cuando hablan de transformación en el sector?</p><p class="anticipada">[Aprender a decidir con evidencia antes de escalar obra o servicios.]</p><p class="repregunta">Repregunta: Alejandro, cuando una constructora pide «decidir con evidencia», ¿qué puente académico les ofrece Externado?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿qué hace un intermediario de confianza en ese puente sin abrir otra convocatoria paralela?</p><p class="anticipada">[Registra el cruce entre oferta y demanda y ayuda a citar el dato, sin ser dueño del almacén.]</p><p class="repregunta">Repregunta: Enrique llegará a las 09:55; ¿qué pregunta de competitividad territorial le dejarían listo desde este conversatorio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿qué hace un intermediario de confianza en ese puente sin abrir otra convocatoria paralela?</p><p class="anticipada">[Registra el cruce entre oferta y demanda y ayuda a citar el dato, sin ser dueño del almacén.]</p><p class="repregunta">Repregunta: Si Externado registra ese cruce y les ayuda a citar el dato, ¿qué evidencia les gustaría ver citada en su próxima decisión de obra?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Representante de Bolívar, si una startup demuestra indicadores en Plata u Oro, ¿qué comprarían ustedes?</p><p class="anticipada">[Indicadores de sostenibilidad integrados al modelo de negocio, no un piloto aislado.]</p><p class="repregunta">Repregunta: Cuando habla de integración al negocio, ¿en qué decisión semanal usarían ese tablero primero?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, los catorce equipos arrancan con datos en bronce; ¿cómo conecta eso con lo que Bolívar acaba de pedir?</p><p class="anticipada">[Los estudiantes empiezan con WhatsApp y Excel; la empresa pide trazabilidad creciente.]</p><p class="repregunta">Repregunta: Representante de Bolívar, ¿qué primer paso de madurez les gustaría ver antes del almuerzo de las 12:30?</p></div>
     </div>
@@ -565,7 +572,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   <div class="page-main">
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Miguel, ¿por qué arrancar con la calidad del aire del fin de semana en Bogotá?</p><p class="anticipada">[El aire volvió a la conversación pública; es momento de mostrar oportunidad, no solo alerta.]</p><p class="repregunta">Repregunta: Miguel, en esa oportunidad, ustedes hablan de una reducción del 14% de partículas; ¿cómo midieron ese 14%?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Miguel, ¿ese 14% es dato oficial o resultado propio de Air4U?</p><p class="anticipada">[Es afirmación de Air4U con método propio; no sustituye lectura oficial del IDEAM.]</p><p class="repregunta">Repregunta: Sebastián, si el público solo recuerda una frase, ¿cómo explican «hacer visible lo invisible»?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, ¿ese 14% es dato oficial o resultado propio de Air4U?</p><p class="anticipada">[Es afirmación de Air4U con método propio; no sustituye lectura oficial del IDEAM.]</p><p class="repregunta">Repregunta: Sebastián, si ese 14% es medición propia y no reemplaza al IDEAM, ¿cómo lo presentan hoy sin que suene a cifra oficial?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Miguel, ¿a quién venden aire limpio y por qué les importa el dato?</p><p class="anticipada">[Hospitales, farmacéuticas y cannabis; decisiones de salud exigen trazas verificables.]</p><p class="repregunta">Repregunta: Para esos clientes sensibles, ¿por qué prefieren tono de mercado y no de catástrofe?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Miguel, el cliente compra capacidad de decidir; ¿qué pedirían a un equipo que copie su tablero?</p><p class="anticipada">[Usuario con decisión semanal y pantalla que se entiende en diez segundos.]</p><p class="repregunta">Repregunta: Sebastián, en la demo de las 10:10, ¿qué capa de datos quieren que el auditorio recuerde?</p></div>
     </div>
@@ -621,7 +628,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   <div class="page-main">
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Óscar, cuando una farmacéutica habla de aire limpio con una startup, ¿qué necesita ver primero?</p><p class="anticipada">[Cumplir ODS 13 en planta con evidencia que aguanta auditoría.]</p><p class="repregunta">Repregunta: Miguel, si Óscar pide evidencia auditable, ¿qué capa de su demo de las 10:10 se la mostrarían?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Miguel, más allá del sandbox, ¿qué ofrecen como producto cuando el cliente pide solo lectura con trazas?</p><p class="anticipada">[Un entorno de solo lectura donde el escudo del sandbox abre la puerta al negocio.]</p><p class="repregunta">Repregunta: Óscar, si recibe solo lectura con trazas, ¿qué decisión semanal en planta alimentaría con eso?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, más allá del sandbox, ¿qué ofrecen como producto cuando el cliente pide solo lectura con trazas?</p><p class="anticipada">[Un espacio protegido, de solo lectura, donde la empresa prueba la solución con sus datos sin exponerlos.]</p><p class="repregunta">Repregunta: Óscar, si recibe solo lectura con trazas, ¿qué decisión semanal en planta alimentaría con eso?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Óscar, ¿qué dato mínimo necesita antes de mostrar interés serio?</p><p class="anticipada">[Una serie consistente en Plata que responda una decisión semanal en planta.]</p><p class="repregunta">Repregunta: Miguel, cuando Óscar pide serie en Plata, ¿qué panel de valor en una pantalla le enseñarían?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, los catorce equipos nos escuchan; ¿qué lección sacan de este par startup y corporativo?</p><p class="anticipada">[Conectar oferta y adopción es escalera de confianza, no salto directo a Oro.]</p><p class="repregunta">Repregunta: Sebastián, ¿qué error común quieren que eviten cuando arranquen el lienzo a las 11:00?</p></div>
     </div>
@@ -650,8 +657,8 @@ body.print-mode .page { margin: 0; box-shadow: none; }
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Equipos, ¿cuál es el criterio principal para llegar a los seis finalistas de las 16:00?</p><p class="anticipada">[Madurez de datos: qué tan cerca están de responder su pregunta de negocio.]</p><p class="repregunta">Repregunta: Gideon, si madurez es el criterio, ¿por qué preseleccionan los monitores y delibera el jurado a las 16:40?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿Bronce, Plata y Oro son los premios del día?</p><p class="anticipada">[Son niveles de confianza, no medallas de ganador; todos reciben certificado.]</p><p class="repregunta">Repregunta: Mentores, si no son premios, ¿qué herramientas pueden usar los equipos sin perder trazabilidad?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Mentores, ¿en qué orden recorren el paquete hoy?</p><p class="anticipada">[Lienzo, mapa de calor, flujo, de dato a valor, tablero y pitch de cinco minutos.]</p><p class="repregunta">Repregunta: Equipos, además de datos propios, ¿qué fuentes abiertas o sintéticas pueden declarar sin inventar?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Mentores, ¿cuál es su aporte principal hoy si no son expertos de cada sector?</p><p class="anticipada">[Captura, limpieza y organización del dato.]</p><p class="repregunta">Repregunta: Arnold, Daniel, Andrés, Camilo: ¿en una línea, qué les pedirán a su mesa en el bloque de las 11:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Mentores, ¿en qué orden recorren el paquete hoy?</p><p class="anticipada">[Lienzo, mapa de calor, flujo, de dato a valor, tablero y pitch de cinco minutos.]</p><p class="repregunta">Repregunta: Equipos, si el orden es lienzo, mapa, flujo, valor, tablero y pitch, ¿en qué hoja deben estar a las 12:30 y cuál dejan para la tarde?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Mentores, ¿cuál es su aporte principal hoy si no son expertos de cada sector?</p><p class="anticipada">[Captura, limpieza y organización del dato.]</p><p class="repregunta">Repregunta: Arnold, Daniel, Andrés, Camilo y Tomás: ¿en una línea, qué les pedirán a su mesa en el bloque de las 11:00?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, antes de las 11:00, ¿qué pregunta núcleo debe salir de cada equipo?</p><p class="anticipada">[¿Debe [acción] antes de [cuándo] para un usuario concreto?]</p><p class="repregunta">Repregunta: Miguel, si un equipo duda del modelo de negocio, ¿dónde quedan ustedes para apoyo?</p></div>
     </div>
     
@@ -738,9 +745,9 @@ body.print-mode .page { margin: 0; box-shadow: none; }
 <div class="turn"><p class="pregunta">Pregunta: Monitor, según lo visto en las mesas, ¿quiénes van rumbo a los seis finalistas?</p><p class="anticipada">[Preselección por integración al lienzo, no por empaque visual.]</p><p class="repregunta">Repregunta: Equipo, si la integración es el filtro, ¿quién aún confunde medalla con premio del día?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Equipo, en cinco minutos de pitch, ¿cómo ordenan problema, datos, tablero e impacto?</p><p class="anticipada">[Primero usuario y decisión; luego datos; tablero en diez segundos; impacto y próximo paso.]</p><p class="repregunta">Repregunta: Monitor, en ese próximo paso, ¿qué pedirán para subir grada en treinta y noventa días?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Equipo, ¿cómo muestran en una pantalla al cliente, al innovador y al panorama de datos?</p><p class="anticipada">[Tres paneles alineados; el usuario decide en diez segundos.]</p><p class="repregunta">Repregunta: Monitor, con ese tablero listo, ¿qué aclaración final necesitan antes de salir a escena?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Gideon, para quien no entre a los seis, ¿qué mensaje dan igual?</p><p class="anticipada">[Certificado y seguimiento en programas futuros de CleantechHUB.]</p><p class="repregunta">Repregunta: Monitor, ¿a qué hora debe estar cerrada la lista de seis para las 16:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, para quien no entre a los seis, ¿qué mensaje dan igual?</p><p class="anticipada">[Certificado y seguimiento en programas futuros de CleantechHUB.]</p><p class="repregunta">Repregunta: Monitor, para los equipos que no entran a los seis, ¿qué les confirman ahora mismo sobre el certificado y el seguimiento?</p></div>
     </div>
-    
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> La lista de seis queda cerrada antes de las 16:00.</p>
   </div>
   <div class="page-foot">
     <p class="puente"><strong>Puente</strong>Pitches finales a las 16:00.</p>
@@ -767,7 +774,7 @@ body.print-mode .page { margin: 0; box-shadow: none; }
 <div class="turn"><p class="pregunta">Pregunta: Equipo, en su tablero, ¿qué ve el usuario en diez segundos?</p><p class="anticipada">[Línea base, mejora del innovador y panorama de datos abiertos si aplica.]</p><p class="repregunta">Repregunta: Gideon, en esa pantalla, ¿dónde mostraron vacíos honestos en blanco?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Equipo, ¿cómo cuentan impacto sin inventar cifras de mercado?</p><p class="anticipada">[Cualitativo o con el número que realmente midieron.]</p><p class="repregunta">Repregunta: Jurado, si solo midieron un número propio, ¿cuál es el próximo paso a treinta días para subir grada?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Enrique, desde el jurado, ¿qué repregunta afina cómo el dato sostiene ingresos o costos?</p><p class="anticipada">[Buscamos que el dato sostenga el modelo, no solo una lámina bonita.]</p><p class="repregunta">Repregunta: Alejandro, si el modelo se sostiene, ¿qué equipo dejó mejor puente hacia el Datalab en 2027?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Gideon, al cerrar la ronda, ¿qué pidió ver igual en los seis?</p><p class="anticipada">[Misma escala Bronce a Oro y misma estructura de pitch.]</p><p class="repregunta">Repregunta: Enrique, con los seis alineados, ¿cuánto margen dejan antes de la deliberación a las 16:40?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, al cerrar la ronda, ¿qué pidió ver igual en los seis?</p><p class="anticipada">[Misma escala Bronce a Oro y misma estructura de pitch.]</p><p class="repregunta">Repregunta: Enrique, si todos usaron la misma escala Bronce a Oro y la misma estructura de pitch, ¿cuál equipo la integró mejor al modelo de negocio?</p></div>
     </div>
     
   </div>
@@ -794,10 +801,10 @@ body.print-mode .page { margin: 0; box-shadow: none; }
     <div class="turns">
       <div class="turn"><p class="pregunta">Pregunta: Enrique, ¿damos el mismo peso a madurez de datos e integración al lienzo?</p><p class="anticipada">[Sí; un tablero bonito en bronce no compite con Plata integrada.]</p><p class="repregunta">Repregunta: Alejandro, si Plata integrada gana, ¿hubo empate que rompamos por próximo paso creíble a treinta días?</p></div>
 <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿algún equipo prometió Oro sin trazabilidad?</p><p class="anticipada">[Revisamos si la respuesta aguanta conclusión académica.]</p><p class="repregunta">Repregunta: Enrique, de quien aguanta conclusión, ¿quién entra al Datalab de CleantechHUB en 2027?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Alejandro, para los tres que entran en 2027, ¿cómo se reparten conexiones de mercado?</p><p class="anticipada">[Sandbox y mentoría CTH; no es la ruta REIN de cohortes.]</p><p class="repregunta">Repregunta: Gideon, para los tres finalistas que no ganan, ¿qué feedback breve les llevamos al cierre?</p></div>
-<div class="turn"><p class="pregunta">Pregunta: Enrique, ¿certificados listos para todos, mentores incluidos?</p><p class="anticipada">[Sí; el fotógrafo documenta el cierre a las 16:50.]</p><p class="repregunta">Repregunta: Alejandro, si alguien pregunta por costo o acceso al programa, ¿qué respondemos en una frase?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, para los tres que entran en 2027, ¿cómo se reparten conexiones de mercado?</p><p class="anticipada">[Sandbox y mentoría CTH; no es una cohorte de emprendimiento.]</p><p class="repregunta">Repregunta: Gideon, para los tres finalistas que no ganan, ¿qué feedback breve les llevamos al cierre?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, ¿certificados listos para todos, mentores incluidos?</p><p class="anticipada">[Sí; certificados para todos los equipos y mentores, y el fotógrafo documenta el cierre a las 16:50.]</p><p class="repregunta">Repregunta: Alejandro, con los certificados listos, ¿quién los entrega en el escenario y en qué orden: equipos, mentores y ganadores?</p></div>
     </div>
-    
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Si preguntan por costo o acceso: todos reciben certificado y el reconocimiento de los tres ganadores es entrar al Datalab en 2027.</p>
   </div>
   <div class="page-foot">
     <p class="puente"><strong>Puente</strong>Cierre público a las 16:50: tres ganadores y certificados.</p>

@@ -272,8 +272,15 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   background: var(--white);
   border: 2px solid var(--cyan);
   border-radius: 4mm;
-  padding: 4mm;
+  padding: 3mm 4mm;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page--thread .thread-grid {
+  flex: 1;
+  min-height: 0;
+  align-content: start;
 }
 .page--thread h2 {
   font-size: 13pt;
@@ -291,9 +298,9 @@ body.print-mode .page { margin: 0; box-shadow: none; }
 .thread-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 4mm;
-  font-size: 7.8pt;
-  line-height: 1.28;
+  gap: 2.2mm;
+  font-size: 8.6pt;
+  line-height: 1.26;
   overflow: hidden;
 }
 .thread-col h3 {
@@ -308,8 +315,8 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   display: block;
   background: var(--cyan);
   border-radius: 2mm;
-  padding: 1.4mm 2mm;
-  margin-bottom: 1.2mm;
+  padding: 1.7mm 2.2mm;
+  margin-bottom: 0.9mm;
   color: var(--navy);
   font-weight: 600;
 }
@@ -320,8 +327,8 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   background: var(--white);
   border: 1px solid var(--cyan);
   border-radius: 2mm;
-  padding: 2mm;
-  margin-bottom: 1.6mm;
+  padding: 1.8mm 2mm;
+  margin-bottom: 1mm;
 }
 .thread-note strong { display: block; font-size: 8pt; margin-bottom: 0.5mm; }
 .thread-macro {

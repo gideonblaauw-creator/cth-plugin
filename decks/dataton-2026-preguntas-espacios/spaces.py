@@ -50,7 +50,7 @@ SPACES = [
             ),
             (
                 "Rector, ¿cómo articula usted gobierno, empresa y sociedad sin convertirse en un actor más de la mesa?",
-                "La universidad formula la pregunta y sostiene la ética del dato; no es un vértice más de la hélice.",
+                "La universidad formula la pregunta y sostiene la ética del dato; no es un actor más en la mesa.",
                 "Cuando usted habla de ética del dato, ¿qué decisión territorial le gustaría ver respaldada por datos abiertos este año?",
             ),
             (
@@ -98,8 +98,8 @@ SPACES = [
             ),
             (
                 "Gideon, ¿en qué momento del programa cae este datatón de hoy?",
-                "Es el entorno datathon del motor: reglas de evento que preparan un piloto por lente, sin confundirlo con la cohorte REIN.",
-                "Alejandro, para quien llega del lienzo nuevo, ¿qué significan Bronce, Plata y Oro en una frase?",
+                "Es el datatón del Datalab: un evento con reglas propias que ensaya un piloto por tema, y no es una cohorte de emprendimiento.",
+                "Alejandro, si hoy es un ensayo y no una cohorte, ¿qué debería llevarse cada equipo al salir esta tarde?",
             ),
             (
                 "Gideon, ¿Bronce, Plata y Oro son premios del día?",
@@ -127,7 +127,7 @@ SPACES = [
             (
                 "Alejandro, ¿qué hace un intermediario de confianza en ese puente sin abrir otra convocatoria paralela?",
                 "Registra el cruce entre oferta y demanda y ayuda a citar el dato, sin ser dueño del almacén.",
-                "Enrique llegará a las 09:55; ¿qué pregunta de competitividad territorial le dejarían listo desde este conversatorio?",
+                "Si Externado registra ese cruce y les ayuda a citar el dato, ¿qué evidencia les gustaría ver citada en su próxima decisión de obra?",
             ),
             (
                 "Representante de Bolívar, si una startup demuestra indicadores en Plata u Oro, ¿qué comprarían ustedes?",
@@ -198,7 +198,7 @@ SPACES = [
             (
                 "Miguel, ¿ese 14% es dato oficial o resultado propio de Air4U?",
                 "Es afirmación de Air4U con método propio; no sustituye lectura oficial del IDEAM.",
-                "Sebastián, si el público solo recuerda una frase, ¿cómo explican «hacer visible lo invisible»?",
+                "Sebastián, si ese 14% es medición propia y no reemplaza al IDEAM, ¿cómo lo presentan hoy sin que suene a cifra oficial?",
             ),
             (
                 "Miguel, ¿a quién venden aire limpio y por qué les importa el dato?",
@@ -263,7 +263,7 @@ SPACES = [
             ),
             (
                 "Miguel, más allá del sandbox, ¿qué ofrecen como producto cuando el cliente pide solo lectura con trazas?",
-                "Un entorno de solo lectura donde el escudo del sandbox abre la puerta al negocio.",
+                "Un espacio protegido, de solo lectura, donde la empresa prueba la solución con sus datos sin exponerlos.",
                 "Óscar, si recibe solo lectura con trazas, ¿qué decisión semanal en planta alimentaría con eso?",
             ),
             (
@@ -302,12 +302,12 @@ SPACES = [
             (
                 "Mentores, ¿en qué orden recorren el paquete hoy?",
                 "Lienzo, mapa de calor, flujo, de dato a valor, tablero y pitch de cinco minutos.",
-                "Equipos, además de datos propios, ¿qué fuentes abiertas o sintéticas pueden declarar sin inventar?",
+                "Equipos, si el orden es lienzo, mapa, flujo, valor, tablero y pitch, ¿en qué hoja deben estar a las 12:30 y cuál dejan para la tarde?",
             ),
             (
                 "Mentores, ¿cuál es su aporte principal hoy si no son expertos de cada sector?",
                 "Captura, limpieza y organización del dato.",
-                "Arnold, Daniel, Andrés, Camilo: ¿en una línea, qué les pedirán a su mesa en el bloque de las 11:00?",
+                "Arnold, Daniel, Andrés, Camilo y Tomás: ¿en una línea, qué les pedirán a su mesa en el bloque de las 11:00?",
             ),
             (
                 "Gideon, antes de las 11:00, ¿qué pregunta núcleo debe salir de cada equipo?",
@@ -396,7 +396,7 @@ SPACES = [
         "asks": "Monitores a los equipos",
         "viene": "Almuerzo: contactos y brechas de dato identificadas.",
         "lleva": "Seis finalistas elegidos y pitch ensayado.",
-        "nota": "",
+        "nota": "La lista de seis queda cerrada antes de las 16:00.",
         "turns": [
             (
                 "Equipo, antes de las 16:00, ¿qué les falta para pasar de Plata a Oro en el tablero?",
@@ -421,7 +421,7 @@ SPACES = [
             (
                 "Gideon, para quien no entre a los seis, ¿qué mensaje dan igual?",
                 "Certificado y seguimiento en programas futuros de CleantechHUB.",
-                "Monitor, ¿a qué hora debe estar cerrada la lista de seis para las 16:00?",
+                "Monitor, para los equipos que no entran a los seis, ¿qué les confirman ahora mismo sobre el certificado y el seguimiento?",
             ),
         ],
         "puente": "Pitches finales a las 16:00.",
@@ -459,7 +459,7 @@ SPACES = [
             (
                 "Gideon, al cerrar la ronda, ¿qué pidió ver igual en los seis?",
                 "Misma escala Bronce a Oro y misma estructura de pitch.",
-                "Enrique, con los seis alineados, ¿cuánto margen dejan antes de la deliberación a las 16:40?",
+                "Enrique, si todos usaron la misma escala Bronce a Oro y la misma estructura de pitch, ¿cuál equipo la integró mejor al modelo de negocio?",
             ),
         ],
         "puente": "Jurado a deliberar: madurez, integración y próximo paso.",
@@ -472,7 +472,7 @@ SPACES = [
         "asks": "Jurado entre sí (Gideon modera la sala en espera)",
         "viene": "Pitches: seis evidencias de tablero y negocio.",
         "lleva": "Tres ganadores para anuncio a las 16:50.",
-        "nota": "",
+        "nota": "Si preguntan por costo o acceso: todos reciben certificado y el reconocimiento de los tres ganadores es entrar al Datalab en 2027.",
         "turns": [
             (
                 "Enrique, ¿damos el mismo peso a madurez de datos e integración al lienzo?",
@@ -486,13 +486,13 @@ SPACES = [
             ),
             (
                 "Alejandro, para los tres que entran en 2027, ¿cómo se reparten conexiones de mercado?",
-                "Sandbox y mentoría CTH; no es la ruta REIN de cohortes.",
+                "Sandbox y mentoría CTH; no es una cohorte de emprendimiento.",
                 "Gideon, para los tres finalistas que no ganan, ¿qué feedback breve les llevamos al cierre?",
             ),
             (
                 "Enrique, ¿certificados listos para todos, mentores incluidos?",
-                "Sí; el fotógrafo documenta el cierre a las 16:50.",
-                "Alejandro, si alguien pregunta por costo o acceso al programa, ¿qué respondemos en una frase?",
+                "Sí; certificados para todos los equipos y mentores, y el fotógrafo documenta el cierre a las 16:50.",
+                "Alejandro, con los certificados listos, ¿quién los entrega en el escenario y en qué orden: equipos, mentores y ganadores?",
             ),
         ],
         "puente": "Cierre público a las 16:50: tres ganadores y certificados.",
