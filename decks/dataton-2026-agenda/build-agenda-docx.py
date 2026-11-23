@@ -20,6 +20,10 @@ FOOTER_BAND = LETTERHEAD / "CTH_footer_band.png"
 OUT = ROOT / "agenda-dataton-24nov-v5.docx"
 LOGOS = ROOT / "logos"
 A4_WIDTH = Inches(210 / 25.4)
+A4_HEIGHT_EMU = int(Mm(297))
+PAGE_WIDTH_EMU = int(Mm(210))
+HEADER_BAND_CY = int(PAGE_WIDTH_EMU * 288 / 1275)
+FOOTER_BAND_CY = int(PAGE_WIDTH_EMU * 37 / 1275)
 VENUE = "Auditorio del Bloque I, piso 2 · Av. Circunvalar No. 12B-54"
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
@@ -153,6 +157,25 @@ def configure_opensans_defaults(doc: Document) -> None:
         sz = OxmlElement("w:sz")
         r_pr.append(sz)
     sz.set(qn("w:val"), "18")
+    scrub_style_calibri(styles)
+    scrub_theme_fonts(doc)
+
+
+def scrub_style_calibri(styles_el) -> None:
+    for rfonts in styles_el.iter(qn("w:rFonts")):
+        for attr in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+            if rfonts.get(qn(attr)) in ("Calibri", "Calibri Light"):
+                rfonts.set(qn(attr), BODY_FONT)
+
+
+def scrub_theme_fonts(doc: Document) -> None:
+    for rel in doc.part.rels.values():
+        if "theme" not in rel.reltype:
+            continue
+        blob = rel.target_part.blob
+        if isinstance(blob, str):
+            blob = blob.encode()
+        rel.target_part._blob = blob.replace(b"Calibri", b"Open Sans")
 
 
 def apply_opensans_all(doc: Document) -> None:
@@ -168,6 +191,97 @@ def apply_opensans_all(doc: Document) -> None:
 def clear_element_children(element) -> None:
     for child in list(element):
         element.remove(child)
+
+
+def inline_to_page_anchor(
+    run,
+    *,
+    x_emu: int = 0,
+    y_emu: int = 0,
+    behind: bool = True,
+) -> int:
+    """Convert inline picture to wp:anchor at page offset; return cy in EMU."""
+    drawing = run._r.find(qn("w:drawing"))
+    if drawing is None:
+        return 0
+    inline = drawing.find(qn("wp:inline"))
+    if inline is None:
+        return 0
+    extent = inline.find(qn("wp:extent"))
+    cx = extent.get("cx")
+    cy = extent.get("cy")
+    inner = [c for c in list(inline) if c.tag != qn("wp:extent")]
+
+    anchor = OxmlElement("wp:anchor")
+    for key, val in (
+        ("distT", "0"),
+        ("distB", "0"),
+        ("distL", "0"),
+        ("distR", "0"),
+        ("simplePos", "0"),
+        ("relativeHeight", "251658240"),
+        ("behindDoc", "1" if behind else "0"),
+        ("locked", "0"),
+        ("layoutInCell", "1"),
+        ("allowOverlap", "1"),
+    ):
+        anchor.set(key, val)
+
+    simple = OxmlElement("wp:simplePos")
+    simple.set("x", "0")
+    simple.set("y", "0")
+    anchor.append(simple)
+
+    pos_h = OxmlElement("wp:positionH")
+    pos_h.set("relativeFrom", "page")
+    off_h = OxmlElement("wp:posOffset")
+    off_h.text = str(x_emu)
+    pos_h.append(off_h)
+    anchor.append(pos_h)
+
+    pos_v = OxmlElement("wp:positionV")
+    pos_v.set("relativeFrom", "page")
+    off_v = OxmlElement("wp:posOffset")
+    off_v.text = str(y_emu)
+    pos_v.append(off_v)
+    anchor.append(pos_v)
+
+    ext = OxmlElement("wp:extent")
+    ext.set("cx", cx)
+    ext.set("cy", cy)
+    anchor.append(ext)
+    for child in inner:
+        anchor.append(child)
+
+    drawing.remove(inline)
+    drawing.append(anchor)
+    return int(cy)
+
+
+def add_band_paragraph(container, image_path: pathlib.Path, y_emu: int = 0) -> int:
+    """Full-bleed band image anchored to the page; returns band height (EMU)."""
+    para = container.add_paragraph()
+    para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    para.paragraph_format.space_before = Pt(0)
+    para.paragraph_format.space_after = Pt(0)
+    set_paragraph_mark_font(para, 9)
+    run = para.add_run()
+    run.add_picture(str(image_path), width=A4_WIDTH)
+    return inline_to_page_anchor(run, x_emu=0, y_emu=y_emu, behind=True)
+
+
+def set_table_indent_zero(table) -> None:
+    tbl_pr = table._tbl.tblPr
+    if tbl_pr is None:
+        tbl_pr = OxmlElement("w:tblPr")
+        table._tbl.insert(0, tbl_pr)
+    old = tbl_pr.find(qn("w:tblInd"))
+    if old is not None:
+        tbl_pr.remove(old)
+    tbl_ind = OxmlElement("w:tblInd")
+    tbl_ind.set(qn("w:w"), "0")
+    tbl_ind.set(qn("w:type"), "dxa")
+    tbl_pr.append(tbl_ind)
 
 
 def add_cobrand_color(paragraph) -> None:
@@ -186,16 +300,12 @@ def add_cobrand_color(paragraph) -> None:
 def setup_header_footer(section) -> None:
     header = section.header
     clear_element_children(header._element)
-    hp = header.add_paragraph()
-    hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    hp.paragraph_format.space_before = Pt(0)
-    hp.paragraph_format.space_after = Pt(3)
-    hp.add_run().add_picture(str(HEADER_BAND), width=A4_WIDTH)
-    set_paragraph_mark_font(hp, 9)
+    add_band_paragraph(header, HEADER_BAND, y_emu=0)
+    band_pt = HEADER_BAND_CY / 914400 * 72
 
     lp = header.add_paragraph()
     lp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    lp.paragraph_format.space_before = Pt(4)
+    lp.paragraph_format.space_before = Pt(max(band_pt * 0.42, 50))
     lp.paragraph_format.space_after = Pt(6)
     add_cobrand_color(lp)
     set_paragraph_mark_font(lp, 9)
@@ -209,12 +319,9 @@ def setup_header_footer(section) -> None:
     fp.add_run("    ")
     add_cobrand_color(fp)
     set_paragraph_mark_font(fp, 9)
-    bp = footer.add_paragraph()
-    bp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    bp.paragraph_format.space_before = Pt(2)
-    bp.paragraph_format.space_after = Pt(0)
-    bp.add_run().add_picture(str(FOOTER_BAND), width=A4_WIDTH)
-    set_paragraph_mark_font(bp, 9)
+
+    y_bottom = max(A4_HEIGHT_EMU - FOOTER_BAND_CY, 0)
+    add_band_paragraph(footer, FOOTER_BAND, y_emu=y_bottom)
 
 
 def clear_body(doc: Document) -> None:
@@ -277,12 +384,14 @@ def build() -> None:
     r1 = c1.paragraphs[0].add_run("HORARIOS ORIENTATIVOS")
     set_run_font(r1, 9, bold=True, color=GREEN)
     set_cell_bottom_border(head)
+    set_table_indent_zero(head)
 
     table = doc.add_table(rows=1 + len(ROWS), cols=2)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = False
     table.columns[0].width = Inches(0.72)
     table.columns[1].width = Inches(5.48)
+    set_table_indent_zero(table)
 
     hdr = table.rows[0].cells
     set_cell_shading(hdr[0], "0C498A")
@@ -321,6 +430,7 @@ def build() -> None:
                 set_run_font(run, 9, bold=False, color=BLUE_TEXT)
 
     apply_opensans_all(doc)
+    scrub_style_calibri(doc.styles.element)
     doc.save(OUT)
     print(OUT)
 
