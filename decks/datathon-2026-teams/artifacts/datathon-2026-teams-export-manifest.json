@@ -1,0 +1,46 @@
+{
+  "es": {
+    "contact": "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/datathon-2026-teams-contact-sheet-es.png",
+    "slides": [
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-01-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-02-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-03-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-04-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-05-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-06-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-07-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-08-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-09-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-10-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-11-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-12-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-13-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-14-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-15-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-16-1280-es.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-17-1280-es.png"
+    ]
+  },
+  "en": {
+    "contact": "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/datathon-2026-teams-contact-sheet-en.png",
+    "slides": [
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-01-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-02-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-03-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-04-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-05-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-06-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-07-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-08-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-09-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-10-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-11-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-12-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-13-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-14-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-15-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-16-1280-en.png",
+      "/home/debian/src/cth-plugin/decks/datathon-2026-teams/artifacts/slide-17-1280-en.png"
+    ]
+  }
+}

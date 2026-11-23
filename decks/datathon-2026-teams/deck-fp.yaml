@@ -1,10 +1,10 @@
 # FODESEP fp overlay (merged in fp-render.mjs; not validated by outline.sh)
 slides:
-  - bg: assets/photos/air4u-05-crop.jpg
-    bg_position: center top
+  - bg: assets/photos/canva-g3-crop.jpg
+    bg_position: center center
     photo_scrim: light
     method_chips: [Mapa de calor, Escalera, Tarjeta, Tablero]
-  - bg: assets/photos/air4u-08-crop.jpg
+  - bg: assets/photos/canva-g4-crop.jpg
     bg_position: center center
   - kicker: Metodología
     layout: fill
@@ -24,15 +24,15 @@ slides:
     source: Paquete de equipo Datatón (ES)
   - kicker: Metodología
     source: Paquete de equipo Datatón (ES)
-  - bg: assets/photos/air4u-10-crop.jpg
+  - bg: assets/photos/canva-g5-crop.jpg
     bg_position: center center
     photo_scrim: light
   - kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-04-crop.jpg
+    bg: assets/photos/canva-g6-crop.jpg
     takeaway: Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.
     shot_zoom: 1.15
   - kicker: Ejemplo · piloto Air4U
-    bg: assets/photos/air4u-11-crop.jpg
+    bg: assets/photos/canva-g7-crop.jpg
     takeaway: Empiece por VP1 — el mapa de calor solo colorea bloques ligados a propuestas de valor.
     shot_zoom: 1.2
   - kicker: Ejemplo · piloto Air4U

@@ -4,22 +4,20 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 
 ## Background photos
 
-**Air4U × Datalab social set**, provided by Gideon 21 Nov 2026 (1080×1350 portrait JPEGs). Cropped to **text-free bands only** under `assets/photos/*-crop.jpg` (`scripts/crop-air4u-photos.py`). Strong navy scrim. **No slide reuses the same crop.** Slides without a clean 16:9 band use **solid navy** (no social JPEG).
+**Canva-cleaned Air4U photos** (1080×1350 PNG, `/opt/cth-decks/.../canva-out/g*-canva.png`). Full-bleed **16:9** crops under `assets/photos/canva-g*-crop.jpg` (`scripts/crop-canva-air4u.py`, 1920px JPEG, strong navy scrim in CSS). People/logos allowed on this deck. **One unique crop per photo slide.**
 
-| Slide | Background |
-|-------|------------|
-| 1 cover | air4u-05-crop.jpg (480,0,1080,250) |
-| 2 statement | air4u-08-crop.jpg (780,300,1080,980) |
-| 3–5 | white |
-| 6 statement | air4u-10-crop.jpg (650,50,1080,720) |
-| 7 showcase | air4u-04-crop.jpg (800,700,1080,1150) |
-| 8 showcase | air4u-11-crop.jpg (380,500,720,780) |
-| 9 case-cards | navy |
-| 10 case-cards | navy |
-| 11 showcase | navy |
-| 12 dashboard-template | navy |
+| Slide | g-source | Crop box (x0,y0,x1,y1) | Asset |
+|-------|----------|-------------------------|-------|
+| 1 cover | g3 Medellín | (0,500,1080,1108) | canva-g3-crop.jpg |
+| 2 statement | g4 gloved hand | (0,380,1080,988) | canva-g4-crop.jpg |
+| 3–5 | white | — | — |
+| 6 statement | g5 café | (0,680,1080,1288) | canva-g5-crop.jpg |
+| 7 showcase | g6 AHU | (0,220,1080,828) | canva-g6-crop.jpg |
+| 8 showcase | g7 nurse | (0,300,1080,908) | canva-g7-crop.jpg |
+| 9–11 | navy | — | — |
+| 12 dashboard-template | white | — | — |
 
-Skipped sources (no clean band): air4u-13, air4u-02, plus 01, 03, 06, 07, 09, 12, 14 in social numbering.
+Legacy social JPEG crops (`air4u-*-crop.jpg`) retained in repo but unused after this pass.
 
 ## Content
 

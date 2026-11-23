@@ -1,0 +1,245 @@
+{
+  "flatDominantShareMax": 0.99,
+  "contentStep": 12,
+  "rows": [
+    {
+      "slide": 1,
+      "lang": "es",
+      "dominantShare": 0.042626,
+      "uniqueColors": 1146,
+      "pass": true
+    },
+    {
+      "slide": 2,
+      "lang": "es",
+      "dominantShare": 0.032822,
+      "uniqueColors": 535,
+      "pass": true
+    },
+    {
+      "slide": 3,
+      "lang": "es",
+      "dominantShare": 0.798593,
+      "uniqueColors": 275,
+      "pass": true
+    },
+    {
+      "slide": 4,
+      "lang": "es",
+      "dominantShare": 0.819054,
+      "uniqueColors": 270,
+      "pass": true
+    },
+    {
+      "slide": 5,
+      "lang": "es",
+      "dominantShare": 0.83994,
+      "uniqueColors": 233,
+      "pass": true
+    },
+    {
+      "slide": 6,
+      "lang": "es",
+      "dominantShare": 0.095695,
+      "uniqueColors": 297,
+      "pass": true
+    },
+    {
+      "slide": 7,
+      "lang": "es",
+      "dominantShare": 0.05179,
+      "uniqueColors": 1078,
+      "pass": true
+    },
+    {
+      "slide": 8,
+      "lang": "es",
+      "dominantShare": 0.135124,
+      "uniqueColors": 1489,
+      "pass": true
+    },
+    {
+      "slide": 9,
+      "lang": "es",
+      "dominantShare": 0.397272,
+      "uniqueColors": 645,
+      "pass": true
+    },
+    {
+      "slide": 10,
+      "lang": "es",
+      "dominantShare": 0.401321,
+      "uniqueColors": 630,
+      "pass": true
+    },
+    {
+      "slide": 11,
+      "lang": "es",
+      "dominantShare": 0.518968,
+      "uniqueColors": 527,
+      "pass": true
+    },
+    {
+      "slide": 12,
+      "lang": "es",
+      "dominantShare": 0.67029,
+      "uniqueColors": 362,
+      "pass": true
+    },
+    {
+      "slide": 13,
+      "lang": "es",
+      "dominantShare": 0.826087,
+      "uniqueColors": 343,
+      "pass": true
+    },
+    {
+      "slide": 14,
+      "lang": "es",
+      "dominantShare": 0.761296,
+      "uniqueColors": 365,
+      "pass": true
+    },
+    {
+      "slide": 15,
+      "lang": "es",
+      "dominantShare": 0.874041,
+      "uniqueColors": 282,
+      "pass": true
+    },
+    {
+      "slide": 16,
+      "lang": "es",
+      "dominantShare": 0.818627,
+      "uniqueColors": 370,
+      "pass": true
+    },
+    {
+      "slide": 17,
+      "lang": "es",
+      "dominantShare": 0.807332,
+      "uniqueColors": 352,
+      "pass": true
+    },
+    {
+      "slide": 1,
+      "lang": "en",
+      "dominantShare": 0.043052,
+      "uniqueColors": 1148,
+      "pass": true
+    },
+    {
+      "slide": 2,
+      "lang": "en",
+      "dominantShare": 0.032396,
+      "uniqueColors": 538,
+      "pass": true
+    },
+    {
+      "slide": 3,
+      "lang": "en",
+      "dominantShare": 0.803069,
+      "uniqueColors": 273,
+      "pass": true
+    },
+    {
+      "slide": 4,
+      "lang": "en",
+      "dominantShare": 0.805413,
+      "uniqueColors": 275,
+      "pass": true
+    },
+    {
+      "slide": 5,
+      "lang": "en",
+      "dominantShare": 0.849318,
+      "uniqueColors": 202,
+      "pass": true
+    },
+    {
+      "slide": 6,
+      "lang": "en",
+      "dominantShare": 0.094203,
+      "uniqueColors": 322,
+      "pass": true
+    },
+    {
+      "slide": 7,
+      "lang": "en",
+      "dominantShare": 0.054561,
+      "uniqueColors": 1073,
+      "pass": true
+    },
+    {
+      "slide": 8,
+      "lang": "en",
+      "dominantShare": 0.134271,
+      "uniqueColors": 1445,
+      "pass": true
+    },
+    {
+      "slide": 9,
+      "lang": "en",
+      "dominantShare": 0.361893,
+      "uniqueColors": 628,
+      "pass": true
+    },
+    {
+      "slide": 10,
+      "lang": "en",
+      "dominantShare": 0.391731,
+      "uniqueColors": 621,
+      "pass": true
+    },
+    {
+      "slide": 11,
+      "lang": "en",
+      "dominantShare": 0.527707,
+      "uniqueColors": 520,
+      "pass": true
+    },
+    {
+      "slide": 12,
+      "lang": "en",
+      "dominantShare": 0.672847,
+      "uniqueColors": 338,
+      "pass": true
+    },
+    {
+      "slide": 13,
+      "lang": "en",
+      "dominantShare": 0.828858,
+      "uniqueColors": 350,
+      "pass": true
+    },
+    {
+      "slide": 14,
+      "lang": "en",
+      "dominantShare": 0.755968,
+      "uniqueColors": 371,
+      "pass": true
+    },
+    {
+      "slide": 15,
+      "lang": "en",
+      "dominantShare": 0.939258,
+      "uniqueColors": 131,
+      "pass": true
+    },
+    {
+      "slide": 16,
+      "lang": "en",
+      "dominantShare": 0.829923,
+      "uniqueColors": 328,
+      "pass": true
+    },
+    {
+      "slide": 17,
+      "lang": "en",
+      "dominantShare": 0.80179,
+      "uniqueColors": 361,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

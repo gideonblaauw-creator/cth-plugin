@@ -11,10 +11,15 @@ const puppeteer = (await import(pathToFileURL(path.join(toolNode, "puppeteer-cor
 
 const distHtml = path.join(__dirname, "dist", "index.html");
 const outDir = path.join(__dirname, "artifacts");
-const artDir = "/opt/cursor/artifacts";
+let artDir = "/opt/cursor/artifacts";
 
 fs.mkdirSync(outDir, { recursive: true });
-fs.mkdirSync(artDir, { recursive: true });
+try {
+  fs.mkdirSync(artDir, { recursive: true });
+  fs.accessSync(artDir, fs.constants.W_OK);
+} catch {
+  artDir = outDir;
+}
 
 const chrome = process.env.CHROME_PATH || "/usr/bin/google-chrome-stable";
 
