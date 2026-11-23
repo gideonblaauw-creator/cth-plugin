@@ -127,7 +127,7 @@ Full log: `/opt/cursor/artifacts/datathon-maps-3-acceptance.log`
 
 ## maps-4 (one CSS line, base `663784c`)
 
-Base: `663784c3fc079190c62dc171b75a646d465631de` · Change: `.fp-living-lab-l1__ica-row` `grid-template-columns: 16px 76px 1fr` (was `56px`).
+Base: `663784c3fc079190c62dc171b75a646d465631de` · **HEAD:** `5c190769bc989e68b24db3483920f2de539e275b` · Change: `.fp-living-lab-l1__ica-row` `grid-template-columns: 16px 76px 1fr` (was `56px`).
 
 ### Steps 6–11
 
