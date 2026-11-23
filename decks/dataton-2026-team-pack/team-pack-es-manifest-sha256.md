@@ -1,20 +1,20 @@
 # team-pack-es-manifest-sha256 (v0.4-es)
 
-Zip: team-pack-es-pdfs-v0.4.zip sha256 88f51ce40f45d1bc4008305bf01770672af23a4f7d92586155e0c8d0d680e02c
+Zip: team-pack-es-pdfs-v0.4.zip sha256 ded7219bd9e47ad0bb3f8a6ac55e15312d646afb9e538dd109533a9a7dd5846c
 
 | PDF | sha256 |
 |---|---|
-| LEEME.pdf | `dff90737021db0a08070767c99c2e2c39087ce071ac10776a2d03f6845bf13c7` |
-| agenda-equipos.pdf | `04e54edc632ae49bad6249863a8b78fab13e632968ebb8d5ddbe691013f1af96` |
-| ejemplo-air4u.pdf | `5ca71cf77ac0d114a6c329ea0c62b6619e8ec1bd9152705527fb88f34193cf50` |
-| fuentes-datos-abiertos.pdf | `20fe33d225a6dc24d4d407113526f147c53f655e528a29b842e870fff7d53d04` |
-| guia-carpeta-drive.pdf | `0565a3355aa824b6d58fdaaf949daac40dd4e6cf0a8472467e92d0af284d771e` |
-| hoja-1-mapa-de-calor.pdf | `9b5aa113b9c052f50fe4a8f393dc1ce5e1d39895589f2025ffd19c5d3117a762` |
-| hoja-2-flujo-de-datos.pdf | `9f3452466529ab642f4e84e9869b771dba292e84130700f2a6855aeecb7b8c72` |
-| hoja-3-dato-a-valor.pdf | `e0ac6e2b9f90b3739c5098dede89753367fd0747c1ce9eaa0ac66d34662099ac` |
-| hoja-4-plantilla-tablero.pdf | `57e8ae2784771b672df136812a0daa58d41792388ba436aa596e09840afc69ab` |
-| hoja-4b-ejemplo-air4u.pdf | `e4aff5b5e4fb313d386fd47014fb3f8de0ca9fcae7c7cedb2999c6f139afa24f` |
-| hoja-5-plantilla-pitch.pdf | `d0e3fb12e7e8122951b1c6d7da6d90af7025ea6d55e592106f6b682690471274` |
-| nota-derechos-datos.pdf | `e4ce0c3ad9984ff216d982d732da02f5e3a961c52c9ab6a5e9b3846cad056173` |
-| plantilla-bmc.pdf | `1727ce623d9d5bd40f78bd3739fb551bad25ce166a0c37f74d5dd0012daf0540` |
-| prompts-ia-v2.pdf | `7164bc7ae2bfb39629f2d8b0b2d6c3998c39b86beb006a7b6145c39e9d19ecc9` |
+| LEEME.pdf | `b4320ee4567880f64c231f559a11da412776fe677259b639adf8fbd6c81d839d` |
+| agenda-equipos.pdf | `836c4d1121c179eda0220aca188f92efdf9741fb423abb36596c5a1a89a917c8` |
+| ejemplo-air4u.pdf | `57bda3e1f108021d5a4fd8693154c499bb34a9c34294ce7bbe904ed32b06d854` |
+| fuentes-datos-abiertos.pdf | `600926ceebfdf5ba0e33bc0c8276987dbb3e0a74091c7345d738e73a9d171994` |
+| guia-carpeta-drive.pdf | `ef2f80e8ae6638582ecaaf47a08af81385fa788eef79b8dfb0123f35b1fc43bf` |
+| hoja-1-mapa-de-calor.pdf | `708871f6be3653afa2dfa9dcfebe863bb090b60bffae64a3eb1de3e34a8f9074` |
+| hoja-2-flujo-de-datos.pdf | `f118225a4982a1a3dae49c53aaf4e9d478e9e8bb67b6d46ae497e184ce771c01` |
+| hoja-3-dato-a-valor.pdf | `5b2566507efa60da324f8a8db896a78db3d482d7c0412f61d4d2b2790b43f4fb` |
+| hoja-4-plantilla-tablero.pdf | `207055bc63d913da9390eff203ccf031212abdab8ca408735378106f2c71f85c` |
+| hoja-4b-ejemplo-air4u.pdf | `e8fab960089d2c0dd5793a4d22f04585b87353642b3cc81000b111a89afec768` |
+| hoja-5-plantilla-pitch.pdf | `5bd7aeddaeefd006f4fecedb393fc5a657e3517e77c4886c5db9d4e1fe23070a` |
+| nota-derechos-datos.pdf | `ee2243b457a53d6740d9271a56dfe5172a6dd04eb74a7dbbff2d25735b96215f` |
+| plantilla-bmc.pdf | `319b19f246922207d3b985a29c43a28329b80d608d727002bd57f536ab5ed77b` |
+| prompts-ia-v2.pdf | `d9c19e302fe5dcfcc4aea9306a90a3119a4afea08f1fc3674949218c8aea2460` |
