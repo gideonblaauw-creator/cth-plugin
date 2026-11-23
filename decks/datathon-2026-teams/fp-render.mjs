@@ -549,6 +549,9 @@ const LANG_SCRIPT = `
     });
   }
   var q = new URLSearchParams(location.search);
+  if (q.get('export') === '1' || q.has('export')) {
+    document.documentElement.classList.add('export');
+  }
   var start = q.get('lang') === 'en' ? 'en' : 'es';
   applyLang(start);
   document.querySelectorAll('.lang-toggle button').forEach(function (btn) {

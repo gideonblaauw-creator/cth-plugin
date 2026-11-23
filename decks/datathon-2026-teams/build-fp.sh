@@ -11,8 +11,15 @@ node "$ROOT/fp-render.mjs"
 PDF_ES="$ROOT/datathon-2026-teams.pdf"
 PDF_EN="$ROOT/datathon-2026-teams-en.pdf"
 INDEX_URL="file://$ROOT/dist/index.html"
+echo "Re-exporting ES PDF (export UI) to $PDF_ES …"
+npx --prefix "$REVEAL" decktape reveal "${INDEX_URL}?export=1" "$PDF_ES" \
+  --size 1920x1080 \
+  --pause 750 \
+  --url-load-timeout 60000 \
+  --chrome-arg=--no-sandbox \
+  --chrome-arg=--disable-gpu
 echo "Exporting EN PDF to $PDF_EN …"
-npx --prefix "$REVEAL" decktape reveal "${INDEX_URL}?lang=en" "$PDF_EN" \
+npx --prefix "$REVEAL" decktape reveal "${INDEX_URL}?lang=en&export=1" "$PDF_EN" \
   --size 1920x1080 \
   --pause 750 \
   --url-load-timeout 60000 \
