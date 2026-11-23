@@ -26,6 +26,8 @@ HEADER_BAND_CY = int(PAGE_WIDTH_EMU * 288 / 1275)
 FOOTER_BAND_CY = int(PAGE_WIDTH_EMU * 37 / 1275)
 # A4 11906 twip − left/right margins 648 twip each (0.45″)
 TEXT_WIDTH_TWIPS = 10610
+CELL_MAR_LR_TWIPS = 113  # ~2 mm
+CELL_MAR_TB_TWIPS = 57  # ~1 mm
 VENUE = "Auditorio del Bloque I, piso 2 · Av. Circunvalar No. 12B-54"
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
@@ -280,29 +282,33 @@ def _tbl_pr(table):
     return tbl_pr
 
 
-def zero_cell_margins(cell) -> None:
-    tc_pr = cell._tc.get_or_add_tcPr()
-    old = tc_pr.find(qn("w:tcMar"))
-    if old is not None:
-        tc_pr.remove(old)
-    tc_mar = OxmlElement("w:tcMar")
-    for side in ("top", "left", "bottom", "right"):
-        side_el = OxmlElement(f"w:{side}")
-        side_el.set(qn("w:w"), "0")
-        side_el.set(qn("w:type"), "dxa")
-        tc_mar.append(side_el)
-    tc_pr.append(tc_mar)
+def strip_cell_tc_mar(table) -> None:
+    for row in table.rows:
+        for cell in row.cells:
+            tc_pr = cell._tc.tcPr
+            if tc_pr is None:
+                continue
+            old = tc_pr.find(qn("w:tcMar"))
+            if old is not None:
+                tc_pr.remove(old)
 
 
-def configure_schedule_table_layout(table, col_widths_twips: tuple[int, int]) -> None:
-    """Left-align table with title block: tblInd 0, jc left, full text width."""
+def configure_schedule_table_layout(
+    table,
+    col_widths_twips: tuple[int, int],
+    *,
+    tbl_ind_twips: int = 0,
+    cell_mar_lr: int = 0,
+    cell_mar_tb: int = 0,
+) -> None:
+    """Left-align table with title block; optional tblCellMar and compensating tblInd."""
     tbl_pr = _tbl_pr(table)
     for tag in ("w:tblInd", "w:jc", "w:tblW", "w:tblCellMar", "w:tblStyle"):
         old = tbl_pr.find(qn(tag))
         if old is not None:
             tbl_pr.remove(old)
     tbl_ind = OxmlElement("w:tblInd")
-    tbl_ind.set(qn("w:w"), "0")
+    tbl_ind.set(qn("w:w"), str(tbl_ind_twips))
     tbl_ind.set(qn("w:type"), "dxa")
     tbl_pr.append(tbl_ind)
     jc = OxmlElement("w:jc")
@@ -313,9 +319,14 @@ def configure_schedule_table_layout(table, col_widths_twips: tuple[int, int]) ->
     tw.set(qn("w:type"), "dxa")
     tbl_pr.append(tw)
     tcm = OxmlElement("w:tblCellMar")
-    for side in ("top", "left", "bottom", "right"):
+    for side, w in (
+        ("top", cell_mar_tb),
+        ("left", cell_mar_lr),
+        ("bottom", cell_mar_tb),
+        ("right", cell_mar_lr),
+    ):
         side_el = OxmlElement(f"w:{side}")
-        side_el.set(qn("w:w"), "0")
+        side_el.set(qn("w:w"), str(w))
         side_el.set(qn("w:type"), "dxa")
         tcm.append(side_el)
     tbl_pr.append(tcm)
@@ -323,9 +334,8 @@ def configure_schedule_table_layout(table, col_widths_twips: tuple[int, int]) ->
     if grid is not None:
         for grid_col, w in zip(grid.findall(qn("w:gridCol")), col_widths_twips):
             grid_col.set(qn("w:w"), str(w))
-    for row in table.rows:
-        for cell in row.cells:
-            zero_cell_margins(cell)
+    if cell_mar_lr or cell_mar_tb:
+        strip_cell_tc_mar(table)
 
 
 def add_cobrand_color(paragraph) -> None:
@@ -446,7 +456,13 @@ def build() -> None:
     table.autofit = False
     table.columns[0].width = Inches(0.72)
     table.columns[1].width = Twips(sched_col1)
-    configure_schedule_table_layout(table, (sched_col0, sched_col1))
+    configure_schedule_table_layout(
+        table,
+        (sched_col0, sched_col1),
+        tbl_ind_twips=-CELL_MAR_LR_TWIPS,
+        cell_mar_lr=CELL_MAR_LR_TWIPS,
+        cell_mar_tb=CELL_MAR_TB_TWIPS,
+    )
 
     hdr = table.rows[0].cells
     set_cell_shading(hdr[0], "0C498A")
