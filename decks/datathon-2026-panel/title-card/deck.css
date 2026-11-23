@@ -15,7 +15,7 @@
   box-sizing: border-box;
   width: 1920px;
   height: 1080px;
-  padding: 64px 96px 84px;
+  padding: 56px 96px 84px;
   display: flex !important;
   flex-direction: column;
   overflow: hidden;
@@ -45,49 +45,60 @@
   stroke-width: 1.5;
 }
 
+.reveal .fp-cobrand {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 28px;
+}
+
+.reveal .fp-cobrand img {
+  height: 52px;
+  width: auto;
+}
+
 .reveal .fp-pill {
   display: inline-block;
+  align-self: flex-start;
   background: #9dc384;
   color: #0c498a;
   font-weight: 700;
   font-size: 22px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   padding: 12px 26px;
   border-radius: 40px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .reveal .fp-eyebrow {
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: #b2eefa;
-  margin: 0 0 16px;
+  margin: 0 0 12px;
 }
 
 .reveal .fp-statement__title {
   font-weight: 700;
-  font-size: 64px;
+  font-size: 58px;
   line-height: 1.12;
   color: #ffffff;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   max-width: 1500px;
 }
 
 .reveal .fp-statement__sub {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1.35;
   color: #b2eefa;
-  margin: 0 0 48px;
+  margin: 0 0 40px;
   max-width: 1400px;
 }
 
 .reveal .fp-panel-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px 48px;
+  gap: 20px 48px;
   max-width: 1550px;
 }
 
@@ -95,29 +106,23 @@
   background: rgba(255, 255, 255, 0.08);
   border: 2px solid #69b5fa;
   border-radius: 16px;
-  padding: 22px 28px;
+  padding: 20px 26px;
 }
 
-.reveal .fp-panel-card__name {
-  font-size: 26px;
-  font-weight: 700;
+.reveal .fp-panel-card__line {
+  font-size: 24px;
+  font-weight: 600;
   color: #ffffff;
-  margin: 0 0 8px;
-}
-
-.reveal .fp-panel-card__role {
-  font-size: 20px;
-  color: #b2eefa;
   margin: 0;
+  line-height: 1.35;
 }
 
 .reveal .fp-tag {
   display: inline-block;
   margin-left: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: #0c498a;
   background: #b2eefa;
   padding: 4px 10px;
