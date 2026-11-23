@@ -1,0 +1,97 @@
+/* CTH photo slides on FODESEP frame (no EO co-brand). */
+.reveal .fp > .fp-photo-bg,
+.reveal .fp > .fp-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.reveal .slides section.fp.fp--photo {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+
+.fp-photo-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.fp-photo-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.72) 0%,
+    rgba(12, 73, 138, 0.55) 45%,
+    rgba(12, 73, 138, 0.88) 100%
+  );
+}
+
+.fp-kenburns {
+  animation: cth-kenburns 28s ease-in-out infinite alternate;
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+body.print-pdf .fp-kenburns,
+.reveal.print-pdf .fp-kenburns {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-kenburns {
+    animation: none !important;
+  }
+}
+
+@keyframes cth-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.reveal .fp--photo .fp-title,
+.reveal .fp--photo h2 {
+  color: #ffffff !important;
+}
+
+.reveal .fp--photo .fp-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.reveal .fp-cover__logo-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.reveal .fp-cover__logo-row img {
+  height: 72px;
+  width: auto;
+}
+
+.reveal .fp-pill--cth {
+  background: #0c498a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 40px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.reveal .fp-steps--6 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.reveal .fp-steps--6 .fp-step {
+  min-height: 220px;
+}
