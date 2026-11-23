@@ -41,7 +41,25 @@ HTML_TO_PDF = [
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
 
-def export_pdf_pngs(pdf_path: Path, prefix: str, dpi: int = 150) -> int:
+def stage_md_build_dir(tmp_html: Path) -> None:
+    """Copy logo/fonts beside generated HTML so relative asset URLs resolve."""
+    import shutil
+
+    tmp_html.mkdir(parents=True, exist_ok=True)
+    assets = tmp_html / "assets"
+    fonts_dir = assets / "fonts"
+    fonts_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy(ROOT / "assets/cth-logo-color.png", assets / "cth-logo-color.png")
+    for woff in (ROOT / "assets/fonts").glob("*.woff2"):
+        shutil.copy(woff, fonts_dir / woff.name)
+    (tmp_html / "md-print.css").write_text(
+        (PRINT / "md-print.css").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+
+
+def export_pdf_pngs(
+    pdf_path: Path, prefix: str, dpi: int = 150, max_pages: int | None = None
+) -> int:
     """Rasterize each PDF page to _png/{prefix}-pNN.png; return page count."""
     import fitz
 
@@ -50,7 +68,8 @@ def export_pdf_pngs(pdf_path: Path, prefix: str, dpi: int = 150) -> int:
     for old in PNG.glob(f"{prefix}-p*.png"):
         old.unlink()
     doc = fitz.open(pdf_path)
-    for i in range(doc.page_count):
+    n_render = doc.page_count if max_pages is None else min(max_pages, doc.page_count)
+    for i in range(n_render):
         out = PNG / f"{prefix}-p{i + 1:02d}.png"
         pix = doc[i].get_pixmap(dpi=dpi, alpha=False)
         pix.save(str(out))
@@ -83,7 +102,7 @@ def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
 </head>
 <body>
   <header class="hdr-bar">
-    <img src="../assets/cth-logo-color.png" alt="CleantechHUB" />
+    <img src="assets/cth-logo-color.png" alt="CleantechHUB" />
     <span>Datatón v0.4-es</span>
   </header>
   {banner}
@@ -127,9 +146,7 @@ async def render_all() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     PNG.mkdir(parents=True, exist_ok=True)
     tmp_html = PRINT / "_build"
-    tmp_html.mkdir(exist_ok=True)
-    import shutil
-    shutil.copy(PRINT / "md-print.css", tmp_html / "md-print.css")
+    stage_md_build_dir(tmp_html)
 
     write_leeme()
     md_files = [*MD_TO_PDF, "LEEME.md"]
@@ -178,15 +195,13 @@ async def render_all() -> None:
             await page.close()
             print("pdf", pdf_name)
 
-        page = await browser.new_page(viewport={"width": 794, "height": 1123})
-        await page.goto((tmp_html / "agenda-equipos.html").as_uri(), wait_until="networkidle")
-        await page.screenshot(path=str(PNG / "agenda-equipos-p1.png"), full_page=True)
-        await page.close()
-
         await browser.close()
 
     export_pdf_pngs(OUT / "plantilla-bmc.pdf", "plantilla-bmc")
     export_pdf_pngs(OUT / "prompts-ia-v2.pdf", "prompts-ia-v2")
+    for md_name in md_files:
+        stem = Path(md_name).stem
+        export_pdf_pngs(OUT / f"{stem}.pdf", stem, max_pages=1)
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows = []

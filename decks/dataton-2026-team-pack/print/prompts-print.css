@@ -37,11 +37,11 @@ html, body {
 }
 .print-page:last-child { break-after: auto; page-break-after: auto; }
 .sheet { padding: 0 0 4mm; }
-.cover { text-align: left; padding-top: 4mm; }
-.cover .logo { height: 32px; margin-bottom: 8px; }
-.cover h1 { font-size: 18pt; margin: 0 0 4px; }
-.cover .sub { font-weight: 600; margin: 0 0 8px; }
-.cover .lead { margin: 0 0 10px; }
+.cover { text-align: left; padding-top: 1mm; }
+.cover .logo { height: 28px; margin-bottom: 4px; }
+.cover h1 { font-size: 16pt; margin: 0 0 2px; }
+.cover .sub { font-weight: 600; margin: 0 0 4px; font-size: 9.5pt; }
+.cover .lead { margin: 0 0 6px; font-size: 9.5pt; }
 .rules-box {
   background: rgba(178, 238, 250, 0.25);
   border-left: 4px solid var(--lgreen);
