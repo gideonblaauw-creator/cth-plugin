@@ -2,104 +2,94 @@
 
 **Evento:** Datatón · lanzamiento suave del Observatorio de la Tierra  
 **Fecha:** martes 24 de noviembre de 2026  
-**Panel:** **8:40–9:25 COT** (45 min) — *Panel: territorio, cooperación y datos*  
-**Idioma:** español  
-**Fuente de tiempos:** agenda del día, 24 nov 2026
+**Panel:** **8:40 a 9:10 COT** (30 min)  
+**Tema:** hélice triple y cuádruple · territorio, cooperación y datos  
+**Moderador:** Gideon Blaauw  
+**Fuente de tiempos:** acuerdo 23 nov 2026 (Gideon y Marlene)
 
-## Panelistas (todos por confirmar)
+## Panelistas confirmados
 
-Cuatro voces alineadas con la hélice: **gobierno**, **cooperación internacional**, **startups** y **sector privado**.
+| Hélice (enfoque) | Persona |
+|------------------|---------|
+| Cooperación internacional | **Santiago Quiñones**, APC-Colombia |
+| Sector privado | **Representante, Constructora Bolívar** (nombre *por validar*) |
+| Gobierno / territorio | **Representante, RAP Pacífico** (nombre *por validar*) |
 
-| Hélice | Panelista |
-|--------|-----------|
-| Gobierno | **Rector Hernando Parra Nieto, Rector de la Universidad Externado de Colombia** *(por confirmar)* |
-| Gobierno / territorio | **Un líder de la región** — nombre *(por confirmar)* |
-| Cooperación internacional | **Santiago Quiñones**, Director de Gestión de Demanda de Cooperación Internacional, APC-Colombia *(por confirmar)* |
-| Sector privado | **Un líder de Grupo Bolívar** — nombre *(por confirmar)* |
-
-No inventar biografías ni citas. Los cargos anteriores son los únicos aprobados además del rol de hélice.
+No inventar biografías ni citas.
 
 ---
 
-## Bloque de tiempos (8:40–9:25)
+## Bloque de tiempos (8:40 a 9:10)
 
-| Hora | Bloque | Notas |
-|------|--------|-------|
-| 8:40–8:45 | Bienvenida | Guion de apertura. Título del panel: territorio, cooperación y datos. |
-| 8:45–8:52 | Presentación de panelistas | Nombre + hélice; una etiqueta «por confirmar» por persona si aplica. |
-| 8:52–9:18 | Rondas de preguntas | Seis preguntas (incluye startups y datatón). Réplica corta cada una. |
-| 9:18–9:23 | Cierre | Guion de cierre. |
-| 9:23–9:25 | Transición | Entrega a **Enrique Medina (Agrometers)** — conversatorio inspiracional **9:25**. |
-| *(día)* | Datatón | Instrucciones y arranque del datatón **10:45** (no confundir con este panel). |
+| Hora | Bloque | Duración |
+|------|--------|----------|
+| 8:40 a 8:42 | Introducción | ~2 min |
+| 8:42 a 8:54 | Una pregunta de apertura por panelista | ~4 min c/u |
+| 8:54 a 9:07 | Ronda cruzada (una pregunta, todos responden) | ~13 min |
+| 9:07 a 9:10 | Cierre y puente | ~2 a 3 min |
+| 9:10 | Transición | **Enrique Medina (Agrometers)** |
 
 **Señales de tiempo**
 
-- **9:00:** «Pasamos a la segunda ronda: cooperación internacional y sector privado.»
-- **9:12:** «Diez minutos para cerrar la conversación.»
-- **9:20:** Iniciar cierre aunque alguien hable; reserva solo si sobra margen antes de 9:23.
+- **8:50:** «Último minuto de esta respuesta; pasamos al siguiente panelista.»
+- **9:05:** «Ronda cruzada corta: una frase cada uno.»
+- **9:07:** Iniciar cierre aunque alguien hable.
+
+*(El hacking del datatón arranca **10:45**; no anunciarlo en el cierre del panel salvo una línea breve si el organizador lo pide.)*
 
 ---
 
 ## Guion de apertura (decir textualmente)
 
-> «Buenos días. Son las ocho y cuarenta. Bienvenidos al panel *territorio, cooperación y datos*, dentro del Datatón del Observatorio de la Tierra en el Externado. Hoy escuchamos a gobierno, cooperación internacional, startups y sector privado sobre por qué Colombia necesita un observatorio que una territorio, datos y decisiones. Yo moderaré; presento a cada panelista y abrimos las preguntas. Empecemos.»
+> «Buenos días. Son las ocho y cuarenta. Soy Gideon Blaauw y moderaré este panel de treinta minutos dentro del Datatón del Observatorio de la Tierra en el Externado. Hoy miramos la hélice triple y cuádruple: territorio, cooperación y datos. Presento a Santiago Quiñones, de APC-Colombia; al representante de Constructora Bolívar; y al representante de la RAP Pacífico. Una pregunta de apertura para cada uno, luego una ronda cruzada y cerramos. Empecemos.»
 
 ## Guion de cierre (decir textualmente)
 
-> «Gracias a la mesa y a la sala. El Observatorio de la Tierra es infraestructura para observar, actuar y transformar con datos verificables. A las nueve y veinticinco pasamos al conversatorio inspiracional con Enrique Medina, de Agrometers. El trabajo de hacking del datatón arranca a las diez y cuarenta y cinco; hasta entonces, sigan el programa del día.»
+> «Gracias a la mesa y a la sala. El Observatorio de la Tierra es infraestructura para observar, actuar y transformar con datos verificables. A las nueve y diez pasamos al conversatorio inspiracional con Enrique Medina, de Agrometers. Sigan el programa del día.»
 
 ---
 
 ## Preguntas planificadas
 
-### 1 — Gobierno (Rector Hernando Parra Nieto, Rector de la Universidad Externado de Colombia, por confirmar)
+### Apertura 1: Santiago Quiñones (APC-Colombia), ~4 min
 
-**Pregunta:** «Desde el gobierno universitario y la conversación con el Estado, ¿qué decisión de política pública en Colombia no puede esperar otro año sin un observatorio que cruce datos ambientales, sociales y económicos?»
+**Pregunta:** «¿Qué aporta la cooperación internacional que un observatorio de la Tierra en Colombia no puede cerrar solo?»
 
-**Réplica:** «¿Dónde encaja el Externado sin sustituir las instituciones de gobierno?»
+**Réplica corta si sobra:** «¿Dónde ve el puente entre APC y un anclaje territorial concreto?»
 
-### 2 — Gobierno / territorio (un líder de la región, nombre por confirmar)
+### Apertura 2: Representante, Constructora Bolívar (nombre por validar), ~4 min
 
-**Pregunta:** «Desde el territorio, ¿qué ve el gobierno regional que hoy no se ve en los datos nacionales, y cómo ayudaría el Observatorio?»
+**Pregunta:** «¿Por qué le conviene al sector privado participar en un observatorio de la Tierra, más allá del cumplimiento normativo?»
 
-**Réplica:** «¿Qué acuerdo intergubernamental haría falta para que esos datos circulen con confianza?»
+**Réplica corta:** «¿Qué señal temprana pediría al Observatorio para decisiones con impacto territorial?»
 
-### 3 — Cooperación internacional (Santiago Quiñones, Director de Gestión de Demanda de Cooperación Internacional, APC-Colombia, por confirmar)
+### Apertura 3: Representante, RAP Pacífico (nombre por validar), ~4 min
 
-**Pregunta:** «¿Qué aporta la cooperación internacional que un proyecto nacional no puede cerrar solo cuando hablamos de observar la Tierra en Colombia?»
+**Pregunta:** «Desde el Pacífico, ¿qué ve el gobierno regional que hoy no se ve en los datos nacionales, y cómo ayudaría el Observatorio?»
 
-**Réplica:** «¿Dónde ve el puente entre redes globales como APC y un observatorio con anclaje local?»
+**Réplica corta:** «¿Qué acuerdo haría falta para que esos datos circulen con confianza?»
 
-### 4 — Sector privado (un líder de Grupo Bolívar, nombre por confirmar)
+### Ronda cruzada, ~13 min
 
-**Pregunta:** «¿Por qué le conviene al sector privado colombiano participar en un observatorio de la Tierra, más allá del cumplimiento normativo?»
+**Pregunta única:** «En no más de un minuto cada uno: ¿qué pieza falta hoy en la hélice triple o cuádruple para que el Observatorio sea útil en su primer año?»
 
-**Réplica:** «¿Qué señal temprana le pediría al Observatorio para decisiones con impacto territorial?»
-
-### 5 — Startups (mesa o voces startup en sala, por confirmar)
-
-**Pregunta:** «Para quienes construyen producto y startup: ¿qué dato abierto o señal del Observatorio cambiaría lo que traerían al datatón de hoy?»
-
-**Réplica:** «¿Qué problema real pondrían ustedes en la primera mesa de hacking a las diez y cuarenta y cinco?»
-
-### 6 — Cierre cruzado (30 segundos cada panelista confirmado)
-
-**Pregunta:** «En una frase: ¿por qué Colombia necesita el Observatorio de la Tierra ahora?»
+Moderar en orden: RAP Pacífico, Constructora Bolívar, Santiago Quiñones (o el orden que indique sala).
 
 ---
 
 ## Pregunta de respaldo
 
-> «¿Qué malentendido sobre los datos ambientales en Colombia debería despejar este Observatorio en su primer año de trabajo público?»
+Si alguien no llega o una respuesta es muy breve:
+
+> «¿Qué malentendido sobre los datos ambientales en Colombia debería despejar este Observatorio en su primer año?»
 
 ---
 
 ## Recordatorios del moderador
 
-- Una intervención a la vez; cortar con cortesía a los 90 segundos por respuesta inicial.
-- **9:25** — Enrique Medina (Agrometers), conversatorio inspiracional.
-- **10:45** — instrucciones y arranque del datatón (no anunciar hacking antes de tiempo).
-- Programa del día: Observatorio y piloto Bolívar **9:45**; Datalab **10:05**; demo Air4U **10:15**.
+- Una intervención a la vez; cortar con cortesía al minuto en la ronda cruzada.
+- **9:10:** Enrique Medina (Agrometers).
+- Nombres de Constructora Bolívar y RAP Pacífico siguen **por validar** hasta confirmación del desk.
 
 ---
 
