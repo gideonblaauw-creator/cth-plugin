@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Render agenda-dataton-24nov-v2 HTML to PDF and PNG (one A4 page)."""
+"""Render agenda-dataton-24nov-v4 HTML to PDF and PNG (one A4 page)."""
 from __future__ import annotations
 
 import asyncio
 import pathlib
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
-HTML = ROOT / "agenda-dataton-24nov-v2.html"
-PDF = ROOT / "agenda-dataton-24nov-v2.pdf"
-PNG = ROOT / "agenda-dataton-24nov-v2.png"
+VERSION = (sys.argv[1] if len(sys.argv) > 1 else "v4").lstrip("v")
+HTML = ROOT / f"agenda-dataton-24nov-v{VERSION}.html"
+PDF = ROOT / f"agenda-dataton-24nov-v{VERSION}.pdf"
+PNG = ROOT / f"agenda-dataton-24nov-v{VERSION}.png"
 
 
 async def export() -> None:
