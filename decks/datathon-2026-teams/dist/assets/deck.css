@@ -347,6 +347,27 @@ body[data-lang="es"] .l-en { display: none !important; }
   background-size: cover;
   background-position: center;
   background-color: #0C498A;
+  filter: contrast(1.12) saturate(1.06) brightness(1.06);
+}
+.reveal .fp-has-photo.fp-statement .fp-photo-bg {
+  filter: contrast(1.48) saturate(1.16) brightness(1.22);
+}
+.reveal .fp-has-photo.fp-photo-boost--strong .fp-photo-bg {
+  filter: contrast(1.78) saturate(1.22) brightness(1.4);
+}
+.reveal .fp-has-photo.fp-photo-boost--strong .fp-photo-scrim,
+.reveal .fp-has-photo.fp-photo-boost--strong .fp-photo-scrim--light {
+  background:
+    linear-gradient(90deg, rgba(12, 73, 138, 0.38) 0%, rgba(12, 73, 138, 0) 55%),
+    linear-gradient(90deg, rgba(12, 73, 138, 0.46) 0%, rgba(12, 73, 138, 0.22) 36%, rgba(12, 73, 138, 0.22) 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 62%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 62%);
+}
+.reveal .fp-has-photo.fp-statement .fp-photo-scrim,
+.reveal .fp-has-photo.fp-statement .fp-photo-scrim--light {
+  background:
+    linear-gradient(90deg, rgba(12, 73, 138, 0.36) 0%, rgba(12, 73, 138, 0) 58%),
+    linear-gradient(90deg, rgba(12, 73, 138, 0.48) 0%, rgba(12, 73, 138, 0.32) 40%, rgba(12, 73, 138, 0.04) 56%, rgba(12, 73, 138, 0) 62%);
 }
 .reveal .fp-has-photo .fp-photo-scrim {
   position: absolute;
@@ -355,10 +376,27 @@ body[data-lang="es"] .l-en { display: none !important; }
   right: -96px;
   bottom: -84px;
   z-index: 0;
-  background: linear-gradient(180deg, rgba(12,73,138,0.92) 0%, rgba(12,73,138,0.82) 35%, rgba(12,73,138,0.97) 100%);
+  /* ~50% navy on left, ~5–12% on right; L→R text boost (~85% at x=0 → ~30% by x=60%) */
+  background:
+    linear-gradient(90deg, rgba(12, 73, 138, 0.35) 0%, rgba(12, 73, 138, 0) 60%),
+    linear-gradient(90deg, rgba(12, 73, 138, 0.52) 0%, rgba(12, 73, 138, 0.44) 50%, rgba(12, 73, 138, 0.14) 72%, rgba(12, 73, 138, 0.06) 100%);
 }
 .reveal .fp-photo-scrim--light {
-  background: linear-gradient(180deg, rgba(12,73,138,0.72) 0%, rgba(12,73,138,0.62) 35%, rgba(12,73,138,0.78) 100%);
+  background:
+    linear-gradient(90deg, rgba(12, 73, 138, 0.32) 0%, rgba(12, 73, 138, 0) 60%),
+    linear-gradient(90deg, rgba(12, 73, 138, 0.48) 0%, rgba(12, 73, 138, 0.42) 50%, rgba(12, 73, 138, 0.16) 72%, rgba(12, 73, 138, 0.08) 100%);
+}
+/* Showcase photo slides: local proof panel for WCAG on the right column */
+.reveal .fp-has-photo.fp-chart-proof--photo .fp-cp__proof {
+  background: rgba(12, 73, 138, 0.82);
+  padding: 18px 22px 14px;
+  border-radius: 14px;
+  border-left: 6px solid #9DC384;
+}
+/* Photo slides: hide fp decorative blobs that compete with Canva crops */
+.reveal .fp-has-photo.fp-statement .fp-deco.fp-statement__plant,
+.reveal .fp-has-photo.fp-chart-proof--photo .fp-deco.fp-blob-br {
+  display: none;
 }
 .reveal .fp--navy-only { background: #0C498A !important; color: #FFFFFF; }
 .reveal .fp--navy-only .fp-title, .reveal .fp--navy-only .fp-eyebrow { color: #FFFFFF; }

@@ -4,7 +4,7 @@ Deck for Datatón pilot (24 Nov 2026). Spanish primary; English toggle. No inven
 
 ## Background photos
 
-**Canva-cleaned Air4U photos** (1080×1350 PNG, `/opt/cth-decks/.../canva-out/g*-canva.png`). Full-bleed **16:9** crops under `assets/photos/canva-g*-crop.jpg` (`scripts/crop-canva-air4u.py`, 1920px JPEG, strong navy scrim in CSS). People/logos allowed on this deck. **One unique crop per photo slide.**
+**Canva-cleaned Air4U photos** (1080×1350 PNG, `/opt/cth-decks/.../canva-out/g*-canva.png`). Full-bleed **16:9** crops under `assets/photos/canva-g*-crop.jpg` (`scripts/crop-canva-air4u.py`, 1920px JPEG). Photo slides use a **light scrim** in `assets/deck.css` (~50% flat navy + L→R text gradient; faint g5 uses `photo_boost: strong` and masked scrim). People/logos allowed on this deck. **One unique crop per photo slide.**
 
 | Slide | g-source | Crop box (x0,y0,x1,y1) | Asset |
 |-------|----------|-------------------------|-------|
