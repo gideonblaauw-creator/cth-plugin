@@ -1,0 +1,125 @@
+# Observatorio de la Tierra — Datatón 24 nov 2026 (outline for tools/reveal/outline.sh)
+meta:
+  slug: observatorio-tierra-dataton
+  lang: es
+  title: "El Observatorio de la Tierra abre hoy su colaboración en el Externado"
+  client: "Observatorio de la Tierra"
+  date: "2026-11-24"
+
+slides:
+  - type: cover
+    title: "El Observatorio de la Tierra abre hoy su colaboración en el Externado"
+    subtitle: "La colaboración es la lente. El conocimiento orienta las decisiones. El dato es la infraestructura."
+    client: "Universidad Externado de Colombia × CleantechHUB"
+    date: "Martes 24 de noviembre de 2026 · 09:45–10:05 · Datatón · Bogotá"
+    image: "assets/chingaza.jpg"
+    notes: "SPEAKER: Both."
+
+  - type: statement
+    text: "El Observatorio de la Tierra es el nombre del programa: el lugar donde la casa académica y la custodia trabajan juntas, con la hélice y con el círculo."
+    attribution: "Carapulica lleva el relato de esa colaboración. El Datalab está dentro y es el motor. El dato queda debajo. — White paper v3, §1, noviembre de 2026"
+    notes: "SPEAKER: Gideon."
+
+  - type: title-bullets
+    title: "El Observatorio no reemplaza las cifras oficiales ni abre otra aceleradora"
+    eyebrow: "Qué es y qué no es"
+    bullets:
+      - "Existe para que la colaboración lea cómo la innovación cruza del nicho al régimen, y para que lo aprendido llegue a decisiones verificables."
+      - "La casa académica es la Universidad Externado: formula la pregunta, pone estudiantes, sostiene la ética de uso de datos y revisa si el dato aguanta una conclusión."
+      - "La custodia del contrato es CTH Foundation. Opera el motor. No es dueña de un data warehouse."
+      - "REIN es la única ruta de cohortes; no se abre una segunda. Earth Data Week (marzo, sujeto a programación) es el momento público, no el lanzamiento de un instituto."
+      - "No sustituye al IDEAM, no reedita el SMByC ni Anajia, no publica una tasa nacional, no es una autoridad regulatoria nueva."
+    notes: "SPEAKER: Both."
+
+  - type: ecosystem
+    title: "Carapulica dice quién se sienta con quién, alrededor de qué pregunta"
+    centre: "Observatorio de la Tierra"
+    nodes:
+      - label: "Gobierno"
+        text: "Radio de la hélice. Aparecer en el dibujo no vuelve socio a un ministerio."
+      - label: "Cooperación internacional"
+        text: "Radio de la hélice."
+      - label: "Startups"
+        text: "Radio de la hélice. La cohorte entra por REIN. No se escriben nombres de clientes."
+      - label: "Sector privado"
+        text: "Radio de la hélice. No hay lista de empresas en esta lámina."
+    notes: "SPEAKER: Gideon."
+
+  - type: partner-cards
+    title: "La banda fundadora es de dos: el Externado formula, CTH custodia el motor"
+    partners:
+      - logo: "logos/externado.svg"
+        name: "Universidad Externado de Colombia"
+        text: "Casa académica. Formula la pregunta, pone estudiantes, sostiene la ética de uso de datos y revisa si el dato aguanta una conclusión. Ancla el hub REIN Colombia y el CEE. El CEE y Desarrollo e Innovación (Dirección de Desarrollo Institucional) son sub-líneas, no socios aparte."
+      - logo: "logos/cleantechhub.svg"
+        name: "CleanTech Hub Foundation"
+        text: "Custodia del contrato y del motor. Conexiones del ecosistema de innovación climática. Intermediario de confianza. Opera el Datalab. No es dueño de un data warehouse."
+    notes: "SPEAKER: Alejandro leads. REFINE AFTER MON 23 NOV."
+
+  - type: key-facts
+    title: "Tres lecturas dicen dónde se forma lo nuevo, quién coordina y cómo se decide"
+    items:
+      - icon: "layers"
+        label: "Perspectiva multinivel"
+        text: "Nicho, régimen y paisaje (Geels). Dónde se forma lo nuevo y cómo cruza al sistema existente. El observatorio no pronostica la vía de un lente."
+      - icon: "git-merge"
+        label: "Gobernanza multinivel"
+        text: "Quién coordina qué, en vertical (internacional–nacional–territorial) y en horizontal (academia, empresas, comunidades, gobierno). Reunir actores no es gobernanza."
+      - icon: "cpu"
+        label: "Gobernanza inteligente"
+        text: "Cómo una institución aprende a decidir con evidencia. La tecnología mejora la colaboración; no es la colaboración. Advertencia de Díaz Malagón (2026): la inteligencia no está en el motor, está en la colaboración que lo usa."
+    notes: "SPEAKER: Alejandro. REFINE AFTER MON 23 NOV."
+
+  - type: focus-areas
+    title: "Cinco lentes pares leen la colaboración; la tecnología es el hilo, no un sexto lente"
+    areas:
+      - name: "Ambiental"
+        image: "assets/icons/ambiental.svg"
+      - name: "Urbana"
+        image: "assets/icons/urbana.svg"
+      - name: "Rural"
+        image: "assets/icons/rural.svg"
+      - name: "Ciudadana"
+        image: "assets/icons/ciudadana.svg"
+      - name: "Del mercado"
+        image: "assets/icons/mercado.svg"
+    notes: "SPEAKER: Gideon."
+
+  - type: title-bullets
+    title: "Las cinco palancas son preguntas, no facultades"
+    eyebrow: "Cómo se mueve la colaboración"
+    bullets:
+      - "Cooperación internacional: ¿quién transporta la presión o protege el nicho?"
+      - "Innovación y experimentación: ¿qué se prueba, con quién y con qué escudo?"
+      - "Investigación y gestión del conocimiento: ¿qué se aprende y cómo llega a la decisión?"
+      - "Entrada al mercado por emprendimiento: ¿qué startup necesita protección y entra por REIN?"
+      - "El problema del corporativo y el cambio institucional: ¿quién en el régimen adopta y qué tiene que cambiar?"
+    notes: "SPEAKER: Gideon."
+
+  - type: process
+    title: "La hoja de ruta madura en tres fases: Fundamento, Piloto y Escala"
+    steps:
+      - label: "Fundamento"
+        text: "Acuerdo de colaboración: vocabulario común, la pregunta que las tres unidades hacen juntas, definición de los cinco lentes, línea base y reglas de datos. Un documento no basta."
+      - label: "Piloto"
+        text: "Una colaboración por lente, en el nicho. El caso pasa por el living lab y por el datathon, que son el motor, no el relato. Evidencia para continuar, modificar, transferir o cerrar."
+      - label: "Escala"
+        text: "La colaboración entra al régimen. Puede ser adopción, transferencia o fortalecimiento institucional, no solo crecimiento comercial."
+    notes: "SPEAKER: Both."
+
+  - type: focus-areas
+    title: "El Datalab es el motor, no el relato; el detalle sigue a las 10:05"
+    areas:
+      - name: "Vitrina pública"
+        image: "assets/icons/vitrina.svg"
+      - name: "Living lab"
+        image: "assets/icons/living-lab.svg"
+      - name: "Producto de cliente"
+        image: "assets/icons/producto.svg"
+      - name: "Datatón"
+        image: "assets/icons/dataton.svg"
+    notes: "SPEAKER: Gideon."
+
+  - type: closing
+    text: "Hoy se muestra la colaboración; a las 10:05 entra el motor. El motor no la sustituye. Una prueba tecnológica no es, por sí sola, evidencia de transformación. Quienes vienen de gobierno, cooperación, startups o sector privado ya tienen un lugar en la hélice; el círculo (gobiernos locales, cooperativas, sociedad civil) se invita, no se da por sentado."
+    notes: "SPEAKER: Both."
