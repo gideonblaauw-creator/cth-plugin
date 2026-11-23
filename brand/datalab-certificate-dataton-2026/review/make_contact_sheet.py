@@ -71,7 +71,7 @@ def main() -> None:
         font = ImageFont.load_default()
         title_font = font
 
-    draw.text((pad, pad), "Datalab · Certificado Datatón 2026 — contact sheet", fill="#0C498A", font=title_font)
+    draw.text((pad, pad), "Datalab · Certificado Datatón 2026 · contact sheet", fill="#0C498A", font=title_font)
 
     y = pad + 36
     x = pad

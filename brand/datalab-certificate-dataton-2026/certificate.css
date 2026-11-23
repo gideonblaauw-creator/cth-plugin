@@ -150,7 +150,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16mm;
-  margin: 0 auto 5mm;
+  margin: 30mm auto 0;
   width: 100%;
   max-width: 230mm;
 }
