@@ -78,6 +78,8 @@ Canonical tier rules: `docs/understanding-lab-tiers.md`, `skills/infrastructure-
 
 Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes.
 
+GO / NO GO asks to Gideon use inline widget buttons (HARNESS.md, 22 Nov 2026).
+
 Under Plan B, outbound channels go through **Babo HITL** per `babo-channel-layer` in `rakazo-plan-b`. **LinkedIn:** **[PENDIENTE]**.
 
 ## 7. Non-goals

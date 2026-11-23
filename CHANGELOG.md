@@ -4,6 +4,12 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 
 ## [Unreleased]
 
+### GO / NO GO inline buttons (22 Nov 2026)
+
+- Gideon lock: every Orchestrator, desk, workbench, tool and bot asks Gideon for GO / NO GO (or any HITL approval) with SendToUser widget buttons, not prose-only.
+- Updated: `HARNESS.md` (Operating protocol / HITL), `AGENTS.md`, `CLAUDE.md`, `skills/desks-workbenches-hands-tickets/SKILL.md`, all `skills/*-comms/SKILL.md`
+- HITL: Gideon merges. Hands does not merge.
+
 ### Socials Loop: X research ingest (18 Nov 2026)
 
 - Updated: `skills/socials-loop/SKILL.md`: optional X Desk daily **X signal** + Gideon-shared post URLs feed §3 Hands research only; hard rules (zero X spend, HITL, Slack `#CTH_OPS`, brand separation, source links); X is not a publish channel in the loop

@@ -91,6 +91,8 @@ Workbench is **not** a default and **not** a second Hands. Use only when Hands c
 
 ## 7. HITL — hard before sign / send / pay
 
+
+GO / NO GO asks to Gideon use inline widget buttons (HARNESS.md, 22 Nov 2026).
 Nothing **signed**, **sent**, or **paid** without **Gideon Blaauw** yes in the owning chat.
 
 - Agent output is **proposal only**. No “approved”, “signed”, or “executed” language from Hands.

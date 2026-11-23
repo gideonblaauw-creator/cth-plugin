@@ -19,7 +19,7 @@ Orchestrator · Desks · Workbench · Cloud Hands. Tools and Tickets are not cha
 - Own the subject / channel
 - Write Hands tickets (outcome, sources, exclusive write path, acceptance, model from [hands-model-routing](sand-workflow:hands-model-routing))
 - Review Hands output (maker ≠ checker)
-- HITL gates before send / post / pay / activate / cutover
+- HITL gates before send / post / pay / activate / cutover; GO / NO GO asks to Gideon use inline widget buttons (`HARNESS.md`, 22 Nov 2026)
 - Ready-ping Orchestrator with PR/URL/bc-id/paths — not process notes
 
 ## What Hands does

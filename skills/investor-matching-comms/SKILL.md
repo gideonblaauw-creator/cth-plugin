@@ -66,6 +66,7 @@ Workbench is **not** a default and **not** a second Hands. Use only when Hands c
 ## 7. HITL
 
 Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the owning chat.
+GO / NO GO asks to Gideon use inline widget buttons (HARNESS.md, 22 Nov 2026).
 
 
 No investor intro sent without Gideon yes.

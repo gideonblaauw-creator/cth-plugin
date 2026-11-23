@@ -30,6 +30,11 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - **Hands model routing:** **Token budget protocol (22 Oct 2026)** — every Cloud Hands job runs on `composer-2.5` Fast ON. Private residency stays local Ollama `LFM2.5-VL-3B`. Canonical: `docs/hands-model-routing.md`.
 - **Wire diagrams, diagramas, diagrama de cables, diagrama de flujo, explainer video, image, or MD from a loose ask:** run `wire-brief` first (STE-80 intake + optional G0 for voice/strategy only), then `diagram-design` (`wire.py`) or `multi-agent-team-report` when the deliverable is a harness team report MD.
 
+## HITL: GO / NO GO inline buttons
+
+Every desk, workbench, tool, and bot that asks Gideon for GO / NO GO (or any HITL approval) must use SendToUser widget buttons, not prose-only asks.
+Canonical rule: `HARNESS.md` — **GO / NO GO decisions: inline buttons (Gideon 22 Nov 2026)**.
+
 ## VPS files
 
 Operational files on the OVH VPS (`/opt/claude-files`, reached via files-mcp there) stay on the VPS. They are the source of truth. Do not clone them into this repo. Do not add MCP tokens or invent files-mcp credentials here. Access VPS files via Remote SSH or OpenCode.

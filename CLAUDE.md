@@ -28,6 +28,8 @@ Each brand has its own skill in `skills/` with colors, typography, and tone rule
 
 Mark any public-voice CleantechHUB content (social media posts, newsletter copy, website text, external communications) as **"Awaiting Gideon's approval"** before publishing or sending. Internal drafts and working documents do not require this gate.
 
+GO / NO GO and other HITL asks to Gideon use inline SendToUser widget buttons (not prose-only). See `HARNESS.md` — **GO / NO GO decisions: inline buttons (Gideon 22 Nov 2026)**.
+
 ## Infrastructure
 
 - **VPS:** OVH VPS — all long-running CleantechHUB services deploy here alongside BookStack. Never spin up a new host.
