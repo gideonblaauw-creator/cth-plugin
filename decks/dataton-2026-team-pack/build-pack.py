@@ -41,6 +41,28 @@ HTML_TO_PDF = [
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
 
+def export_pdf_pngs(pdf_path: Path, prefix: str, dpi: int = 150) -> int:
+    """Rasterize each PDF page to _png/{prefix}-pNN.png; return page count."""
+    import fitz
+
+    if not pdf_path.is_file():
+        raise FileNotFoundError(pdf_path)
+    for old in PNG.glob(f"{prefix}-p*.png"):
+        old.unlink()
+    doc = fitz.open(pdf_path)
+    for i in range(doc.page_count):
+        out = PNG / f"{prefix}-p{i + 1:02d}.png"
+        pix = doc[i].get_pixmap(dpi=dpi, alpha=False)
+        pix.save(str(out))
+        if prefix == "plantilla-bmc" and i == 0:
+            alias = PNG / "plantilla-bmc-p1.png"
+            pix.save(str(alias))
+        print("png", out.name)
+    n = doc.page_count
+    doc.close()
+    return n
+
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -110,12 +132,12 @@ async def render_all() -> None:
     shutil.copy(PRINT / "md-print.css", tmp_html / "md-print.css")
 
     write_leeme()
-    MD_TO_PDF.append("LEEME.md")
+    md_files = [*MD_TO_PDF, "LEEME.md"]
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
 
-        for md_name in MD_TO_PDF:
+        for md_name in md_files:
             md_path = TEAM / md_name
             pdf_name = md_path.stem + ".pdf"
             borrador = "hoja-5" in md_name
@@ -145,48 +167,26 @@ async def render_all() -> None:
                 "margin": {"top": "10mm", "bottom": "10mm", "left": "10mm", "right": "10mm"},
                 "print_background": True,
             }
+            if html_name == "prompts-ia-v2.html":
+                pdf_opts["margin"] = {"top": "14mm", "bottom": "14mm", "left": "12mm", "right": "12mm"}
             if opts.get("landscape"):
                 pdf_opts["landscape"] = True
                 pdf_opts["margin"] = {"top": "0", "bottom": "0", "left": "0", "right": "0"}
                 pdf_opts["prefer_css_page_size"] = True
-                pdf_opts["scale"] = 0.92
+                pdf_opts["scale"] = 1.0
             await page.pdf(**pdf_opts)
             await page.close()
             print("pdf", pdf_name)
 
-        # PNG from HTML sources for reliability
-        png_jobs = [
-            (PRINT / "plantilla-bmc.html", PNG / "plantilla-bmc-p1.png", True),
-            (PRINT / "prompts-ia-v2.html", PNG / "prompts-ia-v2-contact.png", False),
-            (tmp_html / "agenda-equipos.html", PNG / "agenda-equipos-p1.png", False),
-        ]
-        for html_path, png_path, landscape in png_jobs:
-            if not html_path.is_file():
-                continue
-            page = await browser.new_page(
-                viewport={"width": 1123 if landscape else 794, "height": 794 if landscape else 1123}
-            )
-            await page.goto(html_path.as_uri(), wait_until="networkidle")
-            if landscape:
-                sheet = page.locator("article.sheet").first
-                await sheet.screenshot(path=str(png_path))
-            elif "prompts" in png_path.name:
-                await page.screenshot(path=str(png_path), full_page=True)
-            else:
-                await page.screenshot(path=str(png_path), full_page=True)
-            await page.close()
-            print("png", png_path.name)
-
-        # prompts per-page PNGs
         page = await browser.new_page(viewport={"width": 794, "height": 1123})
-        await page.goto((PRINT / "prompts-ia-v2.html").as_uri(), wait_until="networkidle")
-        sections = page.locator("section.sheet, article.cover")
-        count = await sections.count()
-        for i in range(count):
-            await sections.nth(i).screenshot(path=str(PNG / f"prompts-ia-v2-p{i+1:02d}.png"))
+        await page.goto((tmp_html / "agenda-equipos.html").as_uri(), wait_until="networkidle")
+        await page.screenshot(path=str(PNG / "agenda-equipos-p1.png"), full_page=True)
         await page.close()
 
         await browser.close()
+
+    export_pdf_pngs(OUT / "plantilla-bmc.pdf", "plantilla-bmc")
+    export_pdf_pngs(OUT / "prompts-ia-v2.pdf", "prompts-ia-v2")
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows = []

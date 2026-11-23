@@ -21,10 +21,11 @@
     }
     :root {
       --blue: #0C498A;
-      --cyan: #B2EEFA;
+      --cyan: #D4F2FA;
       --green: #669348;
-      --lgreen: #9DC384;
-      --sky: #69B5FA;
+      --lgreen: #C8E4B4;
+      --sky: #C5DFFA;
+      --mint: #E2F0DC;
     }
     * { box-sizing: border-box; }
     @page { size: A4 landscape; margin: 0; }
@@ -40,135 +41,154 @@
       width: 297mm;
       height: 210mm;
       max-height: 210mm;
-      padding: 4mm 7mm 3mm;
+      padding: 5mm 6mm 4mm;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      page-break-inside: avoid;
-      break-inside: avoid;
     }
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 4mm;
       border-bottom: 3px solid var(--lgreen);
-      padding-bottom: 3mm;
-      margin-bottom: 3mm;
+      padding-bottom: 2.5mm;
+      margin-bottom: 2.5mm;
+      flex-shrink: 0;
     }
-    header img { height: 11mm; width: auto; }
-    header h1 { margin: 0; font-size: 13pt; font-weight: 700; }
-    header p { margin: 0; font-size: 8pt; font-weight: 600; }
-    .canvas {
+    header img { height: 10mm; width: auto; }
+    header h1 { margin: 0; font-size: 12pt; font-weight: 700; }
+    header p { margin: 0; font-size: 7.5pt; font-weight: 600; }
+    .bmc {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2mm;
+      min-height: 0;
+    }
+  /* Top ~70% — 5 equal columns, 2 rows */
+    .bmc-top {
+      flex: 7;
       display: grid;
-      grid-template-columns: 1fr 1fr 1.35fr 1fr 1fr;
-      grid-template-rows: 1.1fr 1.35fr 1.1fr;
-      gap: 1.5mm;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 2mm;
+      min-height: 0;
+    }
+  /* Bottom ~30% — 50 / 50 */
+    .bmc-bottom {
+      flex: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2mm;
       min-height: 0;
     }
     .block {
-      border: 1.5px solid rgba(12, 73, 138, 0.35);
-      border-radius: 3px;
+      border: 1.5px solid #0C498A;
+      border-radius: 2px;
       padding: 2mm 2.5mm;
       display: flex;
       flex-direction: column;
-      background: #fff;
+      min-height: 0;
+      overflow: hidden;
     }
-    .block--partners { grid-column: 1; grid-row: 1 / 3; background: rgba(178, 238, 250, 0.18); }
-    .block--activities { grid-column: 1; grid-row: 3; background: rgba(178, 238, 250, 0.12); }
-    .block--resources { grid-column: 2; grid-row: 1 / 3; background: rgba(105, 181, 250, 0.12); }
-    .block--value { grid-column: 3; grid-row: 1 / 3; background: rgba(157, 195, 132, 0.22); border-color: var(--green); }
-    .block--relations { grid-column: 4; grid-row: 1; }
-    .block--channels { grid-column: 4; grid-row: 2 / 4; background: rgba(178, 238, 250, 0.1); }
-    .block--segments { grid-column: 5; grid-row: 1 / 3; background: rgba(105, 181, 250, 0.15); }
-    .block--costs { grid-column: 2; grid-row: 3; background: rgba(12, 73, 138, 0.05); }
-    .block--revenue { grid-column: 3 / 6; grid-row: 3; background: rgba(102, 147, 72, 0.12); }
+    .block--partners { grid-column: 1; grid-row: 1 / 3; background: var(--cyan); }
+    .block--activities { grid-column: 2; grid-row: 1; background: #fff; }
+    .block--resources { grid-column: 2; grid-row: 2; background: #fff; }
+    .block--value { grid-column: 3; grid-row: 1 / 3; background: var(--mint); border-color: var(--green); }
+    .block--relations { grid-column: 4; grid-row: 1; background: #fff; }
+    .block--channels { grid-column: 4; grid-row: 2; background: #fff; }
+    .block--segments { grid-column: 5; grid-row: 1 / 3; background: var(--sky); }
+    .block--costs { background: #EEF2F7; }
+    .block--revenue { background: #EAF3E4; }
     h2 {
       margin: 0 0 1mm;
-      font-size: 7.5pt;
+      font-size: 7.25pt;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       color: var(--green);
+      flex-shrink: 0;
     }
     .q {
-      margin: 0 0 1.5mm;
+      margin: 0;
       font-size: 6.75pt;
-      line-height: 1.25;
+      line-height: 1.28;
       font-weight: 600;
+      flex-shrink: 0;
     }
     .lines {
       flex: 1;
-      border-top: 1px dashed rgba(12, 73, 138, 0.25);
-      margin-top: 1mm;
-      min-height: 8mm;
+      border-top: 1px dashed rgba(12, 73, 138, 0.35);
+      margin-top: 1.5mm;
+      min-height: 0;
     }
     footer {
-      margin-top: 1mm;
+      margin-top: 1.5mm;
       font-size: 6.5pt;
       font-weight: 600;
-      color: var(--blue);
+      flex-shrink: 0;
     }
   </style>
 </head>
 <body>
   <article class="sheet">
     <header>
-      <div style="display:flex;align-items:center;gap:4mm;">
-        <img src="../assets/cth-logo-color.png" alt="CleantechHUB" />
-        <div>
-          <h1>Lienzo de modelo de negocio — plantilla en blanco</h1>
-          <p>Datatón Observatorio de la Tierra · Paquete equipo v0.4-es · 24 nov 2026 · Equipo: _______________</p>
-        </div>
+      <img src="../assets/cth-logo-color.png" alt="CleantechHUB" />
+      <div>
+        <h1>Lienzo de modelo de negocio — plantilla en blanco</h1>
+        <p>Datatón Observatorio de la Tierra · Paquete equipo v0.4-es · 24 nov 2026 · Equipo: _______________</p>
       </div>
-      <p>VP1, VP2… al inicio de Propuesta de valor</p>
     </header>
-    <div class="canvas">
-      <section class="block block--partners">
-        <h2>Socios clave</h2>
-        <p class="q">¿Con quién nos aliamos? ¿Qué datos o capacidades aportan?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--activities">
-        <h2>Actividades clave</h2>
-        <p class="q">¿Qué hacemos que produce registros (producción, instalación, medición)?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--resources">
-        <h2>Recursos clave</h2>
-        <p class="q">¿Inventario, equipos, sensores, tiempo de personal?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--value">
-        <h2>Propuesta de valor</h2>
-        <p class="q">Liste VP1, VP2… ¿Mide si el cliente recibe el beneficio prometido?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--relations">
-        <h2>Relación con clientes</h2>
-        <p class="q">¿Soporte, garantías, satisfacción, renovaciones?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--channels">
-        <h2>Canales</h2>
-        <p class="q">¿Cómo llegamos y entregamos? ¿Analítica o lugar de entrega?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--segments">
-        <h2>Segmentos de clientes</h2>
-        <p class="q">¿Por tipo de cliente, ubicación o sector?</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--costs">
-        <h2>Estructura de costos</h2>
-        <p class="q">¿Costo por unidad o categorías contables? (sin inventar cifras)</p>
-        <div class="lines"></div>
-      </section>
-      <section class="block block--revenue">
-        <h2>Fuentes de ingresos</h2>
-        <p class="q">¿Cómo facturamos o cobramos? Marque U donde no tenga el dato.</p>
-        <div class="lines"></div>
-      </section>
+    <div class="bmc">
+      <div class="bmc-top">
+        <section class="block block--partners">
+          <h2>Socios clave</h2>
+          <p class="q">¿Con quién nos aliamos? ¿Qué datos o capacidades aportan?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--activities">
+          <h2>Actividades clave</h2>
+          <p class="q">¿Qué hacemos que produce registros (producción, instalación, medición)?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--resources">
+          <h2>Recursos clave</h2>
+          <p class="q">¿Inventario, equipos, sensores, tiempo de personal?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--value">
+          <h2>Propuesta de valor</h2>
+          <p class="q">Liste VP1, VP2… al inicio. ¿Mide si el cliente recibe el beneficio prometido?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--relations">
+          <h2>Relación con clientes</h2>
+          <p class="q">¿Soporte, garantías, satisfacción, renovaciones?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--channels">
+          <h2>Canales</h2>
+          <p class="q">¿Cómo llegamos y entregamos? ¿Analítica o lugar de entrega?</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--segments">
+          <h2>Segmentos de clientes</h2>
+          <p class="q">¿Por tipo de cliente, ubicación o sector?</p>
+          <div class="lines"></div>
+        </section>
+      </div>
+      <div class="bmc-bottom">
+        <section class="block block--costs">
+          <h2>Estructura de costos</h2>
+          <p class="q">¿Costo por unidad o categorías contables? Marque U si no tiene el dato.</p>
+          <div class="lines"></div>
+        </section>
+        <section class="block block--revenue">
+          <h2>Fuentes de ingresos</h2>
+          <p class="q">¿Cómo facturamos o cobramos? Sin inventar cifras.</p>
+          <div class="lines"></div>
+        </section>
+      </div>
     </div>
     <footer>Marque lo desconocido como U o estimado. No invente números. Confidencial — equipos Datatón.</footer>
   </article>

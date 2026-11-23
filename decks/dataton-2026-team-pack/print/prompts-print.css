@@ -20,17 +20,23 @@
   --lgreen: #9DC384;
 }
 * { box-sizing: border-box; }
-@page { size: A4; margin: 12mm; }
+@page { size: A4; margin: 14mm 12mm; }
 html, body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 10pt;
-  line-height: 1.35;
+  line-height: 1.38;
   color: var(--blue);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
-.sheet { padding: 0 0 6mm; }
+.print-page {
+  break-after: page;
+  page-break-after: always;
+  padding: 0 1mm;
+}
+.print-page:last-child { break-after: auto; page-break-after: auto; }
+.sheet { padding: 0 0 4mm; }
 .cover { text-align: left; padding-top: 4mm; }
 .cover .logo { height: 32px; margin-bottom: 8px; }
 .cover h1 { font-size: 18pt; margin: 0 0 4px; }
@@ -53,16 +59,19 @@ html, body {
 .section p { margin: 0 0 6px; font-size: 9.5pt; }
 pre.prompt {
   background: #f4f8fb;
-  border: 1px solid rgba(12, 73, 138, 0.2);
+  border: 1px solid rgba(12, 73, 138, 0.25);
   border-left: 4px solid var(--blue);
-  padding: 10px 12px;
-  font-family: ui-monospace, "Cascadia Code", monospace;
-  font-size: 8.25pt;
-  line-height: 1.32;
+  padding: 10px 14px 12px;
+  font-family: ui-monospace, "Cascadia Code", "DejaVu Sans Mono", monospace;
+  font-size: 9pt;
+  line-height: 1.38;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   margin: 8px 0 0;
   page-break-inside: avoid;
+  break-inside: avoid;
 }
-.page-break { break-before: page; }
-.foot { font-size: 8pt; text-align: center; margin-top: 8mm; }
-code { font-size: 8.5pt; }
+.page-break { break-before: page; page-break-before: always; }
+.foot { font-size: 8pt; text-align: center; margin-top: 6mm; }
+code { font-size: 9pt; }
