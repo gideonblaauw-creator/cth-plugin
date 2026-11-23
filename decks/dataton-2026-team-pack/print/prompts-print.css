@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url("../assets/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: url("../assets/fonts/open-sans-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  src: url("../assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+}
+:root {
+  --blue: #0C498A;
+  --green: #669348;
+  --cyan: #B2EEFA;
+  --lgreen: #9DC384;
+}
+* { box-sizing: border-box; }
+@page { size: A4; margin: 12mm; }
+html, body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+  color: var(--blue);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet { padding: 0 0 6mm; }
+.cover { text-align: left; padding-top: 4mm; }
+.cover .logo { height: 32px; margin-bottom: 8px; }
+.cover h1 { font-size: 18pt; margin: 0 0 4px; }
+.cover .sub { font-weight: 600; margin: 0 0 8px; }
+.cover .lead { margin: 0 0 10px; }
+.rules-box {
+  background: rgba(178, 238, 250, 0.25);
+  border-left: 4px solid var(--lgreen);
+  padding: 8px 12px;
+  font-size: 9.5pt;
+}
+.rules-box ul { margin: 4px 0 0; padding-left: 18px; }
+.section h2 {
+  font-size: 12pt;
+  color: var(--green);
+  border-bottom: 2px solid var(--cyan);
+  padding-bottom: 3px;
+  margin: 0 0 8px;
+}
+.section p { margin: 0 0 6px; font-size: 9.5pt; }
+pre.prompt {
+  background: #f4f8fb;
+  border: 1px solid rgba(12, 73, 138, 0.2);
+  border-left: 4px solid var(--blue);
+  padding: 10px 12px;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 8.25pt;
+  line-height: 1.32;
+  white-space: pre-wrap;
+  margin: 8px 0 0;
+  page-break-inside: avoid;
+}
+.page-break { break-before: page; }
+.foot { font-size: 8pt; text-align: center; margin-top: 8mm; }
+code { font-size: 8.5pt; }

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Plantilla BMC — Datatón CTH</title>
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 400;
+      src: url("../assets/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 600;
+      src: url("../assets/fonts/open-sans-latin-600-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 700;
+      src: url("../assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+    }
+    :root {
+      --blue: #0C498A;
+      --cyan: #B2EEFA;
+      --green: #669348;
+      --lgreen: #9DC384;
+      --sky: #69B5FA;
+    }
+    * { box-sizing: border-box; }
+    @page { size: A4 landscape; margin: 0; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+      color: var(--blue);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sheet {
+      width: 297mm;
+      height: 210mm;
+      max-height: 210mm;
+      padding: 4mm 7mm 3mm;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--lgreen);
+      padding-bottom: 3mm;
+      margin-bottom: 3mm;
+    }
+    header img { height: 11mm; width: auto; }
+    header h1 { margin: 0; font-size: 13pt; font-weight: 700; }
+    header p { margin: 0; font-size: 8pt; font-weight: 600; }
+    .canvas {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.35fr 1fr 1fr;
+      grid-template-rows: 1.1fr 1.35fr 1.1fr;
+      gap: 1.5mm;
+      min-height: 0;
+    }
+    .block {
+      border: 1.5px solid rgba(12, 73, 138, 0.35);
+      border-radius: 3px;
+      padding: 2mm 2.5mm;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+    .block--partners { grid-column: 1; grid-row: 1 / 3; background: rgba(178, 238, 250, 0.18); }
+    .block--activities { grid-column: 1; grid-row: 3; background: rgba(178, 238, 250, 0.12); }
+    .block--resources { grid-column: 2; grid-row: 1 / 3; background: rgba(105, 181, 250, 0.12); }
+    .block--value { grid-column: 3; grid-row: 1 / 3; background: rgba(157, 195, 132, 0.22); border-color: var(--green); }
+    .block--relations { grid-column: 4; grid-row: 1; }
+    .block--channels { grid-column: 4; grid-row: 2 / 4; background: rgba(178, 238, 250, 0.1); }
+    .block--segments { grid-column: 5; grid-row: 1 / 3; background: rgba(105, 181, 250, 0.15); }
+    .block--costs { grid-column: 2; grid-row: 3; background: rgba(12, 73, 138, 0.05); }
+    .block--revenue { grid-column: 3 / 6; grid-row: 3; background: rgba(102, 147, 72, 0.12); }
+    h2 {
+      margin: 0 0 1mm;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--green);
+    }
+    .q {
+      margin: 0 0 1.5mm;
+      font-size: 6.75pt;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+    .lines {
+      flex: 1;
+      border-top: 1px dashed rgba(12, 73, 138, 0.25);
+      margin-top: 1mm;
+      min-height: 8mm;
+    }
+    footer {
+      margin-top: 1mm;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--blue);
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header>
+      <div style="display:flex;align-items:center;gap:4mm;">
+        <img src="../assets/cth-logo-color.png" alt="CleantechHUB" />
+        <div>
+          <h1>Lienzo de modelo de negocio — plantilla en blanco</h1>
+          <p>Datatón Observatorio de la Tierra · Paquete equipo v0.4-es · 24 nov 2026 · Equipo: _______________</p>
+        </div>
+      </div>
+      <p>VP1, VP2… al inicio de Propuesta de valor</p>
+    </header>
+    <div class="canvas">
+      <section class="block block--partners">
+        <h2>Socios clave</h2>
+        <p class="q">¿Con quién nos aliamos? ¿Qué datos o capacidades aportan?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--activities">
+        <h2>Actividades clave</h2>
+        <p class="q">¿Qué hacemos que produce registros (producción, instalación, medición)?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--resources">
+        <h2>Recursos clave</h2>
+        <p class="q">¿Inventario, equipos, sensores, tiempo de personal?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--value">
+        <h2>Propuesta de valor</h2>
+        <p class="q">Liste VP1, VP2… ¿Mide si el cliente recibe el beneficio prometido?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--relations">
+        <h2>Relación con clientes</h2>
+        <p class="q">¿Soporte, garantías, satisfacción, renovaciones?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--channels">
+        <h2>Canales</h2>
+        <p class="q">¿Cómo llegamos y entregamos? ¿Analítica o lugar de entrega?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--segments">
+        <h2>Segmentos de clientes</h2>
+        <p class="q">¿Por tipo de cliente, ubicación o sector?</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--costs">
+        <h2>Estructura de costos</h2>
+        <p class="q">¿Costo por unidad o categorías contables? (sin inventar cifras)</p>
+        <div class="lines"></div>
+      </section>
+      <section class="block block--revenue">
+        <h2>Fuentes de ingresos</h2>
+        <p class="q">¿Cómo facturamos o cobramos? Marque U donde no tenga el dato.</p>
+        <div class="lines"></div>
+      </section>
+    </div>
+    <footer>Marque lo desconocido como U o estimado. No invente números. Confidencial — equipos Datatón.</footer>
+  </article>
+</body>
+</html>
