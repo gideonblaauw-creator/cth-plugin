@@ -72,6 +72,8 @@ Every alert states: what failed, since when, impact, suggested owner. Report bc-
 
 **Do not** SSH-fix, restart units, merge PRs, pause routines, or delete incidents without Gideon GO.
 
+Every GO / NO GO or HITL ask to Gideon uses an inline button widget; see `skills/go-no-go-buttons/SKILL.md`.
+
 ## GitHub drift check
 
 Read-only compare: open PR count drift, default branch vs deployed tag **UNKNOWN** per-repo unless ticket lists repos.

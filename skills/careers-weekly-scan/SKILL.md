@@ -18,7 +18,7 @@ Gideon Blaauw Careers desk. Reports to Orchestrator. Scan only; never submit app
 ## When to run
 
 - Run weekly on Hands (protocol-review 17 Nov 2026).
-- Ticket craft to Cursor Cloud Hands. One job per wave; about 60 steps.
+- Ticket craft to Cursor Cloud Hands. Model: `composer-2.5`, `model_params`: `fast: false` (Gideon lock 17 Nov 2026). One job per wave; about 60 steps.
 
 ## Target boards
 
@@ -90,4 +90,4 @@ Escalate to Gideon when:
 - A source stays **Not confirmed** for three consecutive scans and blocks picks.  
 - CTH conflict risk is unclear (score below 5 on conflict column).
 
-Use inline GO / NO GO widgets per `HARNESS.md` (22 Nov 2026). Log bc-ids to Orchestrator.
+Every GO / NO GO or HITL ask to Gideon uses an inline button widget; see `skills/go-no-go-buttons/SKILL.md`. Log bc-ids to Orchestrator.

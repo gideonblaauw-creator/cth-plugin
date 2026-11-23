@@ -49,7 +49,7 @@ Follow `skills/desks-workbenches-hands-tickets/SKILL.md`:
 
 - Plan first with ASD-STE100 fields.  
 - Ticket all file, research, code, copy, HTML/PDF craft to Cursor Cloud Hands.  
-- Model: `composer-2.5` Fast ON unless ticket names otherwise.  
+- Model: `composer-2.5`, `model_params`: `fast: false` (Gideon lock 17 Nov 2026).  
 - Lane A for `cth-plugin` and owning repos; Lane B `{type: machine, name: vps}` for Archive packs.  
 - Report bc-ids and paths to Orchestrator. Maker ≠ checker.
 

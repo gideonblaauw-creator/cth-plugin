@@ -13,7 +13,7 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 ### Fleet optimization Build A (22 Nov 2026)
 
 - New skills: `careers-weekly-scan`, `health-infra-watch`, `client-desk-standard` — runbooks from careers/health profiles and low-volume client desk standard
-- Merged canonical skills: `infrastructure-comms`, `view-hitl-lab-delivery`, `rakazo-phase-1-tickets`; deprecated `-2` duplicates retained with superseded headers pending Gideon GO to delete
+- Merged canonical skills: `view-hitl-lab-delivery`, `rakazo-phase-1-tickets`; restored full `infrastructure-comms` from repo main with box §5b + desks-tickets HARD link; model lock `fast: false` (Gideon 17 Nov 2026)
 - New: `docs/routines-manifest.schema.json`, `docs/routines-manifest.json` — seed entries from coverage audit 22 Nov 2026 (confirmed routines + workspace-evidenced jobs)
 - HITL: Gideon merges. Hands does not merge. **Awaiting Gideon's approval** on public protocol text.
 
