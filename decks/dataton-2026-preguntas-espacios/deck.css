@@ -32,7 +32,7 @@
   --font: "Open Sans", sans-serif;
   --page-w: 210mm;
   --page-h: 297mm;
-  --pad: 14mm 16mm 12mm;
+  --pad: 11mm 15mm 9mm;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); font-synthesis: none; }
@@ -58,13 +58,17 @@ body.print-mode { background: #fff; }
 
 body.print-mode .page { margin: 0; box-shadow: none; }
 
+.page--space {
+  padding-bottom: 8mm;
+}
+
 .page-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 10mm;
   flex-shrink: 0;
-  margin-bottom: 4mm;
+  margin-bottom: 3mm;
 }
 .page-head .logo { height: 11mm; width: auto; }
 .page-head .time-badge {
@@ -122,40 +126,88 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   margin-bottom: 1mm;
 }
 
-.turns {
-  flex: 1;
+.page-main {
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.2mm;
+  gap: 2.5mm;
+  overflow: hidden;
+}
+
+.turns {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8mm;
+  justify-content: stretch;
   overflow: hidden;
 }
 .turn {
+  flex: 1 1 0;
+  min-height: 0;
   background: var(--white);
-  border-left: 3px solid var(--navy);
-  border-radius: 0 2.5mm 2.5mm 0;
-  padding: 2mm 3mm;
-  font-size: 8.7pt;
-  line-height: 1.32;
+  border: 1.5px solid var(--cyan);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 3mm 3mm 0;
+  padding: 3.8mm 4.2mm;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.turn .pregunta { font-weight: 700; color: var(--navy); }
+.turn .pregunta {
+  font-weight: 700;
+  font-size: 12pt;
+  color: var(--navy);
+  margin-bottom: 1.5mm;
+}
 .turn .anticipada {
   color: var(--muted);
   font-weight: 400;
-  margin: 1mm 0;
-  padding-left: 2mm;
+  font-size: 10.5pt;
+  margin: 1.2mm 0;
+  padding-left: 3mm;
   border-left: 2px solid var(--cyan);
 }
-.turn .repregunta { font-weight: 600; color: var(--navy); }
+.turn .repregunta {
+  font-weight: 600;
+  font-size: 12pt;
+  color: var(--navy);
+}
+
+.nota-moderacion {
+  flex-shrink: 0;
+  font-size: 8.5pt;
+  line-height: 1.35;
+  color: var(--muted);
+  background: rgba(178, 238, 250, 0.35);
+  border-radius: 2.5mm;
+  padding: 2mm 3mm;
+}
+.nota-moderacion .nota-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 7pt;
+  letter-spacing: 0.06em;
+  color: var(--green-rule);
+  margin-right: 2mm;
+}
+
+.page-foot {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 2mm;
+}
 
 .puente {
-  flex-shrink: 0;
-  margin-top: 2mm;
-  padding: 2.5mm 3mm;
+  margin-top: 0;
+  padding: 3mm 3.5mm;
   background: var(--navy);
   color: var(--white);
   border-radius: 3mm;
-  font-size: 8.5pt;
+  font-size: 10pt;
   line-height: 1.35;
 }
 .puente strong {

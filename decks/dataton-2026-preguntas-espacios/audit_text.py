@@ -23,6 +23,10 @@ BANNED = [
     r"gratis",
     r"gratuito",
     r"drive\.google",
+    r"->",
+    r"\bdos\s+mil\b",
+    r"\bloop\b",
+    r"cit-able",
 ]
 
 
