@@ -4,6 +4,27 @@
   <meta charset="utf-8" />
   <title>Guía del moderador — Panel territorio, cooperación y datos</title>
   <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+      src: url("fonts/open-sans-latin-400-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+      src: url("fonts/open-sans-latin-600-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+      src: url("fonts/open-sans-latin-700-normal.woff2") format("woff2");
+    }
     :root {
       --navy: #0c498a;
       --ice: #b2eefa;
@@ -11,10 +32,10 @@
       --green: #669348;
       --sky: #69b5fa;
       --text: #0c498a;
-      --font: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font: "Open Sans", sans-serif;
     }
     @page { size: A4 portrait; margin: 10mm; }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; font-family: var(--font) !important; }
     body {
       margin: 0;
       font-family: var(--font);
