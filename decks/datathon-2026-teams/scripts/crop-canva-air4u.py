@@ -20,7 +20,7 @@ if not SRC.is_dir():
 
 # (source file, crop box x0,y0,x1,y1) on 1080×1350 canvas
 CROPS: dict[str, tuple[str, tuple[int, int, int, int]]] = {
-    "canva-g2-crop.jpg": ("g2-canva.png", (0, 500, 1080, 1108)),  # slide 6 — technician
+    "canva-g2-crop.jpg": ("g2-canva.png", (0, 140, 1080, 748)),  # slide 6 — technician face / sensor
     "canva-g3-crop.jpg": ("g3-canva.png", (0, 500, 1080, 1108)),  # slide 1 — Medellín
     "canva-g4-crop.jpg": ("g4-canva.png", (0, 380, 1080, 988)),  # slide 2 — gloved hand
     "canva-g5-crop.jpg": ("g5-canva.png", (0, 680, 1080, 1288)),  # slide 6 — café

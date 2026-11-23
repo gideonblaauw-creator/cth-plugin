@@ -28,6 +28,8 @@ slides:
   - bg: assets/photos/canva-g2-crop.jpg
     bg_position: center center
     photo_scrim: light
+    photo_bleed: full
+    photo_scrim_variant: g2
   - kicker: Ejemplo · piloto Air4U
     bg: assets/photos/canva-g6-crop.jpg
     takeaway: Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.

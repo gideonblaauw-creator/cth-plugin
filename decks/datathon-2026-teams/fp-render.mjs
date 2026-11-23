@@ -37,21 +37,23 @@ function pick(es, en) {
   return { es, en: en ?? es };
 }
 
-function photoLayers(bg, pos, scrim) {
+function photoLayers(bg, pos, scrim, scrimVariant) {
   if (!bg || bg === "navy") return "";
   const position = pos ? `background-position:${esc(pos)};` : "";
   const scrimCls = scrim === "light" ? " fp-photo-scrim--light" : "";
+  const variantCls = scrimVariant ? ` fp-photo-scrim--${esc(scrimVariant)}` : "";
   return `<div class="fp-photo-bg" style="background-image:url('${esc(bg)}');${position}" role="presentation"></div>
-  <div class="fp-photo-scrim${scrimCls}" aria-hidden="true"></div>`;
+  <div class="fp-photo-scrim${scrimCls}${variantCls}" aria-hidden="true"></div>`;
 }
 
-function sectionOpen(cls, type, bg, extra = "", pos, scrim, boost) {
+function sectionOpen(cls, type, bg, extra = "", pos, scrim, boost, bleed, scrimVariant) {
   const photo = bg && bg !== "navy" ? " fp-has-photo" : "";
   const navy = bg === "navy" ? " fp--navy-only" : "";
   const boostCls = boost ? ` fp-photo-boost--${esc(boost)}` : "";
+  const bleedCls = bleed === "full" ? " fp-photo-bleed--full" : "";
   const bgColor = navy || photo ? "#0C498A" : "#FFFFFF";
-  return `<section class="fp ${cls}${photo}${navy}${boostCls}${extra}" data-cth-type="${esc(type)}" data-background-color="${bgColor}">
-  ${photoLayers(bg, pos, scrim)}`;
+  return `<section class="fp ${cls}${photo}${navy}${boostCls}${bleedCls}${extra}" data-cth-type="${esc(type)}" data-background-color="${bgColor}">
+  ${photoLayers(bg, pos, scrim, scrimVariant)}`;
 }
 
 function renderCpStats(stats, statsEn) {
@@ -154,7 +156,7 @@ function renderCover(s, sEn) {
   const chipRow = chips
     ? `<div class="fp-method-chips" role="list">${chips}</div>`
     : "";
-  return `${sectionOpen("fp-cover", "cover", bg, bg ? " fp-cover--photo" : "", s.bg_position, s.photo_scrim, s.photo_boost)}
+  return `${sectionOpen("fp-cover", "cover", bg, bg ? " fp-cover--photo" : "", s.bg_position, s.photo_scrim, s.photo_boost, s.photo_bleed, s.photo_scrim_variant)}
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob" src="assets/blob-cyan.png" alt="" /></div>
   <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob2" src="assets/blob-green.png" alt="" /></div>
   <div class="fp-cover__top">
@@ -179,7 +181,7 @@ function renderStatement(s, sEn, stmtIndex = 1) {
       ? pick("Principio del método", "Method principle")
       : pick("Siguiente bloque", "Next block");
   const bg = s.bg;
-  return `${sectionOpen("fp-statement fp--dark", "statement", bg, "", s.bg_position, s.photo_scrim, s.photo_boost)}
+  return `${sectionOpen("fp-statement fp--dark", "statement", bg, "", s.bg_position, s.photo_scrim, s.photo_boost, s.photo_bleed, s.photo_scrim_variant)}
   <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
   <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
   <div class="fp-statement__body">
@@ -271,7 +273,7 @@ function renderShowcase(s, sEn) {
     ? `<div class="fp-cp__shot fp-cp__shot--zoom"><img src="${esc(img)}" alt="" style="${zoom}" /></div>`
     : "";
   const dark = s.bg ? " fp-chart-proof--photo" : "";
-  return `${sectionOpen(`fp-chart-proof fp-cp--mix${dark}`, "showcase", s.bg, "", s.bg_position, s.photo_scrim, s.photo_boost)}
+  return `${sectionOpen(`fp-chart-proof fp-cp--mix${dark}`, "showcase", s.bg, "", s.bg_position, s.photo_scrim, s.photo_boost, s.photo_bleed, s.photo_scrim_variant)}
   <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
   ${head(s.title, s.kicker ?? "Ejemplo · piloto Air4U", sEn.title, sEn.kicker)}
   <div class="fp-body fp-cp">

@@ -386,6 +386,35 @@ body[data-lang="es"] .l-en { display: none !important; }
     linear-gradient(90deg, rgba(12, 73, 138, 0.32) 0%, rgba(12, 73, 138, 0) 60%),
     linear-gradient(90deg, rgba(12, 73, 138, 0.48) 0%, rgba(12, 73, 138, 0.42) 50%, rgba(12, 73, 138, 0.16) 72%, rgba(12, 73, 138, 0.08) 100%);
 }
+/* Slide 6 (g2 technician): full-bleed photo + strong left text scrim, light right half */
+.reveal .fp-has-photo.fp-photo-bleed--full .fp-photo-bg,
+.reveal .fp-has-photo.fp-photo-bleed--full .fp-photo-scrim {
+  top: -148px;
+  left: -96px;
+  right: -96px;
+  bottom: -80px;
+}
+.reveal .fp-has-photo.fp-photo-bleed--full.fp-statement .fp-photo-bg {
+  filter: contrast(1.12) saturate(1.06) brightness(1.06);
+}
+.reveal .fp-has-photo .fp-photo-scrim--g2 {
+  background: linear-gradient(
+    90deg,
+    rgba(12, 73, 138, 0.85) 0%,
+    rgba(12, 73, 138, 0.25) 60%,
+    rgba(12, 73, 138, 0.06) 78%,
+    rgba(12, 73, 138, 0) 88%
+  );
+}
+.reveal .fp-has-photo.fp-statement .fp-photo-scrim--g2 {
+  background: linear-gradient(
+    90deg,
+    rgba(12, 73, 138, 0.85) 0%,
+    rgba(12, 73, 138, 0.25) 60%,
+    rgba(12, 73, 138, 0.06) 78%,
+    rgba(12, 73, 138, 0) 88%
+  );
+}
 /* Showcase photo slides: local proof panel for WCAG on the right column */
 .reveal .fp-has-photo.fp-chart-proof--photo .fp-cp__proof {
   background: rgba(12, 73, 138, 0.82);
