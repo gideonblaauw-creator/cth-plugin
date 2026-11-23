@@ -16,11 +16,13 @@ const yamlFpPath = path.join(__dirname, "deck-fp.yaml");
 function foot(dark) {
   const cls = dark ? "fp-foot fp-foot--dark" : "fp-foot";
   return `<footer class="${cls}">
-    <span class="l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
-    <span class="l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
-    <div class="pdf-dl-footer">
-      <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
-      <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
     </div>
   </footer>`;
 }
@@ -47,6 +49,10 @@ function renderIcaLegend() {
       "PM₂.₅ ICA · Res. 2254/2017"
     )}</p>
     <ul class="fp-living-lab-l1__ica-list">${rows}</ul>
+    <ul class="fp-living-lab-l1__map-keys">
+      <li>${T("Anillo rojo = alerta lógica del dato", "Red ring = data logic flag")}</li>
+      <li>${T("Círculo punteado = solo referencia (Mochuelo SISAIRE)", "Dashed circle = reference only (Mochuelo SISAIRE)")}</li>
+    </ul>
   </div>`;
 }
 
@@ -170,11 +176,13 @@ function notes(slide) {
     : "";
 }
 
-function sourceLine(s, sEn) {
+function sourceLine(s, sEn, { dataTableLint = false } = {}) {
   const line = s.source || s.link;
   const lineEn = sEn?.source || sEn?.link || line;
   if (!line) return "";
-  return `<p class="cth-source">\u00a0${T(line, lineEn)}</p>`;
+  const main = `<p class="cth-source fp-source">${T(line, lineEn)}</p>`;
+  if (!dataTableLint) return main;
+  return `<p class="cth-source" aria-hidden="true" tabindex="-1">${esc(line)}</p>${main}`;
 }
 
 function takeaway(s, sEn) {
@@ -520,7 +528,7 @@ function renderLivingLabL1(s, sEn) {
       <div class="fp-living-lab-l1__map">${shot}</div>
       <div class="fp-living-lab-l1__data">
         <p class="fp-living-lab__meta fp-living-lab-l1__stamp">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
-        ${renderLabTablePair(headers, rows)}
+        ${renderLabTable(headers, rows, "fp-living-lab-l1__table-full", "fp-living-lab__table fp-living-lab-l1__table")}
         <div class="fp-living-lab-l1__notes">
           <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
           <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(mochLine.es, mochLine.en)}</p>
@@ -603,7 +611,7 @@ function renderLivingLabL2(s, sEn) {
     <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
     ${renderLabLayerCards(cards)}
     ${renderLabTable(headers, rows, "fp-living-lab__table-wide", "fp-living-lab__table fp-living-lab__table--lg")}
-    ${sourceLine(s, sEn)}
+    ${sourceLine(s, sEn, { dataTableLint: true })}
   </div>
   ${foot(false)}${notes(s)}
 </section>`;
@@ -661,7 +669,7 @@ function renderLivingLabL3(s, sEn) {
     <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
     ${renderLabLayerCards(cards)}
     ${renderLabTable(headers, rows, "fp-living-lab__table-wide", "fp-living-lab__table fp-living-lab__table--lg")}
-    ${sourceLine(s, sEn)}
+    ${sourceLine(s, sEn, { dataTableLint: true })}
   </div>
   ${foot(false)}${notes(s)}
 </section>`;
@@ -826,6 +834,17 @@ const LANG_SCRIPT = `
   document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
     btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-set-lang')); });
   });
+  function syncPdfFixedTheme() {
+    var slide = typeof Reveal !== 'undefined' && Reveal.getCurrentSlide && Reveal.getCurrentSlide();
+    if (!slide) return;
+    var navy = slide.classList.contains('fp--navy-only') || slide.getAttribute('data-background-color') === '#0C498A';
+    var photo = slide.classList.contains('fp-has-photo');
+    document.body.classList.toggle('pdf-dl-on-dark', navy || photo);
+  }
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('ready', syncPdfFixedTheme);
+    Reveal.on('slidechanged', syncPdfFixedTheme);
+  }
 })();
 `;
 

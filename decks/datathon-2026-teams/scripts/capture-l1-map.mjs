@@ -19,7 +19,7 @@ const browser = await puppeteer.launch({
   args: ["--no-sandbox", "--disable-gpu"],
 });
 const page = await browser.newPage();
-await page.setViewport({ width: 1600, height: 1000, deviceScaleFactor: 2 });
+await page.setViewport({ width: 1200, height: 720, deviceScaleFactor: 2 });
 await page.goto(`file://${htmlPath}`, { waitUntil: "networkidle0", timeout: 120000 });
 await page.waitForFunction(() => window.CTH && window.CTH.map, { timeout: 60000 });
 await page.evaluate(() => {
@@ -30,33 +30,34 @@ await page.evaluate(() => {
   });
   state.dropMode = null;
   document.body.classList.remove("crosshair");
-  document.querySelectorAll(".envleg, .scaleleg, .databand").forEach((el) => {
-    el.style.display = "none";
+  document.querySelectorAll(".envleg, .scaleleg, .databand, .left, .right, header").forEach((el) => {
+    if (el) el.style.display = "none";
   });
-  document.querySelector(".left")?.style.setProperty("display", "none");
-  document.querySelector(".right")?.style.setProperty("display", "none");
-  document.querySelector("header")?.style.setProperty("display", "none");
   const wrap = document.querySelector(".mapwrap");
   if (wrap) {
-    wrap.style.position = "fixed";
-    wrap.style.inset = "0";
-    wrap.style.width = "1600px";
-    wrap.style.height = "1000px";
+    wrap.style.cssText = "position:fixed;inset:0;width:1200px;height:720px;margin:0;padding:0;";
   }
   const mapEl = document.getElementById("map");
   if (mapEl) {
-    mapEl.style.width = "1600px";
-    mapEl.style.height = "1000px";
+    mapEl.style.width = "1200px";
+    mapEl.style.height = "720px";
   }
+  document.querySelectorAll(".leaflet-control-container").forEach((el) => {
+    el.style.display = "none";
+  });
   map.invalidateSize();
   window.__drawMap();
-  const bounds = [];
+  const latlngs = [];
   map.eachLayer((layer) => {
-    if (layer.getLatLng) bounds.push(layer.getLatLng());
+    if (layer.getLatLng) latlngs.push(layer.getLatLng());
   });
-  if (bounds.length) map.fitBounds(bounds, { padding: [40, 40] });
+  if (latlngs.length) {
+    const bounds = window.L.latLngBounds(latlngs);
+    map.fitBounds(bounds, { padding: [16, 16], maxZoom: 13 });
+    if (map.getZoom() < 12) map.setZoom(12);
+  }
 });
-await new Promise((r) => setTimeout(r, 2500));
+await new Promise((r) => setTimeout(r, 3000));
 const mapHandle = await page.$("#map");
 if (!mapHandle) throw new Error("#map not found");
 await mapHandle.screenshot({ path: outPath, type: "png" });

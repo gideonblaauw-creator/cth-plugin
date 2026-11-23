@@ -43,7 +43,7 @@ slides:
     text: "Panorama de datos abiertos del Datalab: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más referencia SISAIRE en Mochuelo. Colores ICA PM₂.₅ según Res. 2254/2017."
     images:
       - assets/datalab-living-lab-l1-map-cropped.png
-    link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab"
+    link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab · Mapa base © OpenStreetMap contributors"
   - render_as: living-lab-l2
     kicker: Sandbox de aire · L2
     text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ranuras de ejemplo ilustrativo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
