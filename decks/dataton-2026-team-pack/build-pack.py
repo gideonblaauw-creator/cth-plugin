@@ -253,6 +253,13 @@ INTERNAL_TEXT_PATTERNS = [
     (re.compile(r"gideonblaauw", re.I), "repo user"),
 ]
 
+# Team PDF deliverables only (avoids false positives in md sources / print CSS).
+PDF_TEAM_EXTRA_PATTERNS = [
+    (re.compile(r"\b[a-z][a-z0-9_-]{2,}\.md\b", re.I), ".md filename"),
+    (re.compile(r"drive\.google", re.I), "drive.google"),
+    (re.compile(r"\b1[A-Za-z0-9_-]{22,}\b"), "Drive file id"),
+]
+
 
 def audit_team_facing_text() -> dict:
     """Scan zip PDFs and their md/html sources for internal-only references."""
@@ -268,7 +275,7 @@ def audit_team_facing_text() -> dict:
         doc = fitz.open(OUT / pdf_name)
         text = "\n".join(page.get_text() for page in doc)
         doc.close()
-        for rx, label in INTERNAL_TEXT_PATTERNS:
+        for rx, label in INTERNAL_TEXT_PATTERNS + PDF_TEAM_EXTRA_PATTERNS:
             for m in rx.finditer(text):
                 hits.append({"file": pdf_name, "kind": "pdf", "pattern": label, "match": m.group(0)})
 

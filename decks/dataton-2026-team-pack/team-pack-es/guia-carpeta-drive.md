@@ -16,7 +16,7 @@ Nombre sugerido: `Dataton-Air4U-[codigo-equipo]-2026`
 📁 Carpeta raíz del equipo
 ├── 01_crudo          ← exportaciones sin alterar (Bronce)
 ├── 02_limpio         ← tablas ya limpiadas (Plata)
-├── 03_hojas_de_datos ← Hojas 1–4 diligenciadas (.md o Docs)
+├── 03_hojas_de_datos ← Hojas 1–4 diligenciadas (PDF o Google Docs)
 ├── 04_dashboard      ← Hoja 4 / boceto de pantalla (imagen, PDF, ASCII)
 └── 05_pitch          ← diapositivas o guion de finales (solo si avanzan)
 ```

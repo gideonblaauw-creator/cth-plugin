@@ -32,7 +32,7 @@ Horas alineadas a la agenda pública del evento.
 
 - Computador o tableta; acceso a sus datos reales (exportación o capturas).
 - Solo **datos no personales o anonimizados** en archivos compartidos.
-- Carpeta Drive según `guia-carpeta-drive.md` (cuando el facilitador lo active).
+- Carpeta Drive según `guia-carpeta-drive.pdf` (cuando el facilitador lo active).
 
 ---
 
