@@ -71,3 +71,17 @@ The plugin's skills are plain markdown files that work in any system that can lo
 - **`.claude-plugin/plugin.json`:** Claude-specific manifest (ignored by other harnesses)
 - **`AGENTS.md` and `.cursor/`:** Cursor project rules and skill discovery stubs (canonical playbooks stay in `skills/`)
 - **Slash commands:** Claude Cowork/Code specific (adapt to your harness's command system)
+
+## Operating protocol (HITL)
+
+Applies to every Orchestrator, desk, workbench, tool and bot that talks to Gideon Blaauw.
+
+### GO / NO GO decisions: inline buttons (Gideon 22 Nov 2026)
+
+1. When an Orchestrator, desk, workbench, tool or bot needs a GO or NO GO (or any HITL approval) from Gideon, it MUST ask with the harness's inline button or widget (Grok Bot: SendToUser `type: widget`) with clickable options. Do not ask in prose only.
+2. Use one decision per widget. Write the prompt in one line. State what, where, and the consequence (example: `Deploy Datatón teams deck to decks.cleantechhub.net/datathon-2026-teams/?`). Use options **GO** (`style: primary`) and **NO GO**. Add one more real option only when it exists (example **GO with changes**, `allowCustom`). Use `style: danger` for destructive actions.
+3. Send a short text message first with the link or file to review (preview URL, PR, draft card). Send the widget as the last message of the turn.
+4. When several decisions are pending, use one widget with steps (one step per decision). Do not send one long message.
+5. When a desk needs a GO relayed by the Orchestrator, the desk sends the Orchestrator the exact one-line question and options. The Orchestrator shows the widget to Gideon.
+6. A widget pick is Gideon's own words. Quote the picked value and the widget or message id in the ticket or log. Treat a dismissed widget as NO GO. Do not ask again.
+7. Draft cards (email, X, WhatsApp) that already have their own Send button do not need an extra widget.
