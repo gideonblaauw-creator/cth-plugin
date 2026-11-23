@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Datatón · preguntas por espacio</title>
+  <style>
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-700-normal.woff2") format("woff2");
+}
+
+:root {
+  --navy: #0c498a;
+  --cyan: #b2eefa;
+  --green-rule: #669348;
+  --lime: #9dc384;
+  --sky: #69b5fa;
+  --paper: #f4f8fb;
+  --white: #ffffff;
+  --muted: #5a7a9a;
+  --font: "Open Sans", sans-serif;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --pad: 14mm 16mm 12mm;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); font-synthesis: none; }
+
+html { font-family: var(--font); font-size: 10.5pt; color: var(--navy); background: #e8eef4; font-synthesis: none; }
+
+body.print-mode { background: #fff; }
+
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  height: var(--page-h);
+  padding: var(--pad);
+  margin: 0 auto 12px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+}
+
+body.print-mode .page { margin: 0; box-shadow: none; }
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10mm;
+  flex-shrink: 0;
+  margin-bottom: 4mm;
+}
+.page-head .logo { height: 11mm; width: auto; }
+.page-head .time-badge {
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--green-rule);
+  letter-spacing: 0.06em;
+}
+
+.title-block h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  text-transform: none;
+}
+.title-block h1::after {
+  content: "";
+  display: block;
+  width: 18mm;
+  height: 1.2mm;
+  border-radius: 1mm;
+  background: var(--green-rule);
+  margin-top: 2mm;
+}
+.meta-row {
+  font-size: 9pt;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-top: 2mm;
+}
+.meta-row strong { font-weight: 700; }
+
+.strip-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  margin: 3mm 0;
+  flex-shrink: 0;
+}
+.strip {
+  background: var(--white);
+  border: 1.5px solid var(--cyan);
+  border-radius: 3mm;
+  padding: 2.5mm 3mm;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+.strip .label {
+  font-weight: 700;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green-rule);
+  margin-bottom: 1mm;
+}
+
+.turns {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2mm;
+  overflow: hidden;
+}
+.turn {
+  background: var(--white);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 2.5mm 2.5mm 0;
+  padding: 2mm 3mm;
+  font-size: 8.7pt;
+  line-height: 1.32;
+}
+.turn .pregunta { font-weight: 700; color: var(--navy); }
+.turn .anticipada {
+  color: var(--muted);
+  font-weight: 400;
+  margin: 1mm 0;
+  padding-left: 2mm;
+  border-left: 2px solid var(--cyan);
+}
+.turn .repregunta { font-weight: 600; color: var(--navy); }
+
+.puente {
+  flex-shrink: 0;
+  margin-top: 2mm;
+  padding: 2.5mm 3mm;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 3mm;
+  font-size: 8.5pt;
+  line-height: 1.35;
+}
+.puente strong {
+  color: var(--cyan);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 7.5pt;
+  letter-spacing: 0.06em;
+  margin-right: 2mm;
+}
+
+.fuente {
+  flex-shrink: 0;
+  margin-top: 2mm;
+  font-size: 7pt;
+  color: var(--green-rule);
+}
+
+/* Cover */
+.page--cover {
+  background: var(--navy);
+  color: var(--white);
+  justify-content: flex-end;
+}
+.page--cover .cover-bg {
+  position: absolute;
+  inset: 0;
+  background: url("assets/cover-bg.jpg") center/cover no-repeat;
+  opacity: 0.35;
+}
+.page--cover .cover-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(12, 73, 138, 0.92) 0%, rgba(12, 73, 138, 0.88) 55%, rgba(8, 50, 100, 0.95) 100%);
+}
+.page--cover .cover-inner {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 8mm;
+}
+.page--cover .logo { filter: brightness(0) invert(1); height: 14mm; position: absolute; top: 12mm; right: 16mm; }
+.page--cover h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 6mm;
+}
+.page--cover h1::after { background: var(--lime); width: 24mm; height: 1.5mm; margin-top: 4mm; }
+.page--cover .tagline {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  margin-bottom: 8mm;
+}
+.page--cover .cover-meta { font-size: 11pt; line-height: 1.5; color: var(--cyan); }
+
+/* Thread diagram page */
+.page--thread .diagram-wrap {
+  flex: 1;
+  min-height: 0;
+  background: var(--white);
+  border: 2px solid var(--cyan);
+  border-radius: 4mm;
+  padding: 4mm;
+  overflow: hidden;
+}
+.page--thread h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  margin-bottom: 3mm;
+}
+.page--thread h2::after {
+  content: "";
+  display: block;
+  width: 16mm;
+  height: 1mm;
+  background: var(--green-rule);
+  margin-top: 2mm;
+}
+.thread-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4mm;
+  font-size: 7.8pt;
+  line-height: 1.28;
+  overflow: hidden;
+}
+.thread-col h3 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--green-rule);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+.thread-pill {
+  display: block;
+  background: var(--cyan);
+  border-radius: 2mm;
+  padding: 1.4mm 2mm;
+  margin-bottom: 1.2mm;
+  color: var(--navy);
+  font-weight: 600;
+}
+.thread-pill--prog { background: var(--lime); }
+.thread-pill--nicho { background: var(--sky); color: var(--navy); }
+.thread-pill--work { background: rgba(12, 73, 138, 0.12); }
+.thread-note {
+  background: var(--white);
+  border: 1px solid var(--cyan);
+  border-radius: 2mm;
+  padding: 2mm;
+  margin-bottom: 1.6mm;
+}
+.thread-note strong { display: block; font-size: 8pt; margin-bottom: 0.5mm; }
+.thread-macro {
+  margin-top: 2mm;
+  padding: 2mm;
+  border-top: 2px solid var(--green-rule);
+  font-size: 7.5pt;
+  color: var(--navy);
+}
+
+@media print {
+  html { background: #fff; }
+  .page { margin: 0; box-shadow: none; }
+  @page { size: A4 portrait; margin: 0; }
+}
+  </style>
+</head>
+<body class="print-mode">
+<section class="page page--cover" id="p01" data-page="1">
+  <div class="cover-bg"></div>
+  <div class="cover-scrim"></div>
+  <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  <div class="cover-inner">
+    <p class="tagline">OBSERVA. ACTÚA. TRANSFORMA.</p>
+    <h1>Datatón · preguntas por espacio</h1>
+    <p class="cover-meta">Martes 24 de noviembre de 2026<br>Universidad Externado de Colombia · Auditorio Bloque I</p>
+    <p class="cover-meta" style="margin-top:6mm;font-size:9.5pt;opacity:.9">Documento interno de preparación para moderación y jurado</p>
+  </div>
+</section>
+<section class="page page--thread" id="p02" data-page="2">
+  <header class="page-head">
+    <div class="title-block">
+      <h1>Hilo conductor del día</h1>
+      <p class="meta-row">De paisaje y territorio al nicho Air4U, método con equipos y vuelta al Observatorio y Datalab 2027.</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="diagram-wrap">
+    
+<div class="thread-grid">
+  <div class="thread-col">
+    <h3>Paisaje a programa</h3>
+    <span class="thread-pill">08:30 Palabras de apertura</span>
+    <span class="thread-pill">08:40 Panel ODS 13</span>
+    <span class="thread-pill thread-pill--prog">09:10 Observatorio y Datalab</span>
+    <span class="thread-pill">09:40 Conversatorio régimen corporativo</span>
+    <span class="thread-pill">09:55 Digitalización (Agrometers)</span>
+    <h3 style="margin-top:2mm">Nicho y método</h3>
+    <span class="thread-pill thread-pill--nicho">10:05 Air4U presentación</span>
+    <span class="thread-pill thread-pill--nicho">10:10 Demo capas en vivo</span>
+    <span class="thread-pill thread-pill--nicho">10:20 Air4U y adoptante</span>
+    <span class="thread-pill thread-pill--work">10:45 Instrucciones y mentores</span>
+    <span class="thread-pill thread-pill--work">11:00 Bloque 1 con monitores</span>
+    <span class="thread-pill">12:30 Almuerzo y mesa hélice</span>
+    <span class="thread-pill thread-pill--work">13:30 Bloque 2 y pitch</span>
+    <span class="thread-pill thread-pill--prog">16:00 Pitches (6 equipos)</span>
+    <span class="thread-pill">16:40 Deliberación jurado</span>
+    <span class="thread-pill thread-pill--prog">16:50 Cierre y certificados</span>
+  </div>
+  <div class="thread-col">
+    <h3>Lentes MLP</h3>
+    <article class="thread-note"><strong>Paisaje</strong>Presiones territoriales y cooperación (panel).</article>
+    <article class="thread-note"><strong>Programa</strong>Observatorio, Carapulica y motor Datalab.</article>
+    <article class="thread-note"><strong>Régimen</strong>Constructora Bolívar como adoptante potencial, sin piloto firmado.</article>
+    <article class="thread-note"><strong>Sector</strong>Agrometers: competitividad y trazabilidad exportable.</article>
+    <article class="thread-note"><strong>Nicho</strong>Air4U: lente urbana, hacer visible lo invisible.</article>
+    <article class="thread-note"><strong>Método</strong>Bronce, Plata, Oro = confianza del dato.</article>
+    <article class="thread-note"><strong>Equipos</strong>Catorce equipos: lienzo, mapa, tablero, pitch.</article>
+    <article class="thread-note"><strong>Selección</strong>Embudo a seis finalistas y tres ganadores 2027.</article>
+    <article class="thread-note"><strong>Vuelta macro</strong>Fase piloto del Observatorio y Earth Data Week.</article>
+  </div>
+</div>
+<p class="thread-macro">Hilo: paisaje y territorio, programa Observatorio y Datalab, régimen corporativo, sector digital, nicho Air4U, método con equipos, selección y regreso al motor en 2027.</p>
+
+  </div>
+  <p class="fuente">Fuente: agenda v7, síntesis contexto 23 nov</p>
+</section>
+<section class="page" id="p03" data-page="3">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">08:30</span>
+      <h1>Palabras de apertura</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw (CleantechHUB), Gloria Marlene Díaz (Centro de Emprendimiento, Externado)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon y Marlene -&gt; audiencia</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Registro: participantes con credencial y expectativa del día.</div>
+    <div class="strip"><div class="label">Lleva a</div>Marco del día: territorio -&gt; observatorio -&gt; caso -&gt; equipos.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Por qué hoy unen la universidad y CleantechHUB en un mismo escenario?</p><p class="anticipada">[Porque la pregunta territorial ya no cabe en un solo silo: hace falta colaboración con datos verificables.]</p><p class="repregunta">Repregunta: ¿Qué significa para ustedes «Observa. Actúa. Transforma.» en una sola frase?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Marlene, ¿qué le dice a los equipos que hoy trabajan el lienzo de modelo de negocio por primera vez?</p><p class="anticipada">[En Externado veníamos del «Modelo y Más»; hoy el lienzo abre una conversación nueva sobre dónde vive el dato.]</p><p class="repregunta">Repregunta: ¿Cómo les pide que usen los datos propios sin sobreprometer lo que aún no pueden medir?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué prometen al auditorio respecto al Observatorio y al motor del Datalab?</p><p class="anticipada">[Un vocabulario común: el programa se nombra hoy; el laboratorio es el motor dentro de él.]</p><p class="repregunta">Repregunta: ¿Qué dejan explícito sobre certificados y seguimiento a quienes no pasen a la final?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué imagen macro quieren que el público se lleve antes del panel?</p><p class="anticipada">[De paisaje y cooperación a decisiones con evidencia: el territorio primero, el caso después.]</p><p class="repregunta">Repregunta: ¿Con qué pregunta territorial quieren que arranque el panel de las once menos veinte?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Abrimos el panel: ¿quién transporta la presión y quién puede adoptar en el territorio?</p>
+  <p class="fuente">Fuente: agenda v7, reunión logística 23 nov</p>
+</section>
+<section class="page" id="p04" data-page="4">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">08:40</span>
+      <h1>Panel: innovación y emprendimiento en el territorio a través de los datos (ODS 13)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Natalia Vargas (APC-Colombia), rector o representante Universidad Externado, RAP Pacífico, Óscar (Apix Pharma); moderador Gideon</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; panelistas</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Apertura: día como hilo macro -&gt; micro con datos.</div>
+    <div class="strip"><div class="label">Lleva a</div>Preguntas territoriales que el Observatorio recoge a las nueve diez.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: Natalia, desde la cooperación: ¿qué presión internacional llega al territorio que no puede ignorarse?</p><p class="anticipada">[La cooperación transporta exigencias de trazabilidad y climática; no es el paisaje en sí, pero lo activa.]</p><p class="repregunta">Repregunta: ¿Qué rol ve para la academia cuando esa presión choca con capacidad local?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Rector, ¿cómo articula la universidad gobierno, empresa y sociedad sin volverse un «sexto actor»?</p><p class="anticipada">[La universidad formula la pregunta y sostiene ética del dato; no es un radio más de la hélice.]</p><p class="repregunta">Repregunta: ¿Qué decisión territorial le gustaría ver respaldada por datos abiertos este año?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: RAP Pacífico: ¿qué dolor del Pacífico merece un tablero, no un discurso?</p><p class="anticipada">[Presiones de biodiversidad y economías locales que necesitan evidencia antes de invertir.]</p><p class="repregunta">Repregunta: ¿Con qué actor del régimen necesita sentarse primero para que el dato sea cit-able?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Óscar, desde empresa: ¿qué indicador de sostenibilidad le falta ver antes de adoptar innovación?</p><p class="anticipada">[Aire limpio y ODS 13 en instalaciones sensibles; necesitamos ver lo invisible antes de comprar.]</p><p class="repregunta">Repregunta: Si Apix no está hoy: ¿qué pregunta deja el cuarto vértice de la hélice sobre el papel?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Cierre al panel: ¿en una frase, qué pregunta le entregan ustedes al lanzamiento del Observatorio?</p><p class="anticipada">[¿Cómo convertimos colaboración en capacidad verificable con datos que aguantan conclusión?]</p><p class="repregunta">Repregunta: ¿Quién en esta sala se ofrece como adoptante si la evidencia llega en nivel Oro?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Pasamos a nombrar el programa y su motor: Observatorio de la Tierra y Datalab.</p>
+  <p class="fuente">Fuente: agenda v7, nota agenda 23 nov, propuesta EO (frases cortas)</p>
+</section>
+<section class="page" id="p05" data-page="5">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:10</span>
+      <h1>Lanzamiento del Observatorio de la Tierra y presentación del Datalab</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, Diego Alejandro Díaz Malagón (Desarrollo e Innovación, Externado)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; audiencia; Alejandro Díaz -&gt; academia</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Panel: dolores y preguntas territoriales (ODS 13).</div>
+    <div class="strip"><div class="label">Lleva a</div>Vocabulario nicho / régimen / paisaje y entornos del Datalab.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Por qué «Observatorio de la Tierra» y no otro nombre para este programa?</p><p class="anticipada">[Es el lugar donde casa académica y custodia trabajan juntas con la hélice.]</p><p class="repregunta">Repregunta: ¿Cómo explican Carapulica sin convertirlo en un almacén de datos?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué es el Datalab dentro de ese relato?</p><p class="anticipada">[El motor dentro del observatorio; el dato queda debajo, como infraestructura.]</p><p class="repregunta">Repregunta: ¿Cuáles son los cuatro entornos que hoy pueden nombrar sin prometer pilotos cerrados?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿qué aporta Externado que no sea «más otra aceleradora»?</p><p class="anticipada">[Estudiantes, ética y revisión de si el dato aguanta conclusión.]</p><p class="repregunta">Repregunta: ¿Cómo conectan las cinco palancas del programa con lo que veremos en el sandbox?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿En qué fase estamos hoy con este datatón?</p><p class="anticipada">[Entorno datathon del motor: semanas de reglas de evento, puente hacia un piloto por lente.]</p><p class="repregunta">Repregunta: ¿Qué NO es el Observatorio, para alinear expectativas?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué niveles Bronce, Plata y Oro significan aquí?</p><p class="anticipada">[Niveles de confianza del dato, no premios; de bruto a accionable en tablero.]</p><p class="repregunta">Repregunta: ¿Qué pregunta de negocio quieren que los equipos lleven al conversatorio con el régimen?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Tomamos café y volvemos con academia y Constructora Bolívar en conversación.</p>
+  <p class="fuente">Fuente: agenda v7, propuesta técnica EO v3 (nov 2026)</p>
+</section>
+<section class="page" id="p06" data-page="6">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:40</span>
+      <h1>Conversatorio universidad y sector inmobiliario</h1>
+      <p class="meta-row"><strong>Participan:</strong> Alejandro Díaz Malagón, Constructora Bolívar · Aceleradora de Transformación, Gideon Blaauw</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; academia y corporación</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Lanzamiento: nicho, régimen, paisaje y motor del Datalab.</div>
+    <div class="strip"><div class="label">Lleva a</div>Problema del corporativo que digitalización y sandbox ilustran.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Qué cambio institucional pide el sector inmobiliario cuando habla de transformación?</p><p class="anticipada">[Aprender a decidir con evidencia antes de escalar obra o servicios.]</p><p class="repregunta">Repregunta: ¿Dónde ve Bolívar el límite entre innovar y portar el régimen existente?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿qué puente académico necesita un adoptante del régimen?</p><p class="anticipada">[Intermediario que registra el cruce sin abrir otro ambiente de selección.]</p><p class="repregunta">Repregunta: ¿Qué pregunta concreta le dejarían a Agrometers sobre competitividad territorial?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Constructora Bolívar: ¿qué resultado comprarían si la startup lo demuestra en Plata u Oro?</p><p class="anticipada">[Indicadores de sostenibilidad integrados al modelo de negocio, no solo pilotos aislados.]</p><p class="repregunta">Repregunta: ¿Qué no prometen hoy en materia de territorio piloto del Observatorio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo se relaciona esto con los equipos estudiantiles que empiezan en bronce?</p><p class="anticipada">[El régimen necesita ver trazabilidad; ellos empiezan con WhatsApp y hojas de cálculo.]</p><p class="repregunta">Repregunta: ¿Qué les pedirían como primer paso de madurez antes del mediodía?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Enrique Medina conecta digitalización real con exportación y certificación.</p>
+  <p class="fuente">Fuente: agenda v7, Canva 23 nov, reunión 23 nov</p>
+</section>
+<section class="page" id="p07" data-page="7">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:55</span>
+      <h1>Conversatorio: digitalización como habilitador para la competitividad del territorio</h1>
+      <p class="meta-row"><strong>Participan:</strong> Enrique Medina (Agrometers); conversación con Gideon</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; Enrique</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Conversatorio Bolívar: adopción en el régimen corporativo.</div>
+    <div class="strip"><div class="label">Lleva a</div>Puente sectorial hacia el caso urbano Air4U.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: Enrique, ¿qué NO es digitalizar para usted?</p><p class="anticipada">[No es tener correo o una app; es habilitador de competitividad real en el territorio.]</p><p class="repregunta">Repregunta: ¿Qué dato satelital o de agua cambió una decisión de exportación?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo explica la palma exportando a Europa ante exigencias de deforestación?</p><p class="anticipada">[Hay que demostrar trazabilidad territorial con métodos citables, no narrativa.]</p><p class="repregunta">Repregunta: ¿Qué lección llevan los mentores cuando revisan mapas de calor de los equipos?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Dónde ve el sensor y la imagen de la Tierra en el sector agro?</p><p class="anticipada">[Niveles de agua, cobertura y certificación cruzan satélite con decisión de campo.]</p><p class="repregunta">Repregunta: ¿Qué pregunta dejaría listo para el sandbox urbano de las diez cinco?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Usted también es jurado: ¿qué mirará en la madurez de datos al final del día?</p><p class="anticipada">[Integración del dato al modelo de negocio, no solo visualización bonita.]</p><p class="repregunta">Repregunta: ¿Cómo conecta lo rural con calidad del aire en ciudades como Bogotá?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué expectativa tiene de los catorce equipos Externado?</p><p class="anticipada">[Muchos en bronce; el reto es subir grada con una pregunta de negocio clara.]</p><p class="repregunta">Repregunta: ¿Qué historia quiere oír en los pitches de las cuatro de la tarde?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Air4U muestra el nicho urbano: hacer visible lo invisible.</p>
+  <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+</section>
+<section class="page" id="p08" data-page="8">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:05</span>
+      <h1>Data sandbox de innovación (1/3): presentación Air4U</h1>
+      <p class="meta-row"><strong>Participan:</strong> Miguel Ángel Rozo, Sebastián Forero (Air4U)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; Air4U</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Agrometers: digitalización y competitividad territorial.</div>
+    <div class="strip"><div class="label">Lleva a</div>Problema y valor que la demo de capas probará.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: Miguel, ¿por qué arrancar con la calidad del aire del fin de semana en Bogotá?</p><p class="anticipada">[El aire volvió a la conversación pública; es el momento de mostrar oportunidad, no solo alerta.]</p><p class="repregunta">Repregunta: ¿Cómo presentan su cifra de reducción del 14% de partículas como afirmación de Air4U, no como dato oficial?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿A quién venden aire limpio y por qué les importa el dato?</p><p class="anticipada">[Hospitales, farmacéuticas y cannabis; decisiones de salud exigen trazas verificables.]</p><p class="repregunta">Repregunta: ¿Qué significa «hacer visible lo invisible» en una frase para los equipos?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Por qué en tono positivo de mercado y no de catástrofe?</p><p class="anticipada">[El cliente compra capacidad de decidir; el miedo solo no sostiene contrato.]</p><p class="repregunta">Repregunta: ¿Qué pedirían a un equipo que copie su estructura de tablero?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo se ubican en nicho frente al régimen urbano?</p><p class="anticipada">[Oferta que necesita protección mientras escala en entornos regulados.]</p><p class="repregunta">Repregunta: ¿Qué capa de datos mostrarán en vivo en la siguiente franja?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Pasamos a la demo en vivo: tres capas como escalera de confianza.</p>
+  <p class="fuente">Fuente: agenda v7, revisión demo 23 nov</p>
+</section>
+<section class="page" id="p09" data-page="9">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:10</span>
+      <h1>Data sandbox de innovación (2/3): demo en vivo Air4U</h1>
+      <p class="meta-row"><strong>Participan:</strong> Air4U (Miguel Ángel Rozo, Sebastián Forero)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; Air4U</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Pitch Air4U: problema urbano y clientes sensibles.</div>
+    <div class="strip"><div class="label">Lleva a</div>Modelo concreto para Hoja 4 de los equipos.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Qué muestra la capa Bronce frente a datos crudos en el mapa?</p><p class="anticipada">[Entrada cruda: lecturas sin limpiar que aún no responden una pregunta de negocio.]</p><p class="repregunta">Repregunta: ¿Qué decide el monitor cuando ve solo bronce en un equipo?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué cambia al pasar a Plata en la demo?</p><p class="anticipada">[Estructura que responde una pregunta; vacíos en blanco, no en cero.]</p><p class="repregunta">Repregunta: ¿Cómo explican que medalla no es premiación sino confianza?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué hace distinta la capa Oro en pantalla?</p><p class="anticipada">[Dato procesado accionable: el tablero lee solo listo para decidir.]</p><p class="repregunta">Repregunta: ¿Qué copiarían los equipos del ejemplo de clínica en Bogotá del material guía?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Si falla la red: ¿qué tres láminas de respaldo mantienen el hilo pedagógico?</p><p class="anticipada">[Misma escalera en estático: dónde, qué y decisión en diez segundos.]</p><p class="repregunta">Repregunta: ¿Qué pregunta dejan para el conversatorio con un adoptante corporativo?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cuánto tiempo queda Sebastián para la capa que más sorprende al jurado?</p><p class="anticipada">[Priorizamos la transición Plata-&gt;Oro porque ahí se ve integración al negocio.]</p><p class="repregunta">Repregunta: ¿Cómo invitan a los mentores a usar esto en el bloque de las once?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Conversatorio Air4U y adoptante potencial en indicadores de sostenibilidad.</p>
+  <p class="fuente">Fuente: agenda v7, revisión demo 23 nov</p>
+</section>
+<section class="page" id="p10" data-page="10">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:20</span>
+      <h1>Data sandbox de innovación (3/3): conversatorio Air4U y farmacéutica</h1>
+      <p class="meta-row"><strong>Participan:</strong> Air4U, Óscar (Apix Pharma), Gideon Blaauw</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; startup y adoptante</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Demo: tres capas y tablero ejemplo.</div>
+    <div class="strip"><div class="label">Lleva a</div>Modelo de integración dato-negocio para instrucciones.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Qué busca un farmacéutico cuando habla de aire limpio con una startup?</p><p class="anticipada">[Cumplir ODS 13 en planta con evidencia que aguanta auditoría.]</p><p class="repregunta">Repregunta: Si Apix no está: ¿qué pregunta de adoptante queda en la sala?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Air4U: ¿qué ofrece como producto de cliente, no solo sandbox?</p><p class="anticipada">[Entrada de solo lectura con trazas; el escudo del sandbox abre la puerta.]</p><p class="repregunta">Repregunta: ¿Qué rol juega el Protector frente al Adoptante en este caso?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Óscar, ¿qué dato mínimo necesita antes de firmar interés?</p><p class="anticipada">[Serie consistente en Plata que responda una decisión semanal en planta.]</p><p class="repregunta">Repregunta: ¿Cómo se vería el puente de valor en Hoja 4 para este par?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué lección llevan los catorce equipos sobre indicadores de sostenibilidad?</p><p class="anticipada">[Conectar startup con corporativo es historia de confianza escalonada, no salto a Oro.]</p><p class="repregunta">Repregunta: ¿Qué error común quieren evitar en el bloque de trabajo?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Instrucciones y arranque: reglas, embudo y mentores.</p>
+  <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+</section>
+<section class="page" id="p11" data-page="11">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:45</span>
+      <h1>Instrucciones y arranque del datatón</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, monitores del Datalab (presentación de mentores incluida)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; equipos; mentores -&gt; equipos</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Sandbox: integración dato-negocio con Air4U.</div>
+    <div class="strip"><div class="label">Lleva a</div>Reglas, embudo catorce a seis a tres y pregunta núcleo por equipo.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Cuál es el criterio principal para los seis finalistas?</p><p class="anticipada">[Madurez de datos: qué tan lejos están de responder su pregunta de negocio.]</p><p class="repregunta">Repregunta: ¿Por qué los monitores preseleccionan y el jurado delibera después?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué significa Bronce, Plata y Oro para los premios del día?</p><p class="anticipada">[Son niveles de confianza, no medallas de ganador; todos reciben certificado.]</p><p class="repregunta">Repregunta: ¿Qué herramientas pueden usar sin perder trazabilidad?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué hojas del paquete recorren hoy en orden?</p><p class="anticipada">[Paso cero lienzo, mapa de calor dónde, flujo y medallion qué, valor, tablero y pitch.]</p><p class="repregunta">Repregunta: ¿Qué datos pueden usar además de los propios?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Mentores: ¿cuál es su superpoder hoy?</p><p class="anticipada">[Captura, limpieza y organización; no somos expertos de cada sector.]</p><p class="repregunta">Repregunta: ¿Cómo se presentan Arnold, Daniel, Andrés, Camilo y el equipo técnico?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué pregunta núcleo debe salir de esta sala a las once?</p><p class="anticipada">[¿Debe [acción] antes de [cuándo] para un usuario concreto?]</p><p class="repregunta">Repregunta: ¿Dónde quedan Air4U si hay duda de modelo de negocio?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Bloque uno: lienzo y mapa de calor con monitores.</p>
+  <p class="fuente">Fuente: agenda v7, mentoría 23 nov, inventario paquete equipos</p>
+</section>
+<section class="page" id="p12" data-page="12">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">11:00</span>
+      <h1>Trabajo de equipos con monitores (bloque 1)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Catorce equipos Externado, cinco mentores, apoyo Air4U</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Monitores -&gt; equipos; Gideon circula</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Instrucciones: criterio madurez y hoja cero.</div>
+    <div class="strip"><div class="label">Lleva a</div>Mapa de calor iniciado y primer nivel en escalera.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: Equipo, ¿qué bloque del lienzo tiene hoy el dato más caliente?</p><p class="anticipada">[Suele ser ingresos o relación con clientes en una hoja Excel o chat.]</p><p class="repregunta">Repregunta: ¿Dónde marcarían D1, D2 y D3 en el mapa sin inventar fuentes?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿El dato es suyo, abierto o sintético y lo pueden declarar?</p><p class="anticipada">[Muchos mezclan gobierno abierto con encuesta propia; hay que etiquetar.]</p><p class="repregunta">Repregunta: ¿Hay datos personales o confidenciales que obliguen a anonimizar?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor: ¿qué ve en bronce que debe quedarse en bronce por ahora?</p><p class="anticipada">[WhatsApp y fotos sin estructura; no forzar Oro sin paso intermedio.]</p><p class="repregunta">Repregunta: ¿Qué pregunta de flujo A1-A15 abre mejor el camino a Plata?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Air4U al pasar: ¿qué analogía de negocio sirve a este equipo?</p><p class="anticipada">[Usuario con decisión semanal y panel de diez segundos.]</p><p class="repregunta">Repregunta: ¿Qué pide el mentor como entrega antes del almuerzo?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo documentan vacíos en blanco y no en cero?</p><p class="anticipada">[Una celda vacía no es ausencia de dato; es honestidad metodológica.]</p><p class="repregunta">Repregunta: ¿Qué señal de madurez esperan los monitores a las doce y media?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Almuerzo con mesa hélice para invitados y networking abierto.</p>
+  <p class="fuente">Fuente: agenda v7, mentoría 23 nov</p>
+</section>
+<section class="page" id="p13" data-page="13">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">12:30</span>
+      <h1>Almuerzo y networking</h1>
+      <p class="meta-row"><strong>Participan:</strong> Equipos libres; mesa invitados (EmprenderMás, APC, RAP, Apix, Air4U, Enrique, Alejandro, CTH)</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; mesa invitados</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Bloque 1: mapas de calor y bronce documentado.</div>
+    <div class="strip"><div class="label">Lleva a</div>Conexiones hélice y energía para bloque 2.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: En la mesa hélice: ¿qué pregunta territorio-empresa quedó sin respuesta esta mañana?</p><p class="anticipada">[Suele ser quién adopta primero cuando la evidencia aún está en Plata.]</p><p class="repregunta">Repregunta: ¿Qué actor se ofreció a revisar un tablero en noventa días?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué historia de cooperación internacional resonó en el panel?</p><p class="anticipada">[Presión de trazabilidad que no puede quedarse solo en discurso.]</p><p class="repregunta">Repregunta: ¿Cómo la traducen a un nicho que necesita protección?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos en circulación: ¿qué dato les falta y dónde lo buscarían después de comer?</p><p class="anticipada">[Muchos piden IDEAM o registros sectoriales citables.]</p><p class="repregunta">Repregunta: ¿A quién les recomiendan preguntar en la mesa de invitados?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué conversación informal acerca al Observatorio sin filtrar documentos internos?</p><p class="anticipada">[Hablamos de lentes y fases, no de borradores no publicados.]</p><p class="repregunta">Repregunta: ¿Qué puente lanzan al bloque de preparación del pitch?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Bloque dos: subir grada, tablero y ensayo de cinco minutos.</p>
+  <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+</section>
+<section class="page" id="p14" data-page="14">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">13:30</span>
+      <h1>Trabajo de equipos y preparación del pitch (bloque 2)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Equipos y mentores</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Monitores -&gt; equipos</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Almuerzo: contactos y claridad de brechas de dato.</div>
+    <div class="strip"><div class="label">Lleva a</div>Seis finalistas elegidos y pitch ensayado.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Qué sube este equipo de Plata hacia Oro antes de las cuatro?</p><p class="anticipada">[Una respuesta trazable a una sola pregunta en tablero de una pantalla.]</p><p class="repregunta">Repregunta: ¿Qué panel de Hoja 3 ya tiene número firme solo con Plata?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor: ¿quiénes van en el grupo de seis según madurez vista?</p><p class="anticipada">[Preselección por integración al lienzo, no por empaque visual.]</p><p class="repregunta">Repregunta: ¿Qué equipo aún confunde medalla con premio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo arman Hoja 5 en cinco minutos?</p><p class="anticipada">[Problema, datos, tablero, impacto y próximo paso a treinta días.]</p><p class="repregunta">Repregunta: ¿Qué pedirán para subir grada en treinta y noventa días?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Dónde está el puente de valor entre cliente, innovador y paisaje?</p><p class="anticipada">[Tres paneles en una sola pantalla; el usuario decide en diez segundos.]</p><p class="repregunta">Repregunta: ¿Qué ensayo grabarían si tuvieran solo una toma?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué comunican al equipo que no pase a final?</p><p class="anticipada">[Certificado igual; seguimiento en programas futuros de CleantechHUB.]</p><p class="repregunta">Repregunta: ¿A qué hora debe estar cerrada la lista de seis?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Pitches finales de los seis equipos preseleccionados.</p>
+  <p class="fuente">Fuente: agenda v7, paquete equipos, mentoría 23 nov</p>
+</section>
+<section class="page" id="p15" data-page="15">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:00</span>
+      <h1>Pitches finales: seis equipos preseleccionados</h1>
+      <p class="meta-row"><strong>Participan:</strong> Seis equipos, auditorio, Gideon como moderador</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; equipos; equipos -&gt; jurado</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Bloque 2: seis finalistas y tableros.</div>
+    <div class="strip"><div class="label">Lleva a</div>Evidencia para deliberación del jurado.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: Equipo en escena: ¿quién es el usuario y qué decisión debe tomar esta semana?</p><p class="anticipada">[Responder en una frase antes de mostrar cualquier gráfico.]</p><p class="repregunta">Repregunta: ¿Qué dato usaron que no estaba esta mañana en bronce?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué ve el usuario en diez segundos en su tablero?</p><p class="anticipada">[Línea base, delta del innovador y panorama abierto si aplica.]</p><p class="repregunta">Repregunta: ¿Dónde mostraron vacíos honestos?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo cuentan impacto sin inventar cifras de mercado?</p><p class="anticipada">[Cualitativo o con el número que realmente midieron.]</p><p class="repregunta">Repregunta: ¿Cuál es el próximo paso a treinta días para subir grada?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Desde la sala: ¿qué repregunta afina la integración al modelo de negocio?</p><p class="anticipada">[El jurado busca que el dato sostenga ingresos, costos o relación, no solo slide.]</p><p class="repregunta">Repregunta: ¿Qué equipo dejó mejor puente hacia Datalab dos mil veintisiete?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon al cerrar ronda: ¿qué criterio común pidió ver en los seis?</p><p class="anticipada">[Misma escala Bronce-Oro; misma estructura de pitch.]</p><p class="repregunta">Repregunta: ¿Cuánto tiempo de transición antes de la deliberación?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Jurado a deliberar: madurez, integración y próximo paso.</p>
+  <p class="fuente">Fuente: agenda v7, paquete equipos Hoja 5</p>
+</section>
+<section class="page" id="p16" data-page="16">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:40</span>
+      <h1>Deliberación del jurado</h1>
+      <p class="meta-row"><strong>Participan:</strong> Enrique Medina, Alejandro Díaz Malagón, Gideon Blaauw</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Jurado interno; Gideon modera sala en espera</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Pitches: seis evidencias de tablero y negocio.</div>
+    <div class="strip"><div class="label">Lleva a</div>Tres ganadores para anuncio y certificados.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Peso igual a madurez de datos e integración al lienzo?</p><p class="anticipada">[Sí; un tablero bonito en bronce no compite con Plata integrada.]</p><p class="repregunta">Repregunta: ¿Hubo empate que se rompe por próximo paso creíble a treinta días?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Algún equipo sobreprometió Oro sin trazabilidad?</p><p class="anticipada">[Revisamos si la respuesta aguanta conclusión académica.]</p><p class="repregunta">Repregunta: ¿Quién entra al Datalab de CleantechHUB en dos mil veintisiete?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo se reparten conexiones de mercado entre tres ganadores?</p><p class="anticipada">[Sandbox y mentoría CTH; no es la ruta REIN de cohortes.]</p><p class="repregunta">Repregunta: ¿Qué feedback breve llevan los tres finalistas no ganadores?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Certificados listos para todos, mentores incluidos?</p><p class="anticipada">[Sí; fotógrafo en cierre documenta el momento.]</p><p class="repregunta">Repregunta: ¿Mensaje único si la sala pregunta por costo o acceso al programa?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Cierre público: tres ganadores y entrega de certificados.</p>
+  <p class="fuente">Fuente: agenda v7, mentoría 23 nov</p>
+</section>
+<section class="page" id="p17" data-page="17">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:50</span>
+      <h1>Cierre: anuncio de tres ganadores y entrega de certificados</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, Marlene Díaz, jurado, equipos, fotógrafo</p>
+      <p class="meta-row"><strong>Pregunta:</strong> Gideon -&gt; audiencia</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Deliberación: tres ganadores y criterio aplicado.</div>
+    <div class="strip"><div class="label">Lleva a</div>Cierre del loop hacia Observatorio fase piloto y Earth Data Week.</div>
+  </div>
+  <div class="turns">
+    <div class="turn"><p class="pregunta">Pregunta: ¿Cómo anuncian a los tres sin confundir niveles de confianza con premio?</p><p class="anticipada">[Ganadores entran al motor del Datalab en dos mil veintisiete; todos con certificado.]</p><p class="repregunta">Repregunta: ¿Qué agradecemos a Externado por abrir el lienzo hoy?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Qué frase devuelve el día al macro paisaje-régimen-nicho?</p><p class="anticipada">[La colaboración se volvió capacidad verificable en al menos seis tableros.]</p><p class="repregunta">Repregunta: ¿Qué invitación a futuro programas para quienes no ganaron?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cómo mencionan el Observatorio sin fechas ni territorio piloto?</p><p class="anticipada">[Fase de fundamento y puente hacia piloto por lente; detalle en conversaciones privadas.]</p><p class="repregunta">Repregunta: ¿Qué foto o momento captura el fotógrafo para memoria institucional?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: ¿Cierre con el lema del día?</p><p class="anticipada">[Observa. Actúa. Transforma. — mañana el aprendizaje sigue en cada equipo.]</p><p class="repregunta">Repregunta: ¿Última instrucción logística antes de las cinco en punto?</p></div>
+  </div>
+  <p class="puente"><strong>Puente</strong>Fin del evento; continuidad en Datalab y seguimiento a equipos.</p>
+  <p class="fuente">Fuente: agenda v7, propuesta EO v3, notas 23 nov</p>
+</section>
+</body>
+</html>
