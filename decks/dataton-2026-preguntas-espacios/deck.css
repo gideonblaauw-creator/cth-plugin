@@ -126,55 +126,95 @@ body.print-mode .page { margin: 0; box-shadow: none; }
   margin-bottom: 1mm;
 }
 
+.page--space {
+  --turn-q: 12pt;
+  --turn-a: 10.5pt;
+  --turn-gap: 2.8mm;
+  --turn-pad-top: 3.8mm;
+  --turn-pad-x: 4.2mm;
+  --turn-pad-bottom: 6pt;
+}
+
 .page-main {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 2.5mm;
-  overflow: hidden;
+  gap: 2mm;
+  overflow: visible;
 }
 
 .turns {
-  flex: 1 1 auto;
-  min-height: 0;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
-  gap: 2.8mm;
-  justify-content: stretch;
-  overflow: hidden;
+  gap: var(--turn-gap);
+  overflow: visible;
 }
 .turn {
-  flex: 1 1 0;
-  min-height: 0;
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  height: auto;
+  min-height: unset;
+  overflow: visible;
   background: var(--white);
   border: 1.5px solid var(--cyan);
   border-left: 4px solid var(--navy);
   border-radius: 0 3mm 3mm 0;
-  padding: 3.8mm 4.2mm;
-  line-height: 1.4;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: var(--turn-pad-top) var(--turn-pad-x) var(--turn-pad-bottom);
+  line-height: 1.38;
+  display: block;
+  box-sizing: border-box;
 }
 .turn .pregunta {
   font-weight: 700;
-  font-size: 12pt;
+  font-size: var(--turn-q);
   color: var(--navy);
-  margin-bottom: 1.5mm;
+  margin-bottom: 1.2mm;
 }
 .turn .anticipada {
   color: var(--muted);
   font-weight: 400;
-  font-size: 10.5pt;
-  margin: 1.2mm 0;
+  font-size: var(--turn-a);
+  margin: 1mm 0;
   padding-left: 3mm;
   border-left: 2px solid var(--cyan);
 }
 .turn .repregunta {
   font-weight: 600;
-  font-size: 12pt;
+  font-size: var(--turn-q);
   color: var(--navy);
+  margin-bottom: 0;
+}
+
+/* Per-page fit levels (applied by render.py when a space page overflows A4) */
+.page--space.page--fit-a {
+  --turn-q: 11.5pt;
+  --turn-a: 10pt;
+  --turn-gap: 2.4mm;
+  --turn-pad-top: 3.4mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-b {
+  --turn-q: 11pt;
+  --turn-a: 9.5pt;
+  --turn-gap: 2.1mm;
+  --turn-pad-top: 3.1mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-c {
+  --turn-q: 10.5pt;
+  --turn-a: 9.5pt;
+  --turn-gap: 1.9mm;
+  --turn-pad-top: 2.9mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-d {
+  --turn-q: 10pt;
+  --turn-a: 9pt;
+  --turn-gap: 1.6mm;
+  --turn-pad-top: 2.6mm;
+  --turn-pad-bottom: 6pt;
 }
 
 .nota-moderacion {

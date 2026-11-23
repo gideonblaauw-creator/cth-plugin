@@ -49,7 +49,7 @@ SPACES = [
                 "Rector, cuando esa presión de trazabilidad choca con capacidad local, ¿qué rol ve para la universidad?",
             ),
             (
-                "Rector, ¿cómo articula usted gobierno, empresa y sociedad sin convertirse en un actor más de la mesa?",
+                "Rector, ¿qué papel cumple la universidad entre gobierno, empresa y sociedad?",
                 "La universidad formula la pregunta y sostiene la ética del dato; no es un actor más en la mesa.",
                 "Cuando usted habla de ética del dato, ¿qué decisión territorial le gustaría ver respaldada por datos abiertos este año?",
             ),
