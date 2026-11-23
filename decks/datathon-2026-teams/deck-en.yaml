@@ -79,25 +79,25 @@ slides:
     link: "Datathon team pack (EN/ES)"
   - type: showcase
     kicker: Open-air sandbox · L1
-    title: Layer L1 anchors Bogotá open data on the RMCAB baseline
-    text: "Layer L1 — open baseline: 19 RMCAB (SDA) stations with hourly PM₂.₅, O₃ and PM₁₀, plus 1 SISAIRE reference pin (Mochuelo). PM₂.₅ ICA colour scale (Res. 2254/2017) on the map."
+    title: The open baseline shows 19 RMCAB stations and the ICA scale in Bogotá
+    text: "Open-data landscape from the Datalab: 19 RMCAB (SDA) stations with hourly PM₂.₅, O₃ and PM₁₀, plus SISAIRE reference at Mochuelo. PM₂.₅ ICA colours per Res. 2254/2017."
     images:
-      - assets/datalab-living-lab-l1-map.png
+      - assets/datalab-living-lab-l1-map-cropped.png
     link: "Source: SDA RMCAB + IDEAM SISAIRE, snapshot 4 Oct 2026 · CTH Datalab living lab"
   - type: showcase
     kicker: Open-air sandbox · L2
-    title: Layer L2 shows the client baseline structure without passing placeholders off as real data
-    text: "Layer L2 — client proprietary context: site, indoor/outdoor PM₂.₅ vs nearest RMCAB station. Example slots (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
+    title: The client baseline compares each site with the nearest RMCAB station
+    text: "Client proprietary context for the pilot site: indoor and outdoor PM₂.₅ vs the public network, with illustrative branches (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
     images:
       - assets/method-flow.svg
-    link: "lab-data.js (4 Oct 2026) · Air4U datathon workshop (cth-datalab, if available)"
+    link: "CTH Datalab living lab, snapshot 4 Oct 2026 · Air4U Datatón workshop"
   - type: showcase
     kicker: Open-air sandbox · L3
-    title: Layer L3 describes the innovator delta before a real Air4U feed exists
-    text: "Layer L3 — Air4U measurement: site-level resolution, before/after comparison, and delta/ROI gate on top of L1 and L2."
+    title: Air4U sensors add site-level resolution and a before/after delta
+    text: "Innovator delta on L1 and L2: per-site sensors, before/after comparison, and delta/ROI gate before you decide on the dashboard."
     images:
       - assets/method-flow.svg
-    link: "lab-data.js (4 Oct 2026) · Air4U feed pending"
+    link: "CTH Datalab living lab, snapshot 4 Oct 2026 · Air4U Datatón workshop"
   - type: case-cards
     kicker: Air4U pilot example
     title: The heatmap places D1 sensors on value propositions under strict scoring

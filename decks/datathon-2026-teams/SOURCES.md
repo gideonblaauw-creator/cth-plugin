@@ -27,7 +27,7 @@ Legacy social JPEG crops (`air4u-*-crop.jpg`) retained in repo but unused after 
 | Method, funnel, agenda | Metodología Datatón CTH v0.3 (21 nov 2026); Paquete de equipo Datatón (ES) |
 | Air4U clinic example | Paquete de equipo Datatón (ES) |
 | Hoja 4 template (slide 12) | Native HTML fp-h4 (team pack template); **Hoja 4b** in pack only (caption) |
-| Living lab L1 map | `assets/datalab-living-lab-l1-map.png` (skeleton-v2 render); hourly PM from `data/lab-data-snapshot.mjs` (4 Oct 2026 09:00 COT) |
+| Living lab L1 map | `assets/datalab-living-lab-l1-map-cropped.png` (cropped from skeleton-v2 render; full UI in `datalab-living-lab-l1-map.png`); hourly PM from `data/lab-data-snapshot.mjs` (4 Oct 2026 09:00 COT) |
 | Living lab L2/L3 | `data/lab-data-snapshot.mjs` (EXAMPLE slots); Clínica Colombia framing from taller Air4U (synthetic, no numeric series in deck) |
 | Heatmap D1 | `air4u-drl-heatmap-ladder-confirmed.png` |
 | Finals 16:00 | Team pack agenda |

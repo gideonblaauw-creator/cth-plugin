@@ -78,25 +78,25 @@ slides:
     link: Paquete de equipo Datatón (ES)
     notes: "[8/21 · showcase]"
   - type: showcase
-    title: La capa L1 ancla el panorama de datos abiertos de Bogotá en la línea base RMCAB
-    text: "Capa L1 — línea base abierta: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más 1 referencia SISAIRE (Mochuelo). Escala ICA PM₂.₅ (Res. 2254/2017) en el mapa."
+    title: La línea base abierta muestra 19 estaciones RMCAB y la escala ICA en Bogotá
+    text: "Panorama de datos abiertos del Datalab: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más referencia SISAIRE en Mochuelo. Colores ICA PM₂.₅ según Res. 2254/2017."
     images:
-      - assets/datalab-living-lab-l1-map.png
+      - assets/datalab-living-lab-l1-map-cropped.png
     link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab"
     notes: "[9/21 · living-lab L1]"
   - type: showcase
-    title: La capa L2 muestra la estructura de línea base del cliente sin presentar placeholders como datos reales
-    text: "Capa L2 — contexto propietario del cliente: sitio, PM₂.₅ indoor/outdoor frente a la estación RMCAB más cercana. Ranuras ejemplo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
+    title: La línea base del cliente compara cada sitio con la estación RMCAB más cercana
+    text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ramas ilustrativas (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
     images:
       - assets/method-flow.svg
-    link: "lab-data.js (4 oct 2026) · taller Air4U Datatón (cth-datalab, si disponible)"
+    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
     notes: "[10/21 · living-lab L2]"
   - type: showcase
-    title: La capa L3 describe el delta del innovador antes de que exista un flujo Air4U real
-    text: "Capa L3 — medición Air4U: resolución por sitio, comparación antes/después y compuerta delta/ROI sobre L1 y L2."
+    title: Los sensores Air4U añaden resolución por sitio y un delta antes/después
+    text: "Delta del innovador sobre L1 y L2: sensores por sitio, comparación antes/después y compuerta delta/ROI antes de decidir en el tablero."
     images:
       - assets/method-flow.svg
-    link: "lab-data.js (4 oct 2026) · Air4U feed pendiente"
+    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
     notes: "[11/21 · living-lab L3]"
   - type: case-cards
     title: El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto

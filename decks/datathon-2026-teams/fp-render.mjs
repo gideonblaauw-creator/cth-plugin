@@ -407,7 +407,7 @@ function fmtLab(v) {
   return pick(String(v), String(v));
 }
 
-function renderLabTable(headers, rows, extraCls = "") {
+function renderLabTable(headers, rows, extraCls = "", tableCls = "fp-living-lab__table") {
   const th = headers.map((h) => `<th>${T(h.es, h.en)}</th>`).join("");
   const body = rows
     .map(
@@ -420,7 +420,27 @@ function renderLabTable(headers, rows, extraCls = "") {
           .join("")}</tr>`
     )
     .join("");
-  return `<div class="fp-table-wrap fp-living-lab__scroll${extraCls ? ` ${extraCls}` : ""}"><table class="fp-table fp-table--sc fp-living-lab__table"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
+  return `<div class="fp-table-wrap${extraCls ? ` ${extraCls}` : ""}"><table class="fp-table fp-table--sc ${tableCls}"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+function renderLabTablePair(headers, rows) {
+  const mid = Math.ceil(rows.length / 2);
+  const left = rows.slice(0, mid);
+  const right = rows.slice(mid);
+  return `<div class="fp-living-lab__table-pair">
+    ${renderLabTable(headers, left, "fp-living-lab__table-col")}
+    ${renderLabTable(headers, right, "fp-living-lab__table-col")}
+  </div>`;
+}
+
+function renderLabLayerCards(cards) {
+  const items = cards
+    .map(
+      (c) =>
+        `<div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title">${T(c.title.es, c.title.en)}</p><p class="fp-card__text">${T(c.text.es, c.text.en)}</p></div>`
+    )
+    .join("\n    ");
+  return `<div class="fp-trio fp-trio--3 fp-living-lab__trio">${items}</div>`;
 }
 
 function renderLivingLabL1(s, sEn) {
@@ -435,10 +455,18 @@ function renderLivingLabL1(s, sEn) {
     fmtLab(st.o3_ppb),
     fmtLab(st.pm10),
   ]);
+  if (moch) {
+    rows.push([
+      pick("Mochuelo (SISAIRE)", "Mochuelo (SISAIRE)"),
+      fmtLab(null),
+      fmtLab(null),
+      fmtLab(null),
+    ]);
+  }
   const headers = [
     pick("Estación", "Station"),
     pick("PM₂.₅", "PM₂.₅"),
-    pick("O₃ (ppb)", "O₃ (ppb)"),
+    pick("O₃", "O₃"),
     pick("PM₁₀", "PM₁₀"),
   ];
   const hour = stations[0]?.hour ?? "2026-10-04 09:00";
@@ -447,31 +475,32 @@ function renderLivingLabL1(s, sEn) {
     "Provisional values, not SDA-validated."
   );
   const ica = pick(
-    "Escala ICA PM₂.₅ (Res. 2254/2017): colores en el mapa.",
-    "PM₂.₅ ICA scale (Res. 2254/2017): colours on the map."
+    "Escala ICA PM₂.₅ (Res. 2254/2017) en el mapa.",
+    "PM₂.₅ ICA scale (Res. 2254/2017) on the map."
   );
   const mochLine = moch
     ? pick(
-        `Referencia SISAIRE · Mochuelo (promedio anual PM₂.₅ 2024: ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³) — sin lectura horaria en snapshot.`,
-        `SISAIRE reference · Mochuelo (2024 annual PM₂.₅ mean: ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³) — no hourly reading in snapshot.`
+        `Mochuelo: referencia SISAIRE 2024 PM₂.₅ = ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³ (promedio anual, sin lectura horaria).`,
+        `Mochuelo: SISAIRE 2024 PM₂.₅ reference = ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³ (annual mean, no hourly reading).`
       )
-    : pick("Referencia Mochuelo: sin dato.", "Mochuelo reference: no data.");
+    : pick("Mochuelo: sin dato.", "Mochuelo: no data.");
   const shot = img
-    ? `<div class="fp-cp__shot fp-living-lab__map"><img src="${esc(img)}" alt="" style="object-fit:contain;max-height:820px;width:100%;" /></div>`
+    ? `<img class="fp-living-lab-l1__img" src="${esc(img)}" alt="" />`
     : "";
-  return `${sectionOpen("fp-chart-proof fp-cp--mix fp-living-lab", "living-lab-l1")}
+  return `${sectionOpen("fp-chart-proof fp-living-lab fp-living-lab--l1", "living-lab-l1")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
-  <div class="fp-body fp-cp fp-cp--mix">
-    ${shot}
-    <div class="fp-cp__proof">
-      <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
-      <p class="fp-living-lab__meta">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
-      ${renderLabTable(headers, rows)}
-      <p class="fp-cp__honest">${T(prov.es, prov.en)}</p>
-      <p class="fp-living-lab__meta">${T(ica.es, ica.en)}</p>
-      <p class="fp-living-lab__meta">${T(mochLine.es, mochLine.en)}</p>
-      ${sourceLine(s, sEn)}
+  <div class="fp-body fp-living-lab-l1">
+    <p class="fp-cp__cap fp-living-lab-l1__intro">${T(s.text, sEn.text)}</p>
+  <p class="fp-living-lab__meta fp-living-lab-l1__stamp">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
+    <div class="fp-living-lab-l1__columns">
+      <div class="fp-living-lab-l1__map">${shot}</div>
+      <div class="fp-living-lab-l1__data">
+        ${renderLabTablePair(headers, rows)}
+        <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
+        <p class="fp-living-lab__meta">${T(ica.es, ica.en)} · ${T(mochLine.es, mochLine.en)}</p>
+      </div>
     </div>
+    ${sourceLine(s, sEn)}
   </div>
   ${foot(false)}${notes(s)}
 </section>`;
@@ -483,7 +512,7 @@ function renderLivingLabL2(s, sEn) {
     pick("PM₂.₅", "PM₂.₅"),
     pick("Indoor / outdoor", "Indoor / outdoor"),
     pick("vs RMCAB", "vs RMCAB"),
-    pick("Estado", "Status"),
+    pick("Nota", "Note"),
   ];
   const rows = RAW_L2.map((row) => {
     const site =
@@ -491,44 +520,62 @@ function renderLivingLabL2(s, sEn) {
         ? pick("Ramo (cliente)", "Ramo (client)")
         : pick("Bolívar (cliente)", "Bolívar (client)");
     const pm = pick(
-      `ejemplo ilustrativo · ${row.pm25} µg/m³`,
-      `illustrative example · ${row.pm25} µg/m³`
+      `${row.pm25} µg/m³ (ejemplo ilustrativo)`,
+      `${row.pm25} µg/m³ (illustrative example)`
     );
     return [
       site,
       pm,
       pick("sin dato", "no data"),
       pick("sin dato", "no data"),
-      pick("EXAMPLE — sin datos reales", "EXAMPLE — no real data"),
+      pick("ejemplo ilustrativo", "illustrative example"),
     ];
   });
   rows.push(
     [
-      pick("Clínica Colombia (taller Air4U)", "Clínica Colombia (Air4U workshop)"),
-      pick("serie 12 h — sintética", "12 h series — synthetic"),
+      pick("Clínica Colombia (taller Air4U)", "Clínica Colombia (Air4U datathon)"),
       pick("sin dato", "no data"),
       pick("sin dato", "no data"),
-      pick("SINÉTICO", "SYNTHETIC"),
+      pick("sin dato", "no data"),
+      pick("sintético", "synthetic"),
     ],
     [
-      pick("Cliente TBD", "Client TBD"),
+      pick("Cliente por definir", "Client TBD"),
       pick("sin dato", "no data"),
       pick("sin dato", "no data"),
       pick("sin dato", "no data"),
-      pick("ranura vacía", "empty slot"),
+      pick("sin dato", "no data"),
     ]
   );
-  const honest = pick(
-    "Los valores Ramo/Bolívar en lab-data.js son ranuras ejemplo — no son mediciones del cliente.",
-    "Ramo/Bolívar values in lab-data.js are example slots — not client measurements."
-  );
-  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab", "living-lab-l2")}
+  const cards = [
+    {
+      title: pick("Sitio del cliente", "Client site"),
+      text: pick(
+        "Ubica la clínica o planta piloto sobre la línea base abierta.",
+        "Places the pilot clinic or plant on the open baseline."
+      ),
+    },
+    {
+      title: pick("PM₂.₅ indoor y outdoor", "Indoor and outdoor PM₂.₅"),
+      text: pick(
+        "Compara lecturas en el sitio con la referencia horaria.",
+        "Compares site readings with the hourly reference."
+      ),
+    },
+    {
+      title: pick("Estación RMCAB cercana", "Nearest RMCAB station"),
+      text: pick(
+        "Ancla la decisión del gestor a la red pública SDA.",
+        "Anchors the site manager's decision to the public SDA network."
+      ),
+    },
+  ];
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l2", "living-lab-l2")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
-  <div class="fp-body fp-living-lab__solo">
-    <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
-    ${renderLabTable(headers, rows)}
-    <p class="fp-cp__honest">${T(honest.es, honest.en)}</p>
-    <p class="fp-note">${T("taller-air4u-datathon.js (cth-datalab): no disponible en este build — marco Clínica Colombia citado sin series numérica.", "taller-air4u-datathon.js (cth-datalab): unavailable in this build — Clínica Colombia framing cited without numeric series.")}</p>
+  <div class="fp-body fp-living-lab__body">
+    <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
+    ${renderLabLayerCards(cards)}
+    ${renderLabTable(headers, rows, "fp-living-lab__table-wide", "fp-living-lab__table fp-living-lab__table--lg")}
     ${sourceLine(s, sEn)}
   </div>
   ${foot(false)}${notes(s)}
@@ -536,15 +583,6 @@ function renderLivingLabL2(s, sEn) {
 }
 
 function renderLivingLabL3(s, sEn) {
-  const bullets = [
-    pick(
-      "Resolución por sitio — sensores desplazados respecto al contexto L2.",
-      "Site-level resolution — sensors offset from L2 context."
-    ),
-    pick("Comparación antes / después de intervención.", "Before/after intervention comparison."),
-    pick("Compuerta delta/ROI antes de átomos de decisión.", "Delta/ROI gate before decision atoms."),
-  ];
-  const lis = bullets.map((b) => `<li>${T(b.es, b.en)}</li>`).join("");
   const air4u = RAW_PARTNER_FEEDS.find((p) => p.partner === "air4u");
   const sensors = air4u?.sensors ?? [];
   const headers = [
@@ -553,7 +591,7 @@ function renderLivingLabL3(s, sEn) {
     pick("Antes", "Before"),
     pick("Después", "After"),
     pick("CO₂", "CO₂"),
-    pick("Estado", "Status"),
+    pick("Nota", "Note"),
   ];
   const rows = sensors.map((sen) => [
     pick(sen.id, sen.id),
@@ -561,19 +599,37 @@ function renderLivingLabL3(s, sEn) {
     pick("sin dato", "no data"),
     pick("sin dato", "no data"),
     pick("pendiente", "pending"),
-    pick("EXAMPLE — sin flujo real", "EXAMPLE — no real feed"),
+    pick("ejemplo ilustrativo", "illustrative example"),
   ]);
-  const honest = pick(
-    "A4U-R1/R2/R3 en lab-data.js son ejemplo — no publicar cifras hasta feed real.",
-    "A4U-R1/R2/R3 in lab-data.js are examples — no figures until a real feed exists."
-  );
-  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab", "living-lab-l3")}
+  const cards = [
+    {
+      title: pick("Resolución por sitio", "Site-level resolution"),
+      text: pick(
+        "Sensores Air4U añaden lectura más cerca del usuario del dato.",
+        "Air4U sensors add readings closer to the data user."
+      ),
+    },
+    {
+      title: pick("Antes y después", "Before and after"),
+      text: pick(
+        "Compara intervención con la línea base del cliente (L2).",
+        "Compares intervention with the client baseline (L2)."
+      ),
+    },
+    {
+      title: pick("Delta y compuerta ROI", "Delta and ROI gate"),
+      text: pick(
+        "Resume el cambio útil antes de decidir en pantalla.",
+        "Summarises useful change before you decide on screen."
+      ),
+    },
+  ];
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l3", "living-lab-l3")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
-  <div class="fp-body fp-living-lab__solo">
-    <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
-    <ul class="fp-bullets fp-living-lab__bullets">${lis}</ul>
-    ${renderLabTable(headers, rows)}
-    <p class="fp-cp__honest">${T(honest.es, honest.en)}</p>
+  <div class="fp-body fp-living-lab__body">
+    <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
+    ${renderLabLayerCards(cards)}
+    ${renderLabTable(headers, rows, "fp-living-lab__table-wide", "fp-living-lab__table fp-living-lab__table--lg")}
     ${sourceLine(s, sEn)}
   </div>
   ${foot(false)}${notes(s)}
