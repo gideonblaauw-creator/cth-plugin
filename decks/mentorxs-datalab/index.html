@@ -216,10 +216,21 @@
 
     </div>
   </div>
-  <a class="pdf-dl-btn pdf-dl-fixed" href="mentorxs-datalab.pdf" download="mentorxs-datalab.pdf" aria-label="Descargar PDF">Descargar PDF</a>
   <script src="reveal.js/dist/reveal.js"></script>
   <script>
-    const isPrinting = /print-pdf/.test(window.location.search);
+    const isPrinting = /print-pdf/.test(window.location.search) || navigator.webdriver;
+    if (!isPrinting) {
+      const dl = document.createElement('a');
+      dl.className = 'pdf-dl-btn pdf-dl-fixed';
+      dl.href = 'mentorxs-datalab.pdf';
+      dl.download = 'mentorxs-datalab.pdf';
+      dl.setAttribute('aria-label', 'Descargar PDF');
+      dl.textContent = 'Descargar PDF';
+      document.body.appendChild(dl);
+    } else {
+      document.documentElement.classList.add('print-pdf');
+      document.body.classList.add('print-pdf');
+    }
     Reveal.initialize({
       hash: true,
       slideNumber: 'c/t',
@@ -232,7 +243,6 @@
       progress: true,
       center: false
     });
-    if (isPrinting) document.body.classList.add('print-pdf');
   </script>
 </body>
 </html>

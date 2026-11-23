@@ -59,6 +59,9 @@ footer .pdf-dl-btn {
   }
 }
 
+html.print-pdf .pdf-dl-btn,
+html.print-pdf .pdf-dl-fixed,
+html.print-pdf .pdf-dl-footer,
 body.print-pdf .pdf-dl-btn,
 body.print-pdf .pdf-dl-fixed,
 body.print-pdf .pdf-dl-footer,
