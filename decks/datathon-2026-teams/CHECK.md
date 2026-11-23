@@ -122,3 +122,37 @@ Base: `ccd4f011fe3872456f1bd20c5ab15f6744ad6053` · Scope: slide 9 L1 map markup
 - Contact sheets updated: `datathon-2026-teams-contact-sheet-{es,en}.png`
 
 Full log: `/opt/cursor/artifacts/datathon-maps-3-acceptance.log`
+
+---
+
+## maps-4 (one CSS line, base `663784c`)
+
+Base: `663784c3fc079190c62dc171b75a646d465631de` · Change: `.fp-living-lab-l1__ica-row` `grid-template-columns: 16px 76px 1fr` (was `56px`).
+
+### Steps 6–11
+
+**Overlap pairs (ES/EN screen+export):** **0**
+
+**Legend range→label gaps @1280 (px), ES and EN identical:**
+
+| Range | Gap |
+|-------|-----|
+| 0–12 | 28.22 |
+| 13–37 | 21.74 |
+| 38–55 | 21.74 |
+| 56–150 | 15.26 |
+| 151–250 | 8.78 |
+| 251–500 | 8.78 |
+
+**Other:** clip **0**; minFont **11.33**; maxRight **1216.0**; tbody rows **20**; 6 bands + marker notes visible.
+
+**PDFs (committed):**
+
+| Artifact | sha256 | Pages | grep |
+|----------|--------|------:|-----:|
+| `datathon-2026-teams.pdf` | `1870ed9dc6f982d7381fed219801bdc34db794306dee18d3667d73c73dcc988c` | 21 | 0 |
+| `datathon-2026-teams-en.pdf` | `caab64898c47da64c7d55cd9b51f4e7d2cba573d2fc1f7f5efc223d379150483` | 21 | 0 |
+
+**Regression vs `663784c` PDFs:** pages 1–8, 10–21 → **0.0000%** (ES + EN). Page 9: ES **0.2016%** bbox `(124, 542, 415, 583)`; EN **0.2196%** bbox `(124, 542, 420, 583)` (legend box only; within x 60–480, y 520–610).
+
+Log: `/opt/cursor/artifacts/datathon-maps-4-acceptance.log`

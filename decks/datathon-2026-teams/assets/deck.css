@@ -727,7 +727,7 @@ body[data-lang="es"] .l-en { display: none !important; }
 .reveal .fp-living-lab-l1__ica { flex-shrink: 0; border-top: 1px solid #b2eefa; padding-top: 4px; overflow: visible; }
 .reveal .fp-living-lab-l1__ica-title { margin: 0 0 4px !important; font-size: 17px; font-weight: 700; color: #0c498a; line-height: 1.22; }
 .reveal .fp-living-lab-l1__ica-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); gap: 2px 8px; font-size: 17px; line-height: 1.18; color: #0c498a; overflow: visible; }
-.reveal .fp-living-lab-l1__ica-row { display: grid; grid-template-columns: 16px 56px 1fr; gap: 4px; align-items: start; margin: 0; min-height: 0; overflow: visible; }
+.reveal .fp-living-lab-l1__ica-row { display: grid; grid-template-columns: 16px 76px 1fr; gap: 4px; align-items: start; margin: 0; min-height: 0; overflow: visible; }
 .reveal .fp-living-lab-l1__map-keys { list-style: none; margin: 4px 0 0; padding: 0; font-size: 17px; line-height: 1.22; color: #0c498a; overflow: visible; }
 .reveal .fp-living-lab-l1__map-keys li { margin: 1px 0; }
 .reveal .fp-living-lab-l1__ica-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(12, 73, 138, 0.25); display: inline-block; margin-top: 2px; }
