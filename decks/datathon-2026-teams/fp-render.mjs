@@ -5,6 +5,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { RAW_BASELINE, RAW_L2, RAW_PARTNER_FEEDS } from "./data/lab-data-snapshot.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toolNode = path.resolve(__dirname, "../../tools/reveal/node_modules");
@@ -401,6 +402,184 @@ function renderDashboardTemplate(s, sEn) {
 </section>`;
 }
 
+function fmtLab(v) {
+  if (v === null || v === undefined) return pick("sin dato", "no data");
+  return pick(String(v), String(v));
+}
+
+function renderLabTable(headers, rows, extraCls = "") {
+  const th = headers.map((h) => `<th>${T(h.es, h.en)}</th>`).join("");
+  const body = rows
+    .map(
+      (row) =>
+        `<tr>${row
+          .map((c) => {
+            const cell = typeof c === "string" ? pick(c, c) : c;
+            return `<td>${T(cell.es, cell.en)}</td>`;
+          })
+          .join("")}</tr>`
+    )
+    .join("");
+  return `<div class="fp-table-wrap fp-living-lab__scroll${extraCls ? ` ${extraCls}` : ""}"><table class="fp-table fp-table--sc fp-living-lab__table"><thead><tr>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+function renderLivingLabL1(s, sEn) {
+  const img = (s.images || [])[0];
+  const stations = RAW_BASELINE.stations
+    .filter((st) => st.network === "RMCAB")
+    .sort((a, b) => (a.rmcabSerial ?? 0) - (b.rmcabSerial ?? 0));
+  const moch = RAW_BASELINE.stations.find((st) => st.id === "CAR-MOCHUELO");
+  const rows = stations.map((st) => [
+    pick(st.name, st.name),
+    fmtLab(st.pm25),
+    fmtLab(st.o3_ppb),
+    fmtLab(st.pm10),
+  ]);
+  const headers = [
+    pick("Estación", "Station"),
+    pick("PM₂.₅", "PM₂.₅"),
+    pick("O₃ (ppb)", "O₃ (ppb)"),
+    pick("PM₁₀", "PM₁₀"),
+  ];
+  const hour = stations[0]?.hour ?? "2026-10-04 09:00";
+  const prov = pick(
+    "Valores provisionales, no validados por la SDA.",
+    "Provisional values, not SDA-validated."
+  );
+  const ica = pick(
+    "Escala ICA PM₂.₅ (Res. 2254/2017): colores en el mapa.",
+    "PM₂.₅ ICA scale (Res. 2254/2017): colours on the map."
+  );
+  const mochLine = moch
+    ? pick(
+        `Referencia SISAIRE · Mochuelo (promedio anual PM₂.₅ 2024: ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³) — sin lectura horaria en snapshot.`,
+        `SISAIRE reference · Mochuelo (2024 annual PM₂.₅ mean: ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³) — no hourly reading in snapshot.`
+      )
+    : pick("Referencia Mochuelo: sin dato.", "Mochuelo reference: no data.");
+  const shot = img
+    ? `<div class="fp-cp__shot fp-living-lab__map"><img src="${esc(img)}" alt="" style="object-fit:contain;max-height:820px;width:100%;" /></div>`
+    : "";
+  return `${sectionOpen("fp-chart-proof fp-cp--mix fp-living-lab", "living-lab-l1")}
+  ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
+  <div class="fp-body fp-cp fp-cp--mix">
+    ${shot}
+    <div class="fp-cp__proof">
+      <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
+      <p class="fp-living-lab__meta">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
+      ${renderLabTable(headers, rows)}
+      <p class="fp-cp__honest">${T(prov.es, prov.en)}</p>
+      <p class="fp-living-lab__meta">${T(ica.es, ica.en)}</p>
+      <p class="fp-living-lab__meta">${T(mochLine.es, mochLine.en)}</p>
+      ${sourceLine(s, sEn)}
+    </div>
+  </div>
+  ${foot(false)}${notes(s)}
+</section>`;
+}
+
+function renderLivingLabL2(s, sEn) {
+  const headers = [
+    pick("Sitio", "Site"),
+    pick("PM₂.₅", "PM₂.₅"),
+    pick("Indoor / outdoor", "Indoor / outdoor"),
+    pick("vs RMCAB", "vs RMCAB"),
+    pick("Estado", "Status"),
+  ];
+  const rows = RAW_L2.map((row) => {
+    const site =
+      row.site === "ramo"
+        ? pick("Ramo (cliente)", "Ramo (client)")
+        : pick("Bolívar (cliente)", "Bolívar (client)");
+    const pm = pick(
+      `ejemplo ilustrativo · ${row.pm25} µg/m³`,
+      `illustrative example · ${row.pm25} µg/m³`
+    );
+    return [
+      site,
+      pm,
+      pick("sin dato", "no data"),
+      pick("sin dato", "no data"),
+      pick("EXAMPLE — sin datos reales", "EXAMPLE — no real data"),
+    ];
+  });
+  rows.push(
+    [
+      pick("Clínica Colombia (taller Air4U)", "Clínica Colombia (Air4U workshop)"),
+      pick("serie 12 h — sintética", "12 h series — synthetic"),
+      pick("sin dato", "no data"),
+      pick("sin dato", "no data"),
+      pick("SINÉTICO", "SYNTHETIC"),
+    ],
+    [
+      pick("Cliente TBD", "Client TBD"),
+      pick("sin dato", "no data"),
+      pick("sin dato", "no data"),
+      pick("sin dato", "no data"),
+      pick("ranura vacía", "empty slot"),
+    ]
+  );
+  const honest = pick(
+    "Los valores Ramo/Bolívar en lab-data.js son ranuras ejemplo — no son mediciones del cliente.",
+    "Ramo/Bolívar values in lab-data.js are example slots — not client measurements."
+  );
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab", "living-lab-l2")}
+  ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
+  <div class="fp-body fp-living-lab__solo">
+    <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
+    ${renderLabTable(headers, rows)}
+    <p class="fp-cp__honest">${T(honest.es, honest.en)}</p>
+    <p class="fp-note">${T("taller-air4u-datathon.js (cth-datalab): no disponible en este build — marco Clínica Colombia citado sin series numérica.", "taller-air4u-datathon.js (cth-datalab): unavailable in this build — Clínica Colombia framing cited without numeric series.")}</p>
+    ${sourceLine(s, sEn)}
+  </div>
+  ${foot(false)}${notes(s)}
+</section>`;
+}
+
+function renderLivingLabL3(s, sEn) {
+  const bullets = [
+    pick(
+      "Resolución por sitio — sensores desplazados respecto al contexto L2.",
+      "Site-level resolution — sensors offset from L2 context."
+    ),
+    pick("Comparación antes / después de intervención.", "Before/after intervention comparison."),
+    pick("Compuerta delta/ROI antes de átomos de decisión.", "Delta/ROI gate before decision atoms."),
+  ];
+  const lis = bullets.map((b) => `<li>${T(b.es, b.en)}</li>`).join("");
+  const air4u = RAW_PARTNER_FEEDS.find((p) => p.partner === "air4u");
+  const sensors = air4u?.sensors ?? [];
+  const headers = [
+    pick("Sensor", "Sensor"),
+    pick("Sitio", "Site"),
+    pick("Antes", "Before"),
+    pick("Después", "After"),
+    pick("CO₂", "CO₂"),
+    pick("Estado", "Status"),
+  ];
+  const rows = sensors.map((sen) => [
+    pick(sen.id, sen.id),
+    pick(sen.site, sen.site),
+    pick("sin dato", "no data"),
+    pick("sin dato", "no data"),
+    pick("pendiente", "pending"),
+    pick("EXAMPLE — sin flujo real", "EXAMPLE — no real feed"),
+  ]);
+  const honest = pick(
+    "A4U-R1/R2/R3 en lab-data.js son ejemplo — no publicar cifras hasta feed real.",
+    "A4U-R1/R2/R3 in lab-data.js are examples — no figures until a real feed exists."
+  );
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab", "living-lab-l3")}
+  ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
+  <div class="fp-body fp-living-lab__solo">
+    <p class="fp-cp__cap">${T(s.text, sEn.text)}</p>
+    <ul class="fp-bullets fp-living-lab__bullets">${lis}</ul>
+    ${renderLabTable(headers, rows)}
+    <p class="fp-cp__honest">${T(honest.es, honest.en)}</p>
+    ${sourceLine(s, sEn)}
+  </div>
+  ${foot(false)}${notes(s)}
+</section>`;
+}
+
 function renderDashboardDuo(s, sEn) {
   const imgs = s.images || [];
   const labels = pick("Plantilla en blanco", "Blank template");
@@ -529,6 +708,9 @@ const RENDERERS = {
   process: renderProcess,
   timeline: renderTimeline,
   showcase: renderShowcase,
+  "living-lab-l1": renderLivingLabL1,
+  "living-lab-l2": renderLivingLabL2,
+  "living-lab-l3": renderLivingLabL3,
   "case-cards": renderCaseCards,
   "dashboard-duo": renderDashboardDuo,
   "dashboard-template": renderDashboardTemplate,

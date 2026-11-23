@@ -714,3 +714,14 @@ body[data-lang="es"] .l-en { display: none !important; }
 .reveal .fp-cp--mix .cth-source { font-size: 14px; }
 .reveal .fp-table--sc td:nth-child(n+3) { white-space: nowrap; }
 .reveal .fp-table--sc td:nth-child(2) { white-space: nowrap; }
+
+/* Datalab living-lab L1–L3 (Air4U datathon teams deck) */
+.reveal .fp-living-lab .fp-cp { grid-template-columns: 620px 1fr !important; gap: 28px; }
+.reveal .fp-living-lab__map img { border-radius: 12px; border: 3px solid #B2EEFA; }
+.reveal .fp-living-lab__meta { font-size: 15px; line-height: 1.3; color: #0C498A; margin: 8px 0 !important; }
+.reveal .fp-living-lab__scroll { max-height: 520px; overflow: hidden; margin-top: 8px; }
+.reveal .fp-living-lab__table { font-size: 11px; line-height: 1.12; }
+.reveal .fp-living-lab__table th { font-size: 11px; padding: 5px 8px; }
+.reveal .fp-living-lab__table td { padding: 3px 8px; }
+.reveal .fp-living-lab__solo { display: flex; flex-direction: column; min-height: 0; padding-right: 8px; }
+.reveal .fp-living-lab__bullets { font-size: 19px; margin: 0 0 12px 1.1em !important; }

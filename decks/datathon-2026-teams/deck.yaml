@@ -10,11 +10,11 @@ slides:
     subtitle: Qué hacemos hoy, cómo se decide y qué sigue después del piloto del 24 de noviembre de 2026
     client: CleantechHUB · piloto Air4U
     date: 24 noviembre 2026
-    notes: "[1/17 · cover] Piloto 24 nov 2026."
+    notes: "[1/21 · cover] Piloto 24 nov 2026."
   - type: statement
     text: Sin datos listos para una decisión real, no hay escalera honesta ni pantalla útil para el usuario que usted nombra.
     attribution: Metodología Datatón CTH v0.3 (21 nov 2026)
-    notes: "[2/17 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula."
+    notes: "[2/21 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula."
   - type: ecosystem
     title: El CTH Datalab concentra al método, los mentores y la salida hacia 2027
     centre: CTH Datalab
@@ -27,7 +27,7 @@ slides:
         text: 3 ganadores entren a la vía Datalab en 2027 (beneficio piloto; detalle con mesa CTH).
       - label: Sandbox de aire abierto
         text: Tres paneles — línea base del cliente, delta del innovador, panorama de datos abiertos.
-    notes: "[3/17 · ecosystem]"
+    notes: "[3/21 · ecosystem]"
   - type: process
     title: El embudo del piloto deja claro quién avanza de 20 equipos a 3 ganadores
     steps:
@@ -39,7 +39,7 @@ slides:
         text: 16:00 — los 6 equipos presentan; jueces puntúan utilidad e honestidad.
       - label: Salida
         text: 3 ganadores hacia la vía CTH Datalab 2027.
-    notes: "[4/17 · process]"
+    notes: "[4/21 · process]"
   - type: timeline
     title: Confirme las horas del día con el facilitador, excepto la final a las 16:00
     items:
@@ -59,24 +59,45 @@ slides:
       - date: confirm
         label: Cierre
         text: 3 ganadores y siguientes pasos hacia Datalab 2027.
-    notes: "[5/17 · timeline]"
+    notes: "[5/21 · timeline]"
   - type: statement
     text: "Ahora vemos el método paso a paso con un ejemplo real: una clínica en Bogotá."
-    notes: "[6/17 · statement]"
+    notes: "[6/21 · statement]"
   - type: showcase
     title: El método recorre nueve bloques del lienzo hasta una pantalla de una hoja
     text: Recorren nueve bloques del BMC, pintan dónde vive cada dato, suben la escalera Medallion, nombran un usuario y una decisión, y cierran con un boceto de tres paneles.
     images:
       - assets/method-flow.svg
     link: Metodología Datatón CTH v0.3 (21 nov 2026)
-    notes: "[7/17 · showcase]"
+    notes: "[7/21 · showcase]"
   - type: showcase
     title: El ejemplo Air4U muestra el lienzo BMC de una clínica en Bogotá en piloto
     text: El BMC de Air4U (ilustrativo, sin diligenciar por la empresa) muestra sensores indoor, ventas citadas en pitch y reseñas en marketplace. Nombre Air4U permitido; la clínica piloto queda anónima.
     images:
       - assets/Air4U_BMC_preview.png
     link: Paquete de equipo Datatón (ES)
-    notes: "[8/17 · showcase]"
+    notes: "[8/21 · showcase]"
+  - type: showcase
+    title: La capa L1 ancla el panorama de datos abiertos de Bogotá en la línea base RMCAB
+    text: "Capa L1 — línea base abierta: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más 1 referencia SISAIRE (Mochuelo). Escala ICA PM₂.₅ (Res. 2254/2017) en el mapa."
+    images:
+      - assets/datalab-living-lab-l1-map.png
+    link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab"
+    notes: "[9/21 · living-lab L1]"
+  - type: showcase
+    title: La capa L2 muestra la estructura de línea base del cliente sin presentar placeholders como datos reales
+    text: "Capa L2 — contexto propietario del cliente: sitio, PM₂.₅ indoor/outdoor frente a la estación RMCAB más cercana. Ranuras ejemplo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
+    images:
+      - assets/method-flow.svg
+    link: "lab-data.js (4 oct 2026) · taller Air4U Datatón (cth-datalab, si disponible)"
+    notes: "[10/21 · living-lab L2]"
+  - type: showcase
+    title: La capa L3 describe el delta del innovador antes de que exista un flujo Air4U real
+    text: "Capa L3 — medición Air4U: resolución por sitio, comparación antes/después y compuerta delta/ROI sobre L1 y L2."
+    images:
+      - assets/method-flow.svg
+    link: "lab-data.js (4 oct 2026) · Air4U feed pendiente"
+    notes: "[11/21 · living-lab L3]"
   - type: case-cards
     title: El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto
     cards:
@@ -85,7 +106,7 @@ slides:
         text: "D=10, banda WARM; enlaza VP, KA y KR. Etiquetas LEGAL?, TECH?, QUALITY? — avisan, no excluyen."
       - name: Qué copiar hoy
         text: Fundador y operador marcan conjuntos por bloque; CTH devuelve bloques para la tarde. Debajo de Bronce sigue siendo válido.
-    notes: "[9/17 · case-cards]"
+    notes: "[12/21 · case-cards]"
   - type: case-cards
     title: La escalera Medallion deja el ejemplo debajo de Bronce sin penalizar al equipo
     cards:
@@ -94,21 +115,21 @@ slides:
         text: "Nivel alcanzado: Ninguno (debajo de C1/Bronce). Siguiente grada: B5 almacenamiento nombrado, B6 derechos escritos, B7 exportación."
       - name: Lección
         text: La grada se calcula con casillas B/S/G, no se declara. Sin ONAC acreditado — CTH en camino hacia ONAC, sin afirmar acreditación.
-    notes: "[10/17 · case-cards]"
+    notes: "[13/21 · case-cards]"
   - type: showcase
     title: La tarjeta dato a valor nombra al gestor del sitio piloto y su decisión semanal
     text: "Usuario: gestor de instalaciones. Decisión: ¿activar ventilación o revisar filtros esta semana si el PM₂.₅ indoor podría superar la referencia? Todos los números en estimado mientras la escalera está en Ninguno."
     images:
       - assets/Air4U_BMC_preview_p2.png
     link: Paquete de equipo Datatón (ES)
-    notes: "[11/17 · showcase]"
+    notes: "[14/21 · showcase]"
   - type: showcase
     title: La plantilla Hoja 4 pone la decisión, el delta y su rango en una sola pantalla
     text: Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.
     images:
       - assets/method-flow.svg
     link: Paquete de equipo Datatón (ES)
-    notes: "[12/17 · dashboard-template]"
+    notes: "[15/21 · dashboard-template]"
   - type: key-facts
     title: Las reglas de honestidad son las que los jueces esperan en la final de las 16:00
     items:
@@ -121,7 +142,7 @@ slides:
       - icon: Pub
         label: Sin tablero público
         text: Mientras acceso legal o ético siga abierto en cualquier dato usado en el tablero.
-    notes: "[13/17 · key-facts]"
+    notes: "[16/21 · key-facts]"
   - type: title-bullets
     title: Los mentores y jueces califican con reglas de utilidad, honestidad y bono Plata
     bullets:
@@ -129,7 +150,7 @@ slides:
       - "Finales 16:00 — Parte A utilidad 0–5; Parte B honestidad 0–5 (total /10)."
       - "Empate en utilidad y honestidad — gana la historia solo si ambas partes empataron."
       - "Un tablero simple y honesto gana a uno llamativo sin respaldo en la hoja."
-    notes: "[14/17 · title-bullets]"
+    notes: "[17/21 · title-bullets]"
   - type: offer
     title: Cada equipo recibe hoy el paquete v0.3-es y apoyo del facilitador
     price: Incluido
@@ -139,7 +160,7 @@ slides:
       - Plantilla de carpeta Drive cuando el facilitador la active.
       - Prompts de IA del team pack para acelerar redacción, no para inventar cifras.
     note: Sin costo de entrada en el piloto; beneficio Datalab 2027 para 3 ganadores según mesa CTH.
-    notes: "[15/17 · offer]"
+    notes: "[18/21 · offer]"
   - type: key-facts
     title: Las reglas prácticas de derechos de datos protegen sitios y personas sin ser asesoría legal
     items:
@@ -152,7 +173,7 @@ slides:
       - icon: Leg
         label: Si hay duda
         text: Marque LEGAL? en el mapa y pida mentor; deténgase ante asesoría legal formal.
-    notes: "[16/17 · key-facts]"
+    notes: "[19/21 · key-facts]"
   - type: contact
     title: La mesa del Datatón atiende dudas operativas por el canal genérico de CleantechHUB
     people:
@@ -164,7 +185,7 @@ slides:
         url: https://cleantechhub.net
       - kind: wiki.cleantechhub.net
         url: https://wiki.cleantechhub.net
-    notes: "[17/17 · contact]"
+    notes: "[20/21 · contact]"
   - type: closing
     text: "Inspira. Actúa. Transforma."
-    notes: "[18/18 · closing]"
+    notes: "[21/21 · closing]"

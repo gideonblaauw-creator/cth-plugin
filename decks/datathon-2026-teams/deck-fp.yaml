@@ -38,6 +38,12 @@ slides:
     bg: assets/photos/canva-g7-crop.jpg
     takeaway: Empiece por VP1 — el mapa de calor solo colorea bloques ligados a propuestas de valor.
     photo_scrim: light
+  - render_as: living-lab-l1
+    kicker: Sandbox de aire · L1
+  - render_as: living-lab-l2
+    kicker: Sandbox de aire · L2
+  - render_as: living-lab-l3
+    kicker: Sandbox de aire · L3
   - kicker: Ejemplo · piloto Air4U
     takeaway: Mañana es entrada abierta — esto no es la escalera todavía.
     source: Paquete de equipo Datatón (ES)

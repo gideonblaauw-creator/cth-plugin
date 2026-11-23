@@ -77,6 +77,27 @@ slides:
     text: The Air4U BMC (illustrative — not filled in by the company) cites indoor sensors, pitch sales data, and marketplace reviews. Air4U may be named; the pilot clinic stays anonymous.
     takeaway: Start from VP1 — the heatmap only colours blocks linked to value propositions.
     link: "Datathon team pack (EN/ES)"
+  - type: showcase
+    kicker: Open-air sandbox · L1
+    title: Layer L1 anchors Bogotá open data on the RMCAB baseline
+    text: "Layer L1 — open baseline: 19 RMCAB (SDA) stations with hourly PM₂.₅, O₃ and PM₁₀, plus 1 SISAIRE reference pin (Mochuelo). PM₂.₅ ICA colour scale (Res. 2254/2017) on the map."
+    images:
+      - assets/datalab-living-lab-l1-map.png
+    link: "Source: SDA RMCAB + IDEAM SISAIRE, snapshot 4 Oct 2026 · CTH Datalab living lab"
+  - type: showcase
+    kicker: Open-air sandbox · L2
+    title: Layer L2 shows the client baseline structure without passing placeholders off as real data
+    text: "Layer L2 — client proprietary context: site, indoor/outdoor PM₂.₅ vs nearest RMCAB station. Example slots (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
+    images:
+      - assets/method-flow.svg
+    link: "lab-data.js (4 Oct 2026) · Air4U datathon workshop (cth-datalab, if available)"
+  - type: showcase
+    kicker: Open-air sandbox · L3
+    title: Layer L3 describes the innovator delta before a real Air4U feed exists
+    text: "Layer L3 — Air4U measurement: site-level resolution, before/after comparison, and delta/ROI gate on top of L1 and L2."
+    images:
+      - assets/method-flow.svg
+    link: "lab-data.js (4 Oct 2026) · Air4U feed pending"
   - type: case-cards
     kicker: Air4U pilot example
     title: The heatmap places D1 sensors on value propositions under strict scoring
