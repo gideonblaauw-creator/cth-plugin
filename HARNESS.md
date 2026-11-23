@@ -78,7 +78,7 @@ Applies to every Orchestrator, desk, workbench, tool and bot that talks to Gideo
 
 ### GO / NO GO decisions: inline buttons (Gideon 22 Nov 2026)
 
-1. When an Orchestrator, desk, workbench, tool or bot needs a GO or NO GO (or any HITL approval) from Gideon, it MUST ask with a SendToUser widget (`type: widget`) with clickable options. Do not ask in prose only.
+1. When an Orchestrator, desk, workbench, tool or bot needs a GO or NO GO (or any HITL approval) from Gideon, it MUST ask with the harness's inline button or widget (Grok Bot: SendToUser `type: widget`) with clickable options. Do not ask in prose only.
 2. Use one decision per widget. Write the prompt in one line. State what, where, and the consequence (example: `Deploy Datatón teams deck to decks.cleantechhub.net/datathon-2026-teams/?`). Use options **GO** (`style: primary`) and **NO GO**. Add one more real option only when it exists (example **GO with changes**, `allowCustom`). Use `style: danger` for destructive actions.
 3. Send a short text message first with the link or file to review (preview URL, PR, draft card). Send the widget as the last message of the turn.
 4. When several decisions are pending, use one widget with steps (one step per decision). Do not send one long message.

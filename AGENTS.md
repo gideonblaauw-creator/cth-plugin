@@ -27,7 +27,7 @@ Edit skills in `skills/<name>/SKILL.md` (see `CLAUDE.md`). Stubs only need a des
 - **Before promoting a tree, creating a repo, or opening a branch on any app/service/pipeline**, read `skills/app-build/SKILL.md`. Do not create a GitHub repo until Gideon marks the row.
 - **Authoring or reviewing skills**, read `skills/skill-template/SKILL.md` and `skills/skill-template/references/SKILL-TEMPLATE.md`.
 - **Production / client LangGraph agent graphs** use `langgraph-production` (`langgraph: yes` on the ticket). OpenCode is OSS experiments only.
-- **Hands model routing:** **Token budget protocol (22 Oct 2026)** — every Cloud Hands job runs on `composer-2.5` Fast ON. Private residency stays local Ollama `LFM2.5-VL-3B`. Canonical: `docs/hands-model-routing.md`.
+- **Hands model routing:** **Token budget protocol (22 Oct 2026)** — every Cloud Hands job runs on `composer-2.5` with `model_params` `{fast:false}` (Fast OFF, Gideon 17 Nov 2026). Private residency stays local Ollama `LFM2.5-VL-3B`. Canonical: `docs/hands-model-routing.md`.
 - **Wire diagrams, diagramas, diagrama de cables, diagrama de flujo, explainer video, image, or MD from a loose ask:** run `wire-brief` first (STE-80 intake + optional G0 for voice/strategy only), then `diagram-design` (`wire.py`) or `multi-agent-team-report` when the deliverable is a harness team report MD.
 
 ## HITL: GO / NO GO inline buttons
