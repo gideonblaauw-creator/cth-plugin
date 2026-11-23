@@ -39,7 +39,7 @@ slides:
     steps:
       - { label: "Bloque 1", text: "11:00–12:30." }
       - { label: "Salida", text: "Flujos elegidos." }
-      - { label: "Puerta", text: "Sin mapa no avanza." }
+      - { label: "Puerta", text: "1-2 flujos elegidos al cierre Bloque 1." }
   - type: key-facts
     title: "Paso 4 · Fuentes"
     items:

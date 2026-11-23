@@ -58,3 +58,11 @@ footer .pdf-dl-btn {
     display: none !important;
   }
 }
+
+body.print-pdf .pdf-dl-btn,
+body.print-pdf .pdf-dl-fixed,
+body.print-pdf .pdf-dl-footer,
+.reveal.print-pdf .pdf-dl-btn,
+.reveal.print-pdf .pdf-dl-fixed {
+  display: none !important;
+}

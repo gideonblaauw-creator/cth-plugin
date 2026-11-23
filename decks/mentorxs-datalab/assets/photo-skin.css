@@ -74,6 +74,62 @@ body.print-pdf .fp-kenburns,
   width: auto;
 }
 
+.reveal .fp-cover.fp--photo .fp-cover__title {
+  color: #ffffff !important;
+}
+
+.reveal .fp-cover.fp--photo .fp-cover__sub,
+.reveal .fp-cover.fp--photo .fp-cover__meta {
+  color: #b2eefa !important;
+}
+
+.reveal .fp-focus-stuck .fp-head {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.reveal .fp-stuck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  max-height: 640px;
+  align-content: start;
+}
+
+.reveal .fp-stuck-grid .fp-step {
+  min-height: 0 !important;
+  height: 100%;
+  max-height: 300px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.reveal .fp-stuck-grid .fp-step__body {
+  background: rgba(255, 255, 255, 0.94);
+  border: 3px solid #b2eefa;
+  border-radius: 16px;
+  padding: 18px 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.reveal .fp-stuck-grid .fp-step__head {
+  margin-bottom: 8px;
+}
+
+.reveal .fp-stuck-grid .fp-step__label {
+  font-size: 22px;
+}
+
+.reveal .fp-stuck-grid .fp-step__body p {
+  font-size: 21px;
+  line-height: 1.32;
+}
+
 .reveal .fp-pill--cth {
   background: #0c498a;
   color: #ffffff;
