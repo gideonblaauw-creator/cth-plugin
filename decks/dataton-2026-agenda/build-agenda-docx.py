@@ -6,10 +6,10 @@ import pathlib
 
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Inches, Mm, Pt, RGBColor
+from docx.shared import Inches, Mm, Pt, RGBColor, Twips
 from docx.text.paragraph import Paragraph
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -24,6 +24,8 @@ A4_HEIGHT_EMU = int(Mm(297))
 PAGE_WIDTH_EMU = int(Mm(210))
 HEADER_BAND_CY = int(PAGE_WIDTH_EMU * 288 / 1275)
 FOOTER_BAND_CY = int(PAGE_WIDTH_EMU * 37 / 1275)
+# A4 11906 twip − left/right margins 648 twip each (0.45″)
+TEXT_WIDTH_TWIPS = 10610
 VENUE = "Auditorio del Bloque I, piso 2 · Av. Circunvalar No. 12B-54"
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
@@ -270,18 +272,60 @@ def add_band_paragraph(container, image_path: pathlib.Path, y_emu: int = 0) -> i
     return inline_to_page_anchor(run, x_emu=0, y_emu=y_emu, behind=True)
 
 
-def set_table_indent_zero(table) -> None:
+def _tbl_pr(table):
     tbl_pr = table._tbl.tblPr
     if tbl_pr is None:
         tbl_pr = OxmlElement("w:tblPr")
         table._tbl.insert(0, tbl_pr)
-    old = tbl_pr.find(qn("w:tblInd"))
+    return tbl_pr
+
+
+def zero_cell_margins(cell) -> None:
+    tc_pr = cell._tc.get_or_add_tcPr()
+    old = tc_pr.find(qn("w:tcMar"))
     if old is not None:
-        tbl_pr.remove(old)
+        tc_pr.remove(old)
+    tc_mar = OxmlElement("w:tcMar")
+    for side in ("top", "left", "bottom", "right"):
+        side_el = OxmlElement(f"w:{side}")
+        side_el.set(qn("w:w"), "0")
+        side_el.set(qn("w:type"), "dxa")
+        tc_mar.append(side_el)
+    tc_pr.append(tc_mar)
+
+
+def configure_schedule_table_layout(table, col_widths_twips: tuple[int, int]) -> None:
+    """Left-align table with title block: tblInd 0, jc left, full text width."""
+    tbl_pr = _tbl_pr(table)
+    for tag in ("w:tblInd", "w:jc", "w:tblW", "w:tblCellMar", "w:tblStyle"):
+        old = tbl_pr.find(qn(tag))
+        if old is not None:
+            tbl_pr.remove(old)
     tbl_ind = OxmlElement("w:tblInd")
     tbl_ind.set(qn("w:w"), "0")
     tbl_ind.set(qn("w:type"), "dxa")
     tbl_pr.append(tbl_ind)
+    jc = OxmlElement("w:jc")
+    jc.set(qn("w:val"), "left")
+    tbl_pr.append(jc)
+    tw = OxmlElement("w:tblW")
+    tw.set(qn("w:w"), str(TEXT_WIDTH_TWIPS))
+    tw.set(qn("w:type"), "dxa")
+    tbl_pr.append(tw)
+    tcm = OxmlElement("w:tblCellMar")
+    for side in ("top", "left", "bottom", "right"):
+        side_el = OxmlElement(f"w:{side}")
+        side_el.set(qn("w:w"), "0")
+        side_el.set(qn("w:type"), "dxa")
+        tcm.append(side_el)
+    tbl_pr.append(tcm)
+    grid = table._tbl.tblGrid
+    if grid is not None:
+        for grid_col, w in zip(grid.findall(qn("w:gridCol")), col_widths_twips):
+            grid_col.set(qn("w:w"), str(w))
+    for row in table.rows:
+        for cell in row.cells:
+            zero_cell_margins(cell)
 
 
 def add_cobrand_color(paragraph) -> None:
@@ -303,9 +347,16 @@ def setup_header_footer(section) -> None:
     add_band_paragraph(header, HEADER_BAND, y_emu=0)
     band_pt = HEADER_BAND_CY / 914400 * 72
 
+    spacer = header.add_paragraph()
+    spacer.paragraph_format.space_before = Pt(0)
+    spacer.paragraph_format.space_after = Pt(0)
+    spacer.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+    spacer.paragraph_format.line_spacing = Pt(band_pt)
+    set_paragraph_mark_font(spacer, 9)
+
     lp = header.add_paragraph()
     lp.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    lp.paragraph_format.space_before = Pt(max(band_pt * 0.42, 50))
+    lp.paragraph_format.space_before = Pt(4)
     lp.paragraph_format.space_after = Pt(6)
     add_cobrand_color(lp)
     set_paragraph_mark_font(lp, 9)
@@ -370,11 +421,13 @@ def build() -> None:
     r = p.add_run(VENUE)
     set_run_font(r, 9, bold=False, color=NAVY)
 
+    head_col0 = int(Inches(3.2).twips)
+    head_col1 = TEXT_WIDTH_TWIPS - head_col0
     head = doc.add_table(rows=1, cols=2)
-    head.alignment = WD_TABLE_ALIGNMENT.CENTER
+    head.alignment = WD_TABLE_ALIGNMENT.LEFT
     head.autofit = False
     head.columns[0].width = Inches(3.2)
-    head.columns[1].width = Inches(3.0)
+    head.columns[1].width = Twips(head_col1)
     c0, c1 = head.rows[0].cells
     for cell in (c0, c1):
         set_paragraph_mark_font(cell.paragraphs[0], 9)
@@ -384,14 +437,16 @@ def build() -> None:
     r1 = c1.paragraphs[0].add_run("HORARIOS ORIENTATIVOS")
     set_run_font(r1, 9, bold=True, color=GREEN)
     set_cell_bottom_border(head)
-    set_table_indent_zero(head)
+    configure_schedule_table_layout(head, (head_col0, head_col1))
 
+    sched_col0 = int(Inches(0.72).twips)
+    sched_col1 = TEXT_WIDTH_TWIPS - sched_col0
     table = doc.add_table(rows=1 + len(ROWS), cols=2)
-    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+    table.alignment = WD_TABLE_ALIGNMENT.LEFT
     table.autofit = False
     table.columns[0].width = Inches(0.72)
-    table.columns[1].width = Inches(5.48)
-    set_table_indent_zero(table)
+    table.columns[1].width = Twips(sched_col1)
+    configure_schedule_table_layout(table, (sched_col0, sched_col1))
 
     hdr = table.rows[0].cells
     set_cell_shading(hdr[0], "0C498A")
