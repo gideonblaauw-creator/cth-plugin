@@ -40,10 +40,18 @@ slides:
     photo_scrim: light
   - render_as: living-lab-l1
     kicker: Sandbox de aire · L1
+    text: "Panorama de datos abiertos del Datalab: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más referencia SISAIRE en Mochuelo. Colores ICA PM₂.₅ según Res. 2254/2017."
+    images:
+      - assets/datalab-living-lab-l1-map-cropped.png
+    link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab"
   - render_as: living-lab-l2
     kicker: Sandbox de aire · L2
+    text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ranuras de ejemplo ilustrativo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
+    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
   - render_as: living-lab-l3
     kicker: Sandbox de aire · L3
+    text: "Delta del innovador sobre L1 y L2: sensores por sitio, comparación antes/después y compuerta delta/ROI antes de decidir en el tablero."
+    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
   - kicker: Ejemplo · piloto Air4U
     takeaway: Mañana es entrada abierta — esto no es la escalera todavía.
     source: Paquete de equipo Datatón (ES)

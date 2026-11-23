@@ -18,7 +18,36 @@ function foot(dark) {
   return `<footer class="${cls}">
     <span class="l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
     <span class="l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+    <div class="pdf-dl-footer">
+      <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+      <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+    </div>
   </footer>`;
+}
+
+const ICA_BANDS = [
+  { range: "0–12", es: "Buena", en: "Good", color: "#00e400" },
+  { range: "13–37", es: "Aceptable", en: "Acceptable", color: "#ffff00" },
+  { range: "38–55", es: "Dañina a grupos sensibles", en: "Harmful to sensitive groups", color: "#ff7e00" },
+  { range: "56–150", es: "Dañina", en: "Harmful", color: "#ff0000" },
+  { range: "151–250", es: "Muy dañina", en: "Very harmful", color: "#8f3f97" },
+  { range: "251–500", es: "Peligrosa", en: "Hazardous", color: "#7e0023" },
+];
+
+function renderIcaLegend() {
+  const rows = ICA_BANDS.map(
+    (b, i) =>
+      `<li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--${i}"></span>` +
+      `<span class="fp-living-lab-l1__ica-range">${esc(b.range)}</span>` +
+      `<span class="fp-living-lab-l1__ica-label">${T(b.es, b.en)}</span></li>`
+  ).join("");
+  return `<div class="fp-living-lab-l1__ica" aria-label="ICA PM2.5">
+    <p class="fp-living-lab-l1__ica-title">${T(
+      "ICA PM₂.₅ · Res. 2254/2017",
+      "PM₂.₅ ICA · Res. 2254/2017"
+    )}</p>
+    <ul class="fp-living-lab-l1__ica-list">${rows}</ul>
+  </div>`;
 }
 
 function esc(s) {
@@ -145,7 +174,7 @@ function sourceLine(s, sEn) {
   const line = s.source || s.link;
   const lineEn = sEn?.source || sEn?.link || line;
   if (!line) return "";
-  return `<p class="cth-source fp-source">${T(line, lineEn)}</p>`;
+  return `<p class="cth-source">\u00a0${T(line, lineEn)}</p>`;
 }
 
 function takeaway(s, sEn) {
@@ -474,10 +503,6 @@ function renderLivingLabL1(s, sEn) {
     "Valores provisionales, no validados por la SDA.",
     "Provisional values, not SDA-validated."
   );
-  const ica = pick(
-    "Escala ICA PM₂.₅ (Res. 2254/2017) en el mapa.",
-    "PM₂.₅ ICA scale (Res. 2254/2017) on the map."
-  );
   const mochLine = moch
     ? pick(
         `Mochuelo: referencia SISAIRE 2024 PM₂.₅ = ${moch.sisaire2024.pm25_24h_annual_mean} µg/m³ (promedio anual, sin lectura horaria).`,
@@ -485,9 +510,9 @@ function renderLivingLabL1(s, sEn) {
       )
     : pick("Mochuelo: sin dato.", "Mochuelo: no data.");
   const shot = img
-    ? `<div class="fp-living-lab-l1__map-card">${`<img class="fp-living-lab-l1__img" src="${esc(img)}" alt="" />`}</div>`
+    ? `<div class="fp-living-lab-l1__map-card"><img class="fp-living-lab-l1__img" src="${esc(img)}" alt="" />${renderIcaLegend()}</div>`
     : "";
-  return `${sectionOpen("fp-chart-proof fp-living-lab fp-living-lab--l1", "living-lab-l1")}
+  return `${sectionOpen("fp-chart-proof fp-living-lab fp-living-lab--l1", "map")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-living-lab-l1">
     <p class="fp-cp__cap fp-living-lab-l1__intro">${T(s.text, sEn.text)}</p>
@@ -498,7 +523,6 @@ function renderLivingLabL1(s, sEn) {
         ${renderLabTablePair(headers, rows)}
         <div class="fp-living-lab-l1__notes">
           <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
-          <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(ica.es, ica.en)}</p>
           <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(mochLine.es, mochLine.en)}</p>
         </div>
       </div>
@@ -573,7 +597,7 @@ function renderLivingLabL2(s, sEn) {
       ),
     },
   ];
-  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l2", "living-lab-l2")}
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l2", "data-table")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-living-lab__body">
     <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
@@ -598,7 +622,11 @@ function renderLivingLabL3(s, sEn) {
   ];
   const rows = sensors.map((sen) => [
     pick(sen.id, sen.id),
-    pick(sen.site, sen.site),
+    sen.site === "ramo"
+      ? pick("Ramo (ejemplo ilustrativo)", "Ramo (illustrative example)")
+      : sen.site === "bolivar"
+        ? pick("Bolívar (ejemplo ilustrativo)", "Bolívar (illustrative example)")
+        : pick(sen.site, sen.site),
     pick("sin dato", "no data"),
     pick("sin dato", "no data"),
     pick("pendiente", "pending"),
@@ -627,7 +655,7 @@ function renderLivingLabL3(s, sEn) {
       ),
     },
   ];
-  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l3", "living-lab-l3")}
+  return `${sectionOpen("fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l3", "data-table")}
   ${head(s.title, s.kicker, sEn.title, sEn.kicker)}
   <div class="fp-body fp-living-lab__body">
     <p class="fp-cp__cap fp-living-lab__lead">${T(s.text, sEn.text)}</p>
@@ -835,6 +863,7 @@ async function main() {
   <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
   <link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />
   <link rel="stylesheet" href="assets/deck.css" />
+  <link rel="stylesheet" href="assets/pdf-download.css" />
 </head>
 <body data-lang="es">
   <div class="lang-toggle" role="group" aria-label="Idioma / Language">
@@ -846,6 +875,8 @@ async function main() {
       ${sections.join("\n      ")}
     </div>
   </div>
+  <a class="pdf-dl-btn pdf-dl-fixed l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf" aria-label="Descargar PDF">Descargar PDF</a>
+  <a class="pdf-dl-btn pdf-dl-fixed l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf" aria-label="Download PDF">Download PDF</a>
   <script src="reveal.js/dist/reveal.js"></script>
   <script>
     Reveal.initialize({ hash: true, slideNumber: "c/t", width: 1920, height: 1080, margin: 0, center: false, transition: "fade" });

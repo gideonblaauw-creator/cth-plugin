@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CTH Living Lab · environment skeleton v2 · 4 Oct 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root{--deep:#0C498A;--cyan:#B2EEFA;--lgreen:#9DC384;--fgreen:#669348;--sky:#69B5FA;--g1:#f5f7fa;--g2:#e3e8ee;--g3:#9aa5b1;--g4:#5b6773}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:'Open Sans',Arial,sans-serif;color:var(--deep);font-size:12.5px}
+body{display:grid;grid-template-rows:auto auto 1fr;height:100vh;overflow:hidden}
+header{background:var(--deep);color:#fff;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+header h1{margin:0;font-size:17px;font-weight:800;letter-spacing:.2px}
+header .sub{color:var(--cyan);font-size:11px;margin-top:1px}
+header .meta{display:flex;gap:8px;align-items:center;font-size:11px}
+.chip{display:inline-block;border-radius:20px;padding:2px 9px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.chip.real{background:var(--fgreen);color:#fff}.chip.ex{background:#fff;color:var(--deep);border:1.5px dashed var(--sky)}
+.chip.ver{background:var(--cyan);color:var(--deep)}.chip.lock{background:var(--g2);color:var(--g4)}
+.rule{background:var(--lgreen);color:var(--deep);padding:6px 16px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--fgreen)}
+.rule .tag{background:var(--deep);color:#fff;border-radius:4px;padding:1px 7px;font-size:10.5px;font-weight:800;letter-spacing:.5px}
+main{display:grid;grid-template-columns:292px 1fr 372px;min-height:0}
+aside{overflow-y:auto;background:var(--g1);padding:10px 10px 18px;border-right:1px solid var(--g2)}
+aside.right{border-right:0;border-left:1px solid var(--g2)}
+.card{background:#fff;border:1px solid var(--g2);border-radius:8px;padding:9px 10px;margin-bottom:9px}
+.card h3{margin:0 0 6px;font-size:12.5px;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.card h3 small{font-weight:600;color:var(--g4);font-size:10.5px}
+.muted{color:var(--g4);font-size:11px;line-height:1.4}
+label.row{display:flex;align-items:center;gap:7px;margin:3px 0;cursor:pointer}
+label.row.locked{color:var(--g3);cursor:not-allowed}
+select,input[type=number],input[type=text]{font-family:inherit;font-size:12px;color:var(--deep);border:1px solid var(--g2);border-radius:5px;padding:4px 6px;width:100%;background:#fff}
+button{font-family:inherit;font-size:11.5px;font-weight:700;border-radius:5px;border:1.5px solid var(--deep);background:#fff;color:var(--deep);padding:4px 9px;cursor:pointer}
+button.primary{background:var(--deep);color:#fff}
+button.go{background:var(--fgreen);border-color:var(--fgreen);color:#fff}
+button.active{background:var(--cyan)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.seg{display:flex;gap:4px;flex-wrap:wrap}
+.lyr-ico{width:16px;height:16px;flex:0 0 16px}
+#map{height:100%;width:100%}
+.mapwrap{position:relative;min-height:0}
+.databand{position:absolute;top:10px;left:54px;z-index:800;background:#fff;border:1.5px solid var(--deep);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.15);white-space:nowrap}
+.databand b{color:var(--fgreen)}.databand i{font-style:normal;color:var(--deep);background:var(--cyan);padding:0 4px;border-radius:3px}
+.envleg{position:absolute;left:10px;bottom:22px;z-index:800;background:#fff;border:1px solid var(--g2);border-radius:8px;padding:7px 9px;width:228px;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.envleg h4{margin:0 0 4px;font-size:11px;font-weight:800}
+.env{display:flex;gap:6px;align-items:center;font-size:10.5px;padding:2px 4px;border-radius:4px;margin:1px 0}
+.env .n{background:var(--deep);color:#fff;border-radius:50%;width:15px;height:15px;font-size:9.5px;text-align:center;line-height:15px;flex:0 0 15px}
+.env.hl{background:#eef7e8;border:1.5px solid var(--fgreen);font-weight:700}.env.hl .n{background:var(--fgreen)}
+.scaleleg{position:absolute;right:10px;bottom:22px;z-index:800;background:#fff;border:1px solid var(--g2);border-radius:8px;padding:7px 9px;width:236px;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.scaleleg h4{margin:0 0 4px;font-size:11px;font-weight:800}
+.band{display:flex;align-items:center;gap:6px;font-size:10.5px;margin:1px 0}
+.band span.sw{width:22px;height:10px;border-radius:2px;border:1px solid rgba(0,0,0,.2)}
+.shapes{display:flex;gap:10px;margin-top:5px;font-size:10.5px;align-items:center;flex-wrap:wrap}
+.delta{background:var(--deep);color:#fff;border:0}
+.delta h3{color:#fff}.delta h3 small{color:var(--cyan)}
+.delta .big{font-size:26px;font-weight:800;line-height:1.1}
+.delta .big.pos{color:#ffd3a3}.delta .big.neg{color:var(--lgreen)}
+.delta .kv{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.delta .kv div{background:rgba(255,255,255,.08);border-radius:6px;padding:6px 7px}
+.delta .kv b{display:block;font-size:17px}
+.delta .kv span{font-size:10.5px;color:var(--cyan)}
+.delta .note{font-size:10.5px;color:var(--cyan);margin-top:6px;line-height:1.35}
+.delta .seg button{border-color:var(--cyan);color:#fff;background:transparent}
+.delta .seg button.active{background:var(--cyan);color:var(--deep)}
+.slider{margin-top:8px}
+.slider input{width:100%}
+.slider .ends{display:flex;justify-content:space-between;font-size:10.5px;color:var(--cyan)}
+.steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:20px 1fr auto;gap:6px;align-items:center;padding:4px 0;border-bottom:1px dashed var(--g2);font-size:11.5px}
+.steps li:before{counter-increment:s;content:counter(s);background:var(--deep);color:#fff;border-radius:50%;width:18px;height:18px;text-align:center;line-height:18px;font-size:10px}
+.steps li small{display:block;color:var(--g4);font-size:10.5px}
+.st{cursor:pointer;border-radius:12px;padding:1px 8px;font-size:10px;font-weight:700;border:1px solid var(--g3);color:var(--g4);background:#fff;white-space:nowrap}
+.st.inprog{border-color:var(--sky);background:var(--cyan);color:var(--deep)}
+.st.done{border-color:var(--fgreen);background:var(--fgreen);color:#fff}
+table.prov{width:100%;border-collapse:collapse;font-size:10.5px}
+table.prov td,table.prov th{border-bottom:1px solid var(--g2);padding:3px 3px;text-align:left;vertical-align:top}
+table.prov th{font-weight:800;color:var(--g4)}
+.log{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10px;background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:5px;max-height:120px;overflow-y:auto;white-space:pre-wrap;color:var(--g4)}
+.ok{color:var(--fgreen);font-weight:700}.warn{color:#b35c00;font-weight:700}
+.site{border:1px solid var(--g2);border-radius:6px;padding:5px 7px;margin:4px 0;display:grid;grid-template-columns:1fr auto;gap:4px;align-items:center}
+.site b{font-size:12px}.site .pos{font-size:10.5px;color:var(--g4)}
+.site.sel{border-color:var(--deep);background:#f0f8ff}
+.pin{background:var(--deep);color:#fff;border:2px solid #fff;border-radius:12px 12px 12px 0;padding:2px 7px;font-size:11px;font-weight:800;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.35);transform:translate(0,-100%)}
+.pin.tbd{background:var(--g4)}
+.leaflet-popup-content{font-family:'Open Sans',Arial,sans-serif;font-size:12px;color:var(--deep);margin:10px 12px;min-width:240px}
+.pop h4{margin:0 0 4px;font-size:13px;font-weight:800}
+.pop table{border-collapse:collapse;width:100%}.pop td{padding:1px 0;vertical-align:top}.pop td:first-child{color:var(--g4);padding-right:8px;white-space:nowrap}
+.pop .ex{background:#fff4e5;border:1px dashed #b35c00;color:#7a3f00;font-size:10.5px;padding:2px 5px;border-radius:4px;margin:4px 0;font-weight:700}
+.pop .flag{color:#b00020;font-weight:700}
+.crosshair .leaflet-container{cursor:crosshair}
+.osm-grey{filter:grayscale(1) contrast(.85) brightness(1.08)}
+.modal-bg{position:fixed;inset:0;background:rgba(12,73,138,.45);z-index:2000;display:none;align-items:center;justify-content:center}
+.modal{background:#fff;border-radius:10px;width:min(980px,94vw);max-height:92vh;overflow:auto;padding:16px 18px;border-top:6px solid var(--deep)}
+.modal h2{margin:0;font-size:18px;font-weight:800}
+.modal .copy{background:var(--cyan);border-radius:6px;padding:7px 10px;font-weight:700;margin:8px 0}
+.roi-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px}
+.inp{display:grid;grid-template-columns:1fr 130px;gap:6px;align-items:center;margin:3px 0;font-size:11.5px}
+.inp small{display:block;color:#b35c00;font-size:9.5px;font-weight:700}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;background:var(--g1);border:1px solid var(--g2);border-radius:6px;padding:8px;white-space:pre-wrap;line-height:1.5}
+.verdict{border-radius:8px;padding:10px 12px;font-size:15px;font-weight:800;margin-top:8px}
+.verdict.go{background:var(--fgreen);color:#fff}.verdict.hold{background:var(--g2);color:var(--deep);border:2px dashed var(--deep)}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.out div{background:var(--g1);border:1px solid var(--g2);border-radius:6px;padding:6px 8px}.out b{display:block;font-size:15px}
+.checks{font-size:11.5px;margin-top:6px}.checks div{margin:2px 0}
+.inspired{font-size:10.5px;color:var(--g4);border-left:3px solid var(--sky);padding-left:6px;margin-top:6px}
+</style></head>
+<body>
+<header>
+  <div><h1>CTH Living Lab · environment skeleton v2</h1>
+  <div class="sub">CleantechHUB × Universidad Externado · Bogotá air-quality proving ground · Data → Logic → Access · internal draft 4 Oct 2026</div></div>
+  <div class="meta"><span class="chip ver" id="hdrVersion">dataset —</span><span class="chip real">L1 baseline: REAL (provisional)</span><span class="chip ex">L2 / L3: EXAMPLE — not measured</span></div>
+</header>
+<div class="rule" id="ruleBanner"><span class="tag">RULE</span>The living lab is never a system of record — it's a proving ground. Anything that earns its place graduates into the client product as a packaged output.</div>
+<main>
+<aside class="left">
+  <div class="card"><h3>Access layer <small>who is looking?</small></h3>
+    <select id="roleSel"></select>
+    <div class="muted" id="roleDesc" style="margin-top:5px"></div>
+  </div>
+  <div class="card"><h3>Logic layer <small>experiment</small></h3>
+    <select id="expSel"></select>
+    <div class="muted" id="expDesc" style="margin-top:5px"></div>
+    <div class="muted" style="margin-top:5px"><b>Processors:</b> <span id="expProcs"></span></div>
+    <div style="margin-top:6px" id="integrity" class="muted"></div>
+    <div class="seg" style="margin-top:6px"><button id="btnRerun">Re-run experiment</button><button id="btnWriteTest" title="Tries to overwrite a baseline value; the data layer must refuse">Test write-protection</button></div>
+  </div>
+  <div class="card"><h3>Data layers <small>stack / toggle</small></h3>
+    <div id="layerToggles"></div>
+    <div class="muted" style="margin-top:4px">Same PM2.5 colour scale on all three layers. Locked = not in this role's lane.</div>
+  </div>
+  <div class="card"><h3>Candidate client sites <small>drag or drop</small></h3>
+    <div id="siteList"></div>
+    <div class="muted" id="dropHint">Positions are illustrative, not verified site addresses. Drag a pin, or click “Drop pin” then click the map.</div>
+  </div>
+  <div class="card"><h3>Candidate demo company profiles <small>context only</small></h3>
+    <div class="muted"><b style="color:#0C498A">Ladrillera La Campana</b> (brick) — 2024 stack test: PM 108 · SO2 27 · NOx 130 mg/m³.<br>
+    <b style="color:#0C498A">Diaco S.A.</b> (steel, EAF) — 2023: 100% of atmospheric emissions under the legal limit.<br>
+    Per company sustainability report via CTH BookStack (not re-verified in this file). Stack emissions (mg/m³) are not ambient PM2.5 (µg/m³) and are not plotted. No site pins.</div>
+  </div>
+  <div class="card"><h3>Activity log <small>this session only</small></h3><div class="log" id="log"></div></div>
+</aside>
+<div class="mapwrap">
+  <div id="map"></div>
+  <div class="databand" id="databand"></div>
+  <div class="envleg"><h4>Four environments</h4>
+    <div class="env"><span class="n">1</span>Datalab · strategy, no data</div>
+    <div class="env"><span class="n">2</span>Datathon · ephemeral snapshot</div>
+    <div class="env"><span class="n">3</span>Client product · read-only from lab</div>
+    <div class="env hl"><span class="n">4</span>Living lab · persistent ← you are here</div>
+  </div>
+  <div class="scaleleg"><h4>PM2.5 µg/m³ · ICA bands (Res. 2254/2017)</h4><div id="bands"></div>
+    <div class="muted" style="font-size:9.5px;margin-top:3px">Bands are defined for 24-h means; hourly values are coloured on the same bands for display only. Grey = no valid reading.</div>
+    <div class="shapes"><span>●&nbsp;L1 baseline</span><span>■&nbsp;L2 client</span><span>▲&nbsp;L3 startup</span><span style="color:#b00020">○ red ring = logic flag</span><span>◌ dashed = reference-only</span></div>
+  </div>
+</div>
+<aside class="right">
+  <div class="card delta" id="deltaCard"></div>
+  <div class="card" id="roiCard"><h3>ROI gate <small>decide before atoms</small></h3>
+    <div class="muted">Numbers first, atoms second: the intervention is justified by the measured delta, not the other way round.</div>
+    <div style="margin-top:6px"><button class="primary" id="btnROI">Open ROI gate →</button> <span class="muted" id="roiMini"></span></div>
+  </div>
+  <div class="card" id="residencyCard"></div>
+  <div class="card"><h3>Provenance <small>owner · timestamp · source</small></h3><div id="prov"></div></div>
+  <div class="card" id="anomCard"><h3>Logic output <small>derived view only</small></h3><div id="anom" class="muted"></div></div>
+  <div class="card"><h3>About this file</h3><div class="muted" id="about"></div></div>
+</aside>
+</main>
+<div class="modal-bg" id="roiModal"><div class="modal" id="roiBody"></div></div>
+
+<script>
+'use strict';
+/* =====================================================================
+   RAW INPUTS (inlined so the file works from file://)
+   ===================================================================== */
+const RAW_BASELINE = {
+  datasetId: 'cth-ll-baseline-bogota',
+  version: 'v2026.10.04-01',
+  snapshotHour: '2026-10-04T09:00:00-05:00',
+  retrievedAt: '2026-10-04T09:36:23-05:00',
+  status: 'REAL — provisional real-time hourly data as published by RMCAB (not yet validated by SDA)',
+  sources: [
+    {lane:'L1 live hourly', owner:'Secretaría Distrital de Ambiente (SDA) — Red de Monitoreo de Calidad del Aire de Bogotá (RMCAB)',
+     url:'http://rmcab.ambientebogota.gov.co/ajax/getAllStations/', page:'http://rmcab.ambientebogota.gov.co/home/map',
+     note:'Public endpoint behind the RMCAB map page (no login). Station names, coordinates, PM2.5 (µg/m³), O3 (ppb), PM10, hour label 2026-10-04 09:00.'},
+    {lane:'L1 reference (annual)', owner:'IDEAM — SISAIRE, “Calidad del Aire en Colombia (Promedio Anual)”, datos.gov.co kekd-7v7h',
+     url:'https://www.datos.gov.co/resource/kekd-7v7h.json', page:'https://www.datos.gov.co/d/kekd-7v7h',
+     note:'2024 annual means: PM2.5 (24-h basis) and O3 (8-h basis), µg/m³. Used as each station’s historical reference in the anomaly processor.'}
+  ],
+  stations: [
+ {
+  "id": "RMCAB-01",
+  "rmcabSerial": 1,
+  "name": "Usaquén",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.71035,
+  "lon": -74.030417,
+  "address": "TV-9 No 133-95",
+  "pm25": 2.2,
+  "o3_ppb": null,
+  "pm10": 14.6,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "USAQUÉN",
+   "pm25_24h_annual_mean": 12.2,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 40.3
+  }
+ },
+ {
+  "id": "RMCAB-03",
+  "rmcabSerial": 3,
+  "name": "Carvajal - Sevillana",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.595833,
+  "lon": -74.1485,
+  "address": "Auto Sur No 61-40",
+  "pm25": 19.9,
+  "o3_ppb": null,
+  "pm10": null,
+  "o3_monitored": false,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "CARVAJAL - SEVILLANA",
+   "pm25_24h_annual_mean": 33.3,
+   "pm25_repr_pct": 96.0,
+   "o3_8h_annual_mean_ugm3": null
+  }
+ },
+ {
+  "id": "RMCAB-04",
+  "rmcabSerial": 4,
+  "name": "Tunal",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.57619,
+  "lon": -74.13093,
+  "address": "Carrera 24 N° 49-86 sur",
+  "pm25": 7.0,
+  "o3_ppb": 16.7,
+  "pm10": 44.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "TUNAL",
+   "pm25_24h_annual_mean": 17.2,
+   "pm25_repr_pct": 95.0,
+   "o3_8h_annual_mean_ugm3": 30.3
+  }
+ },
+ {
+  "id": "RMCAB-05",
+  "rmcabSerial": 5,
+  "name": "Centro de Alto Rendimiento",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.658333,
+  "lon": -74.083889,
+  "address": "Cl 63 No 47-06",
+  "pm25": 19.1,
+  "o3_ppb": 16.0,
+  "pm10": 16.1,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "C. ALTO RENDIMIENTO",
+   "pm25_24h_annual_mean": 13.4,
+   "pm25_repr_pct": 96.0,
+   "o3_8h_annual_mean_ugm3": 29.2
+  }
+ },
+ {
+  "id": "RMCAB-06",
+  "rmcabSerial": 6,
+  "name": "Las Ferias",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.6907,
+  "lon": -74.082483,
+  "address": "AV Calle 80 N° 69Q - 50",
+  "pm25": 11.0,
+  "o3_ppb": 18.6,
+  "pm10": 21.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "LAS FERIAS",
+   "pm25_24h_annual_mean": 16.3,
+   "pm25_repr_pct": 91.0,
+   "o3_8h_annual_mean_ugm3": 29.8
+  }
+ },
+ {
+  "id": "RMCAB-08",
+  "rmcabSerial": 8,
+  "name": "Guaymaral",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.78375,
+  "lon": -74.044139,
+  "address": "Auto Norte KM 13",
+  "pm25": 11.0,
+  "o3_ppb": 13.2,
+  "pm10": 31.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "GUAYMARAL",
+   "pm25_24h_annual_mean": 15.1,
+   "pm25_repr_pct": 95.0,
+   "o3_8h_annual_mean_ugm3": 20.6
+  }
+ },
+ {
+  "id": "RMCAB-09",
+  "rmcabSerial": 9,
+  "name": "Kennedy",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.62505,
+  "lon": -74.161333,
+  "address": "Cr 86 No 40-55 Sur",
+  "pm25": 22.2,
+  "o3_ppb": 6.3,
+  "pm10": 50.2,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "KENNEDY",
+   "pm25_24h_annual_mean": 19.5,
+   "pm25_repr_pct": 94.0,
+   "o3_8h_annual_mean_ugm3": 23.1
+  }
+ },
+ {
+  "id": "RMCAB-11",
+  "rmcabSerial": 11,
+  "name": "Suba",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.761247,
+  "lon": -74.093461,
+  "address": "Ave Corpas Km 13 / KR 111 157-45",
+  "pm25": 15.0,
+  "o3_ppb": 11.2,
+  "pm10": 53.8,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "SUBA",
+   "pm25_24h_annual_mean": 16.7,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 27.7
+  }
+ },
+ {
+  "id": "RMCAB-13",
+  "rmcabSerial": 13,
+  "name": "Puente Aranda",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.631767,
+  "lon": -74.117483,
+  "address": "Cr 65 No 10-95",
+  "pm25": 5.7,
+  "o3_ppb": 4.6,
+  "pm10": 30.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "PUENTE ARANDA",
+   "pm25_24h_annual_mean": 15.1,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 20.5
+  }
+ },
+ {
+  "id": "RMCAB-17",
+  "rmcabSerial": 17,
+  "name": "MinAmbiente",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.625486,
+  "lon": -74.066981,
+  "address": "CL 37 No. 8 - 40",
+  "pm25": 14.0,
+  "o3_ppb": 13.1,
+  "pm10": 20.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "MINAMBIENTE",
+   "pm25_24h_annual_mean": 15.6,
+   "pm25_repr_pct": 97.0,
+   "o3_8h_annual_mean_ugm3": 28.1
+  }
+ },
+ {
+  "id": "RMCAB-24",
+  "rmcabSerial": 24,
+  "name": "San Cristóbal",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.572553,
+  "lon": -74.083814,
+  "address": "Carrera 2 Este No. 12-78 Sur",
+  "pm25": 9.0,
+  "o3_ppb": 10.9,
+  "pm10": 29.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "SAN CRISTÓBAL",
+   "pm25_24h_annual_mean": 12.8,
+   "pm25_repr_pct": 97.0,
+   "o3_8h_annual_mean_ugm3": 22.5
+  }
+ },
+ {
+  "id": "RMCAB-26",
+  "rmcabSerial": 26,
+  "name": "Móvil 7ma",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.645,
+  "lon": -74.061556,
+  "address": "AV boyaca calle 63",
+  "pm25": 9.1,
+  "o3_ppb": null,
+  "pm10": 22.1,
+  "o3_monitored": false,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "MÓVIL 7MA",
+   "pm25_24h_annual_mean": 14.7,
+   "pm25_repr_pct": 98.0,
+   "o3_8h_annual_mean_ugm3": null
+  }
+ },
+ {
+  "id": "RMCAB-27",
+  "rmcabSerial": 27,
+  "name": "Bolivia",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.735806,
+  "lon": -74.125889,
+  "address": "Avenida Calle 80  # 121-98",
+  "pm25": 7.4,
+  "o3_ppb": 11.3,
+  "pm10": 29.4,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "BOLIVIA",
+   "pm25_24h_annual_mean": 11.4,
+   "pm25_repr_pct": 70.0,
+   "o3_8h_annual_mean_ugm3": 12.5
+  }
+ },
+ {
+  "id": "RMCAB-30",
+  "rmcabSerial": 30,
+  "name": "Fontibón",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.678242,
+  "lon": -74.143819,
+  "address": "KR 96G 17B 49",
+  "pm25": 9.1,
+  "o3_ppb": null,
+  "pm10": 33.2,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "FONTIBÓN",
+   "pm25_24h_annual_mean": 20.7,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 27.8
+  }
+ },
+ {
+  "id": "RMCAB-32",
+  "rmcabSerial": 32,
+  "name": "Usme",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.531206,
+  "lon": -74.111714,
+  "address": "Carrera 11 # 65 D 50 Sur",
+  "pm25": 19.2,
+  "o3_ppb": 23.0,
+  "pm10": 36.0,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "USME",
+   "pm25_24h_annual_mean": 13.7,
+   "pm25_repr_pct": 100.0,
+   "o3_8h_annual_mean_ugm3": 31.1
+  }
+ },
+ {
+  "id": "RMCAB-34",
+  "rmcabSerial": 34,
+  "name": "Jazmín",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.6085,
+  "lon": -74.114944,
+  "address": "Calle 1 G # 41 A 39",
+  "pm25": 15.7,
+  "o3_ppb": 4.0,
+  "pm10": 28.1,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "EL JAZMÍN",
+   "pm25_24h_annual_mean": 16.4,
+   "pm25_repr_pct": 100.0,
+   "o3_8h_annual_mean_ugm3": 26.6
+  }
+ },
+ {
+  "id": "RMCAB-37",
+  "rmcabSerial": 37,
+  "name": "Ciudad Bolívar",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.577806,
+  "lon": -74.166278,
+  "address": "Calle 70 Sur # 56 - 11",
+  "pm25": 18.9,
+  "o3_ppb": 12.4,
+  "pm10": 53.4,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "CIUDAD BOLIVAR",
+   "pm25_24h_annual_mean": 17.4,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 27.6
+  }
+ },
+ {
+  "id": "RMCAB-38",
+  "rmcabSerial": 38,
+  "name": "Colina",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.737194,
+  "lon": -74.069472,
+  "address": "Avenida Boyacá No 142ª-55",
+  "pm25": 11.9,
+  "o3_ppb": 9.8,
+  "pm10": 11.1,
+  "o3_monitored": true,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "COLINA",
+   "pm25_24h_annual_mean": 12.5,
+   "pm25_repr_pct": 99.0,
+   "o3_8h_annual_mean_ugm3": 19.4
+  }
+ },
+ {
+  "id": "RMCAB-39",
+  "rmcabSerial": 39,
+  "name": "Móvil Fontibón",
+  "operator": "SDA",
+  "network": "RMCAB",
+  "lat": 4.668,
+  "lon": -74.1485,
+  "address": "Cra. 98 #16 B 50",
+  "pm25": 28.0,
+  "o3_ppb": null,
+  "pm10": 51.8,
+  "o3_monitored": false,
+  "hour": "2026-10-04 09:00",
+  "sisaire2024": {
+   "stationName": "MÓVIL FONTIBÓN",
+   "pm25_24h_annual_mean": 20.8,
+   "pm25_repr_pct": 96.0,
+   "o3_8h_annual_mean_ugm3": 20.1
+  }
+ },
+ {
+  "id": "CAR-MOCHUELO",
+  "rmcabSerial": null,
+  "name": "Mochuelo",
+  "operator": "CAR",
+  "network": "CAR (via IDEAM SISAIRE)",
+  "lat": 4.530864,
+  "lon": -74.142125,
+  "address": "—",
+  "pm25": null,
+  "o3_ppb": null,
+  "pm10": null,
+  "o3_monitored": false,
+  "hour": null,
+  "sisaire2024": {
+   "stationName": "MOCHUELO",
+   "pm25_24h_annual_mean": 35.7,
+   "pm25_repr_pct": 90.0,
+   "o3_8h_annual_mean_ugm3": null
+  }
+ }
+],
+  notices: {
+    'RMCAB-03': 'RMCAB site notice (4 Oct 2026): Carvajal station data not updating (communication failure) — this value may be stale.',
+    'RMCAB-26': 'RMCAB site notice: the Móvil 7ma PM2.5 monitor has been moved to Puente Aranda — treat this PM2.5 value with caution.',
+    'RMCAB-32': 'Coordinates from the RMCAB feed differ by ~0.6 km from the SDA GIS station layer (4.53206, −74.11714).'
+  },
+  coordCheck: '19 of 19 live stations cross-checked against the SDA GIS layer (mapas.ambientebogota.gov.co … Estacion_calidad_aire/MapServer/0): 18 within 50 m, Usme ~0.6 km apart.'
+};
+
+/* Candidate client sites. Positions are ILLUSTRATIVE (not verified addresses). */
+const RAW_SITES = [
+  {id:'ramo',    label:'Ramo',       lat:4.6555, lon:-74.1245, placed:true},
+  {id:'bolivar', label:'Bolívar',    lat:4.6650, lon:-74.0600, placed:true},
+  {id:'tbd',     label:'Client TBD', lat:null,   lon:null,     placed:false}
+];
+
+/* L2 — client proprietary context data. ALWAYS EXAMPLE placeholders. */
+const RAW_L2 = [
+  {lane:'L2', id:'L2-RAMO-01', site:'ramo', owner:'Ramo (client)', pm25:27.0, ts:'2026-10-04T09:00:00-05:00', example:true,
+   provenance:'EXAMPLE placeholder — client context slot, no real Ramo data received'},
+  {lane:'L2', id:'L2-BOL-01', site:'bolivar', owner:'Bolívar (client)', pm25:16.0, ts:'2026-10-04T09:00:00-05:00', example:true,
+   provenance:'EXAMPLE placeholder — client context slot, no real Bolívar data received'}
+  /* Client TBD: empty slot */
+];
+
+/* L3 — startup proprietary measurement data. ALWAYS EXAMPLE placeholders.
+   raw = uncalibrated low-cost sensor reading; before = pre-intervention period, after = post-intervention period. */
+const RAW_PARTNER_FEEDS = [
+  {partner:'air4u', owner:'Air4U (partner)', status:'slot open · EXAMPLE values', example:true,
+   provenance:'EXAMPLE — Air4U feed slot, no real data yet',
+   sensors:[
+    {id:'A4U-R1', site:'ramo', dLat: 0.0030, dLon:-0.0060, rawBefore:34.2, rawAfter:26.0, ts:'2026-10-04T09:00:00-05:00'},
+    {id:'A4U-R2', site:'ramo', dLat:-0.0045, dLon:-0.0050, rawBefore:31.5, rawAfter:24.3, ts:'2026-10-04T09:00:00-05:00'},
+    {id:'A4U-R3', site:'ramo', dLat:-0.0040, dLon: 0.0060, rawBefore:36.8, rawAfter:27.9, ts:'2026-10-04T09:00:00-05:00'}
+   ]},
+  {partner:'tbd', owner:'Partner TBD', status:'empty slot — awaiting partner onboarding', example:true, provenance:'Empty slot', sensors:[]}
+];
+
+/* =====================================================================
+   DATA LAYER — versioned, timestamped, READ-ONLY
+   ===================================================================== */
+function deepFreeze(o){ if(o && typeof o==='object' && !Object.isFrozen(o)){ Object.freeze(o); Object.getOwnPropertyNames(o).forEach(k=>deepFreeze(o[k])); } return o; }
+function fnv1a(str){ let h=0x811c9dc5; for(let i=0;i<str.length;i++){ h^=str.charCodeAt(i); h=Math.imul(h,0x01000193)>>>0; } return ('00000000'+h.toString(16)).slice(-8); }
+
+const DataLayer = (function(){
+  const baseline = deepFreeze(JSON.parse(JSON.stringify(RAW_BASELINE)));
+  const l2 = deepFreeze(JSON.parse(JSON.stringify(RAW_L2)));
+  const feeds = deepFreeze(JSON.parse(JSON.stringify(RAW_PARTNER_FEEDS)));
+  const fp = () => fnv1a(JSON.stringify(baseline)+JSON.stringify(l2)+JSON.stringify(feeds));
+  const lockedFingerprint = fp();
+  const api = {
+    get version(){ return baseline.version; },
+    get snapshotHour(){ return baseline.snapshotHour; },
+    get retrievedAt(){ return baseline.retrievedAt; },
+    baseline(){ return baseline; },          // frozen object: no setters, writes throw in strict mode
+    clientContext(){ return l2; },
+    partnerFeeds(){ return feeds; },
+    fingerprint: fp,
+    lockedFingerprint
+  };
+  return Object.freeze(api);
+})();
+
+/* =====================================================================
+   LOGIC LAYER — pluggable processors, output = derived view (never mutates data)
+   ===================================================================== */
+const LogicLayer = (function(){
+  const processors = {};
+  let modelHook = null;
+  function register(name, meta, fn){ processors[name] = Object.freeze({name, ...meta, fn}); }
+  function haversine(a,b,c,d){ const R=6371, r=Math.PI/180; const x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2; return 2*R*Math.asin(Math.sqrt(x)); }
+  /* IDW estimate of baseline PM2.5 at a point from the 3 nearest stations with a valid live reading */
+  function baselineAt(lat, lon, stations){
+    const c = stations.filter(s=>s.pm25!=null).map(s=>({s, d:haversine(lat,lon,s.lat,s.lon)})).sort((a,b)=>a.d-b.d).slice(0,3);
+    if(!c.length) return null;
+    if(c[0].d<0.05) return {value:c[0].s.pm25, used:c};
+    let w=0,v=0; c.forEach(x=>{const wi=1/(x.d*x.d); w+=wi; v+=wi*x.s.pm25;});
+    return {value:v/w, used:c};
+  }
+  // ---- processors (each receives an immutable input and returns a NEW view) ----
+  register('calibration.linear', {label:'Calibration — linear factor/offset per sensor (vs reference)',
+    params:{'A4U-R1':{factor:0.82,offset:-0.5},'A4U-R2':{factor:0.85,offset:-0.3},'A4U-R3':{factor:0.80,offset:-0.8}},
+    note:'Coefficients are ILLUSTRATIVE (would come from co-location with an RMCAB reference station, Residency step 4).'},
+    function(view, p){
+      const l3 = view.l3.map(s=>{ const c=p.params[s.id]||{factor:1,offset:0};
+        return {...s, before:+(c.factor*s.rawBefore+c.offset).toFixed(1), after:+(c.factor*s.rawAfter+c.offset).toFixed(1), calibrated:true, cal:c}; });
+      return {...view, l3, log:[...view.log, 'calibration.linear: '+l3.length+' sensor(s) corrected']};
+    });
+  register('anomaly.flags', {label:'Anomaly flags — network z-score, ratio vs 2024 annual mean, missing data',
+    params:{z:2.0, ratio:1.4, sensorVsBaseline:2.0}},
+    function(view, p){
+      const vals = view.stations.filter(s=>s.pm25!=null).map(s=>s.pm25);
+      const mean = vals.reduce((a,b)=>a+b,0)/vals.length;
+      const sd = Math.sqrt(vals.reduce((a,b)=>a+(b-mean)**2,0)/vals.length);
+      const stations = view.stations.map(s=>{ const f=[];
+        if(s.pm25==null && s.hour) f.push('missing PM2.5 this hour');
+        if(s.pm25!=null){ const z=(s.pm25-mean)/sd; if(Math.abs(z)>=p.params.z) f.push('network z-score '+z.toFixed(1));
+          const ref=s.sisaire2024&&s.sisaire2024.pm25_24h_annual_mean; if(ref && s.pm25/ref>=p.params.ratio) f.push((s.pm25/ref).toFixed(2)+'× its 2024 annual mean ('+ref+')'); }
+        if(s.o3_monitored && s.o3_ppb==null && s.hour) f.push('O3 monitored but no valid value this hour');
+        return {...s, flags:[...(s.flags||[]), ...f]}; });
+      const l3 = view.l3.map(x=>{ const b=baselineAt(x.lat,x.lon,view.stations); const v=x.before;
+        const f=(b && v/b.value>=p.params.sensorVsBaseline)?['sensor ≥'+p.params.sensorVsBaseline+'× local baseline (pre-intervention)']:[];
+        return {...x, flags:[...(x.flags||[]), ...f]}; });
+      return {...view, stations, l3, stats:{mean, sd, n:vals.length}, log:[...view.log, 'anomaly.flags: network mean '+mean.toFixed(1)+' sd '+sd.toFixed(1)+' (n='+vals.length+')']};
+    });
+  register('model.hook', {label:'Model hook — stub slot (forecast / exposure / attribution)', params:{},
+    note:'No model attached. Call CTH.LogicLayer.setModelHook(fn) where fn(view) returns a new view.'},
+    function(view){
+      if(typeof modelHook==='function'){ const out = modelHook(view); return {...out, log:[...view.log,'model.hook: custom model applied']}; }
+      return {...view, log:[...view.log,'model.hook: stub — no model attached (view passed through unchanged)']};
+    });
+  function run(experiment, sites){
+    const b = DataLayer.baseline();
+    const sitePos = Object.fromEntries(sites.map(s=>[s.id,s]));
+    // initial derived view: shallow copies, raw L3 values as uncalibrated before/after
+    let view = {
+      stations: b.stations.map(s=>({...s, flags:[]})),
+      l2: DataLayer.clientContext().filter(r=>sitePos[r.site]&&sitePos[r.site].placed).map(r=>({...r, lat:sitePos[r.site].lat-0.0035, lon:sitePos[r.site].lon})),
+      l3: DataLayer.partnerFeeds().flatMap(f=>f.sensors.filter(s=>sitePos[s.site]&&sitePos[s.site].placed).map(s=>({...s, partner:f.partner, owner:f.owner, provenance:f.provenance, example:f.example,
+            lat:sitePos[s.site].lat+s.dLat, lon:sitePos[s.site].lon+s.dLon, before:s.rawBefore, after:s.rawAfter, calibrated:false, flags:[]}))),
+      log:[]
+    };
+    experiment.processors.forEach(n=>{ const p=processors[n]; if(p) view=p.fn(view,p); });
+    return view;
+  }
+  return Object.freeze({register, run, baselineAt, haversine, list:()=>processors, setModelHook:(fn)=>{modelHook=fn;}});
+})();
+
+/* Experiments (swappable). exposes = what each CLIENT may additionally see in this experiment. */
+const EXPERIMENTS = [
+  {id:'EXP-00', name:'EXP-00 · Baseline view (no processing)', processors:[], desc:'Raw open baseline, no processors. Clients see only the baseline plus their own context data.', exposes:{}},
+  {id:'EXP-01', name:'EXP-01 · Residency S1 — Air4U @ Ramo: calibrate + delta', processors:['calibration.linear','anomaly.flags'],
+   desc:'Air4U sensors calibrated against the reference network, then compared to the IDW baseline at the Ramo candidate site. Exposes Air4U lane, delta and ROI gate to Ramo.',
+   exposes:{ramo:['L3','delta','roi']}},
+  {id:'EXP-02', name:'EXP-02 · Network anomaly scan vs SISAIRE 2024', processors:['anomaly.flags'], desc:'Flags stations whose current hour is unusual vs the network or vs their own 2024 annual mean. Nothing extra exposed to clients.', exposes:{}},
+  {id:'EXP-03', name:'EXP-03 · Model hook slot (stub)', processors:['model.hook'], desc:'Shows the plug-in point for a forecast / exposure / attribution model. No model attached.', exposes:{}}
+];
+
+/* =====================================================================
+   ACCESS LAYER — role-based views (filters the derived view)
+   ===================================================================== */
+const AccessLayer = (function(){
+  const ROLES = {
+    cth:     {label:'CTH staff (CleantechHUB)', kind:'staff', desc:'Sees everything: all lanes, all layers, all experiments, ROI gate and residency.'},
+    air4u:   {label:'Partner · Air4U', kind:'partner', partner:'air4u', desc:'Sees only its own lane (L3 Air4U) plus the shared open baseline (L1). No client context data, no ROI.'},
+    ramo:    {label:'Client · Ramo', kind:'client', site:'ramo', desc:'Sees the open baseline (L1), its own context data (L2 Ramo) and only what the active experiment exposes.'},
+    bolivar: {label:'Client · Bolívar', kind:'client', site:'bolivar', desc:'Sees the open baseline (L1), its own context data (L2 Bolívar) and only what the active experiment exposes.'}
+  };
+  function perms(roleId, exp){
+    const r = ROLES[roleId];
+    if(r.kind==='staff') return {layers:{L1:true,L2:true,L3:true}, sites:null, partners:null, delta:true, roi:true, residency:'full', provAll:true};
+    if(r.kind==='partner') return {layers:{L1:true,L2:false,L3:true}, sites:['ramo'], partners:[r.partner], delta:true, roi:false, residency:'full', provAll:false};
+    const ex = (exp.exposes[r.site]||[]);
+    return {layers:{L1:true,L2:true,L3:ex.includes('L3')}, sites:[r.site], partners:ex.includes('L3')?['air4u']:[], l3sites:[r.site], delta:true, deltaL3:ex.includes('L3'), roi:ex.includes('roi'), residency:'summary', provAll:false, l2site:r.site};
+  }
+  function filter(view, roleId, exp){
+    const p = perms(roleId, exp), r = ROLES[roleId];
+    return {
+      perms:p, role:r,
+      stations: view.stations,
+      l2: p.layers.L2 ? view.l2.filter(x=> r.kind==='staff' || x.site===p.l2site) : [],
+      l3: p.layers.L3 ? view.l3.filter(x=> (p.partners==null || p.partners.includes(x.partner)) && (!p.l3sites || p.l3sites.includes(x.site))) : [],
+      log: view.log, stats: view.stats
+    };
+  }
+  return Object.freeze({ROLES, perms, filter});
+})();
+
+/* =====================================================================
+   UI
+   ===================================================================== */
+const ICA = [ {max:12, c:'#00E400', l:'0–12 · Buena'}, {max:37, c:'#FFFF00', l:'13–37 · Aceptable'}, {max:55, c:'#FF7E00', l:'38–55 · Dañina grupos sensibles'},
+  {max:150, c:'#FF0000', l:'56–150 · Dañina'}, {max:250, c:'#8F3F97', l:'151–250 · Muy dañina'}, {max:500, c:'#7E0023', l:'251–500 · Peligrosa'} ];
+function pmColor(v){ if(v==null||isNaN(v)) return '#9aa5b1'; const r=Math.round(v); for(const b of ICA) if(r<=b.max) return b.c; return '#7E0023'; }
+const fmt = (v,d=1)=> v==null||isNaN(v)?'—':(+v).toFixed(d);
+const sgn = (v,d=1)=> v==null||isNaN(v)?'—':(v>0?'+':v<0?'−':'±')+Math.abs(v).toFixed(d);
+const COP = v=> isFinite(v)? 'COP '+Math.round(v).toLocaleString('en-US') : '—';
+const $ = id=>document.getElementById(id);
+
+const state = {
+  role:'cth', exp:'EXP-01', t:0, selSite:'ramo', dropMode:null,
+  layers:{L1:true,L2:true,L3:true},
+  sites: RAW_SITES.map(s=>({...s})),
+  residency:{weeks:12, status:['inprog','done','pending','pending','pending','pending']},
+  view:null, vis:null
+};
+const STEPS = [
+  {t:'Intake & test plan', d:'scope, hypothesis, success metric, consent & data-sharing terms', w:1},
+  {t:'Baseline lock', d:'freeze the open baseline version used for the season', w:1},
+  {t:'Install / measure', d:'deploy startup sensors at the candidate site, collect pre-intervention data', w:2},
+  {t:'Calibrate vs reference station', d:'co-locate with nearest RMCAB station, fit factor/offset', w:2},
+  {t:'Evaluate delta', d:'site vs baseline, before vs after intervention, same colour scale', w:4},
+  {t:'Graduate or remove', d:'earned its place → packaged output in the client product; otherwise removed', w:2}
+];
+function log(msg, cls){ const el=$('log'); const t=new Date().toTimeString().slice(0,8); el.innerHTML = '<div'+(cls?' class="'+cls+'"':'')+'>'+t+'  '+msg+'</div>'+el.innerHTML; console.info('[CTH living lab] '+msg); }
+
+/* ---- map ---- */
+const map = L.map('map',{zoomControl:true, preferCanvas:false}).setView([4.655,-74.105], 12);
+const baseOSM = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19, className:'osm-grey',
+  attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · stations: SDA RMCAB, IDEAM SISAIRE'}).addTo(map);
+const baseEsri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',{maxZoom:16,
+  attribution:'Tiles &copy; Esri — Esri, HERE, Garmin, &copy; OpenStreetMap contributors · stations: SDA RMCAB, IDEAM SISAIRE'});
+L.control.layers({'OpenStreetMap (greyscale)':baseOSM,'Esri Light Gray':baseEsri},null,{position:'topright',collapsed:true}).addTo(map);
+const G = {L1:L.layerGroup().addTo(map), L2:L.layerGroup().addTo(map), L3:L.layerGroup().addTo(map), pins:L.layerGroup().addTo(map), links:L.layerGroup().addTo(map)};
+
+function squareIcon(color, flagged){ return L.divIcon({className:'', iconSize:[18,18], iconAnchor:[9,9], popupAnchor:[0,-9],
+  html:'<svg width="18" height="18" viewBox="0 0 18 18"><rect x="1.5" y="1.5" width="15" height="15" fill="'+color+'" stroke="#0C498A" stroke-width="2"/></svg>'}); }
+function triIcon(color, flagged){ return L.divIcon({className:'', iconSize:[20,18], iconAnchor:[10,11], popupAnchor:[0,-10],
+  html:'<svg width="20" height="18" viewBox="0 0 20 18"><polygon points="10,1.5 18.5,16.5 1.5,16.5" fill="'+color+'" stroke="'+(flagged?'#b00020':'#0C498A')+'" stroke-width="2"/></svg>'}); }
+function pinIcon(site){ return L.divIcon({className:'', iconSize:null, iconAnchor:[0,0], html:'<div class="pin'+(site.id==='tbd'?' tbd':'')+'">◆ '+site.label+'</div>'}); }
+
+function stationPopup(s){
+  const ref=s.sisaire2024||{}; const b=DataLayer.baseline();
+  const o3 = s.o3_ppb!=null? fmt(s.o3_ppb)+' ppb (1-h)' : (s.o3_monitored? 'no valid value this hour' : 'not monitored at this station');
+  const live = s.hour!=null;
+  return '<div class="pop"><h4>● '+s.name+'</h4><table>'+
+    '<tr><td>Layer</td><td>L1 · open baseline</td></tr>'+
+    '<tr><td>Operator</td><td>'+(s.operator==='SDA'?'SDA — Secretaría Distrital de Ambiente (RMCAB)':'CAR — Corporación Autónoma Regional de Cundinamarca')+'</td></tr>'+
+    (live?'<tr><td>PM2.5</td><td><b>'+fmt(s.pm25)+' µg/m³</b> (1-h)</td></tr><tr><td>O3</td><td>'+o3+'</td></tr><tr><td>PM10</td><td>'+(s.pm10!=null?fmt(s.pm10)+' µg/m³':'—')+'</td></tr>'+
+      '<tr><td>Timestamp</td><td>'+s.hour+' (Bogotá, UTC−5; RMCAB hour label)</td></tr>'
+      :'<tr><td>Live reading</td><td>none in this snapshot (not in RMCAB feed) — reference only</td></tr>')+
+    '<tr><td>2024 ref.</td><td>PM2.5 annual mean '+(ref.pm25_24h_annual_mean!=null?ref.pm25_24h_annual_mean+' µg/m³':'—')+(ref.o3_8h_annual_mean_ugm3!=null?' · O3 (8-h) '+ref.o3_8h_annual_mean_ugm3+' µg/m³':'')+' (IDEAM SISAIRE)</td></tr>'+
+    '<tr><td>Dataset</td><td>'+b.version+' · read-only</td></tr>'+
+    '<tr><td>Source</td><td>'+(live?'<a href="'+b.sources[0].page+'" target="_blank">RMCAB public map feed</a>; ':'')+'<a href="'+b.sources[1].page+'" target="_blank">datos.gov.co kekd-7v7h</a></td></tr>'+
+    (s.flags&&s.flags.length?'<tr><td>Logic flags</td><td class="flag">'+s.flags.join('<br>')+'</td></tr>':'')+
+    '</table>'+(b.notices[s.id]?'<div class="ex">'+b.notices[s.id]+'</div>':'')+(live?'<div class="muted">Real provisional data, not validated by SDA. Coordinates as published by RMCAB.</div>':'')+'</div>';
+}
+function l2Popup(r){ return '<div class="pop"><h4>■ '+r.owner+' · site context</h4><div class="ex">EXAMPLE — client context slot, not measured</div><table>'+
+  '<tr><td>Layer</td><td>L2 · client proprietary context</td></tr><tr><td>Record</td><td>'+r.id+'</td></tr><tr><td>PM2.5</td><td><b>'+fmt(r.pm25)+' µg/m³</b></td></tr>'+
+  '<tr><td>Owner</td><td>'+r.owner+'</td></tr><tr><td>Timestamp</td><td>'+r.ts+'</td></tr><tr><td>Provenance</td><td>'+r.provenance+'</td></tr><tr><td>Position</td><td>candidate site (position illustrative)</td></tr></table></div>'; }
+function l3Popup(x){ const v = x.before*(1-state.t)+x.after*state.t;
+  return '<div class="pop"><h4>▲ '+x.id+' · '+x.owner+'</h4><div class="ex">EXAMPLE — Air4U feed slot, no real data yet</div><table>'+
+  '<tr><td>Layer</td><td>L3 · startup proprietary measurement</td></tr>'+
+  '<tr><td>Shown now</td><td><b>'+fmt(v)+' µg/m³</b> ('+Math.round(state.t*100)+'% after)</td></tr>'+
+  '<tr><td>Before / after</td><td>'+fmt(x.before)+' → '+fmt(x.after)+' µg/m³ '+(x.calibrated?'(calibrated)':'(raw, uncalibrated)')+'</td></tr>'+
+  '<tr><td>Raw sensor</td><td>'+fmt(x.rawBefore)+' → '+fmt(x.rawAfter)+'</td></tr>'+
+  (x.cal?'<tr><td>Calibration</td><td>y = '+x.cal.factor+'·x '+(x.cal.offset<0?'− '+Math.abs(x.cal.offset):'+ '+x.cal.offset)+' (illustrative)</td></tr>':'')+
+  '<tr><td>Owner</td><td>'+x.owner+'</td></tr><tr><td>Timestamp</td><td>'+x.ts+'</td></tr><tr><td>Provenance</td><td>'+x.provenance+'</td></tr>'+
+  (x.flags&&x.flags.length?'<tr><td>Logic flags</td><td class="flag">'+x.flags.join('<br>')+'</td></tr>':'')+'</table></div>'; }
+
+function drawMap(){
+  const v = state.vis, p = v.perms;
+  Object.values(G).forEach(g=>g.clearLayers());
+  if(state.layers.L1 && p.layers.L1){
+    v.stations.forEach(s=>{
+      const live=s.hour!=null; const val = live? s.pm25 : null;
+      const flagged = s.flags && s.flags.length;
+      L.circleMarker([s.lat,s.lon],{radius:live?9:7, color:flagged?'#b00020':'#0C498A', weight:flagged?3.5:1.5, dashArray:live?null:'3 3', fillColor:pmColor(val), fillOpacity:live?0.9:0.5})
+        .bindPopup(stationPopup(s)).bindTooltip(s.name+' · '+(live?fmt(s.pm25)+' µg/m³':'ref. only'),{direction:'top',offset:[0,-8]}).addTo(G.L1);
+    });
+  }
+  if(state.layers.L2 && p.layers.L2) v.l2.forEach(r=> L.marker([r.lat,r.lon],{icon:squareIcon(pmColor(r.pm25)), zIndexOffset:500}).bindPopup(l2Popup(r)).bindTooltip(r.owner+' · '+fmt(r.pm25)+' µg/m³ (EXAMPLE)',{direction:'top'}).addTo(G.L2));
+  if(state.layers.L3 && p.layers.L3) v.l3.forEach(x=>{ const val=x.before*(1-state.t)+x.after*state.t;
+    L.marker([x.lat,x.lon],{icon:triIcon(pmColor(val), x.flags&&x.flags.length), zIndexOffset:600}).bindPopup(l3Popup(x)).bindTooltip(x.id+' · '+fmt(val)+' µg/m³ (EXAMPLE)',{direction:'top'}).addTo(G.L3); });
+  // pins (role-filtered)
+  state.sites.forEach(s=>{
+    if(!s.placed) return; if(p.sites && !p.sites.includes(s.id)) return;
+    const m = L.marker([s.lat,s.lon],{icon:pinIcon(s), draggable:true, zIndexOffset:1000, title:s.label+' — candidate site (position illustrative)'})
+      .bindTooltip(s.label+' — candidate site (position illustrative)',{direction:'right'});
+    m.on('dragend', e=>{ const ll=e.target.getLatLng(); s.lat=+ll.lat.toFixed(5); s.lon=+ll.lng.toFixed(5); log('pin moved: '+s.label+' → '+s.lat+', '+s.lon); state.selSite=s.id; recompute(); });
+    m.on('click', ()=>{ state.selSite=s.id; renderPanels(); drawLinks(); });
+    m.addTo(G.pins);
+  });
+  drawLinks();
+}
+function drawLinks(){
+  G.links.clearLayers();
+  const s = state.sites.find(x=>x.id===state.selSite); if(!s||!s.placed) return;
+  if(state.vis.perms.sites && !state.vis.perms.sites.includes(s.id)) return;
+  const b = LogicLayer.baselineAt(s.lat,s.lon,state.vis.stations); if(!b) return;
+  b.used.forEach(u=> L.polyline([[s.lat,s.lon],[u.s.lat,u.s.lon]],{color:'#0C498A',weight:1.5,dashArray:'4 4',opacity:.7}).addTo(G.links));
+}
+
+/* ---- delta (headline) ---- */
+function computeDelta(siteId){
+  const v=state.vis, s=state.sites.find(x=>x.id===siteId);
+  const out={site:s, placed:s&&s.placed};
+  if(!out.placed) return out;
+  out.base = LogicLayer.baselineAt(s.lat,s.lon,v.stations);
+  const l2 = v.l2.find(r=>r.site===siteId); out.l2 = l2? l2.pm25 : null;
+  const l3 = v.l3.filter(x=>x.site===siteId);
+  if(l3.length){ out.l3n=l3.length; out.calibrated=l3.every(x=>x.calibrated);
+    out.before = l3.reduce((a,x)=>a+x.before,0)/l3.length; out.after = l3.reduce((a,x)=>a+x.after,0)/l3.length;
+    out.now = out.before*(1-state.t)+out.after*state.t; out.redPct = (out.before-out.after)/out.before*100; out.redAbs = out.before-out.after; }
+  return out;
+}
+function renderDelta(){
+  const v=state.vis, p=v.perms, el=$('deltaCard');
+  const vis = state.sites.filter(s=> !p.sites || p.sites.includes(s.id));
+  if(!vis.find(s=>s.id===state.selSite)) state.selSite = vis[0]?vis[0].id:null;
+  const d = state.selSite? computeDelta(state.selSite) : {placed:false};
+  let h = '<h3>Delta · the headline <small>'+(d.site?d.site.label:'')+'</small></h3>';
+  h += '<div class="seg">'+vis.map(s=>'<button data-site="'+s.id+'" class="'+(s.id===state.selSite?'active':'')+'">'+s.label+'</button>').join('')+'</div>';
+  if(!d.placed){ h+='<div class="note" style="font-size:12px;color:#fff;margin-top:8px">'+(d.site?d.site.label+' has no pin yet. Use “Drop pin” in the left panel, then click the map.':'No site in this role’s view.')+'</div>'; }
+  else {
+    const showL2 = p.layers.L2 && d.l2!=null, showL3 = p.layers.L3 && d.before!=null;
+    const siteVsBase = showL2 && d.base ? d.l2 - d.base.value : null;
+    const nowVsBase = showL3 && d.base ? d.now - d.base.value : null;
+    if(showL2) h+='<div style="margin-top:8px;font-size:11px;color:#B2EEFA">Site vs baseline (L2 − L1)</div><div class="big '+(siteVsBase>0?'pos':'neg')+'">'+sgn(siteVsBase)+' µg/m³</div>';
+    else if(showL3) h+='<div style="margin-top:8px;font-size:11px;color:#B2EEFA">Air4U at site vs baseline (L3 − L1), slider position</div><div class="big '+(nowVsBase>0?'pos':'neg')+'">'+sgn(nowVsBase)+' µg/m³</div>';
+    else h+='<div style="margin-top:8px;font-size:12px">No site-level data visible for this role.</div>';
+    if(showL3) h+='<div style="font-size:13px;font-weight:800;margin-top:2px">After Air4U intervention: <span style="color:#9DC384">'+sgn(-d.redPct,0)+'%</span> <span style="font-weight:600;font-size:11px;color:#B2EEFA">('+sgn(-d.redAbs)+' µg/m³'+(d.calibrated?', calibrated':', uncalibrated')+')</span></div>';
+    else if(v.role.kind==='client') h+='<div class="note">After-intervention delta: not exposed to this client by the active experiment.</div>';
+    else if(!showL3) h+='<div class="note">No Air4U deployment at this site.</div>';
+    h+='<div class="kv"><div><span>L1 baseline at site (IDW, 3 nearest)</span><b>'+fmt(d.base&&d.base.value)+'</b></div>'+
+       '<div><span>L2 site context'+(showL2?' (EXAMPLE)':'')+'</span><b>'+(showL2?fmt(d.l2):(p.layers.L2?'—':'🔒'))+'</b></div>'+
+       '<div><span>L3 Air4U mean, now (EXAMPLE)</span><b>'+(showL3?fmt(d.now):(p.layers.L3?'—':'🔒'))+'</b></div>'+
+       '<div><span>L3 now vs baseline</span><b>'+(showL3?sgn(nowVsBase):'—')+'</b></div></div>';
+    h+='<div class="slider"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:11.5px">Before ⇄ after (Air4U intervention)</b><span class="seg"><button id="bBefore" class="'+(state.t===0?'active':'')+'">Before</button><button id="bAfter" class="'+(state.t===1?'active':'')+'">After</button></span></div>'+
+       '<input type="range" id="tSlider" min="0" max="100" value="'+Math.round(state.t*100)+'"><div class="ends"><span>pre-intervention</span><span>'+Math.round(state.t*100)+'% after</span><span>post-intervention</span></div></div>';
+    h+='<div class="note">Baseline from stations: '+(d.base?d.base.used.map(u=>u.s.name+' ('+u.d.toFixed(1)+' km)').join(', '):'—')+'. µg/m³ PM2.5, one colour scale for L1/L2/L3. L2/L3 values are EXAMPLE placeholders; the baseline is real (hour '+DataLayer.baseline().stations[0].hour+').</div>';
+  }
+  el.innerHTML = h;
+  bindDelta(el);
+}
+function bindDelta(el){
+  el.querySelectorAll('button[data-site]').forEach(b=> b.onclick=()=>{ state.selSite=b.dataset.site; const s=state.sites.find(x=>x.id===state.selSite); if(s.placed) map.panTo([s.lat,s.lon]); renderPanels(); drawLinks(); });
+  const sl=$('tSlider'); if(sl){ sl.oninput=()=>{ state.t=sl.value/100; drawMap(); updateDeltaLive(); renderROIMini(); }; }
+  if($('bBefore')) $('bBefore').onclick=()=>{ state.t=0; drawMap(); renderPanels(); };
+  if($('bAfter')) $('bAfter').onclick=()=>{ state.t=1; drawMap(); renderPanels(); };
+}
+
+function updateDeltaLive(){
+  const sl=$('tSlider'); const wrap=sl.parentNode; const keep=sl;
+  renderDelta();
+  const fresh=$('tSlider'); fresh.parentNode.replaceChild(keep, fresh);
+  keep.oninput=()=>{ state.t=keep.value/100; drawMap(); updateDeltaLive(); renderROIMini(); };
+}
+/* ---- residency ---- */
+function renderResidency(){
+  const p=state.vis.perms, el=$('residencyCard'); const r=state.residency;
+  const totalW = STEPS.reduce((a,s)=>a+s.w,0); let wk=0;
+  let h='<h3>Residency · Season 1 <small>proposed protocol</small></h3>';
+  h+='<div class="muted"><b style="color:#0C498A">Host: CTH (CleantechHUB)</b> · resident startup: <b>Air4U</b> · candidate client site: <b>Ramo</b> (position illustrative)</div>';
+  h+='<div class="inp" style="grid-template-columns:1fr 70px;margin-top:5px"><span>Season duration (weeks) — configurable, e.g. 12</span><input type="number" id="resWeeks" min="4" max="52" value="'+r.weeks+'" '+(p.residency==='full'&&state.role==='cth'?'':'disabled')+'></div>';
+  h+='<ol class="steps">'+STEPS.map((s,i)=>{ const a=wk; wk+=s.w/totalW*r.weeks; const st=r.status[i];
+    const lbl= st==='done'?'done':st==='inprog'?'in progress':'pending';
+    return '<li><div>'+s.t+'<small>'+s.d+' · wk '+(a+1).toFixed(0)+'–'+Math.max(a+1,wk).toFixed(0)+'</small></div><span class="st '+st+'" data-i="'+i+'" title="'+(state.role==='cth'?'click to change status':'status')+'">'+lbl+'</span></li>'; }).join('')+'</ol>';
+  h+='<div class="muted" style="margin-top:5px">Proposed protocol and durations — not an existing programme. Step 2 is genuinely done in this file: baseline '+DataLayer.version+' is frozen (fingerprint '+DataLayer.lockedFingerprint+').</div>';
+  h+='<div class="inspired" id="inspiredNote">Inspired by <a href="https://www.tudelft.nl/en/innovatie-impact/home-of-innovation/special/the-green-village" target="_blank">The Green Village (TU Delft)</a>: a persistent field lab where time-boxed experiments rotate through and are removed after the test; an average test trajectory there takes six to twelve months (TGV project manager, 2022). TGV publishes no formal stage-gate — the explicit gate here (steps 5–6 + ROI gate) is CTH’s addition. At TGV “residents” are people living in the test homes; startups get experiment slots.</div>';
+  el.innerHTML=h;
+  if($('resWeeks')) $('resWeeks').onchange=e=>{ r.weeks=Math.max(4,Math.min(52,+e.target.value||12)); log('residency duration set to '+r.weeks+' weeks (proposed)'); renderResidency(); };
+  el.querySelectorAll('.st').forEach(x=> x.onclick=()=>{ if(state.role!=='cth') return; const i=+x.dataset.i; if(i===1) return;
+    const nx={pending:'inprog',inprog:'done',done:'pending'}; r.status[i]=nx[r.status[i]]; log('residency step '+(i+1)+' → '+r.status[i]); renderResidency(); renderROIMini(); });
+}
+
+/* ---- provenance ---- */
+function renderProv(){
+  const v=state.vis,p=v.perms,b=DataLayer.baseline(); const r=v.role;
+  const rows=[];
+  rows.push(['L1 live','SDA · RMCAB',b.snapshotHour.replace('T',' ').slice(0,16),'REAL (provisional) · <a href="'+b.sources[0].page+'" target="_blank">rmcab.ambientebogota.gov.co</a>']);
+  rows.push(['L1 ref.','IDEAM · SISAIRE','2024 annual','REAL · <a href="'+b.sources[1].page+'" target="_blank">datos.gov.co kekd-7v7h</a>']);
+  DataLayer.clientContext().forEach(x=>{ if(p.layers.L2 && (r.kind==='staff'||x.site===p.l2site)) rows.push(['L2',x.owner,x.ts.slice(0,16).replace('T',' '),'<span class="warn">EXAMPLE</span> · '+x.provenance]); });
+  if(r.kind==='staff') rows.push(['L2','Client TBD','—','empty slot']);
+  DataLayer.partnerFeeds().forEach(f=>{ if(p.layers.L3 && (p.partners==null||p.partners.includes(f.partner))) rows.push(['L3',f.owner,f.sensors[0]?f.sensors[0].ts.slice(0,16).replace('T',' '):'—',(f.sensors.length?'<span class="warn">EXAMPLE</span> · ':'')+f.provenance+' · '+f.sensors.length+' sensor(s)']); });
+  let h='<table class="prov"><tr><th>Lane</th><th>Owner</th><th>Timestamp</th><th>Status · source</th></tr>'+rows.map(x=>'<tr><td>'+x.join('</td><td>')+'</td></tr>').join('')+'</table>';
+  h+='<div class="muted" style="margin-top:5px">'+b.coordCheck+'</div><div class="muted" style="margin-top:3px">Dataset '+b.version+' · snapshot hour '+b.snapshotHour+' · retrieved '+b.retrievedAt+'. Partners keep ownership of their lanes; nothing here is a system of record.</div>';
+  $('prov').innerHTML=h;
+}
+function renderAnom(){
+  const v=state.vis; const exp=EXPERIMENTS.find(e=>e.id===state.exp);
+  const fl = v.stations.filter(s=>s.flags&&s.flags.length);
+  const l3f = v.l3.filter(x=>x.flags&&x.flags.length);
+  let h = '<div>'+v.log.map(x=>'· '+x).join('<br>')+(v.log.length?'':'· no processors in this experiment')+'</div>';
+  if(exp.processors.includes('anomaly.flags')) h+='<div style="margin-top:5px"><b>Flagged ('+(fl.length+l3f.length)+'):</b><br>'+(fl.concat(l3f).map(s=>'<span class="flag" style="color:#b00020">'+(s.name||s.id)+'</span>: '+s.flags.join('; ')).join('<br>')||'none')+'</div>';
+  if(exp.processors.includes('model.hook')) h+='<div style="margin-top:5px">Model hook slot: <code>CTH.LogicLayer.setModelHook(view =&gt; newView)</code> — stubbed.</div>';
+  $('anom').innerHTML=h;
+}
+
+/* ---- ROI gate ---- */
+const ROI_DEFAULTS = {N:300, h:8, d:240, L:0.3, Cday:200000, p:0.5, Y:60000000, H:150000, capex:25000000, opex:6000000, life:5, Pmax:3, dmin:2.0};
+const ROI_LABELS = {N:'Workers exposed at the site', h:'Hours on site per day', d:'Workdays per year', L:'Lost workdays per worker-year per 10 µg/m³ (annual-avg exposure)',
+  Cday:'Cost per lost workday (COP)', p:'Productivity loss per 10 µg/m³ (% of output)', Y:'Annual output value per worker (COP)', H:'Health cost per worker-year per 10 µg/m³ (COP)',
+  capex:'Intervention capex (COP)', opex:'Intervention opex per year (COP)', life:'Asset life (years)', Pmax:'Max acceptable payback (years)', dmin:'Minimum credible delta (µg/m³)'};
+const roi = {...ROI_DEFAULTS, delta:null, deltaOverride:false};
+function roiCalc(){
+  const d=computeDelta('ramo'); const measured = d.redAbs!=null? d.redAbs : null;
+  const D = roi.deltaOverride? roi.delta : measured;
+  const twa = D==null?null: D*(roi.h/24)*(roi.d/365);
+  const k = twa==null?null: twa/10;
+  const perWorker = roi.L*roi.Cday + (roi.p/100)*roi.Y + roi.H;
+  const V = k==null?null: roi.N*k*perWorker;
+  const net = V==null?null: V-roi.opex;
+  const payback = net>0? roi.capex/net : Infinity;
+  const annualCost = roi.opex + roi.capex/roi.life;
+  const ev = state.residency.status[3]==='done' && state.residency.status[4]==='done';
+  const checks = [
+    {ok: D!=null && D>=roi.dmin, t:'Measured delta ≥ minimum credible delta ('+fmt(D)+' vs '+roi.dmin+' µg/m³)'},
+    {ok: net!=null && net>0, t:'Annual value exceeds opex (net '+COP(net)+'/yr)'},
+    {ok: payback<=roi.Pmax, t:'Payback ≤ '+roi.Pmax+' yrs ('+(isFinite(payback)?payback.toFixed(1):'never')+')'},
+    {ok: ev, t:'Evidence: Residency steps 4 (calibrate) and 5 (evaluate delta) marked done'},
+    {ok: false, soft:true, t:'Data status: delta is from EXAMPLE placeholders — verdict is illustrative until real Air4U/Ramo data replace them'}
+  ];
+  const go = checks.filter(c=>!c.soft).every(c=>c.ok);
+  return {D, measured, twa, k, perWorker, V, net, payback, annualCost, checks, go, calibrated:d.calibrated};
+}
+function renderROIMini(){ const p=state.vis.perms; $('roiCard').style.display = p.roi? '' : 'none'; if(!p.roi) return; const r=roiCalc(); $('roiMini').innerHTML = r.go? '<span class="ok">Proceed to intervention (illustrative)</span>' : '<b>Collect more evidence</b>'; }
+function renderROI(){
+  const r = roiCalc();
+  let h='<div style="display:flex;justify-content:space-between;align-items:flex-start"><div><h2>ROI gate — decide before atoms</h2><div class="muted">Client: Ramo (candidate) · experiment '+state.exp+' · baseline '+DataLayer.version+'</div></div><button id="roiClose">Close ✕</button></div>';
+  h+='<div class="copy">Numbers first, atoms second: the intervention is justified by the measured delta, not the other way round.</div>';
+  h+='<div class="roi-grid"><div>';
+  h+='<div class="inp"><span>Measured delta at site: Air4U before − after (µg/m³)<small>linked to the delta card — EXAMPLE data'+(r.calibrated?', calibrated':', uncalibrated')+'</small></span><input type="number" step="0.1" id="roi_delta" value="'+fmt(r.D)+'"></div>';
+  h+='<label class="row" style="font-size:11px"><input type="checkbox" id="roi_ovr" '+(roi.deltaOverride?'checked':'')+'> override the linked delta</label>';
+  Object.keys(ROI_DEFAULTS).forEach(k=>{ h+='<div class="inp"><span>'+ROI_LABELS[k]+'<small>illustrative assumption — replace with client data</small></span><input type="number" step="any" data-k="'+k+'" value="'+roi[k]+'"></div>'; });
+  h+='<div style="margin-top:6px"><button id="roiReset">Reset to illustrative defaults</button></div>';
+  h+='</div><div>';
+  h+='<div class="formula">ΔTWA = Δ × (h / 24) × (d / 365)          time-weighted annual exposure change\nk     = ΔTWA / 10                       units of 10 µg/m³\nV     = N × k × (L × C_day + p/100 × Y + H)   annual value of the delta\nNet   = V − opex\nPayback = capex / Net   (years, if Net &gt; 0)\nGate: Δ ≥ Δmin  AND  Net &gt; 0  AND  Payback ≤ Pmax  AND  residency evidence done</div>';
+  h+='<div class="out"><div><span class="muted">Δ used</span><b>'+fmt(r.D)+' µg/m³</b></div><div><span class="muted">ΔTWA (annual-avg)</span><b>'+fmt(r.twa,2)+' µg/m³</b></div>'+
+     '<div><span class="muted">Annual value of the delta (V)</span><b>'+COP(r.V)+'</b></div><div><span class="muted">Intervention cost / yr (opex + capex/life)</span><b>'+COP(r.annualCost)+'</b></div>'+
+     '<div><span class="muted">Net annual value (V − opex)</span><b>'+COP(r.net)+'</b></div><div><span class="muted">Payback</span><b>'+(isFinite(r.payback)?r.payback.toFixed(1)+' yrs':'never')+'</b></div></div>';
+  h+='<div class="checks">'+r.checks.map(c=>'<div>'+(c.soft?'⚠️':(c.ok?'✅':'⬜'))+' '+c.t+'</div>').join('')+'</div>';
+  h+='<div class="verdict '+(r.go?'go':'hold')+'">Gate verdict: '+(r.go?'Proceed to intervention':'Collect more evidence')+'</div>';
+  h+='<div class="muted" style="margin-top:6px">Every default above is an illustrative assumption, not a sourced figure. No dose-response coefficient is claimed; replace L, p and H with values the client and an occupational-health adviser sign off. Physical intervention (atoms) is downstream of this number.</div>';
+  h+='</div></div>';
+  $('roiBody').innerHTML=h;
+  $('roiClose').onclick=()=>{ $('roiModal').style.display='none'; };
+  $('roiBody').querySelectorAll('input[data-k]').forEach(i=> i.oninput=()=>{ roi[i.dataset.k]=+i.value; refreshROI(); });
+  $('roi_delta').oninput=e=>{ roi.delta=+e.target.value; roi.deltaOverride=true; $('roi_ovr').checked=true; refreshROI(true); };
+  $('roi_ovr').onchange=e=>{ roi.deltaOverride=e.target.checked; if(!roi.deltaOverride) roi.delta=null; renderROI(); };
+  $('roiReset').onclick=()=>{ Object.assign(roi, ROI_DEFAULTS, {delta:null, deltaOverride:false}); renderROI(); };
+}
+let roiTimer=null;
+function refreshROI(){ clearTimeout(roiTimer); roiTimer=setTimeout(()=>{ const a=document.activeElement; const key=a&&(a.dataset.k||a.id); renderROI(); renderROIMini(); if(key){ const n= $('roiBody').querySelector('[data-k="'+key+'"]')||$(key); if(n){ n.focus(); } } }, 250); }
+
+/* ---- left panels ---- */
+function renderLeft(){
+  const v=state.vis,p=v.perms; const exp=EXPERIMENTS.find(e=>e.id===state.exp);
+  $('roleDesc').textContent = v.role.desc;
+  $('expDesc').textContent = exp.desc;
+  $('expProcs').innerHTML = exp.processors.length? exp.processors.map(n=>'<code>'+n+'</code>').join(', ') : '<i>none (passthrough)</i>';
+  const icons = {L1:'<svg class="lyr-ico" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#FFFF00" stroke="#0C498A" stroke-width="1.5"/></svg>',
+    L2:'<svg class="lyr-ico" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" fill="#FFFF00" stroke="#0C498A" stroke-width="1.8"/></svg>',
+    L3:'<svg class="lyr-ico" viewBox="0 0 16 16"><polygon points="8,1.5 15,14.5 1,14.5" fill="#FFFF00" stroke="#0C498A" stroke-width="1.8"/></svg>'};
+  const names = {L1:'L1 · Open baseline — IDEAM / Secretaría de Ambiente stations <span class="chip real" style="font-size:9px">REAL</span>',
+    L2:'L2 · Client proprietary context (Ramo, Bolívar sites) <span class="chip ex" style="font-size:9px">EXAMPLE</span>',
+    L3:'L3 · Startup proprietary measurement (Air4U) <span class="chip ex" style="font-size:9px">EXAMPLE</span>'};
+  $('layerToggles').innerHTML = ['L1','L2','L3'].map(k=>{ const ok=p.layers[k];
+    return '<label class="row'+(ok?'':' locked')+'"><input type="checkbox" data-l="'+k+'" '+(ok&&state.layers[k]?'checked':'')+' '+(ok?'':'disabled')+'>'+icons[k]+'<span>'+names[k]+(ok?'':' 🔒 <i>not in your lane</i>')+'</span></label>'; }).join('');
+  $('layerToggles').querySelectorAll('input').forEach(i=> i.onchange=()=>{ state.layers[i.dataset.l]=i.checked; log('layer '+i.dataset.l+(i.checked?' on':' off')); drawMap(); });
+  $('siteList').innerHTML = state.sites.filter(s=>!p.sites||p.sites.includes(s.id)).map(s=>
+    '<div class="site'+(s.id===state.selSite?' sel':'')+'"><div><b>◆ '+s.label+'</b><div class="pos">'+(s.placed? s.lat.toFixed(4)+', '+s.lon.toFixed(4)+' · candidate site (position illustrative)':'not placed')+'</div></div>'+
+    '<button data-drop="'+s.id+'" class="'+(state.dropMode===s.id?'active':'')+'">'+(state.dropMode===s.id?'click map…':'Drop pin')+'</button></div>').join('');
+  $('siteList').querySelectorAll('button[data-drop]').forEach(b=> b.onclick=()=>{ state.dropMode = state.dropMode===b.dataset.drop? null : b.dataset.drop; document.body.classList.toggle('crosshair', !!state.dropMode); renderLeft(); });
+  const fpNow = DataLayer.fingerprint();
+  $('integrity').innerHTML = 'Data layer '+DataLayer.version+' · fingerprint before run <code>'+state.fpBefore+'</code> → after <code>'+fpNow+'</code> '+(fpNow===DataLayer.lockedFingerprint&&state.fpBefore===fpNow?'<span class="ok">✓ unchanged</span>':'<span class="warn">✗ changed</span>');
+}
+function renderPanels(){ renderLeft(); renderDelta(); renderResidency(); renderProv(); renderAnom(); renderROIMini(); $('residencyCard').style.display = state.vis.perms.residency? '' : 'none'; }
+
+function recompute(){
+  const exp = EXPERIMENTS.find(e=>e.id===state.exp);
+  state.fpBefore = DataLayer.fingerprint();
+  state.view = LogicLayer.run(exp, state.sites);
+  state.vis = AccessLayer.filter(state.view, state.role, exp);
+  const fpAfter = DataLayer.fingerprint();
+  if(fpAfter!==state.fpBefore) log('INTEGRITY: data fingerprint changed!','warn');
+  drawMap(); renderPanels();
+  if($('roiModal').style.display==='flex') renderROI();
+}
+
+/* ---- init ---- */
+(function init(){
+  const b=DataLayer.baseline();
+  $('hdrVersion').textContent = 'dataset '+b.version;
+  $('databand').innerHTML = '<b>L1 REAL</b> RMCAB · '+b.stations.filter(s=>s.hour).length+' live stations · '+b.stations[0].hour+' (UTC−5) · '+b.version+' · read-only &nbsp;<i>L2/L3 EXAMPLE</i>';
+  $('bands').innerHTML = ICA.map(x=>'<div class="band"><span class="sw" style="background:'+x.c+'"></span>'+x.l+'</div>').join('');
+  $('roleSel').innerHTML = Object.entries(AccessLayer.ROLES).map(([k,r])=>'<option value="'+k+'">'+r.label+'</option>').join('');
+  $('expSel').innerHTML = EXPERIMENTS.map(e=>'<option value="'+e.id+'"'+(e.id===state.exp?' selected':'')+'>'+e.name+'</option>').join('');
+  $('roleSel').onchange=e=>{ state.role=e.target.value; state.layers={L1:true,L2:true,L3:true}; log('role → '+AccessLayer.ROLES[state.role].label); recompute(); };
+  $('expSel').onchange=e=>{ state.exp=e.target.value; log('experiment → '+state.exp+' · data '+DataLayer.version+' fingerprint '+DataLayer.fingerprint()); recompute(); };
+  $('btnRerun').onclick=()=>{ recompute(); log('re-ran '+state.exp+': fingerprint '+DataLayer.fingerprint()+(DataLayer.fingerprint()===DataLayer.lockedFingerprint?' (unchanged)':' CHANGED'), 'ok'); };
+  $('btnWriteTest').onclick=()=>{
+    const s=DataLayer.baseline().stations[0]; const before=s.pm25;
+    try { s.pm25 = 999; log('write NOT blocked (unexpected)','warn'); } catch(err){ log('write blocked: '+err.name+' — '+s.name+' PM2.5 stays '+before+' (data layer is read-only)','ok'); }
+    try { DataLayer.baseline().stations.push({}); } catch(err){ log('append blocked: '+err.name,'ok'); }
+    try { DataLayer.version = 'hacked'; } catch(err){ log('version overwrite blocked: '+err.name+' — still '+DataLayer.version,'ok'); }
+  };
+  $('btnROI').onclick=()=>{ renderROI(); $('roiModal').style.display='flex'; };
+  map.on('click', e=>{ if(!state.dropMode) return; const s=state.sites.find(x=>x.id===state.dropMode);
+    s.lat=+e.latlng.lat.toFixed(5); s.lon=+e.latlng.lng.toFixed(5); s.placed=true; log('pin dropped: '+s.label+' at '+s.lat+', '+s.lon+' (illustrative)');
+    state.selSite=s.id; state.dropMode=null; document.body.classList.remove('crosshair'); recompute(); });
+  $('about').innerHTML = 'Single-file skeleton; works from file:// (Leaflet via CDN + OpenStreetMap tiles (Esri Light Gray as alternative), all data inlined). '+
+    'Modules: <code>CTH.DataLayer</code> (deep-frozen, versioned), <code>CTH.LogicLayer</code> (register / run / setModelHook), <code>CTH.AccessLayer</code> (roles → filtered view). '+
+    'L1 sources: '+b.sources.map(s=>'<a href="'+s.page+'" target="_blank">'+s.owner+'</a>').join('; ')+'. ICA bands: Res. 2254 de 2017 (MinAmbiente), Tabla 6. '+
+    'L2 and L3 values, calibration coefficients, residency durations and all ROI defaults are EXAMPLE / illustrative. Not a system of record; nothing is written anywhere.';
+  log('data layer loaded: '+b.version+' · '+b.stations.length+' stations · fingerprint '+DataLayer.lockedFingerprint, 'ok');
+  recompute();
+})();
+window.__drawMap = drawMap;
+window.CTH = Object.freeze({DataLayer, LogicLayer, AccessLayer, EXPERIMENTS, state, map, renderROI});
+</script>
+</body></html>

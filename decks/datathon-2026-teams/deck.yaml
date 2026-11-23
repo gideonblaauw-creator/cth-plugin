@@ -77,26 +77,23 @@ slides:
       - assets/Air4U_BMC_preview.png
     link: Paquete de equipo Datatón (ES)
     notes: "[8/21 · showcase]"
-  - type: showcase
+  - type: map
+    region: colombia
     title: La línea base abierta muestra 19 estaciones RMCAB y la escala ICA en Bogotá
-    text: "Panorama de datos abiertos del Datalab: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más referencia SISAIRE en Mochuelo. Colores ICA PM₂.₅ según Res. 2254/2017."
-    images:
-      - assets/datalab-living-lab-l1-map-cropped.png
-    link: "Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab"
     notes: "[9/21 · living-lab L1]"
-  - type: showcase
+  - type: data-table
     title: La línea base del cliente compara cada sitio con la estación RMCAB más cercana
-    text: "Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ranuras de ejemplo ilustrativo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U."
-    images:
-      - assets/method-flow.svg
-    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
+    columns: [Sitio, PM₂.₅, Indoor / outdoor, vs RMCAB, Nota]
+    rows:
+      - ["—", "—", "—", "—", "—"]
+    source: "Datalab CTH living lab, snapshot 4 oct 2026"
     notes: "[10/21 · living-lab L2]"
-  - type: showcase
+  - type: data-table
     title: Los sensores Air4U añaden resolución por sitio y un delta antes/después
-    text: "Delta del innovador sobre L1 y L2: sensores por sitio, comparación antes/después y compuerta delta/ROI antes de decidir en el tablero."
-    images:
-      - assets/method-flow.svg
-    link: "Datalab CTH living lab, snapshot 4 oct 2026 · Taller Air4U Datatón"
+    columns: [Sensor, Sitio, Antes, Después, CO₂, Nota]
+    rows:
+      - ["—", "—", "—", "—", "—", "—"]
+    source: "Datalab CTH living lab, snapshot 4 oct 2026"
     notes: "[11/21 · living-lab L3]"
   - type: case-cards
     title: El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto
