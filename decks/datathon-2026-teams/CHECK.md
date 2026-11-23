@@ -77,3 +77,46 @@ Pixels with max channel diff >40 (% of page). Cause when >0.10%: **footer row + 
 - `decks/datathon-2026-teams/artifacts/slide-11-1280-en.png`
 
 Full automation log: `/opt/cursor/artifacts/datathon-maps-2-acceptance.log`
+
+---
+
+## maps-3 (must-fix slide 9 only, base `ccd4f011`)
+
+Base: `ccd4f011fe3872456f1bd20c5ab15f6744ad6053` · Scope: slide 9 L1 map markup/CSS + PDF re-export + artifacts only.
+
+### Fix summary
+
+- Dual 10-row station tables (`renderLabTablePair`); `table-layout: fixed` 46/18/18/18%; no `overflow: hidden` on L1 table wrap.
+- Map card: `aspect-ratio: 5/3`, `object-fit: cover`; removed 330/520px min-heights (no white band).
+- ICA legend: 2×3 grid @ 17px; map keys on separate lines; source full-width below columns (`fp-living-lab-l1__source`).
+- Loosened L1 clip: `overflow: visible` on slide 9 section/body/table/card.
+
+### Step 11–19 outputs
+
+**Clipped text (slide 9):** ES screen/export **0**; EN screen/export **0**.
+
+| Mode | minFont @1280 | maxRight | overlaps | missing strings |
+|------|---------------|----------|----------|-----------------|
+| ES screen/export | 11.33 | 1216.0 | 0 | — |
+| EN screen/export | 11.33 | 1216.0 | 0 | — |
+
+**Layout boxes @1280 (ES screen):** map img 70–496×249–505; ICA 70–519×521–617; tables 531–1212×249–439; notes 531–1212×444–476; source 64–1216×631–646; foot 64–1133×677–705 (no intersections).
+
+**PDFs (committed after push):**
+
+| Artifact | sha256 | Pages | `pdftotext` grep |
+|----------|--------|------:|-----------------|
+| `datathon-2026-teams.pdf` | `c718a5aee24e527837f915d296a3b16f7445bb575044e3b8adc562d099edefae` | 21 | 0 |
+| `datathon-2026-teams-en.pdf` | `2c3e5e0d758e8da6f6003338615d2ed388addf79eca48aec2a26a8e7d0d25887` | 21 | 0 |
+
+**Regression vs `ccd4f011` PDFs (pages 1–8, 10–21):** all **0.0000%** (ES + EN).
+
+**`index.html`:** only section 9 (slide 9) differs from `ccd4f011`; sections 1–8 and 10–21 byte-identical.
+
+### Slide 9 artifact paths
+
+- Screen: `decks/datathon-2026-teams/artifacts/slide-09-1280-{es,en}.png`
+- PDF page: `decks/datathon-2026-teams/artifacts/slide-09-pdf-{es,en}-09.png`
+- Contact sheets updated: `datathon-2026-teams-contact-sheet-{es,en}.png`
+
+Full log: `/opt/cursor/artifacts/datathon-maps-3-acceptance.log`

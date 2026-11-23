@@ -464,9 +464,10 @@ function renderLabTablePair(headers, rows) {
   const mid = Math.ceil(rows.length / 2);
   const left = rows.slice(0, mid);
   const right = rows.slice(mid);
+  const tblCls = "fp-living-lab__table fp-living-lab-l1__table";
   return `<div class="fp-living-lab__table-pair">
-    ${renderLabTable(headers, left, "fp-living-lab__table-col")}
-    ${renderLabTable(headers, right, "fp-living-lab__table-col")}
+    ${renderLabTable(headers, left, "fp-living-lab__table-col", tblCls)}
+    ${renderLabTable(headers, right, "fp-living-lab__table-col", tblCls)}
   </div>`;
 }
 
@@ -528,7 +529,7 @@ function renderLivingLabL1(s, sEn) {
       <div class="fp-living-lab-l1__map">${shot}</div>
       <div class="fp-living-lab-l1__data">
         <p class="fp-living-lab__meta fp-living-lab-l1__stamp">${T(`Instantánea ${hour} COT`, `Snapshot ${hour} COT`)}</p>
-        ${renderLabTable(headers, rows, "fp-living-lab-l1__table-full", "fp-living-lab__table fp-living-lab-l1__table")}
+        ${renderLabTablePair(headers, rows)}
         <div class="fp-living-lab-l1__notes">
           <p class="fp-cp__honest fp-living-lab-l1__honest">${T(prov.es, prov.en)}</p>
           <p class="fp-living-lab__meta fp-living-lab-l1__note">${T(mochLine.es, mochLine.en)}</p>
