@@ -66,7 +66,7 @@
     }
     .hero-block {
       position: absolute;
-      right: -48mm;
+      right: -70mm;
       top: -22mm;
       width: 95mm;
       height: 95mm;
@@ -87,10 +87,20 @@
       border-radius: 8mm;
     }
     .hero-inner { position: relative; z-index: 1; }
-    .hero-logos img.cth-logo {
-      height: 10mm;
+    .cobrand-row {
+      display: flex;
+      align-items: center;
+      gap: 4.5mm;
+      flex-wrap: wrap;
+    }
+    .hero-logos {
+      margin-bottom: 1.5mm;
+    }
+    .hero-logos img {
+      height: 9.5mm;
       width: auto;
       display: block;
+      object-fit: contain;
     }
     .eyebrow {
       font-weight: 700;
@@ -104,7 +114,7 @@
       font-size: 21pt;
       font-weight: 700;
       line-height: 1.12;
-      max-width: 165mm;
+      max-width: 120mm;
       letter-spacing: normal;
       word-spacing: normal;
     }
@@ -114,7 +124,7 @@
       font-weight: 600;
       line-height: 1.35;
       color: var(--cyan);
-      max-width: 168mm;
+      max-width: 120mm;
     }
     .main {
       flex: 1 1 auto;
@@ -135,7 +145,7 @@
     }
     .agenda-head h2 {
       margin: 0;
-      font-size: 12.5pt;
+      font-size: 14pt;
       font-weight: 700;
     }
     .agenda-head .note {
@@ -153,29 +163,29 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.55mm;
+      justify-content: space-between;
       flex: 1 1 auto;
       min-height: 0;
     }
     .tl-row {
       display: grid;
-      grid-template-columns: 24mm 1fr;
+      grid-template-columns: 26mm 1fr;
       gap: 3.5mm;
       align-items: start;
-      padding: 0.65mm 0;
+      padding: 2.75mm 0;
       border-bottom: 1px solid rgba(12, 73, 138, 0.1);
     }
     .tl-row:last-child { border-bottom: 0; }
     .tl-time {
-      font-size: 8pt;
+      font-size: 10.5pt;
       font-weight: 700;
       color: var(--green);
-      line-height: 1.22;
+      line-height: 1.24;
     }
     .tl-text {
-      font-size: 7.85pt;
+      font-size: 10.5pt;
       font-weight: 600;
-      line-height: 1.22;
+      line-height: 1.24;
     }
     .footer {
       flex-shrink: 0;
@@ -194,10 +204,11 @@
       margin: 0;
       letter-spacing: 0.01em;
     }
-    .footer img.cth-logo {
+    .footer-cobrand img {
       height: 8mm;
       width: auto;
       display: block;
+      object-fit: contain;
     }
     .avoid-break { break-inside: avoid; page-break-inside: avoid; }
 
@@ -225,8 +236,10 @@
     <header class="hero">
       <div class="hero-block" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="hero-logos">
-          <img class="cth-logo" src="logos/cleantechhub-white.png" alt="CleantechHUB"/>
+        <div class="hero-logos cobrand-row">
+          <img src="logos/externado-white.png" alt="Universidad Externado de Colombia"/>
+          <img src="logos/cleantechhub-white.png" alt="CleantechHUB"/>
+          <img src="logos/observatorio-white.png" alt="Observatorio de la Tierra"/>
         </div>
         <p class="eyebrow">AGENDA · 24 NOVIEMBRE 2026</p>
         <h1>Datatón · Lanzamiento suave del Observatorio de la Tierra</h1>
@@ -307,7 +320,11 @@
     </section>
     <footer class="footer">
       <p class="tagline">Observa. Actúa. Transforma.</p>
-      <img class="cth-logo" src="logos/cleantechhub-white.png" alt="CleantechHUB"/>
+      <div class="footer-cobrand cobrand-row" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
+        <img src="logos/externado-white.png" alt=""/>
+        <img src="logos/cleantechhub-white.png" alt=""/>
+        <img src="logos/observatorio-white.png" alt=""/>
+      </div>
     </footer>
   </article>
 </body>
