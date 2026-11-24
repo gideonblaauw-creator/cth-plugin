@@ -21,26 +21,28 @@ CUESTIONARIO = ROOT / "cuestionario"
 CUESTIONARIO_DOCX = "Cuestionario-Dataton-24nov-equipos.docx"
 CUESTIONARIO_PDF = "Cuestionario-Dataton-24nov-equipos.pdf"
 
-# Zip names for mentors-only PDFs (no rebuild; dist filenames unchanged).
-MENTOR_ZIP_PREFIX = "guia-tecnica-mentores-"
-MENTOR_PDF_STEMS = {
-    "plantilla-bmc",
-    "prompts-ia-v2",
+GUIA_TECNICA = ROOT / "guia-tecnica"
+GUIA_DOCX = "Guia-tecnica-solo-mentores.docx"
+GUIA_PDF = "Guia-tecnica-solo-mentores.pdf"
+SOLO_MENTORES_DIR = "solo-mentores"
+
+# Individual PDFs kept under solo-mentores/ (dist filenames unchanged).
+SOLO_MENTORES_PDF_STEMS = (
     "hoja-1-mapa-de-calor",
     "hoja-2-flujo-de-datos",
     "hoja-3-dato-a-valor",
     "hoja-4-plantilla-tablero",
     "hoja-4b-ejemplo-air4u",
     "hoja-5-plantilla-pitch",
+    "prompts-ia-v2",
+    "plantilla-bmc",
     "ejemplo-air4u",
     "fuentes-datos-abiertos",
-}
+)
 
 TEAM_AUDIT_PDFS = {
     CUESTIONARIO_PDF,
     "agenda-equipos.pdf",
-    "guia-carpeta-drive.pdf",
-    "nota-derechos-datos.pdf",
     "LEEME.pdf",
 }
 
@@ -156,20 +158,34 @@ def write_leeme() -> str:
         f"| `{CUESTIONARIO_DOCX}` | Cuestionario en blanco (diligenciar y subir) |",
         f"| `{CUESTIONARIO_PDF}` | Vista previa del cuestionario (solo revisión) |",
         "| `agenda-equipos.pdf` | Horario del día (14 equipos) |",
-        "| `guia-carpeta-drive.pdf` | Cómo organizar su carpeta cuando el facilitador lo indique |",
-        "| `nota-derechos-datos.pdf` | Reglas básicas sobre datos personales y permisos |",
         "",
         "## Para mentores",
         "",
-        "Los PDF que empiezan por `guia-tecnica-mentores-` son la **guía técnica para mentores** "
-        "(mismas hojas y rúbricas de siempre, con nuevo nombre de archivo). Úsenlas para calificar "
-        "madurez de datos y elegir a los seis finalistas.",
+        "Carpeta `solo-mentores/` en este zip:",
+        "",
+        "- `Guia-tecnica-solo-mentores.docx` y `.pdf` — compilación única (hojas 1–5, ejemplo 4b, prompts IA)",
+        "- Los PDF originales por hoja (mismo contenido, por si necesitan imprimir una sola hoja)",
+        "",
+        "No distribuyan la guía técnica a los equipos.",
         "",
         "CleantechHUB · Datatón 24 nov 2026",
     ]
     text = "\n".join(lines)
     (TEAM / "LEEME.md").write_text(text, encoding="utf-8")
     return text
+
+
+def build_guia_tecnica_pack() -> None:
+    import subprocess
+    import shutil
+    import sys
+
+    script = GUIA_TECNICA / "build-guia-tecnica-mentores.py"
+    subprocess.run([sys.executable, str(script)], cwd=str(GUIA_TECNICA), check=True)
+    for name in (GUIA_DOCX, GUIA_PDF):
+        src = GUIA_TECNICA / name
+        if src.is_file():
+            shutil.copy2(src, OUT / name)
 
 
 def build_cuestionario_pack() -> None:
@@ -253,6 +269,7 @@ async def render_all() -> None:
         export_pdf_pngs(OUT / f"{stem}.pdf", stem, max_pages=1)
 
     build_cuestionario_pack()
+    build_guia_tecnica_pack()
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows: list[tuple[str, str]] = []
@@ -261,22 +278,31 @@ async def render_all() -> None:
         zf.write(src, arcname)
         manifest_rows.append((arcname, sha256_file(src)))
 
+    team_root_pdfs = {
+        "agenda-equipos.pdf",
+        CUESTIONARIO_PDF,
+        "LEEME.pdf",
+    }
+
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.write(TEAM / "LEEME.md", "LEEME.md")
         manifest_rows.append(("LEEME.md", sha256_file(TEAM / "LEEME.md")))
-        for pdf in sorted(OUT.glob("*.pdf")):
-            if pdf.stem in {"test-notes"}:
-                continue
-            if pdf.name == CUESTIONARIO_PDF:
-                zip_entry(pdf, pdf.name)
-            elif pdf.stem in MENTOR_PDF_STEMS:
-                arc = f"{MENTOR_ZIP_PREFIX}{pdf.name}"
-                zip_entry(pdf, arc)
-            else:
-                zip_entry(pdf, pdf.name)
+        for pdf_name in sorted(team_root_pdfs):
+            pdf = OUT / pdf_name
+            if pdf.is_file():
+                zip_entry(pdf, pdf_name)
         docx_path = OUT / CUESTIONARIO_DOCX
         if docx_path.is_file():
             zip_entry(docx_path, CUESTIONARIO_DOCX)
+        for stem in SOLO_MENTORES_PDF_STEMS:
+            pdf = OUT / f"{stem}.pdf"
+            if pdf.is_file():
+                arc = f"{SOLO_MENTORES_DIR}/{pdf.name}"
+                zip_entry(pdf, arc)
+        for name in (GUIA_DOCX, GUIA_PDF):
+            src = OUT / name
+            if src.is_file():
+                zip_entry(src, f"{SOLO_MENTORES_DIR}/{name}")
 
     manifest = [
         "# team-pack-es-manifest-sha256 (v0.4-es)",
@@ -338,7 +364,7 @@ def audit_team_facing_text() -> dict:
         if zip_name == CUESTIONARIO_PDF or zip_name in TEAM_AUDIT_PDFS:
             p = OUT / zip_name
             return p if p.is_file() else None
-        if zip_name.startswith(MENTOR_ZIP_PREFIX):
+        if zip_name.startswith(f"{SOLO_MENTORES_DIR}/"):
             return None
         p = OUT / zip_name
         return p if p.is_file() else None

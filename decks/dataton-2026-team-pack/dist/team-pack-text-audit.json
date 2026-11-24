@@ -4,25 +4,22 @@
   "pdfs_scanned": [
     "Cuestionario-Dataton-24nov-equipos.pdf",
     "LEEME.pdf",
-    "agenda-equipos.pdf",
-    "guia-carpeta-drive.pdf",
-    "nota-derechos-datos.pdf"
+    "agenda-equipos.pdf"
   ],
   "zip_pdfs": [
     "Cuestionario-Dataton-24nov-equipos.pdf",
     "LEEME.pdf",
     "agenda-equipos.pdf",
-    "guia-carpeta-drive.pdf",
-    "guia-tecnica-mentores-ejemplo-air4u.pdf",
-    "guia-tecnica-mentores-fuentes-datos-abiertos.pdf",
-    "guia-tecnica-mentores-hoja-1-mapa-de-calor.pdf",
-    "guia-tecnica-mentores-hoja-2-flujo-de-datos.pdf",
-    "guia-tecnica-mentores-hoja-3-dato-a-valor.pdf",
-    "guia-tecnica-mentores-hoja-4-plantilla-tablero.pdf",
-    "guia-tecnica-mentores-hoja-4b-ejemplo-air4u.pdf",
-    "guia-tecnica-mentores-hoja-5-plantilla-pitch.pdf",
-    "guia-tecnica-mentores-plantilla-bmc.pdf",
-    "guia-tecnica-mentores-prompts-ia-v2.pdf",
-    "nota-derechos-datos.pdf"
+    "solo-mentores/Guia-tecnica-solo-mentores.pdf",
+    "solo-mentores/ejemplo-air4u.pdf",
+    "solo-mentores/fuentes-datos-abiertos.pdf",
+    "solo-mentores/hoja-1-mapa-de-calor.pdf",
+    "solo-mentores/hoja-2-flujo-de-datos.pdf",
+    "solo-mentores/hoja-3-dato-a-valor.pdf",
+    "solo-mentores/hoja-4-plantilla-tablero.pdf",
+    "solo-mentores/hoja-4b-ejemplo-air4u.pdf",
+    "solo-mentores/hoja-5-plantilla-pitch.pdf",
+    "solo-mentores/plantilla-bmc.pdf",
+    "solo-mentores/prompts-ia-v2.pdf"
   ]
 }
