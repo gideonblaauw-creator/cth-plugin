@@ -20,6 +20,9 @@ ZIP_NAME = "team-pack-es-pdfs-v0.4.zip"
 CUESTIONARIO = ROOT / "cuestionario"
 CUESTIONARIO_DOCX = "Cuestionario-Dataton-24nov-equipos.docx"
 CUESTIONARIO_PDF = "Cuestionario-Dataton-24nov-equipos.pdf"
+CUESTIONARIO_EJEMPLO_DOCX = "Cuestionario-ejemplo-Air4U.docx"
+CUESTIONARIO_EJEMPLO_PDF = "Cuestionario-ejemplo-Air4U.pdf"
+CUESTIONARIO_PROMPTS_TXT = "prompts.txt"
 
 GUIA_TECNICA = ROOT / "guia-tecnica"
 GUIA_DOCX = "Guia-tecnica-mentores.docx"
@@ -157,6 +160,8 @@ def write_leeme() -> str:
         "|---|---|",
         f"| `{CUESTIONARIO_DOCX}` | Cuestionario en blanco (diligenciar y subir) |",
         f"| `{CUESTIONARIO_PDF}` | Vista previa del cuestionario (solo revisión) |",
+        f"| `{CUESTIONARIO_EJEMPLO_DOCX}` / `.pdf` | Ejemplo Air4U relleno (Datalab; no es plantilla) |",
+        f"| `{CUESTIONARIO_PROMPTS_TXT}` | Instrucciones IA Partes 1–4 (copiar y pegar) |",
         "| `agenda-equipos.pdf` | Horario del día (14 equipos) |",
         "",
         "## Para mentores",
@@ -212,12 +217,18 @@ def build_cuestionario_pack() -> None:
     if not script.is_file():
         raise FileNotFoundError(script)
     subprocess.run([sys.executable, str(script)], cwd=str(CUESTIONARIO), check=True)
-    for name in (CUESTIONARIO_DOCX, CUESTIONARIO_PDF):
+    import shutil
+
+    for name in (
+        CUESTIONARIO_DOCX,
+        CUESTIONARIO_PDF,
+        CUESTIONARIO_EJEMPLO_DOCX,
+        CUESTIONARIO_EJEMPLO_PDF,
+        CUESTIONARIO_PROMPTS_TXT,
+    ):
         src = CUESTIONARIO / name
         dst = OUT / name
         if src.is_file():
-            import shutil
-
             shutil.copy2(src, dst)
 
 
@@ -297,6 +308,7 @@ async def render_all() -> None:
     team_root_pdfs = {
         "agenda-equipos.pdf",
         CUESTIONARIO_PDF,
+        CUESTIONARIO_EJEMPLO_PDF,
         "LEEME.pdf",
     }
 
@@ -307,9 +319,13 @@ async def render_all() -> None:
             pdf = OUT / pdf_name
             if pdf.is_file():
                 zip_entry(pdf, pdf_name)
-        docx_path = OUT / CUESTIONARIO_DOCX
-        if docx_path.is_file():
-            zip_entry(docx_path, CUESTIONARIO_DOCX)
+        for docx_name in (CUESTIONARIO_DOCX, CUESTIONARIO_EJEMPLO_DOCX):
+            docx_path = OUT / docx_name
+            if docx_path.is_file():
+                zip_entry(docx_path, docx_name)
+        prompts_path = OUT / CUESTIONARIO_PROMPTS_TXT
+        if prompts_path.is_file():
+            zip_entry(prompts_path, CUESTIONARIO_PROMPTS_TXT)
         for stem in GUIA_MENTORES_PDF_STEMS:
             pdf = OUT / f"{stem}.pdf"
             if pdf.is_file():

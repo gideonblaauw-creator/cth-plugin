@@ -1,0 +1,34 @@
+Parte: Parte 1. ¿Qué información tienen y dónde está?
+Salida esperada: Mapa de calor por área del negocio y lista «qué falta».
+Forma esperada: Tabla (área × frío/tibio/caliente) o boceto visual equivalente, más viñetas.
+
+Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
+Aplique la rúbrica interna REO / mapa de calor (puntuación R, H, F, A, Q, G por conjunto de datos) solo para orientar el análisis; no muestre esas letras al equipo.
+Devuelva: (1) mapa de calor por área del negocio (frío / tibio / caliente); (2) lista corta «qué falta» para poder decidir con datos.
+Forma de salida: tabla (área × frío/tibio/caliente) o boceto visual equivalente, más lista en viñetas.
+
+Parte: Parte 2. ¿Cómo nace un dato y qué tan confiable es?
+Salida esperada: Lectura de confiabilidad del dato (Bronce / Plata / Oro con una línea clara cada uno).
+Forma esperada: Tabla o texto breve con nivel sugerido y las tres líneas Bronce/Plata/Oro.
+
+Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
+Evalúe el flujo con la escalera Medallion / niveles Bronce, Plata, Oro (B1–B7, S1–S6, G1–G9) en sus notas internas; explique al equipo en una línea: Bronce = dato crudo, Plata = limpio y ordenado, Oro = listo para decidir. Aclare que son niveles de confianza, no premios.
+Entregue: nivel sugerido, brecha principal y un paso concreto para subir un nivel.
+Forma de salida: tabla o texto con el nivel y tres líneas — Bronce = dato crudo; Plata = limpio y ordenado; Oro = listo para decidir (niveles de confianza, no premios).
+
+Parte: Parte 3. ¿Qué decisión ayudan a tomar?
+Salida esperada: Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).
+Forma esperada: Boceto ASCII de una pantalla o descripción de imagen de tablero.
+
+Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
+Use marco Delta / Línea base / Paisaje (Hojas 3–4, VP1, grada de confianza) solo en su razonamiento interno.
+Entregue boceto de tablero de una pantalla: rol, decisión de la semana, 2–3 números con fuente y firme/estimado. Si los derechos de datos no están claros, escriba «no publicar».
+Forma de salida: boceto ASCII de una sola pantalla o descripción clara de imagen de tablero.
+
+Parte: Parte 4. Su pitch de 5 minutos
+Salida esperada: Guion de pitch de cinco minutos.
+Forma esperada: Guion en prosa continua (voz alta).
+
+Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
+Redacte guion de pitch de 5 minutos (problema, datos usados, pantalla, beneficio, próximos pasos). Marque cualquier cifra sin fuente. Funciona en ChatGPT, Gemini o Grok (cuentas estándar).
+Forma de salida: guion en prosa continua (cinco minutos en voz alta).

@@ -20,6 +20,10 @@ PACK = ROOT.parent
 ASSETS = ROOT / "assets"
 OUT_DOCX = ROOT / "Cuestionario-Dataton-24nov-equipos.docx"
 OUT_PDF = ROOT / "Cuestionario-Dataton-24nov-equipos.pdf"
+OUT_EJEMPLO_DOCX = ROOT / "Cuestionario-ejemplo-Air4U.docx"
+OUT_EJEMPLO_PDF = ROOT / "Cuestionario-ejemplo-Air4U.pdf"
+PROMPTS_TXT = ROOT / "prompts.txt"
+EJEMPLO_HEADER = "Ejemplo · datos de ejemplo Air4U"
 LOGO = PACK / "assets/cth-logo-color.png"
 HEATMAP_PNG = ASSETS / "ejemplo-mapa-calor-air4u.png"
 DASH_PNG = ASSETS / "ejemplo-tablero-air4u.png"
@@ -75,15 +79,22 @@ def _footer_inspira(doc: Document) -> None:
     run.font.color.rgb = GREY
 
 
-def _header_logo(doc: Document) -> None:
-    if not LOGO.is_file():
-        return
+def _header_logo(doc: Document, *, ejemplo: bool = False) -> None:
     section = doc.sections[0]
     header = section.header
     p = header.paragraphs[0]
-    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    run = p.add_run()
-    run.add_picture(str(LOGO), width=Mm(32))
+    p.text = ""
+    if ejemplo:
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = p.add_run(EJEMPLO_HEADER)
+        run.bold = True
+        run.font.size = Pt(9)
+        run.font.color.rgb = NAVY
+    else:
+        p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        if LOGO.is_file():
+            run = p.add_run()
+            run.add_picture(str(LOGO), width=Mm(32))
 
 
 def _para(doc: Document, text: str, *, bold: bool = False, size: float | None = None) -> None:
@@ -135,7 +146,11 @@ def _example_in_cell(cell, text: str) -> None:
     run.font.size = Pt(8.5)
 
 
-def _qa_table(doc: Document, questions: list[tuple[str, str]]) -> None:
+def _qa_table(
+    doc: Document,
+    questions: list[tuple[str, str]],
+    answers: list[str] | None = None,
+) -> None:
     global _table_counter
     table = doc.add_table(rows=1 + len(questions), cols=2)
     table.style = "Table Grid"
@@ -148,12 +163,18 @@ def _qa_table(doc: Document, questions: list[tuple[str, str]]) -> None:
         for para in c0.paragraphs:
             for run in para.runs:
                 run.font.size = Pt(9)
-        if ex:
+        if ex and answers is None:
             _example_in_cell(c0, ex)
-        table.rows[i].cells[1].text = ""
-        # Taller answer cells
-        for para in table.rows[i].cells[1].paragraphs:
-            para.add_run("\n\n")
+        c1 = table.rows[i].cells[1]
+        c1.text = ""
+        if answers is not None:
+            ans = answers[i - 1]
+            c1.paragraphs[0].add_run(ans)
+            for run in c1.paragraphs[0].runs:
+                run.font.size = Pt(9)
+        else:
+            for para in c1.paragraphs:
+                para.add_run("\n\n")
     _table_counter += 1
 
 
@@ -269,31 +290,65 @@ Arme un resumen de una página con: territorio, comunidad, problema, solución, 
 
 AI_P1 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
 Aplique la rúbrica interna REO / mapa de calor (puntuación R, H, F, A, Q, G por conjunto de datos) solo para orientar el análisis; no muestre esas letras al equipo.
-Devuelva: (1) mapa de calor por área del negocio (frío / tibio / caliente); (2) lista corta «qué falta» para poder decidir con datos."""
+Devuelva: (1) mapa de calor por área del negocio (frío / tibio / caliente); (2) lista corta «qué falta» para poder decidir con datos.
+Forma de salida: tabla (área × frío/tibio/caliente) o boceto visual equivalente, más lista en viñetas."""
 
 AI_P2 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
 Evalúe el flujo con la escalera Medallion / niveles Bronce, Plata, Oro (B1–B7, S1–S6, G1–G9) en sus notas internas; explique al equipo en una línea: Bronce = dato crudo, Plata = limpio y ordenado, Oro = listo para decidir. Aclare que son niveles de confianza, no premios.
-Entregue: nivel sugerido, brecha principal y un paso concreto para subir un nivel."""
+Entregue: nivel sugerido, brecha principal y un paso concreto para subir un nivel.
+Forma de salida: tabla o texto con el nivel y tres líneas — Bronce = dato crudo; Plata = limpio y ordenado; Oro = listo para decidir (niveles de confianza, no premios)."""
 
 AI_P3 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
 Use marco Delta / Línea base / Paisaje (Hojas 3–4, VP1, grada de confianza) solo en su razonamiento interno.
-Entregue boceto de tablero de una pantalla: rol, decisión de la semana, 2–3 números con fuente y firme/estimado. Si los derechos de datos no están claros, escriba «no publicar»."""
+Entregue boceto de tablero de una pantalla: rol, decisión de la semana, 2–3 números con fuente y firme/estimado. Si los derechos de datos no están claros, escriba «no publicar».
+Forma de salida: boceto ASCII de una sola pantalla o descripción clara de imagen de tablero."""
 
 AI_P4 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
-Redacte guion de pitch de 5 minutos (problema, datos usados, pantalla, beneficio, pasos 30 y 90 días). Marque cualquier cifra sin fuente. Funciona en ChatGPT, Gemini o Grok (cuentas estándar)."""
+Redacte guion de pitch de 5 minutos (problema, datos usados, pantalla, beneficio, próximos pasos). Marque cualquier cifra sin fuente. Funciona en ChatGPT, Gemini o Grok (cuentas estándar).
+Forma de salida: guion en prosa continua (cinco minutos en voz alta)."""
 
 
-def build_docx() -> Document:
+PROMPTS_META = [
+    (
+        "Parte 1. ¿Qué información tienen y dónde está?",
+        "Mapa de calor por área del negocio y lista «qué falta».",
+        "Tabla (área × frío/tibio/caliente) o boceto visual equivalente, más viñetas.",
+    ),
+    (
+        "Parte 2. ¿Cómo nace un dato y qué tan confiable es?",
+        "Lectura de confiabilidad del dato (Bronce / Plata / Oro con una línea clara cada uno).",
+        "Tabla o texto breve con nivel sugerido y las tres líneas Bronce/Plata/Oro.",
+    ),
+    (
+        "Parte 3. ¿Qué decisión ayudan a tomar?",
+        "Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).",
+        "Boceto ASCII de una pantalla o descripción de imagen de tablero.",
+    ),
+    (
+        "Parte 4. Su pitch de 5 minutos",
+        "Guion de pitch de cinco minutos.",
+        "Guion en prosa continua (voz alta).",
+    ),
+]
+
+
+def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> Document:
     global _table_counter, AI_TABLE_IDS
     _table_counter = 0
     AI_TABLE_IDS.clear()
 
     doc = Document()
     _set_doc_defaults(doc)
-    _header_logo(doc)
+    _header_logo(doc, ejemplo=filled_air4u)
     _footer_inspira(doc)
 
     doc.add_heading("Cuestionario del Datatón — su equipo", level=1)
+    if filled_air4u:
+        banner = doc.add_paragraph()
+        banner.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        br = banner.add_run(EJEMPLO_HEADER)
+        br.bold = True
+        br.font.color.rgb = NAVY
     _para(
         doc,
         "Complete este archivo con sus palabras. Al final del día tendrán un mapa de prioridades de "
@@ -330,7 +385,25 @@ def build_docx() -> Document:
         ("¿Qué les cuesta más?", "Sacar reportes claros sin molestar al personal clínico."),
         ("¿Qué cambia en el territorio si les va bien?", "Menos exposición a aire contaminado en espacios de salud."),
     ]
-    _qa_table(doc, q0)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q0,
+            [
+                "Bogotá — una clínica piloto (sin nombre propio del sitio).",
+                "Gestor de instalaciones y personal de una clínica piloto.",
+                "No saben con certeza si el PM₂.₅ en interior es seguro esta semana.",
+                "Sensores en sitio y monitoreo del aire interior (piloto Air4U).",
+                "Instalación en el sitio piloto de la clínica.",
+                "no sé",
+                "Revisar lecturas del sensor y responder alertas.",
+                "Proveedor del sensor y personal de mantenimiento de la clínica.",
+                "Exportar historial y permisos del piloto aún sin cerrar.",
+                "Menos tiempo con aire interior poco saludable en espacios de salud.",
+            ],
+        )
+    else:
+        _qa_table(doc, q0)
     _ai_table(doc, AI_P0)
 
     # Parte 1
@@ -350,7 +423,20 @@ def build_docx() -> Document:
         ("Tipo de información 4", "no sé"),
         ("Tipo de información 5", "no sé"),
     ]
-    _qa_table(doc, q1_types)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q1_types,
+            [
+                "Lecturas del sensor de partículas (PM₂.₅) en la clínica — sin cifra exportable.",
+                "Mensajes de WhatsApp con mantenimiento cuando hay intervención.",
+                "Correos o acuerdos con el administrador del sitio piloto.",
+                "no sé",
+                "no sé",
+            ],
+        )
+    else:
+        _qa_table(doc, q1_types)
     _para(doc, "Para la información más importante de la lista, responda:", bold=True)
     q1_detail = [
         ("¿Dónde vive hoy (WhatsApp, papel, Excel, un sistema)?", "Base del proveedor del sensor; copias en WhatsApp."),
@@ -360,7 +446,21 @@ def build_docx() -> Document:
         ("¿Pueden descargarla o exportarla?", "Todavía no tenemos exportación simple."),
         ("¿Tienen permiso para usarla en el reto?", "Permiso del sitio piloto en trámite."),
     ]
-    _qa_table(doc, q1_detail)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q1_detail,
+            [
+                "Plataforma del proveedor del sensor; copias en WhatsApp.",
+                "no sé",
+                "no sé",
+                "Gestor de instalaciones del sitio piloto.",
+                "Todavía no hay exportación simple almacenada.",
+                "Permiso del sitio piloto en trámite (propiedad ABIERTO).",
+            ],
+        )
+    else:
+        _qa_table(doc, q1_detail)
     _embed_image(doc, HEATMAP_PNG, 14)
     _ai_table(doc, AI_P1)
 
@@ -383,7 +483,23 @@ def build_docx() -> Document:
         ("¿Revisan errores? ¿Cómo?", "A veces comparan con lecturas manuales; sin rutina fija."),
         ("¿Qué les falta para confiar más?", "Un solo lugar con historial y exportación clara."),
     ]
-    _qa_table(doc, q2)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q2,
+            [
+                "Lecturas del sensor en la clínica piloto.",
+                "El sensor mide y la plataforma registra la lectura.",
+                "Medición → guardado en plataforma → aviso al gestor si hay alerta.",
+                "Sensor automático; gestor revisa y avisa a mantenimiento.",
+                "Sensor en sitio y aplicación del proveedor.",
+                "Comentarios en WhatsApp cuando hubo intervención.",
+                "A veces comparan con lecturas manuales; sin rutina fija.",
+                "Un solo lugar con historial y exportación clara.",
+            ],
+        )
+    else:
+        _qa_table(doc, q2)
     _para(doc, "Marque sí / no / no sé:", bold=True)
     q2_chk = [
         ("¿Cada registro tiene fecha?", "A veces en la plataforma, no siempre en WhatsApp."),
@@ -392,7 +508,20 @@ def build_docx() -> Document:
         ("¿Tienen reglas escritas para corregir errores?", "no sé"),
         ("¿Otra persona puede revisar los datos?", "El técnico de mantenimiento mira capturas."),
     ]
-    _qa_table(doc, q2_chk)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q2_chk,
+            [
+                "A veces en la plataforma; no siempre en WhatsApp.",
+                "Sí para el sensor; no siempre para los mensajes.",
+                "No — están repartidos.",
+                "no sé",
+                "El técnico de mantenimiento revisa capturas.",
+            ],
+        )
+    else:
+        _qa_table(doc, q2_chk)
     _ai_table(doc, AI_P2)
 
     # Parte 3
@@ -417,7 +546,26 @@ def build_docx() -> Document:
         ("¿Qué cambia si ustedes actúan?", "Menos tiempo con aire poco saludable en salas de espera."),
         ("¿Qué dato abierto del territorio ayuda como contexto?", "Indicadores públicos de calidad del aire en Bogotá — aún sin enlace."),
     ]
-    _qa_table(doc, q3)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q3,
+            [
+                "Gestor de instalaciones / sitio en la clínica piloto (Bogotá).",
+                "¿Debe activar ventilación extra o revisión de filtros esta semana porque el PM₂.₅ en interior podría superar la referencia OMS?",
+                "¿El PM₂.₅ en interior supera la referencia OMS?",
+                "no sé",
+                "no sé",
+                "sin dato (estimado; lecturas no exportadas).",
+                "Referencia OMS: 5 µg/m³ (media anual PM₂.₅).",
+                "no sé",
+                "Sin monitoreo continuo visible para el gestor antes del piloto.",
+                "Menos tiempo con aire interior poco saludable; protege pacientes y personal.",
+                "Calidad del aire exterior en Bogotá — fuente pública por definir.",
+            ],
+        )
+    else:
+        _qa_table(doc, q3)
     _embed_image(doc, DASH_PNG, 14)
     _ai_table(doc, AI_P3)
 
@@ -437,14 +585,28 @@ def build_docx() -> Document:
         ("¿A quién beneficia?", "Clínica piloto y quienes trabajan en el sitio."),
         ("¿Próximo paso a 30 y 90 días?", "30 días: exportar historial; 90 días: rutina con la clínica."),
     ]
-    _qa_table(doc, q4)
+    if filled_air4u:
+        _qa_table(
+            doc,
+            q4,
+            [
+                "Personal y pacientes con aire interior incierto en la clínica piloto.",
+                "Lecturas del sensor (sin cifra exportada) y referencia OMS 5 µg/m³.",
+                "Decisión de ventilación/filtros y tres paneles sin brecha calculable.",
+                "Clínica piloto y quienes trabajan en el sitio.",
+                "no sé",
+            ],
+        )
+    else:
+        _qa_table(doc, q4)
     _ai_table(doc, AI_P4)
 
-    doc.save(OUT_DOCX)
+    target = out_path or (OUT_EJEMPLO_DOCX if filled_air4u else OUT_DOCX)
+    doc.save(target)
     return doc
 
 
-def convert_pdf() -> None:
+def convert_pdf(docx_path: Path, pdf_path: Path) -> None:
     subprocess.run(
         [
             "libreoffice",
@@ -452,14 +614,121 @@ def convert_pdf() -> None:
             "--convert-to",
             "pdf",
             "--outdir",
-            str(ROOT),
-            str(OUT_DOCX),
+            str(docx_path.parent),
+            str(docx_path),
         ],
         check=True,
         capture_output=True,
     )
-    if not OUT_PDF.is_file():
-        raise SystemExit("LibreOffice did not produce PDF")
+    produced = docx_path.with_suffix(".pdf")
+    if produced != pdf_path and produced.is_file():
+        produced.replace(pdf_path)
+    if not pdf_path.is_file():
+        raise SystemExit(f"LibreOffice did not produce PDF: {pdf_path}")
+
+
+def extract_ai_instruction_bodies(docx_path: Path) -> list[str]:
+    """Return AI bodies for Partes 1–4 in order (excludes Parte 0)."""
+    from docx import Document as D
+
+    doc = D(docx_path)
+    bodies: list[str] = []
+    for table in doc.tables:
+        cell = table.rows[0].cells[0]
+        if not cell.text.strip().startswith(AI_MARKER):
+            continue
+        lines: list[str] = []
+        past_marker = False
+        for para in cell.paragraphs:
+            if AI_MARKER in para.text:
+                past_marker = True
+                continue
+            if past_marker:
+                lines.append(para.text)
+        bodies.append("\n".join(lines))
+    if len(bodies) < 5:
+        raise SystemExit(f"Expected 5 AI boxes, found {len(bodies)} in {docx_path}")
+    return bodies[1:5]
+
+
+def write_prompts_txt(docx_path: Path, dest: Path = PROMPTS_TXT) -> None:
+    bodies = extract_ai_instruction_bodies(docx_path)
+    chunks: list[str] = []
+    for meta, body in zip(PROMPTS_META, bodies, strict=True):
+        chunks.extend(
+            [
+                f"Parte: {meta[0]}",
+                f"Salida esperada: {meta[1]}",
+                f"Forma esperada: {meta[2]}",
+                "",
+                body,
+                "",
+            ]
+        )
+    text = "\n".join(chunks).rstrip() + "\n"
+    dest.write_text(text, encoding="utf-8")
+
+
+def parse_prompts_instruction_blocks(raw: str) -> list[str]:
+    """Extract the four instruction bodies from prompts.txt (after header triplets)."""
+    chunks = re.split(r"(?=^Parte: )", raw.strip(), flags=re.MULTILINE)
+    bodies: list[str] = []
+    for chunk in chunks:
+        chunk = chunk.strip()
+        if not chunk.startswith("Parte:"):
+            continue
+        lines = chunk.split("\n")
+        try:
+            blank = lines.index("")
+        except ValueError:
+            raise SystemExit("prompts.txt: missing blank line after headers") from None
+        bodies.append("\n".join(lines[blank + 1 :]).rstrip("\n"))
+    return bodies
+
+
+def verify_prompts_txt(docx_path: Path, prompts_path: Path = PROMPTS_TXT) -> None:
+    from_docx = extract_ai_instruction_bodies(docx_path)
+    raw = prompts_path.read_text(encoding="utf-8")
+    instruction_blocks = parse_prompts_instruction_blocks(raw)
+    if instruction_blocks != from_docx:
+        raise SystemExit("prompts.txt instruction blocks do not match blank docx byte-for-byte")
+    print("prompts_txt_verify", "OK", len(instruction_blocks), "blocks")
+
+
+def audit_air4u_numbers(docx_path: Path) -> None:
+    from docx import Document as D
+
+    doc = D(docx_path)
+    text_parts: list[str] = []
+    for table in doc.tables:
+        if table.rows[0].cells[0].text.strip().startswith(AI_MARKER):
+            continue
+        if "Reglas para ustedes" in table.rows[0].cells[0].text:
+            continue
+        if len(table.rows) > 0 and table.rows[0].cells[0].text == "Pregunta":
+            for row in table.rows[1:]:
+                if len(row.cells) > 1:
+                    text_parts.append(row.cells[1].text)
+    text = "\n".join(text_parts).replace("Air4U", "AirU").replace("PM₂.₅", "PM")
+    for m in re.finditer(r"(?<![A-Za-z])\d+(?:[.,]\d+)?", text):
+        snippet = text[max(0, m.start() - 20) : m.end() + 15]
+        if m.group(0) == "5" and ("µg" in snippet or "OMS" in snippet):
+            continue
+        if m.group(0) in {"24", "2026", "21", "11", "14"}:
+            continue  # dates in footer not in answers
+        raise SystemExit(f"Invented number in Air4U ejemplo answers: {m.group(0)!r} near {snippet!r}")
+    print("air4u_number_audit", "OK")
+
+
+def grep_free_docx(path: Path) -> list[str]:
+    from docx import Document as D
+
+    text = "\n".join(p.text for p in D(path).paragraphs)
+    for table in D(path).tables:
+        for row in table.rows:
+            for cell in row.cells:
+                text += "\n" + cell.text
+    return [m.group(0) for m in FREE_RE.finditer(text)]
 
 
 def docx_readable_text(path: Path) -> str:
@@ -494,26 +763,36 @@ def grep_self_check() -> tuple[list[str], list[str]]:
 
 def main() -> int:
     render_example_images()
-    build_docx()
-    convert_pdf()
+    build_docx(filled_air4u=False)
+    convert_pdf(OUT_DOCX, OUT_PDF)
+    write_prompts_txt(OUT_DOCX)
+    verify_prompts_txt(OUT_DOCX)
+    build_docx(filled_air4u=True, out_path=OUT_EJEMPLO_DOCX)
+    convert_pdf(OUT_EJEMPLO_DOCX, OUT_EJEMPLO_PDF)
+    audit_air4u_numbers(OUT_EJEMPLO_DOCX)
     jargon, free = grep_self_check()
+    free_ej = grep_free_docx(OUT_EJEMPLO_DOCX)
     print("grep_jargon_hits", len(jargon), jargon[:20])
     print("grep_free_hits", len(free), free)
-    if jargon or free:
+    print("grep_free_ejemplo_hits", len(free_ej), free_ej)
+    if jargon or free or free_ej:
         print("SELF-CHECK FAILED", file=sys.stderr)
         return 1
-  # page count
     import fitz
 
-    doc = fitz.open(OUT_PDF)
-    n = doc.page_count
-    doc.close()
-    print("pdf_pages", n)
-    if n > 8:
-        print("WARNING: PDF exceeds 8 pages", file=sys.stderr)
-        return 1
+    for label, pdf in (("blank", OUT_PDF), ("air4u", OUT_EJEMPLO_PDF)):
+        doc = fitz.open(pdf)
+        n = doc.page_count
+        doc.close()
+        print(f"pdf_pages_{label}", n)
+        if n > 8:
+            print(f"WARNING: {label} PDF exceeds 8 pages", file=sys.stderr)
+            return 1
     print("docx", OUT_DOCX)
     print("pdf", OUT_PDF)
+    print("ejemplo_docx", OUT_EJEMPLO_DOCX)
+    print("ejemplo_pdf", OUT_EJEMPLO_PDF)
+    print("prompts_txt", PROMPTS_TXT)
     return 0
 
 

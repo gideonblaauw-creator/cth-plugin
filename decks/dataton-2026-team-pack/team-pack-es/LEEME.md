@@ -8,6 +8,8 @@ Su archivo principal es el **cuestionario en Word** (`Cuestionario-Dataton-24nov
 |---|---|
 | `Cuestionario-Dataton-24nov-equipos.docx` | Cuestionario en blanco (diligenciar y subir) |
 | `Cuestionario-Dataton-24nov-equipos.pdf` | Vista previa del cuestionario (solo revisión) |
+| `Cuestionario-ejemplo-Air4U.docx` / `.pdf` | Ejemplo Air4U relleno (Datalab; no es plantilla) |
+| `prompts.txt` | Instrucciones IA Partes 1–4 (copiar y pegar) |
 | `agenda-equipos.pdf` | Horario del día (14 equipos) |
 
 ## Para mentores
