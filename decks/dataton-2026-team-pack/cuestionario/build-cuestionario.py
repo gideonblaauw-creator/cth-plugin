@@ -79,6 +79,27 @@ def _set_doc_defaults(doc: Document) -> None:
     normal.paragraph_format.line_spacing = 1.1
 
 
+def patch_docx_theme_open_sans(docx_path: Path) -> None:
+    """Set theme major/minor latin typefaces to Open Sans in word/theme/theme1.xml."""
+    theme = "word/theme/theme1.xml"
+    major = re.compile(r"(<a:majorFont>\s*<a:latin typeface=\")[^\"]+(\")", re.DOTALL)
+    minor = re.compile(r"(<a:minorFont>\s*<a:latin typeface=\")[^\"]+(\")", re.DOTALL)
+    with zipfile.ZipFile(docx_path, "r") as zin:
+        if theme not in zin.namelist():
+            raise SystemExit(f"Missing {theme} in {docx_path}")
+        raw = zin.read(theme).decode("utf-8")
+        patched = major.sub(r"\1Open Sans\2", raw, count=1)
+        patched = minor.sub(r"\1Open Sans\2", patched, count=1)
+        if patched == raw:
+            raise SystemExit(f"theme1.xml latin fonts not patched in {docx_path}")
+        buf = __import__("io").BytesIO()
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zout:
+            for item in zin.infolist():
+                data = patched.encode("utf-8") if item.filename == theme else zin.read(item.filename)
+                zout.writestr(item, data)
+    docx_path.write_bytes(buf.getvalue())
+
+
 def _footer_inspira(doc: Document) -> None:
     section = doc.sections[0]
     section.top_margin = Mm(14)
@@ -615,7 +636,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     _part_meta(
         doc,
         "Solo para los seis finalistas: guion corto con datos y pantalla.",
-        "Guion de cinco minutos.",
+        "Guion de cinco minutos (600–650 palabras).",
         "Bloque 2 — finales",
         "15 min",
     )
@@ -645,6 +666,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
 
     target = out_path or (OUT_EJEMPLO_DOCX if filled_air4u else OUT_DOCX)
     doc.save(target)
+    patch_docx_theme_open_sans(target)
     return doc
 
 
