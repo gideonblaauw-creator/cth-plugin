@@ -1,0 +1,36 @@
+=== pdfinfo ===
+Title:           Panel 08:40 · Datatón 24 nov 2026
+Creator:         Chromium
+Producer:        Skia/PDF m159
+CreationDate:    Tue Nov 24 01:07:02 2026 UTC
+ModDate:         Tue Nov 24 01:07:02 2026 UTC
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           1
+Encrypted:       no
+Page size:       594.96 x 841.92 pts (A4)
+Page rot:        0
+File size:       249319 bytes
+Optimized:       no
+PDF version:     1.4
+
+=== pdffonts ===
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     14  0
+BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     15  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     17  0
+
+=== banned terms ===
+(none)
+
+=== text diff (whitespace-normalised) ===
+OK: word sequences match
+
+=== glyph scan ===
+(empty) — all pdftotext chars in OpenSans-Regular cmap

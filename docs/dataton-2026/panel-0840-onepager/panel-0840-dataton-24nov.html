@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Panel 08:40 · Datatón 24 nov 2026</title>
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url("fonts/OpenSans-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-display: block;
+      src: url("fonts/OpenSans-SemiBold.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-display: block;
+      src: url("fonts/OpenSans-Bold.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-style: italic;
+      font-weight: 400;
+      font-display: block;
+      src: url("fonts/OpenSans-Italic.ttf") format("truetype");
+    }
+
+    :root {
+      --blue: #0C498A;
+      --cyan: #B2EEFA;
+      --lgreen: #9DC384;
+      --green: #669348;
+      --sky: #69B5FA;
+      --white: #fff;
+      --font: "Open Sans", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font);
+      color: var(--blue);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      background: var(--white);
+    }
+    .letterhead-top,
+    .letterhead-bottom {
+      width: 100%;
+      height: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+    .title-block {
+      flex-shrink: 0;
+      padding: 1.5mm 14mm 2mm;
+      color: var(--blue);
+      background: var(--white);
+    }
+    .cobrand-row {
+      display: flex;
+      align-items: center;
+      gap: 3.5mm;
+      flex-wrap: nowrap;
+      margin-bottom: 1.5mm;
+    }
+    .cobrand-row img {
+      height: 6mm;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .cobrand-row .logo-datalab {
+      height: 8.5mm;
+    }
+    .cobrand-row .logo-cth {
+      height: 6mm;
+    }
+    h1 {
+      margin: 0 0 1mm;
+      font-size: 13.5pt;
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 182mm;
+      color: var(--blue);
+    }
+    .meta-line {
+      margin: 0 0 0.5mm;
+      font-size: 9.5pt;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--blue);
+    }
+    .meta-venue {
+      margin: 0 0 1mm;
+      font-size: 9.5pt;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--blue);
+    }
+    .main {
+      flex: 1 1 auto;
+      min-height: 0;
+      padding: 0 14mm 0.5mm;
+      font-size: 9.5pt;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .lead {
+      margin: 0 0 1.5mm;
+      font-size: 9.5pt;
+      line-height: 1.2;
+    }
+    .section-title {
+      margin: 1.2mm 0 0.4mm;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.15;
+    }
+    .bullet-list {
+      margin: 0 0 1mm;
+      padding: 0;
+      list-style: none;
+    }
+    .bullet-list li {
+      margin: 0 0 0.25mm;
+      padding-left: 3.5mm;
+      text-indent: -3.5mm;
+      font-size: 9.5pt;
+      line-height: 1.18;
+    }
+    .body-text {
+      margin: 0 0 1mm;
+      font-size: 9.5pt;
+      line-height: 1.2;
+    }
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      align-items: start;
+    }
+    .cols .bullet-list li {
+      font-size: 9.25pt;
+      line-height: 1.16;
+    }
+    .closing {
+      margin: 1mm 0 0;
+      font-size: 9.5pt;
+      line-height: 1.2;
+      padding: 1.2mm 2.5mm;
+      background: rgba(178, 238, 250, 0.35);
+      border-left: 3px solid var(--sky);
+    }
+    .sheet-foot {
+      flex-shrink: 0;
+      background: var(--white);
+    }
+    .footer-meta {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4mm;
+      padding: 1mm 14mm 0.5mm;
+    }
+    .tagline {
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--blue);
+      margin: 0;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .footer-cobrand {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 3mm;
+    }
+    .footer-cobrand img {
+      height: 5.5mm;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .footer-cobrand .logo-cth {
+      height: 6mm;
+    }
+    .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+
+    @media print {
+      html, body { width: 210mm; height: 297mm; }
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      .sheet {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet" role="document">
+    <img class="letterhead-top" src="assets/letterhead/CTH_header_band.png" alt=""/>
+    <div class="title-block">
+      <div class="cobrand-row" aria-label="Datalab y aliados del evento">
+        <img class="logo-datalab" src="assets/logos/datalab-logo-endorsed-light.png" alt="Datalab powered by CleantechHUB"/>
+        <img src="logos/externado-color.png" alt=""/>
+        <img class="logo-cth" src="logos/cleantechhub-color.png" alt=""/>
+        <img src="logos/observatorio-color.png" alt=""/>
+      </div>
+      <h1>Panel: Innovación y emprendimiento en el territorio a través de los datos (ODS 13)</h1>
+      <p class="meta-line">Martes 24 de noviembre de 2026, de 08:40 a 09:10 (30 minutos)</p>
+      <p class="meta-venue">Universidad Externado de Colombia, Auditorio del Bloque I, piso 2 (Av. Circunvalar No. 12B-54)</p>
+    </div>
+    <section class="main">
+      <p class="lead">El panel abre el Datatón y el lanzamiento suave del Observatorio de la Tierra. Catorce equipos de estudiantes pasarán el día trabajando con datos de sus territorios, y este panel les da el punto de partida: cómo el emprendimiento local puede ofrecer soluciones a desafíos climáticos concretos, como inundaciones, erosión costera, agua o calidad del aire.</p>
+
+      <p class="section-title">Participan</p>
+      <ul class="bullet-list">
+        <li>- Natalia Vargas, APC-Colombia</li>
+        <li>- Rector de la Universidad Externado</li>
+        <li>- Viviana Obando, RAP Pacífico</li>
+        <li>- Modera: Gideon Blaauw, CleantechHUB</li>
+      </ul>
+
+      <p class="section-title">Formato</p>
+      <p class="body-text">Conversación moderada. Cada panelista recibe una o dos preguntas y una repregunta. Les pedimos respuestas cortas, de uno a dos minutos, con un ejemplo real del territorio. Cerramos con una ronda en la que cada uno nombra en una frase el desafío climático que le entregaría hoy a los equipos.</p>
+
+      <p class="section-title">Preguntas guía</p>
+      <ul class="bullet-list cols">
+        <li>- Natalia: desde la cooperación, ¿qué desafío climático en los territorios ya están apoyando con soluciones, y dónde puede entrar un emprendedor local?</li>
+        <li>- Viviana: en el Pacífico, ¿qué problema climático resuelve o podría resolver un emprendimiento local?</li>
+        <li>- Rector: ¿qué puede ofrecer en concreto la universidad a quien emprende frente a un problema climático?</li>
+        <li>- Natalia y Viviana: ¿por qué esa solución debería salir de un emprendedor del territorio y no solo de un programa público?</li>
+        <li>- Todos: en una frase, ¿qué desafío climático le entregarían hoy a los equipos?</li>
+      </ul>
+
+      <p class="closing">A las 09:10, justo después del panel, presentamos el Observatorio de la Tierra y el Datalab: cómo poner datos a estos desafíos.</p>
+    </section>
+    <section class="sheet-foot">
+      <div class="footer-meta">
+        <p class="tagline">Observa. Actúa. Transforma.</p>
+        <div class="footer-cobrand" aria-label="Universidad Externado de Colombia · CleantechHUB · Observatorio de la Tierra">
+          <img src="logos/externado-color.png" alt=""/>
+          <img class="logo-cth" src="logos/cleantechhub-color.png" alt=""/>
+          <img src="logos/observatorio-color.png" alt=""/>
+        </div>
+      </div>
+      <img class="letterhead-bottom" src="assets/letterhead/CTH_footer_band.png" alt=""/>
+    </section>
+  </article>
+</body>
+</html>
