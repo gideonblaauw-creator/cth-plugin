@@ -1,7 +1,7 @@
 # Run 7 notes — Guía técnica layout rebuild
 
 Start head (ticket): `9ba28ff6d4050ff0da62767b6bd65409bad1a752`.
-Working head after build: `9ba28ff6d4050ff0da62767b6bd65409bad1a752`.
+Working head after build: `8fdf69e8ca41d78ffe29f995a8fcf21cd6923c5a`.
 
 ## Contact sheets (40 dpi)
 - `_png/run7/guia-pdf-contact-40dpi.png`
@@ -42,5 +42,5 @@ Proof: `_png/run7/SHA256SUMS`
 
 ## Zip
 - `team-pack-es-pdfs-v0.4.zip` sha256 `cdbdacad8f75264459ea5357c88aa820a41b514234969bda58621959fb867d6a`
-- Expected zip deltas: Guía docx/pdf, hoja-3 PDF (Arimo fix); other entries unchanged.
+- Zip entries changed vs `9ba28ff` (4 only): `Guia-tecnica-mentores.docx`, `Guia-tecnica-mentores.pdf`, `hoja-3-dato-a-valor.pdf`, `prompts-ia-v2.pdf`.
 
