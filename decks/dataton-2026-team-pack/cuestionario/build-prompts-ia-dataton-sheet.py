@@ -10,6 +10,8 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
 from docx.shared import Mm, Pt, RGBColor
 
 ROOT = Path(__file__).resolve().parent
@@ -19,10 +21,12 @@ OUT_DOCX = ROOT / "Prompts-IA-Dataton-24nov.docx"
 OUT_PDF = ROOT / "Prompts-IA-Dataton-24nov.pdf"
 LOGO = PACK / "assets" / "cth-logo-color.png"
 TOP_LINE = "Suban su cuestionario lleno al chat de IA y copien una instrucción a la vez."
-PROMPTS_TXT_SHA = "e325f2f5e8d60547a5ffd1047dbe241b23e071d2e763e7149f5a77f186424015"
+PROMPTS_TXT_SHA = "ff7ab27c22b3f03e2a2a0b55d477ccae2ccf637a7b79f946019add64109b5df8"
+CANVAS_PREFIX = "Active Canvas en su chat de IA"
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
 GREY = RGBColor(0x66, 0x66, 0x66)
+COPY_FILL = "E8F6FA"
 
 
 def _sha256(path: Path) -> str:
@@ -57,13 +61,31 @@ def parse_prompts_parts(raw: str) -> list[dict[str, str]]:
                 "body": body,
             }
         )
-    if len(parts) != 5:
-        raise SystemExit(f"prompts.txt: expected 5 parts, got {len(parts)}")
+    if len(parts) != 6:
+        raise SystemExit(f"prompts.txt: expected 6 parts, got {len(parts)}")
     return parts
 
 
+def _split_canvas(body: str) -> tuple[str | None, list[str]]:
+    lines = [ln for ln in body.split("\n") if ln.strip()]
+    if lines and lines[0].startswith(CANVAS_PREFIX):
+        return lines[0], lines[1:]
+    return None, lines
+
+
+def _shade_paragraph(paragraph, fill: str = COPY_FILL) -> None:
+    p_pr = paragraph._p.get_or_add_pPr()
+    shd = p_pr.find(qn("w:shd"))
+    if shd is None:
+        shd = OxmlElement("w:shd")
+        p_pr.append(shd)
+    shd.set(qn("w:val"), "clear")
+    shd.set(qn("w:color"), "auto")
+    shd.set(qn("w:fill"), fill)
+
+
 def _set_doc_defaults(doc: Document) -> None:
-    for name, size in (("Heading 1", 12), ("Heading 2", 9.5), ("Normal", 8.5)):
+    for name, size in (("Heading 1", 12), ("Heading 2", 9.5), ("Normal", 9)):
         st = doc.styles[name]
         st.font.name = "Open Sans"
         st.font.size = Pt(size)
@@ -121,15 +143,27 @@ def build_docx(parts: list[dict[str, str]]) -> None:
     for idx, part in enumerate(parts):
         if idx:
             doc.add_paragraph("")
-        doc.add_heading(part["parte_title"], level=2)
-        for meta in (part["parte_line"], part["salida_line"], part["forma_line"]):
+        hp = doc.add_paragraph(part["parte_line"], style="Heading 2")
+        for run in hp.runs:
+            run.font.size = Pt(9.5)
+            run.bold = True
+            run.font.color.rgb = NAVY
+        for meta in (part["salida_line"], part["forma_line"]):
             p = doc.add_paragraph(meta, style="Normal")
             for run in p.runs:
-                run.font.size = Pt(7.8)
-        for line in part["body"].split("\n"):
+                run.font.size = Pt(8.5)
+        canvas, lines = _split_canvas(part["body"])
+        if canvas:
+            cp = doc.add_paragraph(canvas, style="Normal")
+            for run in cp.runs:
+                run.italic = True
+                run.font.size = Pt(8.5)
+                run.font.color.rgb = GREY
+        for line in lines:
             p = doc.add_paragraph(line, style="Normal")
             for run in p.runs:
-                run.font.size = Pt(7.6)
+                run.font.size = Pt(9)
+            _shade_paragraph(p)
 
     for para in doc.paragraphs:
         for run in para.runs:
@@ -162,11 +196,17 @@ def _html(parts: list[dict[str, str]]) -> str:
         f"<p class='lead'>{html.escape(TOP_LINE)}</p>",
     ]
     for part in parts:
-        chunks.append(f"<h2>{html.escape(part['parte_title'])}</h2>")
-        for meta in (part["parte_line"], part["salida_line"], part["forma_line"]):
+        chunks.append(f"<h2 class='parte-line'>{html.escape(part['parte_line'])}</h2>")
+        for meta in (part["salida_line"], part["forma_line"]):
             chunks.append(f"<p class='meta'>{html.escape(meta)}</p>")
-        for line in part["body"].split("\n"):
-            chunks.append(f"<p class='body'>{html.escape(line)}</p>")
+        canvas, lines = _split_canvas(part["body"])
+        if canvas:
+            chunks.append(f"<p class='canvas-note'>{html.escape(canvas)}</p>")
+        if lines:
+            chunks.append("<div class='copy-box'>")
+            for line in lines:
+                chunks.append(f"<p class='body'>{html.escape(line)}</p>")
+            chunks.append("</div>")
     chunks.append(
         "<div class='footer'>Inspira. Actúa. Transforma. · CleantechHUB · Datatón 24 nov 2026</div>"
     )

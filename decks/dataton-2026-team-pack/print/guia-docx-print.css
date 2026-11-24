@@ -82,9 +82,22 @@ pre {
   overflow-wrap: anywhere;
 }
 
+.guia-logo-hdr {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid #9DC384;
+  margin: 0 0 14px;
+  padding-bottom: 4px;
+}
+.guia-logo-hdr img {
+  height: 28px;
+  width: auto;
+}
+
 .cover-block {
   text-align: center;
-  margin: 48px 0 24px;
+  margin: 36px 0 24px;
 }
 
 .cover-block .title-es {

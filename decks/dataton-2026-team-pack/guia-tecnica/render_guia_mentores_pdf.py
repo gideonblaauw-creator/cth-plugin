@@ -9,7 +9,9 @@ from pathlib import Path
 
 import fitz
 
-from guia_docx_html import FRONT_PARA_END, TAIL_PARA_START, full_html
+from docx import Document
+
+from guia_docx_html import FRONT_PARA_END, full_html, tail_para_start
 
 ROOT = Path(__file__).resolve().parent.parent
 GUIA_DIR = Path(__file__).resolve().parent
@@ -184,7 +186,8 @@ async def build_guia_pdf_async() -> int:
 
     build_pack = _load_build_pack()
     front_html = full_html(OUT_DOCX, 0, FRONT_PARA_END, DOCX_CSS, "Guía técnica — front")
-    tail_html = full_html(OUT_DOCX, TAIL_PARA_START, None, DOCX_CSS, "Guía técnica — hoja 5 + prompts")
+    tail_start = tail_para_start(Document(OUT_DOCX))
+    tail_html = full_html(OUT_DOCX, tail_start, None, DOCX_CSS, "Guía técnica — hoja 5 + prompts")
 
     with tempfile.TemporaryDirectory() as td:
         work = Path(td) / "html"

@@ -12,6 +12,21 @@ Forma esperada: Tabla Área | Nivel | Qué tienen; viñetas «Qué falta» y fue
 Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
 Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2.
 
+Parte: Parte 1-B (opcional)
+Salida esperada: Lienzo del modelo de negocio como mapa de calor, en una página web
+Forma esperada: 9 bloques de colores con puntaje x/6, viñetas con su parte de origen, leyenda, Qué falta y fuentes
+
+Active Canvas en su chat de IA (Gemini o ChatGPT) antes de pegar esta instrucción.
+Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
+Cree una página web de un solo archivo (HTML) con el lienzo del modelo de negocio como mapa de calor. Use la disposición clásica de 9 bloques: arriba, de izquierda a derecha, Socios clave | Actividades clave sobre Recursos clave | Propuestas de valor | Relaciones con clientes sobre Canales | Segmentos de clientes; abajo, Estructura de costos | Flujos de ingreso.
+Para cada bloque calcule un puntaje de 0 a 6 sumando tres preguntas (0, 1 o 2 cada una):
+1) ¿Tienen la información? 0 = no; 1 = solo en chats, papel o memoria; 2 = guardada en un archivo o sistema con responsable.
+2) ¿Se puede usar? 0 = sin permiso o no se puede descargar; 1 = en parte; 2 = con permiso y se puede descargar.
+3) ¿Sirve para decidir? 0 = no se sabe; 1 = vieja o incompleta; 2 = al día y ligada a una decisión.
+Color del bloque: 5–6 caliente (rojo #E4572E), 2–4 tibio (naranja #F4A259), 0–1 frío (azul #69B5FA). En cada bloque muestre: nombre, puntaje «x/6» y 2–4 viñetas cortas con lo que tienen, cada una con la parte del cuestionario de donde sale, por ejemplo (Parte 1). Si no hay respuesta, escriba «desconocido» y deje el bloque frío.
+Debajo del lienzo: leyenda de colores con la regla de puntaje, «Qué falta» (máx. 5 viñetas) y 1–2 fuentes de datos para la Parte 2.
+Que quepa en una pantalla, fuente Open Sans o sans-serif, texto oscuro y legible sobre cada color. Escriba el diseño con CSS propio dentro del mismo archivo, sin Tailwind ni otras librerías externas, y mantenga la cuadrícula de 9 bloques en pantallas de computador. No invente datos ni nombres de personas.
+
 Parte: Parte 2. ¿Cómo nace un dato y qué tan confiable es?
 Salida esperada: Cuatro niveles de confianza y lectura del dato principal del equipo.
 Forma esperada: Cuatro definiciones, luego Nivel sugerido / Lo que falta / Un paso concreto.

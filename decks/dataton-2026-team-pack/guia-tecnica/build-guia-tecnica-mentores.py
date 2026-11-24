@@ -14,6 +14,7 @@ from pathlib import Path
 
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.text.paragraph import Paragraph
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn as oxml_qn
@@ -269,6 +270,113 @@ HOJA5_TIE_OLD = "Si hay empate, gana la mayor nota de honestidad."
 HOJA5_TIE_NEW = "Si empatan en utilidad y honestidad, desempata la historia."
 
 
+HOJA1_SCALE_MARKERS = (
+    "Historia (H)",
+    "Frecuencia (F)",
+    "Acceso técnico (A)",
+    "Acceso legal / ético (G)",
+)
+SCALE_TABLE_HEADER = ("0–3", "Significado (resumen)")
+
+
+def _paragraph_has_image(paragraph) -> bool:
+    return bool(paragraph._p.xpath(".//a:blip"))
+
+
+def _parse_pipe_scale_block(text: str) -> tuple[list[tuple[str, str]], str]:
+    table_rows: list[tuple[str, str]] = []
+    tail_lines: list[str] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if "|" not in line:
+            tail_lines.append(line.rstrip("|").strip())
+            continue
+        parts = [p.strip() for p in line.split("|") if p.strip()]
+        if len(parts) >= 2 and (parts[0] in {"0", "1", "2", "3", "0–3"} or parts[0].startswith("0")):
+            table_rows.append((parts[0], parts[1]))
+        else:
+            tail_lines.append(" ".join(parts).rstrip("|").strip())
+    tail = " ".join(t for t in tail_lines if t).strip().rstrip("|").strip()
+    return table_rows, tail
+
+
+def _fill_scale_table(table, rows: list[tuple[str, str]]) -> None:
+    table.rows[0].cells[0].text = SCALE_TABLE_HEADER[0]
+    table.rows[0].cells[1].text = SCALE_TABLE_HEADER[1]
+    for ri, (left, right) in enumerate(rows, start=1):
+        table.rows[ri].cells[0].text = left
+        table.rows[ri].cells[1].text = right
+    _table_borders(table)
+    _set_table_full_width(table)
+    _set_table_col_widths(table, _table_column_widths(2))
+    _shade_header_row(table)
+
+
+def _insert_paragraph_after_element(doc: Document, after_el, text: str) -> None:
+    new_p = OxmlElement("w:p")
+    after_el.addnext(new_p)
+    para = Paragraph(new_p, doc)
+    para.add_run(text)
+
+
+def fix_guia_hoja1_pipe_scales(doc: Document) -> None:
+    """Turn H/F/A/G pipe paragraphs into 2-col tables (layout only, same words)."""
+    paras = list(doc.paragraphs)
+    for i, para in enumerate(paras):
+        heading = para.text.strip()
+        if not any(marker in heading for marker in HOJA1_SCALE_MARKERS):
+            continue
+        style = para.style.name if para.style else ""
+        if "Heading" not in style:
+            continue
+        if i + 1 >= len(paras):
+            continue
+        nxt = paras[i + 1]
+        if "|" not in nxt.text:
+            continue
+        rows, tail = _parse_pipe_scale_block(nxt.text)
+        if not rows:
+            continue
+        table = _insert_table_after_paragraph(doc, para, 1 + len(rows), 2)
+        _fill_scale_table(table, rows)
+        _remove_paragraph(nxt)
+        if tail:
+            _insert_paragraph_after_element(doc, table._tbl, tail)
+
+
+def fix_guia_cover_layout(doc: Document) -> None:
+    """Restore cover logo + title styling lost during docxcompose merge."""
+    if len(doc.paragraphs) < 3:
+        return
+    if doc.paragraphs[1].text.strip() != "Guía técnica para mentores":
+        return
+    logo_p = doc.paragraphs[0]
+    if LOGO.is_file() and not _paragraph_has_image(logo_p):
+        logo_p.text = ""
+        logo_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        logo_p.add_run().add_picture(str(LOGO), width=Mm(40))
+    title = doc.paragraphs[1]
+    try:
+        title.style = doc.styles["Title"]
+    except KeyError:
+        pass
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for run in title.runs:
+        run.bold = True
+        run.font.name = "Open Sans"
+        run.font.size = Pt(22)
+        run.font.color.rgb = NAVY
+    sub = doc.paragraphs[2]
+    sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for run in sub.runs:
+        run.italic = True
+        run.font.name = "Open Sans"
+        run.font.size = Pt(12)
+        run.font.color.rgb = NAVY
+
+
 def fix_guia_hoja5_tiebreak_wording(doc: Document) -> None:
     """Guía-only tie-break (team hoja-5.md unchanged)."""
     for para in doc.paragraphs:
@@ -320,8 +428,10 @@ def postprocess_guia_docx(doc: Document) -> None:
 
     _fix_autocontrol_checkboxes(doc)
     fix_hoja4_docx_write_tables(doc)
+    fix_guia_hoja1_pipe_scales(doc)
     fix_guia_tables(doc)
     fix_guia_hoja5_tiebreak_wording(doc)
+    fix_guia_cover_layout(doc)
     fix_guia_paragraph_layout(doc)
 
 
@@ -603,25 +713,54 @@ def _paragraph_diffs(base: Document, new: Document) -> list[tuple[int, str, str]
     return changed
 
 
-def _verify_guia_docx_tiebreak_only() -> None:
+RUN9_TEXT_REF = "72ea013b7b547b9650b6faaf03250cbf1c70a6b6"
+
+
+SKIP_SCALE_HEADER = {
+    re.sub(r"\s+", "", "0–3"),
+    re.sub(r"\s+", "", "Significado (resumen)"),
+}
+
+
+def _guia_text_bag(doc: Document):
+    """Multiset of wording units: pipe lines split; table body rows (skip header row)."""
+    from collections import Counter
+
+    chunks: list[str] = []
+
+    def add(t: str) -> None:
+        t = re.sub(r"\s+", "", t)
+        if t and t not in SKIP_SCALE_HEADER:
+            chunks.append(t)
+
+    for p in doc.paragraphs:
+        if "|" in p.text:
+            for line in p.text.splitlines():
+                for part in [x.strip() for x in line.split("|") if x.strip()]:
+                    add(part)
+        else:
+            add(p.text)
+    for table in doc.tables:
+        for ri, row in enumerate(table.rows):
+            if ri == 0:
+                continue
+            for cell in row.cells:
+                for para in cell.paragraphs:
+                    add(para.text)
+    return Counter(chunks)
+
+
+def _verify_guia_run9_text_unchanged() -> None:
+    ref = _docx_from_git(RUN9_TEXT_REF)
     new = Document(OUT_DOCX)
-    pre = _docx_from_git(PRE_ADDENDUM_DOCX_REF)
-    changed = _paragraph_diffs(pre, new)
-    if len(changed) != 2:
-        raise SystemExit(f"guia docx: expected 2 paragraph diffs vs pre-addendum, got {len(changed)}")
-    texts = " ".join(c[2] for c in changed if c[0] >= 0).lower()
-    if "desempata la historia" not in texts:
-        raise SystemExit("guia docx tie-break: missing 'desempata la historia' in changed paragraphs")
-    for idx, old, new in changed:
-        if idx < 0:
-            continue
-        print("guia_docx_tiebreak_diff", idx, old[:70], "->", new[:70])
-    print("guia_docx_tiebreak_paragraph_diffs", len(changed))
+    if _guia_text_bag(ref) != _guia_text_bag(new):
+        raise SystemExit(f"guia docx text drift vs {RUN9_TEXT_REF[:8]} (wording multiset)")
+    print("guia_docx_run9_text_diff", 0)
 
 
 def main() -> int:
     build_docx()
-    _verify_guia_docx_tiebreak_only()
+    _verify_guia_run9_text_unchanged()
     from docx import Document as D
 
     parts = []

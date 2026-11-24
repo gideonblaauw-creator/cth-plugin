@@ -163,7 +163,7 @@ BYTE_IDENTICAL: tuple[tuple[str, str], ...] = (
     ("cuestionario/Cuestionario-Dataton-24nov-equipos.pdf", "df28f7a25159f7dc516fc171329081a6c86fc75aea3d051bf7cb39debadc503d"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.docx", "c0294707fa982d9eee32626797738d34a3d4dff985cdb352b91b8dcf145dfea6"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.pdf", "ea4bfa7a19bdc0e475268e11ac00d3ac0278305b245ec16e71a100fe40d245da"),
-    ("cuestionario/prompts.txt", "e325f2f5e8d60547a5ffd1047dbe241b23e071d2e763e7149f5a77f186424015"),
+    ("cuestionario/prompts.txt", "ff7ab27c22b3f03e2a2a0b55d477ccae2ccf637a7b79f946019add64109b5df8"),
 )
 
 TABLE_INSERT_RE = re.compile(r"_TABLE_INSERT|CTH_\w+_INSERT")
