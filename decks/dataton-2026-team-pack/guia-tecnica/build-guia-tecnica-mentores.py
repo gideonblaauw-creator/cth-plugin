@@ -195,15 +195,15 @@ def _build_m1_page(doc: Document) -> None:
 def _build_m6_page(doc: Document) -> None:
     doc.add_heading("Cómo elegimos los 6 y cómo decide el jurado", level=1)
     bullets = [
-        "Tally del mentor: utilidad 0–5 más honestidad 0–5, más 1 por cada número firme en plata u oro (máximo +3). "
+        "Puntaje del mentor: utilidad 0–5 más honestidad 0–5, más 1 por cada número firme en plata u oro (máximo +3). "
         "En empate gana honestidad.",
         "Los mentores contrastan 2–3 números con la carpeta del equipo en Drive.",
         "Las finales a las 16:00 usan las mismas dos notas (utilidad, honestidad). "
-        "La historia del pitch solo desempata.",
+        "Si hay empate, gana la mayor nota de honestidad.",
         "14 equipos → 6 finalistas → 3 ganadores, quienes entran al Datalab CTH en 2027. "
         "Todos reciben certificado.",
         "Ningún equipo queda fuera después del Bloque 1: las etiquetas advierten, no excluyen.",
-        "La shortlist de finalistas se anuncia antes de las 16:00.",
+        "La lista de los 6 finalistas se anuncia antes de las 16:00.",
     ]
     for item in bullets:
         doc.add_paragraph(f"• {item}", style="Normal")

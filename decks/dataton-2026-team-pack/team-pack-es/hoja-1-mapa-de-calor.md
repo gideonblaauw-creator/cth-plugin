@@ -4,7 +4,7 @@
 |---|---|
 | Versión equipo | v0.3-es |
 | Fecha | 2026-11-21 |
-| Evento | Datatón Air4U (piloto 24 nov 2026) |
+| Evento | Datatón Observatorio de la Tierra (24 nov 2026) |
 | Quién diligencia | Equipo fundador; ideal: fundador **y** operador por separado |
 | Tiempo | 20–30 minutos |
 | Metodología | Fundación CleantechHUB — Datatón |
@@ -43,7 +43,7 @@ Esta hoja ubica **dónde** ya hay datos en su Lienzo de Modelo de Negocio (9 blo
 
 **Copia maestra.** Si hay chat **y** plataforma, responda: *¿dónde reabriría el mes pasado?* Si no puede nombrar un solo lugar: R = 1, etiqueta **COPIA MAESTRA NO CLARA**.
 
-**Tableros.** Un dashboard en vivo **sí cuenta** como dato nombrado en Bloque 1; no sustituye por sí solo una exportación estructurada.
+**Tableros.** Un tablero en vivo **sí cuenta** como dato nombrado en Bloque 1; no sustituye por sí solo una exportación estructurada.
 
 ### Historia (H) — meses de registros que aún puede abrir
 

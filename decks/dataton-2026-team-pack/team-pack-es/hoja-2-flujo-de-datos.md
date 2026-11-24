@@ -66,7 +66,7 @@ Responda **S** o **N** en cada ítem. **U = N.** El nivel es el más alto donde 
 | # | Verificación | S/N |
 |---|---|---|
 | G1 | Tarea + audiencia en A14 | |
-| G2 | Referencia o benchmark aplicado | |
+| G2 | Referencia o punto de comparación aplicado | |
 | G3 | Nivel de agregación fijo | |
 | G4 | Dueño aprobó compartir con esa audiencia | |
 | G5 | Pasos documentados para repetir | |
@@ -91,7 +91,7 @@ TARJETA DE FLUJO · Equipo: ______ · Fecha: ______
 Bloque(s) / ID datos : ______________________
 Flujo              : ______________________________
 Disparador         : ______________________________
-Línea Data Flows   : Disparador → Captura [sistema] → Almacén [Bronce]
+Línea de flujo de datos   : Disparador → Captura [sistema] → Almacén [Bronce]
                      → Limpiar [Plata] → Referencia [Oro] → Tarea + audiencia [A14]
 Nivel alcanzado    : Ninguno / Bronce / Plata / Oro
 Siguiente grada    : Los «N» de la siguiente grada: ______________

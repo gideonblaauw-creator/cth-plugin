@@ -4,7 +4,7 @@
 |---|---|
 | Versión equipo | v0.3-es |
 | Fecha | 2026-11-21 |
-| Evento | Datatón Air4U (piloto 24 nov 2026) |
+| Evento | Datatón Observatorio de la Tierra (24 nov 2026) |
 | Cuándo | Tarde Bloque 2, después de Hoja 3 |
 | Tiempo | ~15 min (boceto en papel o pantalla) |
 | Metodología | Fundación CleantechHUB — Datatón |

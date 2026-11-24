@@ -23,7 +23,7 @@ OUT_PDF = ROOT / "Cuestionario-Dataton-24nov-equipos.pdf"
 OUT_EJEMPLO_DOCX = ROOT / "Cuestionario-ejemplo-Air4U.docx"
 OUT_EJEMPLO_PDF = ROOT / "Cuestionario-ejemplo-Air4U.pdf"
 PROMPTS_TXT = ROOT / "prompts.txt"
-EJEMPLO_HEADER = "Ejemplo · datos de ejemplo Air4U"
+EJEMPLO_HEADER = "Ejemplo resuelto · Air4U (ilustrativo)"
 LOGO = PACK / "assets/cth-logo-color.png"
 HEATMAP_PNG = ASSETS / "ejemplo-mapa-calor-air4u.png"
 DASH_PNG = ASSETS / "ejemplo-tablero-air4u.png"
@@ -307,16 +307,21 @@ AI_P0 = """Lea el documento completo que el equipo subió. Use solo sus respuest
 Arme un resumen de una página con: territorio, comunidad, problema, solución, canales, ingresos, actividades clave, aliados, costos principales e impacto territorial. No invente cifras ni nombres de personas. No agregue grupos de personas ni datos que el equipo no escribió."""
 
 AI_P1 = """Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y leyenda breve. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2."""
+Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2."""
 
 AI_P2 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Escriba las cuatro definiciones, cada una en su línea: ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal. bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo. plata: limpio, con reglas de limpieza escritas y calidad revisada. oro: listo para una decisión y un público con nombre. Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:"""
+Escriba estas cuatro definiciones, una por línea y sin cambiarlas:
+ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal.
+bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.
+plata: limpio, con reglas de limpieza escritas y calidad revisada.
+oro: listo para una decisión y un público con nombre.
+Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:"""
 
 AI_P3 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Boceto de tablero en bloque de código (máx. 60 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]."""
+Boceto de tablero en bloque de código (máx. 56 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]. Conserve las tildes. Una referencia pública (por ejemplo, OMS) se marca «referencia», no firme ni estimado."""
 
 AI_P4 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Guion de 600–700 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor»."""
+Guion de 600–650 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor»."""
 
 
 PROMPTS_META = [
@@ -338,11 +343,11 @@ PROMPTS_META = [
     (
         "Parte 3. ¿Qué decisión ayudan a tomar?",
         "Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).",
-        "Boceto en bloque de código (máx. 60 caracteres de ancho).",
+        "Boceto en bloque de código (máx. 56 caracteres de ancho).",
     ),
     (
         "Parte 4. Su pitch de 5 minutos",
-        "Guion de pitch de cinco minutos (600–700 palabras).",
+        "Guion de pitch de cinco minutos (600–650 palabras).",
         "Cinco secciones con encabezados y minutos aproximados.",
     ),
 ]
@@ -527,10 +532,9 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     )
     for line in M1_LEVEL_LINES:
         doc.add_paragraph(f"• {line}", style="Normal")
-    _para(doc, "Empezar en nivel ninguno es normal.", bold=True)
     _para(
         doc,
-        "Si no tienen datos propios: usen datos abiertos o el ejemplo del Datatón y márchenlos como «estimado».",
+        "Si no tienen datos propios: usen datos abiertos o el ejemplo del Datatón y márquenlos como «estimado».",
     )
     _para(doc, "Marque sí / no / no sé:", bold=True)
     q2_chk = [
@@ -567,7 +571,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     )
     _para(
         doc,
-        "Un número es firme solo cuando sus datos están en nivel plata u oro; en ninguno o bronce márchenlo como estimado.",
+        "Un número es firme solo cuando sus datos están en nivel plata u oro; en ninguno o bronce márquenlo como estimado.",
         bold=True,
     )
     q3 = [
@@ -629,7 +633,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
             [
                 "Personal y pacientes con aire interior incierto en la clínica piloto.",
                 "Lecturas del sensor (sin cifra exportada) y referencia OMS 5 µg/m³.",
-                "Decisión de ventilación/filtros y tres paneles sin brecha calculable.",
+                "Decisión de ventilación/filtros y tres bloques; todavía no podemos calcular la diferencia.",
                 "Clínica piloto y quienes trabajan en el sitio.",
                 "no sé",
             ],

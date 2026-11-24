@@ -10,25 +10,30 @@ Salida esperada: Mapa de calor por área del negocio y lista «qué falta».
 Forma esperada: Tabla Área | Nivel | Qué tienen; viñetas «Qué falta» y fuentes para la Parte 2.
 
 Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y leyenda breve. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2.
+Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2.
 
 Parte: Parte 2. ¿Cómo nace un dato y qué tan confiable es?
 Salida esperada: Cuatro niveles de confianza y lectura del dato principal del equipo.
 Forma esperada: Cuatro definiciones, luego Nivel sugerido / Lo que falta / Un paso concreto.
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Escriba las cuatro definiciones, cada una en su línea: ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal. bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo. plata: limpio, con reglas de limpieza escritas y calidad revisada. oro: listo para una decisión y un público con nombre. Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:
+Escriba estas cuatro definiciones, una por línea y sin cambiarlas:
+ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal.
+bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.
+plata: limpio, con reglas de limpieza escritas y calidad revisada.
+oro: listo para una decisión y un público con nombre.
+Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:
 
 Parte: Parte 3. ¿Qué decisión ayudan a tomar?
 Salida esperada: Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).
-Forma esperada: Boceto en bloque de código (máx. 60 caracteres de ancho).
+Forma esperada: Boceto en bloque de código (máx. 56 caracteres de ancho).
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Boceto de tablero en bloque de código (máx. 60 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite].
+Boceto de tablero en bloque de código (máx. 56 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]. Conserve las tildes. Una referencia pública (por ejemplo, OMS) se marca «referencia», no firme ni estimado.
 
 Parte: Parte 4. Su pitch de 5 minutos
-Salida esperada: Guion de pitch de cinco minutos (600–700 palabras).
+Salida esperada: Guion de pitch de cinco minutos (600–650 palabras).
 Forma esperada: Cinco secciones con encabezados y minutos aproximados.
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Guion de 600–700 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor».
+Guion de 600–650 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor».

@@ -9,7 +9,7 @@
 
 > **BORRADOR:** use esta plantilla para preparar las finales. La versión final se confirma el día del Datatón.
 
-Complete cada bloque para las finales de las **16:00**. Los jueces puntúan **Parte A** utilidad y **Parte B** honestidad (0–5 cada una). Marque **estimado** si la grada no es Plata+. Seis equipos presentan. Si empatan en utilidad y honestidad, desempata la historia.
+Complete cada bloque para las finales de las **16:00**. Los jueces puntúan **Parte A** utilidad y **Parte B** honestidad (0–5 cada una). Marque **estimado** si la grada no es Plata+. Seis equipos presentan. Si hay empate, gana la mayor nota de honestidad.
 
 ---
 
