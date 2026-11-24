@@ -161,7 +161,7 @@ def write_leeme() -> str:
         f"| `{CUESTIONARIO_DOCX}` | Cuestionario en blanco (diligenciar y subir) |",
         f"| `{CUESTIONARIO_PDF}` | Vista previa del cuestionario (solo revisión) |",
         f"| `{CUESTIONARIO_EJEMPLO_DOCX}` / `.pdf` | Ejemplo Air4U relleno (Datalab; no es plantilla) |",
-        f"| `{CUESTIONARIO_PROMPTS_TXT}` | Instrucciones IA Partes 1–4 (copiar y pegar) |",
+        f"| `{CUESTIONARIO_PROMPTS_TXT}` | Instrucciones IA Partes 0–4 (copiar y pegar) |",
         "| `agenda-equipos.pdf` | Horario del día (14 equipos) |",
         "",
         "## Para mentores",
@@ -207,6 +207,56 @@ def build_guia_tecnica_pack() -> None:
         src = GUIA_TECNICA / name
         if src.is_file():
             shutil.copy2(src, OUT / name)
+
+
+def _pdf_page_index_containing(pdf_path: Path, needle: str) -> int | None:
+    import fitz
+
+    doc = fitz.open(pdf_path)
+    for i, page in enumerate(doc):
+        if needle.lower() in page.get_text().lower():
+            doc.close()
+            return i
+    doc.close()
+    return None
+
+
+def _export_pdf_page_png(pdf_path: Path, page_index: int, out_name: str, dpi: int = 150) -> None:
+    import fitz
+
+    doc = fitz.open(pdf_path)
+    if page_index < 0 or page_index >= doc.page_count:
+        doc.close()
+        raise SystemExit(f"page {page_index} out of range for {pdf_path.name}")
+    out = PNG / out_name
+    pix = doc[page_index].get_pixmap(dpi=dpi, alpha=False)
+    pix.save(str(out))
+    doc.close()
+    print("png", out.name)
+
+
+def export_ticket_renders() -> None:
+    """Render pages requested in teampack fix ticket (committed under _png/)."""
+    PNG.mkdir(parents=True, exist_ok=True)
+    blank_pdf = OUT / CUESTIONARIO_PDF
+    ejemplo_pdf = OUT / CUESTIONARIO_EJEMPLO_PDF
+    guia_pdf = OUT / GUIA_PDF
+    _export_pdf_page_png(blank_pdf, 0, "cuestionario-blank-p01.png")
+    _export_pdf_page_png(ejemplo_pdf, 0, "cuestionario-ejemplo-p01.png")
+    parte2_idx = _pdf_page_index_containing(blank_pdf, "Parte 2. ¿Cómo nace un dato")
+    if parte2_idx is None:
+        raise SystemExit("Could not find Parte 2 page in blank cuestionario PDF")
+    _export_pdf_page_png(blank_pdf, parte2_idx, "cuestionario-parte2.png")
+    closing_idx = _pdf_page_index_containing(blank_pdf, "Guarden todo en la carpeta")
+    if closing_idx is None:
+        raise SystemExit("Could not find closing Drive box page in blank cuestionario PDF")
+    _export_pdf_page_png(blank_pdf, closing_idx, "cuestionario-closing-box.png")
+    m1_idx = _pdf_page_index_containing(guia_pdf, "Niveles de confianza del dato")
+    m6_idx = _pdf_page_index_containing(guia_pdf, "Cómo elegimos los 6")
+    if m1_idx is None or m6_idx is None:
+        raise SystemExit("Guía M1/M6 pages not found for renders")
+    _export_pdf_page_png(guia_pdf, m1_idx, "guia-tecnica-mentores-p01.png")
+    _export_pdf_page_png(guia_pdf, m6_idx, "guia-tecnica-mentores-p02.png")
 
 
 def build_cuestionario_pack() -> None:
@@ -297,6 +347,7 @@ async def render_all() -> None:
 
     build_cuestionario_pack()
     build_guia_tecnica_pack()
+    export_ticket_renders()
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows: list[tuple[str, str]] = []

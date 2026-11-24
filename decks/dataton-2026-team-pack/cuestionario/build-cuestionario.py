@@ -35,11 +35,25 @@ AI_MARKER = "INSTRUCCIÓN PARA LA IA (copiar y pegar)"
 JARGON_RE = re.compile(
     r"(?i)\b("
     r"REO|Medallion|Delta|ETL|VP1|"
-    r"grada|copia maestra|"
+    r"grada|dato crudo|copia maestra|microcredencial|"
     r"A1[0-5]|B[1-7]|S[1-6]|G[1-9]|"
-    r"Línea base|Paisaje|Bronce|Plata|Oro"
+    r"Línea base|Paisaje"
     r")\b"
 )
+TEAM_BAN_RE = re.compile(
+    r"(?i)\b("
+    r"REO|Medallion|B1|S1|G1|VP1|Delta|"
+    r"Línea base|Paisaje|grada|dato crudo|hasta 20|microcredencial"
+    r")\b"
+)
+M1_LEVEL_LINES = (
+    "ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. "
+    "Empezar aquí es normal.",
+    "bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.",
+    "plata: limpio, con reglas de limpieza escritas y calidad revisada.",
+    "oro: listo para una decisión y un público con nombre.",
+)
+M1_LEVEL_BLOCK = "\n".join(M1_LEVEL_LINES)
 # Slash-separated rubric tuples only (e.g. "R, H, F" in AI boxes — excluded from readable scan).
 RUBRIC_SLASH_RE = re.compile(r"\b[RHFASQGML]\s*/\s*[RHFASQGML]")
 FREE_RE = re.compile(r"(?i)\b(gratis|gratuito|sin costo)\b")
@@ -79,22 +93,15 @@ def _footer_inspira(doc: Document) -> None:
     run.font.color.rgb = GREY
 
 
-def _header_logo(doc: Document, *, ejemplo: bool = False) -> None:
+def _header_logo(doc: Document) -> None:
     section = doc.sections[0]
     header = section.header
     p = header.paragraphs[0]
     p.text = ""
-    if ejemplo:
-        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        run = p.add_run(EJEMPLO_HEADER)
-        run.bold = True
-        run.font.size = Pt(9)
-        run.font.color.rgb = NAVY
-    else:
-        p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        if LOGO.is_file():
-            run = p.add_run()
-            run.add_picture(str(LOGO), width=Mm(32))
+    p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    if LOGO.is_file():
+        run = p.add_run()
+        run.add_picture(str(LOGO), width=Mm(32))
 
 
 def _para(doc: Document, text: str, *, bold: bool = False, size: float | None = None) -> None:
@@ -197,6 +204,17 @@ def _ai_table(doc: Document, body: str) -> None:
     _table_counter += 1
 
 
+def _closing_drive_box(doc: Document) -> None:
+    table = doc.add_table(rows=1, cols=1)
+    table.style = "Table Grid"
+    cell = table.rows[0].cells[0]
+    cell.text = ""
+    p = cell.paragraphs[0]
+    run = p.add_run("Guarden todo en la carpeta de su equipo en Drive antes de las 15:30.")
+    run.bold = True
+    run.font.size = Pt(9)
+
+
 def _rules_box(doc: Document) -> None:
     table = doc.add_table(rows=1, cols=1)
     table.style = "Table Grid"
@@ -286,48 +304,46 @@ def render_example_images() -> None:
 
 
 AI_P0 = """Lea el documento completo que el equipo subió. Use solo sus respuestas; marque «desconocido» lo que no contestaron. Escriba en español de Colombia.
-Arme un resumen de una página con: territorio, comunidad, problema, solución, canales, ingresos, actividades clave, aliados, costos principales e impacto territorial. No invente cifras ni nombres de personas."""
+Arme un resumen de una página con: territorio, comunidad, problema, solución, canales, ingresos, actividades clave, aliados, costos principales e impacto territorial. No invente cifras ni nombres de personas. No agregue grupos de personas ni datos que el equipo no escribió."""
 
-AI_P1 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
-Aplique la rúbrica interna REO / mapa de calor (puntuación R, H, F, A, Q, G por conjunto de datos) solo para orientar el análisis; no muestre esas letras al equipo.
-Devuelva: (1) mapa de calor por área del negocio (frío / tibio / caliente); (2) lista corta «qué falta» para poder decidir con datos.
-Forma de salida: tabla (área × frío/tibio/caliente) o boceto visual equivalente, más lista en viñetas."""
+AI_P1 = """Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
+Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y leyenda breve. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2."""
 
-AI_P2 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
-Evalúe el flujo con la escalera Medallion / niveles Bronce, Plata, Oro (B1–B7, S1–S6, G1–G9) en sus notas internas; explique al equipo en una línea: Bronce = dato crudo, Plata = limpio y ordenado, Oro = listo para decidir. Aclare que son niveles de confianza, no premios.
-Entregue: nivel sugerido, brecha principal y un paso concreto para subir un nivel.
-Forma de salida: tabla o texto con el nivel y tres líneas — Bronce = dato crudo; Plata = limpio y ordenado; Oro = listo para decidir (niveles de confianza, no premios)."""
+AI_P2 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
+Escriba las cuatro definiciones, cada una en su línea: ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal. bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo. plata: limpio, con reglas de limpieza escritas y calidad revisada. oro: listo para una decisión y un público con nombre. Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:"""
 
-AI_P3 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
-Use marco Delta / Línea base / Paisaje (Hojas 3–4, VP1, grada de confianza) solo en su razonamiento interno.
-Entregue boceto de tablero de una pantalla: rol, decisión de la semana, 2–3 números con fuente y firme/estimado. Si los derechos de datos no están claros, escriba «no publicar».
-Forma de salida: boceto ASCII de una sola pantalla o descripción clara de imagen de tablero."""
+AI_P3 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
+Boceto de tablero en bloque de código (máx. 60 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]."""
 
-AI_P4 = """Lea el documento subido. Use solo respuestas del equipo. Marque desconocidos. No invente números. Español de Colombia.
-Redacte guion de pitch de 5 minutos (problema, datos usados, pantalla, beneficio, próximos pasos). Marque cualquier cifra sin fuente. Funciona en ChatGPT, Gemini o Grok (cuentas estándar).
-Forma de salida: guion en prosa continua (cinco minutos en voz alta)."""
+AI_P4 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
+Guion de 600–700 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor»."""
 
 
 PROMPTS_META = [
     (
+        "Parte 0. Su proyecto en una página",
+        "Resumen de una página en sus palabras.",
+        "Texto continuo de una página.",
+    ),
+    (
         "Parte 1. ¿Qué información tienen y dónde está?",
         "Mapa de calor por área del negocio y lista «qué falta».",
-        "Tabla (área × frío/tibio/caliente) o boceto visual equivalente, más viñetas.",
+        "Tabla Área | Nivel | Qué tienen; viñetas «Qué falta» y fuentes para la Parte 2.",
     ),
     (
         "Parte 2. ¿Cómo nace un dato y qué tan confiable es?",
-        "Lectura de confiabilidad del dato (Bronce / Plata / Oro con una línea clara cada uno).",
-        "Tabla o texto breve con nivel sugerido y las tres líneas Bronce/Plata/Oro.",
+        "Cuatro niveles de confianza y lectura del dato principal del equipo.",
+        "Cuatro definiciones, luego Nivel sugerido / Lo que falta / Un paso concreto.",
     ),
     (
         "Parte 3. ¿Qué decisión ayudan a tomar?",
         "Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).",
-        "Boceto ASCII de una pantalla o descripción de imagen de tablero.",
+        "Boceto en bloque de código (máx. 60 caracteres de ancho).",
     ),
     (
         "Parte 4. Su pitch de 5 minutos",
-        "Guion de pitch de cinco minutos.",
-        "Guion en prosa continua (voz alta).",
+        "Guion de pitch de cinco minutos (600–700 palabras).",
+        "Cinco secciones con encabezados y minutos aproximados.",
     ),
 ]
 
@@ -339,7 +355,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
 
     doc = Document()
     _set_doc_defaults(doc)
-    _header_logo(doc, ejemplo=filled_air4u)
+    _header_logo(doc)
     _footer_inspira(doc)
 
     doc.add_heading("Cuestionario del Datatón — su equipo", level=1)
@@ -362,6 +378,10 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         "3) Suban el archivo a ChatGPT, Gemini o Grok y copien la instrucción al final de cada parte.",
     ):
         doc.add_paragraph(step, style="Normal")
+    _para(
+        doc,
+        "Las instrucciones para la inteligencia artificial funcionan en ChatGPT, Gemini o Grok (cuentas estándar).",
+    )
     _rules_box(doc)
 
     # Parte 0
@@ -456,7 +476,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
                 "no sé",
                 "Gestor de instalaciones del sitio piloto.",
                 "Todavía no hay exportación simple almacenada.",
-                "Permiso del sitio piloto en trámite (propiedad ABIERTO).",
+                "Permiso del sitio piloto en trámite.",
             ],
         )
     else:
@@ -500,6 +520,18 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         )
     else:
         _qa_table(doc, q2)
+    _para(
+        doc,
+        "Niveles de confianza del dato (no son premios). Use la misma redacción al leer su flujo:",
+        bold=True,
+    )
+    for line in M1_LEVEL_LINES:
+        doc.add_paragraph(f"• {line}", style="Normal")
+    _para(doc, "Empezar en nivel ninguno es normal.", bold=True)
+    _para(
+        doc,
+        "Si no tienen datos propios: usen datos abiertos o el ejemplo del Datatón y márchenlos como «estimado».",
+    )
     _para(doc, "Marque sí / no / no sé:", bold=True)
     q2_chk = [
         ("¿Cada registro tiene fecha?", "A veces en la plataforma, no siempre en WhatsApp."),
@@ -532,6 +564,11 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         "Boceto de tablero de una pantalla.",
         "Bloque 2 — tarde",
         "35 min",
+    )
+    _para(
+        doc,
+        "Un número es firme solo cuando sus datos están en nivel plata u oro; en ninguno o bronce márchenlo como estimado.",
+        bold=True,
     )
     q3 = [
         ("¿Quién decide (solo el rol)?", "Gestor de instalaciones del sitio."),
@@ -600,6 +637,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     else:
         _qa_table(doc, q4)
     _ai_table(doc, AI_P4)
+    _closing_drive_box(doc)
 
     target = out_path or (OUT_EJEMPLO_DOCX if filled_air4u else OUT_DOCX)
     doc.save(target)
@@ -628,7 +666,7 @@ def convert_pdf(docx_path: Path, pdf_path: Path) -> None:
 
 
 def extract_ai_instruction_bodies(docx_path: Path) -> list[str]:
-    """Return AI bodies for Partes 1–4 in order (excludes Parte 0)."""
+    """Return AI bodies for Partes 0–4 in order."""
     from docx import Document as D
 
     doc = D(docx_path)
@@ -648,7 +686,7 @@ def extract_ai_instruction_bodies(docx_path: Path) -> list[str]:
         bodies.append("\n".join(lines))
     if len(bodies) < 5:
         raise SystemExit(f"Expected 5 AI boxes, found {len(bodies)} in {docx_path}")
-    return bodies[1:5]
+    return bodies[:5]
 
 
 def write_prompts_txt(docx_path: Path, dest: Path = PROMPTS_TXT) -> None:
@@ -670,7 +708,7 @@ def write_prompts_txt(docx_path: Path, dest: Path = PROMPTS_TXT) -> None:
 
 
 def parse_prompts_instruction_blocks(raw: str) -> list[str]:
-    """Extract the four instruction bodies from prompts.txt (after header triplets)."""
+    """Extract the five instruction bodies from prompts.txt (after header triplets)."""
     chunks = re.split(r"(?=^Parte: )", raw.strip(), flags=re.MULTILINE)
     bodies: list[str] = []
     for chunk in chunks:
@@ -757,8 +795,65 @@ def grep_self_check() -> tuple[list[str], list[str]]:
     text = docx_readable_text(OUT_DOCX)
     jargon = [m.group(0) for m in JARGON_RE.finditer(text)]
     jargon += [m.group(0) for m in RUBRIC_SLASH_RE.finditer(text)]
+    jargon += [m.group(0) for m in TEAM_BAN_RE.finditer(text)]
     free = [m.group(0) for m in FREE_RE.finditer(text)]
     return jargon, free
+
+
+def _docx_full_text(path: Path) -> str:
+    from docx import Document as D
+
+    doc = D(path)
+    parts = [p.text for p in doc.paragraphs]
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                parts.append(cell.text)
+    return "\n".join(parts)
+
+
+def _ai_instruction_text(docx_path: Path) -> str:
+    from docx import Document as D
+
+    chunks: list[str] = []
+    for table in D(docx_path).tables:
+        cell = table.rows[0].cells[0]
+        if cell.text.strip().startswith(AI_MARKER):
+            chunks.append(cell.text)
+    return "\n".join(chunks)
+
+
+def grep_team_facing_bans() -> dict[str, list[str]]:
+    """Grep blank/ejemplo docx and prompts.txt for mentor-only codes (expect 0 in team files)."""
+    hits: dict[str, list[str]] = {}
+    prompts = PROMPTS_TXT.read_text(encoding="utf-8") if PROMPTS_TXT.is_file() else ""
+    prompts_instr = (
+        "\n\n".join(parse_prompts_instruction_blocks(prompts)) if prompts.strip() else ""
+    )
+    for label, blob in (
+        ("blank_docx_readable", docx_readable_text(OUT_DOCX)),
+        ("ejemplo_docx_readable", docx_readable_text(OUT_EJEMPLO_DOCX)),
+        ("prompts_txt", prompts),
+    ):
+        hits[label] = sorted({m.group(0) for m in TEAM_BAN_RE.finditer(blob)})
+    for label, blob in (
+        ("blank_docx_ai", _ai_instruction_text(OUT_DOCX)),
+        ("ejemplo_docx_ai", _ai_instruction_text(OUT_EJEMPLO_DOCX)),
+        ("prompts_txt_instructions", prompts_instr),
+    ):
+        found = sorted({m.group(0) for m in TEAM_BAN_RE.finditer(blob)})
+        if "Funciona en ChatGPT" in blob:
+            found.append("Funciona en ChatGPT")
+        if re.search(r"(?i)\blínea base\b", blob):
+            found.append("Línea base")
+        hits[label] = found
+    return hits
+
+
+def word_count_per_instruction(docx_path: Path) -> list[tuple[str, int]]:
+    bodies = extract_ai_instruction_bodies(docx_path)
+    labels = [meta[0] for meta in PROMPTS_META]
+    return [(labels[i], len(re.findall(r"\S+", bodies[i]))) for i in range(5)]
 
 
 def main() -> int:
@@ -775,8 +870,22 @@ def main() -> int:
     print("grep_jargon_hits", len(jargon), jargon[:20])
     print("grep_free_hits", len(free), free)
     print("grep_free_ejemplo_hits", len(free_ej), free_ej)
-    if jargon or free or free_ej:
+    ban_hits = grep_team_facing_bans()
+    for label, found in ban_hits.items():
+        print("grep_team_ban", label, len(found), found)
+    wc = word_count_per_instruction(OUT_DOCX)
+    for parte, n in wc:
+        print("instruction_word_count", parte, n)
+    if jargon or free or free_ej or any(ban_hits.values()):
         print("SELF-CHECK FAILED", file=sys.stderr)
+        return 1
+    full = _docx_full_text(OUT_DOCX)
+    if not all(line in full for line in M1_LEVEL_LINES):
+        print("SELF-CHECK FAILED: M1 wording missing in blank docx", file=sys.stderr)
+        return 1
+    ai2 = extract_ai_instruction_bodies(OUT_DOCX)[2]
+    if not all(line in ai2 for line in M1_LEVEL_LINES):
+        print("SELF-CHECK FAILED: M1 wording missing in Parte 2 AI instruction", file=sys.stderr)
         return 1
     import fitz
 

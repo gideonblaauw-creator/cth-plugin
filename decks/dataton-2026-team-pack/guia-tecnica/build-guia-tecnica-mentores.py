@@ -27,6 +27,13 @@ OUT_PDF = GUIA_DIR / "Guia-tecnica-mentores.pdf"
 LOGO = ROOT / "assets/cth-logo-color.png"
 HEADER_TEXT = "Guía técnica — para mentores"
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
+M1_LEVEL_LINES = (
+    "ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. "
+    "Empezar aquí es normal.",
+    "bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.",
+    "plata: limpio, con reglas de limpieza escritas y calidad revisada.",
+    "oro: listo para una decisión y un público con nombre.",
+)
 
 SOURCES: list[tuple[str, Path, str]] = [
     ("Hoja 1 — mapa de calor", TEAM / "hoja-1-mapa-de-calor.md", "markdown"),
@@ -167,8 +174,39 @@ def _build_cover(doc: Document) -> None:
 
 def _build_index(doc: Document) -> None:
     doc.add_heading("Índice", level=1)
-    for i, (title, _, _) in enumerate(SOURCES, start=1):
+    doc.add_paragraph("1. Niveles de confianza del dato (metodología v0.3)", style="Normal")
+    doc.add_paragraph("2. Cómo elegimos los 6 y cómo decide el jurado", style="Normal")
+    for i, (title, _, _) in enumerate(SOURCES, start=3):
         doc.add_paragraph(f"{i}. {title}", style="Normal")
+    doc.add_page_break()
+
+
+def _build_m1_page(doc: Document) -> None:
+    doc.add_heading("Niveles de confianza del dato", level=1)
+    doc.add_paragraph(
+        "Use esta redacción con los equipos. Son niveles de confianza, no premios.",
+        style="Normal",
+    )
+    for line in M1_LEVEL_LINES:
+        doc.add_paragraph(line, style="Normal")
+    doc.add_page_break()
+
+
+def _build_m6_page(doc: Document) -> None:
+    doc.add_heading("Cómo elegimos los 6 y cómo decide el jurado", level=1)
+    bullets = [
+        "Tally del mentor: utilidad 0–5 más honestidad 0–5, más 1 por cada número firme en plata u oro (máximo +3). "
+        "En empate gana honestidad.",
+        "Los mentores contrastan 2–3 números con la carpeta del equipo en Drive.",
+        "Las finales a las 16:00 usan las mismas dos notas (utilidad, honestidad). "
+        "La historia del pitch solo desempata.",
+        "14 equipos → 6 finalistas → 3 ganadores, quienes entran al Datalab CTH en 2027. "
+        "Todos reciben certificado.",
+        "Ningún equipo queda fuera después del Bloque 1: las etiquetas advierten, no excluyen.",
+        "La shortlist de finalistas se anuncia antes de las 16:00.",
+    ]
+    for item in bullets:
+        doc.add_paragraph(f"• {item}", style="Normal")
     doc.add_page_break()
 
 
@@ -191,6 +229,8 @@ def build_docx() -> None:
         _set_header(master.sections[0], HEADER_TEXT)
         _build_cover(master)
         _build_index(master)
+        _build_m1_page(master)
+        _build_m6_page(master)
 
         composer = Composer(master)
         for i, part in enumerate(part_paths):
@@ -266,6 +306,14 @@ def _ban_check(text: str, label: str) -> None:
             raise SystemExit(f"{label}: banned phrase {phrase!r}")
 
 
+def _grep_banned_guia(text: str) -> list[str]:
+    found: list[str] = []
+    for pat in (r"(?i)microcredencial", r"hasta\s+20"):
+        for m in re.finditer(pat, text):
+            found.append(m.group(0))
+    return found
+
+
 def main() -> int:
     build_docx()
     from docx import Document as D
@@ -280,7 +328,13 @@ def main() -> int:
                 parts.append(cell.text)
     for section in doc.sections:
         parts.append(section.header.paragraphs[0].text if section.header.paragraphs else "")
-    _ban_check("\n".join(parts), "docx")
+    blob = "\n".join(parts)
+    _ban_check(blob, "docx")
+    bad = _grep_banned_guia(blob)
+    if bad:
+        raise SystemExit(f"guia banned tokens: {bad}")
+    if not all(line in blob for line in M1_LEVEL_LINES):
+        raise SystemExit("guia: M1 level definitions missing or altered")
     convert_pdf()
     pages = verify_pdf_sections()
     print("guia_docx", OUT_DOCX)
