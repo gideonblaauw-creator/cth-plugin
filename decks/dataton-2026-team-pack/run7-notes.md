@@ -1,7 +1,7 @@
 # Run 7 notes — Guía técnica layout rebuild
 
 Start head (ticket): `9ba28ff6d4050ff0da62767b6bd65409bad1a752`.
-Working head after build: `283a09a4ce77db6e5454af44bcb7c79f7f22b164`.
+Working head after build: `71b4fc82c5e8de20c5bcbd8a01e0c3a6d6c9d15c`.
 
 ## Contact sheets (40 dpi)
 - `_png/run7/guia-pdf-contact-40dpi.png`
