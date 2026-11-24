@@ -79,25 +79,38 @@
     .cobrand-row {
       display: flex;
       align-items: center;
-      gap: 3.5mm;
       flex-wrap: nowrap;
-      margin-bottom: 1.5mm;
+      margin-bottom: 2mm;
+      gap: 0;
     }
-    .cobrand-row img {
+    .datalab-lockup-wrap {
+      flex: 0 0 auto;
+      line-height: 0;
+    }
+    .datalab-lockup-wrap img {
+      height: 7mm;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .partner-logos {
+      display: flex;
+      align-items: center;
+      gap: 3.5mm;
+      flex: 0 0 auto;
+      margin-left: 7mm;
+      padding-left: 5mm;
+      border-left: 1px solid rgba(12, 73, 138, 0.18);
+    }
+    .partner-logos img {
       height: 6mm;
       width: auto;
       display: block;
       object-fit: contain;
     }
-    .cobrand-row .logo-datalab {
-      height: 8.5mm;
-    }
-    .cobrand-row .logo-cth {
-      height: 6mm;
-    }
     h1 {
-      margin: 0 0 1mm;
-      font-size: 13.5pt;
+      margin: 0 0 1.2mm;
+      font-size: 15pt;
       font-weight: 700;
       line-height: 1.1;
       max-width: 182mm;
@@ -105,14 +118,14 @@
     }
     .meta-line {
       margin: 0 0 0.5mm;
-      font-size: 9.5pt;
+      font-size: 10.5pt;
       font-weight: 600;
       line-height: 1.22;
       color: var(--blue);
     }
     .meta-venue {
-      margin: 0 0 1mm;
-      font-size: 9.5pt;
+      margin: 0 0 1.2mm;
+      font-size: 10.5pt;
       font-weight: 600;
       line-height: 1.22;
       color: var(--blue);
@@ -120,19 +133,19 @@
     .main {
       flex: 1 1 auto;
       min-height: 0;
-      padding: 0 14mm 0.5mm;
-      font-size: 9.5pt;
+      padding: 0 14mm 1mm;
+      font-size: 10.5pt;
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.26;
     }
     .lead {
-      margin: 0 0 1.5mm;
-      font-size: 9.5pt;
-      line-height: 1.2;
+      margin: 0 0 2mm;
+      font-size: 10.5pt;
+      line-height: 1.26;
     }
     .section-title {
-      margin: 1.2mm 0 0.4mm;
-      font-size: 10pt;
+      margin: 1.8mm 0 0.6mm;
+      font-size: 11.5pt;
       font-weight: 700;
       color: var(--green);
       line-height: 1.15;
@@ -146,28 +159,28 @@
       margin: 0 0 0.25mm;
       padding-left: 3.5mm;
       text-indent: -3.5mm;
-      font-size: 9.5pt;
-      line-height: 1.18;
+      font-size: 10.5pt;
+      line-height: 1.24;
     }
     .body-text {
-      margin: 0 0 1mm;
-      font-size: 9.5pt;
-      line-height: 1.2;
+      margin: 0 0 1.5mm;
+      font-size: 10.5pt;
+      line-height: 1.26;
     }
     .cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4mm;
+      gap: 5mm;
       align-items: start;
     }
     .cols .bullet-list li {
-      font-size: 9.25pt;
-      line-height: 1.16;
+      font-size: 10.5pt;
+      line-height: 1.24;
     }
     .closing {
-      margin: 1mm 0 0;
-      font-size: 9.5pt;
-      line-height: 1.2;
+      margin: 2mm 0 0;
+      font-size: 10.5pt;
+      line-height: 1.26;
       padding: 1.2mm 2.5mm;
       background: rgba(178, 238, 250, 0.35);
       border-left: 3px solid var(--sky);
@@ -235,10 +248,13 @@
     <img class="letterhead-top" src="assets/letterhead/CTH_header_band.png" alt=""/>
     <div class="title-block">
       <div class="cobrand-row" aria-label="Datalab y aliados del evento">
-        <img class="logo-datalab" src="assets/logos/datalab-logo-endorsed-light.png" alt="Datalab powered by CleantechHUB"/>
-        <img src="logos/externado-color.png" alt=""/>
-        <img class="logo-cth" src="logos/cleantechhub-color.png" alt=""/>
-        <img src="logos/observatorio-color.png" alt=""/>
+        <div class="datalab-lockup-wrap">
+          <img src="assets/logos/datalab-lockup.png" alt="Datalab powered by CleantechHUB"/>
+        </div>
+        <div class="partner-logos" aria-label="Aliados del evento">
+          <img src="logos/externado-color.png" alt="Universidad Externado de Colombia"/>
+          <img src="logos/observatorio-color.png" alt="Observatorio de la Tierra"/>
+        </div>
       </div>
       <h1>Panel: Innovación y emprendimiento en el territorio a través de los datos (ODS 13)</h1>
       <p class="meta-line">Martes 24 de noviembre de 2026, de 08:40 a 09:10 (30 minutos)</p>

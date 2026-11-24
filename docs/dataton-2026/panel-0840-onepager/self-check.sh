@@ -50,4 +50,7 @@ TICKET_EOF
   echo ""
   echo "=== glyph scan ==="
   python3 "$ROOT/glyph-scan.py"
+  echo ""
+  echo "=== computed font sizes ==="
+  python3 "$ROOT/check-font-sizes.py"
 } | tee "$OUT"

@@ -2,8 +2,8 @@
 Title:           Panel 08:40 · Datatón 24 nov 2026
 Creator:         Chromium
 Producer:        Skia/PDF m159
-CreationDate:    Tue Nov 24 01:09:17 2026 UTC
-ModDate:         Tue Nov 24 01:09:17 2026 UTC
+CreationDate:    Tue Nov 24 01:12:01 2026 UTC
+ModDate:         Tue Nov 24 01:12:01 2026 UTC
 Custom Metadata: no
 Metadata Stream: no
 Tagged:          no
@@ -15,16 +15,16 @@ Pages:           1
 Encrypted:       no
 Page size:       594.96 x 841.92 pts (A4)
 Page rot:        0
-File size:       249319 bytes
+File size:       271607 bytes
 Optimized:       no
 PDF version:     1.4
 
 === pdffonts ===
 name                                 type              encoding         emb sub uni object ID
 ------------------------------------ ----------------- ---------------- --- --- --- ---------
-AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     14  0
-BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     15  0
-CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     17  0
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     12  0
+BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     13  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     15  0
 
 === banned terms ===
 (none)
@@ -34,3 +34,17 @@ OK: word sequences match
 
 === glyph scan ===
 (empty) — all pdftotext chars in OpenSans-Regular cmap
+
+=== computed font sizes ===
+=== computed font sizes (pt) ===
+h1: 15 pt [OK]
+.meta-line: 10.5 pt [OK]
+.meta-venue: 10.5 pt [OK]
+.lead: 10.5 pt [OK]
+.section-title: 11.5 pt [OK]
+.bullet-list li: 10.5 pt [OK]
+ul.bullet-list.cols li: 10.5 pt [OK]
+.body-text: 10.5 pt [OK]
+.closing: 10.5 pt [OK]
+.tagline: 10.0 pt [OK]
+minimum: 10.0 pt (required >= 9.5)

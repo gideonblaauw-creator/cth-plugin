@@ -61,12 +61,22 @@ def prove_font_g() -> None:
     subprocess.run([sys.executable, str(ROOT / "prove-font-g.py")], check=True)
 
 
+def prove_cobrand() -> None:
+    subprocess.run([sys.executable, str(ROOT / "prove-cobrand-crop.py")], check=True)
+
+
+def build_datalab_lockup() -> None:
+    subprocess.run([sys.executable, str(ROOT / "build-datalab-lockup.py")], check=True)
+
+
 def main() -> None:
     if not HTML.is_file():
         raise SystemExit(f"Missing {HTML}")
+    build_datalab_lockup()
     asyncio.run(export_pdf())
     export_png_200dpi()
     prove_font_g()
+    prove_cobrand()
     print(PDF)
     print(PNG)
 
