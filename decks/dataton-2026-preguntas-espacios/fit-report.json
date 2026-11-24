@@ -43,19 +43,19 @@
     },
     {
       "pageId": "p05",
-      "fitLevel": "fit-a",
-      "questionPt": "11.5pt",
-      "answerPt": "10pt",
+      "fitLevel": "fit-d",
+      "questionPt": "10pt",
+      "answerPt": "9pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
-      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "minStackGapLabel": "puente\u2192fuente",
       "pageOk": true,
       "stack": {
         "ok": true,
         "issues": [],
         "minGapPx": 7.546875,
         "minGapPt": 5.66015625,
-        "minGapLabel": "turn\u2192nota-moderacion"
+        "minGapLabel": "puente\u2192fuente"
       },
       "minClearPx": 9,
       "turnIssues": [],
@@ -63,9 +63,9 @@
     },
     {
       "pageId": "p06",
-      "fitLevel": "default",
-      "questionPt": "12pt",
-      "answerPt": "10.5pt",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "turn\u2192nota-moderacion",
@@ -83,9 +83,9 @@
     },
     {
       "pageId": "p07",
-      "fitLevel": "default",
-      "questionPt": "12pt",
-      "answerPt": "10.5pt",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "puente\u2192fuente",
@@ -163,9 +163,9 @@
     },
     {
       "pageId": "p11",
-      "fitLevel": "default",
-      "questionPt": "12pt",
-      "answerPt": "10.5pt",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "puente\u2192fuente",
@@ -183,9 +183,9 @@
     },
     {
       "pageId": "p12",
-      "fitLevel": "default",
-      "questionPt": "12pt",
-      "answerPt": "10.5pt",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "puente\u2192fuente",
@@ -223,19 +223,19 @@
     },
     {
       "pageId": "p14",
-      "fitLevel": "fit-a",
-      "questionPt": "11.5pt",
-      "answerPt": "10pt",
+      "fitLevel": "fit-d",
+      "questionPt": "10pt",
+      "answerPt": "9pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
-      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "minStackGapLabel": "puente\u2192fuente",
       "pageOk": true,
       "stack": {
         "ok": true,
         "issues": [],
         "minGapPx": 7.546875,
         "minGapPt": 5.66015625,
-        "minGapLabel": "turn\u2192nota-moderacion"
+        "minGapLabel": "puente\u2192fuente"
       },
       "minClearPx": 9,
       "turnIssues": [],
@@ -322,6 +322,14 @@
       },
       {
         "pageId": "p05",
+        "fitLevel": "fit-d",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p06",
         "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
@@ -329,16 +337,8 @@
         "issueCount": 0
       },
       {
-        "pageId": "p06",
-        "fitLevel": "default",
-        "stackOk": true,
-        "minGapPt": 5.66015625,
-        "minGapLabel": "turn\u2192nota-moderacion",
-        "issueCount": 0
-      },
-      {
         "pageId": "p07",
-        "fitLevel": "default",
+        "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "puente\u2192fuente",
@@ -370,7 +370,7 @@
       },
       {
         "pageId": "p11",
-        "fitLevel": "default",
+        "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "puente\u2192fuente",
@@ -378,7 +378,7 @@
       },
       {
         "pageId": "p12",
-        "fitLevel": "default",
+        "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "puente\u2192fuente",
@@ -394,10 +394,10 @@
       },
       {
         "pageId": "p14",
-        "fitLevel": "fit-a",
+        "fitLevel": "fit-d",
         "stackOk": true,
         "minGapPt": 5.66015625,
-        "minGapLabel": "turn\u2192nota-moderacion",
+        "minGapLabel": "puente\u2192fuente",
         "issueCount": 0
       },
       {

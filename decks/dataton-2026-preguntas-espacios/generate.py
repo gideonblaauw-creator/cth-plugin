@@ -82,10 +82,10 @@ THREAD_HTML = """
   </div>
   <div class="thread-col">
     <h3>Hilo del día</h3>
-    <article class="thread-note"><strong>1 Territorio</strong>Desafío climático y cooperación (panel 08:40).</article>
-    <article class="thread-note"><strong>2 Personas</strong>Quién vive el problema y qué necesita la comunidad.</article>
-    <article class="thread-note"><strong>3 Innovación</strong>Emprendimiento local que prueba soluciones en el territorio.</article>
-    <article class="thread-note"><strong>4 Adopción</strong>Empresa, cooperación, universidad y región que apoyan.</article>
+    <article class="thread-note"><strong>1 Territorio</strong>Lluvias, manglar o aire: quién vive el desafío y en qué lugar.</article>
+    <article class="thread-note"><strong>2 Personas</strong>Vecinos, productores o pacientes que necesitan una decisión concreta.</article>
+    <article class="thread-note"><strong>3 Innovación</strong>Emprendedor o equipo local que prueba una solución con datos.</article>
+    <article class="thread-note"><strong>4 Siguiente paso</strong>Comprador, permiso, financiación, acompañamiento o conectividad.</article>
     <article class="thread-note"><strong>5 Programa</strong>Observatorio de la Tierra y Datalab (09:10).</article>
     <article class="thread-note"><strong>6 Ejemplos</strong>Constructora Bolívar, Agrometers, Air4U (sin piloto firmado).</article>
     <article class="thread-note"><strong>7 Equipos</strong>14 equipos Externado trabajan con mentores.</article>
@@ -93,7 +93,7 @@ THREAD_HTML = """
     <article class="thread-note"><strong>9 Cierre</strong>Certificados para todos; ganadores con seguimiento.</article>
   </div>
 </div>
-<p class="thread-macro">Orden: territorio y desafío climático, personas y comunidades, quién innova, quién adopta y apoya, 14 equipos, 3 al Datalab 2027.</p>
+<p class="thread-macro">En cada espacio: desafío concreto, personas y lugar, innovación local y siguiente paso; luego 14 equipos, 6 finalistas, 3 al Datalab 2027.</p>
 """
 
 
