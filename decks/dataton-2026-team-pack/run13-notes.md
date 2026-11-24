@@ -1,6 +1,6 @@
 # Run 13 notes
 
-Head: `263d7e6fc609981b25735bb78f31c2a3b41ae1ad`.
+Head: `f7878dca38a578a4218302a955ee56818c2c7b97`.
 Base: `263d7e6fc609981b25735bb78f31c2a3b41ae1ad`.
 
 ## Ticket
@@ -54,5 +54,18 @@ Base: `263d7e6fc609981b25735bb78f31c2a3b41ae1ad`.
 
 ## git diff --stat vs base
 ```
-(empty)
+.../_png/run13/pdffonts-sheet.txt                  |   6 +
+ .../_png/run13/sheet-p01-110dpi.png                | Bin 0 -> 136580 bytes
+ .../_png/run13/sheet-p02-110dpi.png                | Bin 0 -> 248350 bytes
+ .../_png/run13/sheet-p03-110dpi.png                | Bin 0 -> 71306 bytes
+ .../cuestionario/Prompts-IA-Dataton-24nov.docx     | Bin 100646 -> 100643 bytes
+ .../cuestionario/Prompts-IA-Dataton-24nov.pdf      | Bin 156487 -> 156384 bytes
+ .../cuestionario/build-prompts-ia-dataton-sheet.py |   4 +-
+ .../dist/Prompts-IA-Dataton-24nov.docx             | Bin 100646 -> 100643 bytes
+ .../dist/Prompts-IA-Dataton-24nov.pdf              | Bin 156487 -> 156384 bytes
+ decks/dataton-2026-team-pack/run13-notes.md        |  58 +++++++
+ .../scripts/rebuild_zip_run13.py                   |  35 +++++
+ .../scripts/run13_self_check.py                    | 167 +++++++++++++++++++++
+ .../team-pack-es-pdfs-v0.4.zip                     | Bin 2940790 -> 2940692 bytes
+ 13 files changed, 268 insertions(+), 2 deletions(-)
 ```
