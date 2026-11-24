@@ -17,6 +17,32 @@ PRINT = ROOT / "print"
 OUT = ROOT / "dist"
 PNG = ROOT / "_png"
 ZIP_NAME = "team-pack-es-pdfs-v0.4.zip"
+CUESTIONARIO = ROOT / "cuestionario"
+CUESTIONARIO_DOCX = "Cuestionario-Dataton-24nov-equipos.docx"
+CUESTIONARIO_PDF = "Cuestionario-Dataton-24nov-equipos.pdf"
+
+# Zip names for mentors-only PDFs (no rebuild; dist filenames unchanged).
+MENTOR_ZIP_PREFIX = "guia-tecnica-mentores-"
+MENTOR_PDF_STEMS = {
+    "plantilla-bmc",
+    "prompts-ia-v2",
+    "hoja-1-mapa-de-calor",
+    "hoja-2-flujo-de-datos",
+    "hoja-3-dato-a-valor",
+    "hoja-4-plantilla-tablero",
+    "hoja-4b-ejemplo-air4u",
+    "hoja-5-plantilla-pitch",
+    "ejemplo-air4u",
+    "fuentes-datos-abiertos",
+}
+
+TEAM_AUDIT_PDFS = {
+    CUESTIONARIO_PDF,
+    "agenda-equipos.pdf",
+    "guia-carpeta-drive.pdf",
+    "nota-derechos-datos.pdf",
+    "LEEME.pdf",
+}
 
 MD_TO_PDF = [
     "agenda-equipos.md",
@@ -119,27 +145,48 @@ def write_leeme() -> str:
     lines = [
         "# LEEME — Paquete equipo Datatón v0.4-es",
         "",
-        "| Archivo | Propósito | Estado |",
-        "|---|---|---|",
-        "| `plantilla-bmc.pdf` | Lienzo BMC en blanco (A4 apaisado) | Listo v0.4 |",
-        "| `prompts-ia-v2.pdf` | Prompts copiar/pegar (BMC, Hojas 1–5, transversal) | Listo v0.4 |",
-        "| `agenda-equipos.pdf` | Run-of-show (14 equipos, horas v5) | Listo v0.4 |",
-        "| `hoja-1-mapa-de-calor.pdf` | Mapa de calor ¿DÓNDE? | v0.3-es → v0.4 pack |",
-        "| `hoja-2-flujo-de-datos.pdf` | Flujo + escalera Medallion | v0.3-es → v0.4 pack |",
-        "| `hoja-3-dato-a-valor.pdf` | De dato a valor | v0.3-es → v0.4 pack |",
-        "| `hoja-4-plantilla-tablero.pdf` | Plantilla tablero una pantalla | v0.3-es → v0.4 pack |",
-        "| `hoja-4b-ejemplo-air4u.pdf` | Ejemplo Air4U (Hoja 4) | Ilustrativo |",
-        "| `hoja-5-plantilla-pitch.pdf` | Pitch 5 min finales | Borrador: versión final el día del Datatón |",
-        "| `ejemplo-air4u.pdf` | Ejemplo Hojas 1–3 Air4U | Ilustrativo |",
-        "| `fuentes-datos-abiertos.pdf` | Fuentes verificadas (aire) | v0.3-es |",
-        "| `nota-derechos-datos.pdf` | Reglas derechos de datos | Borrador — revisión jurídica |",
-        "| `guia-carpeta-drive.pdf` | Plantilla carpeta por equipo | Plantilla |",
+        "## Para los equipos",
         "",
-        "CleantechHUB · Datatón Observatorio de la Tierra · 24 nov 2026",
+        "Su archivo principal es el **cuestionario en Word** (`Cuestionario-Dataton-24nov-equipos.docx`). "
+        "Lo diligencian, lo guardan y lo suben a ChatGPT, Gemini o Grok; al final de cada parte copian "
+        "la instrucción para la inteligencia artificial y obtienen el mapa de prioridades y el boceto de tablero.",
+        "",
+        "| Archivo | Para qué |",
+        "|---|---|",
+        f"| `{CUESTIONARIO_DOCX}` | Cuestionario en blanco (diligenciar y subir) |",
+        f"| `{CUESTIONARIO_PDF}` | Vista previa del cuestionario (solo revisión) |",
+        "| `agenda-equipos.pdf` | Horario del día (14 equipos) |",
+        "| `guia-carpeta-drive.pdf` | Cómo organizar su carpeta cuando el facilitador lo indique |",
+        "| `nota-derechos-datos.pdf` | Reglas básicas sobre datos personales y permisos |",
+        "",
+        "## Para mentores",
+        "",
+        "Los PDF que empiezan por `guia-tecnica-mentores-` son la **guía técnica para mentores** "
+        "(mismas hojas y rúbricas de siempre, con nuevo nombre de archivo). Úsenlas para calificar "
+        "madurez de datos y elegir a los seis finalistas.",
+        "",
+        "CleantechHUB · Datatón 24 nov 2026",
     ]
     text = "\n".join(lines)
     (TEAM / "LEEME.md").write_text(text, encoding="utf-8")
     return text
+
+
+def build_cuestionario_pack() -> None:
+    import subprocess
+    import sys
+
+    script = CUESTIONARIO / "build-cuestionario.py"
+    if not script.is_file():
+        raise FileNotFoundError(script)
+    subprocess.run([sys.executable, str(script)], cwd=str(CUESTIONARIO), check=True)
+    for name in (CUESTIONARIO_DOCX, CUESTIONARIO_PDF):
+        src = CUESTIONARIO / name
+        dst = OUT / name
+        if src.is_file():
+            import shutil
+
+            shutil.copy2(src, dst)
 
 
 async def render_all() -> None:
@@ -205,25 +252,41 @@ async def render_all() -> None:
         stem = Path(md_name).stem
         export_pdf_pngs(OUT / f"{stem}.pdf", stem, max_pages=1)
 
+    build_cuestionario_pack()
+
     zip_path = ROOT / ZIP_NAME
-    manifest_rows = []
+    manifest_rows: list[tuple[str, str]] = []
+
+    def zip_entry(src: Path, arcname: str) -> None:
+        zf.write(src, arcname)
+        manifest_rows.append((arcname, sha256_file(src)))
+
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         zf.write(TEAM / "LEEME.md", "LEEME.md")
+        manifest_rows.append(("LEEME.md", sha256_file(TEAM / "LEEME.md")))
         for pdf in sorted(OUT.glob("*.pdf")):
             if pdf.stem in {"test-notes"}:
                 continue
-            zf.write(pdf, pdf.name)
-            manifest_rows.append((pdf.name, sha256_file(pdf)))
+            if pdf.name == CUESTIONARIO_PDF:
+                zip_entry(pdf, pdf.name)
+            elif pdf.stem in MENTOR_PDF_STEMS:
+                arc = f"{MENTOR_ZIP_PREFIX}{pdf.name}"
+                zip_entry(pdf, arc)
+            else:
+                zip_entry(pdf, pdf.name)
+        docx_path = OUT / CUESTIONARIO_DOCX
+        if docx_path.is_file():
+            zip_entry(docx_path, CUESTIONARIO_DOCX)
 
     manifest = [
         "# team-pack-es-manifest-sha256 (v0.4-es)",
         "",
         f"Zip: {ZIP_NAME} sha256 {sha256_file(zip_path)}",
         "",
-        "| PDF | sha256 |",
+        "| Archivo | sha256 |",
         "|---|---|",
     ]
-    for name, digest in manifest_rows:
+    for name, digest in sorted(manifest_rows, key=lambda x: x[0].lower()):
         manifest.append(f"| {name} | `{digest}` |")
     (ROOT / "team-pack-es-manifest-sha256.md").write_text("\n".join(manifest) + "\n", encoding="utf-8")
     print("zip", zip_path)
@@ -271,8 +334,22 @@ def audit_team_facing_text() -> dict:
     with zipfile.ZipFile(zip_path) as zf:
         pdf_names = sorted(n for n in zf.namelist() if n.lower().endswith(".pdf"))
 
+    def resolve_out_pdf(zip_name: str) -> Path | None:
+        if zip_name == CUESTIONARIO_PDF or zip_name in TEAM_AUDIT_PDFS:
+            p = OUT / zip_name
+            return p if p.is_file() else None
+        if zip_name.startswith(MENTOR_ZIP_PREFIX):
+            return None
+        p = OUT / zip_name
+        return p if p.is_file() else None
+
     for pdf_name in pdf_names:
-        doc = fitz.open(OUT / pdf_name)
+        if pdf_name not in TEAM_AUDIT_PDFS:
+            continue
+        pdf_path = resolve_out_pdf(pdf_name)
+        if not pdf_path:
+            continue
+        doc = fitz.open(pdf_path)
         text = "\n".join(page.get_text() for page in doc)
         doc.close()
         for rx, label in INTERNAL_TEXT_PATTERNS + PDF_TEAM_EXTRA_PATTERNS:
@@ -293,11 +370,12 @@ def audit_team_facing_text() -> dict:
             for m in rx.finditer(text):
                 hits.append({"file": f"print/{html_name}", "kind": "html", "pattern": label, "match": m.group(0)})
 
-    report = {"hits": hits, "ok": len(hits) == 0, "pdfs_scanned": pdf_names}
+    audited = [n for n in pdf_names if n in TEAM_AUDIT_PDFS]
+    report = {"hits": hits, "ok": len(hits) == 0, "pdfs_scanned": audited, "zip_pdfs": pdf_names}
     (OUT / "team-pack-text-audit.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     if hits:
         raise SystemExit(f"team-facing text audit failed: {len(hits)} hit(s)")
-    print("team_pack_text_audit", "OK", len(pdf_names), "pdfs")
+    print("team_pack_text_audit", "OK", len(audited), "team pdfs of", len(pdf_names), "in zip")
     return report
 
 

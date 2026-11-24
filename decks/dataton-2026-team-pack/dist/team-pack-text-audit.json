@@ -2,19 +2,27 @@
   "hits": [],
   "ok": true,
   "pdfs_scanned": [
+    "Cuestionario-Dataton-24nov-equipos.pdf",
     "LEEME.pdf",
     "agenda-equipos.pdf",
-    "ejemplo-air4u.pdf",
-    "fuentes-datos-abiertos.pdf",
     "guia-carpeta-drive.pdf",
-    "hoja-1-mapa-de-calor.pdf",
-    "hoja-2-flujo-de-datos.pdf",
-    "hoja-3-dato-a-valor.pdf",
-    "hoja-4-plantilla-tablero.pdf",
-    "hoja-4b-ejemplo-air4u.pdf",
-    "hoja-5-plantilla-pitch.pdf",
-    "nota-derechos-datos.pdf",
-    "plantilla-bmc.pdf",
-    "prompts-ia-v2.pdf"
+    "nota-derechos-datos.pdf"
+  ],
+  "zip_pdfs": [
+    "Cuestionario-Dataton-24nov-equipos.pdf",
+    "LEEME.pdf",
+    "agenda-equipos.pdf",
+    "guia-carpeta-drive.pdf",
+    "guia-tecnica-mentores-ejemplo-air4u.pdf",
+    "guia-tecnica-mentores-fuentes-datos-abiertos.pdf",
+    "guia-tecnica-mentores-hoja-1-mapa-de-calor.pdf",
+    "guia-tecnica-mentores-hoja-2-flujo-de-datos.pdf",
+    "guia-tecnica-mentores-hoja-3-dato-a-valor.pdf",
+    "guia-tecnica-mentores-hoja-4-plantilla-tablero.pdf",
+    "guia-tecnica-mentores-hoja-4b-ejemplo-air4u.pdf",
+    "guia-tecnica-mentores-hoja-5-plantilla-pitch.pdf",
+    "guia-tecnica-mentores-plantilla-bmc.pdf",
+    "guia-tecnica-mentores-prompts-ia-v2.pdf",
+    "nota-derechos-datos.pdf"
   ]
 }

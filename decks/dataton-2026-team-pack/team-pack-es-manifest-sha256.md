@@ -1,20 +1,23 @@
 # team-pack-es-manifest-sha256 (v0.4-es)
 
-Zip: team-pack-es-pdfs-v0.4.zip sha256 ded7219bd9e47ad0bb3f8a6ac55e15312d646afb9e538dd109533a9a7dd5846c
+Zip: team-pack-es-pdfs-v0.4.zip sha256 fe18a1f987f040d331a1340d1f626d6a30856ae56173d3f9a69988da3c9eb523
 
-| PDF | sha256 |
+| Archivo | sha256 |
 |---|---|
-| LEEME.pdf | `b4320ee4567880f64c231f559a11da412776fe677259b639adf8fbd6c81d839d` |
-| agenda-equipos.pdf | `836c4d1121c179eda0220aca188f92efdf9741fb423abb36596c5a1a89a917c8` |
-| ejemplo-air4u.pdf | `57bda3e1f108021d5a4fd8693154c499bb34a9c34294ce7bbe904ed32b06d854` |
-| fuentes-datos-abiertos.pdf | `600926ceebfdf5ba0e33bc0c8276987dbb3e0a74091c7345d738e73a9d171994` |
-| guia-carpeta-drive.pdf | `ef2f80e8ae6638582ecaaf47a08af81385fa788eef79b8dfb0123f35b1fc43bf` |
-| hoja-1-mapa-de-calor.pdf | `708871f6be3653afa2dfa9dcfebe863bb090b60bffae64a3eb1de3e34a8f9074` |
-| hoja-2-flujo-de-datos.pdf | `f118225a4982a1a3dae49c53aaf4e9d478e9e8bb67b6d46ae497e184ce771c01` |
-| hoja-3-dato-a-valor.pdf | `5b2566507efa60da324f8a8db896a78db3d482d7c0412f61d4d2b2790b43f4fb` |
-| hoja-4-plantilla-tablero.pdf | `207055bc63d913da9390eff203ccf031212abdab8ca408735378106f2c71f85c` |
-| hoja-4b-ejemplo-air4u.pdf | `e8fab960089d2c0dd5793a4d22f04585b87353642b3cc81000b111a89afec768` |
-| hoja-5-plantilla-pitch.pdf | `5bd7aeddaeefd006f4fecedb393fc5a657e3517e77c4886c5db9d4e1fe23070a` |
-| nota-derechos-datos.pdf | `ee2243b457a53d6740d9271a56dfe5172a6dd04eb74a7dbbff2d25735b96215f` |
-| plantilla-bmc.pdf | `319b19f246922207d3b985a29c43a28329b80d608d727002bd57f536ab5ed77b` |
-| prompts-ia-v2.pdf | `d9c19e302fe5dcfcc4aea9306a90a3119a4afea08f1fc3674949218c8aea2460` |
+| agenda-equipos.pdf | `d3e8065db9e18b65cb43cfe86beb9e608b076a4b50c36b50fc43b810835df872` |
+| Cuestionario-Dataton-24nov-equipos.docx | `61308279a794d56225c1400d7fe5c37cd6258572959b8bde4bb5a0d8fe2b25c6` |
+| Cuestionario-Dataton-24nov-equipos.pdf | `3b16a1b71284d77a387eb68253a011b8890bccb5252140f8c12f1acf869e9ad1` |
+| guia-carpeta-drive.pdf | `5b24120186c75cf214b036fbb45114422dbe0a67290d6781f706e4bc30366fdf` |
+| guia-tecnica-mentores-ejemplo-air4u.pdf | `299c4cef29c37c587d7ea4923aa89f3e87e38c2133e23020e1f856908a668394` |
+| guia-tecnica-mentores-fuentes-datos-abiertos.pdf | `a526c7905edd12afcd4d546eb86699e4f1e0a615178bc9ed740ce7e5c0a6bb36` |
+| guia-tecnica-mentores-hoja-1-mapa-de-calor.pdf | `03c1696b245efc880348b6bad5ec9d242078a47b74bc1532776787a66427d0e0` |
+| guia-tecnica-mentores-hoja-2-flujo-de-datos.pdf | `5ed84575dfafd8020ef19a816edda4eecf4bd1b0febbdd99525fbd8dc4525711` |
+| guia-tecnica-mentores-hoja-3-dato-a-valor.pdf | `da5d72b688d9902a7d38301a5890e8bfb2d7daaa3c5c14245d01ccdb30c1345f` |
+| guia-tecnica-mentores-hoja-4-plantilla-tablero.pdf | `ab63c3022ce8f716fabe90763195cd5cb3bb48c3761fa2b9f06f17c8be0fed12` |
+| guia-tecnica-mentores-hoja-4b-ejemplo-air4u.pdf | `f2c8e8aee4c53a3fb0789c0b6ab3ab507cb54ee79859b708af2b0bf45a67d5f3` |
+| guia-tecnica-mentores-hoja-5-plantilla-pitch.pdf | `f3b143fb9008efbf87536868da5a88046dc7e7ec4d26041407d73327660db8be` |
+| guia-tecnica-mentores-plantilla-bmc.pdf | `f90c7dce7267f39f889a29d64d2c0eafd42d53a4c98fd3da69072cdb09e02ec3` |
+| guia-tecnica-mentores-prompts-ia-v2.pdf | `163fbe862be07b6ad8a102f5fac7ac832a86e330d0b5ad64325041bc1e8ab5a8` |
+| LEEME.md | `34622b0047074b914ddefa81c3c8fc5af250a00710d9474a4343b78c61f0ad84` |
+| LEEME.pdf | `2943f9ca09c05b574f966c06c03387211c601a0f700c7ca490c738b62fcc5841` |
+| nota-derechos-datos.pdf | `8f8d80104bae5dd4c473b3af5e48fbb9bb001eab0e5b564d6966ecbcdbd634c0` |
