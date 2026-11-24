@@ -777,10 +777,16 @@ async def render_all() -> None:
             if pdf.is_file():
                 arc = f"{GUIA_MENTORES_DIR}/{pdf.name}"
                 zip_entry(pdf, arc)
-        for name in (GUIA_DOCX, GUIA_PDF):
-            src = OUT / name
-            if src.is_file():
-                zip_entry(src, f"{GUIA_MENTORES_DIR}/{name}")
+        guia_docx = GUIA_TECNICA / GUIA_DOCX
+        if not guia_docx.is_file():
+            guia_docx = OUT / GUIA_DOCX
+        if guia_docx.is_file():
+            zip_entry(guia_docx, f"{GUIA_MENTORES_DIR}/{GUIA_DOCX}")
+        guia_pdf = OUT / GUIA_PDF
+        if not guia_pdf.is_file():
+            guia_pdf = GUIA_TECNICA / GUIA_PDF
+        if guia_pdf.is_file():
+            zip_entry(guia_pdf, f"{GUIA_MENTORES_DIR}/{GUIA_PDF}")
 
     manifest = [
         "# team-pack-es-manifest-sha256 (v0.4-es)",

@@ -209,6 +209,24 @@ def _qa_table(
     _table_counter += 1
 
 
+def _apply_instruction_box_keep(table) -> None:
+    """Keep one-page INSTRUCCIÓN boxes intact in Word/LibreOffice PDF (layout only)."""
+    row = table.rows[0]
+    tr = row._tr
+    tr_pr = tr.get_or_add_trPr()
+    if tr_pr.find(qn("w:cantSplit")) is None:
+        tr_pr.append(OxmlElement("w:cantSplit"))
+    cell = row.cells[0]
+    paras = list(cell.paragraphs)
+    for i, para in enumerate(paras):
+        pf = para.paragraph_format
+        pf.keep_together = True
+        if i < len(paras) - 1:
+            pf.keep_with_next = True
+        if i == 0:
+            pf.page_break_before = True
+
+
 def _ai_table(doc: Document, body: str) -> None:
     global _table_counter
     table = doc.add_table(rows=1, cols=1)
@@ -224,6 +242,7 @@ def _ai_table(doc: Document, body: str) -> None:
         p.style = "Normal"
         for run in p.runs:
             run.font.size = Pt(8)
+    _apply_instruction_box_keep(table)
     AI_TABLE_IDS.add(_table_counter)
     _table_counter += 1
 
@@ -266,6 +285,7 @@ def _ai_optional_1b_table(doc: Document, lines: list[tuple[str, bool]]) -> None:
         for run in p.runs:
             run.font.size = Pt(8)
             run.italic = italic
+    _apply_instruction_box_keep(table)
     AI_TABLE_IDS.add(_table_counter)
     _table_counter += 1
 

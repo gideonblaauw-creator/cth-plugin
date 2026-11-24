@@ -21,6 +21,7 @@ OUT_DOCX = ROOT / "Prompts-IA-Dataton-24nov.docx"
 OUT_PDF = ROOT / "Prompts-IA-Dataton-24nov.pdf"
 LOGO = PACK / "assets" / "cth-logo-color.png"
 TOP_LINE = "Suban su cuestionario lleno al chat de IA y copien una instrucción a la vez."
+FOOTER_TEXT = "Inspira. Actúa. Transforma. · CleantechHUB · Datatón 24 nov 2026"
 PROMPTS_TXT_SHA = "4cd248ad16227c7cbd6fc33a5b89548920ab978371525a5e57a5de9b95e2fe6a"
 CANVAS_PREFIX = "Active Canvas en su chat de IA"
 
@@ -109,12 +110,12 @@ def _header_logo(doc: Document) -> None:
 def _footer_line(doc: Document) -> None:
     section = doc.sections[0]
     section.top_margin = Mm(11)
-    section.bottom_margin = Mm(11)
+    section.bottom_margin = Mm(18)
     section.left_margin = Mm(13)
     section.right_margin = Mm(13)
     p = section.footer.paragraphs[0]
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("Inspira. Actúa. Transforma. · CleantechHUB · Datatón 24 nov 2026")
+    run = p.add_run(FOOTER_TEXT)
     run.font.size = Pt(7.5)
     run.font.color.rgb = GREY
 
@@ -144,26 +145,38 @@ def build_docx(parts: list[dict[str, str]]) -> None:
         if idx:
             doc.add_paragraph("")
         hp = doc.add_paragraph(part["parte_line"], style="Heading 2")
+        if idx == 2:
+            hp.paragraph_format.page_break_before = True
+        hp.paragraph_format.keep_with_next = True
         for run in hp.runs:
             run.font.size = Pt(9.5)
             run.bold = True
             run.font.color.rgb = NAVY
+        part_paras: list = [hp]
         for meta in (part["salida_line"], part["forma_line"]):
             p = doc.add_paragraph(meta, style="Normal")
+            p.paragraph_format.keep_with_next = True
             for run in p.runs:
                 run.font.size = Pt(8.5)
+            part_paras.append(p)
         canvas, lines = _split_canvas(part["body"])
         if canvas:
             cp = doc.add_paragraph(canvas, style="Normal")
+            cp.paragraph_format.keep_with_next = True
             for run in cp.runs:
                 run.italic = True
                 run.font.size = Pt(8.5)
                 run.font.color.rgb = GREY
+            part_paras.append(cp)
         for line in lines:
             p = doc.add_paragraph(line, style="Normal")
             for run in p.runs:
                 run.font.size = Pt(9)
             _shade_paragraph(p)
+            p.paragraph_format.keep_together = True
+            part_paras.append(p)
+        if len(part_paras) > 1:
+            part_paras[-1].paragraph_format.keep_with_next = False
 
     for para in doc.paragraphs:
         for run in para.runs:
@@ -195,7 +208,11 @@ def _html(parts: list[dict[str, str]]) -> str:
         "<h1>Instrucciones de inteligencia artificial</h1>",
         f"<p class='lead'>{html.escape(TOP_LINE)}</p>",
     ]
-    for part in parts:
+    for idx, part in enumerate(parts):
+        block_cls = "parte-block"
+        if idx == 2:
+            block_cls += " parte-page-start"
+        chunks.append(f"<section class='{block_cls}'>")
         chunks.append(f"<h2 class='parte-line'>{html.escape(part['parte_line'])}</h2>")
         for meta in (part["salida_line"], part["forma_line"]):
             chunks.append(f"<p class='meta'>{html.escape(meta)}</p>")
@@ -207,9 +224,7 @@ def _html(parts: list[dict[str, str]]) -> str:
             for line in lines:
                 chunks.append(f"<p class='body'>{html.escape(line)}</p>")
             chunks.append("</div>")
-    chunks.append(
-        "<div class='footer'>Inspira. Actúa. Transforma. · CleantechHUB · Datatón 24 nov 2026</div>"
-    )
+        chunks.append("</section>")
     chunks.append("</body></html>")
     return "".join(chunks)
 
@@ -225,11 +240,19 @@ async def _render_pdf(html_text: str) -> None:
             browser = await p.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
             page = await browser.new_page()
             await page.goto(path.as_uri(), wait_until="networkidle")
+            footer_tpl = (
+                "<div style='font-size:7pt;width:100%;text-align:center;"
+                "color:#666;margin:0;font-family:Open Sans,sans-serif'>"
+                + FOOTER_TEXT
+                + "</div>"
+            )
             await page.pdf(
                 path=str(OUT_PDF),
                 format="A4",
-                margin={"top": "12mm", "bottom": "14mm", "left": "12mm", "right": "12mm"},
+                margin={"top": "12mm", "bottom": "20mm", "left": "12mm", "right": "12mm"},
                 print_background=True,
+                display_header_footer=True,
+                footer_template=footer_tpl,
             )
             await browser.close()
 
