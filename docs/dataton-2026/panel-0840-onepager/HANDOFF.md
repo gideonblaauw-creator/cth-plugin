@@ -13,18 +13,18 @@ See `self-check-output.txt` for full log.
 - Banned terms (Óscar / Apix / gratis): **0**
 - Computed font sizes: minimum **10.0 pt** (tagline); body/questions **10.5 pt**; sections **11.5 pt**; `h1` **15 pt** (all ≥ 9.5 pt)
 - Datalab lockup: `assets/logos/datalab-lockup.png` rasterized from `datalab-lockup.svg` + `cleantechhub-official.png` (aa1902ac layout)
+- Rendered co-brand heights (measured, Playwright): **Datalab lockup 9.50 mm**, **Externado 7.00 mm**, **Observatorio 7.00 mm** (`logo-heights-mm.json`)
 - Font proof (*programa*): `Panel-0840-proof-g-from-pdf-200dpi.png` vs `Panel-0840-proof-g-from-ttf-200dpi.png` — **double-storey (binocular) g, same outline as the committed v3.003 TTF** (`OpenSans-Regular.ttf`, sha `c53aceea…`)
 - Co-brand proof: `Panel-0840-proof-cobrand-300dpi.png` (Datalab / powered by / CleantechHUB + partner gap)
 
 ## SHA-256
 
 ```
-5b00cf1be509ff198874da669c6495474cf3305c288c037ce8eed35db17bf5d4  Panel-0840-Dataton-24nov.pdf
-a2f620cb3b1f7e16125d6755d5e99c535a9e5b186eb21d3d5aa200cdbfc2f6b6  panel-0840-dataton-24nov.html
-12d3a5766d1753e2572382cfb000418a8f3f54c07ecfba18c1307a57319d11fc  Panel-0840-Dataton-24nov.png
+a23e5b3ee4a172897d9154cb93e994b8a7a8aa4f83e8f1b495ff7f66db186299  Panel-0840-Dataton-24nov.pdf
+6318339b5895f6f716fa3b38f19d412932bfc937fb0e27e1a60a187c9a8c4c6e  Panel-0840-Dataton-24nov.png
 7fd41abebb3bb247701f180066041b78a204b3b68b3728d0cfb0279e71de54ee  Panel-0840-proof-g-from-pdf-200dpi.png
 47cc1d4eb427665d21dea4d73b8c57b26c0ac0c8c4c959424a0c83d31bd9acae  Panel-0840-proof-g-from-ttf-200dpi.png
-b01bfd252a501d626ee5eeb254d4b8752b9a0480b2a95140f4d411420d2b3c38  Panel-0840-proof-cobrand-300dpi.png
+558f1abb1c68dfaebbc0fcf6b99779be5da6fc610f3bee84fd73a29767e03d2c  Panel-0840-proof-cobrand-300dpi.png
 5f137e64a046e2c1dddf041ca9abca56edaa58486ca2138983b6bb94920b0d18  assets/logos/datalab-lockup.png
 3e463fa52c36adcfebaa13aaf26612665914bbb4fa6833c033b0d6e4e2a1b297  assets/logos/cleantechhub-official.png
 c53aceea2dcf5b4098099c0c4d0a061d17e178a049317b42a422b1a9f7f8eb59  fonts/OpenSans-Regular.ttf

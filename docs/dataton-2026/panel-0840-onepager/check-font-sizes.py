@@ -17,7 +17,7 @@ SELECTORS = [
     (".lead", ".lead"),
     (".section-title", ".section-title"),
     (".bullet-list li", ".bullet-list li"),
-    ("ul.bullet-list.cols li", "ul.bullet-list.cols li"),
+    ("ul.questions-list li", "ul.questions-list li"),
     (".body-text", ".body-text"),
     (".closing", ".closing"),
     (".tagline", ".tagline"),

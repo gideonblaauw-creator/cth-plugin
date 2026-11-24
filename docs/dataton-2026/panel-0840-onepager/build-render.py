@@ -69,6 +69,10 @@ def build_datalab_lockup() -> None:
     subprocess.run([sys.executable, str(ROOT / "build-datalab-lockup.py")], check=True)
 
 
+def measure_logos() -> None:
+    subprocess.run([sys.executable, str(ROOT / "measure-logo-heights.py")], check=True)
+
+
 def main() -> None:
     if not HTML.is_file():
         raise SystemExit(f"Missing {HTML}")
@@ -77,6 +81,7 @@ def main() -> None:
     export_png_200dpi()
     prove_font_g()
     prove_cobrand()
+    measure_logos()
     print(PDF)
     print(PNG)
 

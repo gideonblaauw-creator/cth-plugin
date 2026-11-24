@@ -2,8 +2,8 @@
 Title:           Panel 08:40 · Datatón 24 nov 2026
 Creator:         Chromium
 Producer:        Skia/PDF m159
-CreationDate:    Tue Nov 24 01:12:01 2026 UTC
-ModDate:         Tue Nov 24 01:12:01 2026 UTC
+CreationDate:    Tue Nov 24 01:16:12 2026 UTC
+ModDate:         Tue Nov 24 01:16:12 2026 UTC
 Custom Metadata: no
 Metadata Stream: no
 Tagged:          no
@@ -15,7 +15,7 @@ Pages:           1
 Encrypted:       no
 Page size:       594.96 x 841.92 pts (A4)
 Page rot:        0
-File size:       271607 bytes
+File size:       271569 bytes
 Optimized:       no
 PDF version:     1.4
 
@@ -43,7 +43,7 @@ h1: 15 pt [OK]
 .lead: 10.5 pt [OK]
 .section-title: 11.5 pt [OK]
 .bullet-list li: 10.5 pt [OK]
-ul.bullet-list.cols li: 10.5 pt [OK]
+ul.questions-list li: 10.5 pt [OK]
 .body-text: 10.5 pt [OK]
 .closing: 10.5 pt [OK]
 .tagline: 10.0 pt [OK]
