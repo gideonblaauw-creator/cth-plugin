@@ -6,6 +6,7 @@ import asyncio
 import hashlib
 import json
 import re
+import subprocess
 import zipfile
 from pathlib import Path
 
@@ -71,6 +72,44 @@ HTML_TO_PDF = [
 
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
+BASELINE_COMMIT = "c1ee80a66d83c897838832f6bcd27cc6ed504d57"
+PACK_PREFIX = "decks/dataton-2026-team-pack"
+
+BOCETO_TABLE_HTML = """<table>
+<thead><tr><th>LÍNEA BASE</th><th>DELTA</th><th>PAISAJE</th></tr></thead>
+<tbody>
+<tr><td>[N1] (firme/est.)</td><td>[N2]</td><td>[N3]</td></tr>
+<tr><td>nota breve</td><td>nota breve</td><td>nota breve</td></tr>
+</tbody>
+</table>"""
+
+PUENTE_TABLE_HTML = """<table>
+<tbody>
+<tr><td colspan="3">Delta: donde el dato se vuelve valor<br>entradas › salida › línea valor</td></tr>
+<tr><td>Línea base del cliente (entrada)</td><td>Delta innovador (su intervención) (salida)</td><td>Panorama datos abiertos (entrada)</td></tr>
+</tbody>
+</table>"""
+
+# Byte-identical artifacts (run 6): restore from baseline if rebuild drifts.
+BYTE_IDENTICAL: tuple[tuple[str, str], ...] = (
+    ("cuestionario/Cuestionario-Dataton-24nov-equipos.docx", "0ed244fa80725d0c26ace921c08bf243927ddfa916dd4b8ac989ef13d4ae8a5a"),
+    ("cuestionario/Cuestionario-Dataton-24nov-equipos.pdf", "df28f7a25159f7dc516fc171329081a6c86fc75aea3d051bf7cb39debadc503d"),
+    ("cuestionario/Cuestionario-ejemplo-Air4U.docx", "c0294707fa982d9eee32626797738d34a3d4dff985cdb352b91b8dcf145dfea6"),
+    ("cuestionario/Cuestionario-ejemplo-Air4U.pdf", "ea4bfa7a19bdc0e475268e11ac00d3ac0278305b245ec16e71a100fe40d245da"),
+    ("guia-tecnica/Guia-tecnica-mentores.docx", "443a9fffa0465aaa9c8434a4f2d78c5a33d355dcd068b4a6f807717f436c91fe"),
+    ("guia-tecnica/Guia-tecnica-mentores.pdf", "c680b8a268f45e58e6047c319af9ae7af5f9127ce94a845f42c7a52642656ac6"),
+    ("cuestionario/prompts.txt", "e325f2f5e8d60547a5ffd1047dbe241b23e071d2e763e7149f5a77f186424015"),
+)
+
+TABLE_INSERT_RE = re.compile(r"_TABLE_INSERT|CTH_\w+_INSERT")
+
+
+def replace_cth_table_tokens(md_text: str) -> str:
+    """Expand guía placeholder tokens for standalone hoja PDFs (markdown keeps tokens)."""
+    md_text = md_text.replace("CTH_BOCETO_TABLE_INSERT", BOCETO_TABLE_HTML)
+    md_text = md_text.replace("CTH_PUENTE_TABLE_INSERT", PUENTE_TABLE_HTML)
+    return md_text
+
 
 def stage_md_build_dir(tmp_html: Path) -> None:
     """Copy logo/fonts beside generated HTML so relative asset URLs resolve."""
@@ -122,6 +161,7 @@ def sha256_file(path: Path) -> str:
 
 
 def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
+    md_text = replace_cth_table_tokens(md_text)
     body = markdown.markdown(md_text, extensions=["tables", "fenced_code", "nl2br"])
     banner = (
         '<p class="borrador">BORRADOR — borrador para finales; versión final el día del Datatón.</p>'
@@ -197,16 +237,99 @@ def _banned_pack_phrase_audit(zip_path: Path, leeme: Path, guia_pdf: Path) -> No
 
 
 def build_guia_tecnica_pack() -> None:
-    import subprocess
     import shutil
     import sys
 
     script = GUIA_TECNICA / "build-guia-tecnica-mentores.py"
-    subprocess.run([sys.executable, str(script)], cwd=str(GUIA_TECNICA), check=True)
+    try:
+        import docxcompose  # noqa: F401
+    except ImportError:
+        print("guia_build", "skipped (no docxcompose); using committed artifacts")
+    else:
+        subprocess.run([sys.executable, str(script)], cwd=str(GUIA_TECNICA), check=True)
     for name in (GUIA_DOCX, GUIA_PDF):
         src = GUIA_TECNICA / name
         if src.is_file():
             shutil.copy2(src, OUT / name)
+
+
+def _git_show_bytes(relpath: str) -> bytes:
+    git_path = f"{PACK_PREFIX}/{relpath}"
+    proc = subprocess.run(
+        ["git", "show", f"{BASELINE_COMMIT}:{git_path}"],
+        cwd=str(ROOT.parent.parent),
+        capture_output=True,
+        check=True,
+    )
+    return proc.stdout
+
+
+def enforce_byte_identical_artifacts() -> list[str]:
+    """Restore q/ej/guía docx+pdf and prompts.txt from baseline if rebuild changed them."""
+    import shutil
+
+    restored: list[str] = []
+    for relpath, expected in BYTE_IDENTICAL:
+        dest = ROOT / relpath
+        actual = sha256_file(dest) if dest.is_file() else ""
+        if actual == expected:
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(_git_show_bytes(relpath))
+        if sha256_file(dest) != expected:
+            raise SystemExit(f"byte-identical restore failed for {relpath}")
+        restored.append(relpath)
+        out_name = Path(relpath).name
+        if out_name.endswith((".docx", ".pdf", ".txt")):
+            shutil.copy2(dest, OUT / out_name)
+    if restored:
+        print("byte_identical_restored", ",".join(restored))
+    return restored
+
+
+def audit_no_table_insert_tokens() -> None:
+    """Fail build if any dist/ or zip PDF still contains placeholder token text."""
+    offenders: list[str] = []
+    for pdf in sorted(OUT.glob("*.pdf")):
+        text = subprocess.run(
+            ["pdftotext", str(pdf), "-"], capture_output=True, text=True, check=True
+        ).stdout
+        if TABLE_INSERT_RE.search(text):
+            offenders.append(f"dist/{pdf.name}")
+
+    zip_path = ROOT / ZIP_NAME
+    with zipfile.ZipFile(zip_path) as zf:
+        for name in sorted(n for n in zf.namelist() if n.lower().endswith(".pdf")):
+            import tempfile
+
+            with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
+                tmp.write(zf.read(name))
+                tmp.flush()
+                text = subprocess.run(
+                    ["pdftotext", tmp.name, "-"], capture_output=True, text=True, check=True
+                ).stdout
+            if TABLE_INSERT_RE.search(text):
+                offenders.append(f"zip:{name}")
+
+    if offenders:
+        raise SystemExit(f"TABLE_INSERT token audit failed: {offenders}")
+    print("table_insert_audit", "OK", len(list(OUT.glob('*.pdf'))), "dist pdfs")
+
+
+def export_run6_pngs() -> None:
+    """110 dpi captures for hoja-3 §7 boceto and hoja-4 puente table (run 6)."""
+    run6 = PNG / "run6"
+    run6.mkdir(parents=True, exist_ok=True)
+    h3 = OUT / "hoja-3-dato-a-valor.pdf"
+    h4 = OUT / "hoja-4-plantilla-tablero.pdf"
+    idx3 = _pdf_page_index_containing(h3, "Boceto de una pantalla")
+    idx4 = _pdf_page_index_containing(h4, "Tres paneles")
+    if idx3 is None:
+        raise SystemExit("run6: hoja-3 §7 page not found")
+    if idx4 is None:
+        raise SystemExit("run6: hoja-4 puente page not found")
+    _export_pdf_page_png(h3, idx3, "run6/hoja-3-boceto-p01.png", dpi=110)
+    _export_pdf_page_png(h4, idx4, "run6/hoja-4-puente-p01.png", dpi=110)
 
 
 def _pdf_page_index_containing(pdf_path: Path, needle: str) -> int | None:
@@ -260,14 +383,16 @@ def export_ticket_renders() -> None:
 
 
 def build_cuestionario_pack() -> None:
-    import subprocess
+    import shutil
     import sys
 
     script = CUESTIONARIO / "build-cuestionario.py"
     if not script.is_file():
         raise FileNotFoundError(script)
-    subprocess.run([sys.executable, str(script)], cwd=str(CUESTIONARIO), check=True)
-    import shutil
+    if shutil.which("libreoffice") or shutil.which("soffice"):
+        subprocess.run([sys.executable, str(script)], cwd=str(CUESTIONARIO), check=True)
+    else:
+        print("cuestionario_build", "skipped (no LibreOffice); using committed artifacts")
 
     for name in (
         CUESTIONARIO_DOCX,
@@ -347,7 +472,9 @@ async def render_all() -> None:
 
     build_cuestionario_pack()
     build_guia_tecnica_pack()
+    enforce_byte_identical_artifacts()
     export_ticket_renders()
+    export_run6_pngs()
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows: list[tuple[str, str]] = []
@@ -401,6 +528,7 @@ async def render_all() -> None:
     print("zip", zip_path)
     print("zip_sha256", sha256_file(zip_path))
     _banned_pack_phrase_audit(zip_path, TEAM / "LEEME.md", OUT / GUIA_PDF)
+    audit_no_table_insert_tokens()
 
 
 TEAM_SOURCE_GLOBS = ("*.md",)

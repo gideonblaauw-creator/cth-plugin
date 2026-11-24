@@ -1,6 +1,6 @@
 # team-pack-es-manifest-sha256 (v0.4-es)
 
-Zip: team-pack-es-pdfs-v0.4.zip sha256 7bc0e8fbe4b2cc6a6318c4239df3df525ee7ad8cf8bd3bf733c03eda0059e6b0
+Zip: team-pack-es-pdfs-v0.4.zip sha256 72c1fbbf3273e4645a5e8c887cae22a14e8ee9140629db99a5655c25f5073d53
 
 | Archivo | sha256 |
 |---|---|
@@ -15,8 +15,8 @@ Zip: team-pack-es-pdfs-v0.4.zip sha256 7bc0e8fbe4b2cc6a6318c4239df3df525ee7ad8cf
 | guia-tecnica-mentores/Guia-tecnica-mentores.pdf | `c680b8a268f45e58e6047c319af9ae7af5f9127ce94a845f42c7a52642656ac6` |
 | guia-tecnica-mentores/hoja-1-mapa-de-calor.pdf | `a339dc2db327d5c5e8bba473c5160ec73e218f5de253b03dbc2386fa02430734` |
 | guia-tecnica-mentores/hoja-2-flujo-de-datos.pdf | `04976413eb24263c1421e19dffd536bff0e437f143b358b3db28f694b536facd` |
-| guia-tecnica-mentores/hoja-3-dato-a-valor.pdf | `a7024f35f2547de8e64c9b0bafbf6e990afb9ecc80954e83563345bd3c1d787c` |
-| guia-tecnica-mentores/hoja-4-plantilla-tablero.pdf | `95a8aa25686a7fd1e1c55ff5fa9a0d724c59246ba9221440c88294309f296636` |
+| guia-tecnica-mentores/hoja-3-dato-a-valor.pdf | `443d47834ac6e3ce1f82ed3f82e04f16ad0ea9219c3cc49cc9c084ae010406a0` |
+| guia-tecnica-mentores/hoja-4-plantilla-tablero.pdf | `98b45a46afde37bfd0cc3e00c4a2ba36031fa8fc2d585b33c6250928e9559356` |
 | guia-tecnica-mentores/hoja-4b-ejemplo-air4u.pdf | `b4059b5274f6032dbbd7ace7815e6a06207b9e52638ef590e883c834b608ee56` |
 | guia-tecnica-mentores/hoja-5-plantilla-pitch.pdf | `5c4c00a4e49c2f0a4684960545358dae3f6627e63f6d021bdfd22956c55eccaa` |
 | guia-tecnica-mentores/plantilla-bmc.pdf | `86b79a644d03da1028a69bf2ffb3b81f5bace7a9731c78cf2c355d1435a03090` |
