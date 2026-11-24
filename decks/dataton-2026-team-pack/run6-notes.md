@@ -1,6 +1,10 @@
 # Run 6 notes — placeholder table fix
 
-Start SHA (ticket): `c1ee80a66d83c897838832f6bcd27cc6ed504d57`. Working head: `c1ee80a66d83c897838832f6bcd27cc6ed504d57`.
+Start SHA (ticket): `c1ee80a66d83c897838832f6bcd27cc6ed504d57`. Working head: `b8b5ce6bd06908b5a9d7f16741d73b37639e5847`.
+
+## Build
+- `build-pack.py`: HTML table expansion for `CTH_*_TABLE_INSERT` before `markdown.markdown()`; `audit_no_table_insert_tokens()`; `enforce_byte_identical_artifacts()` from baseline.
+- Non-hoja `dist/*.pdf` binaries restored from baseline after render when pdftotext is unchanged (zip rebuilt with only hoja-3/4 PDF deltas).
 
 ## pdftotext hoja-3 / hoja-4
 - `hoja-3-dato-a-valor.pdf`: token matches **0** (expect 0)
