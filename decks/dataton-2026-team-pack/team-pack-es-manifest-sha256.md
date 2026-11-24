@@ -1,23 +1,23 @@
 # team-pack-es-manifest-sha256 (v0.4-es)
 
-Zip: team-pack-es-pdfs-v0.4.zip sha256 654e8338889b464cd7f9c6a8e44b7e1e20266240146987ab2a79d5fb294e21c2
+Zip: team-pack-es-pdfs-v0.4.zip sha256 b179639d4d3ea5dd09bfd3b23fca29341b323845288f1e038a6a8641c1afab0c
 
 | Archivo | sha256 |
 |---|---|
-| agenda-equipos.pdf | `c4016303ba17b0297f72fc62055e157373118969becb65c374ded8c3075b9ffc` |
-| Cuestionario-Dataton-24nov-equipos.docx | `c72ff9ebaec9c2c4cc2b0072a2a1575785177ea6308754a6665973bed2da7a34` |
-| Cuestionario-Dataton-24nov-equipos.pdf | `2919b9cb6b2cda4a4eee55cb4d733690418175d4eb411d82c912ab43d5440eb9` |
-| LEEME.md | `359113114b05b08d2b805c0db2b7557e0b9c57bb04427c6f751bf1af44855dfa` |
-| LEEME.pdf | `245ab79658980be264c08993f147333a1d7f737d8bae7e4655594747bedcec39` |
-| solo-mentores/ejemplo-air4u.pdf | `0a0f2e4048c482aa8e690f5ae332b4a155e927039f3100c0b59ccbe3b6def456` |
-| solo-mentores/fuentes-datos-abiertos.pdf | `5a7ad4701f03cc1f37ac83c9e023d9e97e5e19b13697a18ec6c621078bbaa067` |
-| solo-mentores/Guia-tecnica-solo-mentores.docx | `e3865778836c92aaead44a44c0ee0aa40f775150ab668143a4702983a21aaa9b` |
-| solo-mentores/Guia-tecnica-solo-mentores.pdf | `a34bc6095f3e785d98ea78ec5446ff6ae53843d55608cace992cc94d9f8a4ddd` |
-| solo-mentores/hoja-1-mapa-de-calor.pdf | `7374ab46b482ca4481643637882768ada4f6f125a9bea5ba32ebbadbfb3f34bb` |
-| solo-mentores/hoja-2-flujo-de-datos.pdf | `5b0f9cd2b115190351a60836479d62f341829d03b622fee8fcf1ad0384284b25` |
-| solo-mentores/hoja-3-dato-a-valor.pdf | `712989ec596af14b85af946caeba98177b84bbdd892d2cd9c9a0dd06519e3a77` |
-| solo-mentores/hoja-4-plantilla-tablero.pdf | `119b7d9c2de03919cb931a8ddcf7026b3ddad18ee9763ca1ebd06cc56be5bc8f` |
-| solo-mentores/hoja-4b-ejemplo-air4u.pdf | `8aa5f32b093d4fc0cb9ae1fa78b1f9200d8d4008aab2b28de14ccb4b011d5248` |
-| solo-mentores/hoja-5-plantilla-pitch.pdf | `7e14c0c6f27e40d500fae61fb215a4a76cbe95184c42f5ce3cc8e340debefd78` |
-| solo-mentores/plantilla-bmc.pdf | `10a24a049cf1b7b38dcf8a2ee3b08ad69bf1f127cd460bb3f177dfab5fe13ca2` |
-| solo-mentores/prompts-ia-v2.pdf | `937a04935c806e89e54f5a6f2147b6bbc015223c620ad0f68d0a7655b8cb2624` |
+| agenda-equipos.pdf | `8469d84313b61a821be6010b8036201cc2d9692ce9c3b7a1f84bad565b112d52` |
+| Cuestionario-Dataton-24nov-equipos.docx | `d049a4e2efed0aba5e971a9cff81c4c0c250c4aad88a93f37817fdfcd959b07b` |
+| Cuestionario-Dataton-24nov-equipos.pdf | `f121c1ecddc72b878ac60916ecd0dc10d53eb2ee861350e71446e14f8710a21c` |
+| guia-tecnica-mentores/ejemplo-air4u.pdf | `33a0c8a0cd6c5b8100b97c90f8cf35bc26dbb52d4a05654e8509147df763e4a1` |
+| guia-tecnica-mentores/fuentes-datos-abiertos.pdf | `9695aa362d40672f107b3b221dc8e73163220f45c99dd9a2efb5ed6d7d932497` |
+| guia-tecnica-mentores/Guia-tecnica-mentores.docx | `fe482a4d1ae2d65b51fe468a6e655665be097e7bac5ae612e1e6e71268d9eee1` |
+| guia-tecnica-mentores/Guia-tecnica-mentores.pdf | `050749800b466c2ae850c3fb044317805ea9e9661458ff9f4886ae80d9bb0eab` |
+| guia-tecnica-mentores/hoja-1-mapa-de-calor.pdf | `23ab028c27342817acdf05159cd5f68a43b99e6bc58ad86e368db06254a7edb8` |
+| guia-tecnica-mentores/hoja-2-flujo-de-datos.pdf | `2d139dd5664534cfa7bbfd4704b70ded6b9a14c143efb9bf73a46b495f89952a` |
+| guia-tecnica-mentores/hoja-3-dato-a-valor.pdf | `9a236e0c50a0cf4d551b3eeaefdcc48821cd7f766c57cd1543910b90d07f58ca` |
+| guia-tecnica-mentores/hoja-4-plantilla-tablero.pdf | `987108c4fb3f8687d71029865cdee245da735f5882a05e40d0409523616507dc` |
+| guia-tecnica-mentores/hoja-4b-ejemplo-air4u.pdf | `8d612a7e2b14f5f8777fb10b5ee25ccf84fa76ad7a11802f56d50c3b682a82a2` |
+| guia-tecnica-mentores/hoja-5-plantilla-pitch.pdf | `f9ac9a014ffd0cfee4582c01cf458c022ed0c98d3ddb963909c862f60ba6e248` |
+| guia-tecnica-mentores/plantilla-bmc.pdf | `51e78996471d53e6da2aa0ec6d2d62eeb3d5de0cfe9b45e059bd71359d550095` |
+| guia-tecnica-mentores/prompts-ia-v2.pdf | `048c28bb082b8e2cf49f615d4bbca5d2b880c28c805f879929dc5bacfc4b6501` |
+| LEEME.md | `d0f1417d1e3883f4715eba7ed811379a3aa4bd1c5b920e8a4231738e92bf3da4` |
+| LEEME.pdf | `c77dd25fc00ef0105ce371136d7d04ff0fcebce6c6875463c4fbab4230cbed29` |

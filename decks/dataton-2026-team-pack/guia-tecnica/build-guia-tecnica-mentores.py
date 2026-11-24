@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble Guia-tecnica-solo-mentores.docx from hojas + prompts (layout only)."""
+"""Assemble Guia-tecnica-mentores.docx from hojas + prompts (layout only)."""
 from __future__ import annotations
 
 import difflib
@@ -22,10 +22,10 @@ GUIA_DIR = Path(__file__).resolve().parent
 TEAM = ROOT / "team-pack-es"
 PRINT = ROOT / "print"
 ASSETS = ROOT / "cuestionario" / "assets"
-OUT_DOCX = GUIA_DIR / "Guia-tecnica-solo-mentores.docx"
-OUT_PDF = GUIA_DIR / "Guia-tecnica-solo-mentores.pdf"
+OUT_DOCX = GUIA_DIR / "Guia-tecnica-mentores.docx"
+OUT_PDF = GUIA_DIR / "Guia-tecnica-mentores.pdf"
 LOGO = ROOT / "assets/cth-logo-color.png"
-HEADER_TEXT = "Solo mentores — no distribuir a equipos"
+HEADER_TEXT = "Guía técnica — para mentores"
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
 
 SOURCES: list[tuple[str, Path, str]] = [
@@ -149,11 +149,11 @@ def _build_cover(doc: Document) -> None:
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.add_run().add_picture(str(LOGO), width=Mm(40))
-    t = doc.add_heading("Guía técnica (solo mentores)", level=0)
+    t = doc.add_heading("Guía técnica para mentores", level=0)
     t.alignment = WD_ALIGN_PARAGRAPH.CENTER
     sub = doc.add_paragraph()
     sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r = sub.add_run("Technical Guide (mentors only)")
+    r = sub.add_run("Technical Guide for mentors")
     r.italic = True
     r.font.size = Pt(12)
     r.font.color.rgb = NAVY
@@ -246,16 +246,41 @@ def verify_pdf_sections() -> int:
         if idx < 0:
             raise SystemExit(f"PDF section missing: {title}")
         pos = idx + len(title)
+    banned = ("solo mentores", "no distribuir")
     for page in doc:
         if HEADER_TEXT not in page.get_text():
             raise SystemExit("Mentor header missing on at least one PDF page")
+        low = page.get_text().lower()
+        for phrase in banned:
+            if phrase in low:
+                raise SystemExit(f"Banned phrase in PDF: {phrase!r}")
     n = doc.page_count
     doc.close()
     return n
 
 
+def _ban_check(text: str, label: str) -> None:
+    low = text.lower()
+    for phrase in ("solo mentores", "no distribuir"):
+        if phrase in low:
+            raise SystemExit(f"{label}: banned phrase {phrase!r}")
+
+
 def main() -> int:
     build_docx()
+    from docx import Document as D
+
+    parts = []
+    doc = D(OUT_DOCX)
+    for p in doc.paragraphs:
+        parts.append(p.text)
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                parts.append(cell.text)
+    for section in doc.sections:
+        parts.append(section.header.paragraphs[0].text if section.header.paragraphs else "")
+    _ban_check("\n".join(parts), "docx")
     convert_pdf()
     pages = verify_pdf_sections()
     print("guia_docx", OUT_DOCX)

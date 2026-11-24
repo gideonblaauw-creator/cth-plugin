@@ -12,11 +12,9 @@ Su archivo principal es el **cuestionario en Word** (`Cuestionario-Dataton-24nov
 
 ## Para mentores
 
-Carpeta `solo-mentores/` en este zip:
+Carpeta `guia-tecnica-mentores/` en este zip (también en cada carpeta de equipo):
 
-- `Guia-tecnica-solo-mentores.docx` y `.pdf` — compilación única (hojas 1–5, ejemplo 4b, prompts IA)
+- `Guia-tecnica-mentores.docx` y `.pdf` — compilación única (hojas 1–5, ejemplo 4b, prompts IA)
 - Los PDF originales por hoja (mismo contenido, por si necesitan imprimir una sola hoja)
-
-No distribuyan la guía técnica a los equipos.
 
 CleantechHUB · Datatón 24 nov 2026

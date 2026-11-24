@@ -22,12 +22,12 @@ CUESTIONARIO_DOCX = "Cuestionario-Dataton-24nov-equipos.docx"
 CUESTIONARIO_PDF = "Cuestionario-Dataton-24nov-equipos.pdf"
 
 GUIA_TECNICA = ROOT / "guia-tecnica"
-GUIA_DOCX = "Guia-tecnica-solo-mentores.docx"
-GUIA_PDF = "Guia-tecnica-solo-mentores.pdf"
-SOLO_MENTORES_DIR = "solo-mentores"
+GUIA_DOCX = "Guia-tecnica-mentores.docx"
+GUIA_PDF = "Guia-tecnica-mentores.pdf"
+GUIA_MENTORES_DIR = "guia-tecnica-mentores"
 
-# Individual PDFs kept under solo-mentores/ (dist filenames unchanged).
-SOLO_MENTORES_PDF_STEMS = (
+# Individual PDFs kept under guia-tecnica-mentores/ (dist filenames unchanged).
+GUIA_MENTORES_PDF_STEMS = (
     "hoja-1-mapa-de-calor",
     "hoja-2-flujo-de-datos",
     "hoja-3-dato-a-valor",
@@ -161,18 +161,34 @@ def write_leeme() -> str:
         "",
         "## Para mentores",
         "",
-        "Carpeta `solo-mentores/` en este zip:",
+        "Carpeta `guia-tecnica-mentores/` en este zip (también en cada carpeta de equipo):",
         "",
-        "- `Guia-tecnica-solo-mentores.docx` y `.pdf` — compilación única (hojas 1–5, ejemplo 4b, prompts IA)",
+        "- `Guia-tecnica-mentores.docx` y `.pdf` — compilación única (hojas 1–5, ejemplo 4b, prompts IA)",
         "- Los PDF originales por hoja (mismo contenido, por si necesitan imprimir una sola hoja)",
-        "",
-        "No distribuyan la guía técnica a los equipos.",
         "",
         "CleantechHUB · Datatón 24 nov 2026",
     ]
     text = "\n".join(lines)
     (TEAM / "LEEME.md").write_text(text, encoding="utf-8")
     return text
+
+
+def _banned_pack_phrase_audit(zip_path: Path, leeme: Path, guia_pdf: Path) -> None:
+    phrases = ("solo mentores", "no distribuir")
+    blobs = [leeme.read_text(encoding="utf-8")]
+    if guia_pdf.is_file():
+        import fitz
+
+        doc = fitz.open(guia_pdf)
+        blobs.append("\n".join(p.get_text() for p in doc))
+        doc.close()
+    with zipfile.ZipFile(zip_path) as zf:
+        blobs.append("\n".join(zf.namelist()))
+    combined = "\n".join(blobs).lower()
+    for phrase in phrases:
+        if phrase in combined:
+            raise SystemExit(f"pack banned phrase audit failed: {phrase!r}")
+    print("banned_phrase_audit", "OK")
 
 
 def build_guia_tecnica_pack() -> None:
@@ -294,15 +310,15 @@ async def render_all() -> None:
         docx_path = OUT / CUESTIONARIO_DOCX
         if docx_path.is_file():
             zip_entry(docx_path, CUESTIONARIO_DOCX)
-        for stem in SOLO_MENTORES_PDF_STEMS:
+        for stem in GUIA_MENTORES_PDF_STEMS:
             pdf = OUT / f"{stem}.pdf"
             if pdf.is_file():
-                arc = f"{SOLO_MENTORES_DIR}/{pdf.name}"
+                arc = f"{GUIA_MENTORES_DIR}/{pdf.name}"
                 zip_entry(pdf, arc)
         for name in (GUIA_DOCX, GUIA_PDF):
             src = OUT / name
             if src.is_file():
-                zip_entry(src, f"{SOLO_MENTORES_DIR}/{name}")
+                zip_entry(src, f"{GUIA_MENTORES_DIR}/{name}")
 
     manifest = [
         "# team-pack-es-manifest-sha256 (v0.4-es)",
@@ -317,6 +333,7 @@ async def render_all() -> None:
     (ROOT / "team-pack-es-manifest-sha256.md").write_text("\n".join(manifest) + "\n", encoding="utf-8")
     print("zip", zip_path)
     print("zip_sha256", sha256_file(zip_path))
+    _banned_pack_phrase_audit(zip_path, TEAM / "LEEME.md", OUT / GUIA_PDF)
 
 
 TEAM_SOURCE_GLOBS = ("*.md",)
@@ -364,7 +381,7 @@ def audit_team_facing_text() -> dict:
         if zip_name == CUESTIONARIO_PDF or zip_name in TEAM_AUDIT_PDFS:
             p = OUT / zip_name
             return p if p.is_file() else None
-        if zip_name.startswith(f"{SOLO_MENTORES_DIR}/"):
+        if zip_name.startswith(f"{GUIA_MENTORES_DIR}/"):
             return None
         p = OUT / zip_name
         return p if p.is_file() else None
