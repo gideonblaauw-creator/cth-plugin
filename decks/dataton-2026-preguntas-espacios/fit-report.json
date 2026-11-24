@@ -243,9 +243,9 @@
     },
     {
       "pageId": "p15",
-      "fitLevel": "default",
-      "questionPt": "12pt",
-      "answerPt": "10.5pt",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "puente\u2192fuente",
@@ -402,7 +402,7 @@
       },
       {
         "pageId": "p15",
-        "fitLevel": "default",
+        "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "puente\u2192fuente",

@@ -88,7 +88,7 @@ THREAD_HTML = """
     <article class="thread-note"><strong>4 Siguiente paso</strong>Comprador, permiso, financiación, acompañamiento o conectividad.</article>
     <article class="thread-note"><strong>5 Programa</strong>Observatorio de la Tierra y Datalab (09:10).</article>
     <article class="thread-note"><strong>6 Ejemplos</strong>Constructora Bolívar, Agrometers, Air4U (sin piloto firmado).</article>
-    <article class="thread-note"><strong>7 Equipos</strong>14 equipos Externado trabajan con mentores.</article>
+    <article class="thread-note"><strong>7 Equipos</strong>14 equipos Externado trabajan con monitores.</article>
     <article class="thread-note"><strong>8 Selección</strong>De 14 a 6 finalistas; 3 entran al Datalab CTH en 2027.</article>
     <article class="thread-note"><strong>9 Cierre</strong>Certificados para todos; ganadores con seguimiento.</article>
   </div>
