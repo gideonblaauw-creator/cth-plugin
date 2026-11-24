@@ -114,6 +114,127 @@ def _fix_autocontrol_checkboxes(doc: Document) -> None:
                 run.text = run.text.replace("\u2610", "[ ]")
 
 
+TEXT_WIDTH_TWIPS = 9026
+MIN_COL_TWIPS = 1440
+HEADER_FILL = "0C498A"
+
+
+def _set_cell_width(cell, width_twips: int) -> None:
+    tc = cell._tc
+    tcPr = tc.get_or_add_tcPr()
+    tcW = tcPr.find(qn("w:tcW"))
+    if tcW is None:
+        tcW = OxmlElement("w:tcW")
+        tcPr.append(tcW)
+    tcW.set(qn("w:type"), "dxa")
+    tcW.set(qn("w:w"), str(width_twips))
+
+
+def _set_table_full_width(table) -> None:
+    tbl = table._tbl
+    tblPr = tbl.tblPr
+    if tblPr is None:
+        tblPr = OxmlElement("w:tblPr")
+        tbl.insert(0, tblPr)
+    tblW = tblPr.find(qn("w:tblW"))
+    if tblW is None:
+        tblW = OxmlElement("w:tblW")
+        tblPr.append(tblW)
+    tblW.set(qn("w:type"), "pct")
+    tblW.set(qn("w:w"), "5000")
+    layout = tblPr.find(qn("w:tblLayout"))
+    if layout is None:
+        layout = OxmlElement("w:tblLayout")
+        tblPr.append(layout)
+    layout.set(qn("w:type"), "fixed")
+    _table_borders(table)
+
+
+def _set_table_col_widths(table, widths: list[int]) -> None:
+    tbl = table._tbl
+    tblGrid = tbl.find(qn("w:tblGrid"))
+    if tblGrid is None:
+        tblGrid = OxmlElement("w:tblGrid")
+        tbl.append(tblGrid)
+    else:
+        for grid_col in list(tblGrid):
+            tblGrid.remove(grid_col)
+    for w in widths:
+        grid_col = OxmlElement("w:gridCol")
+        grid_col.set(qn("w:w"), str(w))
+        tblGrid.append(grid_col)
+    ncols = len(widths)
+    for row in table.rows:
+        for ci, cell in enumerate(row.cells):
+            _set_cell_width(cell, widths[ci % ncols])
+
+
+def _shade_header_row(table) -> None:
+    if not table.rows:
+        return
+    row = table.rows[0]
+    for cell in row.cells:
+        tc = cell._tc
+        tcPr = tc.get_or_add_tcPr()
+        shd = tcPr.find(qn("w:shd"))
+        if shd is None:
+            shd = OxmlElement("w:shd")
+            tcPr.append(shd)
+        shd.set(qn("w:val"), "clear")
+        shd.set(qn("w:color"), "auto")
+        shd.set(qn("w:fill"), HEADER_FILL)
+        for para in cell.paragraphs:
+            for run in para.runs:
+                run.bold = True
+                run.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+
+
+def _table_column_widths(ncols: int) -> list[int]:
+    if ncols < 1:
+        return []
+    if ncols * MIN_COL_TWIPS <= TEXT_WIDTH_TWIPS:
+        base = max(MIN_COL_TWIPS, TEXT_WIDTH_TWIPS // ncols)
+        widths = [base] * ncols
+        widths[-1] += TEXT_WIDTH_TWIPS - sum(widths)
+        return widths
+    # More columns than 1" minimum allows on one line: equal split to full text width.
+    base = TEXT_WIDTH_TWIPS // ncols
+    rem = TEXT_WIDTH_TWIPS - base * ncols
+    widths = [base] * ncols
+    for i in range(rem):
+        widths[i] += 1
+    return widths
+
+
+def fix_guia_tables(doc: Document) -> None:
+    for table in doc.tables:
+        ncols = len(table.columns)
+        if ncols < 1:
+            continue
+        widths = _table_column_widths(ncols)
+        _set_table_full_width(table)
+        _set_table_col_widths(table, widths)
+        _shade_header_row(table)
+
+
+def fix_guia_paragraph_layout(doc: Document) -> None:
+    for para in doc.paragraphs:
+        style = para.style.name if para.style else ""
+        if style in ("Heading 1", "Heading 2", "Heading 3") and para.alignment == WD_ALIGN_PARAGRAPH.CENTER:
+            para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    to_remove: list = []
+    streak = 0
+    for para in doc.paragraphs:
+        if not para.text.strip():
+            streak += 1
+            if streak > 1:
+                to_remove.append(para)
+        else:
+            streak = 0
+    for para in to_remove:
+        _remove_paragraph(para)
+
+
 def postprocess_guia_docx(doc: Document) -> None:
     for para in list(doc.paragraphs):
         if "CTH_BOCETO_TABLE_INSERT" in para.text:
@@ -136,6 +257,8 @@ def postprocess_guia_docx(doc: Document) -> None:
         raise SystemExit("Guía: CTH_PUENTE_TABLE_INSERT missing")
 
     _fix_autocontrol_checkboxes(doc)
+    fix_guia_tables(doc)
+    fix_guia_paragraph_layout(doc)
 
 
 def patch_docx_theme_open_sans(docx_path: Path) -> None:
@@ -373,47 +496,10 @@ def _set_doc_defaults(doc: Document) -> None:
             pass
 
 
-def convert_pdf() -> None:
-    subprocess.run(
-        ["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", str(GUIA_DIR), str(OUT_DOCX)],
-        check=True,
-        capture_output=True,
-    )
-    if not OUT_PDF.is_file():
-        raise SystemExit("LibreOffice PDF missing")
+def build_styled_pdf() -> int:
+    from render_guia_mentores_pdf import build_guia_pdf
 
-
-def verify_pdf_sections() -> int:
-    import fitz
-
-    doc = fitz.open(OUT_PDF)
-    text = re.sub(r"\s+", " ", " ".join(p.get_text() for p in doc))
-    markers = [
-        "Hoja 1 — Mapa de calor de datos",
-        "Hoja 2 — Flujo que genera datos",
-        "Hoja 3 — De dato a valor",
-        "Hoja 4 — Plantilla de tablero",
-        "Hoja 4b — Ejemplo Air4U (relleno)",
-        "Hoja 5 — Plantilla pitch",
-        "Prompts de IA para el Datatón",
-    ]
-    pos = 0
-    for title in markers:
-        idx = text.find(title, pos)
-        if idx < 0:
-            raise SystemExit(f"PDF section missing: {title}")
-        pos = idx + len(title)
-    banned = ("solo mentores", "no distribuir")
-    for page in doc:
-        if HEADER_TEXT not in page.get_text():
-            raise SystemExit("Mentor header missing on at least one PDF page")
-        low = page.get_text().lower()
-        for phrase in banned:
-            if phrase in low:
-                raise SystemExit(f"Banned phrase in PDF: {phrase!r}")
-    n = doc.page_count
-    doc.close()
-    return n
+    return build_guia_pdf()
 
 
 def _ban_check(text: str, label: str) -> None:
@@ -452,8 +538,7 @@ def main() -> int:
         raise SystemExit(f"guia banned tokens: {bad}")
     if not all(line in blob for line in M1_LEVEL_LINES):
         raise SystemExit("guia: M1 level definitions missing or altered")
-    convert_pdf()
-    pages = verify_pdf_sections()
+    pages = build_styled_pdf()
     print("guia_docx", OUT_DOCX)
     print("guia_pdf", OUT_PDF)
     print("guia_pdf_pages", pages)

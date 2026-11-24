@@ -1,17 +1,17 @@
 @font-face {
   font-family: "Open Sans";
   font-weight: 400;
-  src: url("assets/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+  src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
-  src: url("assets/fonts/open-sans-latin-600-normal.woff2") format("woff2");
+  src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 700;
-  src: url("assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+  src: url("assets/fonts/OpenSans-Bold.ttf") format("truetype");
 }
 :root { --blue: #0C498A; --green: #669348; --lgreen: #9DC384; }
 @page { size: A4; margin: 14mm 12mm; }

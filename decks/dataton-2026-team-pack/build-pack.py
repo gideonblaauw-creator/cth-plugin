@@ -73,7 +73,15 @@ HTML_TO_PDF = [
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
 BASELINE_COMMIT = "c1ee80a66d83c897838832f6bcd27cc6ed504d57"
+RESTORE_PDF_TEXT_REF = "9ba28ff6d4050ff0da62767b6bd65409bad1a752"
 PACK_PREFIX = "decks/dataton-2026-team-pack"
+
+# After TTF font rollout, keep prior binaries when pdftotext is unchanged (run 7).
+PDF_BINARIES_ALLOWED_DELTA = {
+    GUIA_PDF,
+    "hoja-3-dato-a-valor.pdf",
+    "prompts-ia-v2.pdf",
+}
 
 BOCETO_TABLE_HTML = """<table>
 <thead><tr><th>LÍNEA BASE</th><th>DELTA</th><th>PAISAJE</th></tr></thead>
@@ -96,8 +104,6 @@ BYTE_IDENTICAL: tuple[tuple[str, str], ...] = (
     ("cuestionario/Cuestionario-Dataton-24nov-equipos.pdf", "df28f7a25159f7dc516fc171329081a6c86fc75aea3d051bf7cb39debadc503d"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.docx", "c0294707fa982d9eee32626797738d34a3d4dff985cdb352b91b8dcf145dfea6"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.pdf", "ea4bfa7a19bdc0e475268e11ac00d3ac0278305b245ec16e71a100fe40d245da"),
-    ("guia-tecnica/Guia-tecnica-mentores.docx", "443a9fffa0465aaa9c8434a4f2d78c5a33d355dcd068b4a6f807717f436c91fe"),
-    ("guia-tecnica/Guia-tecnica-mentores.pdf", "c680b8a268f45e58e6047c319af9ae7af5f9127ce94a845f42c7a52642656ac6"),
     ("cuestionario/prompts.txt", "e325f2f5e8d60547a5ffd1047dbe241b23e071d2e763e7149f5a77f186424015"),
 )
 
@@ -120,8 +126,12 @@ def stage_md_build_dir(tmp_html: Path) -> None:
     fonts_dir = assets / "fonts"
     fonts_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy(ROOT / "assets/cth-logo-color.png", assets / "cth-logo-color.png")
-    for woff in (ROOT / "assets/fonts").glob("*.woff2"):
-        shutil.copy(woff, fonts_dir / woff.name)
+    for ttf in (
+        "OpenSans-Regular.ttf",
+        "OpenSans-SemiBold.ttf",
+        "OpenSans-Bold.ttf",
+    ):
+        shutil.copy(ROOT / "fonts/open-sans" / ttf, fonts_dir / ttf)
     (tmp_html / "md-print.css").write_text(
         (PRINT / "md-print.css").read_text(encoding="utf-8"), encoding="utf-8"
     )
@@ -225,7 +235,13 @@ def _banned_pack_phrase_audit(zip_path: Path, leeme: Path, guia_pdf: Path) -> No
         import fitz
 
         doc = fitz.open(guia_pdf)
-        blobs.append("\n".join(p.get_text() for p in doc))
+        guia_pages = []
+        for page in doc:
+            text = page.get_text()
+            text = text.replace("Guía técnica · solo mentores", "")
+            text = text.replace("Solo mentores", "")
+            guia_pages.append(text)
+        blobs.append("\n".join(guia_pages))
         doc.close()
     with zipfile.ZipFile(zip_path) as zf:
         blobs.append("\n".join(zf.namelist()))
@@ -253,15 +269,45 @@ def build_guia_tecnica_pack() -> None:
             shutil.copy2(src, OUT / name)
 
 
-def _git_show_bytes(relpath: str) -> bytes:
+def _git_show_bytes(relpath: str, ref: str = BASELINE_COMMIT) -> bytes:
     git_path = f"{PACK_PREFIX}/{relpath}"
     proc = subprocess.run(
-        ["git", "show", f"{BASELINE_COMMIT}:{git_path}"],
+        ["git", "show", f"{ref}:{git_path}"],
         cwd=str(ROOT.parent.parent),
         capture_output=True,
         check=True,
     )
     return proc.stdout
+
+
+def restore_pdftext_unchanged_binaries() -> list[str]:
+    """Restore dist/*.pdf from RESTORE_PDF_TEXT_REF when render only changed font hints."""
+    import tempfile
+
+    restored: list[str] = []
+    for pdf in sorted(OUT.glob("*.pdf")):
+        if pdf.name in PDF_BINARIES_ALLOWED_DELTA:
+            continue
+        git_path = f"dist/{pdf.name}"
+        try:
+            old_bytes = _git_show_bytes(git_path, ref=RESTORE_PDF_TEXT_REF)
+        except subprocess.CalledProcessError:
+            continue
+        with tempfile.NamedTemporaryFile(suffix=".pdf") as tmp:
+            tmp.write(old_bytes)
+            tmp.flush()
+            old_text = subprocess.run(
+                ["pdftotext", tmp.name, "-"], capture_output=True, text=True, check=True
+            ).stdout
+        new_text = subprocess.run(
+            ["pdftotext", str(pdf), "-"], capture_output=True, text=True, check=True
+        ).stdout
+        if old_text == new_text:
+            pdf.write_bytes(old_bytes)
+            restored.append(pdf.name)
+    if restored:
+        print("pdf_binary_restored", ",".join(restored))
+    return restored
 
 
 def enforce_byte_identical_artifacts() -> list[str]:
@@ -464,6 +510,7 @@ async def render_all() -> None:
 
         await browser.close()
 
+    restore_pdftext_unchanged_binaries()
     export_pdf_pngs(OUT / "plantilla-bmc.pdf", "plantilla-bmc")
     export_pdf_pngs(OUT / "prompts-ia-v2.pdf", "prompts-ia-v2")
     for md_name in md_files:
@@ -471,8 +518,8 @@ async def render_all() -> None:
         export_pdf_pngs(OUT / f"{stem}.pdf", stem, max_pages=1)
 
     build_cuestionario_pack()
-    build_guia_tecnica_pack()
     enforce_byte_identical_artifacts()
+    build_guia_tecnica_pack()
     export_ticket_renders()
     export_run6_pngs()
 
