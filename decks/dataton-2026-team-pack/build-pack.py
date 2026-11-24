@@ -73,13 +73,16 @@ HTML_TO_PDF = [
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
 BASELINE_COMMIT = "c1ee80a66d83c897838832f6bcd27cc6ed504d57"
-RESTORE_PDF_TEXT_REF = "9ba28ff6d4050ff0da62767b6bd65409bad1a752"
+RESTORE_PDF_TEXT_REF = "283a09a4ce77db6e5454af44bcb7c79f7f22b164"
 PACK_PREFIX = "decks/dataton-2026-team-pack"
 
 # After TTF font rollout, keep prior binaries when pdftotext is unchanged (run 7).
 PDF_BINARIES_ALLOWED_DELTA = {
     GUIA_PDF,
     "hoja-3-dato-a-valor.pdf",
+    "hoja-4-plantilla-tablero.pdf",
+    "hoja-4b-ejemplo-air4u.pdf",
+    "hoja-2-flujo-de-datos.pdf",
     "prompts-ia-v2.pdf",
 }
 
@@ -91,12 +94,65 @@ BOCETO_TABLE_HTML = """<table>
 </tbody>
 </table>"""
 
-PUENTE_TABLE_HTML = """<table>
+PUENTE_TABLE_HTML = """<table class="cth-puente">
+<thead>
+<tr><th colspan="3">Delta: donde el dato se vuelve valor<br>entradas › salida › línea valor</th></tr>
+</thead>
 <tbody>
-<tr><td colspan="3">Delta: donde el dato se vuelve valor<br>entradas › salida › línea valor</td></tr>
 <tr><td>Línea base del cliente (entrada)</td><td>Delta innovador (su intervención) (salida)</td><td>Panorama datos abiertos (entrada)</td></tr>
 </tbody>
 </table>"""
+
+# hoja-4 layout (run 7 addendum 2): same words, print-safe tables.
+HOJA4_LAYOUT_MD_HTML: tuple[tuple[str, str], ...] = (
+    (
+        "| Usuario (rol, no nombre personal) | |\n|---|---|\n| | |",
+        (
+            '<table class="write-1col write-box-12mm">\n'
+            "<thead><tr><th>Usuario (rol, no nombre personal)</th></tr></thead>\n"
+            '<tbody><tr><td class="write-line">&nbsp;</td></tr></tbody>\n'
+            "</table>"
+        ),
+    ),
+    (
+        "| Decisión (una frase: ¿debe [acción] antes de [cuándo]?) | |\n|---|---|\n| | |",
+        (
+            '<table class="write-1col write-box-12mm">\n'
+            "<thead><tr><th>Decisión (una frase: ¿debe [acción] antes de [cuándo]?)</th></tr></thead>\n"
+            '<tbody><tr><td class="write-line">&nbsp;</td></tr></tbody>\n'
+            "</table>"
+        ),
+    ),
+    (
+        "| Línea de valor (una frase: dinero, riesgo, tiempo o salud) | |\n|---|---|\n| | |",
+        (
+            '<table class="write-1col write-box-12mm">\n'
+            "<thead><tr><th>Línea de valor (una frase: dinero, riesgo, tiempo o salud)</th></tr></thead>\n"
+            '<tbody><tr><td class="write-line">&nbsp;</td></tr></tbody>\n'
+            "</table>"
+        ),
+    ),
+    (
+        (
+            "| Antes / sitio A | Después / sitio B o mismo sitio tras intervención |\n"
+            "|---|---|\n"
+            "| | |\n"
+            "| Notas de confidencialidad (sin reidentificar) | |"
+        ),
+        (
+            '<table class="mapa-antes-despues">\n'
+            "<thead><tr>"
+            "<th>Antes / sitio A</th>"
+            "<th>Después / sitio B o mismo sitio tras intervención</th>"
+            "</tr></thead>\n"
+            "<tbody>\n"
+            '<tr class="write-row-25"><td class="write-line">&nbsp;</td><td class="write-line">&nbsp;</td></tr>\n'
+            "<tr><td>Notas de confidencialidad (sin reidentificar)</td><td></td></tr>\n"
+            "</tbody>\n"
+            "</table>"
+        ),
+    ),
+)
 
 # Byte-identical artifacts (run 6): restore from baseline if rebuild drifts.
 BYTE_IDENTICAL: tuple[tuple[str, str], ...] = (
@@ -114,6 +170,15 @@ def replace_cth_table_tokens(md_text: str) -> str:
     """Expand guía placeholder tokens for standalone hoja PDFs (markdown keeps tokens)."""
     md_text = md_text.replace("CTH_BOCETO_TABLE_INSERT", BOCETO_TABLE_HTML)
     md_text = md_text.replace("CTH_PUENTE_TABLE_INSERT", PUENTE_TABLE_HTML)
+    return md_text
+
+
+def replace_hoja4_layout_tables(md_text: str) -> str:
+    """hoja-4 print layout: single-col writing boxes and mapa row heights (words unchanged)."""
+    for md_block, html_block in HOJA4_LAYOUT_MD_HTML:
+        if md_block not in md_text:
+            raise SystemExit(f"hoja-4 layout block missing in markdown:\n{md_block[:60]}...")
+        md_text = md_text.replace(md_block, html_block, 1)
     return md_text
 
 
@@ -172,12 +237,15 @@ def sha256_file(path: Path) -> str:
 
 def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
     md_text = replace_cth_table_tokens(md_text)
+    if title == "hoja-4-plantilla-tablero":
+        md_text = replace_hoja4_layout_tables(md_text)
     body = markdown.markdown(md_text, extensions=["tables", "fenced_code", "nl2br"])
     banner = (
         '<p class="borrador">BORRADOR — borrador para finales; versión final el día del Datatón.</p>'
         if borrador
         else ""
     )
+    body_attr = ' class="hoja-4-print"' if title == "hoja-4-plantilla-tablero" else ""
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -185,7 +253,7 @@ def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
   <title>{title}</title>
   <link rel="stylesheet" href="md-print.css" />
 </head>
-<body>
+<body{body_attr}>
   <header class="hdr-bar">
     <img src="assets/cth-logo-color.png" alt="CleantechHUB" />
     <span>Datatón v0.4-es</span>
@@ -362,6 +430,22 @@ def audit_no_table_insert_tokens() -> None:
     print("table_insert_audit", "OK", len(list(OUT.glob('*.pdf'))), "dist pdfs")
 
 
+def export_run7_hoja4_pngs() -> None:
+    """110 dpi captures for both hoja-4 pages (run 7 addendum 2)."""
+    run7 = PNG / "run7"
+    run7.mkdir(parents=True, exist_ok=True)
+    h4 = OUT / "hoja-4-plantilla-tablero.pdf"
+    import fitz
+
+    doc = fitz.open(h4)
+    for i in range(doc.page_count):
+        out = run7 / f"hoja-4-plantilla-tablero-p{i + 1:02d}-110dpi.png"
+        pix = doc[i].get_pixmap(dpi=110, alpha=False)
+        pix.save(str(out))
+        print("png", out.name)
+    doc.close()
+
+
 def export_run6_pngs() -> None:
     """110 dpi captures for hoja-3 §7 boceto and hoja-4 puente table (run 6)."""
     run6 = PNG / "run6"
@@ -522,6 +606,7 @@ async def render_all() -> None:
     build_guia_tecnica_pack()
     export_ticket_renders()
     export_run6_pngs()
+    export_run7_hoja4_pngs()
 
     zip_path = ROOT / ZIP_NAME
     manifest_rows: list[tuple[str, str]] = []

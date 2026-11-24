@@ -20,6 +20,7 @@ OUT = ROOT / "dist"
 PROOFS = ROOT / "_png" / "run7"
 REPO = ROOT.parent.parent
 START_HEAD = "9ba28ff6d4050ff0da62767b6bd65409bad1a752"
+PRE_ADDENDUM2_HEAD = "283a09a4ce77db6e5454af44bcb7c79f7f22b164"
 BASELINE_DOCX_SHA = "443a9fffa0465aaa9c8434a4f2d78c5a33d355dcd068b4a6f807717f436c91fe"
 OLD_GUia_PDF_SHA = "c680b8a268f45e58e6047c319af9ae7af5f9127ce94a845f42c7a52642656ac6"
 ZIP = ROOT / "team-pack-es-pdfs-v0.4.zip"
@@ -178,12 +179,17 @@ def main() -> int:
     if not guia_pdf.is_file():
         guia_pdf = GUia_PDF
     contact_sheet(guia_pdf, PROOFS / "guia-pdf-contact-40dpi.png", dpi=40)
+    contact_sheet(OUT / "hoja-3-dato-a-valor.pdf", PROOFS / "hoja-3-contact-40dpi.png", dpi=40)
+    contact_sheet(OUT / "hoja-4-plantilla-tablero.pdf", PROOFS / "hoja-4-contact-40dpi.png", dpi=40)
     lo_dir = PROOFS / "lo-render"
     lo_pdf = libreoffice_pdf(GUia_DOCX, lo_dir)
     contact_sheet(lo_pdf, PROOFS / "guia-docx-lo-contact-40dpi.png", dpi=40)
     lines.append("## Contact sheets (40 dpi)")
     lines.append(f"- `{PROOFS.relative_to(ROOT)}/guia-pdf-contact-40dpi.png`")
     lines.append(f"- `{PROOFS.relative_to(ROOT)}/guia-docx-lo-contact-40dpi.png`")
+    lines.append(f"- `{PROOFS.relative_to(ROOT)}/hoja-3-contact-40dpi.png`")
+    lines.append(f"- `{PROOFS.relative_to(ROOT)}/hoja-4-contact-40dpi.png`")
+    lines.append(f"- `{PROOFS.relative_to(ROOT)}/hoja-4-plantilla-tablero-p01-110dpi.png` (+ p02, p03)")
     lines.append("")
 
     # Word bags
@@ -220,6 +226,38 @@ def main() -> int:
         ),
         encoding="utf-8",
     )
+    lines.append("## Hoja PDF word-bags (addendum 2)")
+    import fitz as _fitz
+
+    def bag_fitz_pdf(path: Path) -> Counter:
+        doc = _fitz.open(path)
+        text = "".join(page.get_text() for page in doc)
+        doc.close()
+        return word_bag_pdf_text(text)
+
+    hoja_bag_fail: list[str] = []
+    for pdf_name in ("hoja-3-dato-a-valor.pdf", "hoja-4-plantilla-tablero.pdf"):
+        with tempfile.TemporaryDirectory() as td2:
+            old_pdf = Path(td2) / pdf_name
+            proc = subprocess.run(
+                [
+                    "git",
+                    "show",
+                    f"{PRE_ADDENDUM2_HEAD}:decks/dataton-2026-team-pack/dist/{pdf_name}",
+                ],
+                cwd=str(REPO),
+                capture_output=True,
+                check=True,
+            )
+            old_pdf.write_bytes(proc.stdout)
+            b_old = bag_fitz_pdf(old_pdf)
+            b_new = bag_fitz_pdf(OUT / pdf_name)
+            delta = sorted(w for w in set(b_old) | set(b_new) if b_old[w] != b_new[w])
+            if delta:
+                hoja_bag_fail.append(f"{pdf_name}: {delta[:12]}")
+            lines.append(f"- `{pdf_name}` word-bag delta vs pre–addendum-2: **{len(delta)}**")
+    lines.append("")
+
     lines.append("## Word-bag checks")
     lines.append(f"- New docx vs baseline docx word delta: **{len(docx_word_delta)}** (expect 0)")
     lines.append(f"- PDF minus docx unexpected words: **{len(unexpected_pdf)}**")
@@ -229,15 +267,13 @@ def main() -> int:
     # pdffonts
     font_log = PROOFS / "pdffonts.txt"
     chunks = []
-    for name in ("Guia-tecnica-mentores.pdf", "hoja-3-dato-a-valor.pdf"):
+    for name in ("Guia-tecnica-mentores.pdf", "hoja-3-dato-a-valor.pdf", "hoja-4-plantilla-tablero.pdf"):
         p = OUT / name
         r = subprocess.run(["pdffonts", str(p)], capture_output=True, text=True, check=True)
         chunks.append(f"=== {name} ===\n{r.stdout.strip()}\n")
     font_log.write_text("\n".join(chunks), encoding="utf-8")
     font_text = font_log.read_text()
-    arimo_h3 = "Arimo" in font_text.split("=== hoja-3")[1] if "=== hoja-3" in font_text else True
-    arimo_guia = "Arimo" in font_text.split("=== Guia")[1].split("===")[0] if "=== Guia" in font_text else True
-    arimo = arimo_h3 or arimo_guia
+    arimo = "Arimo" in font_text
     lines.append("## pdffonts")
     lines.append(f"- Arimo present: **{arimo}** (expect False)")
     lines.append(f"- Log: `{font_log.relative_to(ROOT)}`")
@@ -312,7 +348,7 @@ def main() -> int:
     notes = ROOT / "run7-notes.md"
     notes.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(notes)
-    fail = bool(docx_word_delta) or arimo or glyph_bad or unexpected_pdf
+    fail = bool(docx_word_delta) or arimo or glyph_bad or unexpected_pdf or bool(hoja_bag_fail)
     return 1 if fail else 0
 
 

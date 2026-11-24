@@ -1,11 +1,18 @@
 # Run 7 notes — Guía técnica layout rebuild
 
 Start head (ticket): `9ba28ff6d4050ff0da62767b6bd65409bad1a752`.
-Working head after build: `8fdf69e8ca41d78ffe29f995a8fcf21cd6923c5a`.
+Working head after build: `283a09a4ce77db6e5454af44bcb7c79f7f22b164`.
 
 ## Contact sheets (40 dpi)
 - `_png/run7/guia-pdf-contact-40dpi.png`
 - `_png/run7/guia-docx-lo-contact-40dpi.png`
+- `_png/run7/hoja-3-contact-40dpi.png`
+- `_png/run7/hoja-4-contact-40dpi.png`
+- `_png/run7/hoja-4-plantilla-tablero-p01-110dpi.png` (+ p02, p03)
+
+## Hoja PDF word-bags (addendum 2)
+- `hoja-3-dato-a-valor.pdf` word-bag delta vs pre–addendum-2: **0**
+- `hoja-4-plantilla-tablero.pdf` word-bag delta vs pre–addendum-2: **0**
 
 ## Word-bag checks
 - New docx vs baseline docx word delta: **0** (expect 0)
@@ -20,16 +27,16 @@ Working head after build: `8fdf69e8ca41d78ffe29f995a8fcf21cd6923c5a`.
 - Out-of-cmap hits: **0**
 
 ## Guía PDF page count
-- Pages:           25
+- Pages:           26
 
 ## SHA256SUMS
 Proof: `_png/run7/SHA256SUMS`
-- `guia-tecnica/Guia-tecnica-mentores.docx`: `79d8bb715d8ed6a6c71869ccc3481ce6f3e375555f6b4ff441671f1edbb1d306`
-- `guia-tecnica/Guia-tecnica-mentores.pdf`: `8744cc28ebf1e19e6b0e1f42766cad14842d3b8d3e6c45ca16832d7b8595c08c`
-- `dist/Guia-tecnica-mentores.docx`: `79d8bb715d8ed6a6c71869ccc3481ce6f3e375555f6b4ff441671f1edbb1d306`
-- `dist/Guia-tecnica-mentores.pdf`: `8744cc28ebf1e19e6b0e1f42766cad14842d3b8d3e6c45ca16832d7b8595c08c`
-- `dist/hoja-3-dato-a-valor.pdf`: `086b1c40d5ca2ecad56c18259dabf51c25cc9606eb237397ca0ee56ae2da5b05`
-- `team-pack-es-pdfs-v0.4.zip`: `cdbdacad8f75264459ea5357c88aa820a41b514234969bda58621959fb867d6a`
+- `guia-tecnica/Guia-tecnica-mentores.docx`: `e5e0bac8e1ded222159aa218da9b9e4cb53c6a9fe83454a0837f884165d37d10`
+- `guia-tecnica/Guia-tecnica-mentores.pdf`: `b13608c43c23aa1aa9c3b00e87753b4fafd7366e02a05a22d97ead077aa43ef6`
+- `dist/Guia-tecnica-mentores.docx`: `e5e0bac8e1ded222159aa218da9b9e4cb53c6a9fe83454a0837f884165d37d10`
+- `dist/Guia-tecnica-mentores.pdf`: `b13608c43c23aa1aa9c3b00e87753b4fafd7366e02a05a22d97ead077aa43ef6`
+- `dist/hoja-3-dato-a-valor.pdf`: `e68cc8932601fc12e7444c8af83a2adfd753d196815cf748ff0c1efc105b2a82`
+- `team-pack-es-pdfs-v0.4.zip`: `1cf85e7dc74707b9743ce37085db0b7ade9a6735b8b0d62fbf353db7b3b08efd`
 - `fonts/open-sans/SHA256SUMS`: `9549ad13703830523905857d37b674e849e22514af8f061567a4323f13f09287`
 
 ## Byte-identical (q/ej/prompts/fonts)
@@ -41,6 +48,6 @@ Proof: `_png/run7/SHA256SUMS`
 - `cuestionario/prompts.txt`: **True** (`e325f2f5e8d60547a5ffd1047dbe241b23e071d2e763e7149f5a77f186424015`)
 
 ## Zip
-- `team-pack-es-pdfs-v0.4.zip` sha256 `cdbdacad8f75264459ea5357c88aa820a41b514234969bda58621959fb867d6a`
-- Zip entries changed vs `9ba28ff` (4 only): `Guia-tecnica-mentores.docx`, `Guia-tecnica-mentores.pdf`, `hoja-3-dato-a-valor.pdf`, `prompts-ia-v2.pdf`.
+- `team-pack-es-pdfs-v0.4.zip` sha256 `1cf85e7dc74707b9743ce37085db0b7ade9a6735b8b0d62fbf353db7b3b08efd`
+- Expected zip deltas: Guía docx/pdf, hoja-3 PDF (Arimo fix); other entries unchanged.
 

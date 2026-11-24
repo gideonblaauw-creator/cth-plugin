@@ -217,6 +217,51 @@ def fix_guia_tables(doc: Document) -> None:
         _shade_header_row(table)
 
 
+TWIPS_12MM = 680
+TWIPS_25MM = 1417
+HOJA4_WRITE_HEADERS = (
+    "Usuario (rol, no nombre personal)",
+    "Decisión (una frase: ¿debe [acción] antes de [cuándo]?)",
+    "Línea de valor (una frase: dinero, riesgo, tiempo o salud)",
+)
+
+
+def _set_row_height_exact(row, twips: int) -> None:
+    tr = row._tr
+    trPr = tr.get_or_add_trPr()
+    old = trPr.find(qn("w:trHeight"))
+    if old is not None:
+        trPr.remove(old)
+    tr_height = OxmlElement("w:trHeight")
+    tr_height.set(qn("w:val"), str(twips))
+    tr_height.set(qn("w:hRule"), "exact")
+    trPr.append(tr_height)
+
+
+def _merge_row_single_col(row) -> None:
+    if len(row.cells) < 2:
+        return
+    merged = row.cells[0]
+    for cell in row.cells[1:]:
+        merged = merged.merge(cell)
+
+
+def fix_hoja4_docx_write_tables(doc: Document) -> None:
+    """Mirror hoja-4 PDF writing boxes in Word (layout only)."""
+    for table in doc.tables:
+        if not table.rows:
+            continue
+        label = table.rows[0].cells[0].text.strip()
+        if label in HOJA4_WRITE_HEADERS and len(table.columns) >= 2:
+            for row in table.rows:
+                _merge_row_single_col(row)
+            if len(table.rows) > 1:
+                _set_row_height_exact(table.rows[1], TWIPS_12MM)
+            continue
+        if table.rows[0].cells[0].text.strip() == "Antes / sitio A" and len(table.rows) > 1:
+            _set_row_height_exact(table.rows[1], TWIPS_25MM)
+
+
 def fix_guia_paragraph_layout(doc: Document) -> None:
     for para in doc.paragraphs:
         style = para.style.name if para.style else ""
@@ -257,6 +302,7 @@ def postprocess_guia_docx(doc: Document) -> None:
         raise SystemExit("Guía: CTH_PUENTE_TABLE_INSERT missing")
 
     _fix_autocontrol_checkboxes(doc)
+    fix_hoja4_docx_write_tables(doc)
     fix_guia_tables(doc)
     fix_guia_paragraph_layout(doc)
 

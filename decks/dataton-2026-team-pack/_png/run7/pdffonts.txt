@@ -4,37 +4,35 @@ name                                 type              encoding         emb sub 
 AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes      9  0
 BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     14  0
 CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     19  0
-Helvetica                            Type 1            WinAnsi          no  no  no     359  0
+Helvetica                            Type 1            WinAnsi          no  no  no     352  0
 AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     39  0
 BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     44  0
 CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     49  0
 AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     67  0
 BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     72  0
 CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     77  0
-DAAAAA+Arimo                         CID TrueType      Identity-H       yes yes yes     84  0
-EAAAAA+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes     89  0
-AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    105  0
-BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    110  0
-CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    115  0
-AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    131  0
-BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    136  0
-CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    141  0
-AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    158  0
-BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    163  0
-CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    168  0
-DAAAAA+Arimo                         CID TrueType      Identity-H       yes yes yes    173  0
-AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    191  0
-BAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    196  0
-AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    208  0
-BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    213  0
-CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    218  0
-DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    226  0
-DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    261  0
+DAAAAA+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes     84  0
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    100  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    105  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    110  0
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    127  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    132  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    137  0
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    156  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    161  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    166  0
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    184  0
+BAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    189  0
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    201  0
+BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes    206  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    211  0
+DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    219  0
+DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    254  0
+DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    280  0
 DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    287  0
-DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    294  0
-EAAAAA+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes    330  0
-DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    335  0
-DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    351  0
+EAAAAA+DejaVuSansMono                CID TrueType      Identity-H       yes yes yes    323  0
+DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    328  0
+DAAAAA+CascadiaCode-Regular          Type 3            Custom           yes yes yes    344  0
 
 === hoja-3-dato-a-valor.pdf ===
 name                                 type              encoding         emb sub uni object ID
@@ -42,3 +40,10 @@ name                                 type              encoding         emb sub 
 AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     10  0
 BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     11  0
 CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     12  0
+
+=== hoja-4-plantilla-tablero.pdf ===
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     11  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     12  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     13  0

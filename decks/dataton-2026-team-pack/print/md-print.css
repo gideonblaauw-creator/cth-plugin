@@ -44,11 +44,45 @@ html, body {
   font-size: 9pt;
 }
 h1 { font-size: 15pt; color: var(--blue); margin: 0 0 8px; }
-h2 { font-size: 11pt; color: var(--green); margin: 14px 0 6px; border-bottom: 1px solid rgba(12,73,138,0.15); }
+h2 { font-size: 11pt; color: var(--green); margin: 14px 0 6px; border-bottom: 1px solid rgba(12, 73, 138, 0.15); }
 h3 { font-size: 10pt; margin: 10px 0 4px; }
-table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 9pt; }
+body.hoja-4-print h2,
+body.hoja-4-print h3 {
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+body.hoja-4-print h3 + table { break-before: avoid-page; page-break-before: avoid; }
+body.hoja-4-print table {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 9pt;
+}
 th, td { border: 1px solid rgba(12, 73, 138, 0.25); padding: 4px 6px; vertical-align: top; }
 th { background: rgba(178, 238, 250, 0.35); font-weight: 700; }
+table.write-1col { table-layout: fixed; }
+table.write-1col th,
+table.write-1col td.write-line { width: 100%; }
+table.write-box-12mm td.write-line {
+  min-height: 12mm;
+  height: 12mm;
+  box-sizing: border-box;
+}
+table.mapa-antes-despues tr.write-row-25 td.write-line {
+  min-height: 25mm;
+  height: 25mm;
+  box-sizing: border-box;
+}
+table.cth-puente { width: 100%; table-layout: fixed; }
+table.cth-puente th[colspan="3"] {
+  text-align: center;
+  font-weight: 700;
+  background: rgba(157, 195, 132, 0.2);
+}
 pre, code { font-family: ui-monospace, monospace; font-size: 8.5pt; }
 pre { background: #f8fafc; padding: 8px; overflow-wrap: anywhere; white-space: pre-wrap; }
 blockquote { border-left: 3px solid var(--lgreen); margin: 8px 0; padding-left: 10px; color: #444; }
