@@ -21,7 +21,7 @@ OUT_TTF = ROOT / "Panel-0840-proof-g-from-ttf-200dpi.png"
 # Ticket body word containing lowercase g (9.25–9.5 pt in the PDF).
 PROOF_WORD = "programa"
 DPI = 200
-BODY_PT = 10.5
+BODY_PT = 11.0
 TEXT_BLUE = (12, 73, 138)
 
 

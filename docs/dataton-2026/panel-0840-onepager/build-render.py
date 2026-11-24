@@ -11,6 +11,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 HTML = ROOT / "panel-0840-dataton-24nov.html"
 PDF = ROOT / "Panel-0840-Dataton-24nov.pdf"
 PNG = ROOT / "Panel-0840-Dataton-24nov.png"
+P100 = ROOT / "Panel-0840-Dataton-24nov-p100.png"
 
 
 async def export_pdf() -> None:
@@ -45,6 +46,18 @@ def poppler_env() -> dict[str, str]:
     return env
 
 
+def export_png_p100() -> None:
+    prefix = ROOT / "Panel-0840-Dataton-24nov-p100-ppm"
+    subprocess.run(
+        ["pdftoppm", "-png", "-r", "100", "-singlefile", str(PDF), str(prefix)],
+        check=True,
+        env=poppler_env(),
+    )
+    generated = ROOT / "Panel-0840-Dataton-24nov-p100-ppm.png"
+    if generated.is_file():
+        generated.rename(P100)
+
+
 def export_png_200dpi() -> None:
     prefix = ROOT / "Panel-0840-Dataton-24nov-ppm"
     subprocess.run(
@@ -63,6 +76,11 @@ def prove_font_g() -> None:
 
 def prove_cobrand() -> None:
     subprocess.run([sys.executable, str(ROOT / "prove-cobrand-crop.py")], check=True)
+    subprocess.run([sys.executable, str(ROOT / "prove-cobrand-200dpi.py")], check=True)
+
+
+def measure_r6() -> None:
+    subprocess.run([sys.executable, str(ROOT / "measure-r6-proof.py")], check=True)
 
 
 def build_datalab_lockup() -> None:
@@ -78,10 +96,11 @@ def main() -> None:
         raise SystemExit(f"Missing {HTML}")
     build_datalab_lockup()
     asyncio.run(export_pdf())
+    export_png_p100()
     export_png_200dpi()
     prove_font_g()
     prove_cobrand()
-    measure_logos()
+    measure_r6()
     print(PDF)
     print(PNG)
 

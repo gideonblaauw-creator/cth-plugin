@@ -8,7 +8,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 HTML = ROOT / "panel-0840-dataton-24nov.html"
-MIN_PT = 9.5
+MIN_PT = 10.0
 
 SELECTORS = [
     ("h1", "h1"),
