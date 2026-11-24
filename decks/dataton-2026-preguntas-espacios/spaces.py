@@ -45,7 +45,7 @@ SPACES = [
         "turns": [
             (
                 "Natalia, desde la cooperación, ¿qué desafío climático en los territorios ya están apoyando con soluciones, y dónde puede entrar un emprendedor local?",
-                "Inundaciones y lluvias: la cooperación financia alertas; un emprendedor local mantiene sensores y avisa a los barrios.",
+                "Inundaciones y lluvias: la cooperación financia alertas; un emprendedor local puede mantener sensores y avisar a los barrios.",
                 "Cuando habla de un equipo local que mantiene sensores y avisa a los barrios, ¿qué tendría que mostrar para que un programa de cooperación respalde su solución?",
             ),
             (
@@ -54,7 +54,7 @@ SPACES = [
                 "Si ese emprendimiento replanta manglar y vende guía o monitoreo, ¿qué necesita de la región para crecer más allá de su primer piloto?",
             ),
             (
-                "Rector, ¿qué ofrece la universidad a quien emprende frente a un problema climático: estudiantes, laboratorios y Centro de Emprendimiento?",
+                "Rector, ¿qué puede ofrecer en concreto la universidad a quien emprende frente a un problema climático?",
                 "Estudiantes que salen a medir y laboratorio para probar, sin prometer de más.",
                 "Con estudiantes que salen a medir y laboratorio para probar, ¿cómo podría uno de los 14 equipos convertir un problema del territorio en una prueba antes de las 16:00?",
             ),
