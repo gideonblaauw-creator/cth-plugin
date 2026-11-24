@@ -1,0 +1,54 @@
+# PR #178 run 10 micro-fix diff notes
+
+- Base head: `ca1d5a1af162164a1f83446752ef364c86cb57c4`
+- Table (b) + overrides O1–O7; p04 frozen unchanged in `spaces.py`
+
+- **p03 C3 A:** Que todos salen con certificado… → Que los tres ganadores entran al Datalab en 2027 y que los catorce salen con el mismo certificado de participación.
+- **p03 C3 R:** Marlene, si hay seguimiento… → Marlene, si el certificado es el mismo para todos, ¿qué deja claro el Centro sobre lo que no se promete hoy?
+- **p06 Participan:** Alejandro Henao (título) → representante de Constructora Bolívar
+- **p06 Quién pregunta:** Gideon a Alejandro Díaz y a Alejandro Henao → Gideon a Alejandro Díaz, al representante de Constructora Bolívar y a los equipos
+- **p06 C1 Q:** Alejandro Henao, ¿qué cambio… → Desde Constructora Bolívar, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?
+- **p06 C1 A:** Buscan pruebas en el barrio… (porque…) → Buscamos pruebas en el barrio antes de escalar una obra, y ahí una startup local con sensores puede ayudar.
+- **p06 C1 R:** Alejandro Díaz, cuando Bolívar pide evidencia… → Desde Bolívar, si buscan pruebas en el barrio, ¿qué tendría que mostrar un equipo local para interesarles?
+- **p06 C3 Q:** Alejandro Henao, si una startup… → Desde Constructora Bolívar, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?
+- **p06 C3 A:** Comprarían indicadores… (porque…) → Indicadores de agua o energía que cambien una decisión en la obra. Un piloto se conversaría después, nada está firmado.
+- **p06 C3 R:** Alejandro Henao, si el paso es contrato piloto… → Desde Bolívar, si un piloto se conversaría después, ¿qué señal quieren ver en un equipo antes de las 12:30?
+- **p07 C2 A:** …comprador entienda, porque el permiso… → …comprador europeo entienda, no solo una narrativa.
+- **p07 C2 R:** …si el permiso para imagen ajena frena… → …si el comprador exige esas pruebas, ¿qué error de origen pediría evitar a los equipos a las 11:00?
+- **p07 C4 A:** Miraré que el dato cambie algo… → Miraré utilidad y honestidad, de 0 a 5 cada una, para la persona y el lugar que nombraron.
+- **p07 C4 R:** …si el siguiente paso debe sonar creíble… → Enrique, si mira utilidad y honestidad, ¿qué le diría a un equipo que solo tiene datos estimados?
+- **p10 Quién pregunta:** …a Óscar → …a Óscar y a los equipos
+- **p11 Quién pregunta:** Gideon a los equipos; monitores a los equipos → Gideon a los equipos y a los monitores
+- **p11 Nota:** certificado para todos; tres al Datalab… → el mismo certificado de participación para los catorce; tres al Datalab CTH 2027. Ningún equipo sale del trabajo después del bloque 1.
+- **p11 C1 A:** Es nombrar desafío… → Utilidad y honestidad, de 0 a 5 cada una, más un punto por cada número firme en plata u oro, máximo tres.
+- **p11 C1 R:** …¿qué entregan antes del almuerzo… → Equipos, si todavía no tienen datos en plata, ¿qué cuenta más para llegar a los seis?
+- **p11 C4 A:** …porque solo nombran comprador… → …sin inventar comprador o permiso.
+- **p11 C4 R:** …si solo nombran comprador o permiso… → Monitores, si señalan lo que falta, ¿qué les pedirán a su mesa antes de las 11:00?
+- **p12 Quién pregunta:** Monitores a los equipos; Miguel… → Gideon recorre las mesas: pregunta a equipos, monitores y a Miguel de Air4U
+- **p12 C1 A:** Suele apretar ingreso… (porque…) → Nos aprieta el ingreso, el agua o el aire en el barrio o la finca, y ya buscamos comprador o aliado.
+- **p12 C1 R:** …si buscan comprador… → …si ya buscan comprador o aliado…
+- **p12 C2 A:** Lo declaran mezclando mensajes… → Lo declaran en voz alta como propio, abierto o sintético, y revisan si hay datos personales sensibles.
+- **p13 Quién pregunta:** Gideon a la mesa de invitados → Gideon a la mesa de invitados y a los equipos que pasan
+- **p14 Quién pregunta:** Monitores a los equipos → Gideon recorre las mesas: pregunta a equipos y monitores
+- **p14 C2 A:** Van quienes tienen persona, desafío… → Van quienes suman más utilidad y honestidad, más un punto por cada número firme en plata u oro, máximo tres.
+- **p14 C2 R:** …¿quién aún mezcla los niveles… → Monitor, antes de las 16:00, ¿cómo revisan dos o tres números de cada equipo?
+- **p14 C5 A:** Confirman certificado para todos y seguimiento… → Confirman el mismo certificado de participación para los catorce. Entrar al Datalab CTH en 2027 es solo el reconocimiento de los tres.
+- **p14 C5 R:** …si no entran a los seis… → …si el certificado es el mismo para todos, ¿qué les recuerdan sobre la lista de seis que cierra antes de las 16:00?
+- **p15 Quién pregunta:** Gideon a cada equipo; equipos al jurado → Gideon a cada equipo y al jurado; equipos al jurado
+- **p15 Puente:** confianza del dato, integración y próximo paso → utilidad y honestidad, de 0 a 5 cada una. En empate gana la honestidad.
+- **p15 C5 A:** Pidieron la misma historia de desafío… → Pidieron utilidad y honestidad, de 0 a 5 cada una, medidas igual en los seis.
+- **p15 C5 R:** …¿cuál equipo lo integró mejor… → Jurado, si hay empate en esa suma, ¿qué criterio va primero?
+- **p16 Nota:** todos reciben certificado… → el mismo certificado de participación para los catorce equipos, no para monitores. El reconocimiento de los tres es entrar al Datalab CTH en 2027.
+- **p16 C1 Q:** confianza del dato e integración → utilidad y a honestidad, de 0 a 5 cada una
+- **p16 C1 A:** Sí, damos el mismo peso porque… → Sí, el mismo peso a utilidad y honestidad. Una lámina bonita no gana a un dato honesto en el territorio.
+- **p16 C1 R:** …próximo paso creíble… → Enrique, si hay empate en esa suma, ¿rompemos por honestidad?
+- **p16 C3 A:** espacio de prueba y mentoría… Air4U o Agrometers… → Entran al Datalab CTH en 2027. Hoy no anunciamos adoptantes ni mentorías concretas.
+- **p16 C3 R:** …si no es incubación… → …si hoy no anunciamos adoptantes…
+- **p16 C4 Q:** …monitores incluidos? → …los catorce equipos?
+- **p16 C4 A:** …monitores, más tres ganadores aparte… → Sí, el mismo certificado de participación para los catorce equipos. El reconocimiento de los tres es entrar al Datalab CTH en 2027.
+- **p16 C4 R:** …si el fotógrafo entra a las 16:50… → …si es el mismo certificado para los catorce, ¿quién lo entrega en el escenario y en qué orden?
+- **p17 Puente:** continuidad en el Datalab y seguimiento… → los tres entran al Datalab CTH en 2027 y los catorce quedan con el mismo certificado de participación.
+- **p17 C1 A:** …certificado, porque son cosas distintas → …el mismo certificado de participación.
+- **p17 C1 R:** …¿qué compromiso asume CleantechHUB… → Gideon, ¿cómo evitan que el público mezcle los niveles del día, el certificado y el Datalab?
+- **p17 C3 A:** actividades abiertas y seguimiento… → El certificado de participación y nuestra puerta abierta para seguir conversando. Hoy no anunciamos un programa nuevo.
+- **p17 C3 R:** …¿qué invitación abren… → Gideon, si la puerta queda abierta, ¿por dónde los pueden buscar los equipos después de hoy?

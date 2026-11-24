@@ -22,8 +22,8 @@ SPACES = [
             ),
             (
                 "Marlene, ¿qué prometen hoy sobre el Observatorio y el Datalab de las 09:10?",
-                "Que todos salen con certificado y que quien no entre a los tres del 2027 sigue con seguimiento del Centro.",
-                "Marlene, si hay seguimiento para quienes no ganan, ¿qué deja claro el Centro sobre certificado y acompañamiento?",
+                "Que los tres ganadores entran al Datalab en 2027 y que los catorce salen con el mismo certificado de participación.",
+                "Marlene, si el certificado es el mismo para todos, ¿qué deja claro el Centro sobre lo que no se promete hoy?",
             ),
             (
                 "Gideon, ¿con qué imagen salimos hacia el panel de las 08:40?",
@@ -113,16 +113,16 @@ SPACES = [
     {
         "time": "09:40",
         "title": "Conversatorio universidad y sector inmobiliario",
-        "participants": "Alejandro Díaz Malagón (Externado), Alejandro Henao (Jefe Nacional de la Aceleradora de Transformación, Constructora Bolívar), Gideon Blaauw",
-        "asks": "Gideon a Alejandro Díaz y a Alejandro Henao",
+        "participants": "Alejandro Díaz Malagón (Externado), representante de Constructora Bolívar, Gideon Blaauw",
+        "asks": "Gideon a Alejandro Díaz, al representante de Constructora Bolívar y a los equipos",
         "viene": "Lanzamiento del Observatorio y presentación del Datalab.",
         "lleva": "Pregunta concreta de empresa grande adoptando innovación, hacia Agrometers a las 09:55.",
         "nota": "No presentar Constructora Bolívar como piloto firmado del Observatorio ni nombrar territorio o fechas de piloto.",
         "turns": [
             (
-                "Alejandro Henao, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?",
-                "Buscan pruebas en el barrio antes de escalar obra, porque una startup local puede cruzar sensores con la obra y Bolívar compra evidencia semanal.",
-                "Alejandro Díaz, cuando Bolívar pide evidencia semanal en esos barrios, ¿qué puente académico ofrece Externado?",
+                "Desde Constructora Bolívar, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?",
+                "Buscamos pruebas en el barrio antes de escalar una obra, y ahí una startup local con sensores puede ayudar.",
+                "Desde Bolívar, si buscan pruebas en el barrio, ¿qué tendría que mostrar un equipo local para interesarles?",
             ),
             (
                 "Alejandro Díaz, ¿qué hace un intermediario de confianza en ese puente?",
@@ -130,9 +130,9 @@ SPACES = [
                 "Alejandro Díaz, si falta permiso para datos de la comunidad, ¿qué puente académico ofrece Externado en ese caso?",
             ),
             (
-                "Alejandro Henao, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?",
-                "Comprarían indicadores de agua o energía que cambien una decisión semanal en el barrio, porque el siguiente paso es un contrato piloto.",
-                "Alejandro Henao, si el paso es contrato piloto, ¿qué señal quieren ver antes del almuerzo de las 12:30?",
+                "Desde Constructora Bolívar, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?",
+                "Indicadores de agua o energía que cambien una decisión en la obra. Un piloto se conversaría después, nada está firmado.",
+                "Desde Bolívar, si un piloto se conversaría después, ¿qué señal quieren ver en un equipo antes de las 12:30?",
             ),
             (
                 "Equipos y Bolívar nos escuchan: ¿cómo conectan datos del celular con lo que pide la constructora?",
@@ -159,8 +159,8 @@ SPACES = [
             ),
             (
                 "Enrique, en palma exportando a Europa, ¿qué deben demostrar ante exigencias de deforestación?",
-                "Deben mostrar origen en finca y comunidad vecina con pruebas que el comprador entienda, porque el permiso para imagen ajena suele frenar.",
-                "Enrique, si el permiso para imagen ajena frena, ¿qué error de origen pediría evitar a los equipos a las 11:00?",
+                "Deben mostrar origen en finca y comunidad vecina con pruebas que el comprador europeo entienda, no solo una narrativa.",
+                "Enrique, si el comprador exige esas pruebas, ¿qué error de origen pediría evitar a los equipos a las 11:00?",
             ),
             (
                 "Enrique, ¿dónde entran sensores e imagen satelital en una decisión de campo?",
@@ -169,8 +169,8 @@ SPACES = [
             ),
             (
                 "Enrique, usted también es jurado; ¿qué mirará a las 16:00?",
-                "Miraré que el dato cambie algo para el productor o la familia que nombraron, porque el siguiente paso en el territorio debe sonar creíble.",
-                "Enrique, si el siguiente paso debe sonar creíble, ¿cómo conecta eso con el aire en Bogotá esta semana?",
+                "Miraré utilidad y honestidad, de 0 a 5 cada una, para la persona y el lugar que nombraron.",
+                "Enrique, si mira utilidad y honestidad, ¿qué le diría a un equipo que solo tiene datos estimados?",
             ),
             (
                 "Enrique, ¿qué espera oír de los 14 equipos Externado al cierre?",
@@ -251,7 +251,7 @@ SPACES = [
         "time": "10:20",
         "title": "Data sandbox de innovación (3/3): conversatorio Air4U y farmacéutica",
         "participants": "Air4U, Óscar (farmacéutica adoptante), Gideon Blaauw",
-        "asks": "Gideon a Miguel, a Sebastián y a Óscar",
+        "asks": "Gideon a Miguel, a Sebastián, a Óscar y a los equipos",
         "viene": "Demo: niveles Bronce, Plata y Oro con ejemplo urbano.",
         "lleva": "Modelo de integración entre innovación y empresa para las instrucciones de las 10:45.",
         "nota": "Si Óscar no asiste, Gideon dirige la misma línea de adopción a otro corporativo presente.",
@@ -284,15 +284,15 @@ SPACES = [
         "time": "10:45",
         "title": "Instrucciones y arranque del datatón",
         "participants": "Gideon Blaauw, monitores del Datalab (presentación de mentores incluida)",
-        "asks": "Gideon a los equipos; monitores a los equipos",
+        "asks": "Gideon a los equipos y a los monitores",
         "viene": "Espacio de prueba: integración entre Air4U, empresa y comunidad.",
         "lleva": "Reglas, embudo de catorce a seis a tres, y la pregunta de su equipo.",
-        "nota": "Los niveles del día no son el premio; certificado para todos; tres al Datalab CTH 2027.",
+        "nota": "Los niveles del día no son el premio; el mismo certificado de participación para los catorce; tres al Datalab CTH 2027. Ningún equipo sale del trabajo después del bloque 1.",
         "turns": [
             (
                 "Equipos, ¿cuál es el criterio principal para llegar a los seis finalistas de las 16:00?",
-                "Es nombrar desafío, persona y territorio e integrar la innovación, porque el dato debe acercarse a responder la pregunta de su equipo.",
-                "Equipos, si el dato debe responder su pregunta, ¿qué entregan antes del almuerzo de las 12:30?",
+                "Utilidad y honestidad, de 0 a 5 cada una, más un punto por cada número firme en plata u oro, máximo tres.",
+                "Equipos, si todavía no tienen datos en plata, ¿qué cuenta más para llegar a los seis?",
             ),
             (
                 "Equipos, ¿los niveles de confianza del dato son los premios del día?",
@@ -306,8 +306,8 @@ SPACES = [
             ),
             (
                 "Monitores, ¿cuál es su aporte principal hoy si no son expertos de cada sector?",
-                "Ordenan lo que el equipo ya trae del territorio y señalan lo que falta, porque solo nombran comprador o permiso si existe.",
-                "Monitores, si solo nombran comprador o permiso si existe, ¿qué les pedirán a su mesa antes de las 11:00?",
+                "Ordenan lo que el equipo ya trae del territorio y señalan lo que falta, sin inventar comprador o permiso.",
+                "Monitores, si señalan lo que falta, ¿qué les pedirán a su mesa antes de las 11:00?",
             ),
             (
                 "Equipos, ¿qué debe salir como pregunta de su equipo antes de las 11:00?",
@@ -322,19 +322,19 @@ SPACES = [
         "time": "11:00",
         "title": "Trabajo de equipos con monitores (bloque 1)",
         "participants": "Catorce equipos Externado, cinco monitores, apoyo Air4U",
-        "asks": "Monitores a los equipos; Miguel de Air4U circula",
+        "asks": "Gideon recorre las mesas: pregunta a equipos, monitores y a Miguel de Air4U",
         "viene": "Instrucciones: criterio de confianza del dato y plan inicial.",
         "lleva": "Prioridades claras por equipo y primer nivel de confianza documentado.",
         "nota": "Solo nombrar comprador, permiso o aliado que el equipo ya tenga.",
         "turns": [
             (
                 "Equipos, ¿qué parte de su plan tiene hoy la mayor urgencia para la persona que sirven?",
-                "Suele apretar ingreso, agua o aire en su barrio o finca, porque la persona ya está allí y buscan comprador o aliado.",
-                "Equipos, si buscan comprador o aliado, ¿dónde anotan las fuentes que ya tienen del territorio?",
+                "Nos aprieta el ingreso, el agua o el aire en el barrio o la finca, y ya buscamos comprador o aliado.",
+                "Equipos, si ya buscan comprador o aliado, ¿dónde anotan las fuentes que ya tienen del territorio?",
             ),
             (
                 "Monitor, ¿el dato es suyo, abierto o sintético y lo declaran en voz alta?",
-                "Lo declaran mezclando mensajes del territorio con registro abierto, porque dicen quién vive el problema y revisan datos sensibles.",
+                "Lo declaran en voz alta como propio, abierto o sintético, y revisan si hay datos personales sensibles.",
                 "Monitor, si hay datos personales sensibles, ¿qué protegen antes de las 12:30?",
             ),
             (
@@ -360,7 +360,7 @@ SPACES = [
         "time": "12:30",
         "title": "Almuerzo y networking",
         "participants": "Equipos libres; mesa invitados (EmprenderMás, APC, RAP, Apix, Air4U, Enrique, Alejandro, CTH)",
-        "asks": "Gideon a la mesa de invitados",
+        "asks": "Gideon a la mesa de invitados y a los equipos que pasan",
         "viene": "Bloque 1: prioridades por equipo y dato sin revisar documentado.",
         "lleva": "Contactos y energía para el bloque 2 de las 13:30.",
         "nota": "En conversación informal, no compartir borradores internos del Observatorio.",
@@ -393,7 +393,7 @@ SPACES = [
         "time": "13:30",
         "title": "Trabajo de equipos y preparación del pitch (bloque 2)",
         "participants": "Equipos y monitores",
-        "asks": "Monitores a los equipos",
+        "asks": "Gideon recorre las mesas: pregunta a equipos y monitores",
         "viene": "Almuerzo: contactos y brechas de dato identificadas.",
         "lleva": "Seis finalistas elegidos y presentación ensayada.",
         "nota": "La lista de seis queda cerrada antes de las 16:00.",
@@ -405,8 +405,8 @@ SPACES = [
             ),
             (
                 "Monitor, según lo visto en las mesas, ¿quiénes van rumbo a los seis finalistas?",
-                "Van quienes tienen persona, desafío y siguiente paso claros en el territorio, porque el plan suena creíble para quien vive el problema.",
-                "Monitor, si el plan suena creíble, ¿quién aún mezcla los niveles del día con el premio?",
+                "Van quienes suman más utilidad y honestidad, más un punto por cada número firme en plata u oro, máximo tres.",
+                "Monitor, antes de las 16:00, ¿cómo revisan dos o tres números de cada equipo?",
             ),
             (
                 "Equipo, en cinco minutos, ¿cómo cuentan a quién ayudan y qué cambia en su territorio?",
@@ -420,8 +420,8 @@ SPACES = [
             ),
             (
                 "Monitores, para quien no entre a los seis, ¿qué confirman ahora?",
-                "Confirman certificado para todos y seguimiento en programas abiertos de CleantechHUB, porque tres ganadores aparte van al Datalab 2027.",
-                "Monitores, si no entran a los seis ni a los tres del 2027, ¿qué quieren saber hoy del certificado?",
+                "Confirman el mismo certificado de participación para los catorce. Entrar al Datalab CTH en 2027 es solo el reconocimiento de los tres.",
+                "Monitores, si el certificado es el mismo para todos, ¿qué les recuerdan sobre la lista de seis que cierra antes de las 16:00?",
             ),
         ],
         "puente": "Presentaciones finales a las 16:00.",
@@ -431,7 +431,7 @@ SPACES = [
         "time": "16:00",
         "title": "Pitches finales: seis equipos preseleccionados",
         "participants": "Seis equipos, auditorio, Gideon como moderador",
-        "asks": "Gideon a cada equipo; equipos al jurado",
+        "asks": "Gideon a cada equipo y al jurado; equipos al jurado",
         "viene": "Bloque 2: seis finalistas y resúmenes listos.",
         "lleva": "Evidencia para deliberación del jurado a las 16:40.",
         "nota": "",
@@ -458,11 +458,11 @@ SPACES = [
             ),
             (
                 "Jurado, al cerrar la ronda, ¿qué pidieron ver igual en los seis?",
-                "Pidieron la misma historia de desafío, personas, innovación y siguiente paso, porque el dato honesto cuenta igual en los seis.",
-                "Jurado, si el dato honesto cuenta igual, ¿cuál equipo lo integró mejor en su territorio?",
+                "Pidieron utilidad y honestidad, de 0 a 5 cada una, medidas igual en los seis.",
+                "Jurado, si hay empate en esa suma, ¿qué criterio va primero?",
             ),
         ],
-        "puente": "Jurado a deliberar: confianza del dato, integración y próximo paso.",
+        "puente": "Jurado a deliberar: utilidad y honestidad, de 0 a 5 cada una. En empate gana la honestidad.",
         "fuente": "Fuente: agenda v7, paquete equipos",
     },
     {
@@ -472,12 +472,12 @@ SPACES = [
         "asks": "Jurado entre sí (Gideon modera la sala en espera)",
         "viene": "Presentaciones: seis evidencias de persona, territorio y negocio.",
         "lleva": "Tres ganadores para anuncio a las 16:50.",
-        "nota": "Si preguntan por costo o acceso: todos reciben certificado y el reconocimiento de los tres ganadores es entrar al Datalab en 2027.",
+        "nota": "Si preguntan por costo o acceso: el mismo certificado de participación para los catorce equipos, no para monitores. El reconocimiento de los tres es entrar al Datalab CTH en 2027.",
         "turns": [
             (
-                "Enrique, ¿damos el mismo peso a confianza del dato e integración al plan del equipo?",
-                "Sí, damos el mismo peso porque persona y territorio nombrados con dato honesto ganan a una lámina bonita sin revisar.",
-                "Enrique, si gana el dato honesto en el lugar, ¿rompemos empate por próximo paso creíble: comprador o acompañamiento?",
+                "Enrique, ¿damos el mismo peso a utilidad y a honestidad, de 0 a 5 cada una?",
+                "Sí, el mismo peso a utilidad y honestidad. Una lámina bonita no gana a un dato honesto en el territorio.",
+                "Enrique, si hay empate en esa suma, ¿rompemos por honestidad?",
             ),
             (
                 "Gideon, ¿algún equipo prometió dato listo para decidir sin explicar el origen?",
@@ -486,13 +486,13 @@ SPACES = [
             ),
             (
                 "Alejandro Díaz, para los tres que entran en 2027, ¿cómo se reparten conexiones de mercado?",
-                "Les damos espacio de prueba y mentoría CTH con adoptantes como Air4U o Agrometers cuando aplique, porque no es incubación.",
-                "Alejandro Díaz, si no es incubación, ¿qué feedback breve llevamos al cierre para quienes no ganan?",
+                "Entran al Datalab CTH en 2027. Hoy no anunciamos adoptantes ni mentorías concretas.",
+                "Alejandro Díaz, si hoy no anunciamos adoptantes, ¿qué feedback breve llevamos al cierre a quienes no ganan?",
             ),
             (
-                "Enrique, ¿certificados listos para todos, monitores incluidos?",
-                "Sí, para catorce equipos y monitores, más tres ganadores aparte, porque el fotógrafo entra en el cierre a las 16:50.",
-                "Enrique, si el fotógrafo entra a las 16:50, ¿quién entrega en escenario y en qué orden?",
+                "Enrique, ¿certificados listos para los catorce equipos?",
+                "Sí, el mismo certificado de participación para los catorce equipos. El reconocimiento de los tres es entrar al Datalab CTH en 2027.",
+                "Enrique, si es el mismo certificado para los catorce, ¿quién lo entrega en el escenario y en qué orden?",
             ),
         ],
         "puente": "Cierre público a las 16:50: tres ganadores y certificados.",
@@ -509,8 +509,8 @@ SPACES = [
         "turns": [
             (
                 "Gideon, ¿cómo anunciamos a los tres ganadores del Datalab 2027 sin mezclar con los niveles del día?",
-                "Anunciamos tres equipos al Datalab CTH en 2027, seis presentaron y los catorce reciben certificado, porque son cosas distintas.",
-                "Gideon, si son cosas distintas, ¿qué compromiso asume CleantechHUB con la persona y el territorio que nombraron?",
+                "Anunciamos tres equipos al Datalab CTH en 2027, seis presentaron y los catorce reciben el mismo certificado de participación.",
+                "Gideon, ¿cómo evitan que el público mezcle los niveles del día, el certificado y el Datalab?",
             ),
             (
                 "Marlene, ¿qué pedirá Externado a esos tres equipos en los primeros treinta días?",
@@ -519,8 +519,8 @@ SPACES = [
             ),
             (
                 "Gideon, ¿qué ofrece CleantechHUB a quienes no ganaron?",
-                "Ofrece actividades abiertas y seguimiento con los mismos principios de desafío, personas, innovación local y siguiente paso.",
-                "Gideon, si repiten esos principios, ¿qué invitación abren a quienes tienen certificado pero no ganaron?",
+                "El certificado de participación y nuestra puerta abierta para seguir conversando. Hoy no anunciamos un programa nuevo.",
+                "Gideon, si la puerta queda abierta, ¿por dónde los pueden buscar los equipos después de hoy?",
             ),
             (
                 "Marlene, ¿con qué frase cierran con el lema del Observatorio?",
@@ -528,7 +528,7 @@ SPACES = [
                 "Marlene, si nombran paso u obstáculo, ¿cómo agradecen hoy a los catorce equipos por persona y territorio?",
             ),
         ],
-        "puente": "Fin del evento; continuidad en el Datalab y seguimiento a equipos.",
+        "puente": "Fin del evento; los tres entran al Datalab CTH en 2027 y los catorce quedan con el mismo certificado de participación.",
         "fuente": "Fuente: agenda v7, notas 23 nov",
     },
 ]
