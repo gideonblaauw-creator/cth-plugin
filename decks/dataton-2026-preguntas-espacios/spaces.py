@@ -113,16 +113,16 @@ SPACES = [
     {
         "time": "09:40",
         "title": "Conversatorio universidad y sector inmobiliario",
-        "participants": "Alejandro Díaz Malagón (Externado), representante de Constructora Bolívar, Gideon Blaauw",
-        "asks": "Gideon a Alejandro Díaz, al representante de Constructora Bolívar y a los equipos",
+        "participants": "Alejandro Díaz Malagón (Externado), Alejandro Henao (Constructora Bolívar), Gideon Blaauw",
+        "asks": "Gideon a Alejandro Díaz, a Alejandro Henao y a los equipos",
         "viene": "Lanzamiento del Observatorio y presentación del Datalab.",
         "lleva": "Pregunta concreta de empresa grande adoptando innovación, hacia Agrometers a las 09:55.",
         "nota": "No presentar Constructora Bolívar como piloto firmado del Observatorio ni nombrar territorio o fechas de piloto.",
         "turns": [
             (
-                "Desde Constructora Bolívar, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?",
+                "Alejandro Henao, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?",
                 "Buscamos pruebas en el barrio antes de escalar una obra, y ahí una startup local con sensores puede ayudar.",
-                "Desde Bolívar, si buscan pruebas en el barrio, ¿qué tendría que mostrar un equipo local para interesarles?",
+                "Alejandro Henao, si buscan pruebas en el barrio, ¿qué tendría que mostrar un equipo local para interesarles?",
             ),
             (
                 "Alejandro Díaz, ¿qué hace un intermediario de confianza en ese puente?",
@@ -130,13 +130,13 @@ SPACES = [
                 "Alejandro Díaz, si falta permiso para datos de la comunidad, ¿qué puente académico ofrece Externado en ese caso?",
             ),
             (
-                "Desde Constructora Bolívar, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?",
-                "Indicadores de agua o energía que cambien una decisión en la obra. Un piloto se conversaría después, nada está firmado.",
-                "Desde Bolívar, si un piloto se conversaría después, ¿qué señal quieren ver en un equipo antes de las 12:30?",
+                "Alejandro Henao, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?",
+                "Compraríamos indicadores de agua o energía que cambien una decisión en la obra. El piloto queda para después, nada está firmado.",
+                "Alejandro Henao, si el piloto queda para después, ¿qué señal quieren ver en un equipo antes de las 12:30?",
             ),
             (
-                "Equipos y Bolívar nos escuchan: ¿cómo conectan datos del celular con lo que pide la constructora?",
-                "Parten de mensajes y fotos del territorio y explican de dónde sale cada dato, porque Bolívar pide persona y lugar en cada equipo.",
+                "Equipos, con Alejandro Henao escuchando: ¿cómo conectan datos del celular con lo que pide la constructora?",
+                "Partimos de mensajes y fotos del territorio y explicamos de dónde sale cada dato, porque Bolívar pide persona y lugar en cada equipo.",
                 "Equipos, si Bolívar pide persona y lugar, ¿qué señal de confianza mínima buscan antes del almuerzo de las 12:30?",
             ),
         ],
@@ -510,7 +510,7 @@ SPACES = [
             (
                 "Gideon, ¿cómo anunciamos a los tres ganadores del Datalab 2027 sin mezclar con los niveles del día?",
                 "Anunciamos tres equipos al Datalab CTH en 2027, seis presentaron y los catorce reciben el mismo certificado de participación.",
-                "Gideon, ¿cómo evitan que el público mezcle los niveles del día, el certificado y el Datalab?",
+                "Gideon, ¿cómo evita que el público mezcle los niveles del día, el certificado y el Datalab?",
             ),
             (
                 "Marlene, ¿qué pedirá Externado a esos tres equipos en los primeros treinta días?",
@@ -525,7 +525,7 @@ SPACES = [
             (
                 "Marlene, ¿con qué frase cierran con el lema del Observatorio?",
                 "Observa. Actúa. Transforma. Mañana cada equipo vuelve a su comunidad con un paso concreto u obstáculo nombrado.",
-                "Marlene, si nombran paso u obstáculo, ¿cómo agradecen hoy a los catorce equipos por persona y territorio?",
+                "Marlene, si cada equipo nombra un paso o un obstáculo, ¿cómo les agradecen hoy a los catorce?",
             ),
         ],
         "puente": "Fin del evento; los tres entran al Datalab CTH en 2027 y los catorce quedan con el mismo certificado de participación.",
