@@ -346,6 +346,40 @@ def fix_guia_hoja1_pipe_scales(doc: Document) -> None:
             _insert_paragraph_after_element(doc, table._tbl, tail)
 
 
+G_SCALE_ROWS = (
+    ("0", "Desconocido"),
+    ("1", "Verbal"),
+    ("2", "Base escrita"),
+    ("3", "Propósito documentado"),
+)
+G_COLLAPSED_RE = re.compile(
+    r"desconocido\s*/\s*verbal\s*/\s*base\s*escrita\s*/\s*propósito\s*documentado",
+    re.I,
+)
+
+# Allowed Guía wording drift vs 72ea013b: collapsed G cell → four rows (capitalized).
+G_WORDING_OLD = "Desconocido/verbal/baseescrita/propósitodocumentado"
+G_WORDING_NEW = G_SCALE_ROWS[0][1], G_SCALE_ROWS[1][1], G_SCALE_ROWS[2][1], G_SCALE_ROWS[3][1]
+
+
+def fix_guia_g_scale_table(doc: Document) -> None:
+    """Split legacy G scale single row into four rows like R/H/F/A."""
+    for table in doc.tables:
+        if table.rows[0].cells[0].text.strip() != SCALE_TABLE_HEADER[0]:
+            continue
+        if len(table.rows) == len(G_SCALE_ROWS) + 1:
+            data = [table.rows[i].cells[1].text.strip() for i in range(1, 5)]
+            if data == list(G_SCALE_ROWS[i][1] for i in range(4)):
+                continue
+        if len(table.rows) != 2:
+            continue
+        if not G_COLLAPSED_RE.search(table.rows[1].cells[1].text):
+            continue
+        for _ in range(3):
+            table.add_row()
+        _fill_scale_table(table, list(G_SCALE_ROWS))
+
+
 def fix_guia_cover_layout(doc: Document) -> None:
     """Restore cover logo + title styling lost during docxcompose merge."""
     if len(doc.paragraphs) < 3:
@@ -429,6 +463,7 @@ def postprocess_guia_docx(doc: Document) -> None:
     _fix_autocontrol_checkboxes(doc)
     fix_hoja4_docx_write_tables(doc)
     fix_guia_hoja1_pipe_scales(doc)
+    fix_guia_g_scale_table(doc)
     fix_guia_tables(doc)
     fix_guia_hoja5_tiebreak_wording(doc)
     fix_guia_cover_layout(doc)
@@ -750,12 +785,42 @@ def _guia_text_bag(doc: Document):
     return Counter(chunks)
 
 
+def _guia_bag_allowed_vs_ref(ref_bag, new_bag):
+    """Ref bag with the only allowed G-table wording swap applied; must equal new."""
+    from collections import Counter
+
+    adj: Counter = Counter(ref_bag)
+    if G_WORDING_OLD in adj:
+        adj[G_WORDING_OLD] -= 1
+        if adj[G_WORDING_OLD] <= 0:
+            del adj[G_WORDING_OLD]
+    for piece in G_WORDING_NEW:
+        key = re.sub(r"\s+", "", piece)
+        adj[key] = adj.get(key, 0) + 1
+    for digit in ("0", "1", "2", "3"):
+        adj[digit] = adj.get(digit, 0) + 1
+    return adj == new_bag
+
+
+def _guia_wording_symmetric_diff(ref_bag, new_bag):
+    from collections import Counter
+
+    only_ref = ref_bag - new_bag
+    only_new = new_bag - ref_bag
+    return only_ref, only_new
+
+
 def _verify_guia_run9_text_unchanged() -> None:
     ref = _docx_from_git(RUN9_TEXT_REF)
     new = Document(OUT_DOCX)
-    if _guia_text_bag(ref) != _guia_text_bag(new):
-        raise SystemExit(f"guia docx text drift vs {RUN9_TEXT_REF[:8]} (wording multiset)")
-    print("guia_docx_run9_text_diff", 0)
+    ref_bag = _guia_text_bag(ref)
+    new_bag = _guia_text_bag(new)
+    if not _guia_bag_allowed_vs_ref(ref_bag, new_bag):
+        only_ref, only_new = _guia_wording_symmetric_diff(ref_bag, new_bag)
+        raise SystemExit(
+            f"guia docx text drift vs {RUN9_TEXT_REF[:8]}: only_ref={dict(only_ref)} only_new={dict(only_new)}"
+        )
+    print("guia_docx_run9_text_diff", "g_table_only")
 
 
 def main() -> int:

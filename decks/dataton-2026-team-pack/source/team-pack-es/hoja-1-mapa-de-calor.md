@@ -76,8 +76,12 @@ U cuenta como No.
 
 ### Acceso legal / ético (G) — etiqueta, no suma al puntaje
 
-| 0–3 | Desconocido / verbal / base escrita / propósito documentado |
-| Para datos operativos propios no personales, si deja G en blanco el facilitador usa **G = 2** salvo que usted indique un límite. |
+| 0 | Desconocido |
+| 1 | Verbal |
+| 2 | Base escrita |
+| 3 | Propósito documentado |
+
+Para datos operativos propios no personales, si deja G en blanco el facilitador usa **G = 2** salvo que usted indique un límite.
 
 ### Modo de captura (M) — etiqueta
 

@@ -31,6 +31,8 @@ DASH_PNG = ASSETS / "ejemplo-tablero-air4u.png"
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
 GREY = RGBColor(0x66, 0x66, 0x66)
 AI_MARKER = "INSTRUCCIÓN PARA LA IA (copiar y pegar)"
+OPTIONAL_1B_MARKER = "INSTRUCCIÓN OPCIONAL PARA LA IA: lienzo como mapa de calor (copiar y pegar)"
+CANVAS_PREFIX = "Active Canvas en su chat de IA"
 
 JARGON_RE = re.compile(
     r"(?i)\b("
@@ -226,6 +228,48 @@ def _ai_table(doc: Document, body: str) -> None:
     _table_counter += 1
 
 
+def load_parte_1b_optional_lines() -> list[tuple[str, bool]]:
+    import hashlib
+
+    raw = PROMPTS_TXT.read_text(encoding="utf-8")
+    if hashlib.sha256(raw.encode("utf-8")).hexdigest() != PROMPTS_V3_SHA:
+        raise SystemExit(f"prompts.txt sha mismatch (expected {PROMPTS_V3_SHA})")
+    chunks = re.split(r"(?=^Parte: )", raw.strip(), flags=re.MULTILINE)
+    for chunk in chunks:
+        if "Parte 1-B (opcional)" not in chunk.split("\n", 1)[0]:
+            continue
+        lines = chunk.strip().split("\n")
+        blank = lines.index("")
+        body_lines = lines[blank + 1 :]
+        out: list[tuple[str, bool]] = []
+        for line in body_lines:
+            if not line.strip():
+                continue
+            out.append((line, line.startswith(CANVAS_PREFIX)))
+        return out
+    raise SystemExit("Parte 1-B block missing in prompts.txt")
+
+
+def _ai_optional_1b_table(doc: Document, lines: list[tuple[str, bool]]) -> None:
+    global _table_counter
+    table = doc.add_table(rows=1, cols=1)
+    table.style = "Table Grid"
+    cell = table.rows[0].cells[0]
+    cell.text = ""
+    p0 = cell.paragraphs[0]
+    r0 = p0.add_run(OPTIONAL_1B_MARKER)
+    r0.bold = True
+    r0.font.size = Pt(9)
+    for text, italic in lines:
+        p = cell.add_paragraph(text)
+        p.style = "Normal"
+        for run in p.runs:
+            run.font.size = Pt(8)
+            run.italic = italic
+    AI_TABLE_IDS.add(_table_counter)
+    _table_counter += 1
+
+
 def _closing_drive_box(doc: Document) -> None:
     table = doc.add_table(rows=1, cols=1)
     table.style = "Table Grid"
@@ -328,25 +372,8 @@ def render_example_images() -> None:
     img2.save(DASH_PNG, dpi=(200, 200))
 
 
-AI_P0 = """Lea el documento completo que el equipo subió. Use solo sus respuestas; marque «desconocido» lo que no contestaron. Escriba en español de Colombia.
-Arme un resumen de una página con: territorio, comunidad, problema, solución, canales, ingresos, actividades clave, aliados, costos principales e impacto territorial. No invente cifras ni nombres de personas. No agregue grupos de personas ni datos que el equipo no escribió."""
-
-AI_P1 = """Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2."""
-
-AI_P2 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Escriba estas cuatro definiciones, una por línea y sin cambiarlas:
-ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal.
-bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.
-plata: limpio, con reglas de limpieza escritas y calidad revisada.
-oro: listo para una decisión y un público con nombre.
-Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:"""
-
-AI_P3 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Boceto de tablero en bloque de código (máx. 56 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]. Conserve las tildes. Una referencia pública (por ejemplo, OMS) se marca «referencia», no firme ni estimado."""
-
-AI_P4 = """Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Guion de 600–650 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor»."""
+PROMPTS_V3_SHA = "4cd248ad16227c7cbd6fc33a5b89548920ab978371525a5e57a5de9b95e2fe6a"
+QUESTIONNAIRE_PARTE_SKIP = "Parte 1-B (opcional)"
 
 
 PROMPTS_META = [
@@ -382,6 +409,9 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     global _table_counter, AI_TABLE_IDS
     _table_counter = 0
     AI_TABLE_IDS.clear()
+    ai_bodies = load_questionnaire_ai_bodies()
+    ai_p0, ai_p1, ai_p2, ai_p3, ai_p4 = ai_bodies
+    ai_1b = load_parte_1b_optional_lines()
 
     doc = Document()
     _set_doc_defaults(doc)
@@ -454,7 +484,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         )
     else:
         _qa_table(doc, q0)
-    _ai_table(doc, AI_P0)
+    _ai_table(doc, ai_p0)
 
     # Parte 1
     doc.add_heading("Parte 1. ¿Qué información tienen y dónde está?", level=1)
@@ -512,14 +542,15 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     else:
         _qa_table(doc, q1_detail)
     _embed_image(doc, HEATMAP_PNG, 14)
-    _ai_table(doc, AI_P1)
+    _ai_table(doc, ai_p1)
+    _ai_optional_1b_table(doc, ai_1b)
 
     # Parte 2
     doc.add_heading("Parte 2. ¿Cómo nace un dato y qué tan confiable es?", level=1)
     _part_meta(
         doc,
         "Describe el camino del dato más importante y qué tan ordenado está.",
-        "Nivel de confianza sugerido y un paso para mejorarlo.",
+        "Tarjeta de flujo de su dato principal, nivel de confianza sugerido y un paso para mejorarlo.",
         "Bloque 2 — tarde",
         "30 min",
     )
@@ -583,7 +614,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         )
     else:
         _qa_table(doc, q2_chk)
-    _ai_table(doc, AI_P2)
+    _ai_table(doc, ai_p2)
 
     # Parte 3
     doc.add_heading("Parte 3. ¿Qué decisión ayudan a tomar?", level=1)
@@ -633,7 +664,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     else:
         _qa_table(doc, q3)
     _embed_image(doc, DASH_PNG, 14)
-    _ai_table(doc, AI_P3)
+    _ai_table(doc, ai_p3)
 
     # Parte 4
     doc.add_heading("Parte 4. Su pitch de 5 minutos", level=1)
@@ -665,8 +696,22 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
         )
     else:
         _qa_table(doc, q4)
-    _ai_table(doc, AI_P4)
+    _ai_table(doc, ai_p4)
     _closing_drive_box(doc)
+
+    for para in doc.paragraphs:
+        for run in para.runs:
+            run.font.name = "Open Sans"
+    for table in doc.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for para in cell.paragraphs:
+                    for run in para.runs:
+                        run.font.name = "Open Sans"
+    for section in doc.sections:
+        for para in section.header.paragraphs + section.footer.paragraphs:
+            for run in para.runs:
+                run.font.name = "Open Sans"
 
     target = out_path or (OUT_EJEMPLO_DOCX if filled_air4u else OUT_DOCX)
     doc.save(target)
@@ -674,7 +719,19 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     return doc
 
 
+def ensure_open_sans_fontconfig() -> None:
+    """Register pack Open Sans TTFs for LibreOffice PDF export (fc-match must not fall back to Noto)."""
+    probe = subprocess.run(["fc-match", "Open Sans"], capture_output=True, text=True)
+    if "OpenSans" in probe.stdout or "Open Sans" in probe.stdout:
+        if "Noto" not in probe.stdout.split(":")[0]:
+            return
+    script = PACK / "fonts" / "install-fonts.sh"
+    if script.is_file():
+        subprocess.run(["bash", str(script)], check=True)
+
+
 def convert_pdf(docx_path: Path, pdf_path: Path) -> None:
+    ensure_open_sans_fontconfig()
     subprocess.run(
         [
             "libreoffice",
@@ -737,8 +794,8 @@ def write_prompts_txt(docx_path: Path, dest: Path = PROMPTS_TXT) -> None:
     dest.write_text(text, encoding="utf-8")
 
 
-def parse_prompts_instruction_blocks(raw: str) -> list[str]:
-    """Extract the five instruction bodies from prompts.txt (after header triplets)."""
+def parse_prompts_instruction_blocks(raw: str, *, questionnaire_only: bool = False) -> list[str]:
+    """Extract instruction bodies from prompts.txt (after header triplets)."""
     chunks = re.split(r"(?=^Parte: )", raw.strip(), flags=re.MULTILINE)
     bodies: list[str] = []
     for chunk in chunks:
@@ -746,6 +803,9 @@ def parse_prompts_instruction_blocks(raw: str) -> list[str]:
         if not chunk.startswith("Parte:"):
             continue
         lines = chunk.split("\n")
+        parte_line = lines[0].strip()
+        if questionnaire_only and QUESTIONNAIRE_PARTE_SKIP in parte_line:
+            continue
         try:
             blank = lines.index("")
         except ValueError:
@@ -754,10 +814,22 @@ def parse_prompts_instruction_blocks(raw: str) -> list[str]:
     return bodies
 
 
+def load_questionnaire_ai_bodies() -> list[str]:
+    import hashlib
+
+    raw = PROMPTS_TXT.read_text(encoding="utf-8")
+    if hashlib.sha256(raw.encode("utf-8")).hexdigest() != PROMPTS_V3_SHA:
+        raise SystemExit(f"prompts.txt sha mismatch (expected {PROMPTS_V3_SHA})")
+    bodies = parse_prompts_instruction_blocks(raw, questionnaire_only=True)
+    if len(bodies) != 5:
+        raise SystemExit(f"expected 5 questionnaire instruction blocks, got {len(bodies)}")
+    return bodies
+
+
 def verify_prompts_txt(docx_path: Path, prompts_path: Path = PROMPTS_TXT) -> None:
     from_docx = extract_ai_instruction_bodies(docx_path)
     raw = prompts_path.read_text(encoding="utf-8")
-    instruction_blocks = parse_prompts_instruction_blocks(raw)
+    instruction_blocks = parse_prompts_instruction_blocks(raw, questionnaire_only=True)
     if instruction_blocks != from_docx:
         raise SystemExit("prompts.txt instruction blocks do not match blank docx byte-for-byte")
     print("prompts_txt_verify", "OK", len(instruction_blocks), "blocks")
@@ -769,7 +841,8 @@ def audit_air4u_numbers(docx_path: Path) -> None:
     doc = D(docx_path)
     text_parts: list[str] = []
     for table in doc.tables:
-        if table.rows[0].cells[0].text.strip().startswith(AI_MARKER):
+        hdr = table.rows[0].cells[0].text.strip()
+        if hdr.startswith(AI_MARKER) or hdr.startswith(OPTIONAL_1B_MARKER):
             continue
         if "Reglas para ustedes" in table.rows[0].cells[0].text:
             continue
@@ -810,7 +883,7 @@ def docx_readable_text(path: Path) -> str:
     ai_idx = 0
     for table in doc.tables:
         first = table.rows[0].cells[0].text.strip()
-        if first.startswith("INSTRUCCIÓN PARA LA IA"):
+        if first.startswith("INSTRUCCIÓN PARA LA IA") or first.startswith("INSTRUCCIÓN OPCIONAL PARA LA IA"):
             ai_idx += 1
             continue
         if "Reglas para ustedes" in first:
@@ -848,9 +921,29 @@ def _ai_instruction_text(docx_path: Path) -> str:
     chunks: list[str] = []
     for table in D(docx_path).tables:
         cell = table.rows[0].cells[0]
-        if cell.text.strip().startswith(AI_MARKER):
+        hdr = cell.text.strip()
+        if hdr.startswith(AI_MARKER) or hdr.startswith(OPTIONAL_1B_MARKER):
             chunks.append(cell.text)
     return "\n".join(chunks)
+
+
+def extract_parte_1b_optional_body(docx_path: Path) -> str:
+    from docx import Document as D
+
+    for table in D(docx_path).tables:
+        cell = table.rows[0].cells[0]
+        if not cell.text.strip().startswith(OPTIONAL_1B_MARKER):
+            continue
+        lines: list[str] = []
+        past = False
+        for para in cell.paragraphs:
+            if OPTIONAL_1B_MARKER in para.text:
+                past = True
+                continue
+            if past and para.text.strip():
+                lines.append(para.text)
+        return "\n".join(lines)
+    raise SystemExit(f"Parte 1-B optional box missing in {docx_path}")
 
 
 def grep_team_facing_bans() -> dict[str, list[str]]:
@@ -888,9 +981,10 @@ def word_count_per_instruction(docx_path: Path) -> list[tuple[str, int]]:
 
 def main() -> int:
     render_example_images()
+    if not PROMPTS_TXT.is_file():
+        raise SystemExit("prompts.txt missing — write v3 before build")
     build_docx(filled_air4u=False)
     convert_pdf(OUT_DOCX, OUT_PDF)
-    write_prompts_txt(OUT_DOCX)
     verify_prompts_txt(OUT_DOCX)
     build_docx(filled_air4u=True, out_path=OUT_EJEMPLO_DOCX)
     convert_pdf(OUT_EJEMPLO_DOCX, OUT_EJEMPLO_PDF)

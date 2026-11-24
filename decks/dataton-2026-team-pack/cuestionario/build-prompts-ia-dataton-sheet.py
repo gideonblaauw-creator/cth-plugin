@@ -21,7 +21,7 @@ OUT_DOCX = ROOT / "Prompts-IA-Dataton-24nov.docx"
 OUT_PDF = ROOT / "Prompts-IA-Dataton-24nov.pdf"
 LOGO = PACK / "assets" / "cth-logo-color.png"
 TOP_LINE = "Suban su cuestionario lleno al chat de IA y copien una instrucción a la vez."
-PROMPTS_TXT_SHA = "ff7ab27c22b3f03e2a2a0b55d477ccae2ccf637a7b79f946019add64109b5df8"
+PROMPTS_TXT_SHA = "4cd248ad16227c7cbd6fc33a5b89548920ab978371525a5e57a5de9b95e2fe6a"
 CANVAS_PREFIX = "Active Canvas en su chat de IA"
 
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
@@ -249,8 +249,8 @@ def main() -> int:
     import fitz
 
     n = fitz.open(OUT_PDF).page_count
-    if n > 2:
-        raise SystemExit(f"Prompts IA sheet must be 1–2 pages, got {n}")
+    if n > 3:
+        raise SystemExit(f"Prompts IA sheet must be 1–3 pages, got {n}")
     print("prompts_ia_sheet_docx", OUT_DOCX)
     print("prompts_ia_sheet_pdf", OUT_PDF, "pages", n)
     return 0

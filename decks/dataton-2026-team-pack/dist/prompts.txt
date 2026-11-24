@@ -1,16 +1,20 @@
 Parte: Parte 0. Su proyecto en una página
 Salida esperada: Resumen de una página en sus palabras.
-Forma esperada: Texto continuo de una página.
+Forma esperada: 10 títulos fijos con 1–2 frases cada uno (máx. 300 palabras).
 
 Lea el documento completo que el equipo subió. Use solo sus respuestas; marque «desconocido» lo que no contestaron. Escriba en español de Colombia.
-Arme un resumen de una página con: territorio, comunidad, problema, solución, canales, ingresos, actividades clave, aliados, costos principales e impacto territorial. No invente cifras ni nombres de personas. No agregue grupos de personas ni datos que el equipo no escribió.
+Entregue el resumen de su proyecto en una página (máx. 300 palabras) con estos 10 títulos, en este orden y con 1–2 frases cada uno: Territorio, Comunidad, Problema, Solución, Canales, Ingresos, Actividades clave, Aliados, Costos principales, Impacto territorial. Use las palabras del equipo. No invente cifras ni nombres de personas. No agregue grupos de personas ni datos que el equipo no escribió.
 
 Parte: Parte 1. ¿Qué información tienen y dónde está?
 Salida esperada: Mapa de calor por área del negocio y lista «qué falta».
-Forma esperada: Tabla Área | Nivel | Qué tienen; viñetas «Qué falta» y fuentes para la Parte 2.
+Forma esperada: Tabla Área | Nivel | Qué tienen con 9 áreas fijas; viñetas «Qué falta» y fuentes para la Parte 2.
 
 Lea el documento. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso. Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Sin marcas X. «Qué falta» (máx. 5) y 1–2 fuentes para la Parte 2.
+Entregue el mapa de calor de sus datos por área del negocio y la lista «Qué falta».
+1) Tabla de tres columnas: Área | Nivel | Qué tienen (máx. 8 palabras). Nueve filas con estos nombres fijos: Socios clave, Actividades clave, Recursos clave, Propuestas de valor, Relaciones con clientes, Canales, Segmentos de clientes, Estructura de costos, Flujos de ingreso.
+2) Ubique cada tipo de información de la Parte 1 (1 a 5) en el área o las áreas a las que pertenece y nómbrela en «Qué tienen».
+3) Nivel con cuadrado 🟥 caliente, 🟧 tibio o 🟦 frío y esta leyenda: 🟥 caliente = datos guardados y útiles; 🟧 tibio = datos incompletos o dispersos; 🟦 frío = sin datos. Decida con las respuestas sobre dónde vive, si se puede descargar y si hay permiso: caliente solo si está guardada en un archivo o sistema con responsable y se puede descargar; tibio si existe pero está en chats, papel o memoria, no se puede descargar o no hay permiso; frío si ningún tipo de información toca esa área. Sin marcas X.
+4) Debajo de la tabla: «Qué falta» (máx. 5 viñetas) y 1–2 fuentes de datos para la Parte 2.
 
 Parte: Parte 1-B (opcional)
 Salida esperada: Lienzo del modelo de negocio como mapa de calor, en una página web
@@ -28,27 +32,41 @@ Debajo del lienzo: leyenda de colores con la regla de puntaje, «Qué falta» (m
 Que quepa en una pantalla, fuente Open Sans o sans-serif, texto oscuro y legible sobre cada color. Escriba el diseño con CSS propio dentro del mismo archivo, sin Tailwind ni otras librerías externas, y mantenga la cuadrícula de 9 bloques en pantallas de computador. No invente datos ni nombres de personas.
 
 Parte: Parte 2. ¿Cómo nace un dato y qué tan confiable es?
-Salida esperada: Cuatro niveles de confianza y lectura del dato principal del equipo.
-Forma esperada: Cuatro definiciones, luego Nivel sugerido / Lo que falta / Un paso concreto.
+Salida esperada: Tarjeta de flujo del dato principal y su nivel de confianza.
+Forma esperada: Pasos numerados con rol y herramienta; cuatro definiciones; Nivel sugerido / Lo que falta / Un paso concreto.
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Escriba estas cuatro definiciones, una por línea y sin cambiarlas:
+Entregue la tarjeta de flujo de su dato más importante y su nivel de confianza, en tres partes:
+1) Tarjeta de flujo: nombre del dato; qué crea un registro nuevo; pasos en orden y numerados (3 a 8), cada uno con quién lo hace (rol) y con qué herramienta; qué anotan aparte del número; cómo revisan errores.
+2) Escriba estas cuatro definiciones, una por línea y sin cambiarlas:
 ninguno: el dato está solo en chats o en la memoria, sin permiso o sin poder descargarlo. Empezar aquí es normal.
 bronce: guardado en un lugar con responsable, con permiso escrito y se puede descargar como archivo.
 plata: limpio, con reglas de limpieza escritas y calidad revisada.
 oro: listo para una decisión y un público con nombre.
-Son niveles de confianza, no premios. Luego tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde:
+Son niveles de confianza, no premios.
+3) Tres líneas separadas: Nivel sugerido: / Lo que falta para subir: / Un paso concreto para esta tarde: El nivel sugerido es una de las cuatro palabras, con una frase de por qué según sus respuestas sí / no / no sé.
 
 Parte: Parte 3. ¿Qué decisión ayudan a tomar?
-Salida esperada: Boceto de tablero de una pantalla (rol, decisión, números con firme/estimado).
-Forma esperada: Boceto en bloque de código (máx. 56 caracteres de ancho).
+Salida esperada: Boceto de tablero de una pantalla (usuario, decisión, tres números, valor).
+Forma esperada: Bloque de código de máx. 56 caracteres: Usuario, Decisión, tres bloques con un número cada uno, Valor.
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Boceto de tablero en bloque de código (máx. 56 caracteres de ancho) con tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». Cada número es firme solo si sus datos están en plata u oro; si no, estimado. Incluya rol, decisión de la semana y 2–3 números con fuente. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]. Conserve las tildes. Una referencia pública (por ejemplo, OMS) se marca «referencia», no firme ni estimado.
+Entregue el boceto de su tablero de una pantalla en un bloque de código (máx. 56 caracteres de ancho), en este orden:
+1) Usuario: el rol que decide.
+2) Decisión: una frase «¿Debe [acción] antes de [cuándo]?».
+3) Tres bloques: «Cómo está hoy», «Qué cambia con ustedes», «Contexto de datos abiertos». En cada bloque, un número con su unidad, su etiqueta (firme, estimado o referencia), su fuente y la pregunta clave que responde (1, 2 o 3). Si falta el número, escriba «desconocido».
+4) Valor: una línea sobre lo que vale la decisión (dinero, riesgo, tiempo o salud).
+Un número es firme solo si sus datos están en plata u oro; si no, estimado. Una referencia pública (por ejemplo, OMS) se marca «referencia», no firme ni estimado. Si los derechos de datos no están claros, escriba «no publicar». Sin citas ni marcas como [cite]. Conserve las tildes.
 
 Parte: Parte 4. Su pitch de 5 minutos
 Salida esperada: Guion de pitch de cinco minutos (600–650 palabras).
-Forma esperada: Cinco secciones con encabezados y minutos aproximados.
+Forma esperada: Cinco títulos iguales a la plantilla de pitch, con sus tiempos.
 
 Lea el documento subido. Solo respuestas del equipo; marque desconocido; no invente números; español de Colombia.
-Guion de 600–650 palabras (~5 min en voz alta), cinco secciones con minutos aproximados: problema; datos que usamos; la pantalla; beneficio; próximos pasos. Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor».
+Entregue el guion de su pitch de 5 minutos (600–650 palabras, para leer en voz alta) con estos cinco títulos y tiempos, iguales a la plantilla de pitch:
+1. Problema (~0:45): usuario, decisión de esta semana y qué cuesta no decidir.
+2. Datos usados (~1:15): fuentes, qué periodo y lugar cubren, huecos, y si cada cifra es firme, estimada o referencia.
+3. Tablero / hallazgo (~2:00): qué ve el usuario en diez segundos y la cifra clave con su confianza.
+4. Impacto (~3:00): quién se beneficia y de qué tamaño es el cambio, con fuente.
+5. Próximo paso (~4:00): qué piden a 30 días y qué validan a 90 días.
+Párrafos cortos. Marque cifras sin fuente como [sin fuente]. Si en próximos pasos escribieron «no sé», proponga 2 opciones etiquetadas «sugerencia, validar con su mentor».

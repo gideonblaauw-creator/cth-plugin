@@ -163,7 +163,7 @@ BYTE_IDENTICAL: tuple[tuple[str, str], ...] = (
     ("cuestionario/Cuestionario-Dataton-24nov-equipos.pdf", "df28f7a25159f7dc516fc171329081a6c86fc75aea3d051bf7cb39debadc503d"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.docx", "c0294707fa982d9eee32626797738d34a3d4dff985cdb352b91b8dcf145dfea6"),
     ("cuestionario/Cuestionario-ejemplo-Air4U.pdf", "ea4bfa7a19bdc0e475268e11ac00d3ac0278305b245ec16e71a100fe40d245da"),
-    ("cuestionario/prompts.txt", "ff7ab27c22b3f03e2a2a0b55d477ccae2ccf637a7b79f946019add64109b5df8"),
+    ("cuestionario/prompts.txt", "4cd248ad16227c7cbd6fc33a5b89548920ab978371525a5e57a5de9b95e2fe6a"),
 )
 
 TABLE_INSERT_RE = re.compile(r"_TABLE_INSERT|CTH_\w+_INSERT")
@@ -259,8 +259,77 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def fix_guia_hoja1_scale_markdown(md_text: str) -> str:
+    """Guía PDF merge only: pipe rows under H/F/A/G → 2-col tables (words unchanged)."""
+    scale_heads = (
+        "### Historia (H)",
+        "### Frecuencia (F)",
+        "### Acceso técnico (A)",
+        "### Acceso legal / ético (G)",
+    )
+    lines = md_text.splitlines()
+    out: list[str] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if line.startswith(scale_heads):
+            out.append(line)
+            i += 1
+            while i < len(lines) and not lines[i].strip():
+                i += 1
+            pipe_rows: list[str] = []
+            tail_para: str | None = None
+            while i < len(lines):
+                stripped = lines[i].strip()
+                if stripped.startswith("### ") or stripped.startswith("## "):
+                    break
+                if not stripped:
+                    i += 1
+                    continue
+                if not stripped.startswith("|"):
+                    break
+                if "Para datos operativos propios" in stripped:
+                    tail_para = stripped.strip("|").strip()
+                    i += 1
+                    break
+                pipe_rows.append(stripped)
+                i += 1
+            if pipe_rows:
+                expanded: list[str] = []
+                collapsed_g = re.compile(
+                    r"desconocido\s*/\s*verbal\s*/\s*base\s*escrita\s*/\s*propósito\s*documentado",
+                    re.I,
+                )
+                for row in pipe_rows:
+                    if collapsed_g.search(row):
+                        expanded.extend(
+                            (
+                                "| 0 | Desconocido |",
+                                "| 1 | Verbal |",
+                                "| 2 | Base escrita |",
+                                "| 3 | Propósito documentado |",
+                            )
+                        )
+                    else:
+                        expanded.append(row)
+                out.append("")
+                out.append("| 0–3 | Significado (resumen) |")
+                out.append("| --- | --- |")
+                out.extend(expanded)
+                out.append("")
+            if tail_para:
+                out.append(tail_para)
+                out.append("")
+            continue
+        out.append(line)
+        i += 1
+    return "\n".join(out)
+
+
 def md_to_guia_merge_html(md_text: str, title: str, borrador: bool = False) -> str:
     """Same as md_to_html_body but CSS forces Open Sans for Guía PDF merge (dist PDFs unchanged)."""
+    if title == "hoja-1-mapa-de-calor":
+        md_text = fix_guia_hoja1_scale_markdown(md_text)
     html = md_to_html_body(md_text, title, borrador=borrador)
     return html.replace('href="md-print.css"', 'href="guia-hoja-merge-print.css"')
 
