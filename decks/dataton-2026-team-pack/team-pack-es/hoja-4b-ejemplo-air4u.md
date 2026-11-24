@@ -23,7 +23,7 @@
 
 ## Tres paneles + puente de valor
 
-<div class="callout-delta">Delta: donde el dato se vuelve valor — Línea base + Paisaje → Delta → valor</div>
+<div class="callout-delta">Delta: donde el dato se vuelve valor — Línea base + Paisaje › Delta › valor</div>
 
 ### Panel 1 — Línea base del cliente · N1
 

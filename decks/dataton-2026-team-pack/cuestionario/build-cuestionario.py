@@ -64,7 +64,8 @@ _table_counter = 0
 
 
 def _font_path() -> Path:
-    p = ASSETS / "OpenSans-Regular.ttf"
+    pack_font = PACK / "fonts" / "open-sans" / "OpenSans-Regular.ttf"
+    p = pack_font if pack_font.is_file() else ASSETS / "OpenSans-Regular.ttf"
     return p if p.is_file() else Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")
 
 
@@ -263,7 +264,10 @@ def render_example_images() -> None:
     ASSETS.mkdir(parents=True, exist_ok=True)
     font = ImageFont.truetype(str(_font_path()), 14)
     font_sm = ImageFont.truetype(str(_font_path()), 11)
-    font_lg = ImageFont.truetype(str(ASSETS / "OpenSans-SemiBold.ttf"), 16)
+    semi = PACK / "fonts" / "open-sans" / "OpenSans-SemiBold.ttf"
+    if not semi.is_file():
+        semi = ASSETS / "OpenSans-SemiBold.ttf"
+    font_lg = ImageFont.truetype(str(semi), 16)
 
     # Heatmap — no invented metrics; qualitative only (hoja-4b: permissions weak, exports unclear)
     w, h = 820, 520
@@ -522,7 +526,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
     q2 = [
         ("¿Cuál fue la información más importante de la Parte 1?", "Las lecturas del sensor en la clínica."),
         ("¿Qué pasa para crear un registro nuevo?", "El sensor mide; la plataforma guarda la lectura."),
-        ("¿Cuáles son los pasos en orden?", "Medición → guardado en plataforma → aviso al gestor si hay alerta."),
+        ("¿Cuáles son los pasos en orden?", "Medición › guardado en plataforma › aviso al gestor si hay alerta."),
         ("¿Quién participa en cada paso?", "Sensor automático; gestor revisa y avisa a mantenimiento."),
         ("¿Qué herramienta usan?", "Sensor en sitio y aplicación web del proveedor."),
         ("¿Qué anotan aparte del número?", "Comentarios en WhatsApp si hubo intervención."),
@@ -536,7 +540,7 @@ def build_docx(*, filled_air4u: bool = False, out_path: Path | None = None) -> D
             [
                 "Lecturas del sensor en la clínica piloto.",
                 "El sensor mide y la plataforma registra la lectura.",
-                "Medición → guardado en plataforma → aviso al gestor si hay alerta.",
+                "Medición › guardado en plataforma › aviso al gestor si hay alerta.",
                 "Sensor automático; gestor revisa y avisa a mantenimiento.",
                 "Sensor en sitio y aplicación del proveedor.",
                 "Comentarios en WhatsApp cuando hubo intervención.",

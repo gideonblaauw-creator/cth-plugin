@@ -35,17 +35,7 @@ Plantilla **imprimible** para bocetar **un usuario**, **una decisión** y **dos 
 
 ## Tres paneles + puente de valor
 
-```
-                    ┌──────────────────────────────────────┐
-                    │ Delta: donde el dato se vuelve valor  │
-                    │  entradas ──► salida ──► línea valor  │
-                    └──────────────────────────────────────┘
-           ▲                    ▲                    ▲
-           │                    │                    │
-  Línea base          Delta innovador         Panorama datos
-  del cliente         (su intervención)       abiertos
-     (entrada)              (salida)              (entrada)
-```
+CTH_PUENTE_TABLE_INSERT
 
 ### Panel 1 — Línea base del cliente
 
@@ -89,7 +79,7 @@ Plantilla **imprimible** para bocetar **un usuario**, **una decisión** y **dos 
 |---|---|
 | Entradas | Línea base del cliente **+** Panorama de datos abiertos |
 | Salida | Delta del innovador |
-| Hacia el pie | Delta innovador **→** línea de valor (abajo) |
+| Hacia el pie | Delta innovador **›** línea de valor (abajo) |
 
 ---
 

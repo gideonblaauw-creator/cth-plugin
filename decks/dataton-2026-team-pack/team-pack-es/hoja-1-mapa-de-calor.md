@@ -30,7 +30,7 @@ Esta hoja ubica **dónde** ya hay datos en su Lienzo de Modelo de Negocio (9 blo
 | Código | Significado |
 |---|---|
 | Y | Puede decir dónde están los registros hoy |
-| N | Sabe que existen pero no dónde → **REO** |
+| N | Sabe que existen pero no dónde › **REO** |
 
 ### Confiabilidad (R) — ¿dónde está la copia maestra hoy?
 
@@ -61,7 +61,7 @@ Esta hoja ubica **dónde** ya hay datos en su Lienzo de Modelo de Negocio (9 blo
 
 ### Acceso técnico (A)
 
-| 0 | No recuperable en 1 semana, o U. **REO → A = 0** |
+| 0 | No recuperable en 1 semana, o U. **REO › A = 0** |
 | 1 | Recuperable en 1 semana, pero no como tabla; o sin responsable nombrado |
 | 2 | Archivo exportable (CSV, XLSX) **y** responsable nombrado |
 | 3 | Exportación automática o API **y** responsable nombrado |

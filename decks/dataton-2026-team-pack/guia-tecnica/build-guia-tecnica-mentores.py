@@ -14,6 +14,8 @@ from pathlib import Path
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn as oxml_qn
 from docx.shared import Mm, Pt, RGBColor
 from docxcompose.composer import Composer
 
@@ -44,6 +46,96 @@ SOURCES: list[tuple[str, Path, str]] = [
     ("Hoja 5 — plantilla pitch", TEAM / "hoja-5-plantilla-pitch.md", "markdown"),
     ("Prompts IA v2 — rúbrica de puntuación", PRINT / "prompts-ia-v2.html", "html"),
 ]
+
+
+def _table_borders(table) -> None:
+    tbl = table._tbl
+    tbl_pr = tbl.tblPr
+    if tbl_pr is None:
+        tbl_pr = OxmlElement("w:tblPr")
+        tbl.insert(0, tbl_pr)
+    borders = OxmlElement("w:tblBorders")
+    for edge in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        el = OxmlElement(f"w:{edge}")
+        el.set(oxml_qn("w:val"), "single")
+        el.set(oxml_qn("w:sz"), "4")
+        el.set(oxml_qn("w:space"), "0")
+        el.set(oxml_qn("w:color"), "000000")
+        borders.append(el)
+    old = tbl_pr.find(oxml_qn("w:tblBorders"))
+    if old is not None:
+        tbl_pr.remove(old)
+    tbl_pr.append(borders)
+
+
+def _insert_table_after_paragraph(doc: Document, paragraph, rows: int, cols: int):
+    table = doc.add_table(rows=rows, cols=cols)
+    tbl_el = table._tbl
+    body = tbl_el.getparent()
+    body.remove(tbl_el)
+    paragraph._p.addnext(tbl_el)
+    return table
+
+
+def _remove_paragraph(paragraph) -> None:
+    element = paragraph._element
+    element.getparent().remove(element)
+
+
+def _fill_boceto_cells(table) -> None:
+    r0 = ("LÍNEA BASE", "DELTA", "PAISAJE")
+    r1 = ("[N1] (firme/est.)", "[N2]", "[N3]")
+    r2 = ("nota breve", "nota breve", "nota breve")
+    for ri, row_data in enumerate((r0, r1, r2)):
+        for ci, text in enumerate(row_data):
+            table.rows[ri].cells[ci].text = text
+
+
+def _fill_puente_cells(table) -> None:
+    merged = table.rows[0].cells[0]
+    for c in table.rows[0].cells[1:]:
+        merged = merged.merge(c)
+    merged.text = "Delta: donde el dato se vuelve valor\nentradas › salida › línea valor"
+    row2 = (
+        "Línea base del cliente (entrada)",
+        "Delta innovador (su intervención) (salida)",
+        "Panorama datos abiertos (entrada)",
+    )
+    for ci, text in enumerate(row2):
+        table.rows[1].cells[ci].text = text
+
+
+def _fix_autocontrol_checkboxes(doc: Document) -> None:
+    for para in doc.paragraphs:
+        if "\u2610" not in para.text:
+            continue
+        for run in para.runs:
+            if "\u2610" in run.text:
+                run.text = run.text.replace("\u2610", "[ ]")
+
+
+def postprocess_guia_docx(doc: Document) -> None:
+    for para in list(doc.paragraphs):
+        if "CTH_BOCETO_TABLE_INSERT" in para.text:
+            table = _insert_table_after_paragraph(doc, para, 3, 3)
+            _fill_boceto_cells(table)
+            _table_borders(table)
+            _remove_paragraph(para)
+            break
+    else:
+        raise SystemExit("Guía: CTH_BOCETO_TABLE_INSERT missing")
+
+    for para in list(doc.paragraphs):
+        if "CTH_PUENTE_TABLE_INSERT" in para.text:
+            table = _insert_table_after_paragraph(doc, para, 2, 3)
+            _fill_puente_cells(table)
+            _table_borders(table)
+            _remove_paragraph(para)
+            break
+    else:
+        raise SystemExit("Guía: CTH_PUENTE_TABLE_INSERT missing")
+
+    _fix_autocontrol_checkboxes(doc)
 
 
 def patch_docx_theme_open_sans(docx_path: Path) -> None:
@@ -223,7 +315,7 @@ def _build_m6_page(doc: Document) -> None:
         "Los mentores contrastan 2–3 números con la carpeta del equipo en Drive.",
         "Las finales a las 16:00 usan las mismas dos notas (utilidad, honestidad). "
         "Si hay empate, gana la mayor nota de honestidad.",
-        "14 equipos → 6 finalistas → 3 ganadores, quienes entran al Datalab CTH en 2027. "
+        "14 equipos › 6 finalistas › 3 ganadores, quienes entran al Datalab CTH en 2027. "
         "Todos reciben certificado.",
         "Ningún equipo queda fuera después del Bloque 1: las etiquetas advierten, no excluyen.",
         "La lista de los 6 finalistas se anuncia antes de las 16:00.",
@@ -265,6 +357,7 @@ def build_docx() -> None:
         composer.save(OUT_DOCX)
 
     final = Document(OUT_DOCX)
+    postprocess_guia_docx(final)
     _apply_headers(final)
     final.save(OUT_DOCX)
     patch_docx_theme_open_sans(OUT_DOCX)

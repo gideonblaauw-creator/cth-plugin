@@ -70,15 +70,11 @@ Dinero, riesgo, tiempo o salud — sin caso de negocio completo.
 
 ### 7. Boceto de una pantalla (tres paneles)
 
-```
-┌─────────────────────┬─────────────────────┬─────────────────────┐
-│ LÍNEA BASE          │ DELTA               │ PAISAJE             │
-│  [N1] (firme/est.)  │  [N2]               │  [N3]               │
-│  nota breve         │  nota breve         │  nota breve         │
-└─────────────────────┴─────────────────────┴─────────────────────┘
-        Decisión esta semana: [una línea]
-        Usuario: [rol]          Valor: [una línea]
-```
+CTH_BOCETO_TABLE_INSERT
+
+Decisión esta semana: [una línea]
+
+Usuario: [rol]          Valor: [una línea]
 
 ### 8. Autocontrol antes de finales
 

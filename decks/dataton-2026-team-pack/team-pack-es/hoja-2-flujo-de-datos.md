@@ -10,7 +10,7 @@
 
 ## Para qué sirve
 
-En la mañana ubicó **dónde** están los datos. Ahora describe **qué flujo** los produce y **sube la escalera Medallion**: Bronce → Plata → Oro.
+En la mañana ubicó **dónde** están los datos. Ahora describe **qué flujo** los produce y **sube la escalera Medallion**: Bronce › Plata › Oro.
 
 **Empezar por debajo de Bronce es normal.** La tarde es la siguiente grada, no un reproche.
 
@@ -91,8 +91,8 @@ TARJETA DE FLUJO · Equipo: ______ · Fecha: ______
 Bloque(s) / ID datos : ______________________
 Flujo              : ______________________________
 Disparador         : ______________________________
-Línea de flujo de datos   : Disparador → Captura [sistema] → Almacén [Bronce]
-                     → Limpiar [Plata] → Referencia [Oro] → Tarea + audiencia [A14]
+Línea de flujo de datos   : Disparador › Captura [sistema] › Almacén [Bronce]
+                     › Limpiar [Plata] › Referencia [Oro] › Tarea + audiencia [A14]
 Nivel alcanzado    : Ninguno / Bronce / Plata / Oro
 Siguiente grada    : Los «N» de la siguiente grada: ______________
 ```
