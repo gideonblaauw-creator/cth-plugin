@@ -144,7 +144,7 @@ def build_docx(parts: list[dict[str, str]]) -> None:
     for idx, part in enumerate(parts):
         if idx:
             doc.add_paragraph("")
-        hp = doc.add_paragraph(part["parte_line"], style="Heading 2")
+        hp = doc.add_paragraph(part["parte_title"], style="Heading 2")
         if idx == 2:
             hp.paragraph_format.page_break_before = True
         hp.paragraph_format.keep_with_next = True
@@ -213,7 +213,7 @@ def _html(parts: list[dict[str, str]]) -> str:
         if idx == 2:
             block_cls += " parte-page-start"
         chunks.append(f"<section class='{block_cls}'>")
-        chunks.append(f"<h2 class='parte-line'>{html.escape(part['parte_line'])}</h2>")
+        chunks.append(f"<h2 class='parte-line'>{html.escape(part['parte_title'])}</h2>")
         for meta in (part["salida_line"], part["forma_line"]):
             chunks.append(f"<p class='meta'>{html.escape(meta)}</p>")
         canvas, lines = _split_canvas(part["body"])
