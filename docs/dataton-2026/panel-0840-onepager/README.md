@@ -18,7 +18,8 @@ Requires Playwright Chromium (`python3 -m playwright install chromium`) and loca
 | `panel-0840-dataton-24nov.html` | Source (Open Sans `@font-face`, agenda v5 letterhead layout, Datalab endorsed logo) |
 | `Panel-0840-Dataton-24nov.pdf` | Print PDF |
 | `Panel-0840-Dataton-24nov.png` | 200 dpi full page |
-| `Panel-0840-Dataton-24nov-crop-g-logo.png` | Crop: Datalab mark + double-storey *g* in title band |
+| `Panel-0840-proof-g-from-pdf-200dpi.png` | 200 dpi crop: *programa* from the rendered page |
+| `Panel-0840-proof-g-from-ttf-200dpi.png` | Same word drawn from `fonts/OpenSans-Regular.ttf` (v3.003 single-storey *g*) |
 | `fonts/` | Google Open Sans v3.003 static TTFs + `OFL.txt` |
 
 Layout references: agenda PR #176 (`d0b2ede2`), Datalab Option A endorsed mark PR #134 (`aa1902ac`).

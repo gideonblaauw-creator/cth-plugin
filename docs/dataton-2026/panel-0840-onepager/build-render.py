@@ -5,12 +5,12 @@ from __future__ import annotations
 import asyncio
 import pathlib
 import subprocess
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 HTML = ROOT / "panel-0840-dataton-24nov.html"
 PDF = ROOT / "Panel-0840-Dataton-24nov.pdf"
 PNG = ROOT / "Panel-0840-Dataton-24nov.png"
-PNG_CROP = ROOT / "Panel-0840-Dataton-24nov-crop-g-logo.png"
 
 
 async def export_pdf() -> None:
@@ -57,14 +57,8 @@ def export_png_200dpi() -> None:
         generated.rename(PNG)
 
 
-def export_crop() -> None:
-    """Crop showing double-storey g in tagline area and Datalab endorsed logo."""
-    from PIL import Image
-
-    img = Image.open(PNG)
-    # Top band: Datalab endorsed mark + title lines with double-storey g.
-    cropped = img.crop((30, 50, min(img.width, 1180), min(img.height, 520)))
-    cropped.save(PNG_CROP)
+def prove_font_g() -> None:
+    subprocess.run([sys.executable, str(ROOT / "prove-font-g.py")], check=True)
 
 
 def main() -> None:
@@ -72,7 +66,7 @@ def main() -> None:
         raise SystemExit(f"Missing {HTML}")
     asyncio.run(export_pdf())
     export_png_200dpi()
-    export_crop()
+    prove_font_g()
     print(PDF)
     print(PNG)
 

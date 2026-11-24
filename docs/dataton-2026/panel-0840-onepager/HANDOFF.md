@@ -11,14 +11,16 @@ See `self-check-output.txt` for full log.
 - Glyph scan vs `fonts/OpenSans-Regular.ttf` cmap: **(empty)**
 - Text diff vs ticket content block (whitespace-normalised): **OK**
 - Banned terms (Óscar / Apix / gratis): **0**
+- Font proof: Google Open Sans **v3.003** TTFs only (single-storey *g* is correct). Compare `Panel-0840-proof-g-from-pdf-200dpi.png` vs `Panel-0840-proof-g-from-ttf-200dpi.png` for the word *programa*.
 
 ## SHA-256
 
 ```
-9f210cf90c56bc00c236c9cf3b2ad8b726845d19672c0573391a857ea13d87b2  Panel-0840-Dataton-24nov.pdf
+ce62c17c79b9cae4737796890d162f200848b8285abae7d0f8b1312607286262  Panel-0840-Dataton-24nov.pdf
 5a59373a76952aab50521a219c8f792d74b0e15a41262c8c5aeee2c931276d59  panel-0840-dataton-24nov.html
 93515d886f1080b4d7464e3b2e10eb91aa44e180e51a4609d6556405a23f4a3f  Panel-0840-Dataton-24nov.png
-480b8f40cae02c01cc799a20e365534a3225f17d06d7fbc050ac4cc56e649ef6  Panel-0840-Dataton-24nov-crop-g-logo.png
+0304b870b21c9a3757586e5afea0dc1faf1f0591cefb22c277ac82cd80bb2e22  Panel-0840-proof-g-from-pdf-200dpi.png
+bfc424e7fd3041fe4e16eb0f324666ca573e3195bd06ab0e063600ebf8b7eb26  Panel-0840-proof-g-from-ttf-200dpi.png
 c53aceea2dcf5b4098099c0c4d0a061d17e178a049317b42a422b1a9f7f8eb59  fonts/OpenSans-Regular.ttf
 27da758f4dcac9a65abe914c13b463b42982b9909bc65713424099f4810bd1e6  fonts/OpenSans-Bold.ttf
 4a413711684a9dd564ef0f1c10cb62b5d9f7eb6df2cff962f5341a6ecd5f64ae  fonts/OpenSans-SemiBold.ttf
