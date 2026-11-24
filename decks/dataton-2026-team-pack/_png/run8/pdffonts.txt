@@ -1,0 +1,26 @@
+=== Guia-tecnica-mentores.pdf ===
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes      5  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     10  0
+Open Sans Regular                    CID TrueType      Identity-H       yes no  yes    124  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     24  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     29  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     40  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     45  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     56  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     61  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     71  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     76  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     88  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     93  0
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     98  0
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes    107  0
+BAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes    112  0
+
+=== hoja-4-plantilla-tablero.pdf ===
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     11  0
+BAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     12  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     13  0

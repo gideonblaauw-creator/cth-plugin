@@ -1,0 +1,105 @@
+@import url("guia-front-fonts.css");
+
+:root { --blue: #0C498A; --green: #669348; --lgreen: #9DC384; }
+
+@page { size: A4; margin: 16mm 12mm 14mm 12mm; }
+
+html, body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 9.75pt;
+  line-height: 1.38;
+  color: var(--blue);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body.guia-docx-body,
+body.guia-docx-body * {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+body.guia-docx-body h1 {
+  font-size: 15pt;
+  color: var(--blue);
+  margin: 0 0 10px;
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+body.guia-docx-body h2 {
+  font-size: 11pt;
+  color: var(--green);
+  margin: 12px 0 6px;
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+body.guia-docx-body h3 {
+  font-size: 10pt;
+  margin: 10px 0 4px;
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+
+body.guia-docx-body p {
+  margin: 0 0 6px;
+}
+
+body.guia-docx-body h1 + p,
+body.guia-docx-body h2 + p,
+body.guia-docx-body h3 + p,
+body.guia-docx-body h2 + table,
+body.guia-docx-body h3 + table {
+  break-before: avoid-page;
+  page-break-before: avoid;
+}
+
+table.docx-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 9pt;
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+
+table.docx-table td {
+  border: 1px solid rgba(12, 73, 138, 0.25);
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+pre, code {
+  font-family: "Open Sans", sans-serif;
+  font-size: 8.5pt;
+}
+
+pre {
+  background: #f8fafc;
+  padding: 8px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.cover-block {
+  text-align: center;
+  margin: 48px 0 24px;
+}
+
+.cover-block .title-es {
+  font-size: 22pt;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.cover-block .title-en {
+  font-size: 12pt;
+  margin: 0 0 16px;
+}
+
+.cover-block .lead {
+  max-width: 42em;
+  margin: 0 auto;
+  font-size: 10.5pt;
+}

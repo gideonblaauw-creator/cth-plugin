@@ -51,7 +51,20 @@ body.hoja-4-print h3 {
   break-after: avoid-page;
   page-break-after: avoid;
 }
+body.hoja-4-print .mapa-section-keep {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+body.hoja-4-print .mapa-section-keep h2,
+body.hoja-4-print .mapa-section-keep p,
+body.hoja-4-print .mapa-section-keep table {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
 body.hoja-4-print h3 + table { break-before: avoid-page; page-break-before: avoid; }
+body.hoja-4-print h2 + p { break-before: avoid-page; page-break-before: avoid; }
+body.hoja-4-print h2 + table,
+body.hoja-4-print p + table.mapa-antes-despues { break-before: avoid-page; page-break-before: avoid; }
 body.hoja-4-print table {
   break-inside: avoid-page;
   page-break-inside: avoid;

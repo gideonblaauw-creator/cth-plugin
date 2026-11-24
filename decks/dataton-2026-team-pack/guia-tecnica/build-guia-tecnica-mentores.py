@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import difflib
+import hashlib
 import re
 import subprocess
 import sys
@@ -26,6 +27,8 @@ PRINT = ROOT / "print"
 ASSETS = ROOT / "cuestionario" / "assets"
 OUT_DOCX = GUIA_DIR / "Guia-tecnica-mentores.docx"
 OUT_PDF = GUIA_DIR / "Guia-tecnica-mentores.pdf"
+BASELINE_DOCX_SHA = "443a9fffa0465aaa9c8434a2d78c5a33d355dcd068b4a6f807717f436c91fe"
+PRE_ADDENDUM_DOCX_REF = "73885721053aa956b8337f20f39d6baaa7451c6a"
 LOGO = ROOT / "assets/cth-logo-color.png"
 HEADER_TEXT = "Guía técnica — para mentores"
 NAVY = RGBColor(0x0C, 0x49, 0x8A)
@@ -262,6 +265,20 @@ def fix_hoja4_docx_write_tables(doc: Document) -> None:
             _set_row_height_exact(table.rows[1], TWIPS_25MM)
 
 
+HOJA5_TIE_OLD = "Si hay empate, gana la mayor nota de honestidad."
+HOJA5_TIE_NEW = "Si empatan en utilidad y honestidad, desempata la historia."
+
+
+def fix_guia_hoja5_tiebreak_wording(doc: Document) -> None:
+    """Guía-only tie-break (team hoja-5.md unchanged)."""
+    for para in doc.paragraphs:
+        text = para.text
+        if "Complete cada bloque" in text and HOJA5_TIE_OLD in text:
+            for run in para.runs:
+                run.text = ""
+            para.add_run(text.replace(HOJA5_TIE_OLD, HOJA5_TIE_NEW))
+
+
 def fix_guia_paragraph_layout(doc: Document) -> None:
     for para in doc.paragraphs:
         style = para.style.name if para.style else ""
@@ -304,6 +321,7 @@ def postprocess_guia_docx(doc: Document) -> None:
     _fix_autocontrol_checkboxes(doc)
     fix_hoja4_docx_write_tables(doc)
     fix_guia_tables(doc)
+    fix_guia_hoja5_tiebreak_wording(doc)
     fix_guia_paragraph_layout(doc)
 
 
@@ -483,7 +501,7 @@ def _build_m6_page(doc: Document) -> None:
         "En empate gana honestidad.",
         "Los mentores contrastan 2–3 números con la carpeta del equipo en Drive.",
         "Las finales a las 16:00 usan las mismas dos notas (utilidad, honestidad). "
-        "Si hay empate, gana la mayor nota de honestidad.",
+        "Si empatan en utilidad y honestidad, desempata la historia.",
         "14 equipos › 6 finalistas › 3 ganadores, quienes entran al Datalab CTH en 2027. "
         "Todos reciben certificado.",
         "Ningún equipo queda fuera después del Bloque 1: las etiquetas advierten, no excluyen.",
@@ -563,8 +581,47 @@ def _grep_banned_guia(text: str) -> list[str]:
     return found
 
 
+def _docx_from_git(ref: str) -> Document:
+    import io
+
+    proc = subprocess.run(
+        ["git", "show", f"{ref}:decks/dataton-2026-team-pack/guia-tecnica/Guia-tecnica-mentores.docx"],
+        cwd=str(ROOT.parent.parent),
+        capture_output=True,
+        check=True,
+    )
+    return Document(io.BytesIO(proc.stdout))
+
+
+def _paragraph_diffs(base: Document, new: Document) -> list[tuple[int, str, str]]:
+    changed: list[tuple[int, str, str]] = []
+    for i, (a, b) in enumerate(zip(base.paragraphs, new.paragraphs)):
+        if a.text != b.text:
+            changed.append((i, a.text.strip(), b.text.strip()))
+    if len(base.paragraphs) != len(new.paragraphs):
+        changed.append((-1, str(len(base.paragraphs)), str(len(new.paragraphs))))
+    return changed
+
+
+def _verify_guia_docx_tiebreak_only() -> None:
+    new = Document(OUT_DOCX)
+    pre = _docx_from_git(PRE_ADDENDUM_DOCX_REF)
+    changed = _paragraph_diffs(pre, new)
+    if len(changed) != 2:
+        raise SystemExit(f"guia docx: expected 2 paragraph diffs vs pre-addendum, got {len(changed)}")
+    texts = " ".join(c[2] for c in changed if c[0] >= 0).lower()
+    if "desempata la historia" not in texts:
+        raise SystemExit("guia docx tie-break: missing 'desempata la historia' in changed paragraphs")
+    for idx, old, new in changed:
+        if idx < 0:
+            continue
+        print("guia_docx_tiebreak_diff", idx, old[:70], "->", new[:70])
+    print("guia_docx_tiebreak_paragraph_diffs", len(changed))
+
+
 def main() -> int:
     build_docx()
+    _verify_guia_docx_tiebreak_only()
     from docx import Document as D
 
     parts = []

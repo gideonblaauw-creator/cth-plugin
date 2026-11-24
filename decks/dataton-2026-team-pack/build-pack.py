@@ -24,6 +24,8 @@ CUESTIONARIO_PDF = "Cuestionario-Dataton-24nov-equipos.pdf"
 CUESTIONARIO_EJEMPLO_DOCX = "Cuestionario-ejemplo-Air4U.docx"
 CUESTIONARIO_EJEMPLO_PDF = "Cuestionario-ejemplo-Air4U.pdf"
 CUESTIONARIO_PROMPTS_TXT = "prompts.txt"
+PROMPTS_IA_SHEET_DOCX = "Prompts-IA-Dataton-24nov.docx"
+PROMPTS_IA_SHEET_PDF = "Prompts-IA-Dataton-24nov.pdf"
 
 GUIA_TECNICA = ROOT / "guia-tecnica"
 GUIA_DOCX = "Guia-tecnica-mentores.docx"
@@ -73,17 +75,18 @@ HTML_TO_PDF = [
 EXCLUDE_ZIP = {"test-notes.md", "test-notes.pdf", "prompts-ia.pdf", "team-pack-es-manifest-sha256.md"}
 
 BASELINE_COMMIT = "c1ee80a66d83c897838832f6bcd27cc6ed504d57"
-RESTORE_PDF_TEXT_REF = "283a09a4ce77db6e5454af44bcb7c79f7f22b164"
+RESTORE_PDF_TEXT_REF = "73885721053aa956b8337f20f39d6baaa7451c6a"
 PACK_PREFIX = "decks/dataton-2026-team-pack"
+RUN8_PINNED_DIST_PDFS = (
+    "hoja-2-flujo-de-datos.pdf",
+    "prompts-ia-v2.pdf",
+)
 
 # After TTF font rollout, keep prior binaries when pdftotext is unchanged (run 7).
 PDF_BINARIES_ALLOWED_DELTA = {
     GUIA_PDF,
-    "hoja-3-dato-a-valor.pdf",
     "hoja-4-plantilla-tablero.pdf",
-    "hoja-4b-ejemplo-air4u.pdf",
-    "hoja-2-flujo-de-datos.pdf",
-    "prompts-ia-v2.pdf",
+    "Guia-tecnica-mentores.pdf",
 }
 
 BOCETO_TABLE_HTML = """<table>
@@ -182,6 +185,24 @@ def replace_hoja4_layout_tables(md_text: str) -> str:
     return md_text
 
 
+def wrap_hoja4_mapa_section(html_body: str) -> str:
+    """Keep mapa heading, etiqueta, and Antes/Después table on one page."""
+    marker = "<h2>Mapa o antes / después</h2>"
+    start = html_body.find(marker)
+    if start < 0:
+        return html_body
+    tbl_start = html_body.find('<table class="mapa-antes-despues">', start)
+    if tbl_start < 0:
+        return html_body
+    tbl_end = html_body.find("</table>", tbl_start)
+    if tbl_end < 0:
+        return html_body
+    tbl_end += len("</table>")
+    block = html_body[start:tbl_end]
+    wrapped = f'<div class="mapa-section-keep">{block}</div>'
+    return html_body[:start] + wrapped + html_body[tbl_end:]
+
+
 def stage_md_build_dir(tmp_html: Path) -> None:
     """Copy logo/fonts beside generated HTML so relative asset URLs resolve."""
     import shutil
@@ -199,6 +220,9 @@ def stage_md_build_dir(tmp_html: Path) -> None:
         shutil.copy(ROOT / "fonts/open-sans" / ttf, fonts_dir / ttf)
     (tmp_html / "md-print.css").write_text(
         (PRINT / "md-print.css").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    (tmp_html / "guia-hoja-merge-print.css").write_text(
+        (PRINT / "guia-hoja-merge-print.css").read_text(encoding="utf-8"), encoding="utf-8"
     )
 
 
@@ -235,11 +259,19 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def md_to_guia_merge_html(md_text: str, title: str, borrador: bool = False) -> str:
+    """Same as md_to_html_body but CSS forces Open Sans for Guía PDF merge (dist PDFs unchanged)."""
+    html = md_to_html_body(md_text, title, borrador=borrador)
+    return html.replace('href="md-print.css"', 'href="guia-hoja-merge-print.css"')
+
+
 def md_to_html_body(md_text: str, title: str, borrador: bool = False) -> str:
     md_text = replace_cth_table_tokens(md_text)
     if title == "hoja-4-plantilla-tablero":
         md_text = replace_hoja4_layout_tables(md_text)
     body = markdown.markdown(md_text, extensions=["tables", "fenced_code", "nl2br"])
+    if title == "hoja-4-plantilla-tablero":
+        body = wrap_hoja4_mapa_section(body)
     banner = (
         '<p class="borrador">BORRADOR — borrador para finales; versión final el día del Datatón.</p>'
         if borrador
@@ -346,6 +378,20 @@ def _git_show_bytes(relpath: str, ref: str = BASELINE_COMMIT) -> bytes:
         check=True,
     )
     return proc.stdout
+
+
+def restore_run8_pinned_dist_pdfs() -> list[str]:
+    """Restore dist PDFs that must stay byte-identical to RESTORE_PDF_TEXT_REF (run 8)."""
+    restored: list[str] = []
+    for name in RUN8_PINNED_DIST_PDFS:
+        data = _git_show_bytes(f"dist/{name}", ref=RESTORE_PDF_TEXT_REF)
+        dest = OUT / name
+        if dest.read_bytes() != data:
+            dest.write_bytes(data)
+            restored.append(name)
+    if restored:
+        print("run8_pinned_pdf_restored", ",".join(restored))
+    return restored
 
 
 def restore_pdftext_unchanged_binaries() -> list[str]:
@@ -512,6 +558,24 @@ def export_ticket_renders() -> None:
     _export_pdf_page_png(guia_pdf, m6_idx, "guia-tecnica-mentores-p02.png")
 
 
+def build_prompts_ia_sheet() -> None:
+    import shutil
+    import sys
+
+    script = CUESTIONARIO / "build-prompts-ia-dataton-sheet.py"
+    if not script.is_file():
+        raise FileNotFoundError(script)
+    if shutil.which("libreoffice") or shutil.which("soffice"):
+        subprocess.run([sys.executable, str(script)], cwd=str(CUESTIONARIO), check=True)
+    else:
+        print("prompts_ia_sheet_build", "skipped (no LibreOffice)")
+        return
+    for name in (PROMPTS_IA_SHEET_DOCX, PROMPTS_IA_SHEET_PDF):
+        src = CUESTIONARIO / name
+        if src.is_file():
+            shutil.copy2(src, OUT / name)
+
+
 def build_cuestionario_pack() -> None:
     import shutil
     import sys
@@ -595,6 +659,7 @@ async def render_all() -> None:
         await browser.close()
 
     restore_pdftext_unchanged_binaries()
+    restore_run8_pinned_dist_pdfs()
     export_pdf_pngs(OUT / "plantilla-bmc.pdf", "plantilla-bmc")
     export_pdf_pngs(OUT / "prompts-ia-v2.pdf", "prompts-ia-v2")
     for md_name in md_files:
@@ -602,6 +667,7 @@ async def render_all() -> None:
         export_pdf_pngs(OUT / f"{stem}.pdf", stem, max_pages=1)
 
     build_cuestionario_pack()
+    build_prompts_ia_sheet()
     enforce_byte_identical_artifacts()
     build_guia_tecnica_pack()
     export_ticket_renders()
@@ -619,6 +685,7 @@ async def render_all() -> None:
         "agenda-equipos.pdf",
         CUESTIONARIO_PDF,
         CUESTIONARIO_EJEMPLO_PDF,
+        PROMPTS_IA_SHEET_PDF,
         "LEEME.pdf",
     }
 
@@ -629,7 +696,7 @@ async def render_all() -> None:
             pdf = OUT / pdf_name
             if pdf.is_file():
                 zip_entry(pdf, pdf_name)
-        for docx_name in (CUESTIONARIO_DOCX, CUESTIONARIO_EJEMPLO_DOCX):
+        for docx_name in (CUESTIONARIO_DOCX, CUESTIONARIO_EJEMPLO_DOCX, PROMPTS_IA_SHEET_DOCX):
             docx_path = OUT / docx_name
             if docx_path.is_file():
                 zip_entry(docx_path, docx_name)

@@ -1,0 +1,11 @@
+@import url("md-print.css");
+
+body,
+body *,
+table,
+th,
+td,
+pre,
+code {
+  font-family: "Open Sans", sans-serif !important;
+}
