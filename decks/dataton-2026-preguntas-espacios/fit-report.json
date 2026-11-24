@@ -43,9 +43,9 @@
     },
     {
       "pageId": "p05",
-      "fitLevel": "fit-d",
-      "questionPt": "10pt",
-      "answerPt": "9pt",
+      "fitLevel": "fit-b",
+      "questionPt": "11pt",
+      "answerPt": "9.5pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "puente\u2192fuente",
@@ -63,9 +63,9 @@
     },
     {
       "pageId": "p06",
-      "fitLevel": "fit-a",
-      "questionPt": "11.5pt",
-      "answerPt": "10pt",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
       "minStackGapLabel": "turn\u2192nota-moderacion",
@@ -168,14 +168,14 @@
       "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
-      "minStackGapLabel": "puente\u2192fuente",
+      "minStackGapLabel": "turn\u2192nota-moderacion",
       "pageOk": true,
       "stack": {
         "ok": true,
         "issues": [],
         "minGapPx": 7.546875,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente"
+        "minGapLabel": "turn\u2192nota-moderacion"
       },
       "minClearPx": 9,
       "turnIssues": [],
@@ -188,14 +188,14 @@
       "answerPt": "10pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
-      "minStackGapLabel": "puente\u2192fuente",
+      "minStackGapLabel": "turn\u2192nota-moderacion",
       "pageOk": true,
       "stack": {
         "ok": true,
         "issues": [],
         "minGapPx": 7.546875,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente"
+        "minGapLabel": "turn\u2192nota-moderacion"
       },
       "minClearPx": 9,
       "turnIssues": [],
@@ -208,14 +208,14 @@
       "answerPt": "10.5pt",
       "stackOk": true,
       "minStackGapPt": 5.66015625,
-      "minStackGapLabel": "puente\u2192fuente",
+      "minStackGapLabel": "turn\u2192nota-moderacion",
       "pageOk": true,
       "stack": {
         "ok": true,
         "issues": [],
         "minGapPx": 7.546875,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente"
+        "minGapLabel": "turn\u2192nota-moderacion"
       },
       "minClearPx": 9,
       "turnIssues": [],
@@ -322,7 +322,7 @@
       },
       {
         "pageId": "p05",
-        "fitLevel": "fit-d",
+        "fitLevel": "fit-b",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "puente\u2192fuente",
@@ -330,7 +330,7 @@
       },
       {
         "pageId": "p06",
-        "fitLevel": "fit-a",
+        "fitLevel": "default",
         "stackOk": true,
         "minGapPt": 5.66015625,
         "minGapLabel": "turn\u2192nota-moderacion",
@@ -373,7 +373,7 @@
         "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente",
+        "minGapLabel": "turn\u2192nota-moderacion",
         "issueCount": 0
       },
       {
@@ -381,7 +381,7 @@
         "fitLevel": "fit-a",
         "stackOk": true,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente",
+        "minGapLabel": "turn\u2192nota-moderacion",
         "issueCount": 0
       },
       {
@@ -389,7 +389,7 @@
         "fitLevel": "default",
         "stackOk": true,
         "minGapPt": 5.66015625,
-        "minGapLabel": "puente\u2192fuente",
+        "minGapLabel": "turn\u2192nota-moderacion",
         "issueCount": 0
       },
       {
