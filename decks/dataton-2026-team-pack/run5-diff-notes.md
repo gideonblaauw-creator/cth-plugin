@@ -1,6 +1,6 @@
 # Run 5 diff notes
 
-Start SHA: `e60ec3bf5e436d9fb3f4394600737e33a2b5b4ee`. Head SHA (run 5): `f1bd1f15c72f67f55f9e6778dc2ebb90e65a8def`.
+Start SHA: `e60ec3bf5e436d9fb3f4394600737e33a2b5b4ee`. Head SHA (run 5 tip): `ac65166fa4e7ec7818a71c6e8873c53121e28ec0` (pack rebuild in `f1bd1f15c72f67f55f9e6778dc2ebb90e65a8def`).
 
 ## pdffonts q_pdf
 ```
