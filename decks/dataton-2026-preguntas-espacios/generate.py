@@ -62,38 +62,38 @@ def space_page(sp: dict, n: int) -> str:
 THREAD_HTML = """
 <div class="thread-grid">
   <div class="thread-col">
-    <h3>Paisaje a programa</h3>
+    <h3>Agenda del día</h3>
     <span class="thread-pill">08:30 Palabras de apertura</span>
     <span class="thread-pill">08:40 Panel ODS 13</span>
     <span class="thread-pill thread-pill--prog">09:10 Observatorio y Datalab</span>
-    <span class="thread-pill">09:40 Conversatorio régimen corporativo</span>
-    <span class="thread-pill">09:55 Digitalización (Agrometers)</span>
-    <h3 style="margin-top:2mm">Nicho y método</h3>
+    <span class="thread-pill">09:40 Universidad y Constructora Bolívar</span>
+    <span class="thread-pill">09:55 Agrometers (territorio rural)</span>
+    <h3 style="margin-top:2mm">Caso y trabajo en equipos</h3>
     <span class="thread-pill thread-pill--nicho">10:05 Air4U presentación</span>
-    <span class="thread-pill thread-pill--nicho">10:10 Demo capas en vivo</span>
+    <span class="thread-pill thread-pill--nicho">10:10 Demo Air4U en vivo</span>
     <span class="thread-pill thread-pill--nicho">10:20 Air4U y adoptante</span>
     <span class="thread-pill thread-pill--work">10:45 Instrucciones y mentores</span>
     <span class="thread-pill thread-pill--work">11:00 Bloque 1 con monitores</span>
-    <span class="thread-pill">12:30 Almuerzo y mesa hélice</span>
-    <span class="thread-pill thread-pill--work">13:30 Bloque 2 y pitch</span>
-    <span class="thread-pill thread-pill--prog">16:00 Pitches (6 equipos)</span>
+    <span class="thread-pill">12:30 Almuerzo y networking</span>
+    <span class="thread-pill thread-pill--work">13:30 Bloque 2 y ensayo</span>
+    <span class="thread-pill thread-pill--prog">16:00 Presentaciones (6 equipos)</span>
     <span class="thread-pill">16:40 Deliberación jurado</span>
     <span class="thread-pill thread-pill--prog">16:50 Cierre y certificados</span>
   </div>
   <div class="thread-col">
-    <h3>Lentes MLP</h3>
-    <article class="thread-note"><strong>Paisaje</strong>Presiones territoriales y cooperación (panel).</article>
-    <article class="thread-note"><strong>Programa</strong>Observatorio, Carapulica y motor Datalab.</article>
-    <article class="thread-note"><strong>Régimen</strong>Constructora Bolívar como adoptante potencial, sin piloto firmado.</article>
-    <article class="thread-note"><strong>Sector</strong>Agrometers: competitividad y trazabilidad exportable.</article>
-    <article class="thread-note"><strong>Nicho</strong>Air4U: lente urbana, hacer visible lo invisible.</article>
-    <article class="thread-note"><strong>Método</strong>Bronce, Plata, Oro = confianza del dato.</article>
-    <article class="thread-note"><strong>Equipos</strong>Catorce equipos: lienzo, mapa, tablero, pitch.</article>
-    <article class="thread-note"><strong>Selección</strong>Embudo a seis finalistas y tres ganadores 2027.</article>
-    <article class="thread-note"><strong>Vuelta macro</strong>Fase piloto del Observatorio y Earth Data Week.</article>
+    <h3>Hilo del día</h3>
+    <article class="thread-note"><strong>1 Territorio</strong>Desafío climático y cooperación (panel 08:40).</article>
+    <article class="thread-note"><strong>2 Personas</strong>Quién vive el problema y qué necesita la comunidad.</article>
+    <article class="thread-note"><strong>3 Innovación</strong>Emprendimiento local que prueba soluciones en el territorio.</article>
+    <article class="thread-note"><strong>4 Adopción</strong>Empresa, cooperación, universidad y región que apoyan.</article>
+    <article class="thread-note"><strong>5 Programa</strong>Observatorio de la Tierra y Datalab (09:10).</article>
+    <article class="thread-note"><strong>6 Ejemplos</strong>Constructora Bolívar, Agrometers, Air4U (sin piloto firmado).</article>
+    <article class="thread-note"><strong>7 Equipos</strong>14 equipos Externado trabajan con mentores.</article>
+    <article class="thread-note"><strong>8 Selección</strong>De 14 a 6 finalistas; 3 entran al Datalab CTH en 2027.</article>
+    <article class="thread-note"><strong>9 Cierre</strong>Certificados para todos; ganadores con seguimiento.</article>
   </div>
 </div>
-<p class="thread-macro">Hilo: paisaje y territorio, programa Observatorio y Datalab, régimen corporativo, sector digital, nicho Air4U, método con equipos, selección y regreso al motor en 2027.</p>
+<p class="thread-macro">Orden: territorio y desafío climático, personas y comunidades, quién innova, quién adopta y apoya, 14 equipos, 3 al Datalab 2027.</p>
 """
 
 
@@ -113,7 +113,7 @@ THREAD_PAGE = f"""<section class="page page--thread" id="p02" data-page="2">
   <header class="page-head">
     <div class="title-block">
       <h1>Hilo conductor del día</h1>
-      <p class="meta-row">De paisaje y territorio al nicho Air4U, método con equipos y vuelta al Observatorio y Datalab 2027.</p>
+      <p class="meta-row">Del territorio y las personas al emprendimiento, la adopción, los 14 equipos y los 3 ganadores al Datalab 2027.</p>
     </div>
     <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
   </header>
