@@ -24,4 +24,6 @@ Requires Playwright Chromium (`python3 -m playwright install chromium`) and loca
 | `Panel-0840-proof-g-from-ttf-200dpi.png` | Same word from `fonts/OpenSans-Regular.ttf` |
 | `fonts/` | Google Open Sans v3.003 static TTFs + `OFL.txt` |
 
+The embedded *g* in the PDF must match the committed TTF *g* point for point: **double-storey (binocular) g, same outline as the committed v3.003 TTF** (not DejaVu single-storey). Proof crops come from `prove-font-g.py`.
+
 Layout references: agenda PR #176 (`d0b2ede2`), Datalab Option A endorsed mark PR #134 (`aa1902ac`).

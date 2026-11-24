@@ -53,4 +53,8 @@ TICKET_EOF
   echo ""
   echo "=== computed font sizes ==="
   python3 "$ROOT/check-font-sizes.py"
+  echo ""
+  echo "=== g proof (font match) ==="
+  echo "double-storey (binocular) g, same outline as the committed v3.003 TTF"
+  echo "crops: Panel-0840-proof-g-from-pdf-200dpi.png vs Panel-0840-proof-g-from-ttf-200dpi.png"
 } | tee "$OUT"

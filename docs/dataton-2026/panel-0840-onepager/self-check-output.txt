@@ -48,3 +48,7 @@ ul.bullet-list.cols li: 10.5 pt [OK]
 .closing: 10.5 pt [OK]
 .tagline: 10.0 pt [OK]
 minimum: 10.0 pt (required >= 9.5)
+
+=== g proof (font match) ===
+double-storey (binocular) g, same outline as the committed v3.003 TTF
+crops: Panel-0840-proof-g-from-pdf-200dpi.png vs Panel-0840-proof-g-from-ttf-200dpi.png

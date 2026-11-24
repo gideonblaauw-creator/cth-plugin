@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""200 dpi crops: word with 'g' from PDF render vs same word from committed TTF."""
+"""200 dpi crops: word with 'g' from PDF render vs committed OpenSans-Regular.ttf.
+
+Expect double-storey (binocular) g, same outline as the committed v3.003 TTF
+(sha c53aceea…). Compare OUT_PDF vs OUT_TTF point for point.
+"""
 from __future__ import annotations
 
 import pathlib
@@ -70,6 +74,9 @@ def main() -> None:
     crop_from_page_png(rect)
     ref_h = Image.open(OUT_PDF).height
     render_from_ttf(ref_h)
+    print(
+        "g proof: double-storey (binocular) g, same outline as the committed v3.003 TTF"
+    )
     print(OUT_PDF)
     print(OUT_TTF)
 

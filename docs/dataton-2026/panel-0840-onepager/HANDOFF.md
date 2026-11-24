@@ -13,7 +13,7 @@ See `self-check-output.txt` for full log.
 - Banned terms (Óscar / Apix / gratis): **0**
 - Computed font sizes: minimum **10.0 pt** (tagline); body/questions **10.5 pt**; sections **11.5 pt**; `h1` **15 pt** (all ≥ 9.5 pt)
 - Datalab lockup: `assets/logos/datalab-lockup.png` rasterized from `datalab-lockup.svg` + `cleantechhub-official.png` (aa1902ac layout)
-- Font proof (*programa*): `Panel-0840-proof-g-from-pdf-200dpi.png` vs `Panel-0840-proof-g-from-ttf-200dpi.png`
+- Font proof (*programa*): `Panel-0840-proof-g-from-pdf-200dpi.png` vs `Panel-0840-proof-g-from-ttf-200dpi.png` — **double-storey (binocular) g, same outline as the committed v3.003 TTF** (`OpenSans-Regular.ttf`, sha `c53aceea…`)
 - Co-brand proof: `Panel-0840-proof-cobrand-300dpi.png` (Datalab / powered by / CleantechHUB + partner gap)
 
 ## SHA-256
