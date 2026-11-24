@@ -1,6 +1,6 @@
 # Run 11 notes
 
-Head: `e95dd3ae55d723de745f6c305fb13781f4a87e03`.
+Head: `533882e6f2880fe6c666865458b2a9f93b2e12f6`.
 Base: `e95dd3ae55d723de745f6c305fb13781f4a87e03`.
 
 ## Ticket
@@ -68,5 +68,37 @@ Base: `e95dd3ae55d723de745f6c305fb13781f4a87e03`.
 
 ## git diff --stat vs base
 ```
-(empty)
+.../_png/run11/ejemplo-box-p02-110dpi.png          | Bin 0 -> 122207 bytes
+ .../_png/run11/ejemplo-box-p04-110dpi.png          | Bin 0 -> 205756 bytes
+ .../_png/run11/ejemplo-box-p05-110dpi.png          | Bin 0 -> 172885 bytes
+ .../_png/run11/ejemplo-box-p07-110dpi.png          | Bin 0 -> 152975 bytes
+ .../_png/run11/equipos-box-p02-110dpi.png          | Bin 0 -> 122897 bytes
+ .../_png/run11/equipos-box-p04-110dpi.png          | Bin 0 -> 191288 bytes
+ .../_png/run11/equipos-box-p06-110dpi.png          | Bin 0 -> 138103 bytes
+ .../_png/run11/equipos-box-p08-110dpi.png          | Bin 0 -> 109783 bytes
+ .../_png/run11/equipos-box-p09-110dpi.png          | Bin 0 -> 63974 bytes
+ .../_png/run11/sheet-p01-110dpi.png                | Bin 0 -> 138539 bytes
+ .../_png/run11/sheet-p02-110dpi.png                | Bin 0 -> 251161 bytes
+ .../_png/run11/sheet-p03-110dpi.png                | Bin 0 -> 73394 bytes
+ decks/dataton-2026-team-pack/build-pack.py         |  14 +-
+ .../Cuestionario-Dataton-24nov-equipos.docx        | Bin 138431 -> 138551 bytes
+ .../Cuestionario-Dataton-24nov-equipos.pdf         | Bin 210131 -> 210560 bytes
+ .../cuestionario/Cuestionario-ejemplo-Air4U.docx   | Bin 137958 -> 138096 bytes
+ .../cuestionario/Cuestionario-ejemplo-Air4U.pdf    | Bin 196307 -> 196673 bytes
+ .../cuestionario/Prompts-IA-Dataton-24nov.docx     | Bin 100578 -> 100646 bytes
+ .../cuestionario/Prompts-IA-Dataton-24nov.pdf      | Bin 148075 -> 161794 bytes
+ .../cuestionario/build-cuestionario.py             |  20 ++
+ .../cuestionario/build-prompts-ia-dataton-sheet.py |  37 +++-
+ .../dist/Cuestionario-Dataton-24nov-equipos.docx   | Bin 138431 -> 138551 bytes
+ .../dist/Cuestionario-Dataton-24nov-equipos.pdf    | Bin 210131 -> 210560 bytes
+ .../dist/Cuestionario-ejemplo-Air4U.docx           | Bin 137958 -> 138096 bytes
+ .../dist/Cuestionario-ejemplo-Air4U.pdf            | Bin 196307 -> 196673 bytes
+ .../dist/Prompts-IA-Dataton-24nov.docx             | Bin 100578 -> 100646 bytes
+ .../dist/Prompts-IA-Dataton-24nov.pdf              | Bin 148075 -> 161794 bytes
+ .../print/prompts-ia-dataton-sheet-print.css       |  28 +--
+ decks/dataton-2026-team-pack/run11-notes.md        |  72 +++++++
+ .../scripts/rebuild_zip_run11.py                   |  40 ++++
+ .../scripts/run11_self_check.py                    | 238 +++++++++++++++++++++
+ .../team-pack-es-pdfs-v0.4.zip                     | Bin 2932041 -> 2945384 bytes
+ 32 files changed, 426 insertions(+), 23 deletions(-)
 ```
