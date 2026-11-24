@@ -444,7 +444,7 @@ SPACES = [
             (
                 "Equipo, en su resumen en pantalla, ¿qué ve el usuario en diez segundos?",
                 "Línea base, mejora del innovador y panorama de datos abiertos si aplica.",
-                "Gideon, en esa pantalla, ¿dónde mostraron vacíos honestos en blanco?",
+                "Gideon, en esa pantalla con línea base y mejora del innovador, ¿dónde mostraron vacíos honestos en blanco?",
             ),
             (
                 "Equipo, ¿cómo cuentan impacto sin inventar cifras de mercado?",
