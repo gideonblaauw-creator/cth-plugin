@@ -252,6 +252,7 @@ async def _render_pdf(html_text: str) -> None:
                 margin={"top": "12mm", "bottom": "20mm", "left": "12mm", "right": "12mm"},
                 print_background=True,
                 display_header_footer=True,
+                header_template="<span></span>",
                 footer_template=footer_tpl,
             )
             await browser.close()
