@@ -1,11 +1,11 @@
 fleet_registry:
   version: 2026-11-25-active
   source: cth-bot-org-chart v1 + build-plan-2026-11-25.md Part 3.1
-  bot_count: 93
+  bot_count: 94
   tier_targets:
     '0': 2
     1a: 33
-    1b: 31
+    1b: 32
     '2': 20
     '3': 6
     4_hands: 1+
@@ -1868,6 +1868,37 @@ fleet_registry:
     isolation:
       kind: client
       enforcement: report_only
+  - id: 57c40771
+    id_full: 57c40771-c4a2-423a-a319-f830d1781205
+    name: UCompensar
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      status: active
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: report_only
+    model:
+      model_tier: tier-reasoning
+      enforcement: report_only
+      fast: false
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: report_only
+    isolation:
+      kind: client
+      enforcement: report_only
+    org_chart_note: Added 25 Nov 2026 at activation; present in live profile snapshot (not org-chart v1).
   - id: 586a6fda
     id_full: 586a6fda-a50b-47a0-ae1e-4c09fe5dec62
     name: EPIC Angels

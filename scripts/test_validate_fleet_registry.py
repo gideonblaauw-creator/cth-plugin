@@ -38,7 +38,7 @@ class FleetRegistryValidationTest(unittest.TestCase):
         tiers = Counter(str(b["tier"]) for b in registry["bots"])
         self.assertEqual(tiers["0"], 2)
         self.assertEqual(tiers["1a"], 33)
-        self.assertEqual(tiers["1b"], 31)
+        self.assertEqual(tiers["1b"], 32)
         self.assertEqual(tiers["2"], 20)
         self.assertEqual(tiers["3"], 6)
         self.assertGreaterEqual(tiers["4"], 1)

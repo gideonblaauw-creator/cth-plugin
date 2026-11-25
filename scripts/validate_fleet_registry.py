@@ -14,18 +14,22 @@ import yaml
 TIER_TARGETS = {
     "0": 2,
     "1a": 33,
-    "1b": 31,
+    "1b": 32,
     "2": 20,
     "3": 6,
     "4": 1,
 }
+
+REGISTRY_EXTRA_BEYOND_CATALOG = frozenset({"57c40771"})
+BOT_COUNT = 94
+TIER1_COMBINED = 65
 
 DEFAULT_CATALOG = Path(
     "/cursor/stores/bot/fleet-redesign-2026-11-25/org-chart/catalog.json"
 )
 
 ISOLATION_EXPECTED = {
-    "client": 27,
+    "client": 28,
     "grant_draft": 3,
     "workstream": 4,
     "personal": 7,
@@ -107,7 +111,9 @@ def validate_catalog_parity(registry: dict, catalog_path: Path) -> list[str]:
         if missing:
             errors.append(f"registry missing catalog id8: {sorted(missing)}")
         if extra:
-            errors.append(f"registry extra id8 vs catalog: {sorted(extra)}")
+            unexpected = sorted(extra - REGISTRY_EXTRA_BEYOND_CATALOG)
+            if unexpected:
+                errors.append(f"registry extra id8 vs catalog: {unexpected}")
     return errors
 
 
@@ -210,8 +216,8 @@ def validate_tier1_counts(bots: list[dict]) -> list[str]:
     errors: list[str] = []
     tier1 = sum(1 for b in bots if str(b.get("tier")) in ("1a", "1b") and b.get("status") == "active")
     tier1_all = sum(1 for b in bots if str(b.get("tier")) in ("1a", "1b"))
-    if tier1_all != 64:
-        errors.append(f"tier 1 combined count must be 64, got {tier1_all}")
+    if tier1_all != TIER1_COMBINED:
+        errors.append(f"tier 1 combined count must be {TIER1_COMBINED}, got {tier1_all}")
     parked = sum(
         1 for b in bots if str(b.get("tier")) in ("1a", "1b") and b.get("status") == "parked"
     )
@@ -228,8 +234,8 @@ def validate(
     bots = registry.get("bots")
     if not isinstance(bots, list):
         return ["bots must be a list"]
-    if len(bots) != 93:
-        errors.append(f"expected 93 bots, got {len(bots)}")
+    if len(bots) != BOT_COUNT:
+        errors.append(f"expected {BOT_COUNT} bots, got {len(bots)}")
 
     ids = [b.get("id") for b in bots]
     if len(ids) != len(set(ids)):
@@ -295,8 +301,8 @@ def validate(
         elif tier != "4" and got != expected:
             errors.append(f"tier {tier}: expected {expected}, got {got}")
 
-    if registry.get("bot_count") != 93:
-        errors.append("fleet_registry.bot_count must be 93")
+    if registry.get("bot_count") != BOT_COUNT:
+        errors.append(f"fleet_registry.bot_count must be {BOT_COUNT}")
 
     expected_orphans = len(registry.get("orphan_parent_proposals") or [])
     if expected_orphans != 36:

@@ -41,7 +41,7 @@ Targets from the Nov 2026 diagnosis. **Report-only mode:** breaches appear in Mo
 | Governance tier | Org chart layers | Active count | Model tier (plan label) | Token share cap (plan) | Context and execution mandate |
 | :--- | :--- | :---: | :--- | :--- | :--- |
 | **Tier 0: Control plane and checker** | Orchestrator, Control Tower Infra | 2 | `tier-reasoning` | ≤ 4% | Routing, ticket validation, maker ≠ checker. No multi-file grind or content factory. |
-| **Tier 1: Domain and client Desks** | Desks + isolated client Desks | **64** (63 active + 1 parked) | `tier-reasoning` / `knowledge-work` | ≤ 16% | Domain memory and scoping. Emit WorkOrders to Cursor Hands for file/deck/code/multi-doc work. |
+| **Tier 1: Domain and client Desks** | Desks + isolated client Desks | **65** (64 active + 1 parked) | `tier-reasoning` / `knowledge-work` | ≤ 16% | Domain memory and scoping. Emit WorkOrders to Cursor Hands for file/deck/code/multi-doc work. |
 | **Tier 2: I/O and ops Workbenches** | Workbenches | 19 | `tier-routine` | ≤ 8% | Stateless per trigger. Read-only / channel I/O. Browser CUA banned fleet-wide. |
 | **Tier 3: Thin capability wrappers** | Capability Agents | 6 | `tier-routine` / `tier-reasoning` (1–2 turns) | ≤ 5% | Structured specs only; heavy work in Tier 4. |
 | **Tier 4: Execution Hands** | Cursor Cloud Hands + OpenCode Cloud Hands | Shared pool | `tier-execution` | ≥ 67% | All heavy execution: repos, VPS Archive, scrapers, HTML/PDF, test loops. |
@@ -158,7 +158,7 @@ Caps in **`FLEET_REGISTRY.yaml`** supplement harness tickets. **`enforcement_def
 | 1 | Tier 2 Workbench fast models | **`fast: true` allowed** only for **Tier 2** and **Tier 4** bot runtime entries in `FLEET_REGISTRY.yaml`. Tier 2 uses `tier-routine` / `cursor-grok-4.5-low-fast`. **Cursor Cloud Hands** remain **`composer-2.5` / `fast: false`**. |
 | 2 | Turn-5 / 60k–80k Clone-and-Reset | **PR #181 merged** (25 Nov 2026). Fresh context / clone-and-reset is **adopted** in harness + registry `reset.clone_and_reset: true` for active Tier 0–1 bots. Enforcement of caps is **report-only** until second GO. |
 | 3 | Cloud Hands `fast` flag | **Fast OFF** on every **Cursor Cloud Hands** launch (17 Nov lock). Tier 2/4 registry `fast` does not override Hands. |
-| 4 | Tier 1 desk count | **64** bots in tier **1a + 1b** (including **one parked**: `e68ca92f`). |
+| 4 | Tier 1 desk count | **65** bots in tier **1a + 1b** (including **one parked**: `e68ca92f`; **`57c40771` UCompensar** added at activation). |
 | 5 | Automated weekly remediation | **Report-only** until second GO. Audits flag breaches; no auto-merge, profile mutation, or circuit-breaker **enforce** without approval. |
 | 6 | 67% Cursor Hands spend target | Aspirational North Star; harness ticket shape and daily job budget remain authoritative for launches. |
 
