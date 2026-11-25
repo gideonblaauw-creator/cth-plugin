@@ -14,6 +14,12 @@ ROOT = Path(__file__).resolve().parent.parent
 PROTO = Path(__file__).resolve().parent
 MONO = ROOT / "monday"
 RENDER = ROOT / "render"
+
+WINNERS_NAMES = "Nush Food, Ecuánime y Kuo"
+WINNERS_LINE = (
+    f"Tres ganadores confirmados (sin orden de mérito entre ellos): {WINNERS_NAMES}."
+)
+FINALISTS_SCORES_NOTE = "Seis finalistas y puntajes del jurado: [pendiente]."
 FONTS = (
     Path(__file__).resolve().parents[2]
     / "observatorio-tierra-dataton"
@@ -165,7 +171,7 @@ PHASES = [
             "Monitores apoyan preselección hacia 6 finalistas antes de 16:00 (planificado).",
             "Jurado planificado: Enrique Medina, Alejandro Díaz, Gideon Blaauw; utilidad y honestidad 0–5; desempate por historia.",
             "Ocho equipos subieron pitch ~16:00–16:42 — no equivale a lista oficial de 6 finalistas [por validar].",
-            "Cierre, certificados y anuncio de tres ganadores [resultados no encontrados en fuentes].",
+            f"Cierre, certificados y anuncio de tres ganadores ({WINNERS_NAMES}; sin orden de mérito).",
             "Toma de asistencia en entrada y sala tarde (planeada; resultado no documentado).",
         ],
         "risks": [
@@ -187,12 +193,12 @@ PHASES = [
             "Agradecimientos personalizados a panelistas, jurado y aliados (roles del día según agenda v7).",
             "Recopilar fotos (fotógrafo, WhatsApp, teléfonos) — en Drive solo poster equipo Kuo, no álbum evento.",
             "Publicar o archivar transmisión YouTube [por validar].",
-            "Redactar informe con asistencia, finalistas, ganadores y puntajes — datos faltantes marcar [por validar].",
+            f"Redactar informe con asistencia y ganadores ({WINNERS_NAMES}); finalistas y puntajes [pendiente].",
             "Actualizar protocolo con lecciones del 24 nov.",
         ],
         "risks": [
             "Retraso en fotos → comunicación post-evento sin visuales.",
-            "Sin ganadores confirmados → mensajes con placeholder {resultado/ganadores}.",
+            "Comunicar ganadores sin implicar orden de mérito entre los tres equipos.",
         ],
     },
     {
@@ -208,17 +214,18 @@ PHASES = [
             "Reunión retrospectiva CTH–Externado (Marlene / Alejandro).",
             "Incorporar lecciones en segunda edición (listas Luma, jurado, fotografía, streaming).",
             "Cerrar ítems Monday importados como Hecho o documentar bloqueos.",
-            "[pendiente Gideon] — definir ganadores oficiales y comunicación pública.",
+            "[pendiente Gideon] — comunicación pública de ganadores y enlace sandbox Datalab.",
         ],
         "risks": [
-            "Oportunidad Datalab sin dueño claro por falta de resultados oficiales.",
+            "Sandbox 2027: priorizar los tres ganadores confirmados y validar [pendiente] finalistas.",
         ],
     },
 ]
 
 LESSONS = [
     "[pendiente Gideon] — Resumen ejecutivo cualitativo del día (qué funcionó / qué no).",
-    "[pendiente Gideon] — Lista oficial de seis finalistas y tres ganadores con puntajes.",
+    WINNERS_LINE,
+    f"[pendiente] — Lista oficial de seis finalistas y puntajes del jurado (ganadores: {WINNERS_NAMES}).",
     "[pendiente Gideon] — Asistencia en sala y check-ins Luma.",
     "Drive mostró 21 carpetas de equipo (14 pre-armadas + 7 creadas el 24 nov); no hay carpeta Equipo 17.",
     "Rosters de miembros no consolidados; listado completo prometido por Externado no hallado en Gmail.",
@@ -393,6 +400,7 @@ li {{ margin-bottom: 0.25em; }}
   <p><strong>Premio planificado:</strong> entrada al sandbox Datalab CleantechHUB 2027 y conexiones de mercado;
   certificados para equipos y mentores. <strong>Jurado planificado:</strong> utilidad e honestidad (0–5); desempate
   por historia si empatan ambos criterios.</p>
+  <p><strong>Resultados edición 24 nov 2026:</strong> {WINNERS_LINE} {FINALISTS_SCORES_NOTE}</p>
 </section>
 """
     ]
@@ -469,6 +477,7 @@ def build_docx() -> Path:
     doc.add_paragraph(
         "Responsables citados por rol, no por nombre. Datos no confirmados: [por validar] / [pendiente Gideon]."
     )
+    doc.add_paragraph(f"Resultados edición 24 nov 2026: {WINNERS_LINE} {FINALISTS_SCORES_NOTE}")
 
     for ph in PHASES:
         doc.add_page_break()
