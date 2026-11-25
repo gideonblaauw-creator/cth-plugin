@@ -50,7 +50,7 @@ Targets from the Nov 2026 diagnosis. **Enforcement thresholds** apply only after
 
 ## 2. Shared operational rules (all Tier 0–3 bots)
 
-Adapted from build plan §3.2. Where a rule below conflicts with a **locked** harness rule, the harness skill wins (see PR section **Decisions for Gideon**).
+Adapted from build plan §3.2. Where a rule below conflicts with a **locked** harness rule, the harness skill wins (see [§6 Decisions for Gideon](#6-decisions-for-gideon)).
 
 ### 2.1 Cursor-first execution (≥ 67% spend target)
 
@@ -88,7 +88,7 @@ Cloud Hands open **draft PRs** and plant files. **Infrastructure** reviews. **Gi
 
 ### 2.7 Paid add-ons and spend (locked)
 
-**Zero budget** for new paid add-ons, connectors, or SaaS tiers unless Gideon approves a named exception. Prefer OSS, existing VPS containers, and Infisical-backed credentials. Orchestrator tracks Hands launch volume; Gideon sets Cursor dashboard limits and alerts ([`skills/harness/SKILL.md`](skills/harness/SKILL.md) daily job cap).
+**Zero budget** for new paid add-ons, connectors, or SaaS tiers unless Gideon approves a named exception. Prefer OSS, existing VPS containers, and Infisical-backed credentials. Launch volume follows the harness Token budget protocol rule **7. Daily budget** ([`skills/harness/SKILL.md`](skills/harness/SKILL.md)): at most 40 jobs per day across all desks; Orchestrator counts each launch; Gideon sets the Cursor dashboard spend limit and spend alert.
 
 ### 2.8 Cloud Hands model (locked)
 
@@ -122,7 +122,7 @@ These caps supplement harness tickets. They do **not** auto-tighten bot profiles
 | 1 | 50k–60k | 5 | Client desks stricter isolation under `/opt/claude-files/clients/<slug>/` |
 | 2 | 25k | 1 per trigger | `stateless: true`; no CUA |
 | 3 | Minimal | 1–2 | Spec emitters only |
-| 4 | Scoped by ticket | Per ticket `read-budget` | One fresh small agent per revision when possible |
+| 4 | Scoped by ticket | Per ticket `read-budget` | One job = one fresh, small agent with an exact file list and read budget ([`skills/hands-model-routing/SKILL.md`](skills/hands-model-routing/SKILL.md) § Agent size) |
 
 ---
 
@@ -150,6 +150,24 @@ When active, **Autopilot Workbench** runs a stateless **Monday 08:00 UTC** job t
 1. Protocol changes ship as PRs to `main` in `cth-plugin` ([`skills/desks-workbenches-hands-tickets/SKILL.md`](skills/desks-workbenches-hands-tickets/SKILL.md)).
 2. This file stays **DRAFT** until Gideon GO on merge—not merely "build approved."
 3. Do not edit live bot profiles, routines, or n8n workflows in the same change set as activating this protocol unless a separate ticket and GO say so.
+
+---
+
+## 6. Decisions for Gideon
+
+Where the Nov 2026 build plan conflicts with existing locked rules, **the existing rule wins** in this document until Gideon resolves the row and issues GO to activate.
+
+1. **Tier 2 Workbench model names (plan):** The plan assigns Tier 2 I/O Workbenches to **`cursor-grok-4.5-low-fast`** (`tier-routine`), stateless per trigger. Harness token lock forbids **Grok models on Cloud Hands** and does not adopt plan logical tiers as launch IDs. *Winner today:* Workbench channel I/O stays on harness Workbench rules; Tier 2 model names are **not** fleet-enforced until Gideon maps them to allowed runtime configs.
+
+2. **Turn-5 / 60k–80k Clone-and-Reset (plan):** The plan mandates **5 interactive turns** or **60k–80k tokens** (North Star: mandatory reset at Turn 5 or **80k**), saving state to `/opt/claude-files/state/` and resetting the thread. Gideon **NO GO on PR #181** (fresh context + thread cap) on 25 Nov 2026. *Winner today:* Clone-and-Reset is **not active**; rules live only under **PROPOSED — not active; overlaps PR #181 NO GO** above.
+
+3. **Cloud Hands `fast` flag:** Build plan and `skills/harness/SKILL.md` / `docs/hands-model-routing.md` (22 Oct) describe **`composer-2.5` (`fast=true`)** for every Hands job. Gideon lock **17 Nov 2026** in `skills/hands-model-routing/SKILL.md`: **`composer-2.5` with `fast: false`**. *Winner today:* **Fast OFF** on every Hands launch.
+
+4. **Tier 4 execution model list (plan):** Plan lists **`composer-2.5`, `2.5-fast`, OpenCode** for the shared Hands pool. Locked routing allows **composer-2.5 (fast:false)** and OpenCode only when Gideon says OSS—not **`2.5-fast`** as a default. *Winner today:* skill routing table; plan names deferred.
+
+5. **Automated weekly remediation (plan):** Monday audit auto-PR that tightens `max_context_tokens`, edits `MANDATE.md`, and runs mid-week circuit breakers. Conflicts with **HITL before merge/deploy**, **maker≠checker**, and **infra deploy only on Gideon's GO**. *Winner today:* weekly loop described as **future draft** (§4); no auto-merge or profile mutation without checker + Gideon.
+
+6. **67% Cursor Hands spend target vs harness content waves:** Plan targets ≥67% spend on Tier 4. Harness **Token budget protocol** still allows content batching and risk-based self-check on low-risk jobs. *Winner today:* harness protocol for ticket shape; North Star table is aspirational until active.
 
 ---
 
