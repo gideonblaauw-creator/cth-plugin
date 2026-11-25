@@ -11,12 +11,12 @@ Comparación temática; **no** implica que AGV sea DHL.
 | Scope 2 GHG | 0.06 m t CO2e | 1,232.95 t CO2 eq | yes AGV | DHL:25 | AGV:25 |
 | Scope 3 GHG | 25.79 m t (logistics S3) | not reported (en desarrollo) | AGV gap | DHL:25 | AGV:25 |
 | GHG intensity | not reported (DHL deck) | 0.0584 t CO2/ton; 1.210 kg CO2eq/km | yes AGV | 1-105 | AGV:25 |
-| Last-mile EV share | 46.2% (66% target 2030) | 13.6% gas+gasolina+eléctrico | yes AGV | DHL:24 | AGV:26 |
+| Non-diesel fleet share (AGV) | 46.2% (66% target 2030) | 13.6% no diésel (gasolina+gas+eléctrico; p.26) | yes AGV | DHL:24 | AGV:26 |
 | E-vehicle count / km | 50,604 e-vehicles (Group) | 69,461 km eléctricos 2025 | yes AGV | DHL:5;37 | AGV:26 |
 | CNG / GNV / gas fleet | 20.5% sustainable fuels road (own) | 868,532 km GNV; 2 GNV bought | yes AGV | DHL:24 | AGV:26 |
 | Avoided emissions vs diesel | 2.1 m t decarb effects (Group) | 21.95 t eléctrico; 33 t GNV | yes AGV | DHL:10 | AGV:23;26 |
 | Air pollutants NOx/PM | NOx 39,247 t; PM10 552 t | not reported (qualitative only) | DHL only | DHL:45 | AGV:44;106 |
-| Per-shipment / client footprint | GoGreen per shipment (p.42) | Dashboard diesel vs gas p.27-28 | yes AGV | DHL:42 | AGV:27 |
+| Per-shipment / client footprint | GoGreen per shipment (p.42) | Dashboard diesel vs gas p.27-28 (gráfico, confirmar AGV) | yes AGV | DHL:42 | AGV:27 |
 | Colombia / Bogotá split | not reported | Colombia-focused; Brasil sin split GEI | AGV partial | DHL:66 | AGV:3;37 |
 | Third-party fleet | Scope 3 upstream (categories) | 85% combustible flota tercerizada | yes AGV | DHL:26 | AGV:44 |
 | Climate targets | SBTi validated; <29m by 2030; NZ 2050 | Zero Waste meta; bajo carbono (narrativa) | DHL stronger | DHL:23 | AGV:4;63 |

@@ -28,12 +28,12 @@ Eléctricos última milla — km,69461,km,2025,Colombia,,26,"En 2025, con sesent
 Eléctricos — emisiones evitadas vs diésel,21.95,t CO2 eq,2025,Colombia,,26,Reducción neta de veintiún coma noventa y cinco toneladas CO2 eq.,AGV Open Market Informe de Sostenibilidad 2025
 Eléctricos — evitadas 2024,19.94,t CO2 eq,2024,Colombia,,26,Reducción neta de diecinueve coma noventa y cuatro toneladas en 2024.,AGV Open Market Informe de Sostenibilidad 2025
 Emisiones evitadas — total gas+eléctrico (resumen),54.95,t CO2 eq,2025,Colombia,,23,Cincuenta y cuatro coma noventa y cinco tCO2e evitadas (gas y eléctrico).,AGV Open Market Informe de Sostenibilidad 2025
-"Mix flota gasolina, gas y eléctrica",13.6,%,2025,Colombia,,26,"Porcentaje de flota a gasolina, gas y eléctrica: trece coma seis por ciento.",AGV Open Market Informe de Sostenibilidad 2025
+"Flota no diésel (gasolina, gas, eléctrica)",13.6,%,2025,Colombia,no solo EV/GNV,26,"Porcentaje de flota a gasolina, gas y eléctrica: trece coma seis por ciento.",AGV Open Market Informe de Sostenibilidad 2025
 Flota mitigación — eléctricos (mención GRI),5,vehículos,2025,Colombia,,106,Flota de cinco vehículos eléctricos y diez a gas para reducir emisiones.,AGV Open Market Informe de Sostenibilidad 2025
 Flota mitigación — gas (mención GRI),10,vehículos,2025,Colombia,,106,Diez vehículos a gas en líneas de mitigación de material particulado.,AGV Open Market Informe de Sostenibilidad 2025
-Huella por movimiento — dashboard transporte CO2,9860.46,t CO2,2025,Colombia,,27,Datos en tiempo real del año 2025 — total tablero transporte.,AGV Open Market Informe de Sostenibilidad 2025
-Huella por movimiento — toneladas movilizadas (tablero),291076.03,ton,2025,Colombia,,27,Total toneladas movilizadas en tablero huella de carbono transporte.,AGV Open Market Informe de Sostenibilidad 2025
-Huella por movimiento — diesel vs gas (etiqueta),reported,dashboard,2025,Colombia,,27,Huella clientes por movimiento diésel y huella evitada vehículos GAS.,AGV Open Market Informe de Sostenibilidad 2025
+Huella por movimiento — dashboard transporte CO2,9860.46,t CO2,2025,Colombia,"cifras leídas de gráfico, por confirmar con AGV",27,Datos en tiempo real del año 2025 — total tablero transporte.,AGV Open Market Informe de Sostenibilidad 2025
+Huella por movimiento — toneladas movilizadas (tablero),291076.03,ton,2025,Colombia,"cifras leídas de gráfico, por confirmar con AGV",27,Total toneladas movilizadas en tablero huella de carbono transporte.,AGV Open Market Informe de Sostenibilidad 2025
+Huella por movimiento — diesel vs gas (etiqueta),reported,dashboard,2025,Colombia,"cifras leídas de gráfico, por confirmar con AGV",27;28,Huella clientes por movimiento diésel y huella evitada vehículos GAS.,AGV Open Market Informe de Sostenibilidad 2025
 Cadena frío — CO2 evitado embalajes reutilizables,1400,t CO2,2025,Colombia,,4,Reduciendo más de mil cuatrocientas toneladas de CO₂ en cadena de frío.,AGV Open Market Informe de Sostenibilidad 2025
 Embalajes reutilizables — emisiones vs un solo uso,96,%,menos,2025,Colombia,,63,Embalajes reutilizables emiten noventa y seis por ciento menos.,AGV Open Market Informe de Sostenibilidad 2025
 Estibas remanufacturadas,39510,unidades,2025,Colombia,+12 % vs 2024,63,Treinta y nueve mil quinientas diez estibas remanufacturadas en 2025.,AGV Open Market Informe de Sostenibilidad 2025
