@@ -176,6 +176,15 @@ Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link:
 
 **Content waves amend the 12 Oct parallel-jobs rule.** Batch Nexus pages, wiki entries, and Datalab tasks into one job per wave. Do not open one Hands job per content item. Code builds may still split. The seven rules are in **Token budget protocol (22 Oct 2026)** below.
 
+### Fresh context per task (Gideon usage fix A — 25 Nov 2026)
+
+**Goal:** Stop long desk chats and old agent threads from re-reading full history on every step (cached-prompt churn). **Rollout:** `docs/rollout/2026-11-25-fresh-context-per-task.md`.
+
+1. **One task, one fresh context.** Start each new piece of work from a short handover note, not the long chat history. Launch every Hands ticket as a fresh small agent (`composer-2.5`, `fast:false`) with a self-contained brief. Never reply into an old long-running agent for unrelated work. Cap fix-run follow-ups on one PR at three; then write a fresh, re-scoped ticket.
+2. **Desk thread cap.** Before a desk chat gets long (proxy: about 40 turns, or any context-compaction notice), the desk must: **(a)** write a handover note of 15 lines or fewer covering open items, decisions (with dates, ids, and paths), and what each item waits on — store it in the desk's tracked tasks or memory, never in secrets; **(b)** tell Gideon in one line that the thread is ready to be cleared or summarised. After a clear, resume from the handover note and the task list only.
+3. **Waiting.** Wait for completion wakes. Do not run polling loops or repeated status checks on running Hands or subagents.
+4. **Craft still goes to Hands.** Ticket file, research, code, and copy to Cursor Cloud Hands; do not grind locally.
+
 ## Token budget protocol (22 Oct 2026)
 
 **Locked:** Gideon **22 Oct 2026**

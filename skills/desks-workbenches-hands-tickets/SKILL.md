@@ -15,6 +15,9 @@ Applies to subject desks, isolated client/grant desks, capability agents (Resear
 ## Layers
 Orchestrator · Desks · Workbench · Cloud Hands. Tools and Tickets are not chats.
 
+## Fresh context per task (25 Nov 2026)
+Follow **`skills/harness/SKILL.md`** § Fresh context per task: one task per fresh agent, desk thread cap with handover notes, no polling on running Hands, craft still tickets to Hands. Rollout: `docs/rollout/2026-11-25-fresh-context-per-task.md`.
+
 ## What the agent keeps
 - Own the subject / channel
 - Write Hands tickets (outcome, sources, exclusive write path, acceptance, model from [hands-model-routing](sand-workflow:hands-model-routing))
