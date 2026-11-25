@@ -28,22 +28,38 @@ flowchart TB
     CONF[Confluence CTHORCH]
     ROVO[Rovo orchestrator]
     MAI[Meeting AI ingest]
+    subgraph LEGROW[" "]
+      direction RL
+      subgraph LEG["Legend · bottom right"]
+        direction TB
+        LEG_A["Approver dark navy"]:::approver
+        LEG_D["Desk navy"]:::desk
+        LEG_W["Workbench cyan"]:::wb
+        LEG_N["New green"]:::new
+        LEG_P["In progress amber"]:::prog
+        LEG_R["Retired grey dash"]:::retired
+        LEG_H{Gideon yes}:::hitl
+      end
+      SP_LEG[" "]:::pad
+    end
   end
 
-  subgraph LEG["Legend"]
-    L1[Desk navy]
-    L2[Workbench cyan]
-    L3[Widget feed green]
-    L4{{Gideon yes}}
-  end
+  HITL{Gideon yes}
+
+  GID -->|dashboard owner| ORCH
+  GID -->|HITL decisions| HITL
+  HITL -->|approve send| GWB
+  HITL -->|approve post| SWB
+  HITL -->|HITL transition| JORCH
+
+  INBOX -->|own channel| GWB
+  MEET -->|calendar hook| MAI
+  CLIENT -->|strict scope| JDESK
 
   GWB -->|metadata issues| N8N
   SWB -->|channel events| N8N
   CH -->|PR and ticket done| N8N
-  INBOX --> GWB
-  MEET --> MAI
   MAI -->|action items| N8N
-  CLIENT -->|strict project| JDESK
 
   N8N -->|upsert epics| JDESK
   N8N -->|HITL queue| JORCH
@@ -63,22 +79,22 @@ flowchart TB
   ORCH -->|reads Jira| JORCH
   ORCH -->|asks fleet| ROVO
 
-  HITL{{Gideon yes}}
-  GID --> HITL
-  HITL -->|approve send| GWB
-  HITL -->|approve post| SWB
-  HITL -->|transition| JORCH
+  ROVO -->|legend anchor| SP_LEG
 
   classDef desk fill:#0C498A,color:#FFFFFF,stroke:#0C498A
   classDef wb fill:#B2EEFA,color:#0C498A,stroke:#0C498A
   classDef new fill:#669348,color:#FFFFFF,stroke:#669348
-  classDef prog fill:#F5A623,color:#0C498A,stroke:#F5A623
-  classDef approver fill:#1B4332,color:#FFFFFF,stroke:#1B4332
+  classDef prog fill:#FFFFFF,color:#0C498A,stroke:#F5A623,stroke-width:3px
+  classDef retired fill:#9E9E9E,color:#FFFFFF,stroke:#9E9E9E,stroke-dasharray: 5 5
+  classDef approver fill:#06325C,color:#FFFFFF,stroke:#0C498A,stroke-width:2px
+  classDef hitl fill:#C62828,color:#FFFFFF,stroke:#C62828,stroke-width:2px
   classDef system fill:#FFFFFF,color:#0C498A,stroke:#69B5FA
+  classDef pad fill:none,stroke:none,color:#FFFFFF
 
-  class GID approver
-  class ORCH,INBOX,MEET,CLIENT desk
-  class GWB,SWB,CH wb
-  class CONF,ROVO new
-  class N8N prog
+  class GID,LEG_A approver
+  class ORCH,INBOX,MEET,CLIENT,LEG_D desk
+  class GWB,SWB,CH,LEG_W wb
+  class CONF,ROVO,LEG_N new
+  class N8N,LEG_P prog
   class JORCH,JHAND,JOPS,JDESK,MAI system
+  class HITL,LEG_H hitl
