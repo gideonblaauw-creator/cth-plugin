@@ -1,8 +1,6 @@
 # Plantillas de agradecimiento — Datatón 24 nov 2026
 
-Texto en español, tono cercano y claro. Sin cierre ni firma (los añade quien envía). Sin la palabra «gratis». Marcadores: `{nombre}`, `{equipo}`. No incluir direcciones de correo ni teléfonos en este archivo.
-
-**Ganadores confirmados (sin orden de mérito):** Nush Food, Ecuánime y Kuo. Seis finalistas y puntajes del jurado siguen **[pendiente]**.
+Marcadores: `{nombre}`, `{equipo}`. Usted en todo el cuerpo. Sin cierre ni firma. Uso externo.
 
 ---
 
@@ -12,163 +10,170 @@ Texto en español, tono cercano y claro. Sin cierre ni firma (los añade quien e
 
 Asunto sugerido: Gracias por participar en el Datatón Observatorio de la Tierra
 
-Hola {nombre},
-
-Gracias por representar a {equipo} en el Datatón del 24 de noviembre en la Universidad Externado. Valoramos el tiempo que dedicaron a trabajar el reto, subir entregables y compartir sus ideas sobre datos y territorio.
-
-Los tres ganadores confirmados son Nush Food, Ecuánime y Kuo. No publicamos orden de mérito entre ellos. Si {equipo} es uno de esos proyectos, en los próximos días coordinamos los pasos hacia el sandbox Datalab CleantechHUB 2027; si no, igual agradecemos su participación y quedamos atentos a seguir en contacto.
-
-Mientras tanto, pueden conservar sus archivos en la carpeta del equipo en Drive.
-
-Si desean seguir en contacto con CleantechHUB, responden a este hilo y coordinamos.
+🙌 Gracias, {nombre}, por representar a {equipo} en el Datatón del 24 de noviembre en la Universidad Externado.
+📅 Valoramos el trabajo que dedicaron al reto y a sus entregables sobre datos y territorio.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+🎓 CleantechHUB Academy emitirá su certificado digital en los próximos días.
+📸 Les pedimos enviar una foto de su certificado físico y sus mejores fotos del día al grupo de WhatsApp «dataton 2026».
+👉 Si desea seguir en contacto con CleantechHUB, puede responder a este mensaje.
 
 ### WhatsApp
 
-Hola {nombre}, gracias a todo {equipo} por el Datatón del martes en Externado. Ganadores confirmados: Nush Food, Ecuánime y Kuo (sin orden entre los tres). Si su equipo es uno de ellos, les escribimos con los pasos al Datalab 2027. ¡Abrazo!
+🙌 Gracias, {nombre}, y a todo {equipo}, por el Datatón en Externado.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+🎓 Pronto recibirán el certificado digital de la Academy.
+📸 Envíen foto del certificado físico y sus mejores fotos al grupo «dataton 2026».
 
 ---
 
-## 2. Monitores / mentores
+## 2. Equipos ganadores (Nush Food, Ecuánime, Kuo)
+
+### Correo
+
+Asunto sugerido: Felicitaciones — Datatón Observatorio de la Tierra
+
+🏆 Felicitaciones, {nombre} y {equipo}: su proyecto quedó entre los tres equipos ganadores del Datatón.
+🙌 Gracias por la dedicación del 24 de noviembre en la Universidad Externado.
+📅 En los próximos días les escribiremos con los pasos hacia el Datalab CleantechHUB 2027.
+🎓 CleantechHUB Academy emitirá su certificado digital.
+📸 Envíen una foto de su certificado físico y sus mejores fotos al grupo de WhatsApp «dataton 2026».
+
+### WhatsApp
+
+🏆 Felicitaciones, {equipo}, por ganar el Datatón.
+🙌 Gracias por su trabajo del 24 de noviembre.
+📅 Pronto les contamos los siguientes pasos con el Datalab.
+📸 Fotos del certificado físico y del día, al grupo «dataton 2026».
+
+---
+
+## 3. Monitores / mentores
 
 ### Correo
 
 Asunto sugerido: Gracias por acompañar equipos — Datatón 24 nov
 
-Hola {nombre},
-
-Gracias por apoyar a los equipos como monitor de ciencias de datos el 24 de noviembre: su presencia en los paneles de la mañana y en el trabajo en bloques fue clave para orientar entregables y la preselección hacia las finales.
-
-Apreciamos especialmente la coordinación con el profesor Enrique Medina y el equipo académico del Externado. Si tienen fotos o notas del día que quieran compartir para la biblioteca de imágenes del evento, pueden enviarlas por este medio.
-
-Los ganadores confirmados del Datatón son Nush Food, Ecuánime y Kuo (sin orden de mérito entre ellos). La lista de seis finalistas y los puntajes siguen [pendiente].
+🙌 Gracias, {nombre}, por acompañar a los equipos como monitor el 24 de noviembre.
+📅 Su apoyo en los paneles de la mañana y en el trabajo en bloques orientó entregables y la ruta hacia las finales.
+🎓 CleantechHUB Academy emitirá su certificado digital como monitor del Datatón.
+📸 Les pedimos una foto de su certificado físico y sus mejores fotos del día al grupo de WhatsApp «dataton 2026».
+👉 Cualquier imagen que pueda compartir enriquece el archivo del evento.
 
 ### WhatsApp
 
-{nombre}, gracias por mentorar en el Datatón. Tu apoyo en sala hizo la diferencia para varios equipos. Ganadores: Nush Food, Ecuánime y Kuo (sin orden entre los tres). Si tienes fotos del día, nos ayudarían mucho para el informe post-evento. Gracias de parte de CleantechHUB y el CEE.
+🙌 Gracias, {nombre}, por mentorar en el Datatón.
+🎓 Pronto recibe su certificado digital de la Academy.
+📸 Envíe foto del certificado físico y sus mejores fotos al grupo «dataton 2026».
 
 ---
 
-## 3. Equipo de apoyo (CleantechHUB + embajadores Externado)
+## 4. Equipo de apoyo (CleantechHUB + embajadores Externado)
 
 ### Correo
 
 Asunto sugerido: Gracias — operación Datatón 24 nov
 
-Hola {nombre},
-
-Gracias por el trabajo de apoyo el 24 de noviembre: registro, streaming, logística con el auditorio y coordinación con el CEE. Sabemos que hubo cambios de última hora en panel y agenda; su flexibilidad permitió sostener el cronograma.
-
-Los ganadores ya están confirmados: Nush Food, Ecuánime y Kuo (sin orden de mérito). Próximo paso interno: biblioteca de imágenes y cierre del informe (seis finalistas y puntajes [pendiente]). Cualquier apunte que quieran dejar para la segunda edición es bienvenido.
+🙌 Gracias, {nombre}, por su apoyo operativo el 24 de noviembre en el Externado.
+📅 Su trabajo en registro, transmisión y puente con la sede sostuvo la jornada del Observatorio.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Sus comentarios sobre la jornada nos ayudan a fortalecer la próxima edición.
 
 ### WhatsApp
 
-{nombre}, mil gracias por el team del Datatón en Externado. Logística, streaming y puente con embajadores hicieron falta y estuvieron. Ganadores confirmados: Nush Food, Ecuánime y Kuo. Hacemos cierre oficial en cuanto Gideon apruebe los textos. ¡Gracias!
+🙌 Gracias, {nombre}, por el apoyo en el Datatón del martes.
+🏆 Ganadores: Nush Food, Ecuánime y Kuo.
+👉 Sus observaciones son bienvenidas para la próxima edición.
 
 ---
 
-## 4. Agradecimientos personalizados
+## 5. Agradecimientos personalizados
 
 ### Natalia Vargas — APC-Colombia
 
-**Rol en el día (según panel one-pager 23 nov):** panelista 08:40, APC-Colombia.
+**Rol:** Panelista 08:40, APC-Colombia.
 
 Asunto sugerido: Gracias — panel Datatón Observatorio de la Tierra
 
-Natalia,
-
-Gracias por acompañarnos en el panel de las 08:40 del Datatón del 24 de noviembre y por compartir la perspectiva de APC-Colombia frente al Observatorio de la Tierra. Su bio y confirmación ayudaron a cerrar el one-pager la noche anterior al evento.
-
-Los tres ganadores confirmados son Nush Food, Ecuánime y Kuo (sin orden de mérito entre ellos). La lista de finalistas y los puntajes del jurado siguen [pendiente].
+🙌 Gracias, Natalia, por acompañarnos en el panel de las 08:40 del Datatón del 24 de noviembre.
+📅 Su mirada desde APC-Colombia enriqueció la conversación sobre el Observatorio de la Tierra.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Quedamos atentos a seguir conectando con APC y la agenda territorial del Observatorio.
 
 ### Viviana Obando — RAP Pacífico
 
-**Rol:** panelista 08:40, RAP Pacífico.
+**Rol:** Panelista 08:40, RAP Pacífico.
 
 Asunto sugerido: Gracias por el panel — Datatón 24 nov
 
-Viviana,
-
-Gracias por sumarse al panel matutino del Datatón y por representar a RAP Pacífico en la conversación sobre territorio y datos. Su registro en Luma el 23 de noviembre fue señal de compromiso con la convocatoria.
-
-Quedamos atentos a seguir conectando regiones y el trabajo del Observatorio.
+🙌 Gracias, Viviana, por sumarse al panel matutino del Datatón del 24 de noviembre.
+📅 Su voz desde RAP Pacífico aportó perspectiva regional a la apertura del día.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Esperamos seguir articulando datos, territorio y comunidades en el Pacífico.
 
 ### Alejandro Díaz — Universidad Externado
 
-**Rol:** co-presentador del Observatorio de la Tierra; asiento académico en panel 08:40 si el rector no asistía; jurado planificado (Unidad de Innovación).
+**Rol:** Co-presentación del lanzamiento del Observatorio (09:10) y conversatorio en la mañana.
 
 Asunto sugerido: Gracias — co-organización y Observatorio
 
-Alejandro,
-
-Gracias por co-presentar el lanzamiento del Observatorio de la Tierra y por el puente constante con la Dirección de Desarrollo e Innovación del Externado. Su rol en el panel y en el jurado planificado fue fundamental para legitimar el ejercicio ante los equipos.
-
-Los ganadores confirmados son Nush Food, Ecuánime y Kuo (sin orden de mérito). Seis finalistas y puntajes: [pendiente].
+🙌 Gracias, Alejandro, por co-presentar el lanzamiento del Observatorio de la Tierra en el Datatón.
+📅 Su puente entre la Dirección de Desarrollo e Innovación y CleantechHUB marcó el hilo del día.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Valoramos su compromiso con la siguiente edición desde el Externado.
 
 ### Marlene Díaz — Universidad Externado / CEE
 
-**Rol:** co-organizadora; apertura planificada 08:30 con CleantechHUB.
+**Rol:** Co-organización del Datatón y apertura 08:30 con CleantechHUB. **P.S. opcional** (listado de equipos) al pie del correo.
 
 Asunto sugerido: Gracias — Datatón CEE + CleantechHUB
 
-Marlene,
+🙌 Gracias, Marlene, por co-organizar la primera edición del Datatón con el CEE.
+📅 Su apertura y coordinación con el auditorio dieron la bienvenida a equipos y aliados.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Fue un día clave para el Observatorio y el Datalab.
 
-Gracias por co-organizar la primera edición del Datatón con el CEE y por abrir el auditorio el 24 de noviembre. La logística previa (listados, almuerzos, aula modular para mentores) sentó las bases del día.
-
-Seguimos pendientes del listado completo de equipos que se mencionó en logística — nos ayudaría para consolidar rosters en la próxima edición. Los ganadores confirmados son Nush Food, Ecuánime y Kuo (sin orden de mérito entre ellos).
+P.S. (opcional): Si puede compartir el listado completo de equipos del Externado, nos ayudaría para el archivo institucional.
 
 ### Enrique Medina — Agrometers
 
-**Rol:** conversatorio 09:45; coordinador de mentores de datos; jurado planificado.
+**Rol:** Conversatorio Agrometers; coordinación de monitores; participación en el jurado del día.
 
 Asunto sugerido: Gracias — Agrometers y mentores Datatón
 
-Enrique,
-
-Gracias por el conversatorio de Agrometers, por coordinar a los monitores de ciencias de datos y por integrar el jurado planificado (utilidad e honestidad). El briefing del 23 de noviembre con los estudiantes mentores fue un hito claro antes del día D.
-
-Los ganadores confirmados son Nush Food, Ecuánime y Kuo (sin orden de mérito). Cuando exista acta de jurado, cerramos la lista de seis finalistas y los puntajes ([pendiente]).
+🙌 Gracias, Enrique, por el conversatorio de Agrometers en la mañana del Datatón.
+📅 Su coordinación con los monitores de ciencias de datos sostuvo el trabajo de los equipos en bloque.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Agradecemos su liderazgo académico en esta primera edición.
 
 ### Miguel Ángel Rozo y Sebastián Forero — Air4U
 
-**Rol:** sandbox 10:05–10:40; demo Datalab (rehearsal 23 nov).
+**Rol:** Sandbox y demostración en vivo Air4U (10:05–10:40).
 
 Asunto sugerido: Gracias — sandbox Air4U en el Datatón
 
-Miguel y Sebastián,
-
-Gracias por la demo del Data Sandbox Air4U y por el ensayo del 23 de noviembre. Mostrar un caso vivo ayudó a los equipos a imaginar entregables con datos reales. Air4U también figuró como equipo 05 en la convocatoria — apreciamos el doble rol de aliado y participante.
-
-Queremos seguir explorando conexiones con el Datalab en 2027.
+🙌 Gracias, Miguel y Sebastián, por la demo del Data Sandbox Air4U el 24 de noviembre.
+📅 Mostrar un caso vivo ayudó a los equipos a imaginar entregables con datos reales.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Queremos seguir explorando conexiones con el Datalab en 2027.
 
 ### Alejandro Henao — Constructora Bolívar
 
-**Rol:** conversatorio Constructora Bolívar (Jefe Nacional de la Aceleradora de Transformación). **Asistencia el 24 nov:** [por validar] (agenda v7 aún mostraba «Sr. Cortés» en versiones anteriores; confirmación de nombre el 23 nov).
+**Rol:** Conversatorio Constructora Bolívar en la agenda del Datatón. **[por validar]** asistencia el 24 nov.
 
 Asunto sugerido: Gracias — conversatorio Constructora Bolívar
 
-Alejandro,
-
-Gracias por aceptar el espacio de conversatorio con Constructora Bolívar en la agenda del Datatón. La perspectiva de transformación en sector construcción complementó el lanzamiento del Observatorio.
-
-[por validar] Confirmar si pudo asistir y referir brevemente su intervención antes de enviar.
+🙌 Gracias, Alejandro, por abrir un espacio de conversación con Constructora Bolívar en el Datatón.
+📅 Su enfoque de transformación en el sector construcción complementó el lanzamiento del Observatorio.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Valoramos su disposición a acompañar iniciativas de datos y territorio.
 
 ### Cristian Correa — Croma
 
-**Rol en fuentes pre-evento:** oferta de intro de cinco minutos, acceso API/MCP, datasets, premio y mentoría. **Asistencia el 24 nov:** [por validar].
+**Rol:** Aliado invitado (datos, APIs y mentoría). **[por validar]** participación el 24 nov.
 
 Asunto sugerido: Gracias — alianza Croma y Datatón
 
-Cristian,
-
-Gracias por la disposición de Croma a apoyar el Datatón con datos, APIs y mentoría, confirmada en el intercambio del 22 de noviembre. [por validar] Si pudieron estar en sala, nos gustaría incorporar su aporte al informe post-evento.
-
-Los ganadores del concurso fueron Nush Food, Ecuánime y Kuo (sin orden de mérito). Mencionar premio Croma en sala solo si [por validar] hubo entrega ese día.
-
----
-
-## 5. Notas de uso
-
-- Sustituir `{nombre}` y `{equipo}` antes de enviar; nunca pegar listas de contacto en este repo.
-- No implicar orden de mérito entre Nush Food, Ecuánime y Kuo.
-- Seis finalistas y puntajes: [pendiente] — no inventar rankings.
-- Cualquier envío público queda **Awaiting Gideon's approval** según política CleantechHUB.
+🙌 Gracias, Cristian, por la disposición de Croma a apoyar el Datatón con datos y herramientas.
+📅 Esa oferta sumó valor a la narrativa del Observatorio ante equipos y aliados.
+🏆 Felicitamos a Nush Food, Ecuánime y Kuo, los tres equipos ganadores.
+👉 Esperamos seguir conversando sobre conexiones con el Datalab.

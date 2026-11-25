@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import csv
 import json
 import re
@@ -20,12 +21,7 @@ WINNERS_LINE = (
     f"Tres ganadores confirmados (sin orden de mérito entre ellos): {WINNERS_NAMES}."
 )
 FINALISTS_SCORES_NOTE = "Seis finalistas y puntajes del jurado: [pendiente]."
-FONTS = (
-    Path(__file__).resolve().parents[2]
-    / "observatorio-tierra-dataton"
-    / "assets"
-    / "fonts"
-)
+FONTS = PROTO / "fonts"
 
 PHASES = [
     {
@@ -236,6 +232,20 @@ LESSONS = [
     "Problemas pre-evento documentados: límite StreamYard/Zoom, almuerzos, mentor Tomás ausente en briefing.",
 ]
 
+def pdf_safe(text: str) -> str:
+    """Keep PDF on embedded Open Sans glyphs (avoid Arimo fallback)."""
+    return (
+        text.replace("\u2014", " - ")
+        .replace("\u2013", "-")
+        .replace("\u00ab", '"')
+        .replace("\u00bb", '"')
+        .replace("\u00a9", "(c)")
+        .replace("\u00b7", " | ")
+        .replace("\u2026", "...")
+        .replace("\u2192", " -> ")
+    )
+
+
 ANNEX = [
     ("Paquete equipos (starter pack)", "decks/dataton-2026-team-pack"),
     ("Plantilla pitch Datatón", "decks/datathon-2026-pitch-template"),
@@ -272,23 +282,35 @@ def build_monday_csv() -> None:
 
 
 def html_body() -> str:
+    reg = FONTS / "OpenSans-Regular.ttf"
+    semi = FONTS / "OpenSans-SemiBold.ttf"
+    bold = FONTS / "OpenSans-Bold.ttf"
     css_font = ""
-    if (FONTS / "open-sans-latin-400-normal.woff2").exists():
+    if reg.exists() and semi.exists():
+        bold_src = bold if bold.exists() else semi
+
+        def data_uri(path: Path) -> str:
+            b64 = base64.b64encode(path.read_bytes()).decode("ascii")
+            return f"url(data:font/truetype;base64,{b64}) format('truetype')"
+
         css_font = f"""
 @font-face {{
   font-family: 'Open Sans';
-  src: url('file://{FONTS}/open-sans-latin-400-normal.woff2') format('woff2');
+  src: {data_uri(reg)};
   font-weight: 400;
+  font-style: normal;
 }}
 @font-face {{
   font-family: 'Open Sans';
-  src: url('file://{FONTS}/open-sans-latin-600-normal.woff2') format('woff2');
+  src: {data_uri(semi)};
   font-weight: 600;
+  font-style: normal;
 }}
 @font-face {{
   font-family: 'Open Sans';
-  src: url('file://{FONTS}/open-sans-latin-700-normal.woff2') format('woff2');
+  src: {data_uri(bold_src)};
   font-weight: 700;
+  font-style: normal;
 }}
 """
     parts = [
@@ -308,45 +330,73 @@ def html_body() -> str:
 }}
 * {{ box-sizing: border-box; }}
 body {{
-  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 11pt;
-  line-height: 1.45;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10.75pt;
+  font-weight: 600;
+  line-height: 1.38;
   color: var(--cth-text);
   margin: 0;
   padding: 0;
 }}
+code, pre, .path {{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10.5pt;
+}}
 @page {{
   size: A4;
-  margin: 22mm 18mm 24mm 18mm;
+  margin: 38mm 18mm 24mm 18mm;
 }}
 @media print {{
-  body {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+  html, body, strong, b, em, span, p, li, h1, h2, h3, div {{
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600;
+    font-synthesis: none;
+  }}
+  h1, h2.phase, strong, b {{
+    font-weight: 700;
+  }}
+  body {{
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }}
   .page-break {{ page-break-before: always; }}
+  section.page-break > h2.phase {{
+    margin-top: 0;
+    padding-top: 14mm;
+  }}
   .running-header, .running-footer {{
     position: fixed;
     left: 0; right: 0;
+    font-family: 'Open Sans', sans-serif;
     font-size: 9pt;
     color: var(--cth-dark);
+    z-index: 1000;
   }}
   .running-header {{
     top: 0;
+    height: 14mm;
     border-bottom: 2px solid var(--cth-primary);
-    padding: 6mm 18mm 3mm;
+    padding: 4mm 18mm 2mm;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-weight: 600;
+    background: #fff;
   }}
   .running-footer {{
     bottom: 0;
+    height: 12mm;
     border-top: 1px solid var(--cth-accent);
-    padding: 3mm 18mm;
+    padding: 2mm 18mm;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background: #fff;
   }}
 }}
 .cover {{
-  min-height: 250mm;
-  padding: 40mm 18mm;
+  min-height: 235mm;
+  padding: 36mm 18mm;
   background: linear-gradient(160deg, var(--cth-light) 0%, #fff 55%);
 }}
 .cover h1 {{
@@ -371,8 +421,21 @@ h2.phase {{
   margin-top: 1.2em;
 }}
 h3 {{ font-size: 11pt; color: var(--cth-dark); margin-bottom: 0.3em; }}
-ul {{ margin: 0.3em 0 0.8em 1.2em; }}
-li {{ margin-bottom: 0.25em; }}
+ul {{
+  margin: 0.3em 0 0.8em 0;
+  padding-left: 0;
+  list-style: none;
+}}
+li {{
+  margin-bottom: 0.25em;
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+  font-family: 'Open Sans', sans-serif;
+}}
+li::before {{
+  content: "- ";
+  font-family: 'Open Sans', sans-serif;
+}}
 .risk {{ color: #6b2c2c; }}
 .meta-block {{ background: var(--cth-light); padding: 8px 12px; margin: 8px 0; border-radius: 4px; }}
 </style>
@@ -429,12 +492,12 @@ li {{ margin-bottom: 0.25em; }}
         parts.append(f"<li>{le}</li>\n")
     parts.append("</ul>\n</section>\n")
 
-    parts.append('<section class="page-break">\n')
+    parts.append('<section>\n')
     parts.append("<h2 class=\"phase\">Anexo — Plantillas y rutas en repo</h2><ul>\n")
     for label, pth in ANNEX:
-        parts.append(f"<li><strong>{label}:</strong> <code>{pth}</code></li>\n")
+        parts.append(f'<li><strong>{label}:</strong> <span class="path">{pth}</span></li>\n')
     parts.append("</ul>\n</section>\n</body></html>")
-    return "".join(parts)
+    return pdf_safe("".join(parts))
 
 
 def build_docx() -> Path:
@@ -529,17 +592,20 @@ def build_pdf(html_path: Path, pdf_path: Path) -> None:
         browser = p.chromium.launch()
         page = browser.new_page()
         page.goto(html_path.as_uri(), wait_until="networkidle")
+        page.evaluate("() => document.fonts.ready")
         page.pdf(
             path=str(pdf_path),
             format="A4",
             print_background=True,
-            margin={"top": "22mm", "bottom": "24mm", "left": "18mm", "right": "18mm"},
+            margin={"top": "38mm", "bottom": "24mm", "left": "18mm", "right": "18mm"},
         )
         browser.close()
 
 
 def pdf_to_pngs(pdf_path: Path, out_dir: Path) -> list[Path]:
     out_dir.mkdir(parents=True, exist_ok=True)
+    for old in out_dir.glob("protocolo-dataton-cth-page-*.png"):
+        old.unlink()
     renamed: list[Path] = []
     try:
         import pymupdf as fitz
@@ -559,15 +625,14 @@ def pdf_to_pngs(pdf_path: Path, out_dir: Path) -> list[Path]:
 
 def page_count_pdf(pdf_path: Path) -> int:
     try:
-        out = subprocess.check_output(["pdfinfo", str(pdf_path)], text=True)
-        m = re.search(r"Pages:\s+(\d+)", out)
-        return int(m.group(1)) if m else 0
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        return len(list(RENDER.glob("protocolo-dataton-cth-page-*.png")))
+        import pymupdf as fitz
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "pymupdf", "-q"])
+        import pymupdf as fitz
+    return len(fitz.open(pdf_path))
 
 
 def main() -> dict:
-    build_monday_csv()
     html = PROTO / "protocolo-dataton-cth.html"
     html.write_text(html_body(), encoding="utf-8")
     docx_path = build_docx()

@@ -1,7 +1,7 @@
 {
   "docx": "protocol/protocolo-dataton-cth.docx",
   "pdf": "protocol/protocolo-dataton-cth.pdf",
-  "pages": 13,
+  "pages": 12,
   "pngs": [
     "render/protocolo-dataton-cth-page-01.png",
     "render/protocolo-dataton-cth-page-02.png",
@@ -14,8 +14,7 @@
     "render/protocolo-dataton-cth-page-09.png",
     "render/protocolo-dataton-cth-page-10.png",
     "render/protocolo-dataton-cth-page-11.png",
-    "render/protocolo-dataton-cth-page-12.png",
-    "render/protocolo-dataton-cth-page-13.png"
+    "render/protocolo-dataton-cth-page-12.png"
   ],
   "monday_rows": 56
 }
