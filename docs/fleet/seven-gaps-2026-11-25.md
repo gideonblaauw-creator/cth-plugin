@@ -22,7 +22,7 @@ All enforcement fields remain `off` until Gideon merges governance PRs and activ
 | | |
 |---|---|
 | **Before** | Two Chamber bots: active `67e509f7` and parked duplicate `e68ca92f`. Risk of split state and double triggers. |
-| **After (proposed)** | Registry `status: parked` on `e68ca92f`; plan target is `archived` with triggers disabled on merge. All Chamber work routes to `67e509f7` only. |
+| **After (proposed)** | Registry keeps `status: parked` on `e68ca92f` while proposing `archive.target: archived` and `triggers.enabled: false`, each with `proposed: true` and `enforcement: off`. All Chamber work routes to `67e509f7` only. |
 
 ---
 
@@ -58,7 +58,7 @@ All enforcement fields remain `off` until Gideon merges governance PRs and activ
 | | |
 |---|---|
 | **Before** | Profiles use a single `isolated` flag without distinguishing client, workstream, and personal desks. |
-| **After (proposed)** | Registry adds `isolation.kind` per bot: `client` (29 partner desks), `workstream` (CTH Grants, GTM, Strategy, Advisory Board), `personal` (Ruben, GINA, Natalia, Careers, Travel, Markets, Mac Scan). `enforcement: off`. |
+| **After (proposed)** | Registry adds `isolation.kind` aligned with org-chart domains: **`client` × 27** (`Isolated client` domain tier-1b), **`grant_draft` × 3** (CTCN Suriname, GRP, TNS VerdeXcelerate), **`workstream` × 4** (CTH Grants, GTM Strategy, Strategy, Advisory Board), **`personal` × 7** (GINA, Natalia, Careers, Travel, Markets, Mac Scan tier-1a + Ruben tier-1b). All `enforcement: off`. |
 
 ---
 

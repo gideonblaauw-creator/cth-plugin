@@ -260,6 +260,56 @@ def resolve_parent_id8(bot: dict, name_index: dict[str, str]) -> str | None:
     raise KeyError(f"Cannot resolve parent for {bot['name']!r} reports={reports!r}")
 
 
+def isolation_kind_for(bot: dict) -> dict | None:
+    id8 = bot["id8"]
+    if id8 in ISOLATION_KIND:
+        return {"kind": ISOLATION_KIND[id8], "enforcement": "off"}
+    layer = bot["layer"]
+    domain = bot.get("domain", "")
+    if layer == "Isolated client desk":
+        if domain == "Grant draft":
+            return {"kind": "grant_draft", "enforcement": "off"}
+        if domain == "Personal":
+            return {"kind": "personal", "enforcement": "off"}
+        return {"kind": "client", "enforcement": "off"}
+    return None
+
+
+def governance_defaults() -> dict:
+    """Fleet-wide auto_pause / circuit_breaker (draft; enforcement off)."""
+    template_flags = {"proposed": True, "enforcement": "off"}
+    return {
+        "auto_pause": {
+            **template_flags,
+            "grok_weekly_share_alert_pct": 25,
+            "grok_weekly_share_throttle_pct": 30,
+            "pause_non_critical_tier2_schedules_when_tripped": True,
+        },
+        "auto_pause_tier_templates": {
+            "0": {**template_flags, "max_turns": 3, "max_context_tokens": 40000},
+            "1a": {**template_flags, "max_turns": 5, "max_context_tokens": 60000},
+            "1b": {**template_flags, "max_turns": 5, "max_context_tokens": 50000},
+            "2": {**template_flags, "stateless_required": True, "max_context_tokens": 25000},
+            "3": {**template_flags, "max_turns": 2, "emit_workorder_only": True},
+            "4": {**template_flags, "execution_pool_min_share_pct": 67},
+        },
+        "circuit_breaker": {
+            **template_flags,
+            "mid_week_grok_share_trip_pct": 25,
+            "rapid_fire_loop_max_share_pct": 20,
+            "force_tier1_tier3_to_hands_until_weekly_reset": True,
+        },
+        "circuit_breaker_tier_templates": {
+            "0": {**template_flags, "role": "route_and_validate_only"},
+            "1a": {**template_flags, "clone_and_reset_at_tokens": 80000},
+            "1b": {**template_flags, "clone_and_reset_at_tokens": 80000},
+            "2": {**template_flags, "disable_when_tripped": True},
+            "3": {**template_flags, "no_in_context_scrape_or_build": True},
+            "4": {**template_flags, "absorb_forced_execution": True},
+        },
+    }
+
+
 def parent_proposal_reason(bot: dict, parent_id8: str | None) -> str:
     id8 = bot["id8"]
     if id8 == "fbc6f772":
@@ -352,14 +402,28 @@ def main() -> int:
                 }
             ]
 
-        if id8 in ISOLATION_KIND:
-            record["isolation"] = {
-                "kind": ISOLATION_KIND[id8],
+        isolation = isolation_kind_for(bot)
+        if isolation:
+            record["isolation"] = isolation
+
+        if tier == "2":
+            record["browser_cua"] = {
+                "banned": True,
                 "enforcement": "off",
+                "proposed": True,
             }
 
-        if tier == "1b" and bot["domain"] == "Isolated client" and id8 not in ISOLATION_KIND:
-            record["isolation"] = {"kind": "client", "enforcement": "off"}
+        if id8 == "e68ca92f":
+            record["archive"] = {
+                "target": "archived",
+                "enforcement": "off",
+                "proposed": True,
+            }
+            record["triggers"] = {
+                "enabled": False,
+                "enforcement": "off",
+                "proposed": True,
+            }
 
         if id8 in FOLD_IN_NOTES:
             record["fold_in"] = {**FOLD_IN_NOTES[id8], "enforcement": "off"}
@@ -383,6 +447,7 @@ def main() -> int:
                 "4_hands": "1+",
             },
             "enforcement_default": "off",
+            **governance_defaults(),
             "orphan_parent_proposals": meta_orphans,
             "bots": bots_out,
         }

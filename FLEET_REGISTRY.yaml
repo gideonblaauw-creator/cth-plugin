@@ -10,6 +10,73 @@ fleet_registry:
     '3': 6
     4_hands: 1+
   enforcement_default: 'off'
+  auto_pause:
+    proposed: true
+    enforcement: 'off'
+    grok_weekly_share_alert_pct: 25
+    grok_weekly_share_throttle_pct: 30
+    pause_non_critical_tier2_schedules_when_tripped: true
+  auto_pause_tier_templates:
+    '0':
+      proposed: true
+      enforcement: 'off'
+      max_turns: 3
+      max_context_tokens: 40000
+    1a:
+      proposed: true
+      enforcement: 'off'
+      max_turns: 5
+      max_context_tokens: 60000
+    1b:
+      proposed: true
+      enforcement: 'off'
+      max_turns: 5
+      max_context_tokens: 50000
+    '2':
+      proposed: true
+      enforcement: 'off'
+      stateless_required: true
+      max_context_tokens: 25000
+    '3':
+      proposed: true
+      enforcement: 'off'
+      max_turns: 2
+      emit_workorder_only: true
+    '4':
+      proposed: true
+      enforcement: 'off'
+      execution_pool_min_share_pct: 67
+  circuit_breaker:
+    proposed: true
+    enforcement: 'off'
+    mid_week_grok_share_trip_pct: 25
+    rapid_fire_loop_max_share_pct: 20
+    force_tier1_tier3_to_hands_until_weekly_reset: true
+  circuit_breaker_tier_templates:
+    '0':
+      proposed: true
+      enforcement: 'off'
+      role: route_and_validate_only
+    1a:
+      proposed: true
+      enforcement: 'off'
+      clone_and_reset_at_tokens: 80000
+    1b:
+      proposed: true
+      enforcement: 'off'
+      clone_and_reset_at_tokens: 80000
+    '2':
+      proposed: true
+      enforcement: 'off'
+      disable_when_tripped: true
+    '3':
+      proposed: true
+      enforcement: 'off'
+      no_in_context_scrape_or_build: true
+    '4':
+      proposed: true
+      enforcement: 'off'
+      absorb_forced_execution: true
   orphan_parent_proposals:
   - id: f1a2eba2
     name: X · Desks
@@ -1541,6 +1608,14 @@ fleet_registry:
     isolation:
       kind: client
       enforcement: 'off'
+    archive:
+      target: archived
+      enforcement: 'off'
+      proposed: true
+    triggers:
+      enabled: false
+      enforcement: 'off'
+      proposed: true
     org_chart_note: Parked. Display name in the profile is Chamber · Bucaramanga.
   - id: 55d17679
     id_full: 55d17679-96b1-4b9c-a74f-aabc68a4f1a4
@@ -1599,6 +1674,9 @@ fleet_registry:
     budget_share_cap: 6%
     routines: []
     enforcement: 'off'
+    isolation:
+      kind: grant_draft
+      enforcement: 'off'
   - id: c8de93b6
     id_full: c8de93b6-f550-49c6-9d74-0d38558d9b4d
     name: CTH Grant · GRP
@@ -1628,6 +1706,9 @@ fleet_registry:
     budget_share_cap: 6%
     routines: []
     enforcement: 'off'
+    isolation:
+      kind: grant_draft
+      enforcement: 'off'
   - id: 86e52e93
     id_full: 86e52e93-5d9e-4539-bca8-aed6b50880fe
     name: CTH Grant · TNS VerdeXcelerate
@@ -1656,6 +1737,9 @@ fleet_registry:
     budget_share_cap: 6%
     routines: []
     enforcement: 'off'
+    isolation:
+      kind: grant_draft
+      enforcement: 'off'
   - id: ab46f1d9
     id_full: ab46f1d9-d312-4f40-abe3-deaa938bc071
     name: Emprende UP
@@ -2099,6 +2183,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 08f083c1
     id_full: 08f083c1-6514-420a-9a2c-7562aa3ca810
     name: Instagram · Workbench
@@ -2126,6 +2214,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: c55c05a2
     id_full: c55c05a2-ff20-4830-b5fb-eb01f6adb783
     name: Facebook · Workbench
@@ -2153,6 +2245,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 2f3ba699
     id_full: 2f3ba699-71de-4460-9fda-9cad355fe37a
     name: Google Ads · Workbench
@@ -2179,6 +2275,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: d040c454
     id_full: d040c454-2de4-4c96-af52-d83ef3e51447
     name: Gmail · Workbench
@@ -2205,6 +2305,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: '78944169'
     id_full: 78944169-9756-46bc-ba76-026afd75a2eb
     name: Calendar · Workbench
@@ -2231,6 +2335,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 46b91f1c
     id_full: 46b91f1c-6af9-4adc-82df-fc9287547ddd
     name: Voice
@@ -2259,6 +2367,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 00f2eadf
     id_full: 00f2eadf-4ceb-418c-9e6e-2cbc3174861f
     name: CTH Bot
@@ -2285,6 +2397,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: d280b734
     id_full: d280b734-7a20-4579-b926-d0ead5497dbb
     name: WhatsApp · Workbench
@@ -2312,6 +2428,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 6b334caf
     id_full: 6b334caf-7873-4c79-ac37-7509633c7fe9
     name: Slack · Workbench
@@ -2339,6 +2459,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 7df0969f
     id_full: 7df0969f-1996-4918-9393-c8e125658f91
     name: Telegram · Workbench
@@ -2365,6 +2489,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: f8b4b4c2
     id_full: f8b4b4c2-28a1-45c1-849f-bbb6b5776819
     name: Autopilot · Workbench
@@ -2394,6 +2522,10 @@ fleet_registry:
       schedule: Mon 08:00 UTC
       enforcement: 'off'
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 85949e8a
     id_full: 85949e8a-e9c8-44ff-9396-5b03e29be062
     name: Engine Room · Workbench
@@ -2422,6 +2554,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: c0a4443d
     id_full: c0a4443d-afff-4949-8b3e-21a4cb4e3c98
     name: Vault · Workbench
@@ -2449,6 +2585,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: fbc6f772
     id_full: fbc6f772-82d8-40d5-92b8-cbefe7d5f1fc
     name: Health
@@ -2480,6 +2620,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: c0fe06b9
     id_full: c0fe06b9-f7d5-4d05-807b-f96527ff4892
     name: Moodle
@@ -2507,6 +2651,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: a02dc640
     id_full: a02dc640-b451-44db-93b7-1d08a3647b3d
     name: Odoo
@@ -2537,6 +2685,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: 1571c6b3
     id_full: 1571c6b3-8820-45bc-8196-b035ccfe69b3
     name: Mail Finder
@@ -2565,6 +2717,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: '49495613'
     id_full: 49495613-251f-4a8a-bdb0-0754130430ff
     name: Sustenttia · Fillout
@@ -2592,6 +2748,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
     fold_in:
       into: 7ffbe815
       status: active
@@ -2624,6 +2784,10 @@ fleet_registry:
     budget_share_cap: 8%
     routines: []
     enforcement: 'off'
+    browser_cua:
+      banned: true
+      enforcement: 'off'
+      proposed: true
   - id: edd93ed9
     id_full: edd93ed9-18d0-46ae-9c85-8d267c5ebf15
     name: Images
