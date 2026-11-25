@@ -145,7 +145,7 @@ Marlene was going to send “el listado completo de equipos del Externado con no
 
 | Person / seat | Organisation | Email | Source |
 |---|---|---|---|
-| Gloria Marlene Díaz Muñoz (Marlene), directora CEE | Universidad Externado / CEE | [email omitido] | Memory + Gmail logistics thread `1a1fa8b1ce00086f`; Granola `41bcdbc8`. WhatsApp file `/workspace/marlene-wa/raw_573212153815_s.whatsapp.net.json` implies mobile **[tel omitido]** (from the JID). **por validar as a current contact number** |
+| Gloria Marlene Díaz Muñoz (Marlene), directora CEE | Universidad Externado / CEE | [email omitido] | Memory + Gmail logistics thread `1a1fa8b1ce00086f`; Granola `41bcdbc8`. WhatsApp file [ruta WhatsApp omitida] implies mobile **[tel omitido]** (from the JID). **por validar as a current contact number** |
 | Diego Alejandro Díaz Malagón | Universidad Externado, Dirección de Desarrollo Institucional | [email omitido] | Gmail / Granola |
 | Hernando Parra (Rector) | Universidad Externado | not found | Gideon mail 20 Nov, thread `1a1fa8781dd81de3` |
 | Andrés Riveros | Externado / EmprenderMás (mic, invited lunch) | not found | Agenda v3; Granola `c7bac665` |
