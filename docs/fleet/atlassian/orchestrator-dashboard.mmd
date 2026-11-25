@@ -1,0 +1,84 @@
+---
+title: Orchestrator fleet dashboard data flow v1 · 25 Nov 2026
+---
+flowchart TB
+  subgraph B1["Band 1 · Approver"]
+    GID[Gideon Blaauw]
+  end
+
+  subgraph B2["Band 2 · Desks"]
+    ORCH[Orchestrator 5dc64ea4]
+    INBOX[Inbox desk]
+    MEET[CTH Meetings]
+    CLIENT[Client desk slice]
+  end
+
+  subgraph B3["Band 3 · Workbenches and Cloud Hands"]
+    GWB[Gmail Workbench]
+    SWB[Slack Workbench]
+    CH[Cloud Hands receipts]
+  end
+
+  subgraph B4["Band 4 · Systems and data"]
+    N8N[n8n orchestrator]
+    JORCH[Jira CTHORCH]
+    JHAND[Jira CTHHANDS]
+    JOPS[Jira CTHOPS]
+    JDESK[Jira desk projects]
+    CONF[Confluence CTHORCH]
+    ROVO[Rovo orchestrator]
+    MAI[Meeting AI ingest]
+  end
+
+  subgraph LEG["Legend"]
+    L1[Desk navy]
+    L2[Workbench cyan]
+    L3[Widget feed green]
+    L4{{Gideon yes}}
+  end
+
+  GWB -->|metadata issues| N8N
+  SWB -->|channel events| N8N
+  CH -->|PR and ticket done| N8N
+  INBOX --> GWB
+  MEET --> MAI
+  MAI -->|action items| N8N
+  CLIENT -->|strict project| JDESK
+
+  N8N -->|upsert epics| JDESK
+  N8N -->|HITL queue| JORCH
+  N8N -->|hands status| JHAND
+  N8N -->|doctor issues| JOPS
+
+  JORCH -->|gadgets embed| CONF
+  JHAND -->|gadgets embed| CONF
+  JOPS -->|gadgets embed| CONF
+  JDESK -->|rollup filters| CONF
+
+  CONF -->|indexed scope| ROVO
+  JORCH -->|JQL federation| ROVO
+  JDESK -->|scoped search| ROVO
+
+  ORCH -->|reads dashboard| CONF
+  ORCH -->|reads Jira| JORCH
+  ORCH -->|asks fleet| ROVO
+
+  HITL{{Gideon yes}}
+  GID --> HITL
+  HITL -->|approve send| GWB
+  HITL -->|approve post| SWB
+  HITL -->|transition| JORCH
+
+  classDef desk fill:#0C498A,color:#FFFFFF,stroke:#0C498A
+  classDef wb fill:#B2EEFA,color:#0C498A,stroke:#0C498A
+  classDef new fill:#669348,color:#FFFFFF,stroke:#669348
+  classDef prog fill:#F5A623,color:#0C498A,stroke:#F5A623
+  classDef approver fill:#1B4332,color:#FFFFFF,stroke:#1B4332
+  classDef system fill:#FFFFFF,color:#0C498A,stroke:#69B5FA
+
+  class GID approver
+  class ORCH,INBOX,MEET,CLIENT desk
+  class GWB,SWB,CH wb
+  class CONF,ROVO new
+  class N8N prog
+  class JORCH,JHAND,JOPS,JDESK,MAI system

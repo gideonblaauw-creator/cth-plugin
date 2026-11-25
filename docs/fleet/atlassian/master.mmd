@@ -1,0 +1,107 @@
+---
+title: CTH Fleet ↔ Atlassian master wiring v1 · 25 Nov 2026
+---
+flowchart TB
+  subgraph B1["Band 1 · Approver"]
+    direction LR
+    GID[Gideon Blaauw]
+  end
+
+  subgraph B2["Band 2 · Desks"]
+    direction LR
+    ORCH[Orchestrator · 5dc64ea4]
+    INF[Control Tower Infra]
+    DESKINT[Internal desks · 33]
+    DESKCLI[Client desks · 28 strict]
+    TECL[Teclogi pilot]
+    SUST[Sustenttia pilot]
+  end
+
+  subgraph B3["Band 3 · Workbenches and Cloud Hands"]
+    direction LR
+    SLACK[Slack · Workbench]
+    GMAIL[Gmail · Workbench]
+    AUTO[Autopilot · n8n]
+    HAND[Cloud Hands tier 4]
+  end
+
+  subgraph B4["Band 4 · Systems and data"]
+    direction LR
+    N8N[n8n on OVH VPS]
+    INFIS[Infisical cth-agents]
+    JIRA[Jira cleantechhub]
+    CONF[Confluence spaces]
+    LOOM[Loom Fleet library]
+    ROVO[Rovo agents]
+    VPS[VPS Doctor_Bot]
+    SLK[Slack workspace]
+    GML[Gmail API]
+  end
+
+  subgraph LEG["Legend"]
+    direction TB
+    L1[Desk navy #0C498A]
+    L2[Workbench cyan #B2EEFA]
+    L3[New green #669348]
+    L4[In progress amber #F5A623]
+    L5[Retired grey dashed]
+    L6{{Gideon yes diamond}}
+  end
+
+  GID --> ORCH
+  ORCH --> DESKINT
+  ORCH --> DESKCLI
+  ORCH --> TECL
+  ORCH --> SUST
+  INF --> AUTO
+
+  SLACK --> N8N
+  GMAIL --> N8N
+  AUTO --> N8N
+  HAND --> N8N
+
+  N8N --> INFIS
+  N8N --> JIRA
+  N8N --> CONF
+  VPS --> JIRA
+
+  DESKINT --> JIRA
+  DESKCLI --> JIRA
+  TECL --> JIRA
+  SUST --> JIRA
+
+  JIRA --> CONF
+  CONF --> LOOM
+  CONF --> ROVO
+  JIRA --> ROVO
+
+  SLK --> SLACK
+  GML --> GMAIL
+
+  HITL1{{Gideon yes}}
+  GID --> HITL1
+  HITL1 --> N8N
+  HITL1 --> JIRA
+  HITL1 --> ROVO
+
+  HITL2{{Gideon yes}}
+  GID --> HITL2
+  HITL2 --> HAND
+
+  ORCH -.->|dashboard| JIRA
+  ORCH -.->|home hub| CONF
+
+  classDef desk fill:#0C498A,color:#FFFFFF,stroke:#0C498A
+  classDef wb fill:#B2EEFA,color:#0C498A,stroke:#0C498A
+  classDef new fill:#669348,color:#FFFFFF,stroke:#669348
+  classDef prog fill:#F5A623,color:#0C498A,stroke:#F5A623
+  classDef retired fill:#9E9E9E,color:#FFFFFF,stroke:#9E9E9E,stroke-dasharray: 5 5
+  classDef approver fill:#1B4332,color:#FFFFFF,stroke:#1B4332
+  classDef system fill:#FFFFFF,color:#0C498A,stroke:#69B5FA
+
+  class GID approver
+  class ORCH,INF,DESKINT,DESKCLI,TECL,SUST desk
+  class SLACK,GMAIL,AUTO,HAND wb
+  class JIRA,CONF,LOOM,ROVO new
+  class N8N prog
+  class INFIS,VPS,SLK,GML system

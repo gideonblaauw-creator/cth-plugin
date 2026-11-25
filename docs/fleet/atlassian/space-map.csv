@@ -1,0 +1,95 @@
+bot_id,bot_name,tier,parent_id,jira_project_key,confluence_space_key,loom_folder,rovo_agent_scope,isolation_flag
+c656afb9,Control Tower · Infra,0,5dc64ea4,CTHOPS,CTHOPS,/Fleet/T0/c656afb9/control-tower-infra,scope:cth-fleet/desk/c656afb9,shared
+5dc64ea4,Orchestrator,0,,CTHORCH,CTHORCH,/Fleet/T0/5dc64ea4/orchestrator,scope:cth-fleet/orchestrator/5dc64ea4,shared
+558f5c27,AIC,1a,5dc64ea4,CTHAICX,CTHAICX,/Fleet/T1a/558f5c27/aic,scope:cth-fleet/desk/558f5c27,shared
+2c9bb239,AURA,1a,5dc64ea4,CTHAURA,CTHAURA,/Fleet/T1a/2c9bb239/aura,scope:cth-fleet/desk/2c9bb239,shared
+b65940e2,Academy · Desks,1a,5dc64ea4,CTHADXX,CTHADXX,/Fleet/T1a/b65940e2/academy-desks,scope:cth-fleet/desk/b65940e2,shared
+6479618a,Advisory Board,1a,5dc64ea4,CTHABXX,CTHABXX,/Fleet/T1a/6479618a/advisory-board,scope:cth-fleet/desk/6479618a,internal
+f92073e0,Almendra,1a,5dc64ea4,CTHALME,CTHALME,/Fleet/T1a/f92073e0/almendra,scope:cth-fleet/desk/f92073e0,shared
+d98379c1,Bank,1a,5dc64ea4,CTHBANK,CTHBANK,/Fleet/T1a/d98379c1/bank,scope:cth-fleet/desk/d98379c1,shared
+9ef6acd9,Budget · Desks,1a,5dc64ea4,CTHBDXX,CTHBDXX,/Fleet/T1a/9ef6acd9/budget-desks,scope:cth-fleet/desk/9ef6acd9,shared
+462857ec,CTH GTM Strategy · Desks,1a,5dc64ea4,CTHCGSD,CTHCGSD,/Fleet/T1a/462857ec/cth-gtm-strategy-desks,scope:cth-fleet/desk/462857ec,internal
+9360f6b2,CTH Grants,1a,5dc64ea4,CTHCGXX,CTHCGXX,/Fleet/T1a/9360f6b2/cth-grants,scope:cth-fleet/desk/9360f6b2,internal
+7ea170b4,CTH Meetings,1a,5dc64ea4,CTHCMXX,CTHCMXX,/Fleet/T1a/7ea170b4/cth-meetings,scope:cth-fleet/desk/7ea170b4,shared
+1570295a,CTH Proposals,1a,5dc64ea4,CTHCPXX,CTHCPXX,/Fleet/T1a/1570295a/cth-proposals,scope:cth-fleet/desk/1570295a,shared
+f5576adb,CTH Strategy · Desks,1a,5dc64ea4,CTHCSDX,CTHCSDX,/Fleet/T1a/f5576adb/cth-strategy-desks,scope:cth-fleet/desk/f5576adb,internal
+0255b102,Careers,1a,5dc64ea4,CTHCARE,CTHCARE,/Fleet/T1a/0255b102/careers,scope:cth-fleet/desk/0255b102,personal
+76808b5e,Datalab,1a,5dc64ea4,CTHDATA,CTHDATA,/Fleet/T1a/76808b5e/datalab,scope:cth-fleet/desk/76808b5e,shared
+9ef81c69,Dutch Embassy · Contacts,1a,5dc64ea4,CTHDECX,CTHDECX,/Fleet/T1a/9ef81c69/dutch-embassy-contacts,scope:cth-fleet/desk/9ef81c69,shared
+53a8e74f,Energy Coop · Projects,1a,5dc64ea4,CTHECPX,CTHECPX,/Fleet/T1a/53a8e74f/energy-coop-projects,scope:cth-fleet/desk/53a8e74f,shared
+b258f16f,GINA,1a,5dc64ea4,CTHGINA,CTHGINA,/Fleet/T1a/b258f16f/gina,scope:cth-fleet/desk/b258f16f,personal
+d3d9dd60,Inbox,1a,5dc64ea4,CTHINBO,CTHINBO,/Fleet/T1a/d3d9dd60/inbox,scope:cth-fleet/desk/d3d9dd60,shared
+58782071,Investor Matching · Desks,1a,5dc64ea4,CTHIMDX,CTHIMDX,/Fleet/T1a/58782071/investor-matching-desks,scope:cth-fleet/desk/58782071,shared
+96d52460,Jobs Board,1a,5dc64ea4,CTHJBXX,CTHJBXX,/Fleet/T1a/96d52460/jobs-board,scope:cth-fleet/desk/96d52460,shared
+4b96b1e8,Legal,1a,5dc64ea4,CTHLEGA,CTHLEGA,/Fleet/T1a/4b96b1e8/legal,scope:cth-fleet/desk/4b96b1e8,shared
+9d25c2ea,Mac Scan,1a,5dc64ea4,CTHMSXX,CTHMSXX,/Fleet/T1a/9d25c2ea/mac-scan,scope:cth-fleet/desk/9d25c2ea,personal
+75be842c,Markets,1a,5dc64ea4,CTHMARK,CTHMARK,/Fleet/T1a/75be842c/markets,scope:cth-fleet/desk/75be842c,personal
+a6610a66,Natalia Ariza,1a,5dc64ea4,CTHNAXX,CTHNAXX,/Fleet/T1a/a6610a66/natalia-ariza,scope:cth-fleet/desk/a6610a66,personal
+25f3a623,Newsletter · Desks,1a,5dc64ea4,CTHNDXX,CTHNDXX,/Fleet/T1a/25f3a623/newsletter-desks,scope:cth-fleet/desk/25f3a623,shared
+920925f2,Nexus / Origo / · Desks,1a,5dc64ea4,CTHNODX,CTHNODX,/Fleet/T1a/920925f2/nexus-origo-desks,scope:cth-fleet/desk/920925f2,shared
+e0625c40,Production Papers,1a,5dc64ea4,CTHPPXX,CTHPPXX,/Fleet/T1a/e0625c40/production-papers,scope:cth-fleet/desk/e0625c40,shared
+fd48890b,REIN Hubs,1a,5dc64ea4,CTHRHXX,CTHRHXX,/Fleet/T1a/fd48890b/rein-hubs,scope:cth-fleet/desk/fd48890b,shared
+22eef082,Socials · Desks,1a,5dc64ea4,CTHSDXX,CTHSDXX,/Fleet/T1a/22eef082/socials-desks,scope:cth-fleet/desk/22eef082,shared
+7ffbe815,Sustenttia,1a,5dc64ea4,CTHSUST,CTHSUST,/Fleet/T1a/7ffbe815/sustenttia,scope:cth-fleet/desk/7ffbe815,shared
+27bd8324,Teclogi,1a,5dc64ea4,CTHTECL,CTHTECL,/Fleet/T1a/27bd8324/teclogi,scope:cth-fleet/desk/27bd8324,shared
+2599f250,Travel,1a,5dc64ea4,CTHTRAV,CTHTRAV,/Fleet/T1a/2599f250/travel,scope:cth-fleet/desk/2599f250,personal
+f1a2eba2,X · Desks,1a,5dc64ea4,CTHXDXX,CTHXDXX,/Fleet/T1a/f1a2eba2/x-desks,scope:cth-fleet/desk/f1a2eba2,shared
+6a3cdaf9,AFE,1b,5dc64ea4,CTHAFEX,CTHAFEX,/Fleet/T1b/6a3cdaf9/afe,scope:cth-fleet/isolated_desk/6a3cdaf9,strict
+edc085bc,APC · Colombia,1b,5dc64ea4,CTHACXX,CTHACXX,/Fleet/T1b/edc085bc/apc-colombia,scope:cth-fleet/isolated_desk/edc085bc,strict
+f5610aed,Air4U,1b,5dc64ea4,CTHAIR4,CTHAIR4,/Fleet/T1b/f5610aed/air4u,scope:cth-fleet/isolated_desk/f5610aed,strict
+479e1e16,Akvo,1b,5dc64ea4,CTHAKVO,CTHAKVO,/Fleet/T1b/479e1e16/akvo,scope:cth-fleet/isolated_desk/479e1e16,strict
+5ab9a34f,Angélica Díaz,1b,5dc64ea4,CTHADXX5,CTHADXX5,/Fleet/T1b/5ab9a34f/angélica-díaz,scope:cth-fleet/isolated_desk/5ab9a34f,strict
+14fa829c,Atenea,1b,5dc64ea4,CTHATEN,CTHATEN,/Fleet/T1b/14fa829c/atenea,scope:cth-fleet/isolated_desk/14fa829c,strict
+0ed3babe,Behold,1b,5dc64ea4,CTHBEHO,CTHBEHO,/Fleet/T1b/0ed3babe/behold,scope:cth-fleet/isolated_desk/0ed3babe,strict
+35749b3c,Bridging Ventures,1b,5dc64ea4,CTHBVXX,CTHBVXX,/Fleet/T1b/35749b3c/bridging-ventures,scope:cth-fleet/isolated_desk/35749b3c,strict
+254409c1,CCF,1b,5dc64ea4,CTHCCFX,CTHCCFX,/Fleet/T1b/254409c1/ccf,scope:cth-fleet/isolated_desk/254409c1,strict
+858f55c1,CEE Externado,1b,5dc64ea4,CTHCEXX,CTHCEXX,/Fleet/T1b/858f55c1/cee-externado,scope:cth-fleet/isolated_desk/858f55c1,strict
+d9499d9f,CTH Grant · CTCN Suriname,1b,5dc64ea4,CTHCGCS,CTHCGCS,/Fleet/T1b/d9499d9f/cth-grant-ctcn-suriname,scope:cth-fleet/isolated_desk/d9499d9f,strict
+c8de93b6,CTH Grant · GRP,1b,5dc64ea4,CTHCGGX,CTHCGGX,/Fleet/T1b/c8de93b6/cth-grant-grp,scope:cth-fleet/isolated_desk/c8de93b6,strict
+86e52e93,CTH Grant · TNS VerdeXcelerate,1b,5dc64ea4,CTHCGTV,CTHCGTV,/Fleet/T1b/86e52e93/cth-grant-tns-verdexcelerate,scope:cth-fleet/isolated_desk/86e52e93,strict
+67e509f7,Chamber · Bucaramanga,1b,5dc64ea4,CTHCBXX,CTHCBXX,/Fleet/T1b/67e509f7/chamber-bucaramanga,scope:cth-fleet/isolated_desk/67e509f7,strict
+e68ca92f,Chamber · Bucaramanga (parked),1b,5dc64ea4,CTHCBPX,CTHCBPX,/Fleet/T1b/e68ca92f/chamber-bucaramanga-parked,scope:cth-fleet/isolated_desk/e68ca92f,strict
+55d17679,Climate-KIC,1b,5dc64ea4,CTHCKXX,CTHCKXX,/Fleet/T1b/55d17679/climate-kic,scope:cth-fleet/isolated_desk/55d17679,strict
+586a6fda,EPIC Angels,1b,5dc64ea4,CTHEAXX,CTHEAXX,/Fleet/T1b/586a6fda/epic-angels,scope:cth-fleet/isolated_desk/586a6fda,strict
+8f51caf3,ETB,1b,5dc64ea4,CTHETBX,CTHETBX,/Fleet/T1b/8f51caf3/etb,scope:cth-fleet/isolated_desk/8f51caf3,strict
+ab46f1d9,Emprende UP,1b,5dc64ea4,CTHEUXX,CTHEUXX,/Fleet/T1b/ab46f1d9/emprende-up,scope:cth-fleet/isolated_desk/ab46f1d9,strict
+ac8b7c37,Energy Sprint,1b,5dc64ea4,CTHESXX,CTHESXX,/Fleet/T1b/ac8b7c37/energy-sprint,scope:cth-fleet/isolated_desk/ac8b7c37,strict
+d57436ae,Escuela Colombiana de Ingeniería,1b,5dc64ea4,CTHECDI,CTHECDI,/Fleet/T1b/d57436ae/escuela-colombiana-de-ingeniería,scope:cth-fleet/isolated_desk/d57436ae,strict
+bfd1f8d3,FODESEP,1b,5dc64ea4,CTHFODE,CTHFODE,/Fleet/T1b/bfd1f8d3/fodesep,scope:cth-fleet/isolated_desk/bfd1f8d3,strict
+50293a49,FabFloow,1b,5dc64ea4,CTHFABF,CTHFABF,/Fleet/T1b/50293a49/fabfloow,scope:cth-fleet/isolated_desk/50293a49,strict
+df5cd6a9,GIZ,1b,5dc64ea4,CTHGIZX,CTHGIZX,/Fleet/T1b/df5cd6a9/giz,scope:cth-fleet/isolated_desk/df5cd6a9,strict
+b609ea1f,Gutami,1b,5dc64ea4,CTHGUTA,CTHGUTA,/Fleet/T1b/b609ea1f/gutami,scope:cth-fleet/isolated_desk/b609ea1f,strict
+c471e31d,Irrazonables · ESOsfera,1b,5dc64ea4,CTHIEXX,CTHIEXX,/Fleet/T1b/c471e31d/irrazonables-esosfera,scope:cth-fleet/isolated_desk/c471e31d,strict
+2592cf74,Monday · Teclogi,1b,27bd8324,CTHMTXX,CTHMTXX,/Fleet/T1b/2592cf74/monday-teclogi,scope:cth-fleet/isolated_desk/2592cf74,strict
+1fa1a638,Mubon · Projects,1b,5dc64ea4,CTHMPXX,CTHMPXX,/Fleet/T1b/1fa1a638/mubon-projects,scope:cth-fleet/isolated_desk/1fa1a638,strict
+0626dbf3,PASO Colombia,1b,5dc64ea4,CTHPCXX,CTHPCXX,/Fleet/T1b/0626dbf3/paso-colombia,scope:cth-fleet/isolated_desk/0626dbf3,strict
+9657a5a3,Ruben,1b,5dc64ea4,CTHRUBE,CTHRUBE,/Fleet/T1b/9657a5a3/ruben,scope:cth-fleet/isolated_desk/9657a5a3,personal
+15b0ef21,Sunco,1b,5dc64ea4,CTHSUNC,CTHSUNC,/Fleet/T1b/15b0ef21/sunco,scope:cth-fleet/isolated_desk/15b0ef21,strict
+57c40771,UCompensar,1b,5dc64ea4,CTHUCOM,CTHUCOM,/Fleet/T1b/57c40771/ucompensar,scope:cth-fleet/isolated_desk/57c40771,strict
+f8b4b4c2,Autopilot · Workbench,2,c656afb9,CTHOPS/cmp:WB-f8b4b4c2,CTHOPS,/Fleet/T2/f8b4b4c2/autopilot-workbench,scope:cth-fleet/workbench/f8b4b4c2,shared
+00f2eadf,CTH Bot,2,7ea170b4,CTHCMXX/cmp:WB-00f2eadf,CTHCMXX,/Fleet/T2/00f2eadf/cth-bot,scope:cth-fleet/workbench/00f2eadf,shared
+78944169,Calendar · Workbench,2,7ea170b4,CTHCMXX/cmp:WB-78944169,CTHCMXX,/Fleet/T2/78944169/calendar-workbench,scope:cth-fleet/workbench/78944169,shared
+85949e8a,Engine Room · Workbench,2,c656afb9,CTHOPS/cmp:WB-85949e8a,CTHOPS,/Fleet/T2/85949e8a/engine-room-workbench,scope:cth-fleet/workbench/85949e8a,shared
+c55c05a2,Facebook · Workbench,2,22eef082,CTHSDXX/cmp:WB-c55c05a2,CTHSDXX,/Fleet/T2/c55c05a2/facebook-workbench,scope:cth-fleet/workbench/c55c05a2,shared
+d040c454,Gmail · Workbench,2,d3d9dd60,CTHINBO/cmp:WB-d040c454,CTHINBO,/Fleet/T2/d040c454/gmail-workbench,scope:cth-fleet/workbench/d040c454,shared
+2f3ba699,Google Ads · Workbench,2,22eef082,CTHSDXX/cmp:WB-2f3ba699,CTHSDXX,/Fleet/T2/2f3ba699/google-ads-workbench,scope:cth-fleet/workbench/2f3ba699,shared
+fbc6f772,Health,2,85949e8a,CTHOPS/cmp:WB-fbc6f772,CTHOPS,/Fleet/T2/fbc6f772/health,scope:cth-fleet/workbench/fbc6f772,shared
+08f083c1,Instagram · Workbench,2,22eef082,CTHSDXX/cmp:WB-08f083c1,CTHSDXX,/Fleet/T2/08f083c1/instagram-workbench,scope:cth-fleet/workbench/08f083c1,shared
+98feb964,LinkedIn · Workbench,2,22eef082,CTHSDXX/cmp:WB-98feb964,CTHSDXX,/Fleet/T2/98feb964/linkedin-workbench,scope:cth-fleet/workbench/98feb964,shared
+1571c6b3,Mail Finder,2,27bd8324,CTHTECL/cmp:WB-1571c6b3,CTHTECL,/Fleet/T2/1571c6b3/mail-finder,scope:cth-fleet/workbench/1571c6b3,shared
+c0fe06b9,Moodle,2,b65940e2,CTHADXX/cmp:WB-c0fe06b9,CTHADXX,/Fleet/T2/c0fe06b9/moodle,scope:cth-fleet/workbench/c0fe06b9,shared
+a02dc640,Odoo,2,5dc64ea4,CTHORCH/cmp:WB-a02dc640,CTHORCH,/Fleet/T2/a02dc640/odoo,scope:cth-fleet/workbench/a02dc640,shared
+cb105142,REIN Bot,2,fd48890b,CTHRHXX/cmp:WB-cb105142,CTHRHXX,/Fleet/T2/cb105142/rein-bot,scope:cth-fleet/workbench/cb105142,shared
+6b334caf,Slack · Workbench,2,5dc64ea4,CTHORCH/cmp:WB-6b334caf,CTHORCH,/Fleet/T2/6b334caf/slack-workbench,scope:cth-fleet/workbench/6b334caf,shared
+49495613,Sustenttia · Fillout,2,7ffbe815,CTHSUST/cmp:WB-49495613,CTHSUST,/Fleet/T2/49495613/sustenttia-fillout,scope:cth-fleet/workbench/49495613,shared
+7df0969f,Telegram · Workbench,2,5dc64ea4,CTHORCH/cmp:WB-7df0969f,CTHORCH,/Fleet/T2/7df0969f/telegram-workbench,scope:cth-fleet/workbench/7df0969f,shared
+c0a4443d,Vault · Workbench,2,c656afb9,CTHOPS/cmp:WB-c0a4443d,CTHOPS,/Fleet/T2/c0a4443d/vault-workbench,scope:cth-fleet/workbench/c0a4443d,shared
+46b91f1c,Voice,2,7ea170b4,CTHCMXX/cmp:WB-46b91f1c,CTHCMXX,/Fleet/T2/46b91f1c/voice,scope:cth-fleet/workbench/46b91f1c,shared
+d280b734,WhatsApp · Workbench,2,5dc64ea4,CTHORCH/cmp:WB-d280b734,CTHORCH,/Fleet/T2/d280b734/whatsapp-workbench,scope:cth-fleet/workbench/d280b734,shared
+edd93ed9,Images,3,5dc64ea4,CTHCAP/cmp:CP-edd93ed9,CTHCAP,/Fleet/T3/edd93ed9/images,scope:cth-fleet/capability/edd93ed9,shared
+499a82bc,Presentations,3,5dc64ea4,CTHCAP/cmp:CP-499a82bc,CTHCAP,/Fleet/T3/499a82bc/presentations,scope:cth-fleet/capability/499a82bc,shared
+e1938fde,Researcher,3,5dc64ea4,CTHCAP/cmp:CP-e1938fde,CTHCAP,/Fleet/T3/e1938fde/researcher,scope:cth-fleet/capability/e1938fde,shared
+8092cb28,Scraper,3,5dc64ea4,CTHCAP/cmp:CP-8092cb28,CTHCAP,/Fleet/T3/8092cb28/scraper,scope:cth-fleet/capability/8092cb28,shared
+14123e40,Video,3,5dc64ea4,CTHCAP/cmp:CP-14123e40,CTHCAP,/Fleet/T3/14123e40/video,scope:cth-fleet/capability/14123e40,shared
+25fc96f0,X API Engineer,3,5dc64ea4,CTHCAP/cmp:CP-25fc96f0,CTHCAP,/Fleet/T3/25fc96f0/x-api-engineer,scope:cth-fleet/capability/25fc96f0,shared
+5d95b30d,OpenCode · Cloud Hands,4,5dc64ea4,CTHHANDS,CTHHANDS,/Fleet/T4/5d95b30d/opencode-cloud-hands,scope:cth-fleet/cloud_hands/5d95b30d,shared
