@@ -43,6 +43,7 @@ None in body copy. Funnel counts in `demo-promigas-quarto/www/i18n.js` are expli
 | Fuente: CleantechHUB · Datalab y gobernanza de datos, 2026 | `decks/observatorio-tierra-dataton/deck.yaml` (§9); `docs/html-deck-protocol.md`, `docs/brand-rules.md` (sandbox names) |
 | Fuente: CleantechHUB · REIN y colaboración público-privada | `decks/observatorio-tierra-dataton/deck.yaml` (title-bullets, partner-cards) |
 | Fuente: CleantechHUB · Datatón 2026, Universidad Externado de Colombia | `decks/observatorio-tierra-dataton/SOURCES.md`, `deck.yaml` meta, `index.html` |
+| Cierre Datatón (motor complementa colaboración; prueba ≠ transformación) | `decks/observatorio-tierra-dataton/deck.yaml` (closing), `index.html` (cierre) |
 
 ## Out of scope (not cited)
 

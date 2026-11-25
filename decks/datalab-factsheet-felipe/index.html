@@ -56,7 +56,7 @@
       .page {
         width: 210mm;
         height: 297mm;
-        padding: 11mm 14mm 9mm;
+        padding: 11mm 14mm 13mm;
         page-break-after: always;
         display: flex;
         flex-direction: column;
@@ -70,12 +70,18 @@
         width: 210mm;
         height: 297mm;
         margin: 12px auto;
-        padding: 11mm 14mm 9mm;
+        padding: 11mm 14mm 13mm;
         background: var(--eo-white);
         box-shadow: 0 2px 12px rgba(12, 73, 138, 0.12);
         display: flex;
         flex-direction: column;
       }
+    }
+
+    .page-footer-slot {
+      flex-shrink: 0;
+      min-height: 6mm;
+      margin-top: auto;
     }
 
     .page-main {
@@ -84,9 +90,9 @@
       flex-direction: column;
       min-height: 0;
       justify-content: flex-start;
-      gap: 3.2mm;
+      gap: 2.8mm;
     }
-    #page-1 { font-size: 10.5pt; }
+    #page-1 { font-size: 10.25pt; }
     #page-1 .fp-flow-captions { font-size: 8.5pt; line-height: 1.34; margin-top: 6px; }
     #page-1 .fp-flow-step { font-size: 9pt; padding: 9px 5px; }
     #page-1 .fp-card { padding: 12px 11px; }
@@ -106,9 +112,15 @@
       padding: 8px 9px;
     }
     #page-1 .fp-outcomes strong { display: block; font-size: 9pt; margin-bottom: 3px; }
-    #page-1 .fp-callout { padding: 11px 13px; font-size: 10pt; }
+    #page-1 .page-main { flex: 0 1 auto; padding-bottom: 0; }
+    #page-1 .fp-callout { padding: 10px 12px; font-size: 9.75pt; margin-bottom: 0; }
+    #page-1 .page-footer-slot {
+      flex: 0 0 11mm;
+      min-height: 11mm;
+      margin-top: 0;
+    }
     #page-2 .page-main { justify-content: flex-start; gap: 3mm; }
-    #page-2 .fp-example { flex: 1 1 auto; min-height: 28mm; }
+    #page-2 .fp-example { flex: 0 0 auto; padding: 8px 10px; }
 
     .fp-head {
       display: flex;
@@ -284,7 +296,7 @@
       color: var(--eo-sky);
       border-top: 1px solid var(--eo-cyan);
       padding-top: 6px;
-      margin-top: 4mm;
+      margin-top: 0;
       width: 100%;
     }
     .fp-foot strong { color: var(--eo-deep); font-weight: 700; }
@@ -456,6 +468,7 @@
         <p class="cth-source" style="color:rgba(255,255,255,0.75);margin-top:5px;">Fuente: CleantechHUB Foundation</p>
       </div>
     </div>
+    <div class="page-footer-slot" aria-hidden="true"></div>
 
     <footer class="fp-foot">
       <span class="fp-draft">Borrador · pendiente de aprobación interna</span>
@@ -530,7 +543,8 @@
 
       <div class="fp-example avoid-break">
         <h3>Ejemplo: Datatón del Observatorio de la Tierra (24 nov 2026, Bogotá)</h3>
-        <p>En la Universidad Externado de Colombia, CleantechHUB presenta cómo opera Datalab dentro del Observatorio: a las 09:45 se abre la colaboración académica y a las 10:05 continúa el detalle de sandboxes y gobernanza de datos. El datatón reúne equipos para aplicar el método junto a la vitrina, el living lab y el producto de cliente.</p>
+        <p>En la Universidad Externado de Colombia, CleantechHUB presentó cómo opera Datalab dentro del Observatorio: a las 09:45 se abrió la colaboración académica y a las 10:05 continuó el detalle de sandboxes y gobernanza de datos. El datatón reunió equipos para aplicar el método junto a la vitrina, el living lab y el producto de cliente.</p>
+        <p>El cierre dejó claro que el motor de Datalab complementa el relato de colaboración y que una prueba tecnológica no es, por sí sola, evidencia de transformación.</p>
         <p class="cth-source" style="margin-top:5px;">Fuente: CleantechHUB · Datatón 2026, Universidad Externado de Colombia</p>
       </div>
 
