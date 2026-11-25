@@ -2,7 +2,7 @@
 
 **Status: ACTIVE — Gideon GO 25 Nov 2026 16:56 COT (enforcement report-only)**
 
-This document is the fleet-wide guardrail set for all **93 bots** (Orchestrator, Desks, Workbenches, Capability Agents, Cloud Hands). It adapts the shared Desk and Workbench base mandate from the **25 Nov 2026** fleet redesign build plan. Canonical machine-readable tier caps and parents live in **`FLEET_REGISTRY.yaml`** (version `2026-11-25-active`). **Enforcement automation** (auto-pause, circuit breaker, audit remediations) is **`report_only`** until a second Gideon GO.
+This document is the fleet-wide guardrail set for all **94 bots** (Orchestrator, Desks, Workbenches, Capability Agents, Cloud Hands). It adapts the shared Desk and Workbench base mandate from the **25 Nov 2026** fleet redesign build plan. Canonical machine-readable tier caps and parents live in **`FLEET_REGISTRY.yaml`** (version `2026-11-25-active`). **Enforcement automation** (auto-pause, circuit breaker, audit remediations) is **`report_only`** until a second Gideon GO.
 
 **Source input (read-only):** `/cursor/stores/bot/fleet-redesign-2026-11-25/build-plan-2026-11-25.md` — Parts 0, 1.1, and 3.2.
 
@@ -34,7 +34,7 @@ Targets from the Nov 2026 diagnosis. **Report-only mode:** breaches appear in Mo
 
 ---
 
-## 1. Five-tier control plane (93 bots)
+## 1. Five-tier control plane (94 bots)
 
 `Orchestrator` routes. `Control Tower Infra` checks. Desks own subjects. Workbenches own channels. Cloud Hands writes files. **Logical tiers** below describe token share **targets** from the build plan; they do not override harness ticket fields or Understanding Lab tiers in [`docs/understanding-lab-tiers.md`](docs/understanding-lab-tiers.md).
 
@@ -46,7 +46,7 @@ Targets from the Nov 2026 diagnosis. **Report-only mode:** breaches appear in Mo
 | **Tier 3: Thin capability wrappers** | Capability Agents | 6 | `tier-routine` / `tier-reasoning` (1–2 turns) | ≤ 5% | Structured specs only; heavy work in Tier 4. |
 | **Tier 4: Execution Hands** | Cursor Cloud Hands + OpenCode Cloud Hands | Shared pool | `tier-execution` | ≥ 67% | All heavy execution: repos, VPS Archive, scrapers, HTML/PDF, test loops. |
 
-**Org baseline (25 Nov 2026):** 1 Orchestrator, 34 Desks, 31 Isolated Client Desks, 20 Workbenches, 6 Capability Agents, 1 Cloud Hands lane (plus OpenCode when OSS is requested).
+**Org baseline (25 Nov 2026):** 1 Orchestrator, 34 Desks, 28 Isolated Client Desks, 20 Workbenches, 6 Capability Agents, 1 Cloud Hands lane (plus OpenCode when OSS is requested).
 
 ---
 

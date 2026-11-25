@@ -6,7 +6,7 @@
 
 - Total profile changes: **93**
 - Unchanged (skipped): **0**
-- Conflicts (manual): **1**
+- Conflicts (manual): **0**
 - Registry bots missing from snapshot: **0**
 - Snapshot ids not in registry: **0**
 
@@ -25,7 +25,7 @@
 
 ## Conflicts
 
-- `fbc6f772` **Health** — Reports-to line cites parent c656afb9; registry parent is 85949e8a — **Awaiting Gideon — profile says Infra (c656afb9); registry Engine Room (85949e8a)**
+- None (resolved 25 Nov 2026): `fbc6f772` **Health** — parent **Control Tower · Infra** (`c656afb9`); registry aligned with profile Reports-to line; Fleet profile line appended 25 Nov.
 
 **Last-batch pins:** `7ea170b4, d3d9dd60` share the final batch.
 
