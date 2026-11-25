@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Capa reunión AGV · vista demo (Air4U)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="meeting-layer.css"/>
+  <style>
+    body { margin: 0; font-family: "Open Sans", system-ui, sans-serif; background: #edf2f7; color: #0b2341; }
+    header { background: #0b2341; color: #fff; padding: 1rem 1.5rem; border-bottom: 4px solid #2ec4e8; }
+    main { max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.5rem 2.5rem; }
+    .chip { display: inline-block; background: #2d6a4f; color: #fff; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 4px; margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="chip">Vista estática · mismo bloque que #/lab</span>
+    <h1 style="margin:0;font-size:1.35rem">CleantechHUB Datalab · Air4U · capa cliente AGV</h1>
+    <p style="margin:0.35rem 0 0;font-size:0.9rem;opacity:0.95">Réplica del bloque inyectado en <code>meeting-air4u-agv-dhl-2026-11-26.js</code> (mapa A1/A2/A3 requiere token en producción).</p>
+  </header>
+  <main>
+    <section class="meeting-layer-2026" aria-labelledby="ml-h2">
+      <h2 id="ml-h2">Capa reunión 26 nov · cliente AGV + Air4U</h2>
+      <p class="ml-sub">Esta capa usa el informe de <strong>AGV Open Market</strong> (logística Colombia/Brasil). <strong>No es DHL.</strong> La caja DHL Group es solo contraste de mercado global.</p>
+      <div class="ml-sources">
+        <span class="ml-src ml-src-agv">source: AGV Open Market Informe de Sostenibilidad 2025</span>
+        <span class="ml-src ml-src-dhl">source: DHL Group 2025 public report</span>
+        <span class="ml-src ml-src-cth">Línea base pública RMCAB (Bogotá)</span>
+      </div>
+      <div class="ml-grid">
+        <article class="ml-card"><h3>GEI Alcance 1+2</h3><div class="ml-val">10.151,38 t CO₂ eq</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.25</div></article>
+        <article class="ml-card alt"><h3>Intensidad</h3><div class="ml-val">0,0584 t CO₂/ton</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.25</div></article>
+        <article class="ml-card"><h3>Evitado eléctrico 2025</h3><div class="ml-val">21,95 t · 69.461 km</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.26</div></article>
+        <article class="ml-card alt"><h3>Evitado GNV 2025</h3><div class="ml-val">33,00 t · 868.532 km</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.26</div></article>
+        <article class="ml-card"><h3>Mix alternativo</h3><div class="ml-val">13,6 % flota</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.26</div></article>
+        <article class="ml-card alt"><h3>Cadena frío</h3><div class="ml-val">1.400 t CO₂ evitadas</div><div class="ml-meta"><span class="ml-src ml-src-agv">AGV</span> p.4</div></article>
+      </div>
+      <ul class="small" style="margin:1rem 0 0 1rem">
+        <li><strong>GEI logística (grupo)</strong>: 32,31 m t CO₂e <span class="ml-src ml-src-dhl">DHL Group</span> p.25</li>
+        <li><strong>PUD eléctrico</strong>: 46,2 % → 66 % 2030 <span class="ml-src ml-src-dhl">DHL Group</span> p.24</li>
+      </ul>
+      <div class="ml-angle"><strong>A1 · Huella por movimiento + calle</strong> (23/25)<br>Tablero AGV p.27–28 + Air4U + RMCAB. DHL solo referencia global.</div>
+      <div class="ml-angle"><strong>A2 · Corredores última milla EV/GNV</strong> (23/25)<br>69.461 km eléctricos; PM2.5/NOx en corredores Bogotá/Sabana.</div>
+      <p class="ml-warn">NOx/PM: sin toneladas en AGV ni DHL Colombia — encaje Air4U + RMCAB.</p>
+    </section>
+  </main>
+</body>
+</html>
