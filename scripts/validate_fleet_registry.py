@@ -14,24 +14,30 @@ import yaml
 TIER_TARGETS = {
     "0": 2,
     "1a": 33,
-    "1b": 31,
+    "1b": 32,
     "2": 20,
     "3": 6,
     "4": 1,
 }
+
+REGISTRY_EXTRA_BEYOND_CATALOG = frozenset({"57c40771"})
+BOT_COUNT = 94
+TIER1_COMBINED = 65
 
 DEFAULT_CATALOG = Path(
     "/cursor/stores/bot/fleet-redesign-2026-11-25/org-chart/catalog.json"
 )
 
 ISOLATION_EXPECTED = {
-    "client": 27,
+    "client": 28,
     "grant_draft": 3,
     "workstream": 4,
     "personal": 7,
 }
 
 GAP2_ID = "e68ca92f"
+
+ALLOWED_FAST_TIERS = frozenset({"2", "4"})
 
 
 def load_registry(path: Path) -> dict:
@@ -55,34 +61,39 @@ def iter_enforcement(obj: Any, path: str = "") -> list[tuple[str, Any]]:
     return found
 
 
-def iter_fast_flags(obj: Any, path: str = "") -> list[tuple[str, bool]]:
-    found: list[tuple[str, bool]] = []
-    if isinstance(obj, dict):
-        for key, val in obj.items():
-            p = f"{path}.{key}" if path else key
-            if key == "fast" and val is True:
-                found.append((p, val))
-            found.extend(iter_fast_flags(val, p))
-    elif isinstance(obj, list):
-        for i, item in enumerate(obj):
-            found.extend(iter_fast_flags(item, f"{path}[{i}]"))
+def iter_bot_models(bots: list[dict]) -> list[tuple[str, str, bool | None]]:
+    found: list[tuple[str, str, bool | None]] = []
+    for b in bots:
+        model = b.get("model") or {}
+        found.append((b["id"], str(b.get("tier")), model.get("fast")))
     return found
 
 
-def validate_enforcement_off(registry: dict) -> list[str]:
+def validate_enforcement_report_only(registry: dict) -> list[str]:
     errors: list[str] = []
+    mode = registry.get("enforcement_default")
+    if mode != "report_only":
+        errors.append(f"fleet_registry.enforcement_default must be 'report_only', got {mode!r}")
+    activation = registry.get("activation") or {}
+    if activation.get("status") != "active":
+        errors.append("fleet_registry.activation.status must be 'active'")
+    if activation.get("enforcement_mode") != "report_only":
+        errors.append("fleet_registry.activation.enforcement_mode must be 'report_only'")
     for loc, val in iter_enforcement(registry):
-        if val != "off":
-            errors.append(f"enforcement must be off everywhere, got {val!r} at {loc}")
-    if registry.get("enforcement_default") != "off":
-        errors.append("fleet_registry.enforcement_default must be 'off'")
+        if val not in ("report_only",):
+            errors.append(f"enforcement must be report_only, got {val!r} at {loc}")
     return errors
 
 
-def validate_no_fast_true(registry: dict) -> list[str]:
+def validate_fast_by_tier(bots: list[dict]) -> list[str]:
     errors: list[str] = []
-    for loc, _ in iter_fast_flags(registry):
-        errors.append(f"fast:true not allowed (17 Nov lock) at {loc}")
+    for bot_id, tier, fast in iter_bot_models(bots):
+        if fast is True and tier not in ALLOWED_FAST_TIERS:
+            errors.append(
+                f"fast:true allowed only for tier 2 and 4 runtime models, not tier {tier} at {bot_id}"
+            )
+        if fast is False and tier in ALLOWED_FAST_TIERS:
+            errors.append(f"{bot_id}: tier {tier} must declare model.fast (true for Grok runtime)")
     return errors
 
 
@@ -100,7 +111,9 @@ def validate_catalog_parity(registry: dict, catalog_path: Path) -> list[str]:
         if missing:
             errors.append(f"registry missing catalog id8: {sorted(missing)}")
         if extra:
-            errors.append(f"registry extra id8 vs catalog: {sorted(extra)}")
+            unexpected = sorted(extra - REGISTRY_EXTRA_BEYOND_CATALOG)
+            if unexpected:
+                errors.append(f"registry extra id8 vs catalog: {unexpected}")
     return errors
 
 
@@ -113,16 +126,18 @@ def validate_gap2(bot: dict | None) -> list[str]:
     archive = bot.get("archive") or {}
     for key, expected in (
         ("target", "archived"),
-        ("enforcement", "off"),
-        ("proposed", True),
+        ("enforcement", "report_only"),
+        ("status", "active"),
+        ("enforce", False),
     ):
         if archive.get(key) != expected:
             errors.append(f"gap 2: archive.{key} expected {expected!r}, got {archive.get(key)!r}")
     triggers = bot.get("triggers") or {}
     for key, expected in (
         ("enabled", False),
-        ("enforcement", "off"),
-        ("proposed", True),
+        ("enforcement", "report_only"),
+        ("status", "active"),
+        ("enforce", False),
     ):
         if triggers.get(key) != expected:
             errors.append(f"gap 2: triggers.{key} expected {expected!r}, got {triggers.get(key)!r}")
@@ -143,23 +158,38 @@ def validate_gap6(registry: dict) -> list[str]:
     return errors
 
 
-def validate_governance_defaults(registry: dict) -> list[str]:
+def validate_governance_active(registry: dict) -> list[str]:
     errors: list[str] = []
     for block in ("auto_pause", "circuit_breaker"):
         section = registry.get(block)
         if not isinstance(section, dict):
             errors.append(f"missing fleet {block} block")
             continue
-        if section.get("proposed") is not True or section.get("enforcement") != "off":
-            errors.append(f"{block} must have proposed: true and enforcement: off")
+        if section.get("status") != "active" or section.get("enforce") is not False:
+            errors.append(f"{block} must have status: active and enforce: false")
+        if section.get("enforcement") != "report_only":
+            errors.append(f"{block} enforcement must be report_only")
     for templates_key in ("auto_pause_tier_templates", "circuit_breaker_tier_templates"):
         templates = registry.get(templates_key)
         if not isinstance(templates, dict):
             errors.append(f"missing {templates_key}")
             continue
         for tier, tpl in templates.items():
-            if tpl.get("proposed") is not True or tpl.get("enforcement") != "off":
-                errors.append(f"{templates_key}.{tier} must have proposed: true and enforcement: off")
+            if tpl.get("status") != "active" or tpl.get("enforce") is not False:
+                errors.append(f"{templates_key}.{tier} must have status: active and enforce: false")
+            if "proposed" in tpl:
+                errors.append(f"{templates_key}.{tier} must not retain proposed flag")
+    return errors
+
+
+def validate_parent_proposals_active(bots: list[dict]) -> list[str]:
+    errors: list[str] = []
+    for b in bots:
+        parent = b.get("parent") or {}
+        if "proposed" in parent:
+            errors.append(f"{b['id']}: parent block must not use proposed (use status: active)")
+        if parent.get("status") == "active" and parent.get("id") and "reason" not in parent:
+            pass
     return errors
 
 
@@ -171,8 +201,28 @@ def validate_tier2_browser_cua(bots: list[dict]) -> list[str]:
         bc = b.get("browser_cua") or {}
         if bc.get("banned") is not True:
             errors.append(f"{b['id']}: tier-2 browser_cua.banned must be true")
-        if bc.get("enforcement") != "off" or bc.get("proposed") is not True:
-            errors.append(f"{b['id']}: tier-2 browser_cua must be proposed with enforcement off")
+        if (
+            bc.get("status") != "active"
+            or bc.get("enforce") is not False
+            or bc.get("enforcement") != "report_only"
+        ):
+            errors.append(f"{b['id']}: tier-2 browser_cua must be active with enforce false")
+        if "proposed" in bc:
+            errors.append(f"{b['id']}: browser_cua must not retain proposed")
+    return errors
+
+
+def validate_tier1_counts(bots: list[dict]) -> list[str]:
+    errors: list[str] = []
+    tier1 = sum(1 for b in bots if str(b.get("tier")) in ("1a", "1b") and b.get("status") == "active")
+    tier1_all = sum(1 for b in bots if str(b.get("tier")) in ("1a", "1b"))
+    if tier1_all != TIER1_COMBINED:
+        errors.append(f"tier 1 combined count must be {TIER1_COMBINED}, got {tier1_all}")
+    parked = sum(
+        1 for b in bots if str(b.get("tier")) in ("1a", "1b") and b.get("status") == "parked"
+    )
+    if parked != 1:
+        errors.append(f"tier 1 parked bots expected 1 (e68ca92f), got {parked}")
     return errors
 
 
@@ -184,8 +234,8 @@ def validate(
     bots = registry.get("bots")
     if not isinstance(bots, list):
         return ["bots must be a list"]
-    if len(bots) != 93:
-        errors.append(f"expected 93 bots, got {len(bots)}")
+    if len(bots) != BOT_COUNT:
+        errors.append(f"expected {BOT_COUNT} bots, got {len(bots)}")
 
     ids = [b.get("id") for b in bots]
     if len(ids) != len(set(ids)):
@@ -251,19 +301,27 @@ def validate(
         elif tier != "4" and got != expected:
             errors.append(f"tier {tier}: expected {expected}, got {got}")
 
-    if registry.get("bot_count") != 93:
-        errors.append("fleet_registry.bot_count must be 93")
+    if registry.get("bot_count") != BOT_COUNT:
+        errors.append(f"fleet_registry.bot_count must be {BOT_COUNT}")
 
     expected_orphans = len(registry.get("orphan_parent_proposals") or [])
     if expected_orphans != 36:
         errors.append(f"orphan_parent_proposals: expected 36 entries, got {expected_orphans}")
 
-    errors.extend(validate_enforcement_off(registry))
-    errors.extend(validate_no_fast_true(registry))
+    errors.extend(validate_enforcement_report_only(registry))
+    errors.extend(validate_fast_by_tier(bots))
     errors.extend(validate_gap2(by_id.get(GAP2_ID)))
     errors.extend(validate_gap6(registry))
-    errors.extend(validate_governance_defaults(registry))
+    errors.extend(validate_governance_active(registry))
+    errors.extend(validate_parent_proposals_active(bots))
     errors.extend(validate_tier2_browser_cua(bots))
+    errors.extend(validate_tier1_counts(bots))
+
+    for b in bots:
+        if str(b.get("tier")) in ("0", "1a", "1b") and b.get("status") == "active":
+            reset = b.get("reset") or {}
+            if reset.get("clone_and_reset") is not True:
+                errors.append(f"{b['id']}: active tier 0/1 must have reset.clone_and_reset: true")
 
     cat = catalog_path or DEFAULT_CATALOG
     errors.extend(validate_catalog_parity(registry, cat))
@@ -304,6 +362,7 @@ def main() -> int:
     print(f"  tiers: {dict(sorted(tiers.items()))}")
     print(f"  orphan proposals: {len(registry.get('orphan_parent_proposals', []))}")
     print(f"  isolation kinds: {dict(sorted((k, v) for k, v in kinds.items() if k))}")
+    print(f"  enforcement_default: {registry.get('enforcement_default')}")
     return 0
 
 
