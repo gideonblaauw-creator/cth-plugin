@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datalab — hoja informativa (borrador)</title>
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/open-sans-latin-600-normal.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+    }
+
+    :root {
+      --eo-deep: #0c498a;
+      --eo-cyan: #b2eefa;
+      --eo-lime: #9dc384;
+      --eo-forest: #669348;
+      --eo-sky: #69b5fa;
+      --eo-white: #ffffff;
+    }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: "Open Sans", sans-serif;
+    color: var(--eo-deep);
+    background: #e8f4fc;
+    font-size: 9.25pt;
+    line-height: 1.38;
+  }
+
+  @media print {
+    html, body {
+      width: 210mm;
+      background: #fff;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 11mm 13mm 10mm;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: auto; }
+    @page { size: A4; margin: 0; }
+  }
+
+  @media screen {
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12px auto;
+      padding: 11mm 13mm 10mm;
+      background: var(--eo-white);
+      box-shadow: 0 2px 12px rgba(12, 73, 138, 0.12);
+    }
+  }
+
+  .fp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 7mm;
+  }
+  .fp-head__logo {
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+  .fp-eyebrow {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--eo-forest);
+    margin-bottom: 4px;
+  }
+  .fp-title {
+    font-weight: 700;
+    font-size: 15.5pt;
+    line-height: 1.12;
+    color: var(--eo-deep);
+    text-transform: none;
+    letter-spacing: -0.01em;
+  }
+  .fp-title::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 4px;
+    border-radius: 3px;
+    background: var(--eo-lime);
+    margin-top: 6px;
+  }
+  .fp-lead {
+    font-size: 10pt;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 5mm 0 4mm;
+    max-width: 100%;
+  }
+  .fp-problem {
+    background: rgba(178, 238, 250, 0.35);
+    border-left: 4px solid var(--eo-lime);
+    padding: 6px 10px;
+    margin-bottom: 4mm;
+    font-size: 9pt;
+  }
+
+  .fp-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-bottom: 4mm;
+  }
+  .fp-card {
+    background: var(--eo-white);
+    border: 2px solid var(--eo-cyan);
+    border-radius: 10px;
+    padding: 8px 9px;
+  }
+  .fp-card--navy {
+    background: var(--eo-deep);
+    border-color: var(--eo-deep);
+    color: var(--eo-white);
+  }
+  .fp-card--navy .fp-card__title,
+  .fp-card--navy .fp-card__text,
+  .fp-card--navy .fp-card__sub { color: var(--eo-white); }
+  .fp-card__title {
+    font-weight: 700;
+    font-size: 9pt;
+    line-height: 1.2;
+    color: var(--eo-deep);
+    margin-bottom: 4px;
+  }
+  .fp-card__sub {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: var(--eo-forest);
+    margin-bottom: 3px;
+  }
+  .fp-card__text {
+    font-size: 8pt;
+    line-height: 1.32;
+    color: var(--eo-deep);
+  }
+  .fp-card__text strong { font-weight: 700; }
+
+  .fp-section-label {
+    font-weight: 700;
+    font-size: 9.5pt;
+    margin-bottom: 3mm;
+    color: var(--eo-deep);
+  }
+
+  .fp-flow {
+    border: 2px solid var(--eo-cyan);
+    border-radius: 10px;
+    padding: 7px 8px 6px;
+    margin-bottom: 3mm;
+  }
+  .fp-flow svg { width: 100%; height: auto; display: block; }
+
+  .cth-source {
+    font-size: 6.5pt;
+    color: var(--eo-sky);
+    margin-top: 2mm;
+    line-height: 1.3;
+  }
+
+  .fp-foot {
+    position: absolute;
+    left: 13mm;
+    right: 13mm;
+    bottom: 7mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7pt;
+    color: var(--eo-sky);
+    border-top: 1px solid var(--eo-cyan);
+    padding-top: 5px;
+  }
+  .fp-foot strong { color: var(--eo-deep); font-weight: 700; }
+
+  .fp-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    margin-bottom: 4mm;
+  }
+  .fp-step {
+    border: 2px solid var(--eo-deep);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 8pt;
+  }
+  .fp-step__head {
+    background: var(--eo-deep);
+    color: var(--eo-white);
+    font-weight: 700;
+    font-size: 8.5pt;
+    padding: 5px 8px;
+  }
+  .fp-step__body { padding: 6px 8px; line-height: 1.3; }
+  .fp-step__out {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--eo-forest);
+    margin-top: 4px;
+  }
+
+  .fp-evidence {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-bottom: 4mm;
+  }
+  .fp-evidence .fp-card { min-height: 0; }
+
+  .fp-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 4mm;
+  }
+  .fp-benefit {
+    font-size: 7.75pt;
+    padding: 6px 7px;
+    border-radius: 8px;
+    background: rgba(178, 238, 250, 0.4);
+    border: 1px solid var(--eo-cyan);
+  }
+  .fp-benefit strong {
+    display: block;
+    font-size: 8pt;
+    margin-bottom: 3px;
+    color: var(--eo-deep);
+  }
+
+  .fp-example {
+    border: 2px solid var(--eo-deep);
+    border-radius: 10px;
+    padding: 7px 9px;
+    margin-bottom: 3mm;
+    font-size: 8.25pt;
+    line-height: 1.33;
+  }
+  .fp-example h3 {
+    font-size: 9pt;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--eo-deep);
+  }
+
+  .fp-contact {
+    text-align: center;
+    font-size: 9pt;
+    font-weight: 600;
+    padding: 5px;
+    background: var(--eo-deep);
+    color: var(--eo-white);
+    border-radius: 8px;
+    margin-bottom: 2mm;
+  }
+  .fp-contact a { color: var(--eo-cyan); text-decoration: none; }
+
+  .fp-draft {
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--eo-forest);
+  }
+  </style>
+</head>
+<body>
+
+  <article class="page" id="page-1">
+    <header class="fp-head">
+      <div class="fp-head__text">
+        <p class="fp-eyebrow">CleantechHUB · Datalab</p>
+        <h1 class="fp-title">Qué es Datalab y cómo conecta a tres roles en un sandbox</h1>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" width="280" height="72" />
+    </header>
+
+    <p class="fp-lead">Datalab es el motor de datos y experimentación dentro de un sandbox: opera la gobernanza y las pruebas sin convertirse en un almacén central de datos.</p>
+    <p class="cth-source">White paper v3, §1; decks/observatorio-tierra-dataton/deck.yaml</p>
+
+    <div class="fp-problem avoid-break">
+      <strong>Problema que aborda:</strong> una prueba tecnológica no es, por sí sola, evidencia de transformación; hace falta pasar del piloto a adopción, transferencia o fortalecimiento institucional en el régimen.
+      <span class="cth-source" style="display:block;margin-top:3px;">decks/observatorio-tierra-dataton/deck.yaml (cierre; fase Escala)</span>
+    </div>
+
+    <p class="fp-section-label">Tres roles en el sandbox</p>
+    <p class="cth-source" style="margin-top:-2mm;margin-bottom:2mm;">Etiquetas de rol: contrato del ticket; funciones mapeadas a fuentes del repositorio.</p>
+
+    <div class="fp-grid-3 avoid-break">
+      <article class="fp-card fp-card--navy">
+        <p class="fp-card__sub">Innovadores</p>
+        <p class="fp-card__title">Startups y proveedores de solución</p>
+        <p class="fp-card__text"><strong>Aportan:</strong> tecnología, equipos y prototipos. <strong>Obtienen:</strong> un entorno acotado para probar con datos pertinentes y validación humana.</p>
+      </article>
+      <article class="fp-card">
+        <p class="fp-card__sub">Socios innovadores</p>
+        <p class="fp-card__title">Quienes traen la innovación al sandbox</p>
+        <p class="fp-card__text"><strong>Aportan:</strong> la pregunta, la ética de datos, cohortes (p. ej. REIN), financiación y conexión del ecosistema. <strong>Obtienen:</strong> evidencia que aguanta una conclusión.</p>
+      </article>
+      <article class="fp-card">
+        <p class="fp-card__sub">Socios implementadores</p>
+        <p class="fp-card__title">Corporativos anfitriones</p>
+        <p class="fp-card__text"><strong>Aportan:</strong> el reto de negocio, el contexto operativo y la puerta de adopción en el régimen. <strong>Obtienen:</strong> soluciones probadas con trazabilidad de datos.</p>
+      </article>
+    </div>
+    <p class="cth-source">Startups/REIN y sector privado: deck.yaml ecosystem; Externado/CTH: deck.yaml partner-cards; validación: deck.yaml focus-areas (hilo IA)</p>
+
+    <p class="fp-section-label">Flujo del sandbox (de reto a adopción)</p>
+    <div class="fp-flow avoid-break">
+      <svg viewBox="0 0 640 88" role="img" aria-label="Flujo: reto, matching, datos y prueba, evidencia, adopción">
+        <defs>
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#0C498A" />
+          </marker>
+        </defs>
+        <g font-family="Open Sans, sans-serif" font-size="11" font-weight="700" fill="#0C498A">
+          <rect x="4" y="24" width="108" height="40" rx="8" fill="#B2EEFA" stroke="#0C498A" stroke-width="2"/>
+          <text x="58" y="49" text-anchor="middle">1. Reto</text>
+          <line x1="112" y1="44" x2="132" y2="44" stroke="#0C498A" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="132" y="24" width="108" height="40" rx="8" fill="#FFFFFF" stroke="#B2EEFA" stroke-width="2"/>
+          <text x="186" y="49" text-anchor="middle">2. Matching</text>
+          <line x1="240" y1="44" x2="260" y2="44" stroke="#0C498A" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="260" y="24" width="118" height="40" rx="8" fill="#0C498A"/>
+          <text x="319" y="49" text-anchor="middle" fill="#FFFFFF">3. Datos y prueba</text>
+          <line x1="378" y1="44" x2="398" y2="44" stroke="#0C498A" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="398" y="24" width="108" height="40" rx="8" fill="#FFFFFF" stroke="#B2EEFA" stroke-width="2"/>
+          <text x="452" y="49" text-anchor="middle">4. Evidencia</text>
+          <line x1="506" y1="44" x2="526" y2="44" stroke="#0C498A" stroke-width="2" marker-end="url(#arr)"/>
+          <rect x="526" y="24" width="108" height="40" rx="8" fill="#9DC384" stroke="#669348" stroke-width="2"/>
+          <text x="580" y="49" text-anchor="middle">5. Adopción</text>
+        </g>
+        <text x="4" y="78" font-family="Open Sans, sans-serif" font-size="9" fill="#69B5FA">CleantechHUB custodia contrato y motor; no es dueño de un data warehouse — deck.yaml partner-cards</text>
+      </svg>
+    </div>
+
+    <footer class="fp-foot">
+      <span class="fp-draft">Borrador · Awaiting Gideon's approval</span>
+      <span><strong>Pág. 1 de 2</strong> · Datalab · CleantechHUB</span>
+    </footer>
+  </article>
+
+  <article class="page" id="page-2">
+    <header class="fp-head">
+      <div class="fp-head__text">
+        <p class="fp-eyebrow">Cómo corre un sandbox</p>
+        <h2 class="fp-title">Fases, evidencia y un ejemplo documentado</h2>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" width="280" height="72" />
+    </header>
+
+    <p class="fp-section-label">Tres fases y entregables</p>
+    <div class="fp-steps avoid-break">
+      <article class="fp-step">
+        <div class="fp-step__head">Fundamento</div>
+        <div class="fp-step__body">
+          Acuerdo, vocabulario común, pregunta compartida, lentes, línea base y reglas de datos.
+          <p class="fp-step__out">Salida: marco de gobernanza listo para probar.</p>
+        </div>
+      </article>
+      <article class="fp-step">
+        <div class="fp-step__head">Piloto</div>
+        <div class="fp-step__body">
+          Colaboración en el nicho vía living lab y datatón; evidencia para continuar, modificar, transferir o cerrar.
+          <p class="fp-step__out">Salida: resultado de prueba trazable.</p>
+        </div>
+      </article>
+      <article class="fp-step">
+        <div class="fp-step__head">Escala</div>
+        <div class="fp-step__body">
+          La colaboración entra al régimen: adopción, transferencia o fortalecimiento institucional.
+          <p class="fp-step__out">Salida: decisión de adopción con respaldo.</p>
+        </div>
+      </article>
+    </div>
+    <p class="cth-source">decks/observatorio-tierra-dataton/deck.yaml (process)</p>
+
+    <p class="fp-section-label">Qué datos y evidencia produce Datalab</p>
+    <div class="fp-evidence avoid-break">
+      <article class="fp-card">
+        <p class="fp-card__title">Vitrina pública</p>
+        <p class="fp-card__text">Lo que ya se puede mostrar, con permiso.</p>
+      </article>
+      <article class="fp-card">
+        <p class="fp-card__title">Living lab</p>
+        <p class="fp-card__text">Prueba en cerrado con quienes corresponde.</p>
+      </article>
+      <article class="fp-card">
+        <p class="fp-card__title">Producto de cliente</p>
+        <p class="fp-card__text">Copia de solo lectura de lo validado; no es un cuarto almacén.</p>
+      </article>
+      <article class="fp-card fp-card--navy">
+        <p class="fp-card__title">Gobernanza de datos</p>
+        <p class="fp-card__text">Sandboxes planificados (Open Energy, Open Air, Open Water); sala de salud: Clean Air for Health Sandbox.</p>
+      </article>
+    </div>
+    <p class="cth-source">Entornos: deck.yaml § Datalab; nombres de sandbox: docs/html-deck-protocol.md, docs/brand-rules.md</p>
+
+    <p class="fp-section-label">Beneficio por rol</p>
+    <div class="fp-benefits avoid-break">
+      <div class="fp-benefit"><strong>Innovadores</strong> Protección en el nicho y ruta REIN hacia el mercado sin una segunda aceleradora paralela.</div>
+      <div class="fp-benefit"><strong>Socios innovadores</strong> Decisión con evidencia y conexiones del ecosistema de innovación climática.</div>
+      <div class="fp-benefit"><strong>Socios implementadores</strong> Respuesta al problema corporativo con adopción posible en el régimen, no solo piloto aislado.</div>
+    </div>
+  <p class="cth-source">REIN único: deck.yaml title-bullets; ecosistema CTH: deck.yaml partner-cards; corporativo: deck.yaml title-bullets (palanca 5)</p>
+
+    <div class="fp-example avoid-break">
+      <h3>Ejemplo: Datatón del Observatorio de la Tierra (24 nov 2026, Bogotá)</h3>
+      <p>En el Externado, CleantechHUB opera Datalab como motor dentro del Observatorio: la colaboración se presenta a las 09:45 y el detalle de sandboxes y gobernanza de datos continúa a las 10:05. El datatón funciona como entorno de trabajo por equipos que abre el método, junto a vitrina, living lab y producto de cliente.</p>
+      <p class="cth-source" style="margin-top:4px;">decks/observatorio-tierra-dataton/index.html, deck.yaml, SOURCES.md</p>
+    </div>
+
+    <p class="fp-contact">Más información: <a href="https://www.cleantechhub.net">www.cleantechhub.net</a></p>
+
+    <footer class="fp-foot">
+      <span>© 2026 CleantechHUB Foundation</span>
+      <span><strong>Pág. 2 de 2</strong> · Borrador para Felipe Hernández</span>
+    </footer>
+  </article>
+
+</body>
+</html>
