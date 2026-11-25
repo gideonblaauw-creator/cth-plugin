@@ -56,4 +56,5 @@ Language: **Spanish**. Draft for university partners; **Awaiting Gideon's approv
 | nexus.cleantechhub.net | Live fetch meta 2026-11-25 |
 | ClimateLaunchpad LATAM | `skills/clp26-brand/SKILL.md` |
 | SUCCESS STORIES | cleantechhub.net fetch |
-| Observatorio partner-cards / deck 2026 | `decks/observatorio-tierra-dataton/deck.yaml` |
+| Observatorio de la Tierra (colaboración académica / nov. 2026) | `decks/observatorio-tierra-dataton/deck.yaml` |
+| QA fill pass 1: embudo 4 etapas p.1; Qué gana la universidad p.4; fuentes solo etiquetas públicas | Ticket orchestrator review b926ce98 |
