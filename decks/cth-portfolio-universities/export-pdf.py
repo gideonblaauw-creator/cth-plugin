@@ -7,6 +7,31 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 HTML = os.path.join(ROOT, "index.html")
 PDF = os.path.join(ROOT, "portfolio.pdf")
+A4_HEIGHT_PX_TOLERANCE = 3
+
+
+async def assert_pages_fit_a4(page) -> None:
+    """Fail export if any .page content exceeds fixed A4 sheet height."""
+    report = await page.evaluate(
+        """() => {
+          const pages = [...document.querySelectorAll('.page')];
+          return pages.map((el) => ({
+            id: el.id || el.className,
+            scrollHeight: el.scrollHeight,
+            clientHeight: el.clientHeight,
+            overflow: el.scrollHeight > el.clientHeight + 2,
+          }));
+        }"""
+    )
+    bad = [r for r in report if r["overflow"]]
+    if bad:
+        details = "; ".join(
+            f"{r['id']}: scroll={r['scrollHeight']} client={r['clientHeight']}"
+            for r in bad
+        )
+        raise SystemExit(f"A4 overflow check failed: {details}")
+    for r in report:
+        print(f"OK {r['id']}: {r['clientHeight']}px")
 
 
 async def main():
@@ -20,6 +45,7 @@ async def main():
         page = await browser.new_page()
         await page.goto(abs_html, wait_until="networkidle")
         await page.wait_for_timeout(800)
+        await assert_pages_fit_a4(page)
         await page.pdf(
             path=PDF,
             format="A4",
@@ -40,6 +66,8 @@ async def main():
 if __name__ == "__main__":
     try:
         asyncio.run(main())
+    except SystemExit:
+        raise
     except Exception as e:
         print(f"playwright failed: {e}", file=sys.stderr)
         sys.exit(1)

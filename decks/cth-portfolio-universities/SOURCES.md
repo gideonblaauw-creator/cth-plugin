@@ -58,3 +58,4 @@ Language: **Spanish**. Draft for university partners; **Awaiting Gideon's approv
 | SUCCESS STORIES | cleantechhub.net fetch |
 | Observatorio de la Tierra (colaboración académica / nov. 2026) | `decks/observatorio-tierra-dataton/deck.yaml` |
 | QA fill pass 1: embudo 4 etapas p.1; Qué gana la universidad p.4; fuentes solo etiquetas públicas | Ticket orchestrator review b926ce98 |
+| QA pass 2: p.1 overflow fix + export height check; p.3 Cómo se usa en campus | Ticket checker c85ef9e0 |

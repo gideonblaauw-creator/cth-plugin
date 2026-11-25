@@ -60,8 +60,11 @@
       .page {
         width: 210mm;
         height: 297mm;
+        max-height: 297mm;
         padding: 11mm 14mm 12mm;
         page-break-after: always;
+        page-break-inside: avoid;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
       }
@@ -73,21 +76,24 @@
       .page {
         width: 210mm;
         height: 297mm;
+        max-height: 297mm;
         margin: 12px auto;
         padding: 11mm 14mm 12mm;
         background: var(--eo-white);
         box-shadow: 0 2px 12px rgba(12, 73, 138, 0.12);
+        overflow: hidden;
         display: flex;
         flex-direction: column;
       }
     }
 
     .page-main {
-      flex: 1 1 100%;
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       gap: 4mm;
       min-height: 0;
+      overflow: hidden;
       justify-content: flex-start;
     }
 
@@ -213,14 +219,24 @@
       gap: 8px;
       flex: 1 1 auto;
     }
-    .fp-principles .fp-card { min-height: 78px; }
+    .fp-principles .fp-card { min-height: 68px; }
+    #page-1 .fp-principles .fp-card__text { font-size: 8.5pt; }
     .fp-gain-row .fp-card { min-height: 120px; }
     #page-4 .fp-card__text { font-size: 9.5pt; }
     #page-4 .fp-uni p, #page-4 .fp-uni li { font-size: 9.5pt; }
-    #page-1 .page-main {
-      gap: 2.8mm;
+    #page-1 .page-main { gap: 2.4mm; }
+    #page-1 .fp-callout--foot {
+      margin-bottom: 2mm;
+      padding: 8px 10px;
+      font-size: 8.75pt;
+      line-height: 1.35;
+    }
+    #page-3 .page-main {
+      gap: 3mm;
       justify-content: space-between;
     }
+    .fp-campus-use .fp-card { min-height: 108px; }
+    #page-3 .fp-track .fp-card { min-height: 84px; }
     #page-4 .page-main {
       gap: 2.6mm;
       justify-content: space-between;
@@ -400,8 +416,7 @@
       <p class="cth-source">Fuente: cleantechhub.net · REIN Hubs (red de hubs en Latinoamérica)</p>
 
       <p class="fp-section-label">Qué hacemos</p>
-      <p class="fp-intro">Desde 2019, CleantechHUB impulsa ecosistemas de emprendimiento climático y cleantech mediante programas para etapas tempranas y acompañamiento de crecimiento. Escuchamos, validamos con datos y construimos comunidades que convierten ideas en soluciones escalables.</p>
-      <p class="cth-source">Fuente: cleantechhub.net · programas e impacto institucional</p>
+      <p class="fp-intro">Desde 2019 impulsamos ecosistemas cleantech: programas tempranos, crecimiento a medida y comunidades que convierten ideas en soluciones escalables.</p>
 
       <div class="fp-presence">
         <div><strong>Presencia regional</strong>Colombia (sede operativa), Guatemala, Costa Rica, El Salvador y Perú.</div>
@@ -455,10 +470,9 @@
         </div>
       </div>
       <p class="cth-source">Fuente: cleantechhub.net · página principal</p>
-
-      <p class="fp-callout">Este documento resume ofertas reutilizables para equipos de vinculación, investigación aplicada y emprendimiento universitario. <strong>No incluye tarifas ni cifras confidenciales.</strong></p>
     </div>
     <div class="page-footer-slot">
+      <p class="fp-callout fp-callout--foot">Ofertas reutilizables para vinculación, investigación aplicada y emprendimiento universitario. <strong>No incluye tarifas ni cifras confidenciales.</strong></p>
       <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
     </div>
   </section>
@@ -590,9 +604,34 @@
         </div>
       </div>
 
-      <div class="fp-callout" style="margin-top: 2mm;">
-        <strong>Nota:</strong> Cifras de capital apalancado u otros indicadores financieros del sitio corporativo no se reproducen aquí; consulte fuentes públicas actualizadas antes de uso en licitaciones.
+      <p class="fp-section-label">Cómo se usa en campus</p>
+      <div class="fp-grid-3 fp-campus-use">
+        <div class="fp-card">
+          <p class="fp-card__kicker">Convocatoria</p>
+          <h3 class="fp-card__title">Hackatón IDEAS</h3>
+          <p class="fp-card__text">La universidad abre convocatoria interna; CleantechHUB aporta metodología, mentores y cierre con vitrina de resultados.</p>
+          <p class="cth-source">Fuente: cleantechhub.net · programa IDEAS</p>
+        </div>
+        <div class="fp-card fp-card--navy">
+          <p class="fp-card__kicker">Evidencia</p>
+          <h3 class="fp-card__title">Fichas Nexus</h3>
+          <p class="fp-card__text">Startups aliadas con one-pagers bilingües en línea para compartir con inversionistas y equipos de extensión en eventos de cierre.</p>
+          <p class="cth-source" style="color: var(--eo-cyan);">Fuente: nexus.cleantechhub.net</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">Datos</p>
+          <h3 class="fp-card__title">Sandbox Datalab</h3>
+          <p class="fp-card__text">Reto corporativo en laboratorio universitario, con startup y reglas de gobernanza; el motor opera sin centralizar todos los datos.</p>
+          <p class="cth-source">Fuente: CleantechHUB · metodología Datalab</p>
+        </div>
       </div>
+
+      <div class="fp-callout">
+        <strong>Ejemplo público:</strong> colaboración Universidad Externado de Colombia y CleantechHUB en Observatorio de la Tierra y datatón, con Datalab como motor de datos y gobernanza compartida (2026).
+        <p class="cth-source" style="margin-top: 4px;">Fuente: CleantechHUB · Observatorio de la Tierra</p>
+      </div>
+
+      <p class="fp-intro" style="font-size: 9pt;"><strong>Nota:</strong> Cifras de capital apalancado del sitio corporativo no se reproducen aquí; consulte fuentes públicas antes de licitaciones.</p>
     </div>
     <div class="page-footer-slot">
       <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
