@@ -1,0 +1,2812 @@
+fleet_registry:
+  version: 2026-11-25-draft
+  source: cth-bot-org-chart v1 + build-plan-2026-11-25.md Part 3.1
+  bot_count: 93
+  tier_targets:
+    '0': 2
+    1a: 33
+    1b: 31
+    '2': 20
+    '3': 6
+    4_hands: 1+
+  enforcement_default: 'off'
+  orphan_parent_proposals:
+  - id: f1a2eba2
+    name: X · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 25f3a623
+    name: Newsletter · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: c656afb9
+    name: Control Tower · Infra
+    parent: 5dc64ea4
+    reason: Infra desk parent is Orchestrator; profile omitted explicit parent link.
+  - id: b65940e2
+    name: Academy · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 9ef6acd9
+    name: Budget · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 9360f6b2
+    name: CTH Grants
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 462857ec
+    name: CTH GTM Strategy · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: f5576adb
+    name: CTH Strategy · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 1570295a
+    name: CTH Proposals
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 76808b5e
+    name: Datalab
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: '58782071'
+    name: Investor Matching · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: e0625c40
+    name: Production Papers
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 9d25c2ea
+    name: Mac Scan
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 920925f2
+    name: Nexus / Origo / · Desks
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 53a8e74f
+    name: Energy Coop · Projects
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 9ef81c69
+    name: Dutch Embassy · Contacts
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: b258f16f
+    name: GINA
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: a6610a66
+    name: Natalia Ariza
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 27bd8324
+    name: Teclogi
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 7ffbe815
+    name: Sustenttia
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 2c9bb239
+    name: AURA
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: fd48890b
+    name: REIN Hubs
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 558f5c27
+    name: AIC
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 67e509f7
+    name: Chamber · Bucaramanga
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: e68ca92f
+    name: Chamber · Bucaramanga (parked)
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: d9499d9f
+    name: CTH Grant · CTCN Suriname
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: c8de93b6
+    name: CTH Grant · GRP
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 86e52e93
+    name: CTH Grant · TNS VerdeXcelerate
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 2592cf74
+    name: Monday · Teclogi
+    parent: 27bd8324
+    reason: 'Gap 3: Monday CRM lane folds into Teclogi; standalone parent should be Teclogi desk.'
+  - id: 1fa1a638
+    name: Mubon · Projects
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: '49495613'
+    name: Sustenttia · Fillout
+    parent: 7ffbe815
+    reason: 'Gap 4: Fillout I/O workbench belongs under Sustenttia, not Orchestrator orphan.'
+  - id: edd93ed9
+    name: Images
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 14123e40
+    name: Video
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 499a82bc
+    name: Presentations
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: e1938fde
+    name: Researcher
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  - id: 8092cb28
+    name: Scraper
+    parent: 5dc64ea4
+    reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+  bots:
+  - id: 5dc64ea4
+    id_full: 5dc64ea4-b416-4da3-bc8b-12fb507256f7
+    name: Orchestrator
+    tier: '0'
+    type: orchestrator
+    org_layer: Orchestrator
+    parent:
+      id: null
+      hitl: Gideon
+    status: active
+    tools_whitelist:
+    - archive
+    - cloud_hands
+    - hands
+    - repos
+    max_context_tokens: 40000
+    reset:
+      max_turns: 3
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 4%
+    routines: []
+    enforcement: 'off'
+  - id: 22eef082
+    id_full: 22eef082-2ebc-4ecb-ae58-d9d62089366d
+    name: Socials · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - ads_workbenches
+    - archive
+    - facebook
+    - hands
+    - instagram
+    - linkedin
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: d3d9dd60
+    id_full: d3d9dd60-1b7f-4c22-9911-1d2318522e52
+    name: Inbox
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - gmail
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 7ea170b4
+    id_full: 7ea170b4-4cf6-47e1-a4a2-4447db982306
+    name: CTH Meetings
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - cth_bot
+    - google_calendar
+    - hands
+    - voice
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: f1a2eba2
+    id_full: f1a2eba2-ce31-484a-8515-b0915e181d28
+    name: X · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - hands
+    - socials
+    - x
+    - x_api_engineer
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 25f3a623
+    id_full: 25f3a623-96ad-4c17-8119-19ce20f8ac1a
+    name: Newsletter · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - gmail
+    - hands
+    - socials
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: c656afb9
+    id_full: c656afb9-5323-440c-b90a-e3abf72135c4
+    name: Control Tower · Infra
+    tier: '0'
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Infra desk parent is Orchestrator; profile omitted explicit parent link.
+    status: active
+    tools_whitelist:
+    - archive
+    - autopilot
+    - engine_room
+    - hands
+    - health
+    - repos
+    - vault
+    max_context_tokens: 50000
+    reset:
+      max_turns: 4
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 4%
+    routines: []
+    enforcement: 'off'
+  - id: b65940e2
+    id_full: b65940e2-462d-44fd-92d8-2a4793a6c9d0
+    name: Academy · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - moodle
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 9ef6acd9
+    id_full: 9ef6acd9-2e3d-4e32-a989-d333b6677b1d
+    name: Budget · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - gmail
+    - google_calendar
+    - hands
+    - odoo
+    - whatsapp
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 0255b102
+    id_full: 0255b102-946f-476f-ae16-95e94f0bb644
+    name: Careers
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - google_drive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: 9360f6b2
+    id_full: 9360f6b2-d0ed-48d7-b36e-7a920adb62f5
+    name: CTH Grants
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_proposals
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: workstream
+      enforcement: 'off'
+  - id: 462857ec
+    id_full: 462857ec-9c89-468a-af52-f8918000ec00
+    name: CTH GTM Strategy · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: workstream
+      enforcement: 'off'
+  - id: f5576adb
+    id_full: f5576adb-8204-4a30-918c-a53d71837bd0
+    name: CTH Strategy · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: workstream
+      enforcement: 'off'
+  - id: 1570295a
+    id_full: 1570295a-dee2-4588-9a2d-e92a94da36a3
+    name: CTH Proposals
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_grants
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 76808b5e
+    id_full: 76808b5e-b99c-4678-8f1d-558bc9b4f732
+    name: Datalab
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - nexus
+    - origo
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: '58782071'
+    id_full: 58782071-3e0d-47f5-b648-2cf81fccb4c2
+    name: Investor Matching · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 4b96b1e8
+    id_full: 4b96b1e8-d508-4bdb-9cfe-43de39200941
+    name: Legal
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - aura
+    - cee_externado
+    - grants
+    - hands
+    - proposals
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 75be842c
+    id_full: 75be842c-5833-4436-9169-1cb9c8bbfda7
+    name: Markets
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - hands
+    - sec_edgar
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: 96d52460
+    id_full: 96d52460-51ca-4123-8523-6b794949baa5
+    name: Jobs Board
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - repos
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: d98379c1
+    id_full: d98379c1-31fe-429e-8160-f1a77376c5e6
+    name: Bank
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - gmail
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 2599f250
+    id_full: 2599f250-2728-43d1-89a7-485eae6edd9d
+    name: Travel
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: e0625c40
+    id_full: e0625c40-33a0-4c7c-bdc3-d834ebc8c6c7
+    name: Production Papers
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - google_drive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 9d25c2ea
+    id_full: 9d25c2ea-8c69-4d00-8be6-576af0c34b32
+    name: Mac Scan
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - hands
+    - hands_air_worker
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: 920925f2
+    id_full: 920925f2-97e1-4876-927f-7dcf4d75fc04
+    name: Nexus / Origo / · Desks
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - datalab
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 6479618a
+    id_full: 6479618a-6b66-4cf1-8af7-74c014dcef3c
+    name: Advisory Board
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_meetings_calendar
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: workstream
+      enforcement: 'off'
+  - id: 53a8e74f
+    id_full: 53a8e74f-8906-48b2-83d0-080ed1d08490
+    name: Energy Coop · Projects
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - paso
+    - rein_hubs
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 9ef81c69
+    id_full: 9ef81c69-8deb-40a5-8738-eca63ac592c2
+    name: Dutch Embassy · Contacts
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_meetings
+    - energy_coop
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: b258f16f
+    id_full: b258f16f-a9f3-409e-8b82-554b3fbb8dca
+    name: GINA
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - google_drive
+    - hands
+    - vercel
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: a6610a66
+    id_full: a6610a66-7f9b-47df-be29-e8a0ad12ffbb
+    name: Natalia Ariza
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: 9657a5a3
+    id_full: 9657a5a3-bf3b-49a2-aa3f-c4e0d8c2b7f4
+    name: Ruben
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - hands
+    - whatsapp
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: personal
+      enforcement: 'off'
+  - id: 27bd8324
+    id_full: 27bd8324-fe0a-4365-9023-aa48f8deb885
+    name: Teclogi
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - gmail
+    - google_drive
+    - hands
+    - mail_finder
+    - monday
+    - monday_teclogi
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 7ffbe815
+    id_full: 7ffbe815-dc6a-45d1-86ee-ed5b0aed83c4
+    name: Sustenttia
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - github
+    - gmail
+    - google_calendar
+    - google_drive
+    - hands
+    - sustenttia_fillout
+    - whatsapp
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 2c9bb239
+    id_full: 2c9bb239-4b6f-4ca1-996c-9123efb86c62
+    name: AURA
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - google_drive
+    - hands
+    - legal
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: fd48890b
+    id_full: fd48890b-0127-49e6-a6c4-1adbf52337ca
+    name: REIN Hubs
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - energy_coop
+    - gmail
+    - google_calendar
+    - google_drive
+    - hands
+    - monday
+    - rein_bot
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 558f5c27
+    id_full: 558f5c27-6af0-41e3-82ec-c7fc3ba12069
+    name: AIC
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - airtable
+    - archive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: f92073e0
+    id_full: f92073e0-ae1a-4a15-a071-7a1cb98d7e00
+    name: Almendra
+    tier: 1a
+    type: desk
+    org_layer: Desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - airtable
+    - archive
+    - google_drive
+    - hands
+    max_context_tokens: 60000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 10%
+    routines: []
+    enforcement: 'off'
+  - id: 6a3cdaf9
+    id_full: 6a3cdaf9-60ab-4d70-a6f1-1fcc4748dcb0
+    name: AFE
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - monday
+    - repos
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: f5610aed
+    id_full: f5610aed-8148-412f-9f23-f4f80170d8a6
+    name: Air4U
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - datalab
+    - google_drive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 479e1e16
+    id_full: 479e1e16-5cea-4352-a55c-8b7087bbb4e6
+    name: Akvo
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 5ab9a34f
+    id_full: 5ab9a34f-0a12-4a83-8157-9bc656282c4e
+    name: Angélica Díaz
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - fabfloow
+    - google_drive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: edc085bc
+    id_full: edc085bc-787c-4803-b5f2-f4d49167cae6
+    name: APC · Colombia
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 14fa829c
+    id_full: 14fa829c-531e-4391-a618-05710d1978bf
+    name: Atenea
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 0ed3babe
+    id_full: 0ed3babe-403b-4d5d-bd9b-f0165b3f6b88
+    name: Behold
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 35749b3c
+    id_full: 35749b3c-7d9b-4607-814d-128a550effe6
+    name: Bridging Ventures
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 254409c1
+    id_full: 254409c1-bf72-449b-883c-23d22f1314bf
+    name: CCF
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 858f55c1
+    id_full: 858f55c1-879d-4892-a59b-22de8d0dde4c
+    name: CEE Externado
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - legal
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 67e509f7
+    id_full: 67e509f7-e520-499c-b49f-55f87b4e148d
+    name: Chamber · Bucaramanga
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - gmail
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+    org_chart_note: Active Chamber desk (67e509f7). A second bot with the same name is parked.
+  - id: e68ca92f
+    id_full: e68ca92f-8e53-42e0-9d68-339ebc7f87b1
+    name: Chamber · Bucaramanga (parked)
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: parked
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+    org_chart_note: Parked. Display name in the profile is Chamber · Bucaramanga.
+  - id: 55d17679
+    id_full: 55d17679-96b1-4b9c-a74f-aabc68a4f1a4
+    name: Climate-KIC
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - academy
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: d9499d9f
+    id_full: d9499d9f-bc62-4bfd-8430-eab69e6ba07e
+    name: CTH Grant · CTCN Suriname
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_grants
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+  - id: c8de93b6
+    id_full: c8de93b6-f550-49c6-9d74-0d38558d9b4d
+    name: CTH Grant · GRP
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_grants
+    - hands
+    - paso_colombia
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+  - id: 86e52e93
+    id_full: 86e52e93-5d9e-4539-bca8-aed6b50880fe
+    name: CTH Grant · TNS VerdeXcelerate
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - cth_grants
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+  - id: ab46f1d9
+    id_full: ab46f1d9-d312-4f40-abe3-deaa938bc071
+    name: Emprende UP
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: ac8b7c37
+    id_full: ac8b7c37-1df8-4fd8-bb76-0608a80b8104
+    name: Energy Sprint
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - nexus
+    - whatsapp
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 586a6fda
+    id_full: 586a6fda-a50b-47a0-ae1e-4c09fe5dec62
+    name: EPIC Angels
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: d57436ae
+    id_full: d57436ae-3500-4952-9466-3efc4daa40a3
+    name: Escuela Colombiana de Ingeniería
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    - natalia_ariza
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 8f51caf3
+    id_full: 8f51caf3-4fe9-4c82-8e8c-d060ccd4a711
+    name: ETB
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - gmail
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 50293a49
+    id_full: 50293a49-c0a6-4e3e-aeec-439354f6f2e5
+    name: FabFloow
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: bfd1f8d3
+    id_full: bfd1f8d3-21ae-4a1e-8bbf-7f340f83bbe0
+    name: FODESEP
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - gutami
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: df5cd6a9
+    id_full: df5cd6a9-74cd-42db-b202-a208f1887a23
+    name: GIZ
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: b609ea1f
+    id_full: b609ea1f-382b-499f-b7e1-e1ccf6a82a11
+    name: Gutami
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - fodesep
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: c471e31d
+    id_full: c471e31d-9557-461b-9daf-8d1127a257c9
+    name: Irrazonables · ESOsfera
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 2592cf74
+    id_full: 2592cf74-3a18-4284-87da-e270a6a8fc8e
+    name: Monday · Teclogi
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 27bd8324
+      proposed: true
+      reason: 'Gap 3: Monday CRM lane folds into Teclogi; standalone parent should be Teclogi desk.'
+    status: active
+    tools_whitelist:
+    - hands
+    - monday
+    - repos
+    - teclogi
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+    fold_in:
+      into: 27bd8324
+      status: active
+      enforcement: 'off'
+    org_chart_note: Teclogi's profile says this work was folded in on 22 Nov 2026; this bot still claims
+      the board.
+  - id: 1fa1a638
+    id_full: 1fa1a638-d0cc-41ac-bba2-e06f24a1c983
+    name: Mubon · Projects
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - gmail
+    - google_calendar
+    - google_drive
+    - hands
+    - whatsapp
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 0626dbf3
+    id_full: 0626dbf3-d5ac-4592-bab5-8370061a94aa
+    name: PASO Colombia
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - energy_coop
+    - hands
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 15b0ef21
+    id_full: 15b0ef21-faac-4f4b-85dd-9d40d7bef59f
+    name: Sunco
+    tier: 1b
+    type: isolated_desk
+    org_layer: Isolated client desk
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - gmail
+    - google_drive
+    - hands
+    - nexus
+    - odoo
+    max_context_tokens: 50000
+    reset:
+      max_turns: 5
+      at_tokens: 80000
+      clone_and_reset: true
+      enforcement: 'off'
+    model:
+      model_tier: tier-reasoning
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 6%
+    routines: []
+    enforcement: 'off'
+    isolation:
+      kind: client
+      enforcement: 'off'
+  - id: 98feb964
+    id_full: 98feb964-3e74-450b-82b6-8f2a7e6ce6b2
+    name: LinkedIn · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 22eef082
+    status: active
+    tools_whitelist:
+    - hands
+    - linkedin
+    - socials
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 08f083c1
+    id_full: 08f083c1-6514-420a-9a2c-7562aa3ca810
+    name: Instagram · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 22eef082
+    status: active
+    tools_whitelist:
+    - channel_tools
+    - hands
+    - instagram
+    - socials
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: c55c05a2
+    id_full: c55c05a2-ff20-4830-b5fb-eb01f6adb783
+    name: Facebook · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 22eef082
+    status: active
+    tools_whitelist:
+    - channel_tools
+    - facebook
+    - hands
+    - socials
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 2f3ba699
+    id_full: 2f3ba699-71de-4460-9fda-9cad355fe37a
+    name: Google Ads · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 22eef082
+    status: active
+    tools_whitelist:
+    - google_ads
+    - hands
+    - socials
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: d040c454
+    id_full: d040c454-2de4-4c96-af52-d83ef3e51447
+    name: Gmail · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: d3d9dd60
+    status: active
+    tools_whitelist:
+    - gmail_connector
+    - hands
+    - inbox
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: '78944169'
+    id_full: 78944169-9756-46bc-ba76-026afd75a2eb
+    name: Calendar · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 7ea170b4
+    status: active
+    tools_whitelist:
+    - cth_meetings
+    - google_calendar
+    - hands
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 46b91f1c
+    id_full: 46b91f1c-6af9-4adc-82df-fc9287547ddd
+    name: Voice
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 7ea170b4
+    status: active
+    tools_whitelist:
+    - channel_audio
+    - cth_meetings
+    - hands
+    - voice_stt
+    - whatsapp
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 00f2eadf
+    id_full: 00f2eadf-4ceb-418c-9e6e-2cbc3174861f
+    name: CTH Bot
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 7ea170b4
+    status: active
+    tools_whitelist:
+    - cth_meetings
+    - hands
+    - meeting_bridge
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: d280b734
+    id_full: d280b734-7a20-4579-b926-d0ead5497dbb
+    name: WhatsApp · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - gina
+    - hands
+    - n8n
+    - whatsapp
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 6b334caf
+    id_full: 6b334caf-7873-4c79-ac37-7509633c7fe9
+    name: Slack · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - autopilot
+    - hands
+    - repos
+    - slack
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 7df0969f
+    id_full: 7df0969f-1996-4918-9393-c8e125658f91
+    name: Telegram · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - autopilot
+    - hands
+    - telegram
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: f8b4b4c2
+    id_full: f8b4b4c2-28a1-45c1-849f-bbb6b5776819
+    name: Autopilot · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: c656afb9
+    status: active
+    tools_whitelist:
+    - control_tower
+    - hands
+    - n8n
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines:
+    - name: weekly_token_audit
+      schedule: Mon 08:00 UTC
+      enforcement: 'off'
+    enforcement: 'off'
+  - id: 85949e8a
+    id_full: 85949e8a-e9c8-44ff-9396-5b03e29be062
+    name: Engine Room · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: c656afb9
+    status: active
+    tools_whitelist:
+    - backups
+    - control_tower
+    - hands
+    - health
+    - vps
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: c0a4443d
+    id_full: c0a4443d-afff-4949-8b3e-21a4cb4e3c98
+    name: Vault · Workbench
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: c656afb9
+    status: active
+    tools_whitelist:
+    - archive
+    - control_tower
+    - hands
+    - vault_meetings_db
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: fbc6f772
+    id_full: fbc6f772-82d8-40d5-92b8-cbefe7d5f1fc
+    name: Health
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 85949e8a
+      proposed: true
+      reason: 'Gap 5: Health alerts route to Engine Room before Infra checker escalation.'
+    status: active
+    tools_whitelist:
+    - control_tower
+    - engine_room
+    - hands
+    - n8n
+    - vercel
+    - vps
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: c0fe06b9
+    id_full: c0fe06b9-f7d5-4d05-807b-f96527ff4892
+    name: Moodle
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: b65940e2
+    status: active
+    tools_whitelist:
+    - academy
+    - archive
+    - hands
+    - moodle_via_hands
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: a02dc640
+    id_full: a02dc640-b451-44db-93b7-1d08a3647b3d
+    name: Odoo
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - budget
+    - hands
+    - mubon
+    - odoo_api_via_hands
+    - sunco
+    - teclogi
+    - vps
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: 1571c6b3
+    id_full: 1571c6b3-8820-45bc-8196-b035ccfe69b3
+    name: Mail Finder
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 27bd8324
+    status: active
+    tools_whitelist:
+    - hands
+    - hands_vps
+    - monday
+    - n8n
+    - teclogi
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: '49495613'
+    id_full: 49495613-251f-4a8a-bdb0-0754130430ff
+    name: Sustenttia · Fillout
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: 7ffbe815
+      proposed: true
+      reason: 'Gap 4: Fillout I/O workbench belongs under Sustenttia, not Orchestrator orphan.'
+    status: active
+    tools_whitelist:
+    - hands
+    - sustenttia
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+    fold_in:
+      into: 7ffbe815
+      status: active
+      enforcement: 'off'
+    org_chart_note: Sustenttia's profile says this work was folded in on 22 Nov 2026; this workbench still
+      claims the forms.
+  - id: cb105142
+    id_full: cb105142-98dd-4f0f-94bb-2503bcfbd08c
+    name: REIN Bot
+    tier: '2'
+    type: workbench
+    org_layer: Workbench
+    parent:
+      id: fd48890b
+    status: active
+    tools_whitelist:
+    - hands
+    - meeting_bridge
+    - rein_hubs
+    max_context_tokens: 25000
+    reset:
+      max_turns: 1
+      at_tokens: 25000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: true
+    budget_share_cap: 8%
+    routines: []
+    enforcement: 'off'
+  - id: edd93ed9
+    id_full: edd93ed9-18d0-46ae-9c85-8d267c5ebf15
+    name: Images
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - hands
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: 14123e40
+    id_full: 14123e40-6b83-4abd-8deb-80ca2f622ec5
+    name: Video
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - hands
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: 499a82bc
+    id_full: 499a82bc-e195-4eec-aef1-c8ae291e7404
+    name: Presentations
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: e1938fde
+    id_full: e1938fde-b539-444c-9dad-c23d232e7b1d
+    name: Researcher
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - google_drive
+    - hands
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: 8092cb28
+    id_full: 8092cb28-ed05-4225-961d-540d17143dbe
+    name: Scraper
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+      proposed: true
+      reason: Org chart v1 profile omitted parent metadata; normalized per build-plan §3.1.
+    status: active
+    tools_whitelist:
+    - archive
+    - hands
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: 25fc96f0
+    id_full: 25fc96f0-8d5a-4b4f-88bf-501eebd86d7e
+    name: X API Engineer
+    tier: '3'
+    type: capability
+    org_layer: Capability
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - hands
+    - socials
+    max_context_tokens: 40000
+    reset:
+      max_turns: 2
+      at_tokens: 40000
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-routine
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 5%
+    routines: []
+    enforcement: 'off'
+  - id: 5d95b30d
+    id_full: 5d95b30d-2cf4-403d-80fd-b5547feebd2a
+    name: OpenCode · Cloud Hands
+    tier: '4'
+    type: cloud_hands
+    org_layer: Cloud Hands
+    parent:
+      id: 5dc64ea4
+    status: active
+    tools_whitelist:
+    - archive
+    - control_tower
+    max_context_tokens: 0
+    reset:
+      max_turns: 0
+      at_tokens: 0
+      clone_and_reset: false
+      enforcement: 'off'
+    model:
+      model_tier: tier-execution
+      provider: opencode
+      slug: opencode-cloud-hands
+      fast: false
+      enforcement: 'off'
+    stateless: false
+    budget_share_cap: 67%
+    routines: []
+    enforcement: 'off'
