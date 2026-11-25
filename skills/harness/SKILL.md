@@ -58,7 +58,7 @@ Required fields:
 - `desk:` who owns the subject (free-form Desk name; no enum)
 - `folder:` Archive path under `/opt/claude-files/Projects/…` and/or repo
 - `done-when:` one sentence
-- `model:` `composer-2.5` (`fast=true`) — every Cloud Hands job (Token budget protocol 22 Oct 2026)
+- `model:` `composer-2.5` (`fast=true`) — every Cloud Hands job (Token budget protocol 22 Oct 2026). **Superseded (25 Nov 2026):** use `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 - `files:` exact files and paths the job may open
 - `read-budget:` read cap for the job (file count, or a byte cap)
 - `lane:` `github-pr` | `drive-folder` — store lane (Lane A vs Lane B)
@@ -80,7 +80,7 @@ Cloud Hands model lanes (Cursor cloud agents — **Token lock 2026-08-26**; repo
 - `gemini-3.7-flash` — mechanical copy, file packs, inventories, research grind, unspecified mechanical
 - `composer-2.5` (`fast=true`) — repo / code / build Hands (**Fast ON**)
 
-**Token budget protocol (22 Oct 2026):** launch every Cloud Hands job on `composer-2.5` (`fast=true`). Do not launch Flash. Do not HOLD a review job for a missing model. The two bullets above are the 26 Aug and 13 Sep record.
+**Token budget protocol (22 Oct 2026):** launch every Cloud Hands job on `composer-2.5` (`fast=true`). Do not launch Flash. Do not HOLD a review job for a missing model. The two bullets above are the 26 Aug and 13 Sep record. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 That is the whole Cloud Hands model list. Anything more advanced (Sonnet, Opus, Haiku as Hands, etc.) → HOLD and flag Gideon. Do not silently fill.
 
@@ -176,6 +176,17 @@ Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link:
 
 **Content waves amend the 12 Oct parallel-jobs rule.** Batch Nexus pages, wiki entries, and Datalab tasks into one job per wave. Do not open one Hands job per content item. Code builds may still split. The seven rules are in **Token budget protocol (22 Oct 2026)** below.
 
+### Fresh context per task (Gideon usage fix A — 25 Nov 2026)
+
+**Goal:** Stop long desk chats and old agent threads from re-reading full history on every step (cached-prompt churn). **Rollout:** `docs/rollout/2026-11-25-fresh-context-per-task.md`.
+
+This amends the Token budget protocol (22 Oct 2026) and BUILDING model-lock text: every Hands launch uses `composer-2.5` with `fast:false`, canonical with `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
+
+1. **One task, one fresh context.** Start each new piece of work from a short handover note, not the long chat history. Launch every Hands ticket as a fresh small agent (`composer-2.5`, `fast:false`) with a self-contained brief. Never reply into an old long-running agent for unrelated work. Cap fix-run follow-ups on one PR at three; then write a fresh, re-scoped ticket.
+2. **Desk thread cap.** Before a desk chat gets long (proxy: about 40 turns, or any context-compaction notice), the desk must: **(a)** write a handover note of 15 lines or fewer covering open items, decisions (with dates, ids, and paths), and what each item waits on — store it in the desk's tracked tasks or memory, never in secrets; **(b)** tell Gideon in one line that the thread is ready to be cleared or summarised. After a clear, resume from the handover note and the task list only.
+3. **Waiting.** Wait for completion wakes. Do not run polling loops or repeated status checks on running Hands or subagents.
+4. **Craft still goes to Hands.** Ticket file, research, code, and copy to Cursor Cloud Hands; do not grind locally.
+
 ## Token budget protocol (22 Oct 2026)
 
 **Locked:** Gideon **22 Oct 2026**
@@ -184,7 +195,7 @@ Full playbook: **`skills/harness/references/hands-ticket-hard.md`**. Cross-link:
 
 This section amends the 12 Oct 2026 parallel-jobs rule for content work. It amends maker ≠ checker for low-risk jobs. Desk comms §5 tables that still name Flash keep the 13 Sep record. This section is the launch rule.
 
-**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+**Model rule (Gideon, 22 Oct 2026).** Run every Cloud Hands job on Composer 2.5 Fast. Set `model:` to `composer-2.5` (`fast=true`). This replaces Flash on mechanical jobs. This replaces a HOLD when a review job has no model. Do not mark Composer 2.5 Fast on a content job as a miss. Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 1. **One job per wave, not per item.** Batch content work into one job per wave. Put about 10 to 20 items in one wave. Content work means Nexus pages, wiki entries, and Datalab tasks. This replaces "one Hands per smallest independent job" for content work. Code builds may still split.
 2. **Checker by risk.** Launch a separate read-only checker job only for high-risk work. High-risk work is a merge, a deploy, a live change, a key, a credential, or a client-facing deliverable. A low-risk content job checks its own result. A low-risk file job checks its own result. Attach proof on that job. Use a hash, an HTTP status code, or test output.
@@ -278,7 +289,7 @@ Lane B Drive packs still Drive (Hands writes, bc-id required). Empty bc-id = mis
 | **1 Isolate** | Hands | Cloud Hands branch off `main` on owning Lane A repo. Local worktree skill = later. |
 | **2 Build** | Hands | Ticket scope on branch. `composer-2.5` (`fast=true`) for repo/code/build. |
 | **3 Prove (eng)** | Hands | **pytest + smoke** always. UI/behavior PRs **+ before/after** (screenshot/video/metrics in PR). Not the Understanding Lab. |
-| **4 Ship** | Hands auto-loop + Infra | Draft PR + **PR-Agent** + **visual CI** (Playwright + Argos/Lost Pixel) on product repos. Hands fix until review loop clears, then **Infra PASS**. Infra PASS **before** step 5. Templates: `docs/examples/software-factory/`. |
+| **4 Ship** | Hands auto-loop + Infra | Draft PR + **PR-Agent** + **visual CI** (Playwright + Argos/Lost Pixel) on product repos. Hands fix until review loop clears, then **Infra PASS**. Infra PASS **before** step 5. Templates: `docs/examples/software-factory/`. After three fix runs on one PR, write a fresh re-scoped ticket instead of continuing the loop (§ Fresh context per task). |
 | **5 Understanding Lab** | Gideon + Infra | Tier-gated. **Tier 0:** skip. **Tier 1–2:** hard gate — no merge without UL PASS. |
 | **Merge** | Gideon | After step 4; + step 5 when Tier 1–2. Hands never merges. |
 
@@ -312,7 +323,7 @@ Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: py
 
 **File / research / code / copy → Cloud Hands.** Desk tickets. A separate checker job is for high-risk work only (maker ≠ checker). A low-risk content or file job checks its own result. See **Token budget protocol (22 Oct 2026)**. Grok does not write the pack.
 
-**Launch model after 22 Oct 2026:** every Cloud Hands job runs on `composer-2.5` (`fast=true`). See **Token budget protocol (22 Oct 2026)**. The table below records the 26 Aug lock. It is not the launch fill-in after 22 Oct 2026.
+**Launch model after 22 Oct 2026:** every Cloud Hands job runs on `composer-2.5` (`fast=true`). See **Token budget protocol (22 Oct 2026)**. The table below records the 26 Aug lock. It is not the launch fill-in after 22 Oct 2026. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 **Allowed Cloud Hands models (26 Aug record):**
 | Job | Model id | Notes |
@@ -322,7 +333,7 @@ Ticket: `factory: yes`, default `ship_review: pr-agent`, optional `prove_eng: py
 
 **Anything more advanced** (Sonnet, Opus, Haiku as Hands, Fable, Sol, Grok, second cloud Kimi) → **HOLD and flag Gideon.** Do not silently fill Sonnet, Haiku, Auto, Grok, or Kimi-cloud.
 
-**Forbidden on Cloud Hands** (remap or hold): Grok, Grok Fast, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor. Composer 2.5 Fast is the launch model for every job after 22 Oct 2026, including content packs. Do not remap it to Flash.
+**Forbidden on Cloud Hands** (remap or hold): Grok, Grok Fast, Opus, Fable, Sol, second cloud Kimi, Muse Spark 1.2 Contributor. Composer 2.5 Fast is the launch model for every job after 22 Oct 2026, including content packs. Do not remap it to Flash. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 **Review / eval / brand** with no model → `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Do not HOLD for a missing model. Do not auto-fill Sonnet. (22 Oct 2026 replaces the 26 Aug review HOLD. 26 Aug had replaced review-auto-Sonnet from 19 Aug.)
 
@@ -338,9 +349,9 @@ Do not weaken Lane A repo lock, Hands-shift lock, Tools-session lock, media-gene
 
 ### BUILDING model lock — Gideon t1263u 2026-09-13 (hard gate; supersedes t1242u and repo/code `fast=false` default)
 
-**BUILDING = Composer 2.5 Fast ON.** Never silently launch a build with Fast off. HITL: no silent model swap to Fast off.
+**BUILDING = Composer 2.5 Fast ON.** Never silently launch a build with Fast off. HITL: no silent model swap to Fast off. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
-**Amended 22 Oct 2026:** every Cloud Hands job, including mechanical work and review, launches `composer-2.5` (`fast=true`). Fast ON stays. Flash is not the launch fill-in. See **Token budget protocol (22 Oct 2026)**.
+**Amended 22 Oct 2026:** every Cloud Hands job, including mechanical work and review, launches `composer-2.5` (`fast=true`). Fast ON stays. Flash is not the launch fill-in. See **Token budget protocol (22 Oct 2026)**. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 **Explicit build surfaces:** repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner** (e.g. `cth-data-room-scanner`), harness code (`skills/harness/`, `tickets/`, desk routing), skill plant, app graph.
 
@@ -351,7 +362,7 @@ Do not weaken Lane A repo lock, Hands-shift lock, Tools-session lock, media-gene
 
 The 13 Sep rows named `gemini-3.7-flash` for mechanical work and HOLD for review. **Token budget protocol (22 Oct 2026)** replaces both.
 
-**22 Oct 2026:** do not fill Flash, including when the ticket says mechanical. High-tier models still HOLD. Composer 2.5 Fast on content jobs is allowed. Do not remap it to Flash. `composer-2.5 (fast=false)` on any Cloud Hands job → **miss** — remap to `fast=true` and flag. Canonical: `docs/hands-model-routing.md`.
+**22 Oct 2026:** do not fill Flash, including when the ticket says mechanical. High-tier models still HOLD. Composer 2.5 Fast on content jobs is allowed. Do not remap it to Flash. `composer-2.5 (fast=false)` on any Cloud Hands job → **miss** — remap to `fast=true` and flag. Canonical: `docs/hands-model-routing.md`. **Superseded (25 Nov 2026):** `fast:false` is the required launch — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 ### Model routing — Gideon 2026-08-19 (hard gate; $ table and usage scrape — historical)
 
@@ -396,10 +407,10 @@ Official $ are per 1M tokens (input / output) from that same page, 19 Aug 2026. 
 
 **MISS node — Gideon 2026-08-19 (fill-in, not a stop).** The MISS node must have a model. Desk should still name the model. After 22 Oct 2026 the fill-in is Composer 2.5 Fast, not Flash.
 
-- Empty `model:` on any Cloud Hands ticket → launch `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Do not refuse. Do not fall through to Sonnet, Grok, or Flash.
+- Empty `model:` on any Cloud Hands ticket → launch `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Do not refuse. Do not fall through to Sonnet, Grok, or Flash. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 - Ticket names a forbidden model (`grok-4.6` / Fast, any Opus, `claude-fable-5`, `gpt-5.6-sol`, `muse-spark-1.2-contributor`) → remap to `composer-2.5` (`fast=true`). Do not remap Composer 2.5 Fast to Flash.
 - Review / eval / brand with no model → `composer-2.5` (`fast=true`). Do not HOLD for a missing model. (22 Oct 2026 replaces the 26 Aug review HOLD.)
-- Repo / code / build with no model → `composer-2.5` (`fast=true`). **Fast ON** (t1263u). Never a second Kimi cloud agent. Do not silent-fill OpenCode, Sonnet, or Flash on builds. Never silently launch with Fast off. (BUILDING lock t1263u 2026-09-13 supersedes t1242u and 26 Aug `fast=false` default for builds.)
+- Repo / code / build with no model → `composer-2.5` (`fast=true`). **Fast ON** (t1263u). Never a second Kimi cloud agent. Do not silent-fill OpenCode, Sonnet, or Flash on builds. Never silently launch with Fast off. (BUILDING lock t1263u 2026-09-13 supersedes t1242u and 26 Aug `fast=false` default for builds.) **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 - Private residency (must not leave 127.0.0.1) → local Ollama `LFM2.5-VL-3B` only. Do not fill Flash. If it does not fit 3B, hold for Gideon.
 
 **Tools session — Gideon 2026-08-19 (launch allowed).** Lovable, HeyGen, WhatsApp, and Vercel are Tools Hands uses. They are not a do-not-launch dead end.
@@ -617,7 +628,7 @@ reviewer:
 context:
 ```
 
-`model` — every Cloud Hands job uses `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`.
+`model` — every Cloud Hands job uses `composer-2.5` (`fast=true`) (**Token budget protocol, 22 Oct 2026**). Private data that must stay on 127.0.0.1 still uses local Ollama `LFM2.5-VL-3B`. **Superseded (25 Nov 2026):** launch `composer-2.5` with `fast:false` — § Fresh context per task; canonical `skills/hands-model-routing/SKILL.md` (Gideon lock, 17 Nov 2026).
 
 `files` — exact files and paths the job may open. Do not leave this open.
 
