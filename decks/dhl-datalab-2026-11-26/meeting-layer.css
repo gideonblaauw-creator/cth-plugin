@@ -1,0 +1,66 @@
+/* Capa reunión 26 nov 2026 — AGV Open Market + referencia DHL Group (no confundir entidades) */
+.meeting-layer-2026 {
+  margin-top: 1.25rem;
+  border-top: 3px solid #2ec4e8;
+  padding-top: 1rem;
+}
+.meeting-layer-2026 h2 {
+  font-family: "Open Sans", system-ui, sans-serif;
+  color: #0b2341;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+.meeting-layer-2026 .ml-sub {
+  font-size: 0.88rem;
+  color: #3d5166;
+  margin: 0 0 1rem;
+  max-width: 52rem;
+}
+.meeting-layer-2026 .ml-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.meeting-layer-2026 .ml-src {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+}
+.meeting-layer-2026 .ml-src-agv { background: #2d6a4f; color: #fff; }
+.meeting-layer-2026 .ml-src-dhl { background: #0b2341; color: #b2eefa; }
+.meeting-layer-2026 .ml-src-cth { background: #2ec4e8; color: #0b2341; }
+.meeting-layer-2026 .ml-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+.meeting-layer-2026 .ml-card {
+  background: #0b2341;
+  color: #f4f8fc;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid #2ec4e8;
+}
+.meeting-layer-2026 .ml-card.alt {
+  background: #f0f7fb;
+  color: #0b2341;
+  border-left-color: #2d6a4f;
+}
+.meeting-layer-2026 .ml-card h3 { margin: 0 0 0.35rem; font-size: 0.95rem; color: #95d5b2; }
+.meeting-layer-2026 .ml-card.alt h3 { color: #1b4332; }
+.meeting-layer-2026 .ml-val { font-size: 1.35rem; font-weight: 700; color: #b2eefa; }
+.meeting-layer-2026 .ml-card.alt .ml-val { color: #0c498a; }
+.meeting-layer-2026 .ml-meta { font-size: 0.78rem; margin-top: 0.35rem; }
+.meeting-layer-2026 .ml-angle {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, rgba(46, 196, 232, 0.12), rgba(45, 106, 79, 0.08));
+  border-radius: 8px;
+  border: 1px solid rgba(12, 73, 138, 0.2);
+  font-size: 0.88rem;
+}
+.meeting-layer-2026 .ml-warn { color: #8a5a12; font-size: 0.8rem; margin-top: 0.75rem; }

@@ -1,0 +1,249 @@
+{
+  "_meta": {
+    "schema": "datalab-client-layer-v0",
+    "source_label": "DHL Group 2025 public report (may differ from the PDF Miguel shared)",
+    "source_document": "DHL Group Sustainability Presentation, fiscal year 2025",
+    "prepared_for": "CleantechHUB Datalab — Air4U × DHL Colombia prep (2026-11-26)",
+    "group_level_only": true,
+    "colombia_note": "No Colombia/LatAm emissions or air-quality breakdown in the source deck; Colombia appears only on the myShares country list (p.66)."
+  },
+  "company_profile": {
+    "name": "DHL Group",
+    "datalab_client_hypothesis": "DHL Colombia / DHL Express Americas logistics footprint",
+    "sector": "Logistics and express delivery",
+    "reporting_year": 2025,
+    "headline_figures": [
+      {
+        "label": "Logistics-related GHG emissions",
+        "value": 32.31,
+        "unit": "m metric t CO2e",
+        "year": 2025,
+        "page": 25,
+        "quote": "Logistics-related GHG emissions 32.31 million metric tons CO2e in 2025."
+      },
+      {
+        "label": "E-vehicles in fleet",
+        "value": 50604,
+        "unit": "vehicles",
+        "year": 2025,
+        "page": 5,
+        "quote": "50,604 e-vehicles across the Group fleet in fiscal year 2025."
+      },
+      {
+        "label": "Pick-up and delivery fleet electrification",
+        "value": 46.2,
+        "unit": "% e-vehicles",
+        "year": 2025,
+        "target_2030": "66% e-vehicles in pick-up and delivery",
+        "page": 24,
+        "quote": "Forty-six point two percent e-vehicles in pick-up and delivery own fleet."
+      }
+    ],
+    "strategic_targets": [
+      {
+        "metric": "Logistics-related GHG",
+        "target_value": "<29",
+        "target_unit": "m metric t CO2e",
+        "target_year": 2030,
+        "page": 23,
+        "quote": "Reduce logistics-related GHG emissions to under twenty-nine million metric tons."
+      },
+      {
+        "metric": "GHG net zero",
+        "target_value": "net zero",
+        "target_year": 2050,
+        "page": 23,
+        "quote": "Target 2050: GHG emissions net zero with at least ninety percent reduction."
+      },
+      {
+        "metric": "SBTi validation",
+        "status": "validated",
+        "page": 23,
+        "quote": "2030 and 2050 climate targets validated by the Science Based Targets initiative."
+      }
+    ]
+  },
+  "data_points": [
+    {
+      "id": "ghg_scope1_logistics",
+      "metric": "Scope 1 GHG (logistics-related)",
+      "value": 6.46,
+      "unit": "m metric t CO2e",
+      "year": 2025,
+      "page": 25
+    },
+    {
+      "id": "ghg_scope2_logistics",
+      "metric": "Scope 2 GHG (logistics-related, market-based)",
+      "value": 0.06,
+      "unit": "m metric t CO2e",
+      "year": 2025,
+      "page": 25
+    },
+    {
+      "id": "ghg_scope3_logistics",
+      "metric": "Scope 3 GHG (logistics-related, cat. 3/4/6)",
+      "value": 25.79,
+      "unit": "m metric t CO2e",
+      "year": 2025,
+      "page": 25
+    },
+    {
+      "id": "nox_scope1_2025",
+      "metric": "NOx (Scope 1)",
+      "value": 39247,
+      "unit": "metric t",
+      "year": 2025,
+      "breakdown": { "road": 6131, "air": 33116 },
+      "page": 45
+    },
+    {
+      "id": "pm10_scope1_2025",
+      "metric": "PM10 (Scope 1)",
+      "value": 552,
+      "unit": "metric t",
+      "year": 2025,
+      "pm25_embedded_t": 277,
+      "breakdown": { "road": 344, "air": 208 },
+      "page": 45
+    },
+    {
+      "id": "so2_scope1_2025",
+      "metric": "SO2 (Scope 1)",
+      "value": 1594,
+      "unit": "metric t",
+      "year": 2025,
+      "breakdown": { "road": 9, "air": 1585 },
+      "page": 45
+    },
+    {
+      "id": "logistics_ghg_road_share",
+      "metric": "Share of logistics GHG from road transport",
+      "value": 23,
+      "unit": "%",
+      "year": 2025,
+      "page": 26
+    },
+    {
+      "id": "saf_share",
+      "metric": "SAF in own air fleet",
+      "value": 10.0,
+      "unit": "%",
+      "year": 2025,
+      "page": 24
+    },
+    {
+      "id": "renewable_electricity",
+      "metric": "Electricity from renewable sources",
+      "value": 96.9,
+      "unit": "%",
+      "year": 2025,
+      "page": 24
+    }
+  ],
+  "datalab_kpis": [
+    {
+      "kpi_id": "pud_ev_share",
+      "name": "Pick-up and delivery e-vehicle share",
+      "baseline_value": 46.2,
+      "unit": "%",
+      "baseline_year": 2025,
+      "target_value": 66,
+      "target_year": 2030,
+      "source_page": 24,
+      "datalab_track": "Fleet transition — compare depot-level EV rollout vs Group target."
+    },
+    {
+      "kpi_id": "logistics_ghg_absolute",
+      "name": "Logistics-related GHG emissions",
+      "baseline_value": 32.31,
+      "unit": "m metric t CO2e",
+      "baseline_year": 2025,
+      "target_value": 29,
+      "target_year": 2030,
+      "comparison": "less_than",
+      "source_page": 23
+    },
+    {
+      "kpi_id": "decarb_effects",
+      "name": "Realized decarbonization effects",
+      "baseline_value": 2.1,
+      "unit": "m metric t CO2e",
+      "baseline_year": 2025,
+      "target_value": 2.5,
+      "target_year": 2026,
+      "source_page": 10
+    },
+    {
+      "kpi_id": "scope1_nox_road",
+      "name": "Scope 1 NOx from road transport",
+      "baseline_value": 6131,
+      "unit": "metric t",
+      "baseline_year": 2025,
+      "source_page": 45,
+      "datalab_track": "Bridge Group inventory to street-level exposure near Bogotá depots."
+    },
+    {
+      "kpi_id": "scope1_pm10_road",
+      "name": "Scope 1 PM10 from road transport",
+      "baseline_value": 344,
+      "unit": "metric t",
+      "baseline_year": 2025,
+      "source_page": 45,
+      "datalab_track": "Pair with hyperlocal PM2.5 sensing on last-mile corridors."
+    }
+  ],
+  "data_gaps": [
+    {
+      "gap": "No Colombia or Bogotá emissions, fleet, or pollutant split in the public Group deck.",
+      "impact": "Cannot size a Colombia pilot from Group KPIs alone.",
+      "pages_checked": "1–105; Colombia only p.66 (myShares)",
+      "datalab_action": "Request DHL Colombia operational boundary, depot list, and fleet mix for Bogotá."
+    },
+    {
+      "gap": "Air pollution not ESRS-material at Group level; only Scope 1 NOx/SO2/PM10 totals.",
+      "impact": "No neighbourhood exposure or route-level air quality.",
+      "pages_checked": "45",
+      "datalab_action": "Layer Air4U street monitoring to make immaterial topic locally decision-grade."
+    },
+    {
+      "gap": "No GHG intensity (per parcel, per tonne-km) in this presentation.",
+      "impact": "Hard to normalise pilot results against throughput growth.",
+      "pages_checked": "1–105",
+      "datalab_action": "Define intensity denominators with DHL Colombia finance/ops on the call."
+    },
+    {
+      "gap": "Ocean/SMF share not disclosed (only customer product insetting).",
+      "impact": "Limited visibility on maritime leg for forwarding clients.",
+      "pages_checked": "24;41",
+      "datalab_action": "Clarify whether Colombia imports are in Express air, road, or forwarded ocean."
+    }
+  ],
+  "partner_fit": {
+    "startup": "Air4U",
+    "sandbox": "Open Air Sandbox / Clean Air for Health Sandbox",
+    "value_hypothesis": "Street-level PM2.5 and NOx around DHL depots and last-mile routes, aligned to Group road NOx/PM10 and EV-transition KPIs, with RMCAB city baseline as context.",
+    "rmcab_context": {
+      "name": "RMCAB — Red de Monitoreo de Calidad del Aire de Bogotá",
+      "role": "Public reference baseline for urban PM2.5/NOx; not a substitute for depot-adjacent sensing.",
+      "public_reference": "https://rmcab.cundable.com/"
+    },
+    "overlay_layers": [
+      {
+        "layer": "Data Flows",
+        "inputs": ["Air4U sensor streams (PM2.5, NOx)", "DHL route/depot geofences (client-provided)", "RMCAB public hourly feeds"],
+        "outputs": ["Corridor exposure indices", "EV vs diesel last-mile contrast windows"]
+      },
+      {
+        "layer": "Data Base",
+        "inputs": ["metrics.csv facts from Group report", "Colombia pilot observations (post-permission)"],
+        "outputs": ["Time-aligned client layer snapshots", "Audit trail with page cites"]
+      },
+      {
+        "layer": "Data Dashboard",
+        "inputs": ["KPI targets from pages 10, 23–24, 45"],
+        "outputs": ["Road NOx/PM vs electrification share by depot cluster", "Progress narrative for 2030 PUD EV target"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+theme,metric_family,dhl_group_value,agv_value,dhl_source_label,agv_source_label,colombia_granularity,dhl_pages,agv_pages,notes
+Logistics / org GHG total,GHG logistics-related or S1+2 total,32.31 m t CO2e (DHL steering),"10,151.38 t CO2 eq (AGV S1+S2)",DHL Group,AGV Colombia,no,DHL:25-26,AGV:23-25,Never merge AGV and DHL entities; overlay is comparative only.
+Scope 1 GHG,Direct / Scope 1,6.46 m t CO2e logistics S1,"8,918.40–9,129.67 t CO2 eq",DHL Group,AGV Colombia,partial AGV,DHL:25,AGV:24;95,Never merge AGV and DHL entities; overlay is comparative only.
+Scope 2 GHG,Market-based Scope 2,0.06 m t CO2e,"1,232.95 t CO2 eq",DHL Group,AGV Colombia,yes AGV,DHL:25,AGV:25,Never merge AGV and DHL entities; overlay is comparative only.
+Scope 3 GHG,Scope 3 inventory,25.79 m t (logistics S3),not reported (en desarrollo),DHL Group,AGV,AGV gap,DHL:25,AGV:25,Never merge AGV and DHL entities; overlay is comparative only.
+GHG intensity,per ton or per shipment,not reported (DHL deck),0.0584 t CO2/ton; 1.210 kg CO2eq/km,DHL Group,AGV Colombia,yes AGV,1-105,AGV:25,Never merge AGV and DHL entities; overlay is comparative only.
+Non-diesel fleet share (AGV),PUD e-vehicle % vs no-diesel %,46.2% (66% target 2030),13.6% no diésel (gasolina+gas+eléctrico; p.26),DHL Group,AGV Colombia,yes AGV,DHL:24,AGV:26,Never merge AGV and DHL entities; overlay is comparative only.
+E-vehicle count / km,Fleet electrification,"50,604 e-vehicles (Group)","69,461 km eléctricos 2025",DHL Group,AGV Colombia,yes AGV,DHL:5;37,AGV:26,Never merge AGV and DHL entities; overlay is comparative only.
+CNG / GNV / gas fleet,Alternative fuels road,20.5% sustainable fuels road (own),"868,532 km GNV; 2 GNV bought",DHL Group,AGV Colombia,yes AGV,DHL:24,AGV:26,Never merge AGV and DHL entities; overlay is comparative only.
+Avoided emissions vs diesel,Baseline comparison,2.1 m t decarb effects (Group),21.95 t eléctrico; 33 t GNV,DHL Group,AGV Colombia,yes AGV,DHL:10,AGV:23;26,Never merge AGV and DHL entities; overlay is comparative only.
+Air pollutants NOx/PM,Scope 1 tonnage,"NOx 39,247 t; PM10 552 t",not reported (qualitative only),DHL Group,AGV,DHL only,DHL:45,AGV:44;106,Never merge AGV and DHL entities; overlay is comparative only.
+Per-shipment / client footprint,Customer dashboard,GoGreen per shipment (p.42),"Dashboard diesel vs gas p.27-28 (gráfico, confirmar AGV)",DHL Group,AGV Colombia,yes AGV,DHL:42,AGV:27,Never merge AGV and DHL entities; overlay is comparative only.
+Colombia / Bogotá split,Country granularity,not reported,Colombia-focused; Brasil sin split GEI,DHL Group,AGV,AGV partial,DHL:66,AGV:3;37,Never merge AGV and DHL entities; overlay is comparative only.
+Third-party fleet,Subcontracted transport,Scope 3 upstream (categories),85% combustible flota tercerizada,DHL Group,AGV Colombia,yes AGV,DHL:26,AGV:44,Never merge AGV and DHL entities; overlay is comparative only.
+Climate targets,SBTi / net zero,SBTi validated; <29m by 2030; NZ 2050,Zero Waste meta; bajo carbono (narrativa),DHL Group,AGV Colombia,DHL stronger,DHL:23,AGV:4;63,Never merge AGV and DHL entities; overlay is comparative only.
+Renewable electricity,Buildings / Scope 2,96.9% renewable electricity,Alcance 2 down via grid Colombia (XM),DHL Group,AGV Colombia,both,DHL:24,AGV:25,Never merge AGV and DHL entities; overlay is comparative only.
+Cold chain / packaging CO2,Circular packaging,not in DHL air pack,"1,400 t CO2 avoided reusables",—,AGV Colombia,AGV only,—,AGV:4;63,Never merge AGV and DHL entities; overlay is comparative only.
