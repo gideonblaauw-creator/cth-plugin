@@ -1,0 +1,60 @@
+metric,value,unit,year,scope/region,target (if any),page,quote
+Air pollution materiality (ESRS),not material,—,2025,Group,,45,Air pollution has not been assessed as material in the materiality assessment.
+NOx emissions,42877,metric t,2024,Scope 1; Group,,45,"Local pollutants in accordance with Scope 1, metric tons, 2024 total."
+NOx emissions,39247,metric t,2025,Scope 1; Group,,45,"Nitrogen (NOx) total Scope 1 emissions 39,247 metric tons in 2025."
+NOx emissions — road transport,6131,metric t,2025,Scope 1; road,,45,"Road transport Scope 1 NOx 6,131 metric tons in 2025."
+NOx emissions — air transport,33116,metric t,2025,Scope 1; air,,45,"Air transport Scope 1 NOx 33,116 metric tons in 2025."
+SOx (generic),not reported,—,2025,Group,,45;1-105,Report states SO2 only; no separate SOx metric in this deck.
+SO2 emissions,1780,metric t,2024,Scope 1; Group,,45,"Sulphur dioxide Scope 1 total 1,780 metric tons in 2024."
+SO2 emissions,1594,metric t,2025,Scope 1; Group,,45,"Sulphur dioxide Scope 1 total 1,594 metric tons in 2025."
+SO2 emissions — road transport,9,metric t,2025,Scope 1; road,,45,Road transport Scope 1 SO2 nine metric tons in 2025.
+SO2 emissions — air transport,1585,metric t,2025,Scope 1; air,,45,"Air transport Scope 1 SO2 1,585 metric tons in 2025."
+PM10 emissions,610,metric t,2024,Scope 1; Group,,45,Particulate matter PM10 Scope 1 total 610 metric tons in 2024.
+PM10 emissions,552,metric t,2025,Scope 1; Group,,45,Particulate matter PM10 Scope 1 total 552 metric tons in 2025.
+PM10 emissions — road transport,344,metric t,2025,Scope 1; road,,45,Road transport Scope 1 PM10 344 metric tons in 2025.
+PM10 emissions — air transport,208,metric t,2025,Scope 1; air,,45,Air transport Scope 1 PM10 208 metric tons in 2025.
+PM2.5 (within PM10),277,metric t,2025,Scope 1; Group,,45,Footnote: PM10 total includes 277 metric tons PM2.5.
+Logistics-related GHG emissions,32.31,m metric t CO2e,2025,Group; scopes 1+2+3 (logistics),≤32.10 by 2026; <29 by 2030,5;25,32.31m metric t CO2e GHG emissions; steering-relevant logistics-related.
+Logistics-related GHG emissions,40.22,m metric t CO2e,2021,Group; base year,,25,2021 base year logistics-related GHG emissions 40.22 million metric tons CO2e.
+Logistics-related GHG emissions change vs base,-19.7,%,2021–2025,Group,,25,Logistics-related GHG emissions down 19.7 percent versus 2021 base year.
+Scope 1 GHG (logistics-related),6.46,m metric t CO2e,2025,Scope 1; Group,,25,Scope 1 logistics-related GHG emissions 6.46 million metric tons CO2e.
+"Scope 2 GHG (logistics-related, market-based)",0.06,m metric t CO2e,2025,Scope 2; Group,,25,Scope 2 market-based logistics-related GHG 0.06 million metric tons CO2e.
+Scope 3 GHG (logistics-related),25.79,m metric t CO2e,2025,"Scope 3 cat. 3,4,6",-25% vs 2021 by 2030 (bond),25;30,Scope 3 logistics-related GHG 25.79 million metric tons CO2e.
+Total GHG emissions,38.71,m metric t CO2e,2025,Group; all scopes,,26,Total GHG emissions 38.71 million metric tons CO2e in 2025.
+Scopes 1 and 2 GHG (bond KPI),6.52,m metric t CO2e,2025,Scopes 1+2,4.36 by 2030; -42% vs 2021,31,Scopes 1 and 2 emissions 6.52 million metric tons CO2e in 2025.
+Scopes 1 and 2 GHG (bond KPI),7.52,m metric t CO2e,2021,Scopes 1+2; base,,31,Scopes 1 and 2 base year 2021 at 7.52 million metric tons CO2e.
+GHG emissions intensity,not reported,—,2025,Group,,1-105,No logistics GHG intensity metric stated in this presentation.
+Logistics GHG share — air transport,65,%,2025,Logistics-related by source,,26,Air transport accounts for sixty-five percent of logistics-related GHG emissions.
+Logistics GHG share — road transport,23,%,2025,Logistics-related by source,,26,Road transport accounts for twenty-three percent of logistics-related GHG.
+Logistics GHG share — ocean freight,11,%,2025,Logistics-related by source,,26,Ocean freight accounts for eleven percent of logistics-related GHG emissions.
+Logistics GHG share — buildings,1,%,2025,Logistics-related by source,,26,Buildings account for one percent of logistics-related GHG emissions.
+Logistics-related GHG — Express,13.69,m metric t CO2e,2025,Express division,,27,Express logistics-related GHG 13.69 million metric tons CO2e in 2025.
+"Logistics-related GHG — Global Forwarding, Freight",14.61,m metric t CO2e,2025,GFF division,,27,Global Forwarding Freight logistics-related GHG 14.61m metric t CO2e.
+Logistics-related GHG — Supply Chain,1.81,m metric t CO2e,2025,Supply Chain,,27,Supply Chain logistics-related GHG 1.81 million metric tons CO2e in 2025.
+Logistics-related GHG — eCommerce,1.62,m metric t CO2e,2025,eCommerce,,27,eCommerce logistics-related GHG 1.62 million metric tons CO2e in 2025.
+Logistics-related GHG — Post & Parcel Germany,1.48,m metric t CO2e,2025,Post & Parcel DE,,27,Post and Parcel Germany logistics-related GHG 1.48m metric t CO2e.
+Realized decarbonization effects,2.1,m metric t CO2e,2025,Group,2.5m by 2026,5;10;25,2.1m metric t CO2e reduced through decarbonization in 2025.
+Decarbonization effects (historical),2083,metric kt CO2e,2025,Group,2500 kt plan 2026,28,"Realized decarbonization effects 2,083 metric kilotons CO2e in 2025."
+GHG emissions reduction (progress narrative),4.3,%,2025,Group,,21,GHG emissions reduced by 4.3 percent in progress narrative for 2025.
+E-vehicles in fleet,50604,vehicles,2025,Group; own fleet,,5;37,Fifty thousand six hundred four e-vehicles in the Group fleet in 2025.
+E-vehicles share — pick-up and delivery,46.2,%,2025,Own fleet; PUD,66% by 2030,21;24,Forty-six point two percent e-vehicles in own pick-up and delivery fleet.
+E-trikes and e-bikes,14700,units,2025,Group,,5,Fourteen thousand seven hundred e-trikes and e-bikes in operation in 2025.
+Vehicles — Euro 6 emission standard,35100,vehicles,2025,Group; road,,45,Around thirty-five thousand one hundred vehicles comply with Euro 6 standard.
+Aircraft in own fleet,277,aircraft,2025,Group; Scope 1,,5;46,Two hundred seventy-seven aircraft in the DHL Group own fleet.
+Aircraft — CAEP/8 emission standard,147,aircraft (53%),2025,Air; Scope 1,,45,"One hundred forty-seven aircraft, fifty-three percent, meet CAEP/8 standard."
+SAF in own air fleet,10.0,%,2025,Scope 1; own air,30% sustainable fuels air+ocean+road by 2030,21;24,Ten percent sustainable aviation fuel in own air fleet in 2025.
+"Sustainable fuels — road (own fleet, long-haul)",20.5,%,2025,Scope 1; road,30% sustainable fuels air+ocean+road by 2030,21;24,Twenty point five percent sustainable fuels in own long-haul road fleet.
+Sustainable maritime fuels (SMF) — group share,not reported,%,2025,Ocean / forwarding,30% combined ambition 2030,24;41,SMF named in products; no group ocean fuel share disclosed.
+Electricity from renewable sources,96.9,%,2025,Buildings; Scopes 1–2,100% new own buildings carbon-neutral by 2030,21;24;38,Ninety-six point nine percent electricity from renewable sources in 2025.
+Energy from renewable sources (total),16.6,%,2025,Group,,21,Sixteen point six percent energy from renewable sources across operations in 2025.
+On-site solar capacity,38.5,MWp,2025,Sites,,24;38,Thirty-eight point five megawatt peak solar capacity at Group sites.
+Sites worldwide,11249,locations,2025,Group,,38,DHL Group operates eleven thousand two hundred forty-nine sites worldwide.
+Climate target — logistics GHG,<29,m metric t CO2e,2030,Group,validated SBTi,10;23,Reduce logistics-related GHG emissions to under twenty-nine million metric tons CO2e.
+Climate target — logistics GHG,≤32.10,m metric t CO2e,2026,Group,,10;25,Reduce logistics-related GHG emissions to at most 32.1 million metric tons.
+Climate target — net zero GHG,net zero,—,2050,Group; scopes per footnote,≥90% reduction then offsets,10;21;23,Target 2050: GHG emissions net zero across defined scopes.
+Science Based Targets initiative status,validated,—,2022–2030,Group,2030 and 2050 targets,7;23,2030 and 2050 climate targets validated by the Science Based Targets initiative.
+SBTi alignment — 2030 Scope 1 and 2,1.5°C,pathway,2030,Scopes 1+2,,23,2030 targets aligned with 1.5 degrees Celsius for Scopes 1 and 2.
+SBTi alignment — 2030 Scope 3,well below 2°C,pathway,2030,Scope 3 logistics,,23,2030 Scope 3 aligned significantly below two degrees Celsius.
+SBTi alignment — 2050,1.5°C,pathway,2050,All scopes,,23,2050 target confirmed aligned with 1.5 degrees Celsius.
+Colombia operational GHG or air-quality data,not reported,—,2025,Colombia,,1-105;66,Colombia listed for myShares only; no Colombia emissions in deck.
+Latin America regional sustainability metrics,not reported,—,2025,LatAm,,1-105,No Latin America regional breakdown in this sustainability presentation.
