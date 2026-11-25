@@ -1,0 +1,101 @@
+digraph orchestrator_dashboard {
+  graph [
+    label="Orchestrator fleet dashboard data flow v2 · 25 Nov 2026"
+    labelloc=t
+    fontsize=16
+    splines=polyline
+    rankdir=TB
+    bgcolor=white
+    nodesep=0.5
+    ranksep=0.65
+  ];
+  node [fontname="Arial", fontsize=10, style=filled, penwidth=1.2];
+  edge [fontname="Arial", fontsize=9, color="#333333"];
+
+  anchor [style=invis, width=0.01, height=0.01, label=""];
+
+  subgraph cluster_b1 {
+    label="Band 1 · Approver";
+    color="#B2EEFA";
+    style=rounded;
+    GID [label="Gideon Blaauw", fillcolor="#06325C", fontcolor=white];
+    HITL [label="Gideon yes", shape=diamond, fillcolor="#C62828", fontcolor=white];
+    GID -> HITL [label="HITL decisions"];
+  }
+
+  subgraph cluster_b2 {
+    label="Band 2 · Desks";
+    color="#B2EEFA";
+    style=rounded;
+    ORCH [label="Orchestrator", fillcolor="#0C498A", fontcolor=white];
+    INBOX [label="Inbox desk", fillcolor="#0C498A", fontcolor=white];
+    MEET [label="CTH Meetings", fillcolor="#0C498A", fontcolor=white];
+    GID -> ORCH [label="dashboard owner"];
+    INBOX -> ORCH [style=invis];
+    ORCH -> MEET [style=invis];
+  }
+
+  subgraph cluster_b3 {
+    label="Band 3 · Workbenches and Cloud Hands";
+    color="#B2EEFA";
+    style=rounded;
+    GWB [label="Gmail Workbench", fillcolor="#B2EEFA", fontcolor="#0C498A"];
+    SWB [label="Slack Workbench", fillcolor="#B2EEFA", fontcolor="#0C498A"];
+    CH [label="Cloud Hands", fillcolor="#B2EEFA", fontcolor="#0C498A"];
+    N8N [label="n8n", fillcolor=white, color="#F5A623", penwidth=2.5];
+    HITL -> GWB [label="approve send"];
+    HITL -> SWB [label="approve post"];
+    INBOX -> GWB [label="own channel"];
+    GWB -> N8N [label="metadata stub"];
+    SWB -> N8N [label="channel events"];
+    CH -> N8N [label="bc-id PR receipt"];
+  }
+
+  subgraph cluster_b4 {
+    label="Band 4 · Systems and data";
+    color="#B2EEFA";
+    style=rounded;
+    JORCH [label="Jira CTHORCH", fillcolor=white, color="#69B5FA"];
+    JHAND [label="Jira CTHHANDS", fillcolor=white, color="#69B5FA"];
+    JOPS [label="Jira CTHOPS", fillcolor=white, color="#69B5FA"];
+    HUB [label="Confluence CTHHUB", fillcolor="#669348", fontcolor=white];
+    MAI [label="Meeting AI stub", fillcolor=white, color="#69B5FA"];
+    MEET -> MAI [label="calendar hook"];
+    MAI -> N8N [label="action items"];
+    N8N -> JORCH [label="agent_id+HITL queue"];
+    N8N -> JHAND [label="agent_id+bc-id"];
+    N8N -> JOPS [label="doctor issues"];
+    JORCH -> HUB [label="gadgets embed"];
+    JHAND -> HUB [label="gadgets embed"];
+    JOPS -> HUB [label="gadgets embed"];
+    ORCH -> HUB [label="reads dashboard"];
+    ORCH -> JORCH [label="awaiting HITL widget"];
+    ORCH -> JHAND [label="jobs by agent widget"];
+    HITL -> JORCH [label="HITL approval link"];
+    GID -> JORCH [label="accountable field", style=dashed];
+  }
+
+  GID -> anchor [style=invis];
+  anchor -> ORCH [style=invis];
+  ORCH -> GWB [style=invis];
+  GWB -> N8N [style=invis];
+  N8N -> JORCH [style=invis];
+
+  subgraph cluster_legend {
+    label="Legend · bottom right";
+    color="#E8E8E8";
+    style=rounded;
+    { rank=same;
+      LEG_A [label="Approver dark navy", fillcolor="#06325C", fontcolor=white];
+      LEG_D [label="Desk navy", fillcolor="#0C498A", fontcolor=white];
+      LEG_W [label="Workbench cyan", fillcolor="#B2EEFA", fontcolor="#0C498A"];
+      LEG_N [label="New green", fillcolor="#669348", fontcolor=white];
+      LEG_P [label="In progress amber", fillcolor=white, color="#F5A623", penwidth=2.5];
+      LEG_R [label="Retired grey dash", fillcolor="#9E9E9E", fontcolor=white, style="filled,dashed"];
+      LEG_H [label="Gideon yes", shape=diamond, fillcolor="#C62828", fontcolor=white];
+    }
+  }
+
+  { rank=max; LEG_A; LEG_D; LEG_W; LEG_N; LEG_P; LEG_R; LEG_H; }
+  HUB -> LEG_D [style=invis, weight=0];
+}
