@@ -29,6 +29,21 @@ Functional mapping uses repo sources above. The **three role names** come from t
 
 None in body copy. Funnel counts in `demo-promigas-quarto/www/i18n.js` are explicitly example data and were not used.
 
+## Public-facing source lines (PDF) → repository mapping
+
+| PDF line | Repository source |
+| --- | --- |
+| Fuente: CleantechHUB · Observatorio de la Tierra, 2026 | `decks/observatorio-tierra-dataton/deck.yaml` (statement, white paper v3 §1) |
+| Fuente: CleantechHUB · Datatón 2026 (Universidad Externado de Colombia) | `decks/observatorio-tierra-dataton/deck.yaml` (process Escala, closing) |
+| Fuente: CleantechHUB · marco REIN y ecosistema de innovación climática | `decks/observatorio-tierra-dataton/deck.yaml` (ecosystem, partner-cards, focus-areas) |
+| Fuente: CleantechHUB · metodología Datalab y sandboxes, 2026 | `decks/observatorio-tierra-dataton/deck.yaml` (Datalab environments, handoff) |
+| Fuente: CleantechHUB Foundation | `decks/observatorio-tierra-dataton/deck.yaml` (partner-cards) |
+| Resultados por rol (pág. 1, recuadros) | `decks/observatorio-tierra-dataton/deck.yaml` (ecosystem, process, title-bullets); ticket role framing |
+| Fuente: CleantechHUB · Observatorio de la Tierra, hoja de ruta 2026 | `decks/observatorio-tierra-dataton/deck.yaml` (process) |
+| Fuente: CleantechHUB · Datalab y gobernanza de datos, 2026 | `decks/observatorio-tierra-dataton/deck.yaml` (§9); `docs/html-deck-protocol.md`, `docs/brand-rules.md` (sandbox names) |
+| Fuente: CleantechHUB · REIN y colaboración público-privada | `decks/observatorio-tierra-dataton/deck.yaml` (title-bullets, partner-cards) |
+| Fuente: CleantechHUB · Datatón 2026, Universidad Externado de Colombia | `decks/observatorio-tierra-dataton/SOURCES.md`, `deck.yaml` meta, `index.html` |
+
 ## Out of scope (not cited)
 
 - White paper v3 full PDF (referenced only where deck already cites § sections)
