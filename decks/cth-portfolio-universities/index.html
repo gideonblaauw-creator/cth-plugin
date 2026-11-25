@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio CleantechHUB — aliados universitarios (borrador)</title>
+  <style>
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/OpenSans-Regular.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/OpenSans-SemiBold.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Open Sans";
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      src: url("assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+    }
+
+    :root {
+      --eo-deep: #0c498a;
+      --eo-cyan: #b2eefa;
+      --eo-lime: #9dc384;
+      --eo-forest: #669348;
+      --eo-sky: #69b5fa;
+      --eo-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    html, body {
+      color: var(--eo-deep);
+      background: #e8f4fc;
+      font-size: 10pt;
+      line-height: 1.42;
+    }
+
+    @media print {
+      html, body {
+        width: 210mm;
+        background: #fff;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .page {
+        width: 210mm;
+        height: 297mm;
+        padding: 11mm 14mm 12mm;
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+      }
+      .page:last-child { page-break-after: auto; }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media screen {
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 12px auto;
+        padding: 11mm 14mm 12mm;
+        background: var(--eo-white);
+        box-shadow: 0 2px 12px rgba(12, 73, 138, 0.12);
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .page-main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+      min-height: 0;
+    }
+
+    .page-footer-slot {
+      flex-shrink: 0;
+      margin-top: auto;
+      padding-top: 2mm;
+    }
+
+    .fp-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 4mm;
+    }
+    .fp-head__logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+    .fp-eyebrow {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--eo-forest);
+      margin-bottom: 4px;
+    }
+    .fp-title {
+      font-weight: 700;
+      font-size: 17pt;
+      line-height: 1.12;
+      color: var(--eo-deep);
+    }
+    .fp-title::after {
+      content: "";
+      display: block;
+      width: 52px;
+      height: 4px;
+      border-radius: 3px;
+      background: var(--eo-lime);
+      margin-top: 6px;
+    }
+    .fp-lead {
+      font-size: 11pt;
+      font-weight: 600;
+      line-height: 1.36;
+    }
+    .fp-intro {
+      font-size: 9.75pt;
+      line-height: 1.4;
+    }
+    .fp-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .fp-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+    .fp-card {
+      background: var(--eo-white);
+      border: 2px solid var(--eo-cyan);
+      border-radius: 10px;
+      padding: 9px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .fp-card--navy {
+      background: var(--eo-deep);
+      border-color: var(--eo-deep);
+      color: var(--eo-white);
+    }
+    .fp-card__kicker {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--eo-forest);
+    }
+    .fp-card--navy .fp-card__kicker { color: var(--eo-cyan); }
+    .fp-card__title {
+      font-size: 10pt;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .fp-card__text {
+      font-size: 8.75pt;
+      line-height: 1.36;
+    }
+    .fp-funnel {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      align-items: stretch;
+    }
+    .fp-funnel .fp-card { padding: 8px 7px; min-height: 118px; }
+    .fp-funnel .fp-card__title { font-size: 9pt; }
+    .fp-funnel .fp-card__text { font-size: 8pt; }
+    .fp-callout {
+      background: rgba(178, 238, 250, 0.38);
+      border-left: 4px solid var(--eo-lime);
+      padding: 8px 10px;
+      font-size: 9pt;
+      line-height: 1.38;
+    }
+    .fp-section-label {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--eo-forest);
+      margin-top: 1mm;
+    }
+    .fp-bullets {
+      font-size: 9pt;
+      line-height: 1.38;
+      padding-left: 14px;
+    }
+    .fp-bullets li { margin-bottom: 3px; }
+    .fp-track {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .fp-track .fp-card { min-height: 72px; }
+    .fp-uni {
+      background: linear-gradient(135deg, rgba(12, 73, 138, 0.06), rgba(178, 238, 250, 0.35));
+      border: 2px solid var(--eo-cyan);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .fp-uni h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .fp-uni p {
+      font-size: 9pt;
+      line-height: 1.38;
+      margin-bottom: 5px;
+    }
+    .fp-uni ul {
+      font-size: 8.75pt;
+      line-height: 1.36;
+      padding-left: 14px;
+    }
+    .fp-uni li { margin-bottom: 3px; }
+    .fp-contact {
+      text-align: center;
+      padding: 10px;
+      background: var(--eo-deep);
+      color: var(--eo-white);
+      border-radius: 10px;
+      font-size: 11pt;
+      font-weight: 700;
+    }
+    .fp-contact span {
+      display: block;
+      font-size: 8.5pt;
+      font-weight: 400;
+      margin-top: 4px;
+      color: var(--eo-cyan);
+    }
+    .cth-source {
+      font-size: 7.25pt;
+      color: #4a6f96;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+    .fp-draft-footer {
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-align: center;
+      color: var(--eo-forest);
+      letter-spacing: 0.04em;
+      border-top: 1px solid var(--eo-cyan);
+      padding-top: 4px;
+    }
+    #page-1 .fp-cover-band {
+      background: var(--eo-deep);
+      color: var(--eo-white);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 3mm 0;
+    }
+    #page-1 .fp-cover-band h2 {
+      font-size: 22pt;
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+    #page-1 .fp-cover-band p {
+      font-size: 10pt;
+      line-height: 1.4;
+      color: var(--eo-cyan);
+      font-weight: 600;
+    }
+    #page-1 .fp-presence {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-top: 2mm;
+    }
+    #page-1 .fp-presence div {
+      border-radius: 8px;
+      background: rgba(178, 238, 250, 0.35);
+      border: 1px solid var(--eo-cyan);
+      padding: 8px 9px;
+      font-size: 8.75pt;
+    }
+    #page-1 .fp-presence strong {
+      display: block;
+      font-size: 9pt;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <section class="page" id="page-1">
+    <header class="fp-head">
+      <div>
+        <p class="fp-eyebrow">Portafolio · aliados universitarios</p>
+        <h1 class="fp-title">Productos, programas y proyectos CleantechHUB</h1>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" />
+    </header>
+    <div class="page-main">
+      <div class="fp-cover-band">
+        <h2>Inspire · Act · Transform</h2>
+        <p>Emprendimiento climático y ecosistemas de innovación verde en América Latina y Centroamérica.</p>
+      </div>
+      <p class="fp-lead">Fundación CleantechHUB</p>
+      <p class="fp-intro">Fundación CleantechHUB impulsa emprendimiento climático, programas de etapa temprana y servicios de crecimiento a medida. Opera hubs y alianzas en <strong>Colombia</strong>, <strong>Guatemala</strong>, <strong>Costa Rica</strong>, <strong>El Salvador</strong> y <strong>Perú</strong>, conectando universidades, startups, sector privado y cooperación internacional.</p>
+      <p class="cth-source">Fuente: cleantechhub.net · REIN Hubs (red de hubs en Latinoamérica)</p>
+
+      <p class="fp-section-label">Qué hacemos</p>
+      <p class="fp-intro">Desde 2019, CleantechHUB impulsa ecosistemas de emprendimiento climático y cleantech mediante programas para etapas tempranas y acompañamiento de crecimiento. Escuchamos, validamos con datos y construimos comunidades que convierten ideas en soluciones escalables.</p>
+      <p class="cth-source">Fuente: cleantechhub.net · secciones About our Programs y What we do</p>
+
+      <div class="fp-presence">
+        <div><strong>Presencia regional</strong>Colombia (sede operativa), Guatemala, Costa Rica, El Salvador y Perú.</div>
+        <div><strong>Enfoque</strong>Innovación climática, economía circular, transición energética y adaptación.</div>
+        <div><strong>Modelo</strong>Convocatoria a incubación, aceleración y crecimiento, con productos de datos y portafolio digital.</div>
+      </div>
+
+      <p class="fp-callout" style="margin-top: 3mm;">Este documento resume ofertas reutilizables para equipos de vinculación, investigación aplicada y emprendimiento universitario. <strong>No incluye tarifas ni cifras confidenciales.</strong></p>
+    </div>
+    <div class="page-footer-slot">
+      <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
+    </div>
+  </section>
+
+  <!-- Page 2 -->
+  <section class="page" id="page-2">
+    <header class="fp-head">
+      <div>
+        <p class="fp-eyebrow">Embudo de programas</p>
+        <h1 class="fp-title">De la idea al mercado, con formación de formadores</h1>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" />
+    </header>
+    <div class="page-main">
+      <p class="fp-intro">CleantechHUB articula un embudo coherente — publicado en <strong>programs.cleantechhub.net</strong> — que las universidades pueden integrar a convocatorias internas, laboratorios vivos y extensiones.</p>
+      <p class="cth-source">Fuente: programs.cleantechhub.net · embudo Ideación a Train-the-Trainer</p>
+
+      <div class="fp-funnel" style="margin: 3mm 0 4mm;">
+        <div class="fp-card">
+          <p class="fp-card__kicker">1</p>
+          <h3 class="fp-card__title">Ideación</h3>
+          <p class="fp-card__text">Hackatones y datatones anuales donde equipos multidisciplinarios enfrentan retos climáticos con mentoría y metodología abierta.</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">2</p>
+          <h3 class="fp-card__title">Incubación</h3>
+          <p class="fp-card__text">Acompañamiento a startups tempranas: entrenamientos, mentoría y preparación de pitch para pasar de idea a propuesta de valor.</p>
+        </div>
+        <div class="fp-card fp-card--navy">
+          <p class="fp-card__kicker">3</p>
+          <h3 class="fp-card__title">Aceleración</h3>
+          <p class="fp-card__text">Validación de mercado y preparación para inversión: crecimiento sostenible de startups con tracción inicial.</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">4</p>
+          <h3 class="fp-card__title">Crecimiento</h3>
+          <p class="fp-card__text">Soporte a medida para scale-ups: acceso a capital, expertos, mercados y recursos del ecosistema.</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">5</p>
+          <h3 class="fp-card__title">Train-the-Trainer</h3>
+          <p class="fp-card__text">Capacitación de mentores y docentes para replicar metodología CleantechHUB en campus y extensión universitaria.</p>
+        </div>
+      </div>
+
+      <p class="cth-source">Fuente: cleantechhub.net · IDEAS, START-UPS, SCALE-UPS y TAILOR-MADE (mapeo a etapas del embudo)</p>
+
+      <p class="fp-section-label">Cómo encaja en campus</p>
+      <ul class="fp-bullets">
+        <li><strong>Ideación / IDEAS:</strong> convocatoria internacional de hackatón para entusiastas de la sostenibilidad que abordan retos climáticos.</li>
+        <li><strong>Incubación / START-UPS:</strong> programa de apoyo que ayuda a startups climáticas tempranas a convertir ideas en pitches de negocio.</li>
+        <li><strong>Aceleración / SCALE-UPS:</strong> diseñado para validación de mercado y preparación frente a inversionistas.</li>
+        <li><strong>Crecimiento / TAILOR-MADE:</strong> acompañamiento personalizado para scale-ups prometedoras.</li>
+      </ul>
+      <p class="cth-source">Fuente: cleantechhub.net · About our Programs</p>
+
+      <div class="fp-grid-2" style="margin-top: auto;">
+        <div class="fp-card">
+          <p class="fp-card__kicker">Metodología</p>
+          <h3 class="fp-card__title">Escuchar · validar · colaborar</h3>
+          <p class="fp-card__text">Las mejores soluciones nacen de observar el contexto; los datos confirman la visión; la comunidad sostiene el impacto.</p>
+          <p class="cth-source">Fuente: cleantechhub.net · homepage</p>
+        </div>
+        <div class="fp-card fp-card--navy">
+          <p class="fp-card__kicker">REIN Hubs</p>
+          <h3 class="fp-card__title">Cuatro etapas en red</h3>
+          <p class="fp-card__text">Activación, incubación, aceleración y crecimiento en hubs físicos donde emprendedores, investigadores e industria convergen.</p>
+          <p class="cth-source" style="color: var(--eo-cyan);">Fuente: REIN Hubs · programa en repos públicos CleantechHUB</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-footer-slot">
+      <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
+    </div>
+  </section>
+
+  <!-- Page 3 -->
+  <section class="page" id="page-3">
+    <header class="fp-head">
+      <div>
+        <p class="fp-eyebrow">Productos</p>
+        <h1 class="fp-title">Datalab, Nexus y ClimateLaunchpad</h1>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" />
+    </header>
+    <div class="page-main">
+      <div class="fp-grid-3">
+        <div class="fp-card fp-card--navy">
+          <p class="fp-card__kicker">Producto</p>
+          <h3 class="fp-card__title">Datalab</h3>
+          <p class="fp-card__text">Motor de datos y experimentación dentro de un <strong>sandbox</strong>: conecta reto corporativo, startup innovadora y universidad anfitriona con gobernanza clara. CleantechHUB opera el motor sin centralizar todos los datos.</p>
+          <p class="cth-source" style="color: var(--eo-cyan);">Fuente: CleantechHUB · metodología Datalab y Observatorio de la Tierra, 2026</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">Producto</p>
+          <h3 class="fp-card__title">Nexus</h3>
+          <p class="fp-card__text">Plataforma de portafolio de startups climáticas: fichas bilingües (EN/ES) con taxonomía, impacto y enlaces para inversionistas y aliados.</p>
+          <p class="cth-source">Fuente: nexus.cleantechhub.net · Startup Portfolio</p>
+        </div>
+        <div class="fp-card">
+          <p class="fp-card__kicker">Programa global</p>
+          <h3 class="fp-card__title">ClimateLaunchpad</h3>
+          <p class="fp-card__text">CleantechHUB es organizador nacional en Colombia, Perú, El Salvador, Guatemala y Costa Rica. Ruta hacia finales regionales y globales de la competencia de ideas verdes más grande del mundo.</p>
+          <p class="cth-source">Fuente: CleantechHUB · ClimateLaunchpad (organizador nacional LATAM)</p>
+        </div>
+      </div>
+
+      <p class="fp-section-label">Trayectoria pública (selección)</p>
+      <div class="fp-track">
+        <div class="fp-card">
+          <h3 class="fp-card__title">Portafolio Nexus</h3>
+          <p class="fp-card__text">Más de 150 startups cleantech en ocho programas, con filtros por tema, etapa y programa.</p>
+          <p class="cth-source">Fuente: nexus.cleantechhub.net/p/startup-portfolio</p>
+        </div>
+        <div class="fp-card">
+          <h3 class="fp-card__title">Impacto acumulado</h3>
+          <p class="fp-card__text">Más de seis años impulsando emprendimiento climático en la región (desde 2019).</p>
+          <p class="cth-source">Fuente: cleantechhub.net · Our Impact</p>
+        </div>
+        <div class="fp-card">
+          <h3 class="fp-card__title">Colaboración académica</h3>
+          <p class="fp-card__text">Universidad Externado de Colombia y CleantechHUB: Observatorio de la Tierra, datatón y Datalab como motor de datos (nov. 2026).</p>
+          <p class="cth-source">Fuente: CleantechHUB · Observatorio de la Tierra / Datatón 2026</p>
+        </div>
+        <div class="fp-card">
+          <h3 class="fp-card__title">Historias de escalamiento</h3>
+          <p class="fp-card__text">Casos públicos en transición energética, economía circular y construcción sostenible (p. ej. SUNCO, ZHANA, XICLO, GLASST en el sitio corporativo).</p>
+          <p class="cth-source">Fuente: cleantechhub.net · SUCCESS STORIES</p>
+        </div>
+      </div>
+
+      <div class="fp-callout" style="margin-top: 2mm;">
+        <strong>Nota:</strong> Cifras de capital apalancado u otros indicadores financieros del sitio corporativo no se reproducen aquí; consulte fuentes públicas actualizadas antes de uso en licitaciones.
+      </div>
+    </div>
+    <div class="page-footer-slot">
+      <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
+    </div>
+  </section>
+
+  <!-- Page 4 -->
+  <section class="page" id="page-4">
+    <header class="fp-head">
+      <div>
+        <p class="fp-eyebrow">Universidades</p>
+        <h1 class="fp-title">Cómo trabajamos con instituciones de educación superior</h1>
+      </div>
+      <img class="fp-head__logo" src="assets/cleantechhub-logo.png" alt="CleantechHUB" />
+    </header>
+    <div class="page-main">
+      <div class="fp-uni">
+        <h3>Modelo genérico de colaboración</h3>
+        <p>CleantechHUB diseña experiencias que la universidad puede alojar en campus sin duplicar infraestructura propia:</p>
+        <ul>
+          <li><strong>Programas en campus:</strong> convocatorias del embudo (ideación a crecimiento) co-diseñadas con facultades, centros de emprendimiento y extensión.</li>
+          <li><strong>Retos Datalab:</strong> sandboxes que traen retos corporativos a laboratorios universitarios, con startups y gobernanza de datos compartida.</li>
+          <li><strong>Propuestas conjuntas:</strong> cofradas hacia fondos internacionales de innovación climática y cooperación, ancladas en evidencia y portafolio Nexus.</li>
+        </ul>
+        <p class="cth-source">Fuente: CleantechHUB · marco REIN, Datalab y colaboración público-privada (material público 2026)</p>
+      </div>
+
+      <div class="fp-grid-2" style="margin-top: 3mm;">
+        <div class="fp-card">
+          <p class="fp-card__kicker">Rol universidad</p>
+          <h3 class="fp-card__title">Casa académica</h3>
+          <p class="fp-card__text">Formula la pregunta de investigación, aporta estudiantes, sostiene la ética de uso de datos y revisa si la evidencia sostiene conclusiones.</p>
+          <p class="cth-source">Fuente: Observatorio de la Tierra · partner-cards</p>
+        </div>
+        <div class="fp-card fp-card--navy">
+          <p class="fp-card__kicker">Rol CleantechHUB</p>
+          <h3 class="fp-card__title">Custodia del motor</h3>
+          <p class="fp-card__text">Coordina el ecosistema, opera Datalab y conecta startups, sector privado y cooperación — intermediario de confianza, no dueño de un data warehouse.</p>
+          <p class="cth-source" style="color: var(--eo-cyan);">Fuente: Observatorio de la Tierra · deck 2026</p>
+        </div>
+      </div>
+
+      <p class="fp-section-label" style="margin-top: 3mm;">Próximo paso</p>
+      <p class="fp-intro">Para explorar un piloto en su campus — datatón, cohorte REIN, sandbox Datalab o ruta ClimateLaunchpad — contacte al equipo central. Este borrador no sustituye acuerdos formales ni propuestas comerciales.</p>
+
+      <div class="fp-contact" style="margin-top: auto;">
+        www.cleantechhub.net
+        <span>Fundación CleantechHUB · Inspire, Act, Transform</span>
+      </div>
+      <p class="cth-source" style="text-align: center; margin-top: 4px;">Fuente: cleantechhub.net · contacto institucional (sin datos personales en este documento)</p>
+    </div>
+    <div class="page-footer-slot">
+      <p class="fp-draft-footer">Borrador · pendiente de aprobación</p>
+    </div>
+  </section>
+
+</body>
+</html>
