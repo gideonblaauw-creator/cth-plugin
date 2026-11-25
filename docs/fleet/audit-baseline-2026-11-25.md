@@ -1,13 +1,13 @@
 # Weekly token audit report
 
 - **Source CSV:** staged slice `usage-events.csv` (Nov 19–25 UTC, 16k events; not committed to repo)
-- **Events:** 16,000
+- **Events parsed:** 16,000 (skipped 0 of 16,000 rows)
 - **Window (UTC):** 2026-11-19 20:54:40.337000+00:00 → 2026-11-25 12:48:11.595000+00:00
 - **Duration:** 5.66 days
 
 ## Baseline statement
 
-Reproduces the **staged Nov 19–25 UTC slice** (`usage-events.csv`, 16,000 events, ~1.54B tokens). This is **not** the full Nov 1–25 corpus behind plan §0 (6.13B tokens, 65.7% / 76.9% Grok shares).
+Reproduces the **staged Nov 19–25 UTC slice** (`usage-events.csv`, 16k events, ~1.54B tokens). This is **not** the full Nov 1–25 corpus behind plan §0 (6.13B tokens, 65.7% / 76.9% Grok shares).
 
 ## Product share (whole window)
 
@@ -76,7 +76,17 @@ Hour (America/Bogota) | bar (token share)
 
 ## Rapid-fire intervals
 
-- Event pairs: 15,999
+Plan §0 KPI uses **grok-bot-only** consecutive call pairs. The all-product metric is included for context but is not the governance threshold.
+
+### Grok-bot only (plan §0 KPI — baseline ~82.1% under 15s)
+
+- Consecutive pairs: 8,983
+- Gap &lt;15s: 7,378 (82.13%)
+- Gap &lt;5m: 8,819 (98.17%)
+
+### All products in CSV time order (informational)
+
+- Consecutive pairs: 15,999
 - Gap &lt;15s: 14,150 (88.44%)
 - Gap &lt;5m: 15,849 (99.06%)
 
@@ -102,8 +112,10 @@ Hour (America/Bogota) | bar (token share)
 | grok_share_of_spend | 56.15% | 33.0% | fail |
 | cursor_share_of_spend | 43.85% | 67.0% | fail |
 | cached_prompt_share_of_total_tokens | 91.39% | 92.6% | info |
-| rapid_fire_under_15s_share | 88.44% | 20.0% | fail |
-| rapid_fire_under_5m_share | 99.06% | — | info |
+| rapid_fire_grok_only_under_15s_share | 82.13% | 20.0% | fail |
+| rapid_fire_grok_only_under_5m_share | 98.17% | — | info |
+| rapid_fire_all_products_under_15s_share | 88.44% | — | info |
+| rapid_fire_all_products_under_5m_share | 99.06% | — | info |
 | grok_cua_share_of_total | 1.32% | 2.0% | pass |
 | grok_turns_over_80k | 5388 | 80000events | fail |
 

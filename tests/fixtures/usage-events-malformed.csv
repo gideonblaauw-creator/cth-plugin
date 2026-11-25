@@ -1,0 +1,6 @@
+Billing Item ID,Event Time,Product,Charge Category,Usage Type,Principal Type,Principal ID,Usage,Pricing Currency,Pricing Contracted,Model,User Email
+good1,2026-11-20T10:00:00.000Z,grok-bot,usage,included,user,u1,"{""cache-write-text-tokens"":""0"",""cached-prompt-text-tokens"":""100"",""completion-text-tokens"":""50"",""prompt-text-tokens"":""50""}",USD,0,grok-bot-default,user@example.com
+bad-json,2026-11-20T10:00:05.000Z,grok-bot,usage,included,user,u1,NOT_JSON,USD,0,grok-bot-default,user@example.com
+bad-time,not-a-date,grok-bot,usage,included,user,u1,"{""cache-write-text-tokens"":""0"",""cached-prompt-text-tokens"":""0"",""completion-text-tokens"":""10"",""prompt-text-tokens"":""10""}",USD,0,grok-bot-default,user@example.com
+,2026-11-20T10:00:20.000Z,,usage,included,user,u1,"{""cache-write-text-tokens"":""0"",""cached-prompt-text-tokens"":""0"",""completion-text-tokens"":""10"",""prompt-text-tokens"":""10""}",USD,0,grok-bot-default,user@example.com
+good2,2026-11-20T10:00:12.000Z,grok-bot,usage,included,user,u1,"{""cache-write-text-tokens"":""0"",""cached-prompt-text-tokens"":""50"",""completion-text-tokens"":""50"",""prompt-text-tokens"":""50""}",USD,0,grok-bot-default,user@example.com

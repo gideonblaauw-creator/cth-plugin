@@ -5,17 +5,19 @@ from __future__ import annotations
 
 import argparse
 import csv
+import heapq
 import json
 import os
 import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
 BOGOTA = ZoneInfo("America/Bogota")
+TOP_N_EVENTS = 15
 
 TOKEN_KEYS = (
     "prompt-text-tokens",
@@ -23,6 +25,8 @@ TOKEN_KEYS = (
     "cache-write-text-tokens",
     "completion-text-tokens",
 )
+
+REQUIRED_COLUMNS = ("Event Time", "Usage", "Product")
 
 # North Star KPIs from build-plan §0 (target + hard enforcement where defined).
 KPI = {
@@ -35,6 +39,32 @@ KPI = {
     "cua_share_max_pct": 2.0,
     "cached_prompt_baseline_pct": 92.6,
 }
+
+
+@dataclass
+class ParseStats:
+    rows_read: int = 0
+    rows_parsed: int = 0
+    skipped_missing_columns: int = 0
+    skipped_bad_json: int = 0
+    skipped_bad_timestamp: int = 0
+
+    @property
+    def rows_skipped(self) -> int:
+        return (
+            self.skipped_missing_columns
+            + self.skipped_bad_json
+            + self.skipped_bad_timestamp
+        )
+
+    def stderr_summary(self) -> str:
+        return (
+            f"parse: read {self.rows_read} rows, parsed {self.rows_parsed}, "
+            f"skipped {self.rows_skipped} "
+            f"(missing columns {self.skipped_missing_columns}, "
+            f"bad JSON {self.skipped_bad_json}, "
+            f"bad timestamp {self.skipped_bad_timestamp})"
+        )
 
 
 def parse_usage(usage_raw: str) -> dict[str, int]:
@@ -68,23 +98,28 @@ def parse_event_time(raw: str) -> datetime:
 
 
 @dataclass
-class ParsedEvent:
-    event_time_utc: datetime
-    product: str
-    model: str
-    usage: dict[str, int]
-    total_tokens: int
-    billing_item_id: str = ""
-    user_email: str = ""
+class GapStats:
+    pairs: int = 0
+    under_15s: int = 0
+    under_5m: int = 0
 
-    @property
-    def bogota(self) -> datetime:
-        return self.event_time_utc.astimezone(BOGOTA)
+
+def gap_stats_from_timestamps(timestamps: list[datetime]) -> GapStats:
+    stats = GapStats()
+    for i in range(1, len(timestamps)):
+        gap = (timestamps[i] - timestamps[i - 1]).total_seconds()
+        stats.pairs += 1
+        if gap < 15:
+            stats.under_15s += 1
+        if gap < 300:
+            stats.under_5m += 1
+    return stats
 
 
 @dataclass
 class AuditResult:
-    events: list[ParsedEvent] = field(default_factory=list)
+    parse_stats: ParseStats = field(default_factory=ParseStats)
+    event_count: int = 0
     window_start_utc: datetime | None = None
     window_end_utc: datetime | None = None
     total_tokens: int = 0
@@ -97,98 +132,156 @@ class AuditResult:
     prompt_plus_cached_tokens: int = 0
     hour_heatmap_tokens: list[int] = field(default_factory=lambda: [0] * 24)
     hour_heatmap_events: list[int] = field(default_factory=lambda: [0] * 24)
-    gaps_under_15s: int = 0
-    gaps_under_5m: int = 0
-    gap_pairs: int = 0
+    rapid_fire_all_products: GapStats = field(default_factory=GapStats)
+    rapid_fire_grok_only: GapStats = field(default_factory=GapStats)
     grok_turns_over_80k: int = 0
     max_single_turn_tokens: int = 0
     top_events: list[dict[str, Any]] = field(default_factory=list)
     kpi_checks: list[dict[str, Any]] = field(default_factory=list)
 
 
-def load_csv(path: Path) -> list[ParsedEvent]:
-    events: list[ParsedEvent] = []
+def try_parse_row(row: dict[str, str] | None) -> tuple[dict[str, Any] | None, str | None]:
+    if row is None:
+        return None, "missing_columns"
+    for col in REQUIRED_COLUMNS:
+        if col not in row or row[col] is None or str(row[col]).strip() == "":
+            return None, "missing_columns"
+    try:
+        usage = parse_usage(row["Usage"])
+    except (json.JSONDecodeError, TypeError, ValueError):
+        return None, "bad_json"
+    try:
+        ts = parse_event_time(row["Event Time"].strip())
+    except (ValueError, TypeError):
+        return None, "bad_timestamp"
+    product = row.get("Product", "").strip() or "unknown"
+    model = row.get("Model", "").strip() or "unknown"
+    total = event_total_tokens(usage)
+    return (
+        {
+            "event_time_utc": ts,
+            "product": product,
+            "model": model,
+            "usage": usage,
+            "total_tokens": total,
+            "billing_item_id": row.get("Billing Item ID", ""),
+            "user_email": row.get("User Email", ""),
+        },
+        None,
+    )
+
+
+def stream_csv(path: Path) -> tuple[AuditResult, list[datetime], list[datetime]]:
+    """Stream CSV: aggregates in memory; timelines are sorted UTC timestamps only."""
+    stats = ParseStats()
+    result = AuditResult(parse_stats=stats)
+    timeline_all: list[datetime] = []
+    timeline_grok: list[datetime] = []
+    # Min-heap of (total_tokens, seq, event_dict) — seq breaks ties deterministically.
+    top_heap: list[tuple[int, int, dict[str, Any]]] = []
+    seq = 0
+
     with path.open(newline="", encoding="utf-8") as fh:
         reader = csv.DictReader(fh)
-        for row in reader:
-            usage = parse_usage(row["Usage"])
-            total = event_total_tokens(usage)
-            ts = parse_event_time(row["Event Time"])
-            events.append(
-                ParsedEvent(
-                    event_time_utc=ts,
-                    product=row.get("Product", "").strip() or "unknown",
-                    model=row.get("Model", "").strip() or "unknown",
-                    usage=usage,
-                    total_tokens=total,
-                    billing_item_id=row.get("Billing Item ID", ""),
-                    user_email=row.get("User Email", ""),
+        if reader.fieldnames:
+            missing_headers = [c for c in REQUIRED_COLUMNS if c not in reader.fieldnames]
+            if missing_headers:
+                print(
+                    f"warning: CSV missing header columns: {', '.join(missing_headers)}",
+                    file=sys.stderr,
                 )
+        for row in reader:
+            stats.rows_read += 1
+            parsed, skip = try_parse_row(row)
+            if skip:
+                if skip == "missing_columns":
+                    stats.skipped_missing_columns += 1
+                elif skip == "bad_json":
+                    stats.skipped_bad_json += 1
+                elif skip == "bad_timestamp":
+                    stats.skipped_bad_timestamp += 1
+                continue
+            assert parsed is not None
+            stats.rows_parsed += 1
+            seq += 1
+            ev = parsed
+            ts: datetime = ev["event_time_utc"]
+            timeline_all.append(ts)
+            if ev["product"] == "grok-bot":
+                timeline_grok.append(ts)
+
+            result.event_count += 1
+            tok = ev["total_tokens"]
+            result.total_tokens += tok
+            product = ev["product"]
+            result.product_tokens[product] += tok
+            day_key = ts.date().isoformat()
+            result.daily_product_tokens[day_key][product] += tok
+
+            usage = ev["usage"]
+            result.cached_prompt_tokens += usage["cached-prompt-text-tokens"]
+            result.prompt_plus_cached_tokens += (
+                usage["prompt-text-tokens"] + usage["cached-prompt-text-tokens"]
             )
-    events.sort(key=lambda e: e.event_time_utc)
-    return events
 
+            if product == "grok-bot":
+                bucket = grok_model_bucket(ev["model"])
+                result.grok_model_tokens[bucket] += tok
+                if tok > KPI["max_context_per_turn_tokens"]:
+                    result.grok_turns_over_80k += 1
+            result.max_single_turn_tokens = max(result.max_single_turn_tokens, tok)
 
-def compute_audit(events: list[ParsedEvent]) -> AuditResult:
-    result = AuditResult(events=events)
-    if not events:
-        return result
+            hour = ts.astimezone(BOGOTA).hour
+            result.hour_heatmap_tokens[hour] += tok
+            result.hour_heatmap_events[hour] += 1
 
-    result.window_start_utc = events[0].event_time_utc
-    result.window_end_utc = events[-1].event_time_utc
+            if result.window_start_utc is None or ts < result.window_start_utc:
+                result.window_start_utc = ts
+            if result.window_end_utc is None or ts > result.window_end_utc:
+                result.window_end_utc = ts
 
-    for ev in events:
-        result.total_tokens += ev.total_tokens
-        result.product_tokens[ev.product] += ev.total_tokens
-        day_key = ev.event_time_utc.date().isoformat()
-        result.daily_product_tokens[day_key][ev.product] += ev.total_tokens
+            heapq.heappush(top_heap, (tok, seq, ev))
+            if len(top_heap) > TOP_N_EVENTS:
+                heapq.heappop(top_heap)
 
-        cached = ev.usage["cached-prompt-text-tokens"]
-        prompt = ev.usage["prompt-text-tokens"]
-        result.cached_prompt_tokens += cached
-        result.prompt_plus_cached_tokens += prompt + cached
+    timeline_all.sort()
+    timeline_grok.sort()
+    result.rapid_fire_all_products = gap_stats_from_timestamps(timeline_all)
+    result.rapid_fire_grok_only = gap_stats_from_timestamps(timeline_grok)
 
-        if ev.product == "grok-bot":
-            bucket = grok_model_bucket(ev.model)
-            result.grok_model_tokens[bucket] += ev.total_tokens
-            if ev.total_tokens > KPI["max_context_per_turn_tokens"]:
-                result.grok_turns_over_80k += 1
-            result.max_single_turn_tokens = max(result.max_single_turn_tokens, ev.total_tokens)
-
-        hour = ev.bogota.hour
-        result.hour_heatmap_tokens[hour] += ev.total_tokens
-        result.hour_heatmap_events[hour] += 1
-
-    for i in range(1, len(events)):
-        gap = (events[i].event_time_utc - events[i - 1].event_time_utc).total_seconds()
-        result.gap_pairs += 1
-        if gap < 15:
-            result.gaps_under_15s += 1
-        if gap < 300:
-            result.gaps_under_5m += 1
-
-    ranked = sorted(events, key=lambda e: e.total_tokens, reverse=True)[:15]
-    for ev in ranked:
+    ranked = sorted(top_heap, key=lambda x: (-x[0], x[1]))
+    for tok, _, ev in ranked:
         result.top_events.append(
             {
-                "event_time_utc": ev.event_time_utc.isoformat(),
-                "product": ev.product,
-                "model": ev.model,
-                "total_tokens": ev.total_tokens,
-                "cached_prompt_tokens": ev.usage["cached-prompt-text-tokens"],
-                "prompt_tokens": ev.usage["prompt-text-tokens"],
-                "billing_item_id": ev.billing_item_id,
+                "event_time_utc": ev["event_time_utc"].isoformat(),
+                "product": ev["product"],
+                "model": ev["model"],
+                "total_tokens": tok,
+                "cached_prompt_tokens": ev["usage"]["cached-prompt-text-tokens"],
+                "prompt_tokens": ev["usage"]["prompt-text-tokens"],
+                "billing_item_id": ev["billing_item_id"],
             }
         )
 
     result.kpi_checks = evaluate_kpis(result)
-    return result
+    return result, timeline_all, timeline_grok
 
 
 def pct(part: float, whole: float) -> float:
     if whole <= 0:
         return 0.0
     return 100.0 * part / whole
+
+
+def gap_section_json(label: str, stats: GapStats) -> dict[str, Any]:
+    return {
+        "label": label,
+        "pairs": stats.pairs,
+        "under_15s": stats.under_15s,
+        "under_15s_share_pct": round(pct(stats.under_15s, stats.pairs), 4),
+        "under_5m": stats.under_5m,
+        "under_5m_share_pct": round(pct(stats.under_5m, stats.pairs), 4),
+    }
 
 
 def evaluate_kpis(result: AuditResult) -> list[dict[str, Any]]:
@@ -253,25 +346,51 @@ def evaluate_kpis(result: AuditResult) -> list[dict[str, Any]]:
         }
     )
 
-    if result.gap_pairs:
-        rf15 = pct(result.gaps_under_15s, result.gap_pairs)
+    grok_rf = result.rapid_fire_grok_only
+    if grok_rf.pairs:
+        rf15_grok = pct(grok_rf.under_15s, grok_rf.pairs)
         add(
-            "rapid_fire_under_15s_share",
-            rf15,
+            "rapid_fire_grok_only_under_15s_share",
+            rf15_grok,
             KPI["rapid_fire_under_15s_max_pct"],
             "lte",
-            note="Share of consecutive event pairs with gap <15s",
+            note="Plan §0: consecutive grok-bot call pairs with gap <15s (baseline ~82.1%)",
         )
-        rf5m = pct(result.gaps_under_5m, result.gap_pairs)
+        rf5m_grok = pct(grok_rf.under_5m, grok_rf.pairs)
         checks.append(
             {
-                "kpi": "rapid_fire_under_5m_share",
-                "observed": round(rf5m, 4),
+                "kpi": "rapid_fire_grok_only_under_5m_share",
+                "observed": round(rf5m_grok, 4),
                 "threshold": None,
                 "comparator": "info",
                 "unit": "%",
                 "status": "info",
-                "note": "Informational: gap <5 minutes",
+                "note": "Consecutive grok-bot pairs with gap <5 minutes",
+            }
+        )
+
+    all_rf = result.rapid_fire_all_products
+    if all_rf.pairs:
+        checks.append(
+            {
+                "kpi": "rapid_fire_all_products_under_15s_share",
+                "observed": round(pct(all_rf.under_15s, all_rf.pairs), 4),
+                "threshold": None,
+                "comparator": "info",
+                "unit": "%",
+                "status": "info",
+                "note": "All products in export order (informational, not plan §0 KPI)",
+            }
+        )
+        checks.append(
+            {
+                "kpi": "rapid_fire_all_products_under_5m_share",
+                "observed": round(pct(all_rf.under_5m, all_rf.pairs), 4),
+                "threshold": None,
+                "comparator": "info",
+                "unit": "%",
+                "status": "info",
+                "note": "All products; gap <5 minutes (informational)",
             }
         )
 
@@ -327,6 +446,19 @@ def render_heatmap_ascii(tokens: list[int]) -> str:
     return "\n".join(lines)
 
 
+def render_rapid_fire_md(title: str, stats: GapStats) -> list[str]:
+    if stats.pairs == 0:
+        return [f"### {title}", "", "_No consecutive pairs in window._", ""]
+    return [
+        f"### {title}",
+        "",
+        f"- Consecutive pairs: {stats.pairs:,}",
+        f"- Gap &lt;15s: {stats.under_15s:,} ({pct(stats.under_15s, stats.pairs):.2f}%)",
+        f"- Gap &lt;5m: {stats.under_5m:,} ({pct(stats.under_5m, stats.pairs):.2f}%)",
+        "",
+    ]
+
+
 def window_days(result: AuditResult) -> float:
     if not result.window_start_utc or not result.window_end_utc:
         return 0.0
@@ -341,11 +473,19 @@ def to_json_report(result: AuditResult, source_csv: str) -> dict[str, Any]:
     grok_total = grok or 1
     return {
         "source_csv": source_csv,
+        "parse_stats": {
+            "rows_read": result.parse_stats.rows_read,
+            "rows_parsed": result.parse_stats.rows_parsed,
+            "rows_skipped": result.parse_stats.rows_skipped,
+            "skipped_missing_columns": result.parse_stats.skipped_missing_columns,
+            "skipped_bad_json": result.parse_stats.skipped_bad_json,
+            "skipped_bad_timestamp": result.parse_stats.skipped_bad_timestamp,
+        },
         "window": {
             "start_utc": result.window_start_utc.isoformat() if result.window_start_utc else None,
             "end_utc": result.window_end_utc.isoformat() if result.window_end_utc else None,
             "duration_days": round(window_days(result), 4),
-            "event_count": len(result.events),
+            "event_count": result.event_count,
         },
         "totals": {
             "all_tokens": total,
@@ -371,11 +511,12 @@ def to_json_report(result: AuditResult, source_csv: str) -> dict[str, Any]:
             "events_by_hour": result.hour_heatmap_events,
         },
         "rapid_fire": {
-            "pairs": result.gap_pairs,
-            "under_15s": result.gaps_under_15s,
-            "under_15s_share_pct": round(pct(result.gaps_under_15s, result.gap_pairs), 4),
-            "under_5m": result.gaps_under_5m,
-            "under_5m_share_pct": round(pct(result.gaps_under_5m, result.gap_pairs), 4),
+            "grok_only_plan_kpi": gap_section_json(
+                "Consecutive grok-bot calls (plan §0 KPI)", result.rapid_fire_grok_only
+            ),
+            "all_products_informational": gap_section_json(
+                "All products in CSV time order (informational)", result.rapid_fire_all_products
+            ),
         },
         "max_single_turn_tokens": result.max_single_turn_tokens,
         "grok_turns_over_80k": result.grok_turns_over_80k,
@@ -392,11 +533,13 @@ def render_markdown(result: AuditResult, source_csv: str, baseline_note: str) ->
     total = result.total_tokens
     grok = result.product_tokens.get("grok-bot", 0)
     cursor = result.product_tokens.get("cursor", 0)
+    ps = result.parse_stats
     lines: list[str] = [
         "# Weekly token audit report",
         "",
         f"- **Source CSV:** `{source_csv}`",
-        f"- **Events:** {len(result.events):,}",
+        f"- **Events parsed:** {result.event_count:,} "
+        f"(skipped {ps.rows_skipped:,} of {ps.rows_read:,} rows)",
         f"- **Window (UTC):** {result.window_start_utc} → {result.window_end_utc}",
         f"- **Duration:** {window_days(result):.2f} days",
         "",
@@ -406,8 +549,8 @@ def render_markdown(result: AuditResult, source_csv: str, baseline_note: str) ->
         "",
         "## Product share (whole window)",
         "",
-        f"| Product | Tokens | Share |",
-        f"| :--- | ---: | ---: |",
+        "| Product | Tokens | Share |",
+        "| :--- | ---: | ---: |",
         f"| grok-bot | {grok:,} | {pct(grok, total):.2f}% |",
         f"| cursor | {cursor:,} | {pct(cursor, total):.2f}% |",
         f"| **Total** | **{total:,}** | 100% |",
@@ -452,10 +595,26 @@ def render_markdown(result: AuditResult, source_csv: str, baseline_note: str) ->
             "",
             "## Rapid-fire intervals",
             "",
-            f"- Event pairs: {result.gap_pairs:,}",
-            f"- Gap &lt;15s: {result.gaps_under_15s:,} ({pct(result.gaps_under_15s, result.gap_pairs):.2f}%)",
-            f"- Gap &lt;5m: {result.gaps_under_5m:,} ({pct(result.gaps_under_5m, result.gap_pairs):.2f}%)",
+            "Plan §0 KPI uses **grok-bot-only** consecutive call pairs. The all-product "
+            "metric is included for context but is not the governance threshold.",
             "",
+        ]
+    )
+    lines.extend(
+        render_rapid_fire_md(
+            "Grok-bot only (plan §0 KPI — baseline ~82.1% under 15s)",
+            result.rapid_fire_grok_only,
+        )
+    )
+    lines.extend(
+        render_rapid_fire_md(
+            "All products in CSV time order (informational)",
+            result.rapid_fire_all_products,
+        )
+    )
+
+    lines.extend(
+        [
             "## Top events by tokens",
             "",
             "| UTC time | Product | Model | Total tokens |",
@@ -467,7 +626,15 @@ def render_markdown(result: AuditResult, source_csv: str, baseline_note: str) ->
             f"| {ev['event_time_utc']} | {ev['product']} | {ev['model']} | {ev['total_tokens']:,} |"
         )
 
-    lines.extend(["", "## KPI comparison (plan §0)", "", "| KPI | Observed | Threshold | Status |", "| :--- | ---: | ---: | :--- |"])
+    lines.extend(
+        [
+            "",
+            "## KPI comparison (plan §0)",
+            "",
+            "| KPI | Observed | Threshold | Status |",
+            "| :--- | ---: | ---: | :--- |",
+        ]
+    )
     for chk in result.kpi_checks:
         thr = chk.get("threshold")
         thr_s = "—" if thr is None else f"{thr}{chk.get('unit', '')}"
@@ -506,7 +673,8 @@ def run_enforcement(result: AuditResult, enforce: bool) -> list[str]:
 
     total = result.total_tokens
     grok_share = pct(result.product_tokens.get("grok-bot", 0), total)
-    rf15 = pct(result.gaps_under_15s, result.gap_pairs) if result.gap_pairs else 0.0
+    grok_rf = result.rapid_fire_grok_only
+    rf15 = pct(grok_rf.under_15s, grok_rf.pairs) if grok_rf.pairs else 0.0
 
     if grok_share > KPI["grok_share_target_max_pct"]:
         logs.append(
@@ -517,7 +685,7 @@ def run_enforcement(result: AuditResult, enforce: bool) -> list[str]:
 
     if rf15 > KPI["rapid_fire_under_15s_max_pct"]:
         logs.append(
-            f"[WOULD] Flag rapid-fire desks (under-15s share {rf15:.2f}% > "
+            f"[WOULD] Flag rapid-fire desks (grok-only under-15s share {rf15:.2f}% > "
             f"{KPI['rapid_fire_under_15s_max_pct']}%)"
         )
 
@@ -562,8 +730,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: CSV not found: {args.csv}", file=sys.stderr)
         return 1
 
-    events = load_csv(args.csv)
-    result = compute_audit(events)
+    result, _tl, _gl = stream_csv(args.csv)
+    print(result.parse_stats.stderr_summary(), file=sys.stderr)
     source = str(args.csv)
 
     baseline = args.baseline_note or (
@@ -586,7 +754,10 @@ def main(argv: list[str] | None = None) -> int:
         print(line)
 
     if args.markdown or args.json:
-        print(f"audited {len(events)} events, {result.total_tokens:,} tokens", file=sys.stderr)
+        print(
+            f"audited {result.event_count} events, {result.total_tokens:,} tokens",
+            file=sys.stderr,
+        )
     return 0
 
 
