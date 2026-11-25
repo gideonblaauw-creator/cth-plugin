@@ -2,7 +2,7 @@
 
 **Status:** DRAFT · design-only  
 **Version:** v2 · 25 Nov 2026  
-**Decision:** Gideon Blaauw · 25 Nov 2026 17:45 COT (lean); **17:47 COT** (traceability)  
+**Decision:** Gideon Blaauw · 25 Nov 2026 17:45 COT (lean); **17:47 COT** (traceability); **18:29 COT** (HITL channel)  
 **Site:** [cleantechhub.atlassian.net](https://cleantechhub.atlassian.net)  
 **Social Impact license · ≤25 seats · zero new bot users**
 
@@ -31,7 +31,7 @@
 | RACI | Role | Jira representation |
 | :--- | :--- | :--- |
 | **R — Responsible** | Fleet agent (desk/workbench/capability) | Required custom field **`Responsible agent`** — text or single-select validated against `FLEET_REGISTRY.yaml` (`bot_id`, 8-char id) |
-| **A — Accountable** | Gideon Blaauw (HITL) | Required **`Accountable / Approver`** — always `Gideon Blaauw` (not the automation user) |
+| **A — Accountable** | Gideon Blaauw (HITL) | Required **`Accountable / Approver`** — always `Gideon Blaauw`; **`HITL approver`** set only from **`#cth-ops-approvals`** button writeback (not the automation user) |
 | **C — Consulted** | Owning Desk when different from agent | Optional `parent_id` / component on issue |
 | **I — Informed** | Orchestrator | Label or link to CTHORCH epic when cross-desk |
 
@@ -43,9 +43,21 @@
 | `pr_url` | GitHub PR opened or merged (HITL before merge) |
 | `receipt_status` | `open` / `verified` / `blocked` |
 
-**Workflow gate:** no transition to **Done**, **Released**, or **send/post/merge/deploy** terminal statuses unless **`HITL approval`** is recorded — **`who`** (Gideon), **`when`** (timestamp), **`channel`** (widget id). n8n writes fields; Gideon remains accountable.
+**HITL channel (18:29 COT):** CleantechHUB Slack **`#cth-ops-approvals`** — canonical approval surface (WF4 durable-harness pilot, **22 Nov 2026**). **CTH OPS Bot** (existing workspace app) posts GO/approve **button cards**; proven in pilot — no new Slack apps in v2.
 
-**Automation users (`cth-automation@`, `cth-ops-receipt@`):** technical **creator/updater** only; validator rejects them as `Responsible agent` values.
+Every **`{Gideon yes}`** gate (send, post, merge, deploy, Done, Released):
+
+1. **n8n** (or CTH OPS Bot workflow) opens or updates the linked Jira issue with **`Responsible agent`**, status **“Waiting on Gideon yes”**, and Hands **`bc-id` / `pr_url`** when present.
+2. **CTH OPS Bot** posts an **approval card** to **`#cth-ops-approvals`** carrying **Jira issue key**, **responsible agent ID**, and **Hands bc-id / PR link** (and one-line context).
+3. Gideon clicks **GO** or **approve** on the card (in-channel; same pattern as HARNESS.md inline HITL buttons).
+4. **Writeback** to the Jira issue: custom fields **`HITL approver`**, **`HITL timestamp`**, **`HITL decision`** (`yes` / `no`); comment with Slack message permalink optional.
+5. **Only after step 4** may Jira transition to **Done**, **Released**, or the guarded action execute (send/post/merge/deploy). **`no`** returns the issue to a rework status; no side effects.
+
+Jira dashboard **Awaiting HITL** mirrors open gates; **`#cth-ops-approvals`** is the live queue Gideon works from day to day. No webhook URLs or tokens in this design doc.
+
+**Workflow gate (summary):** accountable party remains **Gideon Blaauw**; service accounts never satisfy the gate.
+
+**Automation users (`cth-automation@`, `cth-ops-receipt@`):** technical **creator/updater** only; validator rejects them as `Responsible agent` or `HITL approver` values.
 
 `space-map.csv` columns **`agent_id`** (same as `bot_id`) and **`accountable`** (always HITL row) map registry bots to default responsible values for provisioned components.
 
@@ -95,7 +107,7 @@ Tokens: Infisical **`cth-agents`** only (Gideon OAuth + paste; never in git).
 | Source | Target | Notes |
 | :--- | :--- | :--- |
 | Hands PR done | **CTHHANDS** | Receipt issue with **`Responsible agent`** + `bc-id` + `pr_url`; link to CTHINT component or client project |
-| HITL widget (Gideon yes) | **CTHORCH** | Transition off “waiting on Gideon yes”; no send/post without gate |
+| HITL gate (`{Gideon yes}`) | **Slack `#cth-ops-approvals`** → **CTHORCH** / child issue | CTH OPS Bot card → GO → Jira writeback → then Done/Released or send/post/merge |
 | Doctor_Bot VPS | **CTHOPS** | P0 new token; GREEN=comment, AMBER/RED=issue |
 | Desk action / meeting AI | **CTHINT** or client project | Action-item issue type only; meeting source in description, not full transcript |
 | Slack · Workbench | **Slack** (channel) | n8n may open Jira task **only** when desk tickets work — not message mirror |
@@ -108,7 +120,7 @@ Tokens: Infisical **`cth-agents`** only (Gideon OAuth + paste; never in git).
 
 **Jira dashboard gadgets (no Rovo):**
 
-1. **Awaiting HITL** — JQL `project = CTHORCH AND status = "Waiting on Gideon yes"` (and linked child issues missing `HITL approval`)
+1. **Awaiting HITL** — JQL `status = "Waiting on Gideon yes"` (fleet filter); paired with live queue in **`#cth-ops-approvals`**
 2. **Jobs by responsible agent** — Two-dimensional filter statistics on custom field **`Responsible agent`** (all core + client projects in saved filter `fleet-open-work`)
 3. Hands in flight — `project = CTHHANDS AND status != Done`
 4. Ops alerts — `project = CTHOPS AND created >= -7d`
@@ -171,7 +183,7 @@ Pilot desks unchanged in intent: Teclogi + Sustenttia (client-facing workload; M
 | File | Role |
 | :--- | :--- |
 | `space-map.csv` | 94 bots → `agent_id`, `accountable`, Jira key, Confluence hub |
-| `master.dot` / `master.svg` / `master.png` | Desk-level master wiring (≤15 nodes) |
+| `master.dot` / `master.svg` / `master.png` | Desk-level master wiring; `#cth-ops-approvals` on every HITL gate edge |
 | `orchestrator-dashboard.dot` / `.svg` / `.png` | Dashboard data flow |
 | `master.mmd` | Pointer — canonical render source is `master.dot` |
 | `scripts/generate_atlassian_space_map.py` | Regenerate CSV |
