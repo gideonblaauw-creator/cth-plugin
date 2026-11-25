@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#B2EEFA"/>
+  <rect width="408" height="630" fill="#0C498A"/>
+  <text x="48" y="75" fill="#FFFFFF" font-family="Titillium Web, sans-serif" font-size="50" font-weight="700">Datalab</text>
+  <text x="456" y="138" fill="#0C498A" font-family="Titillium Web, sans-serif" font-size="44" font-weight="700">Agenda · Observatorio de la Tierra</text>
+  <text x="456" y="201" fill="#0C498A" font-family="Open Sans, sans-serif" font-size="28">Soft launch de Datalab · 24 · 11 · 2026</text>
+  <text x="456" y="554" fill="#669348" font-family="Open Sans, sans-serif" font-size="14">1200x630 · 24 · 11 · 2026</text>
+</svg>

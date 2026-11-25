@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1005" viewBox="0 0 1920 1005">
+  <rect width="1920" height="1005" fill="#B2EEFA"/>
+  <rect width="652" height="1005" fill="#0C498A"/>
+  <text x="76" y="120" fill="#FFFFFF" font-family="Titillium Web, sans-serif" font-size="80" font-weight="700">Datalab</text>
+  <text x="729" y="221" fill="#0C498A" font-family="Titillium Web, sans-serif" font-size="70" font-weight="700">Datalab</text>
+  <text x="729" y="321" fill="#0C498A" font-family="Open Sans, sans-serif" font-size="45">Datalab powered by CleantechHUB</text>
+  <text x="729" y="884" fill="#669348" font-family="Open Sans, sans-serif" font-size="14">1920x1005 · 24 · 11 · 2026</text>
+</svg>
