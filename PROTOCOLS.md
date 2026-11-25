@@ -1,8 +1,8 @@
 # CTH Fleet Operational Protocol
 
-**Status: DRAFT — not active until Gideon GO**
+**Status: ACTIVE — Gideon GO 25 Nov 2026 16:56 COT (enforcement report-only)**
 
-This document is the proposed fleet-wide guardrail set for all **93 bots** (Orchestrator, Desks, Workbenches, Capability Agents, Cloud Hands). It adapts the shared Desk and Workbench base mandate from the **25 Nov 2026** fleet redesign build plan. It does **not** replace the harness rulebook until Gideon merges this file after an explicit GO. Until then, canonical locks remain in the linked skills below.
+This document is the fleet-wide guardrail set for all **93 bots** (Orchestrator, Desks, Workbenches, Capability Agents, Cloud Hands). It adapts the shared Desk and Workbench base mandate from the **25 Nov 2026** fleet redesign build plan. Canonical machine-readable tier caps and parents live in **`FLEET_REGISTRY.yaml`** (version `2026-11-25-active`). **Enforcement automation** (auto-pause, circuit breaker, audit remediations) is **`report_only`** until a second Gideon GO.
 
 **Source input (read-only):** `/cursor/stores/bot/fleet-redesign-2026-11-25/build-plan-2026-11-25.md` — Parts 0, 1.1, and 3.2.
 
@@ -14,21 +14,23 @@ This document is the proposed fleet-wide guardrail set for all **93 bots** (Orch
 | Cloud Hands model launch | [`skills/hands-model-routing/SKILL.md`](skills/hands-model-routing/SKILL.md) |
 | Desk / Workbench → Hands ticketing | [`skills/desks-workbenches-hands-tickets/SKILL.md`](skills/desks-workbenches-hands-tickets/SKILL.md) |
 | Secrets SoT pointer | [`skills/infisical/SKILL.md`](skills/infisical/SKILL.md) |
+| Weekly audit (report-only) | [`docs/fleet/activation/weekly-audit-runbook.md`](docs/fleet/activation/weekly-audit-runbook.md) |
+| Activation rollback | [`docs/fleet/activation/ROLLBACK.md`](docs/fleet/activation/ROLLBACK.md) |
 
 ---
 
 ## 0. North Star KPIs (fleet token governance)
 
-Targets from the Nov 2026 diagnosis. **Enforcement thresholds** apply only after this protocol is **active** (post-Gideon GO) and supporting automation is verified.
+Targets from the Nov 2026 diagnosis. **Report-only mode:** breaches appear in Monday audits; no automatic profile mutation.
 
-| KPI / governance metric | Baseline (Nov 1–25) | Target state | Hard enforcement threshold (when active) |
+| KPI / governance metric | Baseline (Nov 1–25) | Target state | Hard enforcement threshold (when enforce GO) |
 | :--- | :--- | :--- | :--- |
 | Grok Bot share of spend | 65.7% monthly / 76.9% weekly | ≤ 33% of total spend | Alert at 25% weekly cap; throttle at 30% |
 | Cursor Hands share of spend | 33.7% monthly / 23.1% weekly | ≥ 67% of total spend | Default target for code, data, scraping, and decks |
-| Max context per Grok Bot turn | 321k max (115k avg) | ≤ 60k tokens | See **PROPOSED** Clone-and-Reset (overlaps PR #181 NO GO) |
+| Max context per Grok Bot turn | 321k max (115k avg) | ≤ 60k tokens | Clone-and-Reset at Turn 5 or 80k tokens (active per registry) |
 | Rapid-fire &lt;15s Grok loops | 82.1% of calls | &lt; 20% of calls | Zero local test/lint/scrape/build loops in Grok Bot |
 | Browser CUA (`grok-bot-cua`) | 376 calls | &lt; 2% of total spend | Banned across Tier 2 Workbenches; prefer CLI/API/MCP |
-| Weekly audit and protocol PR | Manual / ad hoc | Every Monday 08:00 UTC | Automated pipeline + PR to `PROTOCOLS.md` (HITL merge only) |
+| Weekly audit and protocol PR | Manual / ad hoc | Every **Monday 07:00 America/Bogota** | Report-only Hands job; HITL merge only |
 
 ---
 
@@ -39,7 +41,7 @@ Targets from the Nov 2026 diagnosis. **Enforcement thresholds** apply only after
 | Governance tier | Org chart layers | Active count | Model tier (plan label) | Token share cap (plan) | Context and execution mandate |
 | :--- | :--- | :---: | :--- | :--- | :--- |
 | **Tier 0: Control plane and checker** | Orchestrator, Control Tower Infra | 2 | `tier-reasoning` | ≤ 4% | Routing, ticket validation, maker ≠ checker. No multi-file grind or content factory. |
-| **Tier 1: Domain and client Desks** | Desks + isolated client Desks | 63 | `tier-reasoning` / `knowledge-work` | ≤ 16% | Domain memory and scoping. Emit WorkOrders to Cursor Hands for file/deck/code/multi-doc work. |
+| **Tier 1: Domain and client Desks** | Desks + isolated client Desks | **64** (63 active + 1 parked) | `tier-reasoning` / `knowledge-work` | ≤ 16% | Domain memory and scoping. Emit WorkOrders to Cursor Hands for file/deck/code/multi-doc work. |
 | **Tier 2: I/O and ops Workbenches** | Workbenches | 19 | `tier-routine` | ≤ 8% | Stateless per trigger. Read-only / channel I/O. Browser CUA banned fleet-wide. |
 | **Tier 3: Thin capability wrappers** | Capability Agents | 6 | `tier-routine` / `tier-reasoning` (1–2 turns) | ≤ 5% | Structured specs only; heavy work in Tier 4. |
 | **Tier 4: Execution Hands** | Cursor Cloud Hands + OpenCode Cloud Hands | Shared pool | `tier-execution` | ≥ 67% | All heavy execution: repos, VPS Archive, scrapers, HTML/PDF, test loops. |
@@ -50,7 +52,7 @@ Targets from the Nov 2026 diagnosis. **Enforcement thresholds** apply only after
 
 ## 2. Shared operational rules (all Tier 0–3 bots)
 
-Adapted from build plan §3.2. Where a rule below conflicts with a **locked** harness rule, the harness skill wins (see [§6 Decisions for Gideon](#6-decisions-for-gideon)).
+Adapted from build plan §3.2. Where a rule below conflicts with a **locked** harness rule, the harness skill wins unless §6 resolved it.
 
 ### 2.1 Cursor-first execution (≥ 67% spend target)
 
@@ -92,13 +94,15 @@ Cloud Hands open **draft PRs** and plant files. **Infrastructure** reviews. **Gi
 
 ### 2.8 Cloud Hands model (locked)
 
-Every Cursor Cloud Hands launch uses **`composer-2.5`** with **`model_params: { fast: false }`** (Fast OFF, Gideon 17 Nov 2026). Grok models are forbidden in Hands. Sonnet, Opus, Fast ON, and silent upgrades → HOLD and flag Gideon ([`skills/hands-model-routing/SKILL.md`](skills/hands-model-routing/SKILL.md)).
+Every **Cursor Cloud Hands** launch uses **`composer-2.5`** with **`model_params: { fast: false }`** (Fast OFF, Gideon 17 Nov 2026). Grok models are forbidden in Hands. Sonnet, Opus, Fast ON, and silent upgrades → HOLD and flag Gideon ([`skills/hands-model-routing/SKILL.md`](skills/hands-model-routing/SKILL.md)).
 
 Ticket `model` field example:
 
 ```text
 model: composer-2.5 (fast=false)
 ```
+
+**Tier 2 Grok runtimes** and **Tier 4 OpenCode** may use **`fast: true`** in `FLEET_REGISTRY.yaml` only; that does not change Hands launch parameters.
 
 ### 2.9 Blackboard and state paths (plan alignment)
 
@@ -112,63 +116,52 @@ Durable cross-harness state belongs on the VPS Archive, not in replayed chat con
 
 ---
 
-## 3. Tier-specific caps (from build plan — aspirational until active)
+## 3. Tier-specific caps (registry-backed)
 
-These caps supplement harness tickets. They do **not** auto-tighten bot profiles until Gideon GO and checker-verified registry sync.
+Caps in **`FLEET_REGISTRY.yaml`** supplement harness tickets. **`enforcement_default: report_only`** — violations are audited, not auto-applied.
 
-| Tier | Max context (plan) | Turn budget (plan) | Notes |
+| Tier | Max context (registry) | Turn budget (registry) | Notes |
 | :--- | :--- | :--- | :--- |
 | 0 | 40k–50k | 3–4 | Checker for all Cloud Hands outputs |
-| 1 | 50k–60k | 5 | Client desks stricter isolation under `/opt/claude-files/clients/<slug>/` |
-| 2 | 25k | 1 per trigger | `stateless: true`; no CUA |
+| 1 | 50k–60k | 5 | `clone_and_reset: true` on active tier-1 bots; `e68ca92f` parked |
+| 2 | 25k | 1 per trigger | `stateless: true`; `model.fast: true`; no CUA |
 | 3 | Minimal | 1–2 | Spec emitters only |
-| 4 | Scoped by ticket | Per ticket `read-budget` | One job = one fresh, small agent with an exact file list and read budget ([`skills/hands-model-routing/SKILL.md`](skills/hands-model-routing/SKILL.md) § Agent size) |
+| 4 | Scoped by ticket | Per ticket `read-budget` | Hands `composer-2.5` fast:false; OpenCode per registry |
 
 ---
 
-## PROPOSED — not active; overlaps PR #181 NO GO
+## 4. Weekly governance loop (report-only)
 
-Gideon **NO GO** on PR #181 (fresh context and thread cap) on **25 Nov 2026, 09:01 COT**. The following rules come from the fleet redesign plan and **must not** be enforced, synced to bot profiles, or automated until Gideon issues a separate GO (and any conflict with PR #181 is resolved).
+**Active schedule:** Monday **07:00** `America/Bogota`, launched by **Control Tower · Infra** as a read-only Hands job. Full steps: [`docs/fleet/activation/weekly-audit-runbook.md`](docs/fleet/activation/weekly-audit-runbook.md).
 
-1. **5-turn / 60k–80k Clone-and-Reset:** Do not allow a Grok Bot thread to exceed 60k–80k tokens or five interactive turns; save state to `/opt/claude-files/state/<agent_id>.md`, emit a five-bullet handoff, and reset the thread. Plan also mandates reset at **Turn 5** or **80k** tokens (North Star table).
-2. **Mandatory fresh context on reset:** Replacing long thread history with file-backed state only—not active.
-3. **Automated weekly tightening:** Monday audit script auto-lowering `max_context_tokens` on offending Desks—not active.
-4. **Mid-week circuit breaker:** Pausing Tier 2 schedules when Grok share ≥ 25% before Friday—not active.
+1. Ingest the latest usage export from the bot store (no raw CSV in Grok context).
+2. Run `scripts/weekly_token_audit.py` **without** `--enforce` and **without** `ENFORCE_APPROVED`.
+3. Deliver the report to **Orchestrator** for routing; optional draft PR is HITL only.
+4. **Enforcement later:** second Gideon GO after one clean audit week; then `enforce: true` and audit flags may be enabled in a follow-up PR.
 
-When this block is approved, update `FLEET_REGISTRY.yaml` (future) and bot bundles via checker-reviewed PR—never by Hands alone.
-
----
-
-## 4. Weekly governance loop (future — draft only)
-
-When active, **Autopilot Workbench** runs a stateless **Monday 08:00 UTC** job that ingests usage CSVs from `/opt/claude-files/audits/raw/`, writes `/opt/claude-files/audits/YYYY-WW-audit.md`, and opens a **draft PR** against `PROTOCOLS.md` and registry files. **Control Tower Infra** checks; **Gideon** merges. Scripts referenced by the plan (`scripts/weekly_token_audit.py`, `scripts/sync_fleet.py`) are **not** part of this PR.
+`auto_pause` and `circuit_breaker` in `FLEET_REGISTRY.yaml` are **defined**, **`status: active`**, and **`enforce: false`**.
 
 ---
 
 ## 5. Change control
 
-1. Protocol changes ship as PRs to `main` in `cth-plugin` ([`skills/desks-workbenches-hands-tickets/SKILL.md`](skills/desks-workbenches-hands-tickets/SKILL.md)).
-2. This file stays **DRAFT** until Gideon GO on merge—not merely "build approved."
-3. Do not edit live bot profiles, routines, or n8n workflows in the same change set as activating this protocol unless a separate ticket and GO say so.
+1. Protocol and registry changes ship as PRs to `main` in `cth-plugin`.
+2. Profile text updates from activation **B** use `docs/fleet/activation/profile-diff.json`; apply only after checker + Gideon GO (not in the registry-only activation PR).
+3. Do not edit live bot profiles, routines, or n8n workflows from Hands without a separate ticket and GO.
 
 ---
 
-## 6. Decisions for Gideon
+## 6. Decisions for Gideon (resolved 25 Nov 2026 16:56 COT)
 
-Where the Nov 2026 build plan conflicts with existing locked rules, **the existing rule wins** in this document until Gideon resolves the row and issues GO to activate.
-
-1. **Tier 2 Workbench model names (plan):** The plan assigns Tier 2 I/O Workbenches to **`cursor-grok-4.5-low-fast`** (`tier-routine`), stateless per trigger. Harness token lock forbids **Grok models on Cloud Hands** and does not adopt plan logical tiers as launch IDs. *Winner today:* Workbench channel I/O stays on harness Workbench rules; Tier 2 model names are **not** fleet-enforced until Gideon maps them to allowed runtime configs.
-
-2. **Turn-5 / 60k–80k Clone-and-Reset (plan):** The plan mandates **5 interactive turns** or **60k–80k tokens** (North Star: mandatory reset at Turn 5 or **80k**), saving state to `/opt/claude-files/state/` and resetting the thread. Gideon **NO GO on PR #181** (fresh context + thread cap) on 25 Nov 2026. *Winner today:* Clone-and-Reset is **not active**; rules live only under **PROPOSED — not active; overlaps PR #181 NO GO** above.
-
-3. **Cloud Hands `fast` flag:** Build plan and `skills/harness/SKILL.md` / `docs/hands-model-routing.md` (22 Oct) describe **`composer-2.5` (`fast=true`)** for every Hands job. Gideon lock **17 Nov 2026** in `skills/hands-model-routing/SKILL.md`: **`composer-2.5` with `fast: false`**. *Winner today:* **Fast OFF** on every Hands launch.
-
-4. **Tier 4 execution model list (plan):** Plan lists **`composer-2.5`, `2.5-fast`, OpenCode** for the shared Hands pool. Locked routing allows **composer-2.5 (fast:false)** and OpenCode only when Gideon says OSS—not **`2.5-fast`** as a default. *Winner today:* skill routing table; plan names deferred.
-
-5. **Automated weekly remediation (plan):** Monday audit auto-PR that tightens `max_context_tokens`, edits `MANDATE.md`, and runs mid-week circuit breakers. Conflicts with **HITL before merge/deploy**, **maker≠checker**, and **infra deploy only on Gideon's GO**. *Winner today:* weekly loop described as **future draft** (§4); no auto-merge or profile mutation without checker + Gideon.
-
-6. **67% Cursor Hands spend target vs harness content waves:** Plan targets ≥67% spend on Tier 4. Harness **Token budget protocol** still allows content batching and risk-based self-check on low-risk jobs. *Winner today:* harness protocol for ticket shape; North Star table is aspirational until active.
+| # | Topic | Resolution (active) |
+| :--- | :--- | :--- |
+| 1 | Tier 2 Workbench fast models | **`fast: true` allowed** only for **Tier 2** and **Tier 4** bot runtime entries in `FLEET_REGISTRY.yaml`. Tier 2 uses `tier-routine` / `cursor-grok-4.5-low-fast`. **Cursor Cloud Hands** remain **`composer-2.5` / `fast: false`**. |
+| 2 | Turn-5 / 60k–80k Clone-and-Reset | **PR #181 merged** (25 Nov 2026). Fresh context / clone-and-reset is **adopted** in harness + registry `reset.clone_and_reset: true` for active Tier 0–1 bots. Enforcement of caps is **report-only** until second GO. |
+| 3 | Cloud Hands `fast` flag | **Fast OFF** on every **Cursor Cloud Hands** launch (17 Nov lock). Tier 2/4 registry `fast` does not override Hands. |
+| 4 | Tier 1 desk count | **64** bots in tier **1a + 1b** (including **one parked**: `e68ca92f`). |
+| 5 | Automated weekly remediation | **Report-only** until second GO. Audits flag breaches; no auto-merge, profile mutation, or circuit-breaker **enforce** without approval. |
+| 6 | 67% Cursor Hands spend target | Aspirational North Star; harness ticket shape and daily job budget remain authoritative for launches. |
 
 ---
 
-*Awaiting Gideon's approval before this protocol is injected fleet-wide.*
+*Protocol active; enforcement automation remains report-only until Gideon's second GO.*
