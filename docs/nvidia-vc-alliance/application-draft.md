@@ -38,7 +38,7 @@
 4. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
 5. **Lynks Ingeniería** — Real-time irrigation monitoring/automation ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: edge AI [CONFIRM].
 6. **SUNCO** — Renewable scale-up ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: generation forecasting [CONFIRM AI].
-7. **Novatio** — Ticket portfolio name; [CONFIRM public URL, CTH tie, AI angle].
+7. **Novatio** — Ticket portfolio name; ([novatio.com.co](https://novatio.com.co/)) [CONFIRM CTH tie, AI angle].
 8. **Parsons Kinetics** — Ticket portfolio name; [CONFIRM URL + NVIDIA use case].
 
 ---
@@ -65,6 +65,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~Teclogi Series A source~~ — **resolved (Gideon, 27 Nov 2026):** cite Teclogi’s general website only; no other Series A citation.
 
-Remaining: Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
+~~Novatio public URL~~ — **resolved (Gideon, 27 Nov 2026):** [novatio.com.co](https://novatio.com.co/).
+
+Remaining: Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · Novatio CTH tie & AI angle · SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/), [UNDP Adaptation — AFCIA Colombia](https://www.adaptation-undp.org/green-business-accelerator-helps-strengthen-resilient-communities-colombia).*
