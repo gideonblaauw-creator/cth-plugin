@@ -14,7 +14,7 @@
 
 **Risks:** (1) FAQ stresses **equity-focused** partners — CTH is **grant/regrant-first today**, with **warrants planned but not yet executed**; emphasize **portfolio companies’ third-party rounds** (e.g. investor engagements on MubOn case study) without inventing CTH tickets. (2) **Portfolio investment track record** — narrate **capital deployed via grants/sub-grants + companies supported**, not a traditional VC AUM.
 
-**Gideon confirm (open):** REIN × PVBLIC one-liner for the form; Teclogi Series A public cite.
+**Gideon confirm (open):** REIN × PVBLIC one-liner for the form.
 
 ---
 
@@ -34,7 +34,7 @@
 
 1. **MubOn SAS** — IoT EV network, telemetry, chatbot, MubOn Cloud ([data.cleantechhub.net/projects/mubon/](https://data.cleantechhub.net/projects/mubon/)); NVIDIA: edge/cloud ML, forecasting, LLM support.
 2. **SEOS Energy** — Satellite + **AI** precotization, SEOS Studio/IoT ([seosenergy.co](https://seosenergy.co/)); NVIDIA: vision/geospatial inference.
-3. **Teclogi** — Digital freight, warehousing, **real-time tracking** ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: logistics ML [CONFIRM product AI].
+3. **Teclogi** — Digital freight, warehousing, **real-time tracking** ([teclogi.com](https://teclogi.com/)); NVIDIA: logistics ML [CONFIRM product AI].
 4. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
 5. **Lynks Ingeniería** — Real-time irrigation monitoring/automation ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: edge AI [CONFIRM].
 6. **SUNCO** — Renewable scale-up ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: generation forecasting [CONFIRM AI].
@@ -63,6 +63,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~AFCIA/UNDP public cite~~ — **resolved (Gideon, 27 Nov 2026):** UNDP Adaptation article link.
 
-Remaining: Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · Teclogi Series A source · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
+~~Teclogi Series A source~~ — **resolved (Gideon, 27 Nov 2026):** cite Teclogi’s general website only; no other Series A citation.
+
+Remaining: Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/), [UNDP Adaptation — AFCIA Colombia](https://www.adaptation-undp.org/green-business-accelerator-helps-strengthen-resilient-communities-colombia).*
