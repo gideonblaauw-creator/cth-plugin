@@ -1,0 +1,95 @@
+bot_id,bot_name,tier,parent_id,agent_id,accountable,jira_project_key,confluence_space_key,isolation_flag
+c656afb9,Control Tower · Infra,0,5dc64ea4,c656afb9,Gideon Blaauw (HITL),CTHOPS,CTHHUB,internal
+5dc64ea4,Orchestrator,0,,5dc64ea4,Gideon Blaauw (HITL),CTHORCH,CTHHUB,internal
+558f5c27,AIC,1a,5dc64ea4,558f5c27,Gideon Blaauw (HITL),CTHINT/cmp:DS-558f5c27,CTHHUB,internal
+2c9bb239,AURA,1a,5dc64ea4,2c9bb239,Gideon Blaauw (HITL),CTHINT/cmp:DS-2c9bb239,CTHHUB,internal
+b65940e2,Academy · Desks,1a,5dc64ea4,b65940e2,Gideon Blaauw (HITL),CTHINT/cmp:DS-b65940e2,CTHHUB,internal
+6479618a,Advisory Board,1a,5dc64ea4,6479618a,Gideon Blaauw (HITL),CTHINT/cmp:DS-6479618a,CTHHUB,workstream
+f92073e0,Almendra,1a,5dc64ea4,f92073e0,Gideon Blaauw (HITL),CTHINT/cmp:DS-f92073e0,CTHHUB,internal
+d98379c1,Bank,1a,5dc64ea4,d98379c1,Gideon Blaauw (HITL),CTHINT/cmp:DS-d98379c1,CTHHUB,internal
+9ef6acd9,Budget · Desks,1a,5dc64ea4,9ef6acd9,Gideon Blaauw (HITL),CTHINT/cmp:DS-9ef6acd9,CTHHUB,internal
+462857ec,CTH GTM Strategy · Desks,1a,5dc64ea4,462857ec,Gideon Blaauw (HITL),CTHINT/cmp:DS-462857ec,CTHHUB,workstream
+9360f6b2,CTH Grants,1a,5dc64ea4,9360f6b2,Gideon Blaauw (HITL),CTHINT/cmp:DS-9360f6b2,CTHHUB,workstream
+7ea170b4,CTH Meetings,1a,5dc64ea4,7ea170b4,Gideon Blaauw (HITL),CTHINT/cmp:DS-7ea170b4,CTHHUB,internal
+1570295a,CTH Proposals,1a,5dc64ea4,1570295a,Gideon Blaauw (HITL),CTHINT/cmp:DS-1570295a,CTHHUB,internal
+f5576adb,CTH Strategy · Desks,1a,5dc64ea4,f5576adb,Gideon Blaauw (HITL),CTHINT/cmp:DS-f5576adb,CTHHUB,workstream
+0255b102,Careers,1a,5dc64ea4,0255b102,Gideon Blaauw (HITL),CTHINT/cmp:DS-0255b102,CTHHUB,personal
+76808b5e,Datalab,1a,5dc64ea4,76808b5e,Gideon Blaauw (HITL),CTHINT/cmp:DS-76808b5e,CTHHUB,internal
+9ef81c69,Dutch Embassy · Contacts,1a,5dc64ea4,9ef81c69,Gideon Blaauw (HITL),CTHINT/cmp:DS-9ef81c69,CTHHUB,internal
+53a8e74f,Energy Coop · Projects,1a,5dc64ea4,53a8e74f,Gideon Blaauw (HITL),CTHINT/cmp:DS-53a8e74f,CTHHUB,internal
+b258f16f,GINA,1a,5dc64ea4,b258f16f,Gideon Blaauw (HITL),CTHINT/cmp:DS-b258f16f,CTHHUB,personal
+d3d9dd60,Inbox,1a,5dc64ea4,d3d9dd60,Gideon Blaauw (HITL),CTHINT/cmp:DS-d3d9dd60,CTHHUB,internal
+58782071,Investor Matching · Desks,1a,5dc64ea4,58782071,Gideon Blaauw (HITL),CTHINT/cmp:DS-58782071,CTHHUB,internal
+96d52460,Jobs Board,1a,5dc64ea4,96d52460,Gideon Blaauw (HITL),CTHINT/cmp:DS-96d52460,CTHHUB,internal
+4b96b1e8,Legal,1a,5dc64ea4,4b96b1e8,Gideon Blaauw (HITL),CTHINT/cmp:DS-4b96b1e8,CTHHUB,internal
+9d25c2ea,Mac Scan,1a,5dc64ea4,9d25c2ea,Gideon Blaauw (HITL),CTHINT/cmp:DS-9d25c2ea,CTHHUB,personal
+75be842c,Markets,1a,5dc64ea4,75be842c,Gideon Blaauw (HITL),CTHINT/cmp:DS-75be842c,CTHHUB,personal
+a6610a66,Natalia Ariza,1a,5dc64ea4,a6610a66,Gideon Blaauw (HITL),CTHINT/cmp:DS-a6610a66,CTHHUB,personal
+25f3a623,Newsletter · Desks,1a,5dc64ea4,25f3a623,Gideon Blaauw (HITL),CTHINT/cmp:DS-25f3a623,CTHHUB,internal
+920925f2,Nexus / Origo / · Desks,1a,5dc64ea4,920925f2,Gideon Blaauw (HITL),CTHINT/cmp:DS-920925f2,CTHHUB,internal
+e0625c40,Production Papers,1a,5dc64ea4,e0625c40,Gideon Blaauw (HITL),CTHINT/cmp:DS-e0625c40,CTHHUB,internal
+fd48890b,REIN Hubs,1a,5dc64ea4,fd48890b,Gideon Blaauw (HITL),CTHINT/cmp:DS-fd48890b,CTHHUB,internal
+22eef082,Socials · Desks,1a,5dc64ea4,22eef082,Gideon Blaauw (HITL),CTHINT/cmp:DS-22eef082,CTHHUB,internal
+7ffbe815,Sustenttia,1a,5dc64ea4,7ffbe815,Gideon Blaauw (HITL),CTHINT/cmp:DS-7ffbe815,CTHHUB,internal
+27bd8324,Teclogi,1a,5dc64ea4,27bd8324,Gideon Blaauw (HITL),CTHINT/cmp:DS-27bd8324,CTHHUB,internal
+2599f250,Travel,1a,5dc64ea4,2599f250,Gideon Blaauw (HITL),CTHINT/cmp:DS-2599f250,CTHHUB,personal
+f1a2eba2,X · Desks,1a,5dc64ea4,f1a2eba2,Gideon Blaauw (HITL),CTHINT/cmp:DS-f1a2eba2,CTHHUB,internal
+6a3cdaf9,AFE,1b,5dc64ea4,6a3cdaf9,Gideon Blaauw (HITL),CTHAFEX,CTHHUB+page:CTHAFEX,client_project
+edc085bc,APC · Colombia,1b,5dc64ea4,edc085bc,Gideon Blaauw (HITL),CTHACXX,CTHHUB+page:CTHACXX,client_project
+f5610aed,Air4U,1b,5dc64ea4,f5610aed,Gideon Blaauw (HITL),CTHAIR4,CTHHUB+page:CTHAIR4,client_project
+479e1e16,Akvo,1b,5dc64ea4,479e1e16,Gideon Blaauw (HITL),CTHAKVO,CTHHUB+page:CTHAKVO,client_project
+5ab9a34f,Angélica Díaz,1b,5dc64ea4,5ab9a34f,Gideon Blaauw (HITL),CTHADXX,CTHHUB+page:CTHADXX,client_project
+14fa829c,Atenea,1b,5dc64ea4,14fa829c,Gideon Blaauw (HITL),CTHATEN,CTHHUB+page:CTHATEN,client_project
+0ed3babe,Behold,1b,5dc64ea4,0ed3babe,Gideon Blaauw (HITL),CTHBEHO,CTHHUB+page:CTHBEHO,client_project
+35749b3c,Bridging Ventures,1b,5dc64ea4,35749b3c,Gideon Blaauw (HITL),CTHBVXX,CTHHUB+page:CTHBVXX,client_project
+254409c1,CCF,1b,5dc64ea4,254409c1,Gideon Blaauw (HITL),CTHCCFX,CTHHUB+page:CTHCCFX,client_project
+858f55c1,CEE Externado,1b,5dc64ea4,858f55c1,Gideon Blaauw (HITL),CTHCEXX,CTHHUB+page:CTHCEXX,client_project
+d9499d9f,CTH Grant · CTCN Suriname,1b,5dc64ea4,d9499d9f,Gideon Blaauw (HITL),CTHINT/cmp:DS-d9499d9f,CTHHUB,grant_component
+c8de93b6,CTH Grant · GRP,1b,5dc64ea4,c8de93b6,Gideon Blaauw (HITL),CTHINT/cmp:DS-c8de93b6,CTHHUB,grant_component
+86e52e93,CTH Grant · TNS VerdeXcelerate,1b,5dc64ea4,86e52e93,Gideon Blaauw (HITL),CTHINT/cmp:DS-86e52e93,CTHHUB,grant_component
+67e509f7,Chamber · Bucaramanga,1b,5dc64ea4,67e509f7,Gideon Blaauw (HITL),CTHCBXX,CTHHUB+page:CTHCBXX,client_project
+e68ca92f,Chamber · Bucaramanga (parked),1b,5dc64ea4,e68ca92f,Gideon Blaauw (HITL),CTHCBPX,CTHHUB+page:CTHCBPX,client_project
+55d17679,Climate-KIC,1b,5dc64ea4,55d17679,Gideon Blaauw (HITL),CTHCKXX,CTHHUB+page:CTHCKXX,client_project
+586a6fda,EPIC Angels,1b,5dc64ea4,586a6fda,Gideon Blaauw (HITL),CTHEAXX,CTHHUB+page:CTHEAXX,client_project
+8f51caf3,ETB,1b,5dc64ea4,8f51caf3,Gideon Blaauw (HITL),CTHETBX,CTHHUB+page:CTHETBX,client_project
+ab46f1d9,Emprende UP,1b,5dc64ea4,ab46f1d9,Gideon Blaauw (HITL),CTHEUXX,CTHHUB+page:CTHEUXX,client_project
+ac8b7c37,Energy Sprint,1b,5dc64ea4,ac8b7c37,Gideon Blaauw (HITL),CTHESXX,CTHHUB+page:CTHESXX,client_project
+d57436ae,Escuela Colombiana de Ingeniería,1b,5dc64ea4,d57436ae,Gideon Blaauw (HITL),CTHECDI,CTHHUB+page:CTHECDI,client_project
+bfd1f8d3,FODESEP,1b,5dc64ea4,bfd1f8d3,Gideon Blaauw (HITL),CTHFODE,CTHHUB+page:CTHFODE,client_project
+50293a49,FabFloow,1b,5dc64ea4,50293a49,Gideon Blaauw (HITL),CTHFABF,CTHHUB+page:CTHFABF,client_project
+df5cd6a9,GIZ,1b,5dc64ea4,df5cd6a9,Gideon Blaauw (HITL),CTHGIZX,CTHHUB+page:CTHGIZX,client_project
+b609ea1f,Gutami,1b,5dc64ea4,b609ea1f,Gideon Blaauw (HITL),CTHGUTA,CTHHUB+page:CTHGUTA,client_project
+c471e31d,Irrazonables · ESOsfera,1b,5dc64ea4,c471e31d,Gideon Blaauw (HITL),CTHIEXX,CTHHUB+page:CTHIEXX,client_project
+2592cf74,Monday · Teclogi,1b,27bd8324,2592cf74,Gideon Blaauw (HITL),CTHMTXX,CTHHUB+page:CTHMTXX,client_project
+1fa1a638,Mubon · Projects,1b,5dc64ea4,1fa1a638,Gideon Blaauw (HITL),CTHMPXX,CTHHUB+page:CTHMPXX,client_project
+0626dbf3,PASO Colombia,1b,5dc64ea4,0626dbf3,Gideon Blaauw (HITL),CTHPCXX,CTHHUB+page:CTHPCXX,client_project
+9657a5a3,Ruben,1b,5dc64ea4,9657a5a3,Gideon Blaauw (HITL),CTHINT/cmp:DS-9657a5a3,CTHHUB,personal
+15b0ef21,Sunco,1b,5dc64ea4,15b0ef21,Gideon Blaauw (HITL),CTHSUNC,CTHHUB+page:CTHSUNC,client_project
+57c40771,UCompensar,1b,5dc64ea4,57c40771,Gideon Blaauw (HITL),CTHUCOM,CTHHUB+page:CTHUCOM,client_project
+f8b4b4c2,Autopilot · Workbench,2,c656afb9,f8b4b4c2,Gideon Blaauw (HITL),CTHINT/cmp:WB-f8b4b4c2,CTHHUB,internal
+00f2eadf,CTH Bot,2,7ea170b4,00f2eadf,Gideon Blaauw (HITL),CTHINT/cmp:WB-00f2eadf,CTHHUB,internal
+78944169,Calendar · Workbench,2,7ea170b4,78944169,Gideon Blaauw (HITL),CTHINT/cmp:WB-78944169,CTHHUB,internal
+85949e8a,Engine Room · Workbench,2,c656afb9,85949e8a,Gideon Blaauw (HITL),CTHINT/cmp:WB-85949e8a,CTHHUB,internal
+c55c05a2,Facebook · Workbench,2,22eef082,c55c05a2,Gideon Blaauw (HITL),CTHINT/cmp:WB-c55c05a2,CTHHUB,internal
+d040c454,Gmail · Workbench,2,d3d9dd60,d040c454,Gideon Blaauw (HITL),CTHINT/cmp:WB-d040c454,CTHHUB,internal
+2f3ba699,Google Ads · Workbench,2,22eef082,2f3ba699,Gideon Blaauw (HITL),CTHINT/cmp:WB-2f3ba699,CTHHUB,internal
+fbc6f772,Health,2,85949e8a,fbc6f772,Gideon Blaauw (HITL),CTHINT/cmp:WB-fbc6f772,CTHHUB,internal
+08f083c1,Instagram · Workbench,2,22eef082,08f083c1,Gideon Blaauw (HITL),CTHINT/cmp:WB-08f083c1,CTHHUB,internal
+98feb964,LinkedIn · Workbench,2,22eef082,98feb964,Gideon Blaauw (HITL),CTHINT/cmp:WB-98feb964,CTHHUB,internal
+1571c6b3,Mail Finder,2,27bd8324,1571c6b3,Gideon Blaauw (HITL),CTHINT/cmp:WB-1571c6b3,CTHHUB,internal
+c0fe06b9,Moodle,2,b65940e2,c0fe06b9,Gideon Blaauw (HITL),CTHINT/cmp:WB-c0fe06b9,CTHHUB,internal
+a02dc640,Odoo,2,5dc64ea4,a02dc640,Gideon Blaauw (HITL),CTHINT/cmp:WB-a02dc640,CTHHUB,internal
+cb105142,REIN Bot,2,fd48890b,cb105142,Gideon Blaauw (HITL),CTHINT/cmp:WB-cb105142,CTHHUB,internal
+6b334caf,Slack · Workbench,2,5dc64ea4,6b334caf,Gideon Blaauw (HITL),CTHINT/cmp:WB-6b334caf,CTHHUB,internal
+49495613,Sustenttia · Fillout,2,7ffbe815,49495613,Gideon Blaauw (HITL),CTHINT/cmp:WB-49495613,CTHHUB,internal
+7df0969f,Telegram · Workbench,2,5dc64ea4,7df0969f,Gideon Blaauw (HITL),CTHINT/cmp:WB-7df0969f,CTHHUB,internal
+c0a4443d,Vault · Workbench,2,c656afb9,c0a4443d,Gideon Blaauw (HITL),CTHINT/cmp:WB-c0a4443d,CTHHUB,internal
+46b91f1c,Voice,2,7ea170b4,46b91f1c,Gideon Blaauw (HITL),CTHINT/cmp:WB-46b91f1c,CTHHUB,internal
+d280b734,WhatsApp · Workbench,2,5dc64ea4,d280b734,Gideon Blaauw (HITL),CTHINT/cmp:WB-d280b734,CTHHUB,internal
+edd93ed9,Images,3,5dc64ea4,edd93ed9,Gideon Blaauw (HITL),CTHINT/cmp:CP-edd93ed9,CTHHUB,internal
+499a82bc,Presentations,3,5dc64ea4,499a82bc,Gideon Blaauw (HITL),CTHINT/cmp:CP-499a82bc,CTHHUB,internal
+e1938fde,Researcher,3,5dc64ea4,e1938fde,Gideon Blaauw (HITL),CTHINT/cmp:CP-e1938fde,CTHHUB,internal
+8092cb28,Scraper,3,5dc64ea4,8092cb28,Gideon Blaauw (HITL),CTHINT/cmp:CP-8092cb28,CTHHUB,internal
+14123e40,Video,3,5dc64ea4,14123e40,Gideon Blaauw (HITL),CTHINT/cmp:CP-14123e40,CTHHUB,internal
+25fc96f0,X API Engineer,3,5dc64ea4,25fc96f0,Gideon Blaauw (HITL),CTHINT/cmp:CP-25fc96f0,CTHHUB,internal
+5d95b30d,OpenCode · Cloud Hands,4,5dc64ea4,5d95b30d,Gideon Blaauw (HITL),CTHHANDS,CTHHUB,internal
