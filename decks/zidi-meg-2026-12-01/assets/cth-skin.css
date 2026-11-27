@@ -1,0 +1,98 @@
+/* Zidi MEG × CTH — Titillium titles, photo scrim, compact cards on FODESEP fp frame */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("fonts/TitilliumWeb-Bold.ttf") format("truetype");
+}
+
+.reveal h1,
+.reveal h2,
+.reveal .fp-title,
+.reveal .fp-cover__title,
+.reveal .fp-stat__value {
+  font-family: "Titillium Web", "Open Sans", sans-serif !important;
+  text-transform: none !important;
+}
+
+.reveal .fp--photo .fp-title,
+.reveal .fp--photo .fp-cover__title {
+  color: #ffffff !important;
+}
+
+.reveal .fp > .fp-photo-bg,
+.reveal .fp > .fp-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reveal .slides section.fp.fp--photo {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+
+.fp-photo-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.fp-photo-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.78) 0%,
+    rgba(12, 73, 138, 0.58) 42%,
+    rgba(12, 73, 138, 0.9) 100%
+  );
+}
+
+body.print-pdf .fp-kenburns {
+  animation: none !important;
+  transform: none !important;
+}
+
+.reveal .fp-title-bullets .fp-bullets li {
+  font-size: 26px;
+}
+
+.reveal .fp-qa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-content: start;
+}
+
+.reveal .fp-qa-grid .fp-card {
+  padding: 22px 26px;
+}
+
+.reveal .fp-qa-grid .fp-card__title {
+  font-size: 24px;
+  margin-bottom: 10px !important;
+}
+
+.reveal .fp-qa-grid .fp-card__text {
+  font-size: 21px;
+  line-height: 1.38;
+}
+
+/* Cover — keep inside 1080px frame */
+.reveal .fp-cover .fp-cover__main {
+  align-items: flex-start;
+  padding-top: 8px;
+}
+.reveal .fp-cover__title {
+  font-size: 66px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 24px !important;
+}
+.reveal .fp-cover__sub {
+  font-size: 30px !important;
+  line-height: 1.32 !important;
+  margin-bottom: 20px !important;
+}
+.reveal .fp-cover__meta {
+  font-size: 24px !important;
+}
