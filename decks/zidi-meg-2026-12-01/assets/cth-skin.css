@@ -2522,3 +2522,157 @@ body.deck-static.fix6-deck .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card {
 body.fix6-deck .reveal .fp.fp--no-hero.fp-stat-band .fp-slide-shell {
   max-width: 100%;
 }
+
+/* --- Fix-6e: auto-height cards on readiness (1/2), unit econ (2/2), Q2, Q5 regulatory (ticket Q6) --- */
+body.fix6-deck .reveal .fp.fp--fix6.fp-readiness-slide,
+body.fix6-deck .reveal .fp.fp--fix6.fp-unit-econ-slide,
+body.fix6-deck .reveal .fp.fp--fix6.fp-q2-slide,
+body.fix6-deck .reveal .fp.fp--fix6.fp-fix6e-regulatory {
+  overflow: visible;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp-readiness-slide .fp-slide-shell,
+body.fix6-deck .reveal .fp.fp--fix6.fp-unit-econ-slide .fp-slide-shell,
+body.fix6-deck .reveal .fp.fp--fix6.fp-q2-slide .fp-slide-shell,
+body.fix6-deck .reveal .fp.fp--fix6.fp-fix6e-regulatory .fp-slide-shell {
+  overflow: visible;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp-readiness-slide .fp-body,
+body.fix6-deck .reveal .fp.fp--fix6.fp-unit-econ-slide .fp-body,
+body.fix6-deck .reveal .fp.fp--fix6.fp-q2-slide .fp-body,
+body.fix6-deck .reveal .fp.fp--fix6.fp-fix6e-regulatory .fp-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+body.fix6-deck .reveal .fp-readiness-slide .fp-flip-grid--readiness-stack,
+body.fix6-deck .reveal .fp-unit-econ-slide .fp-flip-grid--unit-econ-3,
+body.fix6-deck .reveal .fp-q2-slide .fp-sector-grid--q2,
+body.fix6-deck .reveal .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-content: start;
+  width: 100%;
+  grid-template-rows: auto auto !important;
+}
+
+body.fix6-deck .reveal .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip {
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip {
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair {
+  align-items: stretch;
+}
+
+body.fix6-deck .reveal .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 {
+  grid-template-columns: 1fr !important;
+  gap: 12px;
+}
+
+body.fix6-deck .reveal .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card {
+  min-height: 0;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body.print-pdf.fix6-deck .fp-readiness-slide .fp-flip-grid--readiness-stack .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-readiness-slide .fp-flip-grid--readiness-stack .fp-flip__print-pair,
+body.print-pdf.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair,
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body.print-pdf.fix6-deck .fp-readiness-slide .fp-flip-grid--readiness-stack .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-readiness-slide .fp-flip-grid--readiness-stack .fp-flip__print-pair article,
+body.print-pdf.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article,
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair article {
+  overflow: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+body.print-pdf.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-unit-econ-slide .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article {
+  line-height: 1.28 !important;
+  padding: 10px 12px !important;
+}
+
+body.print-pdf.fix6-deck .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card,
+body.deck-static.fix6-deck .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card {
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory {
+  max-height: none !important;
+  overflow: visible !important;
+  width: 100%;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair article {
+  line-height: 1.18 !important;
+  padding: 4px 8px !important;
+  font-size: 34px !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair h4,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair h4 {
+  margin: 0 0 4px !important;
+  font-size: 24px !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory {
+  gap: 4px !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-flip-grid--q5-regulatory .fp-flip__print-pair {
+  gap: 4px !important;
+  margin-bottom: 2px !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory .fp-head,
+body.deck-static.fix6-deck .fp-fix6e-regulatory .fp-head {
+  margin-bottom: 6px !important;
+}
+
+body.print-pdf.fix6-deck .fp-fix6e-regulatory.fp--fix6,
+body.deck-static.fix6-deck .fp-fix6e-regulatory.fp--fix6 {
+  padding-top: 40px !important;
+  padding-bottom: 24px !important;
+}
+
+body.fix6-deck .reveal .fp-readiness-slide > .cth-source,
+body.fix6-deck .reveal .fp-unit-econ-slide > .cth-source,
+body.fix6-deck .reveal .fp-q2-slide > .cth-source,
+body.fix6-deck .reveal .fp-fix6e-regulatory > .cth-source {
+  margin-top: 16px !important;
+}
