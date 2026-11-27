@@ -41,7 +41,7 @@ Referred startups must meet NVIDIA Inception minimums.
 3. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
 4. **SUNCO** — Renewable scale-up ([suncolombia.com](https://suncolombia.com/)); Planned AI use case (proposed by CTH, not current work): digital twin of its solar installations/operations as the base for a performance-prediction model (direction confirmed by Gideon, Nov 2026).
 5. **Novatio** — Ticket portfolio name; ([novatio.com.co](https://novatio.com.co/)) graduate of a CleantechHUB accelerator programme (confirmed by Gideon, Nov 2026). Planned AI use case (proposed by CTH, not current work): Novatio runs biodigester installations and would need a prediction model for implementation, starting with a digital twin of its installations (confirmed by Gideon, Nov 2026).
-6. **Parsons Kinetics** — Ticket portfolio name; ([parsonskinetics.com](https://parsonskinetics.com/)) Planned AI use case (proposed by CTH, not current work): digital twin of its systems as the base for a prediction model (direction confirmed by Gideon, Nov 2026) [CONFIRM specific NVIDIA use case].
+6. **Parsons Kinetics** — Ticket portfolio name; ([parsonskinetics.com](https://parsonskinetics.com/)) Planned AI use case (proposed by CTH, not current work): wind prediction model built on a digital twin of its systems (confirmed by Gideon, Nov 2026).
 
 ---
 
@@ -89,6 +89,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~Startup referral consents~~ — **not needed (Gideon, 27 Nov 2026).**
 
-Remaining: Parsons specific NVIDIA use case · portal fields · full T&Cs.
+~~Parsons specific NVIDIA use case~~ — **resolved (Gideon, 27 Nov 2026):** planned wind prediction model on a digital twin.
+
+Remaining: portal fields · full T&Cs.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/), [UNDP Adaptation — AFCIA Colombia](https://www.adaptation-undp.org/green-business-accelerator-helps-strengthen-resilient-communities-colombia).*
