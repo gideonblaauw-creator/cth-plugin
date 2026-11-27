@@ -1,0 +1,153 @@
+/* Panel title card — FODESEP × CTH statement layer (navy, sin fotos). Canvas 1920×1080. */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+.reveal {
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section.fp {
+  box-sizing: border-box;
+  width: 1920px;
+  height: 1080px;
+  padding: 56px 96px 84px;
+  display: flex !important;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.3;
+  background: #0c498a;
+}
+
+.reveal .fp > * {
+  position: relative;
+  z-index: 1;
+}
+
+.reveal .fp-orbit-svg {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.reveal .fp-orbit-svg ellipse {
+  fill: none;
+  stroke: #b2eefa;
+  stroke-width: 1.5;
+}
+
+.reveal .fp-cobrand {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 28px;
+}
+
+.reveal .fp-cobrand img {
+  height: 52px;
+  width: auto;
+}
+
+.reveal .fp-pill {
+  display: inline-block;
+  align-self: flex-start;
+  background: #9dc384;
+  color: #0c498a;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  padding: 12px 26px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+.reveal .fp-eyebrow {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #b2eefa;
+  margin: 0 0 12px;
+}
+
+.reveal .fp-statement__title {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 1.12;
+  color: #ffffff;
+  margin: 0 0 16px;
+  max-width: 1500px;
+}
+
+.reveal .fp-statement__sub {
+  font-size: 28px;
+  line-height: 1.35;
+  color: #b2eefa;
+  margin: 0 0 40px;
+  max-width: 1400px;
+}
+
+.reveal .fp-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 48px;
+  max-width: 1550px;
+}
+
+.reveal .fp-panel-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 32px;
+}
+
+.reveal .fp-panel-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #69b5fa;
+  border-radius: 16px;
+  padding: 20px 26px;
+}
+
+.reveal .fp-panel-card__line {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.reveal .fp-tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0c498a;
+  background: #b2eefa;
+  padding: 4px 10px;
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+.reveal .fp-foot {
+  position: absolute;
+  left: 96px;
+  right: 96px;
+  bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #69b5fa;
+}
+
+.reveal .fp-wordmark {
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
