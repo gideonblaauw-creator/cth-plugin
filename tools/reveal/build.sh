@@ -55,7 +55,7 @@ for sub in assets logos data; do
 done
 
 PDF_PATH="$DECK_ROOT/$SLUG.pdf"
-INDEX_URL="file://$DIST/index.html"
+INDEX_URL="file://$DIST/index.html?decktape=1"
 
 echo "Exporting PDF to $PDF_PATH …"
 npx decktape reveal "$INDEX_URL" "$PDF_PATH" \

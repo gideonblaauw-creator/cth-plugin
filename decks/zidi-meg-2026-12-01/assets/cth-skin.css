@@ -1,0 +1,678 @@
+/* Zidi MEG × CTH — Titillium titles, photo scrim, compact cards on FODESEP fp frame */
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("fonts/TitilliumWeb-Bold.ttf") format("truetype");
+}
+
+.reveal h1,
+.reveal h2,
+.reveal .fp-title,
+.reveal .fp-cover__title,
+.reveal .fp-stat__value {
+  font-family: "Titillium Web", "Open Sans", sans-serif !important;
+  text-transform: none !important;
+}
+
+.reveal .fp--photo .fp-title,
+.reveal .fp--photo .fp-cover__title {
+  color: #ffffff !important;
+}
+
+.reveal .fp > .fp-photo-bg,
+.reveal .fp > .fp-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reveal .slides section.fp.fp--photo {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+
+.fp-photo-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.fp-photo-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.78) 0%,
+    rgba(12, 73, 138, 0.58) 42%,
+    rgba(12, 73, 138, 0.9) 100%
+  );
+}
+
+body.print-pdf .fp-kenburns {
+  animation: none !important;
+  transform: none !important;
+}
+
+.reveal .fp-title-bullets .fp-bullets li {
+  font-size: 26px;
+}
+
+.reveal .fp-qa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-content: start;
+}
+
+.reveal .fp-qa-grid .fp-card {
+  padding: 22px 26px;
+}
+
+.reveal .fp-qa-grid .fp-card__title {
+  font-size: 24px;
+  margin-bottom: 10px !important;
+}
+
+.reveal .fp-qa-grid .fp-card__text {
+  font-size: 21px;
+  line-height: 1.38;
+}
+
+/* Cover — keep inside 1080px frame */
+.reveal .fp-cover .fp-cover__main {
+  align-items: flex-start;
+  padding-top: 8px;
+}
+.reveal .fp-cover__title {
+  font-size: 66px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 24px !important;
+}
+.reveal .fp-cover__sub {
+  font-size: 30px !important;
+  line-height: 1.32 !important;
+  margin-bottom: 20px !important;
+}
+.reveal .fp-cover__meta {
+  font-size: 24px !important;
+}
+
+.reveal .fp-ladder {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  align-content: start;
+}
+
+.reveal .fp-ladder .fp-card {
+  padding: 20px 18px;
+}
+
+.reveal .fp-ladder .fp-card__title {
+  font-size: 22px;
+}
+
+.reveal .fp-ladder .fp-card__text {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.reveal .fp--photo .fp-head--photo {
+  position: absolute;
+  top: 64px;
+  left: 96px;
+  right: 96px;
+  z-index: 2;
+  margin: 0;
+}
+
+.reveal .fp--photo .fp-head--photo .fp-head__logo {
+  height: 56px;
+}
+
+.reveal .fp-sector-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  align-content: start;
+}
+
+.reveal .fp-sector-grid .fp-card {
+  grid-column: span 2;
+  padding: 18px 20px;
+}
+
+.reveal .fp-sector-grid .fp-sector-grid__wide {
+  grid-column: span 3;
+}
+
+.reveal .fp-sector-grid .fp-card__title {
+  font-size: 21px;
+}
+
+.reveal .fp-sector-grid .fp-card__text {
+  font-size: 18px;
+}
+
+.reveal .fp-compare-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-content: start;
+}
+
+.reveal .fp-compare-grid .fp-card {
+  padding: 14px 16px;
+  min-height: 0;
+}
+
+.reveal .fp-compare-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.reveal .fp-compare-list li {
+  font-size: 15px;
+  line-height: 1.28;
+}
+
+.reveal .fp-compare-grid .fp-card__title {
+  font-size: 22px;
+  margin-bottom: 12px !important;
+}
+
+.reveal .fp-split-qa {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-content: start;
+}
+
+.reveal .fp-checks--compact li {
+  font-size: 20px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+/* --- Fix-2: interactive layer (MubOn vocabulary, print-pdf safe) --- */
+.reveal .fp-ladder-step,
+.reveal .fp-journey-node,
+.reveal .fp-sector-card,
+.reveal [data-fp-risk-table] tbody tr,
+.reveal [data-fp-risk-table] thead th {
+  cursor: pointer;
+}
+
+.reveal .fp-ladder-step {
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.reveal .fp-ladder-step.is-active {
+  border-color: #0c498a;
+  box-shadow: 0 0 0 3px rgba(157, 195, 132, 0.55);
+  transform: translateY(-2px);
+}
+.reveal .fp-ladder-detail {
+  margin-top: 14px;
+  font-size: 20px;
+  line-height: 1.35;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: rgba(178, 238, 250, 0.35);
+  border: 2px solid #b2eefa;
+  min-height: 72px;
+}
+
+.reveal .fp-journey {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.reveal .fp-journey-node {
+  text-align: center;
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: 2px solid #b2eefa;
+  background: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0c498a;
+  position: relative;
+}
+.reveal .fp-journey-node.is-active {
+  background: #0c498a;
+  color: #fff;
+  border-color: #9dc384;
+}
+.reveal .fp-journey-node.is-done {
+  border-color: #669348;
+}
+.reveal .fp-journey-panel {
+  font-size: 20px;
+  line-height: 1.38;
+  padding: 14px 18px;
+  border-left: 5px solid #9dc384;
+  background: rgba(178, 238, 250, 0.25);
+  border-radius: 0 12px 12px 0;
+}
+
+.reveal .fp-chart-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+  align-content: stretch;
+}
+.reveal .fp-chart-card {
+  background: #fff;
+  border: 2px solid #b2eefa;
+  border-radius: 16px;
+  padding: 16px 18px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+.reveal .fp-chart-card__title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 4px !important;
+  color: #0c498a;
+}
+.reveal .fp-chart-card__sub {
+  font-size: 14px;
+  color: #669348;
+  margin-bottom: 10px !important;
+}
+.reveal .fp-chart-box {
+  position: relative;
+  flex: 1;
+  min-height: 180px;
+  max-height: 220px;
+}
+
+.reveal .fp-stat-band--interactive .fp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
+}
+.reveal .fp-stats--4.fp-stats--compact .fp-stat {
+  min-height: 140px;
+  padding: 22px 20px;
+}
+.reveal .fp-stats--4.fp-stats--compact .fp-stat__value {
+  font-size: 52px;
+}
+
+.reveal .fp-sector-card {
+  grid-column: span 2;
+  padding: 18px 20px;
+  transition: border-color 0.15s;
+}
+.reveal .fp-sector-card.is-open {
+  border-color: #0c498a;
+  background: rgba(178, 238, 250, 0.22);
+}
+.reveal .fp-sector-detail {
+  margin-top: 10px;
+  font-size: 17px;
+  line-height: 1.35;
+  padding-top: 10px;
+  border-top: 2px dashed #b2eefa;
+}
+
+.reveal .fp-slide-fill .fp-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 0;
+}
+
+.reveal .fp-risk-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 19px;
+  line-height: 1.25;
+  border: 3px solid #b2eefa;
+  border-radius: 14px;
+  overflow: hidden;
+  flex: 1;
+}
+.reveal .fp-risk-table th,
+.reveal .fp-risk-table td {
+  padding: 14px 16px;
+  border-top: 1px solid #b2eefa;
+  text-align: center;
+}
+.reveal .fp-risk-table th:first-child,
+.reveal .fp-risk-table td:first-child {
+  text-align: left;
+  font-weight: 700;
+  width: 22%;
+}
+.reveal .fp-risk-table thead th {
+  background: #0c498a;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+}
+.reveal .fp-risk-table tbody tr:nth-child(even) td {
+  background: rgba(178, 238, 250, 0.2);
+}
+.reveal .fp-risk-table .rate-low {
+  color: #669348;
+  font-weight: 700;
+}
+.reveal .fp-risk-table .rate-med {
+  color: #0c498a;
+  font-weight: 700;
+}
+.reveal .fp-risk-table .rate-high {
+  color: #c45c2a;
+  font-weight: 700;
+}
+.reveal .fp-risk-table .is-highlight,
+.reveal .fp-risk-table tr.is-highlight td {
+  background: rgba(157, 195, 132, 0.45) !important;
+}
+.reveal .fp-risk-table th.is-highlight {
+  background: #669348 !important;
+}
+
+.reveal .fp-investor-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 24px;
+  flex: 1;
+  align-content: start;
+}
+.reveal .fp-investor-controls label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #669348;
+}
+.reveal .fp-investor-controls input[type="range"] {
+  width: 100%;
+  accent-color: #0c498a;
+}
+.reveal .fp-investor-bands {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 18px;
+  flex-wrap: wrap;
+}
+.reveal .fp-investor-band {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 2px solid #b2eefa;
+  color: #0c498a;
+}
+.reveal .fp-investor-band.is-active {
+  background: #0c498a;
+  color: #fff;
+  border-color: #0c498a;
+}
+.reveal .fp-investor-panel {
+  border: 2px solid #b2eefa;
+  border-radius: 16px;
+  padding: 20px 22px;
+  background: #fff;
+}
+.reveal .fp-investor-panel h3 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  color: #0c498a;
+}
+.reveal .fp-investor-panel p {
+  font-size: 20px;
+  line-height: 1.38;
+  margin: 0 0 12px;
+}
+.reveal .fp-illus-tag {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #69b5fa;
+}
+
+.reveal .fp-lens-toggle {
+  display: inline-flex;
+  border: 2px solid #0c498a;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.reveal .fp-lens-toggle button {
+  border: none;
+  background: #fff;
+  color: #0c498a;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+.reveal .fp-lens-toggle button.is-active {
+  background: #0c498a;
+  color: #fff;
+}
+.reveal .fp-lens-body {
+  font-size: 20px;
+  line-height: 1.38;
+}
+
+.reveal .fp-checks--tick li {
+  cursor: pointer;
+  opacity: 0.85;
+}
+.reveal .fp-checks--tick li.is-checked {
+  opacity: 1;
+}
+.reveal .fp-checks--tick li.is-checked::before {
+  background: #669348;
+  content: "✓";
+}
+
+.reveal .fp-q3-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.reveal .fp-q3-toggle button {
+  flex: 1;
+  border: 2px solid #b2eefa;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #fff;
+  color: #0c498a;
+  cursor: pointer;
+}
+.reveal .fp-q3-toggle button.is-active {
+  border-color: #0c498a;
+  background: rgba(178, 238, 250, 0.35);
+}
+
+.reveal .fp-split-qa--interactive {
+  flex: 1;
+  align-content: stretch;
+}
+.reveal .fp-split-qa--interactive .fp-split-qa__col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+body.print-pdf .fp-sector-detail,
+body.deck-static .fp-sector-detail,
+body.print-pdf .fp-ladder-detail,
+body.deck-static .fp-ladder-detail,
+body.print-pdf .fp-journey-panel,
+body.deck-static .fp-journey-panel,
+body.print-pdf .fp-lens-body,
+body.deck-static .fp-lens-body,
+body.print-pdf .fp-investor-panel,
+body.deck-static .fp-investor-panel {
+  display: block !important;
+}
+body.print-pdf .fp-chart-box canvas,
+body.deck-static .fp-chart-box canvas {
+  max-height: 220px;
+}
+
+.reveal .fp-chart-row--hero {
+  grid-template-columns: 1fr;
+}
+.reveal .fp-chart-footnote {
+  font-size: 14px;
+  color: #669348;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.reveal .fp-screen-only {
+  display: block;
+}
+body.print-pdf .fp-screen-only,
+body.deck-static .fp-screen-only {
+  display: none !important;
+}
+
+body.print-pdf .fp-tap-hint,
+body.deck-static .fp-tap-hint,
+body.print-pdf .fp-sector-card.is-open .fp-card__text.fp-tap-hint,
+body.deck-static .fp-sector-card.is-open .fp-card__text.fp-tap-hint {
+  display: none !important;
+}
+
+body.print-pdf .fp-ladder-step__print,
+body.deck-static .fp-ladder-step__print {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #0c498a;
+  border-top: 2px dashed #b2eefa;
+  padding-top: 8px;
+}
+body.print-pdf .fp-ladder-detail,
+body.deck-static .fp-ladder-detail {
+  display: none !important;
+}
+
+body.print-pdf .fp-journey-print-stack,
+body.deck-static .fp-journey-print-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+body.print-pdf .fp-journey-print-block,
+body.deck-static .fp-journey-print-block {
+  font-size: 18px;
+  line-height: 1.38;
+  padding: 12px 16px;
+  border-left: 5px solid #9dc384;
+  background: rgba(178, 238, 250, 0.25);
+  border-radius: 0 12px 12px 0;
+}
+body.print-pdf .fp-journey-panel,
+body.deck-static .fp-journey-panel {
+  display: none !important;
+}
+
+body.print-pdf .fp-q3-dual,
+body.deck-static .fp-q3-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+body.print-pdf .fp-q3-dual__col,
+body.deck-static .fp-q3-dual__col {
+  border: 2px solid #b2eefa;
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 18px;
+  line-height: 1.38;
+}
+body.print-pdf .fp-q3-dual__col h4,
+body.deck-static .fp-q3-dual__col h4 {
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: #0c498a;
+}
+
+body.print-pdf .fp-investor-print-grid,
+body.deck-static .fp-investor-print-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  grid-column: 1 / -1;
+}
+body.print-pdf .fp-investor-print-card,
+body.deck-static .fp-investor-print-card {
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+body.print-pdf .fp-investor-print-card h4,
+body.deck-static .fp-investor-print-card h4 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: #0c498a;
+}
+
+body.print-pdf .fp-lens-print-both,
+body.deck-static .fp-lens-print-both {
+  font-size: 18px;
+  line-height: 1.38;
+  margin-top: 8px;
+}
+
+.reveal .fp-risk-cell-note {
+  display: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: #334;
+  line-height: 1.3;
+  margin-top: 6px;
+  text-align: left;
+}
+.reveal .fp-risk-table td.is-detail-open .fp-risk-cell-note {
+  display: block;
+}
+body.print-pdf .fp-risk-table td[data-risk-detail] .fp-risk-cell-note,
+body.deck-static .fp-risk-table td[data-risk-detail] .fp-risk-cell-note {
+  display: block;
+}
+body.print-pdf .fp-risk-table td[data-risk-detail],
+body.deck-static .fp-risk-table td[data-risk-detail] {
+  text-align: left;
+  vertical-align: top;
+}
+body.print-pdf .fp-risk-note,
+body.deck-static .fp-risk-note {
+  display: none !important;
+}
+.reveal .fp-risk-note {
+  font-size: 17px;
+  color: #0c498a;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(178, 238, 250, 0.25);
+  border-radius: 10px;
+  min-height: 2.5em;
+}
