@@ -77,6 +77,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~Novatio CTH tie~~ — **resolved (Gideon, 27 Nov 2026):** graduate of a CTH accelerator programme.
 
-Remaining: Novatio AI angle · SUNCO/Parsons URLs & AI · portal fields · full T&Cs.
+~~Novatio AI angle~~ — **resolved (Gideon, 27 Nov 2026):** biodigester prediction model, digital twin first.
+
+Remaining: SUNCO/Parsons URLs & AI · portal fields · full T&Cs.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/), [UNDP Adaptation — AFCIA Colombia](https://www.adaptation-undp.org/green-business-accelerator-helps-strengthen-resilient-communities-colombia).*
