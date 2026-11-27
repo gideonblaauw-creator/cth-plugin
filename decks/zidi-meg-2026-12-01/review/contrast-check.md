@@ -1,4 +1,4 @@
-# Contrast check — Zidi MEG deck (Fix-6)
+# Contrast check — Zidi MEG deck (Fix-6b)
 
 Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · large text ≥3:1.
 
@@ -40,3 +40,21 @@ Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · l
 - GIZ growth slides after CTH programmes; umbrella facts cited to giz.de (8 countries, 90 ventures, verified 27 Nov 2026).
 
 _(PDF per-page overlap + live contrast run appended by `review/pdf-layout-check.mjs` after build.)_
+
+## Computed font sizes (print mode, Fix-6b)
+
+Run: `node review/font-size-check.mjs` · 2026-11-27
+
+| Role | CSS declared (px) | Effective computed (px) | Floor |
+|------|------------------:|------------------------:|------:|
+| body / bullets | 36 | 36 | 36 | OK
+| card title | 39 | 39 | 34 | OK
+| card text | 36 | 36 | 34 | OK
+| flip print body | 34 | 34 | 34 | OK
+| GIZ print body | 34 | 34 | 34 | OK
+| readiness print body | 36 | 36 | 36 | OK
+| risk table td | 34 | 34 | 34 | OK
+| Q6 lens body | 36 | 36 | 36 | OK
+| source line | 22 | 22 | 22 | OK
+| eyebrow | 24 | 24 | 24 | OK
+| programme card text | 24 | 24 | 24 | OK

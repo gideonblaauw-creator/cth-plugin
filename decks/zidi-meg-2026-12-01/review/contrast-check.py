@@ -58,7 +58,7 @@ PAIRS = [
 
 out = Path(__file__).resolve().parent / "contrast-check.md"
 lines = [
-    "# Contrast check — Zidi MEG deck (Fix-6)",
+    "# Contrast check — Zidi MEG deck (Fix-6b)",
     "",
     "Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · large text ≥3:1.",
     "",
@@ -73,13 +73,14 @@ for name, fg, bg, large in PAIRS:
 lines.extend(
     [
         "",
-        "## Fix-6 mitigations",
+        "## Fix-6b mitigations",
         "",
         "- Full-bleed photo backgrounds and scrims removed; flat navy or white slides per FODESEP `deck.css`.",
         "- Unblocked hero image rails (`fp-hero-rail`) beside content — thematic assets only, no people.",
         "- Programme cards show photo unblocked with solid navy caption bar (no gradient scrim).",
-        "- Type scale ×1.5 vs Fix-5 v5 floors; source lines ≥22px.",
-        "- GIZ growth slides after CTH programmes; umbrella facts cited to giz.de (8 countries, 90 ventures, verified 27 Nov 2026).",
+        "- Type scale ×1.5 vs Fix-5 v5 floors; source/footer on dedicated grid rows outside `fp-slide-shell`.",
+        "- GIZ: four flip steps on one slide (print = stacked front/back); SME vs investor on slide 2; giz.de umbrella in source row.",
+        "- Readiness checklist split (3+3); Q4 merged to one five-row table; heroes ≈43% width; thematic assets only.",
         "",
         "_(PDF per-page overlap + live contrast run appended by `review/pdf-layout-check.mjs` after build.)_",
         "",
