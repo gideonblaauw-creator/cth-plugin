@@ -1,0 +1,6 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     10  0
+BAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     11  0
+CAAAAA+NotoColorEmoji                Type 3            Custom           yes yes yes     12  0
+DAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     13  0

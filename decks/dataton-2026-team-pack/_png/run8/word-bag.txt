@@ -1,0 +1,5 @@
+hoja-2-flujo-de-datos.pdf: word-bag delta **0**
+hoja-3-dato-a-valor.pdf: word-bag delta **0**
+hoja-4-plantilla-tablero.pdf: word-bag delta **0**
+hoja-4b-ejemplo-air4u.pdf: word-bag delta **0**
+prompts-ia-v2.pdf: word-bag delta **0**

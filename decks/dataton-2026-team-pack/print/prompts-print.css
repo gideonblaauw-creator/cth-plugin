@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: url("../fonts/open-sans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf") format("truetype");
+}
+:root {
+  --blue: #0C498A;
+  --green: #669348;
+  --cyan: #B2EEFA;
+  --lgreen: #9DC384;
+}
+* { box-sizing: border-box; }
+@page { size: A4; margin: 14mm 12mm; }
+html, body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 10pt;
+  line-height: 1.38;
+  color: var(--blue);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.print-page {
+  break-after: page;
+  page-break-after: always;
+  padding: 0 1mm;
+}
+.print-page:last-child { break-after: auto; page-break-after: auto; }
+.sheet { padding: 0 0 4mm; }
+.cover { text-align: left; padding-top: 1mm; }
+.cover .logo { height: 28px; margin-bottom: 4px; }
+.cover h1 { font-size: 16pt; margin: 0 0 2px; }
+.cover .sub { font-weight: 600; margin: 0 0 4px; font-size: 9.5pt; }
+.cover .lead { margin: 0 0 6px; font-size: 9.5pt; }
+.rules-box {
+  background: rgba(178, 238, 250, 0.25);
+  border-left: 4px solid var(--lgreen);
+  padding: 8px 12px;
+  font-size: 9.5pt;
+}
+.rules-box ul { margin: 4px 0 0; padding-left: 18px; }
+.section h2 {
+  font-size: 12pt;
+  color: var(--green);
+  border-bottom: 2px solid var(--cyan);
+  padding-bottom: 3px;
+  margin: 0 0 8px;
+}
+.section p { margin: 0 0 6px; font-size: 9.5pt; }
+pre.prompt {
+  background: #f4f8fb;
+  border: 1px solid rgba(12, 73, 138, 0.25);
+  border-left: 4px solid var(--blue);
+  padding: 10px 14px 12px;
+  font-family: ui-monospace, "Cascadia Code", "DejaVu Sans Mono", monospace;
+  font-size: 9pt;
+  line-height: 1.38;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin: 8px 0 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.page-break { break-before: page; page-break-before: always; }
+.foot { font-size: 8pt; text-align: center; margin-top: 6mm; }
+code { font-size: 9pt; }

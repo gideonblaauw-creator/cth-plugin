@@ -1,0 +1,75 @@
+@import url("guia-front-fonts.css");
+
+:root { --blue: #0C498A; --green: #669348; --lgreen: #9DC384; }
+
+@page { size: A4; margin: 14mm 12mm; }
+
+html, body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+  color: var(--blue);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.guia-page {
+  page-break-after: always;
+  break-after: page;
+  min-height: 255mm;
+}
+
+.guia-page:last-child {
+  page-break-after: auto;
+}
+
+.hdr-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--lgreen);
+  padding-bottom: 6px;
+  margin-bottom: 24px;
+}
+
+.hdr-bar img { height: 28px; }
+.hdr-bar span { font-size: 8pt; font-weight: 600; }
+
+.cover-title {
+  font-size: 22pt;
+  margin: 36px 0 12px;
+  text-align: center;
+  color: var(--blue);
+}
+
+.cover-badge {
+  text-align: center;
+  font-weight: 700;
+  font-size: 12pt;
+  margin: 0 0 8px;
+}
+
+.cover-date {
+  text-align: center;
+  font-size: 11pt;
+  margin: 0 0 24px;
+}
+
+.cover-lead {
+  max-width: 42em;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10.5pt;
+}
+
+h1 {
+  font-size: 15pt;
+  color: var(--blue);
+  margin: 0 0 12px;
+  text-align: left;
+}
+
+.index p, .section p {
+  margin: 0 0 8px;
+}

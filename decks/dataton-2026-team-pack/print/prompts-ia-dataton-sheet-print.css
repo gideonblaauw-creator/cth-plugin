@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Color Emoji";
+  src: url("../fonts/noto-emoji/NotoColorEmoji-Regular.ttf") format("truetype");
+}
+:root { --blue: #0C498A; --grey: #666666; --copy: #E8F6FA; }
+@page { size: A4; margin: 12mm 12mm 20mm 12mm; }
+html, body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 9pt;
+  line-height: 1.28;
+  color: #333;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.hdr {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+  border-bottom: 2px solid #9DC384;
+  padding-bottom: 4px;
+}
+.hdr img { height: 24px; }
+h1 { font-size: 12pt; color: var(--blue); margin: 0 0 6px; }
+.lead { font-weight: 700; font-size: 9pt; margin: 0 0 8px; }
+.parte-block {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+  margin-bottom: 4px;
+}
+.parte-block.parte-page-start {
+  break-before: page;
+  page-break-before: always;
+}
+h2.parte-line {
+  font-size: 9.5pt;
+  color: var(--blue);
+  margin: 8px 0 3px;
+  font-weight: 700;
+  break-after: avoid-page;
+  page-break-after: avoid;
+}
+.meta { margin: 0 0 2px; font-size: 8.5pt; }
+.canvas-note {
+  margin: 0 0 4px;
+  font-size: 8.5pt;
+  font-style: italic;
+  color: var(--grey);
+}
+.copy-box {
+  background: var(--copy);
+  border: 0.5px solid rgba(12, 73, 138, 0.12);
+  border-radius: 3px;
+  padding: 5px 8px;
+  margin: 0 0 4px;
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+.copy-box .body {
+  margin: 0 0 2px;
+  font-size: 9pt;
+}
