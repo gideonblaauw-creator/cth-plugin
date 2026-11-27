@@ -26,6 +26,80 @@
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
 
+  function initProgrammeGrid() {
+    qsa("[data-fp-programme]").forEach(function (wrap) {
+      var cards = qsa(".fp-programme-card", wrap);
+      var detail = qs(".fp-programme-detail", wrap);
+      function pick(i) {
+        if (isPrint) return;
+        cards.forEach(function (c, j) {
+          c.classList.toggle("is-active", j === i);
+          c.setAttribute("aria-pressed", j === i ? "true" : "false");
+        });
+        if (detail) detail.textContent = cards[i].dataset.detail || "";
+      }
+      if (isPrint) {
+        cards.forEach(function (card) {
+          card.classList.add("is-active");
+        });
+        if (detail) detail.textContent = cards.map(function (c) { return c.dataset.detail || ""; }).join(" ");
+        return;
+      }
+      cards.forEach(function (card, i) {
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.addEventListener("click", function () {
+          pick(i);
+        });
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            pick(i);
+          }
+        });
+      });
+      pick(0);
+    });
+  }
+
+  function initFlipCards() {
+    qsa("[data-fp-flip]").forEach(function (flip) {
+      var titleEl = qs(".fp-flip__title", flip);
+      var backEl = qs(".fp-flip__face--back", flip);
+      var titleText = titleEl ? titleEl.textContent : flip.dataset.flipTitle || "";
+      var back = backEl ? backEl.innerHTML : flip.dataset.flipBack || "";
+
+      if (isPrint) {
+        if (!qs(".fp-flip__print-pair", flip)) {
+          var pair = document.createElement("div");
+          pair.className = "fp-flip__print-pair";
+          pair.innerHTML =
+            '<article><h4>Front</h4><p>' +
+            titleText +
+            '</p></article><article><h4>Back</h4><p>' +
+            back +
+            "</p></article>";
+          flip.appendChild(pair);
+        }
+        return;
+      }
+
+      function toggle() {
+        flip.classList.toggle("is-flipped");
+        flip.setAttribute("aria-pressed", flip.classList.contains("is-flipped") ? "true" : "false");
+      }
+      flip.setAttribute("role", "button");
+      flip.setAttribute("tabindex", "0");
+      flip.addEventListener("click", toggle);
+      flip.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+
   function initLadder() {
     qsa("[data-fp-ladder]").forEach(function (wrap) {
       var steps = qsa(".fp-ladder-step", wrap);
@@ -302,12 +376,8 @@
     });
   }
 
-  function initReadinessChecks() {
-    initChecklist("[data-fp-readiness]");
-  }
-
-  function initRegChecks() {
-    initChecklist("[data-fp-reg-check]");
+  function initRegFlips() {
+    /* regulatory flip cards use initFlipCards via data-fp-flip */
   }
 
   function destroyChart(id) {
@@ -498,10 +568,11 @@
 
   function boot() {
     if (isPrint) document.body.classList.add("deck-static");
+    initProgrammeGrid();
+    initFlipCards();
     initLadder();
     initJourney();
-    initReadinessChecks();
-    initRegChecks();
+    initRegFlips();
     initSectorGrid();
     initRiskTable();
     initInvestorPath();

@@ -307,6 +307,19 @@ body.print-pdf .fp-kenburns {
 .reveal .fp-stats--4.fp-stats--compact .fp-stat__value {
   font-size: 52px;
 }
+.reveal .fp-stats--3.fp-stats--compact .fp-stat {
+  min-height: 200px;
+  padding: 28px 22px;
+}
+.reveal .fp-stats--3.fp-stats--compact .fp-stat__value {
+  font-size: 48px;
+}
+.reveal .fp-stats--compact .fp-stat__source {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-top: 10px;
+  padding-top: 8px;
+}
 
 .reveal .fp-sector-card {
   grid-column: span 2;
@@ -675,4 +688,241 @@ body.deck-static .fp-risk-note {
   background: rgba(178, 238, 250, 0.25);
   border-radius: 10px;
   min-height: 2.5em;
+}
+
+/* --- Fix-4: full-bleed scrim, programme visuals, flip cards, Q2/Q4 type --- */
+.fp-photo-scrim--strong {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.88) 0%,
+    rgba(12, 73, 138, 0.72) 45%,
+    rgba(12, 73, 138, 0.92) 100%
+  ) !important;
+}
+
+.reveal .fp.fp--bleed {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+.reveal .fp.fp--bleed .fp-head__logo {
+  filter: brightness(0) invert(1);
+}
+.reveal .fp.fp--bleed .fp-eyebrow {
+  color: #9dc384;
+}
+.reveal .fp.fp--bleed .fp-title {
+  color: #fff;
+}
+.reveal .fp.fp--bleed .fp-title::after {
+  background: #b2eefa;
+}
+.reveal .fp.fp--bleed .fp-bullets li,
+.reveal .fp.fp--bleed .fp-card__text,
+.reveal .fp.fp--bleed .fp-body {
+  color: #fff;
+}
+.reveal .fp.fp--bleed .fp-bullets li::before {
+  background: #9dc384;
+}
+.reveal .fp.fp--bleed .fp-card {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: #b2eefa;
+}
+.reveal .fp.fp--bleed .fp-card .fp-card__title,
+.reveal .fp.fp--bleed .fp-card .fp-card__text {
+  color: #0c498a;
+}
+.reveal .fp.fp--bleed .cth-source {
+  color: #b2eefa;
+  z-index: 2;
+}
+.reveal .fp.fp--bleed .fp-foot .fp-conf {
+  color: #b2eefa;
+}
+.reveal .fp.fp--bleed .fp-foot {
+  color: #9dc384;
+  z-index: 2;
+}
+
+.reveal .fp-programme-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  align-content: start;
+}
+.reveal .fp-programme-card {
+  position: relative;
+  min-height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #b2eefa;
+  padding: 0;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+}
+.reveal .fp-programme-card__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 73, 138, 0.35) 0%, rgba(12, 73, 138, 0.92) 68%);
+}
+.reveal .fp-programme-card__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 16px 16px;
+  z-index: 1;
+  color: #fff;
+}
+.reveal .fp-programme-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px !important;
+  line-height: 1.15;
+}
+.reveal .fp-programme-card__text {
+  font-size: 17px;
+  line-height: 1.32;
+  margin: 0 !important;
+  opacity: 0.95;
+}
+.reveal .fp-programme-card__mubon {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #9dc384;
+  color: #0c498a;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.reveal .fp-programme-card.is-active {
+  outline: 4px solid #9dc384;
+  outline-offset: 2px;
+  transform: translateY(-3px);
+}
+.reveal .fp-programme-detail {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 1.38;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(178, 238, 250, 0.55);
+  color: #fff;
+  min-height: 64px;
+}
+
+.reveal .fp-flip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.reveal .fp-flip-grid--duo {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 14px;
+}
+.reveal .fp-flip {
+  perspective: 1200px;
+  min-height: 148px;
+  cursor: pointer;
+}
+.reveal .fp-flip__inner {
+  position: relative;
+  width: 100%;
+  min-height: 148px;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+}
+.reveal .fp-flip.is-flipped .fp-flip__inner {
+  transform: rotateY(180deg);
+}
+.reveal .fp-flip__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  border: 3px solid #b2eefa;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+.reveal .fp-flip__face--back {
+  transform: rotateY(180deg);
+  background: rgba(178, 238, 250, 0.35);
+  align-items: flex-start;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.reveal .fp-flip__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0c498a;
+  margin: 0 !important;
+}
+.reveal .fp-flip-hint {
+  font-size: 17px;
+  color: #669348;
+  margin-top: 10px;
+}
+
+.reveal .fp-sector-grid .fp-card__title {
+  font-size: 24px;
+}
+.reveal .fp-sector-grid .fp-card__text {
+  font-size: 22px;
+}
+.reveal .fp-sector-detail {
+  font-size: 22px;
+}
+.reveal .fp-q2-intro {
+  font-size: 24px;
+  line-height: 1.38;
+  margin-bottom: 16px !important;
+}
+
+.reveal .fp-risk-table {
+  font-size: 22px;
+}
+.reveal .fp-risk-table thead th {
+  font-size: 24px;
+}
+.reveal .fp-risk-table td .fp-risk-rate {
+  font-size: 22px;
+}
+
+body.print-pdf .fp-flip,
+body.deck-static .fp-flip {
+  cursor: default;
+  min-height: 0;
+}
+body.print-pdf .fp-flip__print-pair,
+body.deck-static .fp-flip__print-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+body.print-pdf .fp-flip__print-pair article,
+body.deck-static .fp-flip__print-pair article {
+  border: 2px solid #b2eefa;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.32;
+}
+body.print-pdf .fp-flip__print-pair h4,
+body.deck-static .fp-flip__print-pair h4 {
+  font-size: 15px;
+  margin: 0 0 6px;
+  color: #0c498a;
+}
+body.print-pdf .fp-flip__inner,
+body.deck-static .fp-flip__inner {
+  display: none !important;
 }
