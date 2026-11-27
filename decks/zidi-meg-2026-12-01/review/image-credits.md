@@ -1,23 +1,15 @@
-# Image credits — Zidi MEG deck Fix-6c
+# Image credits — Zidi MEG deck (Fix-6d)
 
-Fix-6c hero rails: thematic only, no people; no same hero on adjacent slides (see `index.html` `fp-hero-rail`).
+Fix-6d hero rails: thematic only except **Q3** uses `ideation.jpg` per deck-owner exception (Gideon 27 Nov 2026). Five archived bg files removed from repo; see git history for credits.
 
-# Image credits — Zidi MEG deck Fix-6b
+| Asset | Use | Source | Date |
+|-------|-----|--------|------|
+| `assets/bg/solar-energy.jpg` | Cover, GIZ outcomes, CTH programmes, readiness checklist | https://www.pexels.com/photo/356036/ | 27 Nov 2026 |
+| `assets/bg/wind-energy.jpg` | Why session, MubOn scale, Q1 investor paths | https://www.pexels.com/photo/414837/ | 27 Nov 2026 |
+| `assets/bg/andes-colombia.jpg` | Speaker path, unit economics context | https://www.pexels.com/photo/1108572/ | 27 Nov 2026 |
+| `assets/bg/ev-station.jpg` | CTH programme stage, Q5 regulatory diligence | https://www.pexels.com/photo/9799766/ | 27 Nov 2026 |
+| `assets/ev-charging.jpg` | MubOn pathway, Colombia EV market | CleantechHUB deck asset | 27 Nov 2026 |
+| `assets/bg/agriculture.jpg` | Programme Incubation card only (not hero) | https://www.pexels.com/photo/2252584/ | 27 Nov 2026 |
+| `assets/bg/ideation.jpg` | Q3 usage-based revenue slide (owner exception) | https://www.pexels.com/photo/3861969/ | 27 Nov 2026 |
 
-All slide and card backgrounds are atmospheric/thematic only (no people). Licensed free-use sources:
-
-| Asset path | Theme | Source URL | Retrieved |
-|------------|-------|------------|-----------|
-| `assets/ev-charging.jpg` | EV charging (pre-Fix-4) | Deck asset | prior build |
-| `assets/bg/andes-colombia.jpg` | Andes landscape | https://www.pexels.com/photo/1108572/ | 27 Nov 2026 |
-| `assets/bg/ev-station.jpg` | E-mobility | https://www.pexels.com/photo/9799766/ | 27 Nov 2026 |
-| `assets/bg/solar-energy.jpg` | Energy / solar | https://www.pexels.com/photo/356036/ | 27 Nov 2026 |
-| `assets/bg/agriculture.jpg` | Agriculture | https://www.pexels.com/photo/2252584/ | 27 Nov 2026 |
-| `assets/bg/wind-energy.jpg` | Wind / energy | https://www.pexels.com/photo/414837/ | 27 Nov 2026 |
-| `assets/bg/highway-electric.jpg` | Transport / energy (archived; cover uses `ev-station.jpg`, Fix-6b) | https://www.pexels.com/photo/3802508/ | 27 Nov 2026 |
-| `assets/bg/ideation.jpg` | Innovation / workspace (archived; Ideation card uses `wind-energy.jpg` — no people, Fix-5) | https://www.pexels.com/photo/3861969/ | 27 Nov 2026 |
-| `assets/bg/incubation.jpg` | Modern building / scale-up | https://www.pexels.com/photo/3259575/ | 27 Nov 2026 |
-| `assets/bg/acceleration.jpg` | Logistics / momentum | https://www.pexels.com/photo/1118448/ | 27 Nov 2026 |
-| `assets/bg/growth.jpg` | Urban skyline (archived; GIZ hero uses solar, Fix-6b) | https://www.pexels.com/photo/1696477/ | 27 Nov 2026 |
-| `assets/bg/train-trainer.jpg` | Education (archived; TtT card uses solar, Fix-6b) | https://www.pexels.com/photo/256541/ | 27 Nov 2026 |
-| `assets/bg/incubation.jpg` | Building (archived; GIZ outcomes uses Andes, Fix-6b) | https://www.pexels.com/photo/3259575/ | 27 Nov 2026 |
+Removed in Fix-6d: `highway-electric.jpg`, `growth.jpg`, `incubation.jpg`, `acceleration.jpg`, `train-trainer.jpg`.

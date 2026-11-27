@@ -2396,3 +2396,129 @@ body.print-pdf.fix6-deck .fp-q4-slide .fp-risk-table--q4-full thead th,
 body.deck-static.fix6-deck .fp-q4-slide .fp-risk-table--q4-full thead th {
   font-size: 24px !important;
 }
+
+/* Fix-6d: unit economics 3-col, Q5 regulatory grid, Q6 diaspora full width, Q3 fill */
+body.fix6-deck .reveal .fp-flip-grid--unit-econ-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-content: start;
+  width: 100%;
+}
+
+body.fix6-deck .reveal .fp-unit-econ-slide .fp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+body.print-pdf.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip,
+body.deck-static.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip {
+  min-height: 0;
+}
+
+body.print-pdf.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair,
+body.deck-static.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair {
+  display: grid !important;
+  gap: 5px;
+  height: auto;
+  max-height: 360px;
+  overflow: hidden;
+}
+
+body.print-pdf.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair article {
+  font-size: 34px !important;
+  line-height: 1.1 !important;
+  padding: 5px 8px !important;
+}
+
+body.print-pdf.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair h4,
+body.deck-static.fix6-deck .fp-flip-grid--unit-econ-3 .fp-flip__print-pair h4 {
+  font-size: 24px !important;
+  line-height: 1.1 !important;
+}
+
+body.fix6-deck .reveal .fp-flip-grid--q5-regulatory {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+body.fix6-deck .reveal .fp-flip-grid--q5-regulatory .fp-flip {
+  grid-column: auto !important;
+  min-height: 140px;
+}
+
+body.print-pdf.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory,
+body.deck-static.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory {
+  gap: 8px;
+  max-height: 700px;
+  margin-bottom: 8px;
+}
+
+body.print-pdf.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory .fp-flip__print-pair article,
+body.deck-static.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory .fp-flip__print-pair article {
+  font-size: 34px !important;
+  line-height: 1.1 !important;
+  padding: 6px 8px !important;
+}
+
+body.print-pdf.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory .fp-flip__print-pair h4,
+body.deck-static.fix6-deck .fp-q5-regulatory-slide .fp-flip-grid--q5-regulatory .fp-flip__print-pair h4 {
+  font-size: 24px !important;
+}
+
+body.print-pdf.fix6-deck .fp-q5-regulatory-slide .fp-q5-lead,
+body.deck-static.fix6-deck .fp-q5-regulatory-slide .fp-q5-lead {
+  display: none !important;
+}
+
+body.print-pdf.fix6-deck .fp-q6-diaspora-slide .fp-q6-body,
+body.deck-static.fix6-deck .fp-q6-diaspora-slide .fp-q6-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-content: start;
+}
+
+body.print-pdf.fix6-deck .fp-q6-diaspora-slide .fp-q6-lens,
+body.deck-static.fix6-deck .fp-q6-diaspora-slide .fp-q6-lens {
+  padding: 16px 20px !important;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+body.print-pdf.fix6-deck .fp-q6-diaspora-slide .fp-q6-bullets li,
+body.deck-static.fix6-deck .fp-q6-diaspora-slide .fp-q6-bullets li {
+  font-size: 36px !important;
+  line-height: 1.26 !important;
+  margin-bottom: 6px !important;
+}
+
+body.fix6-deck .reveal .fp-q3-bullets {
+  margin-top: 12px !important;
+}
+
+body.fix6-deck .reveal .fp-q3-bullets li {
+  font-size: 34px !important;
+  line-height: 1.32 !important;
+}
+
+body.print-pdf.fix6-deck .fp-q3-bullets li,
+body.deck-static.fix6-deck .fp-q3-bullets li {
+  font-size: 36px !important;
+  line-height: 1.28 !important;
+}
+
+body.print-pdf.fix6-deck .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card,
+body.deck-static.fix6-deck .fp-q2-slide .fp-sector-grid--q2 .fp-sector-card {
+  min-height: 120px;
+  max-height: 200px;
+}
+
+body.fix6-deck .reveal .fp.fp--no-hero.fp-stat-band .fp-slide-shell {
+  max-width: 100%;
+}
