@@ -55,6 +55,74 @@ async function gotoSlide(page, idx) {
   await new Promise((r) => setTimeout(r, 600));
 }
 
+const interactions = [
+  {
+    id: "ladder",
+    slide: 3,
+    async before() {},
+    async after(page) {
+      await page.click(".fp-ladder-step:nth-child(3)");
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "charts",
+    slide: 5,
+    async before() {},
+    async after() {
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "q3-toggle",
+    slide: 6,
+    async before() {},
+    async after(page) {
+      await page.click('[data-q3="subsidy"]');
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "investor-slider",
+    slide: 10,
+    async before() {},
+    async after(page) {
+      await page.$eval("#ticket-slider", (el) => {
+        el.value = "2";
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+      });
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "sector-cards",
+    slide: 11,
+    async before() {},
+    async after(page) {
+      await page.click(".fp-sector-card:first-child");
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "risk-table",
+    slide: 12,
+    async before() {},
+    async after(page) {
+      await page.click(".fp-risk-table tbody tr:nth-child(4) td.rate-high");
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+  {
+    id: "lens",
+    slide: 13,
+    async before() {},
+    async after(page) {
+      await page.click('[data-lens="institutional"]');
+      await new Promise((r) => setTimeout(r, 400));
+    },
+  },
+];
+
 const { server, baseUrl } = await startStaticServer(DIST_DIR);
 const browser = await puppeteer.launch({
   executablePath,
@@ -80,13 +148,7 @@ try {
         await page.screenshot({ path: out, type: "png" });
         files.push(out);
       }
-      const contactPath = path.join(REVIEW, "contact-sheet.png");
-      if (fs.existsSync("/usr/bin/montage")) {
-        execSync(
-          `montage ${files.map((f) => `"${f}"`).join(" ")} -tile 4x4 -geometry 480x270+4+4 -background white "${contactPath}"`,
-          { stdio: "inherit" }
-        );
-      }
+      execSync(`python3 "${path.join(REVIEW, "make_contact_sheet.py")}"`, { stdio: "inherit" });
     }
     for (const idx of [2, 5, 10, 12]) {
       await gotoSlide(page, idx);
@@ -98,53 +160,42 @@ try {
     await page.close();
   }
 
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
-  await page.goto(`${baseUrl}index.html`, { waitUntil: "networkidle0", timeout: 120000 });
-  await page.waitForFunction(() => typeof Reveal !== "undefined");
+  const page1280 = await browser.newPage();
+  await page1280.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
+  await page1280.goto(`${baseUrl}index.html`, { waitUntil: "networkidle0", timeout: 120000 });
+  await page1280.waitForFunction(() => typeof Reveal !== "undefined");
 
-  const shots = [
-    {
-      file: "interaction-ladder.png",
-      slide: 3,
-      async run() {
-        await page.click(".fp-ladder-step:nth-child(3)");
-        await new Promise((r) => setTimeout(r, 400));
-      },
-    },
-    {
-      file: "interaction-charts.png",
-      slide: 5,
-      async run() {
-        await new Promise((r) => setTimeout(r, 800));
-      },
-    },
-    {
-      file: "interaction-investor-slider.png",
-      slide: 10,
-      async run() {
-        await page.$eval("#ticket-slider", (el) => {
-          el.value = "2";
-          el.dispatchEvent(new Event("input", { bubbles: true }));
-        });
-        await new Promise((r) => setTimeout(r, 400));
-      },
-    },
-    {
-      file: "interaction-risk-table.png",
-      slide: 12,
-      async run() {
-        await page.click(".fp-risk-table tbody tr:nth-child(3)");
-        await new Promise((r) => setTimeout(r, 400));
-      },
-    },
-  ];
-
-  for (const s of shots) {
-    await gotoSlide(page, s.slide);
-    await s.run();
-    await page.screenshot({ path: path.join(REVIEW, s.file), type: "png" });
+  for (const ix of interactions) {
+    await gotoSlide(page1280, ix.slide);
+    await ix.before(page1280);
+    await page1280.screenshot({
+      path: path.join(REVIEW, `interaction-${ix.id}-before-1280.png`),
+      type: "png",
+    });
+    await ix.after(page1280);
+    await page1280.screenshot({
+      path: path.join(REVIEW, `interaction-${ix.id}-after-1280.png`),
+      type: "png",
+    });
+    await page1280.screenshot({
+      path: path.join(REVIEW, `interaction-${ix.id}.png`),
+      type: "png",
+    });
   }
+  await page1280.close();
+
+  const printPage = await browser.newPage();
+  await printPage.setViewport({ width: 1920, height: 1080, deviceScaleFactor: 1 });
+  await printPage.goto(`${baseUrl}index.html?print-pdf`, { waitUntil: "networkidle0", timeout: 120000 });
+  await printPage.waitForFunction(() => typeof Reveal !== "undefined");
+  for (const ix of interactions) {
+    await gotoSlide(printPage, ix.slide);
+    await printPage.screenshot({
+      path: path.join(REVIEW, `interaction-${ix.id}-print-1920.png`),
+      type: "png",
+    });
+  }
+  await printPage.close();
 
   console.log("interaction captures ok");
 } finally {

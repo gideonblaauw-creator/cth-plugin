@@ -126,15 +126,15 @@
   <div class="fp-body">
     <div class="fp-stats fp-stats--4 fp-stats--compact" style="margin-bottom:12px">
       <article class="fp-stat">
-        <p class="fp-stat__value"><span data-count="115"></span></p>
+        <p class="fp-stat__value"><span data-count="115">115</span></p>
         <p class="fp-stat__label">Charge points · 9 cities</p>
       </article>
       <article class="fp-stat">
-        <p class="fp-stat__value"><span data-count="15"></span></p>
+        <p class="fp-stat__value"><span data-count="15">15</span></p>
         <p class="fp-stat__label">Investor engagements</p>
       </article>
       <article class="fp-stat">
-        <p class="fp-stat__value"><span data-count="6"></span></p>
+        <p class="fp-stat__value"><span data-count="6">6</span></p>
         <p class="fp-stat__label">Multi-stakeholder workshops</p>
       </article>
       <article class="fp-stat">
@@ -142,16 +142,12 @@
         <p class="fp-stat__label">P4G sub-goals delivered</p>
       </article>
     </div>
-    <div class="fp-chart-row">
+    <div class="fp-chart-row fp-chart-row--hero">
       <div class="fp-chart-card">
-        <p class="fp-chart-card__title">Network scale (public case study)</p>
-        <p class="fp-chart-card__sub">115 points · 800+ kW · 6 workshops · 9 cities</p>
-        <div class="fp-chart-box"><canvas id="chart-mubon-bars" aria-label="Bar chart of MubOn network metrics"></canvas></div>
-      </div>
-      <div class="fp-chart-card">
-        <p class="fp-chart-card__title">Multi-stakeholder workshops</p>
-        <p class="fp-chart-card__sub">Enabling-environment sub-goal</p>
-        <div class="fp-chart-box"><canvas id="chart-workshops" aria-label="Workshops delivered"></canvas></div>
+        <p class="fp-chart-card__title">Energy delivered — quarterly kWh</p>
+        <p class="fp-chart-card__sub">MubOn IoT network · P4G Oct 2024–Mar 2026</p>
+        <div class="fp-chart-box"><canvas id="chart-kwh" aria-label="Quarterly kWh delivered, MubOn network"></canvas></div>
+        <p class="fp-chart-footnote">Q6 Jan'26, partial — grant ended Mar 2026</p>
       </div>
     </div>
   </div>
@@ -189,7 +185,7 @@
   <div class="fp-body">
     <div class="fp-stats fp-stats--3 fp-stats--compact" style="margin-bottom:10px">
       <article class="fp-stat">
-        <p class="fp-stat__value"><span data-count="157"></span></p>
+        <p class="fp-stat__value"><span data-count="157">157</span></p>
         <p class="fp-stat__label">tCO₂e avoided (UPME factor)</p>
       </article>
       <article class="fp-stat">
@@ -201,16 +197,11 @@
         <p class="fp-stat__label">Gross revenue (+62% YoY)</p>
       </article>
     </div>
-    <div class="fp-chart-row" style="grid-template-columns:1.1fr 1fr 0.9fr">
+    <div class="fp-chart-row" style="grid-template-columns:1.1fr 1fr">
       <div class="fp-chart-card">
-        <p class="fp-chart-card__title">Energy delivered — quarterly kWh</p>
-        <p class="fp-chart-card__sub">MubOn IoT network · P4G period</p>
-        <div class="fp-chart-box"><canvas id="chart-kwh" aria-label="Quarterly kWh bar chart"></canvas></div>
-      </div>
-      <div class="fp-chart-card">
-        <p class="fp-chart-card__title">Impact distribution</p>
-        <p class="fp-chart-card__sub">Users, sessions, points, cities</p>
-        <div class="fp-chart-box"><canvas id="chart-impact-donut" aria-label="Impact donut chart"></canvas></div>
+        <p class="fp-chart-card__title">EV brand share · March 2026</p>
+        <p class="fp-chart-card__sub">Colombia RUNT · public MubOn page</p>
+        <div class="fp-chart-box"><canvas id="chart-ev-brands" aria-label="EV brand market share bar chart"></canvas></div>
       </div>
       <div class="fp-chart-card">
         <p class="fp-chart-card__title">Colombia EV registrations</p>
@@ -322,16 +313,41 @@
         <tr><th>Dimension</th><th>Agriculture</th><th>Fintech / climate data</th><th>Renewables (EV charging)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Revenue visibility</td><td class="rate-med">Med</td><td class="rate-med">Med</td><td class="rate-med">Med</td></tr>
-        <tr><td>Capex intensity</td><td class="rate-high">High</td><td class="rate-low">Low</td><td class="rate-high">High</td></tr>
-        <tr><td>Seasonality / weather</td><td class="rate-high">High</td><td class="rate-low">Low</td><td class="rate-med">Med</td></tr>
-        <tr><td>Regulation &amp; FX</td><td class="rate-high">High</td><td class="rate-high">High</td><td class="rate-high">High</td></tr>
-        <tr><td>Time to exit</td><td class="rate-high">High</td><td class="rate-med">Med</td><td class="rate-med">Med</td></tr>
+        <tr>
+          <td>Revenue visibility</td>
+          <td class="rate-med" data-risk-detail="Seasonal; depends on harvest and buyer contracts."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-med" data-risk-detail="Recurring if churn is controlled; proof needs live users."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-med" data-risk-detail="Tariff or kWh usage; grids and policy shape demand."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+        </tr>
+        <tr>
+          <td>Capex intensity</td>
+          <td class="rate-high" data-risk-detail="Land, inputs, cold chain — often lumpy."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-low" data-risk-detail="Mostly people and software; lighter asset base."><span class="fp-risk-rate">Low</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-high" data-risk-detail="Hardware-heavy upfront; financing structure drives risk."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+        </tr>
+        <tr>
+          <td>Seasonality / weather</td>
+          <td class="rate-high" data-risk-detail="High operational risk from harvest cycles and climate."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-low" data-risk-detail="Low direct exposure; demand cyclicality still matters."><span class="fp-risk-rate">Low</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-med" data-risk-detail="Solar yield varies; charging follows mobility patterns."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+        </tr>
+        <tr>
+          <td>Regulation &amp; FX</td>
+          <td class="rate-high" data-risk-detail="Export rules, phytosanitary permits, commodity FX."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-high" data-risk-detail="Licensing, data privacy, partner-bank rules; FX on cross-border flows."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-high" data-risk-detail="Grid codes, permits, tariff resets; equipment often dollar-linked."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+        </tr>
+        <tr>
+          <td>Time to exit</td>
+          <td class="rate-high" data-risk-detail="Longer; trade-sale or regional buyer more common than quick IPO."><span class="fp-risk-rate">High</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-med" data-risk-detail="Can be faster if metrics scale — regulatory drag can slow M&amp;A."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+          <td class="rate-med" data-risk-detail="Infrastructure buyers once assets are metered and contracted."><span class="fp-risk-rate">Med</span><span class="fp-risk-cell-note"></span></td>
+        </tr>
       </tbody>
     </table>
     <p style="font-size:18px;margin-top:12px;color:#669348">Click a row or column header to highlight. Qualitative only — no return percentages.</p>
   </div>
-  <p class="cth-source">Qualitative comparison only — no return forecasts; EV example: https://data.cleantechhub.net/projects/mubon/</p>
+  <p class="cth-source">Qualitative view, not a forecast — Gideon Blaauw / CleantechHUB · no return forecasts; EV example: https://data.cleantechhub.net/projects/mubon/</p>
   <footer class="fp-foot"><span class="fp-conf">Confidential</span><span>ZidiCircle × GIZ MEG · 1 Dec 2026</span></footer>
 </section>
 
@@ -386,6 +402,7 @@
   <script src="reveal.js/dist/reveal.js"></script>
   <script>
     const isPrinting = /print-pdf/.test(window.location.search);
+    const isDecktape = /decktape=1/.test(window.location.search);
     Reveal.initialize({
       hash: true,
       slideNumber: "c/t",
@@ -399,6 +416,7 @@
       center: false
     });
     if (isPrinting) document.body.classList.add("print-pdf");
+    if (isPrinting || isDecktape) document.body.classList.add("deck-static");
   </script>
 </body>
 </html>

@@ -515,12 +515,164 @@ body.print-pdf .fp-kenburns {
 }
 
 body.print-pdf .fp-sector-detail,
+body.deck-static .fp-sector-detail,
 body.print-pdf .fp-ladder-detail,
+body.deck-static .fp-ladder-detail,
 body.print-pdf .fp-journey-panel,
+body.deck-static .fp-journey-panel,
 body.print-pdf .fp-lens-body,
-body.print-pdf .fp-investor-panel {
+body.deck-static .fp-lens-body,
+body.print-pdf .fp-investor-panel,
+body.deck-static .fp-investor-panel {
   display: block !important;
 }
-body.print-pdf .fp-chart-box canvas {
+body.print-pdf .fp-chart-box canvas,
+body.deck-static .fp-chart-box canvas {
   max-height: 220px;
+}
+
+.reveal .fp-chart-row--hero {
+  grid-template-columns: 1fr;
+}
+.reveal .fp-chart-footnote {
+  font-size: 14px;
+  color: #669348;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.reveal .fp-screen-only {
+  display: block;
+}
+body.print-pdf .fp-screen-only,
+body.deck-static .fp-screen-only {
+  display: none !important;
+}
+
+body.print-pdf .fp-tap-hint,
+body.deck-static .fp-tap-hint,
+body.print-pdf .fp-sector-card.is-open .fp-card__text.fp-tap-hint,
+body.deck-static .fp-sector-card.is-open .fp-card__text.fp-tap-hint {
+  display: none !important;
+}
+
+body.print-pdf .fp-ladder-step__print,
+body.deck-static .fp-ladder-step__print {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #0c498a;
+  border-top: 2px dashed #b2eefa;
+  padding-top: 8px;
+}
+body.print-pdf .fp-ladder-detail,
+body.deck-static .fp-ladder-detail {
+  display: none !important;
+}
+
+body.print-pdf .fp-journey-print-stack,
+body.deck-static .fp-journey-print-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+body.print-pdf .fp-journey-print-block,
+body.deck-static .fp-journey-print-block {
+  font-size: 18px;
+  line-height: 1.38;
+  padding: 12px 16px;
+  border-left: 5px solid #9dc384;
+  background: rgba(178, 238, 250, 0.25);
+  border-radius: 0 12px 12px 0;
+}
+body.print-pdf .fp-journey-panel,
+body.deck-static .fp-journey-panel {
+  display: none !important;
+}
+
+body.print-pdf .fp-q3-dual,
+body.deck-static .fp-q3-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+body.print-pdf .fp-q3-dual__col,
+body.deck-static .fp-q3-dual__col {
+  border: 2px solid #b2eefa;
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-size: 18px;
+  line-height: 1.38;
+}
+body.print-pdf .fp-q3-dual__col h4,
+body.deck-static .fp-q3-dual__col h4 {
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: #0c498a;
+}
+
+body.print-pdf .fp-investor-print-grid,
+body.deck-static .fp-investor-print-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  grid-column: 1 / -1;
+}
+body.print-pdf .fp-investor-print-card,
+body.deck-static .fp-investor-print-card {
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+body.print-pdf .fp-investor-print-card h4,
+body.deck-static .fp-investor-print-card h4 {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: #0c498a;
+}
+
+body.print-pdf .fp-lens-print-both,
+body.deck-static .fp-lens-print-both {
+  font-size: 18px;
+  line-height: 1.38;
+  margin-top: 8px;
+}
+
+.reveal .fp-risk-cell-note {
+  display: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: #334;
+  line-height: 1.3;
+  margin-top: 6px;
+  text-align: left;
+}
+.reveal .fp-risk-table td.is-detail-open .fp-risk-cell-note {
+  display: block;
+}
+body.print-pdf .fp-risk-table td[data-risk-detail] .fp-risk-cell-note,
+body.deck-static .fp-risk-table td[data-risk-detail] .fp-risk-cell-note {
+  display: block;
+}
+body.print-pdf .fp-risk-table td[data-risk-detail],
+body.deck-static .fp-risk-table td[data-risk-detail] {
+  text-align: left;
+  vertical-align: top;
+}
+body.print-pdf .fp-risk-note,
+body.deck-static .fp-risk-note {
+  display: none !important;
+}
+.reveal .fp-risk-note {
+  font-size: 17px;
+  color: #0c498a;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(178, 238, 250, 0.25);
+  border-radius: 10px;
+  min-height: 2.5em;
 }

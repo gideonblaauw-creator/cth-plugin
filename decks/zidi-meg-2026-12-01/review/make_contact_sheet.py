@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image
 
 review = Path(__file__).resolve().parent
-slides = [review / f"slide-{i:02d}.png" for i in range(1, 14)]
+slides = [review / f"slide-{i:02d}.png" for i in range(1, 16)]
 tile_w, tile_h = 480, 270
 cols, rows = 4, 4
 gap = 4
