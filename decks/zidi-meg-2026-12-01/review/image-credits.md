@@ -1,3 +1,7 @@
+# Image credits — Zidi MEG deck Fix-6c
+
+Fix-6c hero rails: thematic only, no people; no same hero on adjacent slides (see `index.html` `fp-hero-rail`).
+
 # Image credits — Zidi MEG deck Fix-6b
 
 All slide and card backgrounds are atmospheric/thematic only (no people). Licensed free-use sources:

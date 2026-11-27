@@ -1,0 +1,160 @@
+{
+  "perSlide": [
+    {
+      "slide": 1,
+      "roles": {
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 2,
+      "roles": {
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 3,
+      "roles": {
+        "body / bullets": 36,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 4,
+      "roles": {
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 5,
+      "roles": {
+        "flip print body": 34,
+        "flip print label": 26,
+        "source line": 22,
+        "eyebrow": 24,
+        "giz action": 28
+      }
+    },
+    {
+      "slide": 6,
+      "roles": {
+        "card title": 39,
+        "card text": 36,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 7,
+      "roles": {
+        "body / bullets": 36,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 8,
+      "roles": {
+        "source line": 22
+      }
+    },
+    {
+      "slide": 9,
+      "roles": {
+        "card text": 36,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 10,
+      "roles": {
+        "source line": 22
+      }
+    },
+    {
+      "slide": 11,
+      "roles": {
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 12,
+      "roles": {
+        "flip print body": 36,
+        "flip print label": 26,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 13,
+      "roles": {
+        "flip print body": 36,
+        "flip print label": 26,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 14,
+      "roles": {
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 15,
+      "roles": {
+        "card title": 34,
+        "card text": 34,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 16,
+      "roles": {
+        "card title": 34,
+        "card text": 34,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 17,
+      "roles": {
+        "risk table td": 34,
+        "risk cell note": 28,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 18,
+      "roles": {
+        "flip print body": 34,
+        "flip print label": 26,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 19,
+      "roles": {
+        "body / bullets": 36,
+        "card title": 39,
+        "Q6 lens body": 36,
+        "source line": 22,
+        "eyebrow": 24
+      }
+    },
+    {
+      "slide": 20,
+      "roles": {}
+    }
+  ],
+  "fail": false
+}

@@ -73,12 +73,18 @@
         if (!qs(".fp-flip__print-pair", flip)) {
           var pair = document.createElement("div");
           pair.className = "fp-flip__print-pair";
-          pair.innerHTML =
-            '<article><h4>Front</h4><p>' +
-            titleText +
-            '</p></article><article><h4>Back</h4><p>' +
-            back +
-            "</p></article>";
+          var gizQuad = flip.closest(".fp-flip-grid--giz-quad");
+          if (gizQuad) {
+            pair.innerHTML =
+              "<article><h4>" + titleText + "</h4><p>" + back + "</p></article>";
+          } else {
+            pair.innerHTML =
+              '<article><h4>Front</h4><p>' +
+              titleText +
+              '</p></article><article><h4>Back</h4><p>' +
+              back +
+              "</p></article>";
+          }
           flip.appendChild(pair);
         }
         return;
@@ -220,7 +226,10 @@
       if (isPrint) {
         card.classList.add("is-open");
         if (detail) detail.hidden = false;
-        if (tap) tap.classList.add("fp-tap-hint");
+        if (tap) {
+          tap.classList.add("fp-tap-hint");
+          tap.style.display = "none";
+        }
       }
     });
   }
@@ -250,7 +259,8 @@
       });
       if (isPrint) {
         qsa("td[data-risk-detail]", table).forEach(function (cell) {
-          cell.classList.add("is-detail-open");
+          var note = qs(".fp-risk-cell-note", cell);
+          if (note) note.textContent = "";
         });
       }
       function clear() {
