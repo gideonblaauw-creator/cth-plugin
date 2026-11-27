@@ -926,3 +926,94 @@ body.print-pdf .fp-flip__inner,
 body.deck-static .fp-flip__inner {
   display: none !important;
 }
+
+/* --- Fix-4b: cover bleed, Q4 table on navy, flip type scale --- */
+.reveal .fp.fp-cover.fp--bleed {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+.reveal .fp.fp-cover.fp--bleed .fp-eyebrow {
+  color: #9dc384;
+}
+.reveal .fp.fp-cover.fp--bleed .fp-cover__title,
+.reveal .fp.fp-cover.fp--bleed .fp-cover__sub {
+  color: #fff !important;
+}
+.reveal .fp.fp-cover.fp--bleed .fp-cover__meta {
+  color: #b2eefa !important;
+}
+
+.reveal .fp.fp--bleed .fp-risk-table {
+  border-color: rgba(178, 238, 250, 0.55);
+}
+.reveal .fp.fp--bleed .fp-risk-table tbody td {
+  background: rgba(12, 73, 138, 0.72);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.32;
+}
+.reveal .fp.fp--bleed .fp-risk-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+.reveal .fp.fp--bleed .fp-risk-table tbody td:first-child {
+  color: #fff;
+}
+.reveal .fp.fp--bleed .fp-risk-table .fp-risk-rate {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 8px;
+  line-height: 1.2;
+}
+.reveal .fp.fp--bleed .fp-risk-table .rate-low .fp-risk-rate {
+  background: #9dc384;
+  color: #0c498a;
+}
+.reveal .fp.fp--bleed .fp-risk-table .rate-med .fp-risk-rate {
+  background: #b2eefa;
+  color: #0c498a;
+}
+.reveal .fp.fp--bleed .fp-risk-table .rate-high .fp-risk-rate {
+  background: #f4a574;
+  color: #3a1a08;
+}
+.reveal .fp.fp--bleed .fp-risk-table .fp-risk-cell-note {
+  color: #e8f8fc;
+  font-size: 20px;
+  line-height: 1.32;
+}
+body.print-pdf .fp.fp--bleed .fp-risk-table td[data-risk-detail] .fp-risk-cell-note,
+body.deck-static .fp.fp--bleed .fp-risk-table td[data-risk-detail] .fp-risk-cell-note {
+  color: #e8f8fc;
+  font-size: 20px;
+}
+
+.reveal .fp-flip {
+  min-height: 132px;
+}
+.reveal .fp-flip__inner {
+  min-height: 132px;
+}
+.reveal .fp-flip__face {
+  padding: 14px 16px;
+}
+.reveal .fp-flip__face--back {
+  font-size: 22px;
+  line-height: 1.32;
+}
+body.print-pdf .fp-flip__print-pair article,
+body.deck-static .fp-flip__print-pair article {
+  font-size: 22px;
+  line-height: 1.32;
+}
+body.print-pdf .fp-flip__print-pair h4,
+body.deck-static .fp-flip__print-pair h4 {
+  font-size: 18px;
+}
+
+.reveal .fp.fp--bleed .fp-investor-controls > p {
+  font-size: 22px;
+  color: #fff;
+}
