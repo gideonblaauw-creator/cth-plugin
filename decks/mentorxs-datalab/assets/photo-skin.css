@@ -1,0 +1,153 @@
+/* CTH photo slides on FODESEP frame (no EO co-brand). */
+.reveal .fp > .fp-photo-bg,
+.reveal .fp > .fp-photo-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.reveal .slides section.fp.fp--photo {
+  background-color: #0c498a;
+  overflow: hidden;
+}
+
+.fp-photo-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.fp-photo-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 73, 138, 0.72) 0%,
+    rgba(12, 73, 138, 0.55) 45%,
+    rgba(12, 73, 138, 0.88) 100%
+  );
+}
+
+.fp-kenburns {
+  animation: cth-kenburns 28s ease-in-out infinite alternate;
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+body.print-pdf .fp-kenburns,
+.reveal.print-pdf .fp-kenburns {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-kenburns {
+    animation: none !important;
+  }
+}
+
+@keyframes cth-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.reveal .fp--photo .fp-title,
+.reveal .fp--photo h2 {
+  color: #ffffff !important;
+}
+
+.reveal .fp--photo .fp-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.reveal .fp-cover__logo-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.reveal .fp-cover__logo-row img {
+  height: 72px;
+  width: auto;
+}
+
+.reveal .fp-cover.fp--photo .fp-cover__title {
+  color: #ffffff !important;
+}
+
+.reveal .fp-cover.fp--photo .fp-cover__sub,
+.reveal .fp-cover.fp--photo .fp-cover__meta {
+  color: #b2eefa !important;
+}
+
+.reveal .fp-focus-stuck .fp-head {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.reveal .fp-stuck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  max-height: 640px;
+  align-content: start;
+}
+
+.reveal .fp-stuck-grid .fp-step {
+  min-height: 0 !important;
+  height: 100%;
+  max-height: 300px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.reveal .fp-stuck-grid .fp-step__body {
+  background: rgba(255, 255, 255, 0.94);
+  border: 3px solid #b2eefa;
+  border-radius: 16px;
+  padding: 18px 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.reveal .fp-stuck-grid .fp-step__head {
+  margin-bottom: 8px;
+}
+
+.reveal .fp-stuck-grid .fp-step__label {
+  font-size: 22px;
+}
+
+.reveal .fp-stuck-grid .fp-step__body p {
+  font-size: 21px;
+  line-height: 1.32;
+}
+
+.reveal .fp-pill--cth {
+  background: #0c498a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 40px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.reveal .fp-steps--6 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.reveal .fp-steps--6 .fp-step {
+  min-height: 220px;
+}

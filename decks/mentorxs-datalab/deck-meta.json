@@ -1,0 +1,12 @@
+{
+  "gated": true,
+  "language": "es",
+  "slug": "mentorxs-datalab",
+  "title": "De BMC a dashboard en un día",
+  "client": "Mentorxs DataLab / Fundación CleantechHUB",
+  "date": "2026-11-23",
+  "served_at": "/mentorxs-datalab/",
+  "toolkit": "tools/reveal",
+  "source": "index.html",
+  "publish_note": "Briefing interno de monitores. gated:true — sin ruta pública hasta GO de Gideon."
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Cuestionario Parte 3 — Datatón</title>
+  <style>
+@page { size: A4; margin: 0; }
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/open-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/open-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../assets/fonts/open-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+}
+html, body { margin: 0; padding: 0; font-family: "Open Sans", sans-serif; font-size: 8.75pt; color: #0C498A; }
+h1, h2, label { font-family: "Open Sans", sans-serif; font-weight: 400; }
+h1, h2 { font-size: 13pt; text-transform: uppercase; letter-spacing: 0.04em; }
+.letter-page {
+  position: relative;
+  min-height: 297mm;
+  box-sizing: border-box;
+  padding: 40mm 13mm 26mm 13mm;
+  page-break-after: always;
+  background-image: url("letterhead/CTH_header.png"), url("letterhead/CTH_footer.png");
+  background-position: left top, left bottom;
+  background-size: 100% auto, 100% auto;
+  background-repeat: no-repeat;
+}
+.letter-page:last-child { page-break-after: auto; }
+.addr {
+  position: fixed;
+  left: 13mm;
+  right: 13mm;
+  bottom: 5.5mm;
+  font-size: 8pt;
+  color: #0C498A;
+  z-index: 2;
+  line-height: 1.2;
+}
+h1 { font-size: 13pt; margin: 0 0 3mm; }
+h2 { font-size: 10pt; margin: 3mm 0 1.5mm; border-bottom: 1px solid #B2EEFA; }
+.field { margin: 0 0 2.2mm; }
+.field label { display: block; font-weight: 700; margin-bottom: 0.5mm; }
+.line { border-bottom: 1px solid #69B5FA; min-height: 5mm; }
+.line.tall { min-height: 7mm; }
+.note { font-size: 8pt; margin: 0 0 2mm; }
+.cb { display: inline-block; width: 3.5mm; height: 3.5mm; border: 1px solid #0C498A; margin-right: 1.5mm; vertical-align: middle; }
+.small { font-size: 7.5pt; color: #669348; margin-top: 2mm; }
+</style>
+</head>
+<body>
+<div class="addr">Fundación CleantechHUB · NIT 901.523.941-9 · Cl 90 No. 19-41 Of 801, Bogotá, Colombia<br />
+www.cleantechhub.net · +57 313 715 5965</div>
+<div class="letter-page">
+<h1>Cuestionario Parte 3 — Tarjeta valor + juzgamiento finales</h1><p class="note">Metodología v0.3.1 · Solo Parte 3 · Imprimir y llenar a mano. Mismas preguntas que part3-google-forms-question-list.md. Herramienta en línea por defecto: Google Forms; alternativas Tally, LimeSurvey.</p>
+<h2>Bloque A — Tarjeta datos → valor (Q3)</h2>
+<div class="field"><label>1. Rol / cargo de la persona que decide esta semana</label><div class="line"></div></div>
+<div class="field"><label>2. Tipo de organización (p. ej. clínica, fábrica)</label><div class="line"></div></div>
+<div class="field"><label>3. De qué es responsable esta semana</label><div class="line"></div></div>
+<div class="field"><label>4. En una frase: ¿debería [acción] antes de [cuándo]? (decisión única)</label><div class="line tall"></div></div>
+<div class="field"><label>5. Pregunta 1 (sí/no o cuánto)</label><div class="line"></div></div>
+<div class="field"><label>6. Pregunta 2</label><div class="line"></div></div>
+<div class="field"><label>7. Pregunta 3 (opcional)</label><div class="line"></div></div>
+<div class="field"><label>8. N1 — Métrica / unidad</label><div class="line"></div></div>
+<div class="field"><label>9. N1 — Responde a pregunta (Q1, Q2 o Q3)</label><div class="line"></div></div>
+<div class="field"><label>10. N1 — ID de dataset (D1…)</label><div class="line"></div></div>
+<div class="field"><label>11. N1 — Rung medallion (None / Bronze / Silver / Gold)</label><div class="line"></div></div>
+<div class="field"><label>12. N1 — Mostrar como (firme / estimado)</label><div class="line"></div></div>
+<div class="field"><label>13. N1 — Panel sandbox (Baseline / Delta / Landscape)</label><div class="line"></div></div>
+</div><div class="letter-page">
+<div class="field"><label>14. N2 — Métrica / unidad</label><div class="line"></div></div>
+<div class="field"><label>15. N2 — Responde a pregunta (Q1, Q2 o Q3)</label><div class="line"></div></div>
+<div class="field"><label>16. N2 — ID de dataset (D1…)</label><div class="line"></div></div>
+<div class="field"><label>17. N2 — Rung medallion (None / Bronze / Silver / Gold)</label><div class="line"></div></div>
+<div class="field"><label>18. N2 — Mostrar como (firme / estimado)</label><div class="line"></div></div>
+<div class="field"><label>19. N2 — Panel sandbox (Baseline / Delta / Landscape)</label><div class="line"></div></div>
+<div class="field"><label>20. N3 — Métrica / unidad</label><div class="line"></div></div>
+<div class="field"><label>21. N3 — Responde a pregunta (Q1, Q2 o Q3)</label><div class="line"></div></div>
+<div class="field"><label>22. N3 — ID de dataset (D1…)</label><div class="line"></div></div>
+<div class="field"><label>23. N3 — Rung medallion (None / Bronze / Silver / Gold)</label><div class="line"></div></div>
+<div class="field"><label>24. N3 — Mostrar como (firme / estimado)</label><div class="line"></div></div>
+<div class="field"><label>25. N3 — Panel sandbox (Baseline / Delta / Landscape)</label><div class="line"></div></div>
+<div class="field"><label>26. En una frase: ¿qué vale esta decisión? (dinero, riesgo, tiempo, salud)</label><div class="line tall"></div></div>
+<div class="field"><label>27. Quién puede ver esta pantalla</label><div class="line"></div></div>
+<div class="field"><label>28. Quién no debe verla</label><div class="line"></div></div>
+<div class="field"><label>29. ¿Tablero público? (No obligatorio si hay derechos abiertos)</label><p><span class="cb"></span> No &nbsp; <span class="cb"></span> Sí</p></div>
+</div><div class="letter-page">
+<h2>Bloque B — Hoja finales</h2>
+<p><span class="cb"></span> 30. Cada número tiene ID de dataset y tarjeta Q2</p>
+<p><span class="cb"></span> 31. Ningún número firme sin Silver+</p>
+<p><span class="cb"></span> 32. Cada número tiene panel sandbox</p>
+<p><span class="cb"></span> 33. Si hay derechos abiertos: tablero público = No</p>
+<p><span class="cb"></span> 34. Si combina paneles en mapa: re-chequeo G9</p>
+<div class="field"><label>35. Nombre del equipo</label><div class="line"></div></div>
+<div class="field"><label>36. Nombre del evaluador</label><div class="line"></div></div>
+<div class="field"><label>37. Fecha / hora</label><div class="line"></div></div>
+<div class="field"><label>38. Usuario nombrado (de Q3)</label><div class="line"></div></div>
+<div class="field"><label>39. Decisión en una línea (de Q3)</label><div class="line tall"></div></div>
+<div class="field"><label>40. Tarjeta(s) Q2 usadas (IDs)</label><div class="line"></div></div>
+<div class="field"><label>41. ¿Tablero público declarado? (S / N)</label><p><span class="cb"></span> S &nbsp; <span class="cb"></span> N</p></div>
+<div class="field"><label>42. Puntuación Parte A _____ / 5</label><div class="line"></div></div>
+</div><div class="letter-page">
+<h2>Hoja finales — mentor / juez (cont.)</h2>
+<div class="field"><label>43. Un usuario, una decisión (S / N / Parcial) — nota</label><div class="line"></div></div>
+<div class="field"><label>44. Cada número responde una pregunta (S / N / Parcial) — nota</label><div class="line"></div></div>
+<div class="field"><label>45. Paneles sandbox correctos (S / N / Parcial) — nota</label><div class="line"></div></div>
+<div class="field"><label>46. Frase de valor conecta con la decisión (S / N / Parcial) — nota</label><div class="line"></div></div>
+<div class="field"><label>47. Audiencia adecuada (S / N / Parcial) — nota</label><div class="line"></div></div>
+<div class="field"><label>48. Puntuación Parte B _____ / 5</label><div class="line"></div></div>
+<div class="field"><label>49. N1 — Mostrado como / rung en tarjeta / rung en Q2 / ¿coincide? / panel / ID dataset</label><div class="line"></div></div>
+<div class="field"><label>50. N2 — Mostrado como / rung en tarjeta / rung en Q2 / ¿coincide? / panel / ID dataset</label><div class="line"></div></div>
+<div class="field"><label>51. N3 — Mostrado como / rung en tarjeta / rung en Q2 / ¿coincide? / panel / ID dataset</label><div class="line"></div></div>
+<div class="field"><label>52. ID de dataset (bloque 1)</label><div class="line"></div></div>
+<div class="field"><label>53. Etiquetas del bloque 1 en datasets usados (HEARSAY, LEGAL?, …)</label><div class="line"></div></div>
+<div class="field"><label>54. Total utilidad + honestidad _____ / 10</label><div class="line"></div></div>
+<div class="field"><label>55. Historia (desempate 0–2) _____ / 2 solo si A y B empatan</label><div class="line"></div></div>
+<p class="small">Desempate: si el total empata, ordenar con Parte B (honestidad) antes que Parte A (finals-judging-sheet.md v0.3.1, Combined score). Ítem 55 solo si A y B también empatan.</p>
+</div>
+</body>
+</html>

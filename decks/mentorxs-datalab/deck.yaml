@@ -1,0 +1,88 @@
+# Outline sync for tools/reveal/lint — rendered HTML is hand-built (FODESEP frame).
+meta:
+  slug: mentorxs-datalab
+  lang: es
+  title: "De BMC a dashboard en un día"
+  client: "Mentorxs DataLab"
+  date: "2026-11-23"
+
+slides:
+  - type: cover
+    title: "De BMC a dashboard en un día"
+    subtitle: "Briefing de monitores — metodología Datatón v0.3"
+    client: "Fundación CleantechHUB"
+    date: "23 nov 2026 · 10:30–11:35 COT"
+    image: "assets/chingaza.jpg"
+  - type: statement
+    text: "Un día, una cadena. No empiecen por el tablero."
+    attribution: "methodology-v0.3.md"
+  - type: process
+    title: "La cadena que no se salta"
+    steps:
+      - { label: "BMC", text: "Canvas el mismo día." }
+      - { label: "Q1", text: "Mapa de calor." }
+      - { label: "Q3", text: "Tarjeta + boceto 16:00." }
+  - type: process
+    title: "Paso 1 · Canvas"
+    steps:
+      - { label: "Cuándo", text: "El mismo día." }
+      - { label: "Quién", text: "Fundador + monitor." }
+      - { label: "Para qué", text: "Ancla Q1." }
+  - type: process
+    title: "Paso 2 · Q1"
+    steps:
+      - { label: "Forms", text: "Google Forms por defecto." }
+      - { label: "PDF", text: "Alternativa CTH." }
+      - { label: "Regla", text: "Preguntas idénticas." }
+  - type: process
+    title: "Paso 3 · Puerta 1"
+    steps:
+      - { label: "Bloque 1", text: "11:00–12:30." }
+      - { label: "Salida", text: "Flujos elegidos." }
+      - { label: "Puerta", text: "1-2 flujos elegidos al cierre Bloque 1." }
+  - type: key-facts
+    title: "Paso 4 · Fuentes"
+    items:
+      - { icon: "1", label: "Propios", text: "Datos del BMC." }
+      - { icon: "2", label: "Abiertos", text: "Fuentes verificadas." }
+      - { icon: "3", label: "Sandbox", text: "Baseline / Delta / Landscape." }
+  - type: process
+    title: "Paso 5 · Ficha · Puerta 2"
+    steps:
+      - { label: "OSS", text: "Open source o Gemini." }
+      - { label: "Stack", text: "Sin vendor único." }
+      - { label: "Puerta", text: "Q3 completa." }
+  - type: process
+    title: "Paso 6 · Dashboard 16:00"
+    steps:
+      - { label: "Boceto", text: "Un pantallazo." }
+      - { label: "No producto", text: "Sin tablero público abierto." }
+      - { label: "Opcional", text: "Visual con IA." }
+  - type: timeline
+    title: "Dos bloques"
+    items:
+      - { date: "11:00", label: "Bloque 1", text: "Q1 + flujos." }
+      - { date: "13:30", label: "Bloque 2", text: "Q2 + Q3." }
+      - { date: "16:00", label: "Pitches", text: "6 equipos." }
+  - type: case-cards
+    title: "Air4U desk test"
+    cards:
+      - { name: "Scores", text: "4/5 + 4/5 = 8/10 estimado." }
+      - { name: "Estado", text: "Ilustrativo; medallion None." }
+  - type: data-table
+    title: "Checklist monitor"
+    columns: ["Control", "Qué mirar"]
+    rows:
+      - ["Mapa", "Heatmap hecho"]
+      - ["Q3", "Tarjeta completa"]
+    source: "finals-judging-sheet.md v0.3.1"
+  - type: focus-areas
+    title: "Dónde se traba"
+    areas:
+      - { name: "Proceso", image: "" }
+      - { name: "Datos", image: "" }
+      - { name: "Tablero", image: "" }
+      - { name: "Derechos", image: "" }
+  - type: closing
+    text: "Una cadena, dos puertas."
+    notes: "Cierre 11:35"
