@@ -38,7 +38,7 @@
 4. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
 5. **Lynks Ingeniería** — Real-time irrigation monitoring/automation ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: edge AI [CONFIRM].
 6. **SUNCO** — Renewable scale-up ([cleantechhub.net](https://www.cleantechhub.net)); NVIDIA: generation forecasting [CONFIRM AI].
-7. **Novatio** — Ticket portfolio name; ([novatio.com.co](https://novatio.com.co/)) graduate of a CleantechHUB accelerator programme (confirmed by Gideon, Nov 2026) [CONFIRM AI angle].
+7. **Novatio** — Ticket portfolio name; ([novatio.com.co](https://novatio.com.co/)) graduate of a CleantechHUB accelerator programme (confirmed by Gideon, Nov 2026). AI angle: biodigester installations; needs a prediction model for implementation, starting with a digital twin of its installations (confirmed by Gideon, Nov 2026).
 8. **Parsons Kinetics** — Ticket portfolio name; [CONFIRM URL + NVIDIA use case].
 
 ---
