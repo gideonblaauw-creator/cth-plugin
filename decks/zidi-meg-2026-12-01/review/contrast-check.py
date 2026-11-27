@@ -58,7 +58,7 @@ PAIRS = [
 
 out = Path(__file__).resolve().parent / "contrast-check.md"
 lines = [
-    "# Contrast check — Zidi MEG deck (Fix-5b)",
+    "# Contrast check — Zidi MEG deck (Fix-6)",
     "",
     "Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · large text ≥3:1.",
     "",
@@ -73,14 +73,13 @@ for name, fg, bg, large in PAIRS:
 lines.extend(
     [
         "",
-        "## Fix-5 / Fix-5b mitigations",
+        "## Fix-6 mitigations",
         "",
-        "- Frosted navy or white tiles (`fp-text-glass`, bleed `fp-head` / `fp-body` shells) behind text on photos; print uses solid `rgba(0,40,85,.88)` or `rgba(255,255,255,.92)`.",
-        "- Source lines use white glass + navy text on bleed slides (no cyan-on-navy footnotes).",
-        "- Q4 caption in its own glass row below the table (`max-height` on table body).",
-        "- Q1/Q3 print columns use filled navy cards at 26px body; Fix-5b vertically centers the print grid.",
-        "- Q5 and Q6 split across two slides; Q5 flip print pairs stack front/back on navy with cyan/green labels.",
-        "- Q6 investor lens uses navy tile at ≥26px body in PDF.",
+        "- Full-bleed photo backgrounds and scrims removed; flat navy or white slides per FODESEP `deck.css`.",
+        "- Unblocked hero image rails (`fp-hero-rail`) beside content — thematic assets only, no people.",
+        "- Programme cards show photo unblocked with solid navy caption bar (no gradient scrim).",
+        "- Type scale ×1.5 vs Fix-5 v5 floors; source lines ≥22px.",
+        "- GIZ growth slides after CTH programmes; umbrella facts cited to giz.de (8 countries, 90 ventures, verified 27 Nov 2026).",
         "",
         "_(PDF per-page overlap + live contrast run appended by `review/pdf-layout-check.mjs` after build.)_",
         "",

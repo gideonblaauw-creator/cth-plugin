@@ -1,4 +1,4 @@
-# Image credits — Zidi MEG deck Fix-4b
+# Image credits — Zidi MEG deck Fix-6
 
 All slide and card backgrounds are atmospheric/thematic only (no people). Licensed free-use sources:
 

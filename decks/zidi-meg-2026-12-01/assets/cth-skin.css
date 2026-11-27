@@ -1593,3 +1593,424 @@ body.print-pdf .fp.fp--bleed .fp-investor-print-grid,
 body.deck-static .fp.fp--bleed .fp-investor-print-grid {
   align-content: center;
 }
+
+/* --- Fix-6: unblocked hero rails, flat slides, type ×1.5 (Gideon 27 Nov) --- */
+body.fix6-deck .reveal {
+  font-size: 42px !important;
+}
+
+body.fix6-deck .reveal .fp > .fp-photo-bg,
+body.fix6-deck .reveal .fp > .fp-photo-scrim {
+  display: none !important;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  column-gap: 24px;
+  padding: 48px 64px 76px;
+  background: #ffffff;
+  color: #0c498a;
+  overflow: hidden;
+  align-content: stretch;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy {
+  background: #0c498a;
+  color: #ffffff;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--no-hero {
+  grid-template-columns: 1fr;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--no-hero .fp-hero-rail {
+  display: none !important;
+}
+
+body.fix6-deck .reveal .fp-hero-rail {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: stretch;
+  min-height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #b2eefa;
+  margin: 0;
+}
+
+body.fix6-deck .reveal .fp.fp--navy .fp-hero-rail {
+  border-color: #9dc384;
+}
+
+body.fix6-deck .reveal .fp-hero-rail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+body.fix6-deck .reveal .fp-slide-shell {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 > .cth-source,
+body.fix6-deck .reveal .fp.fp--fix6 > .fp-foot {
+  grid-column: 1;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 > .cth-source {
+  grid-row: 2;
+  font-size: 22px !important;
+  color: #669348;
+  margin-top: 8px !important;
+  background: transparent;
+  padding: 0;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy > .cth-source {
+  color: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 > .fp-foot {
+  grid-row: 3;
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin-top: 8px;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 .fp-head {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none;
+  padding: 0;
+  margin-bottom: 16px !important;
+  flex-shrink: 0;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 .fp-body {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none;
+  padding: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-title,
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-bullets li,
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-statement__text,
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-cover__title,
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-cover__sub {
+  color: #ffffff !important;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-title::after {
+  background: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-head__logo {
+  filter: brightness(0) invert(1);
+}
+
+body.fix6-deck .reveal .fp.fp--fix6 .fp-foot,
+body.fix6-deck .reveal .fp.fp--fix6 .fp-foot span:not(.fp-conf) {
+  color: #69b5fa;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-foot,
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-foot span:not(.fp-conf) {
+  color: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-foot .fp-conf {
+  color: #9dc384;
+}
+
+body.fix6-deck .reveal .fp-cover.fp--fix6 {
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+}
+
+body.fix6-deck .reveal .fp-cover.fp--fix6 .fp-slide-shell {
+  grid-row: 1 / 3;
+}
+
+body.fix6-deck .reveal .fp-cover.fp--fix6 > .cth-source {
+  display: none;
+}
+
+body.fix6-deck .reveal .fp-cover.fp--fix6 > .fp-foot {
+  grid-column: 1 / -1;
+  grid-row: 4;
+}
+
+body.fix6-deck .reveal .fp-statement.fp--fix6 .fp-statement__text {
+  font-size: 48px !important;
+  line-height: 1.2 !important;
+  color: #ffffff !important;
+}
+
+body.fix6-deck .reveal .fp-statement.fp--fix6 .fp-statement__attr {
+  font-size: 28px !important;
+  color: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp-title--sm {
+  font-size: 34px !important;
+  line-height: 1.12 !important;
+}
+
+body.fix6-deck .reveal .fp-title--giz {
+  font-size: 28px !important;
+  line-height: 1.14 !important;
+}
+
+body.fix6-deck .reveal .fp-giz-kicker {
+  font-size: 20px !important;
+  line-height: 1.3;
+  color: #669348;
+  margin: 8px 0 0 !important;
+  max-width: 1200px;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-giz-kicker {
+  color: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp-giz-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-content: start;
+}
+
+body.fix6-deck .reveal .fp-flip-grid--giz {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+body.fix6-deck .reveal .fp-flip-grid--giz-duo {
+  margin-bottom: 14px;
+}
+
+body.fix6-deck .reveal .fp-flip-grid--giz .fp-flip {
+  min-height: 132px;
+}
+
+body.fix6-deck .reveal .fp-programme-card__scrim {
+  display: none !important;
+}
+
+body.fix6-deck .reveal .fp-programme-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+}
+
+body.fix6-deck .reveal .fp-programme-card__body {
+  position: relative;
+  background: rgba(12, 73, 138, 0.92);
+  border-top: 3px solid #b2eefa;
+}
+
+body.fix6-deck .reveal .fp-programme-card__title {
+  font-size: 27px;
+}
+
+body.fix6-deck .reveal .fp-programme-card__text {
+  font-size: 24px;
+}
+
+body.fix6-deck .reveal .fp-programme-detail {
+  font-size: 27px;
+  background: #ffffff;
+  color: #0c498a;
+  border-color: #b2eefa;
+}
+
+body.fix6-deck .reveal .fp.fp--fix6.fp--navy .fp-programme-detail {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+/* Type scale ×1.5 vs Fix-5 floors */
+body.fix6-deck .reveal .fp-bullets li,
+body.fix6-deck .reveal .fp-body,
+body.fix6-deck .reveal .fp-lens-body,
+body.fix6-deck .reveal .fp-journey-panel {
+  font-size: 36px !important;
+  line-height: 1.35 !important;
+}
+
+body.fix6-deck .reveal .fp-card__title,
+body.fix6-deck .reveal .fp-flip__title {
+  font-size: 39px !important;
+}
+
+body.fix6-deck .reveal .fp-flip__face--back {
+  font-size: 33px !important;
+}
+
+body.fix6-deck .reveal .fp-eyebrow {
+  font-size: 24px !important;
+}
+
+body.fix6-deck .reveal .fp-title {
+  font-size: 52px !important;
+}
+
+body.fix6-deck .reveal .fp-cover__title {
+  font-size: 72px !important;
+}
+
+body.fix6-deck .reveal .fp-cover__sub {
+  font-size: 36px !important;
+}
+
+body.fix6-deck .reveal .fp-cover__meta {
+  font-size: 28px !important;
+}
+
+body.fix6-deck .reveal .cth-source {
+  font-size: 22px !important;
+}
+
+body.fix6-deck .reveal .fp-stats--compact .fp-stat__value {
+  font-size: 72px !important;
+}
+
+body.fix6-deck .reveal .fp-stat__label {
+  font-size: 28px !important;
+}
+
+body.fix6-deck .reveal .fp-chart-card__title {
+  font-size: 28px !important;
+}
+
+body.fix6-deck .reveal .fp-risk-table {
+  font-size: 24px !important;
+}
+
+body.fix6-deck .reveal .fp-risk-table thead th {
+  font-size: 27px !important;
+}
+
+body.fix6-deck .reveal .fp-q5-lead {
+  font-size: 28px !important;
+}
+
+body.fix6-deck .reveal .fp-flip-hint {
+  font-size: 22px !important;
+}
+
+body.fix6-deck .reveal .fp-investor-controls label,
+body.fix6-deck .reveal .fp-investor-panel h3 {
+  font-size: 27px !important;
+}
+
+body.print-pdf body.fix6-deck .fp-flip__print-pair article,
+body.deck-static body.fix6-deck .fp-flip__print-pair article {
+  font-size: 30px !important;
+  background: #f4fafc !important;
+  color: #0c498a !important;
+  border: 2px solid #b2eefa;
+}
+
+body.print-pdf body.fix6-deck .fp-flip__print-pair h4,
+body.deck-static body.fix6-deck .fp-flip__print-pair h4 {
+  font-size: 22px !important;
+  color: #669348 !important;
+}
+
+body.print-pdf body.fix6-deck .fp-q6-lens,
+body.deck-static body.fix6-deck .fp-q6-lens {
+  background: #ffffff !important;
+  border: 3px solid #b2eefa;
+  padding: 24px 28px;
+}
+
+body.print-pdf body.fix6-deck .fp-q6-lens .fp-lens-print-both p,
+body.deck-static body.fix6-deck .fp-q6-lens .fp-lens-print-both p {
+  color: #0c498a !important;
+  font-size: 33px !important;
+}
+
+body.fix6-deck .reveal .fp-sector-grid {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+body.fix6-deck .reveal .fp-stats--4.fp-stats--compact .fp-stat {
+  min-height: 120px;
+  padding: 16px 14px;
+}
+
+body.fix6-deck .reveal .fp-chart-box {
+  min-height: 140px;
+  max-height: 180px;
+}
+
+body.fix6-deck .reveal .fp[data-cth-type="data-table"] .fp-head .fp-title {
+  font-size: 40px !important;
+}
+
+body.fix6-deck .reveal .fp[data-cth-type="data-table"] .fp-risk-table {
+  font-size: 18px !important;
+}
+
+body.fix6-deck .reveal .fp[data-cth-type="data-table"] .fp-risk-table th {
+  font-size: 19px !important;
+  padding: 8px 10px !important;
+}
+
+body.fix6-deck .reveal .fp[data-cth-type="data-table"] .fp-risk-table td {
+  padding: 6px 8px !important;
+  font-size: 17px !important;
+  line-height: 1.22 !important;
+}
+
+body.print-pdf body.fix6-deck .fp[data-cth-type="data-table"] .fp-risk-table td .fp-risk-cell-note,
+body.deck-static body.fix6-deck .fp[data-cth-type="data-table"] .fp-risk-table td .fp-risk-cell-note {
+  font-size: 14px !important;
+  line-height: 1.22 !important;
+}
+
+body.print-pdf body.fix6-deck .fp-flip-grid--giz .fp-flip__print-pair article,
+body.deck-static body.fix6-deck .fp-flip-grid--giz .fp-flip__print-pair article {
+  font-size: 16px !important;
+  line-height: 1.22 !important;
+  padding: 5px 7px !important;
+}
+
+body.print-pdf body.fix6-deck .fp-flip-grid--giz .fp-flip__print-pair h4,
+body.deck-static body.fix6-deck .fp-flip-grid--giz .fp-flip__print-pair h4 {
+  font-size: 16px !important;
+  margin-bottom: 4px !important;
+}
+
+body.print-pdf body.fix6-deck .fp-flip-grid--giz,
+body.deck-static body.fix6-deck .fp-flip-grid--giz {
+  gap: 8px !important;
+}
+
+body.fix6-deck .reveal .fp-stat-band--interactive .fp-head {
+  margin-bottom: 6px !important;
+}
+
+body.fix6-deck .reveal .fp-stats--4.fp-stats--compact .fp-stat__label {
+  font-size: 24px !important;
+}
+
+body.fix6-deck .reveal .fp-q3-panel {
+  font-size: 33px !important;
+  min-height: 100px;
+}

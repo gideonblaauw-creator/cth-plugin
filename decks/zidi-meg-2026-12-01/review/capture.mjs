@@ -11,7 +11,7 @@ const DECK_ROOT = path.resolve(__dirname, "..");
 const REVIEW = path.join(DECK_ROOT, "review");
 const DIST_DIR = path.join(DECK_ROOT, "dist");
 const DIST_HTML = path.join(DIST_DIR, "index.html");
-const SLIDES = 16;
+const SLIDES = 19;
 const PHOTO_SLIDES = [9];
 const PHOTO_INDICES = PHOTO_SLIDES.map((n) => n - 1);
 
