@@ -14,7 +14,7 @@
 
 **Risks:** (1) FAQ stresses **equity-focused** partners — CTH is **grant/regrant-first today**, with **warrants planned but not yet executed**; emphasize **portfolio companies’ third-party rounds** (e.g. investor engagements on MubOn case study) without inventing CTH tickets. (2) **Portfolio investment track record** — narrate **capital deployed via grants/sub-grants + companies supported**, not a traditional VC AUM.
 
-**Gideon confirm (open):** Applying entity; public AFCIA/UNDP cite if needed; REIN × PVBLIC one-liner for the form; Teclogi Series A public cite.
+**Gideon confirm (open):** public AFCIA/UNDP cite if needed; REIN × PVBLIC one-liner for the form; Teclogi Series A public cite.
 
 ---
 
