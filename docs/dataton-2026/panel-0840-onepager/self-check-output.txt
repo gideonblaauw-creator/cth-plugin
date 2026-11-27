@@ -1,0 +1,68 @@
+=== pdfinfo ===
+Title:           Panel 08:40 · Datatón 24 nov 2026
+Creator:         Chromium
+Producer:        Skia/PDF m159
+CreationDate:    Tue Nov 24 01:25:00 2026 UTC
+ModDate:         Tue Nov 24 01:25:00 2026 UTC
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           1
+Encrypted:       no
+Page size:       594.96 x 841.92 pts (A4)
+Page rot:        0
+File size:       276850 bytes
+Optimized:       no
+PDF version:     1.4
+
+=== pdffonts ===
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+AAAAAA+OpenSans-Bold                 CID TrueType      Identity-H       yes yes yes     12  0
+BAAAAA+OpenSans-SemiBold             CID TrueType      Identity-H       yes yes yes     13  0
+CAAAAA+OpenSans-Regular              CID TrueType      Identity-H       yes yes yes     15  0
+
+=== banned terms ===
+(none)
+
+=== text diff (whitespace-normalised) ===
+OK: word sequences match
+
+=== glyph scan ===
+(empty) — all pdftotext chars in OpenSans-Regular cmap
+
+=== computed font sizes ===
+=== computed font sizes (pt) ===
+h1: 16.5 pt [OK]
+.meta-line: 11.0 pt [OK]
+.meta-venue: 11.0 pt [OK]
+.lead: 11.0 pt [OK]
+.section-title: 12.5 pt [OK]
+.bullet-list li: 11.0 pt [OK]
+ul.questions-list li: 11.0 pt [OK]
+.body-text: 11.0 pt [OK]
+.closing: 11.0 pt [OK]
+.tagline: 10.0 pt [OK]
+minimum: 10.0 pt (required >= 10.0)
+
+=== g proof (font match) ===
+double-storey (binocular) g, same outline as the committed v3.003 TTF
+crops: Panel-0840-proof-g-from-pdf-200dpi.png vs Panel-0840-proof-g-from-ttf-200dpi.png
+
+=== word-bag diff (baseline 5ac3ed3c) ===
+word-bag diff vs 5ac3ed3c: 0 (match)
+
+=== r6 measurements ===
+{
+  "datalab_cap_height_mm": 5.84,
+  "externado_cap_height_mm": 5.74,
+  "powered_by_pt": 10.94,
+  "cth_logo_height_mm": 7.72,
+  "footer_gap_mm": 12.33,
+  "body_pt": 11.0,
+  "cap_height_ratio": 1.017
+}
