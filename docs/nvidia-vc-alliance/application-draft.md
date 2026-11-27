@@ -32,6 +32,8 @@
 
 ## 3. Portfolio shortlist (AI/data + NVIDIA)
 
+**Common AI thread:** predictions and digital twins. CTH plans to build digital twins of portfolio installations and operations as the base for prediction models (Novatio, SUNCO, Parsons Kinetics), and these are planned directions, not current work.
+
 1. **MubOn SAS** — IoT EV network, telemetry, chatbot, MubOn Cloud ([data.cleantechhub.net/projects/mubon/](https://data.cleantechhub.net/projects/mubon/)); NVIDIA: edge/cloud ML, forecasting, LLM support.
 2. **SEOS Energy** — Satellite + **AI** precotization, SEOS Studio/IoT ([seosenergy.co](https://seosenergy.co/)); NVIDIA: vision/geospatial inference.
 3. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
@@ -61,7 +63,7 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~AFCIA/UNDP public cite~~ — **resolved (Gideon, 27 Nov 2026):** UNDP Adaptation article link.
 
-~~Teclogi, Lynks~~ — **dropped (Gideon, 27 Nov 2026).**
+~~Teclogi, Lynks~~ — **dropped (Gideon, 27 Nov 2026); move on.**
 
 ~~Novatio public URL~~ — **resolved (Gideon, 27 Nov 2026):** [novatio.com.co](https://novatio.com.co/).
 
