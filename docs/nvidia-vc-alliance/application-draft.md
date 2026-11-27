@@ -32,16 +32,16 @@
 
 ## 3. Portfolio shortlist (AI/data + NVIDIA)
 
-**Before submission:** written consent from each referred startup to share its name, contacts and data with NVIDIA, including transfer to the US (Ley 1581 de 2012; counsel to confirm wording). Referred startups must meet NVIDIA Inception minimums.
+Referred startups must meet NVIDIA Inception minimums.
 
 **Common AI thread:** predictions and digital twins. CTH plans to build digital twins of portfolio installations and operations as the base for prediction models (Novatio, SUNCO, Parsons Kinetics), and these are planned directions, not current work.
 
 1. **MubOn SAS** — IoT EV network, telemetry, chatbot, MubOn Cloud ([data.cleantechhub.net/projects/mubon/](https://data.cleantechhub.net/projects/mubon/)); NVIDIA: edge/cloud ML, forecasting, LLM support.
 2. **SEOS Energy** — Satellite + **AI** precotization, SEOS Studio/IoT ([seosenergy.co](https://seosenergy.co/)); NVIDIA: vision/geospatial inference.
 3. **O3 Smart Cities** — **O3 Energy Cloud** 24/7 on 49 plants ([o3smartcities.com.co](https://o3smartcities.com.co/)); NVIDIA: predictive O&M, time-series at scale.
-4. **SUNCO** — Renewable scale-up ([cleantechhub.net](https://www.cleantechhub.net)); Planned AI use case (proposed by CTH, not current work): digital twin of its solar installations/operations as the base for a performance-prediction model (direction confirmed by Gideon, Nov 2026).
+4. **SUNCO** — Renewable scale-up ([suncolombia.com](https://suncolombia.com/)); Planned AI use case (proposed by CTH, not current work): digital twin of its solar installations/operations as the base for a performance-prediction model (direction confirmed by Gideon, Nov 2026).
 5. **Novatio** — Ticket portfolio name; ([novatio.com.co](https://novatio.com.co/)) graduate of a CleantechHUB accelerator programme (confirmed by Gideon, Nov 2026). Planned AI use case (proposed by CTH, not current work): Novatio runs biodigester installations and would need a prediction model for implementation, starting with a digital twin of its installations (confirmed by Gideon, Nov 2026).
-6. **Parsons Kinetics** — Ticket portfolio name; Planned AI use case (proposed by CTH, not current work): digital twin of its systems as the base for a prediction model (direction confirmed by Gideon, Nov 2026) [CONFIRM URL + specific NVIDIA use case].
+6. **Parsons Kinetics** — Ticket portfolio name; ([parsonskinetics.com](https://parsonskinetics.com/)) Planned AI use case (proposed by CTH, not current work): digital twin of its systems as the base for a prediction model (direction confirmed by Gideon, Nov 2026) [CONFIRM specific NVIDIA use case].
 
 ---
 
@@ -85,6 +85,10 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~Legal provisional wording (27 Nov 2026)~~ — **applied (Gideon GO, +50M kept as is)**
 
-Remaining: SUNCO/Parsons URLs; Parsons specific NVIDIA use case · portal fields · full T&Cs · startup referral consents.
+~~SUNCO/Parsons URLs~~ — **resolved (Gideon, 27 Nov 2026).**
+
+~~Startup referral consents~~ — **not needed (Gideon, 27 Nov 2026).**
+
+Remaining: Parsons specific NVIDIA use case · portal fields · full T&Cs.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/), [UNDP Adaptation — AFCIA Colombia](https://www.adaptation-undp.org/green-business-accelerator-helps-strengthen-resilient-communities-colombia).*
