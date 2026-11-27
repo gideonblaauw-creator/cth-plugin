@@ -17,10 +17,12 @@
 
 ## QA
 
-- `tools/reveal/build.sh zidi-meg-2026-12-01` — exit 0; 13 slides / 13 PDF pages  
+- `tools/reveal/build.sh zidi-meg-2026-12-01` — exit 0; 15 slides / 15 PDF pages (decktape 1920×1080)  
 - `tools/reveal/lint.sh zidi-meg-2026-12-01` — exit 0 (overflow, fonts)  
-- Frame: FODESEP `fp-*` pattern + `assets/deck.css`; Titillium titles via `assets/cth-skin.css`; globe logo `assets/cth-logo.png` top right on content slides  
-- Exclusions honoured (no Axioma, named investors, EUR 2M roadshow, EBITDA, BDO narrative, live zero counters)
+- `review/capture.mjs` — contact sheet + 15 slide PNGs  
+- Fix-1 (content): removed Pool #1 / IRR; expanded Q1–Q2–Q4–Q5 answers; programme ladder; closing tagline + booking link  
+- Frame: FODESEP `fp-*` pattern + `assets/deck.css`; Titillium titles via `assets/cth-skin.css`; globe logo top right (incl. photo slide)  
+- Exclusions honoured (no Axioma / projected IRR, named investors, EUR 2M roadshow, EBITDA, BDO narrative, live zero counters)
 
 ## HITL
 
