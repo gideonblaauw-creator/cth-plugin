@@ -717,8 +717,7 @@ body.deck-static .fp-risk-note {
   background: #b2eefa;
 }
 .reveal .fp.fp--bleed .fp-bullets li,
-.reveal .fp.fp--bleed .fp-card__text,
-.reveal .fp.fp--bleed .fp-body {
+.reveal .fp.fp--bleed .fp-body:not(:has(.fp-card)) {
   color: #fff;
 }
 .reveal .fp.fp--bleed .fp-bullets li::before {
@@ -729,8 +728,9 @@ body.deck-static .fp-risk-note {
   border-color: #b2eefa;
 }
 .reveal .fp.fp--bleed .fp-card .fp-card__title,
-.reveal .fp.fp--bleed .fp-card .fp-card__text {
-  color: #0c498a;
+.reveal .fp.fp--bleed .fp-card .fp-card__text,
+.reveal .fp.fp--bleed .fp-card .fp-sector-detail {
+  color: #0c498a !important;
 }
 .reveal .fp.fp--bleed .cth-source {
   color: #b2eefa;
@@ -1154,4 +1154,282 @@ body.deck-static .fp.fp--bleed .fp-investor-print-card .fp-investor-trade {
 body.print-pdf .fp.fp--bleed .fp-q3-dual__col,
 body.deck-static .fp.fp--bleed .fp-q3-dual__col {
   font-size: 24px;
+}
+
+/* --- Fix-5: type floors, frosted text tiles, contrast, Q4 caption clearance --- */
+.reveal .fp-text-glass {
+  background: rgba(0, 40, 85, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(178, 238, 250, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 24, 52, 0.25);
+}
+body.print-pdf .fp-text-glass,
+body.deck-static .fp-text-glass {
+  background: rgba(0, 40, 85, 0.88) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.reveal .fp.fp--bleed .fp-head {
+  background: rgba(0, 40, 85, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(178, 238, 250, 0.35);
+  padding: 18px 22px 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+body.print-pdf .reveal .fp.fp--bleed .fp-head,
+body.deck-static .reveal .fp.fp--bleed .fp-head {
+  background: rgba(0, 40, 85, 0.9);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.reveal .fp.fp--bleed.fp-title-bullets .fp-body,
+.reveal .fp.fp--bleed.fp-process .fp-body,
+.reveal .fp.fp--bleed.fp-stat-band .fp-body {
+  background: rgba(0, 40, 85, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(178, 238, 250, 0.35);
+  padding: 20px 22px;
+  box-sizing: border-box;
+}
+body.print-pdf .reveal .fp.fp--bleed.fp-title-bullets .fp-body,
+body.deck-static .reveal .fp.fp--bleed.fp-title-bullets .fp-body,
+body.print-pdf .reveal .fp.fp--bleed.fp-process .fp-body,
+body.deck-static .reveal .fp.fp--bleed.fp-process .fp-body,
+body.print-pdf .reveal .fp.fp--bleed.fp-stat-band .fp-body,
+body.deck-static .reveal .fp.fp--bleed.fp-stat-band .fp-body {
+  background: rgba(0, 40, 85, 0.9);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.reveal .fp.fp--bleed > .cth-source {
+  background: rgba(255, 255, 255, 0.85);
+  color: #003366;
+  padding: 10px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 16px !important;
+  line-height: 1.35;
+  font-weight: 600;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+body.print-pdf .reveal .fp.fp--bleed > .cth-source,
+body.deck-static .reveal .fp.fp--bleed > .cth-source {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: #0c498a;
+}
+
+.reveal .fp-text-glass--cover {
+  padding: 28px 32px;
+  margin-top: 12px;
+}
+.reveal .fp-text-glass--statement {
+  padding: 32px 36px;
+}
+.reveal .fp-text-glass--caption {
+  color: #ffffff;
+  font-size: 22px !important;
+  padding: 12px 18px;
+  margin-top: 14px !important;
+}
+
+/* Type floors at 1920×1080 */
+.reveal .fp-bullets li,
+.reveal .fp.fp--bleed .fp-body,
+.reveal .fp-journey-panel,
+.reveal .fp-ladder-detail,
+.reveal .fp-lens-body,
+.reveal .fp-investor-panel p,
+.reveal .fp-q2-intro {
+  font-size: 24px;
+  line-height: 1.38;
+}
+.reveal .fp.fp--bleed .fp-q2-intro {
+  color: #e8f8fc;
+}
+.reveal .fp-card__title,
+.reveal .fp-flip__title {
+  font-size: 30px !important;
+}
+.reveal .fp-flip__face--back,
+body.print-pdf .fp-flip__print-pair article,
+body.deck-static .fp-flip__print-pair article {
+  font-size: 26px !important;
+  line-height: 1.35;
+}
+body.print-pdf .fp-flip__print-pair h4,
+body.deck-static .fp-flip__print-pair h4 {
+  font-size: 22px !important;
+}
+.reveal .cth-source,
+.reveal .fp.fp--bleed .cth-source {
+  font-size: 16px !important;
+}
+.reveal .fp-stat__label,
+.reveal .fp-stats--compact .fp-stat__label {
+  font-size: 22px !important;
+}
+.reveal .fp-stats--compact .fp-stat__source,
+.reveal .fp-stat__source {
+  font-size: 16px !important;
+}
+.reveal .fp-programme-card__title {
+  font-size: 24px;
+}
+.reveal .fp-programme-card__text {
+  font-size: 24px;
+}
+.reveal .fp-journey-node {
+  font-size: 24px;
+}
+.reveal .fp-sector-grid .fp-card__title {
+  font-size: 30px;
+}
+.reveal .fp-sector-grid .fp-card__text,
+.reveal .fp-sector-detail {
+  font-size: 24px;
+}
+.reveal .fp-chart-card__title {
+  font-size: 24px;
+}
+.reveal .fp-chart-card__sub,
+.reveal .fp-chart-footnote {
+  font-size: 16px;
+}
+.reveal .fp-compare-list li {
+  font-size: 24px;
+}
+.reveal .fp-investor-band {
+  font-size: 18px;
+}
+
+/* Bleed cards: light tile, navy text (no white-on-white) */
+.reveal .fp.fp--bleed .fp-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #b2eefa;
+}
+.reveal .fp.fp--bleed .fp-card .fp-card__title,
+.reveal .fp.fp--bleed .fp-card .fp-card__text,
+.reveal .fp.fp--bleed .fp-card .fp-sector-detail {
+  color: #0c498a !important;
+}
+.reveal .fp.fp--bleed .fp-q3-panel {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #0c498a !important;
+  font-size: 24px !important;
+}
+
+/* Q4 — table vs caption separation */
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill {
+  gap: 0;
+}
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill .fp-head {
+  margin-bottom: 18px !important;
+}
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill .fp-body {
+  flex: 0 1 auto;
+  margin-bottom: 0;
+}
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill .fp-risk-table {
+  font-size: 20px;
+}
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill .fp-risk-table th {
+  font-size: 22px;
+  padding: 12px 14px;
+}
+.reveal .fp[data-cth-type="data-table"].fp-slide-fill .fp-risk-table td {
+  padding: 10px 12px;
+  vertical-align: top;
+}
+body.print-pdf .fp[data-cth-type="data-table"].fp-slide-fill .fp-head .fp-title,
+body.deck-static .fp[data-cth-type="data-table"].fp-slide-fill .fp-head .fp-title {
+  font-size: 44px !important;
+}
+body.print-pdf .fp[data-cth-type="data-table"] .fp-risk-table td .fp-risk-cell-note,
+body.deck-static .fp[data-cth-type="data-table"] .fp-risk-table td .fp-risk-cell-note {
+  font-size: 17px;
+  line-height: 1.28;
+}
+body.print-pdf .fp[data-cth-type="data-table"] .fp-risk-caption,
+body.deck-static .fp[data-cth-type="data-table"] .fp-risk-caption {
+  flex-shrink: 0;
+  margin-top: 20px !important;
+  position: relative;
+  z-index: 3;
+}
+
+/* Q1 / Q3 print cards — filled interiors */
+body.print-pdf .fp.fp--bleed .fp-investor-print-card,
+body.deck-static .fp.fp--bleed .fp-investor-print-card {
+  min-height: 300px;
+  justify-content: space-between;
+  background: rgba(0, 40, 85, 0.92) !important;
+}
+body.print-pdf .fp.fp--bleed .fp-investor-print-card p,
+body.deck-static .fp.fp--bleed .fp-investor-print-card p {
+  flex: 1;
+  font-size: 26px;
+  line-height: 1.38;
+}
+body.print-pdf .fp.fp--bleed .fp-q3-dual__col,
+body.deck-static .fp.fp--bleed .fp-q3-dual__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  min-height: 340px;
+  background: rgba(0, 40, 85, 0.92) !important;
+  font-size: 26px;
+}
+body.print-pdf .fp.fp--bleed .fp-q3-dual__col h4,
+body.deck-static .fp.fp--bleed .fp-q3-dual__col h4 {
+  font-size: 22px;
+}
+body.print-pdf .fp.fp--bleed .fp-q3-dual__col p,
+body.deck-static .fp.fp--bleed .fp-q3-dual__col p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* Contrast: foot on bleed */
+.reveal .fp.fp--bleed .fp-foot,
+.reveal .fp.fp--bleed .fp-foot span:not(.fp-conf) {
+  color: #e8f8fc;
+}
+.reveal .fp.fp--bleed .fp-foot .fp-conf {
+  color: #9dc384;
+}
+
+/* Stat tiles on photo slides: solid fills */
+.reveal .fp.fp--bleed .fp-stat {
+  background: #0c498a;
+  border: 3px solid #b2eefa;
+}
+.reveal .fp.fp--bleed .fp-stat:nth-child(even) {
+  background: #ffffff;
+  color: #0c498a;
+}
+.reveal .fp.fp--bleed .fp-chart-card {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+/* Risk table even rows: readable navy text on light rows in bleed */
+.reveal .fp.fp--bleed .fp-risk-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }

@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""Emit review/contrast-check.md — WCAG contrast ratios for Zidi MEG deck tokens (Fix-5)."""
+from __future__ import annotations
+
+from pathlib import Path
+
+
+def srgb(c: float) -> float:
+    return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+
+def luminance(hex_color: str) -> float:
+    h = hex_color.lstrip("#")
+    r, g, b = (int(h[i : i + 2], 16) / 255 for i in (0, 2, 4))
+    r, g, b = srgb(r), srgb(g), srgb(b)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast(fg: str, bg: str) -> float:
+    l1, l2 = luminance(fg), luminance(bg)
+    lighter, darker = max(l1, l2), min(l1, l2)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+def grade(ratio: float, large: bool = False) -> str:
+    need = 3.0 if large else 4.5
+    return "PASS AA" if ratio >= need else "FAIL"
+
+
+PAIRS = [
+    ("Body on white card", "#0C498A", "#FFFFFF", False),
+    ("Body on navy glass", "#FFFFFF", "#002855", False),  # ~rgba(0,40,85,.88)
+    ("Card title on white", "#0C498A", "#FFFFFF", True),
+    ("Eyebrow green on navy glass", "#9DC384", "#002855", False),
+    ("Title white on navy glass", "#FFFFFF", "#002855", True),
+    ("Source on white glass", "#0C498A", "#FFFFFF", False),
+    ("Source cyan on bleed (legacy)", "#B2EEFA", "#0C498A", False),
+    ("Foot label on bleed", "#E8F8FC", "#0C498A", False),
+    ("Conf label on bleed", "#9DC384", "#0C498A", False),
+    ("KPI label on navy stat", "#FFFFFF", "#0C498A", True),
+    ("KPI value cyan on navy", "#B2EEFA", "#0C498A", True),
+    ("KPI label on white stat", "#0C498A", "#FFFFFF", False),
+    ("KPI value green on white", "#669348", "#FFFFFF", True),
+    ("Risk header on navy", "#FFFFFF", "#0C498A", True),
+    ("Risk body on navy cell", "#FFFFFF", "#0C498A", False),
+    ("Rate pill low", "#0C498A", "#9DC384", True),
+    ("Rate pill med", "#0C498A", "#B2EEFA", True),
+    ("Rate pill high", "#3A1A08", "#F4A574", True),
+    ("Flip back on cyan tint", "#0C498A", "#E8FAFE", False),
+    ("Statement attr on statement", "#B2EEFA", "#002855", False),
+    ("Closing body on navy", "#FFFFFF", "#0C498A", True),
+]
+
+out = Path(__file__).resolve().parent / "contrast-check.md"
+lines = [
+    "# Contrast check — Zidi MEG deck (Fix-5)",
+    "",
+    "Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · large text ≥3:1.",
+    "",
+    "| Style / pair | Foreground | Background | Ratio | Grade |",
+    "|--------------|------------|------------|------:|-------|",
+]
+for name, fg, bg, large in PAIRS:
+    ratio = contrast(fg, bg)
+    lines.append(
+        f"| {name} | `{fg}` | `{bg}` | {ratio:.2f}:1 | {grade(ratio, large)} |"
+    )
+lines.extend(
+    [
+        "",
+        "## Fix-5 mitigations",
+        "",
+        "- Frosted navy or white tiles (`fp-text-glass`, bleed `fp-head` / `fp-body` shells) behind text on photos; print uses solid `rgba(0,40,85,.88)` or `rgba(255,255,255,.92)`.",
+        "- Source lines use white glass + navy text on bleed slides (no cyan-on-navy footnotes).",
+        "- Q4 caption in its own glass row below the table (`max-height` on table body).",
+        "- Q1/Q3 print columns use filled navy cards at 26px body.",
+        "",
+    ]
+)
+out.write_text("\n".join(lines), encoding="utf-8")
+print(out)

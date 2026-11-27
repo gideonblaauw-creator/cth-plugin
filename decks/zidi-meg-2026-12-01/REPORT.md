@@ -2,7 +2,8 @@
 
 **bc-id:** `bc-f6b2aec9-493c-56e0-9a87-ea28cd85b9f6`  
 **Branch:** `cursor/zidi-meg-2026-12-01-fix4`  
-**Fix:** Gideon review 27 Nov 2026 13:28 COT (Fix-4)  
+**Fix:** Gideon review 27 Nov 2026 14:02 COT (Fix-5)  
+**bc-id:** `bc-38e02d33-3f8b-5070-9b8a-aeec5f57b2ce`  
 **Preview (gated, post-merge + Infra route):** `https://decks.cleantechhub.net/zidi-meg-2026-12-01/` (Google SSO)  
 **Lane:** A · `decks/zidi-meg-2026-12-01/`  
 **Reviewer:** Presentations (`499a82bc`)
@@ -12,7 +13,9 @@
 | Item | Path |
 |------|------|
 | Deck source | `decks/zidi-meg-2026-12-01/index.html` |
-| PDF v4 (1920×1080 decktape) | `decks/zidi-meg-2026-12-01/ZidiCircle-MEG-Gideon-Blaauw-MubOn-1Dec2026-v4-REVIEW.pdf` |
+| PDF v5 (1920×1080 decktape) | `decks/zidi-meg-2026-12-01/ZidiCircle-MEG-Gideon-Blaauw-MubOn-1Dec2026-v5-REVIEW.pdf` |
+| Contrast audit | `decks/zidi-meg-2026-12-01/review/contrast-check.md` |
+| Contact sheet v5 | `decks/zidi-meg-2026-12-01/review/contact-sheet-v5.png` |
 | PDF (slug alias) | `decks/zidi-meg-2026-12-01/zidi-meg-2026-12-01.pdf` |
 | Contact sheet v4 | `decks/zidi-meg-2026-12-01/review/contact-sheet-v4.png` |
 | Image credits | `decks/zidi-meg-2026-12-01/review/image-credits.md` |
