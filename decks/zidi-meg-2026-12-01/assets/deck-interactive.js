@@ -306,7 +306,7 @@
           grid.className = "fp-investor-print-grid";
           routes.forEach(function (route, i) {
             var card = document.createElement("article");
-            card.className = "fp-card fp-investor-print-card";
+            card.className = "fp-investor-print-card";
             card.innerHTML =
               "<h4>" +
               bands[i] +
