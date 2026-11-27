@@ -44,8 +44,9 @@ All file packs, research grind, copy drafts, inventories, HTML/docx/xlsx, and re
 - **Lane A repo / store for this Desk:** `https://github.com/gideonblaauw-creator/cth-plugin` for harness/skills.
 - Ticket template: `tickets/TEMPLATE.md`
 - Read `skills/harness/SKILL.md` before launching Hands.
+- **Desk protocol (HARD — 24 Sep 2026):** follow `skills/desks-workbenches-hands-tickets/SKILL.md`. Local executor grind is a protocol miss.
 - Production / client agent graphs: ticket `langgraph: yes` and follow `skills/langgraph-production/SKILL.md` on the owning product repo. OpenCode is OSS experiments only.
-- **BUILDING (t1263u):** repo/code/build Hands → Composer 2.5 **Fast ON** (`fast=true`); empty build ticket fills Fast ON (not Flash). Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code. Never silently launch a build with Fast off. Canonical: `docs/hands-model-routing.md`.
+- **BUILDING (t1263u):** repo/code/build Hands → `composer-2.5`, `model_params`: `fast: false` (Gideon lock 17 Nov 2026). Explicit build surfaces: repo/code, LangGraph lane, Lane A product apps, **Signal Radar**, **LexiScan**, **scanner**, harness code. Canonical: `docs/hands-model-routing.md`.
 - **Product-agent-loop (t1423u):** when ticket sets `eve: yes`, Infra checks Eve paths on the owning Lane A repo — `agent/instructions.md`, tools/skills under `agent/` — not desk/pack trees. Canonical: `docs/eve-convention.md`. Not Vercel Agent Runs; playground UI remains LexiScan house-tour standard (`docs/understanding-lab-playground-standard.md`).
 
 ### Cursor Projects ↔ Desk map (Infra ownership)
@@ -63,17 +64,27 @@ When ticketing Hands for a desk, optional fields `cursor_project` + `cursor_work
 
 **Peer docs (Infra pointers):** `docs/cursor-projects.md` (Cursor Projects ↔ Desks); **`docs/rakazo-plan-b-pointer.md`** (Plan B emergency failover — Phases 0–4 in `gideonblaauw-creator/rakazo-plan-b`; desk playbook `skills/rakazo-failover-comms/SKILL.md`).
 
-## 5. Lowest-tier model
+## 5. Model (Gideon lock 17 Nov 2026)
 
-**Token budget protocol (22 Oct 2026):** every Cloud Hands job runs on Composer 2.5 Fast (`composer-2.5`, `fast=true`). Do not fill Flash. Do not HOLD a review job for a missing model. The table below is the 13 Sep record. It is not the launch fill-in. Canonical: `skills/harness/SKILL.md` § Token budget protocol and `docs/hands-model-routing.md`.
+Every Cloud Hands job this desk tickets: **`composer-2.5`, `model_params`: `fast: false`** (Gideon lock 17 Nov 2026). Do not enable fast mode on the ticket.
 
 | Job | Model | Notes |
 |-----|-------|-------|
-| Mechanical copy, file packs, inventories, research grind | `gemini-3.7-flash` | 13 Sep record. Retired as launch fill-in on 22 Oct 2026 |
-| Repo / code / build Hands (Signal Radar, LexiScan, scanner, harness, LangGraph) | `composer-2.5` (`fast=true`) | Fast ON. After 22 Oct 2026 this model covers every Cloud Hands job |
-| Review / eval / brand with no model | **HOLD** | 13 Sep record. Retired 22 Oct 2026. Launch Composer 2.5 Fast |
+| Default / build / review on Infra tickets | `composer-2.5` (`fast: false`) | Fast OFF only |
+| Tiny mechanical transform | `gemini-3.7-flash` | Only when the ticket names it |
+| High-tier or review/eval/brand with no model | **HOLD** | Flag Gideon |
 
-Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands. Every Cloud Hands job uses Composer 2.5 Fast ON (Token budget protocol, 22 Oct 2026). `composer-2.5 (fast=false)` on a build → miss: remap to `fast=true` and flag.
+Never silently use Sonnet, Haiku, Opus, or Grok on Cloud Hands.
+
+## 5b. Playground format (locked 13 Sep 2026 — t1268u)
+
+**All Understanding Lab / HITL playgrounds = LexiScan standard format.** Do not invent a new layout per product.
+
+- Canonical repo: `gideonblaauw-creator/fabfloow-lexiscan` → `understanding-lab/playground/` (`index.html`, `app.js`, `data.js`, `styles.css`, `README.md`, `smoke.sh`)
+- Mechanics: HTML house tour, quests + quizzes + decision doors, EN+ES, localStorage persistence, ledger + download JSON/MD, `smoke.sh`
+- Ticket field (Tier 1–2): `playground_standard: lexiscan-html-v2`
+- Scanner `hitl/microworld/` tabbed shell is **legacy** — remediate toward house tour
+- Full PASS gate: `docs/understanding-lab-playground-standard.md` and §7 Playground format lock below
 
 ## 6. Workbench exception
 
@@ -99,7 +110,7 @@ Workbench is **not** a default and **not** a second Hands. Use only when Hands c
 ## 7. HITL
 
 Nothing **sent**, **posted**, or **paid** without **Gideon Blaauw** yes in the owning chat.
-GO / NO GO asks to Gideon use inline widget buttons (HARNESS.md, 22 Nov 2026).
+Every GO / NO GO or HITL ask to Gideon uses inline widget buttons — one decision per widget, never prose only. See `skills/go-no-go-buttons/SKILL.md` and `HARNESS.md` § GO / NO GO decisions (PR #169).
 
 Gideon merges and deploys. Hands does not deploy.
 

@@ -10,6 +10,13 @@ All notable changes to the CleantechHUB Cowork Plugin are documented in this fil
 - Updated: `HARNESS.md` (Operating protocol / HITL), `AGENTS.md`, `CLAUDE.md`, `skills/desks-workbenches-hands-tickets/SKILL.md`, all `skills/*-comms/SKILL.md`
 - HITL: Gideon merges. Hands does not merge.
 
+### Fleet optimization Build A (22 Nov 2026)
+
+- New skills: `careers-weekly-scan`, `health-infra-watch`, `client-desk-standard` — runbooks from careers/health profiles and low-volume client desk standard
+- Merged canonical skills: `view-hitl-lab-delivery`, `rakazo-phase-1-tickets`; restored full `infrastructure-comms` from repo main with box §5b + desks-tickets HARD link; model lock `fast: false` (Gideon 17 Nov 2026)
+- New: `docs/routines-manifest.schema.json`, `docs/routines-manifest.json` — seed entries from coverage audit 22 Nov 2026 (confirmed routines + workspace-evidenced jobs)
+- HITL: Gideon merges. Hands does not merge. **Awaiting Gideon's approval** on public protocol text.
+
 ### Socials Loop: X research ingest (18 Nov 2026)
 
 - Updated: `skills/socials-loop/SKILL.md`: optional X Desk daily **X signal** + Gideon-shared post URLs feed §3 Hands research only; hard rules (zero X spend, HITL, Slack `#CTH_OPS`, brand separation, source links); X is not a publish channel in the loop
