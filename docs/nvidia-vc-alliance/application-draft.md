@@ -59,6 +59,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~consulting-risk wording~~ — **resolved (Gideon, 27 Nov 2026):** regrantor/accelerator wording approved; not consulting.
 
-Remaining: applying entity · Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · AFCIA/UNDP public cite if required · Teclogi Series A source · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
+~~applying entity~~ — **resolved (Gideon, 27 Nov 2026):** Fundación CleantechHUB, Bogotá, NIT 901.523.941-9.
+
+Remaining: Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · AFCIA/UNDP public cite if required · Teclogi Series A source · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/).*
