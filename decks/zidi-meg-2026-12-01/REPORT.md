@@ -20,7 +20,8 @@
 - `tools/reveal/build.sh zidi-meg-2026-12-01` — exit 0; 15 slides / 15 PDF pages (decktape 1920×1080)  
 - `tools/reveal/lint.sh zidi-meg-2026-12-01` — exit 0 (overflow, fonts)  
 - `review/capture.mjs` — contact sheet + 15 slide PNGs  
-- Fix-1 (content): removed Pool #1 / IRR; expanded Q1–Q2–Q4–Q5 answers; programme ladder; closing tagline + booking link  
+- Fix-1 (content): removed Pool #1 / IRR; expanded Q1–Q2–Q4–Q5 answers; programme ladder; closing tagline + booking link
+- Fix-2 (interactive): Chart.js MubOn metrics; clickable programme ladder + MubOn journey; Q3 toggle; readiness/regulatory tick lists; investor ticket slider; expandable Q2 sectors; Q4 risk table; Q6 diaspora/institutional lens; `review/capture-interactions.mjs`  
 - Frame: FODESEP `fp-*` pattern + `assets/deck.css`; Titillium titles via `assets/cth-skin.css`; globe logo top right (incl. photo slide)  
 - Exclusions honoured (no Axioma / projected IRR, named investors, EUR 2M roadshow, EBITDA, BDO narrative, live zero counters)
 
