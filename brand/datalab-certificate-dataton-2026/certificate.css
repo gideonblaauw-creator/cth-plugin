@@ -1,0 +1,236 @@
+@page {
+  size: 297mm 210mm;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  font-weight: 700;
+  src: url("fonts/TitilliumWeb-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url("fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  src: url("fonts/OpenSans-SemiBold.ttf") format("truetype");
+}
+
+:root {
+  --deep-blue: #0c498a;
+  --light-cyan: #b2eefa;
+  --light-green: #9dc384;
+  --forest-green: #669348;
+  --sky-blue: #69b5fa;
+  --ink: #0c498a;
+  --safe: 12mm;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 297mm;
+  height: 210mm;
+  margin: 0;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.certificate {
+  width: 297mm;
+  height: 210mm;
+  padding: var(--safe);
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(178, 238, 250, 0.35) 0%, rgba(255, 255, 255, 0) 18%),
+    #fff;
+  position: relative;
+}
+
+.certificate::before {
+  content: "";
+  position: absolute;
+  left: var(--safe);
+  right: var(--safe);
+  top: var(--safe);
+  height: 3px;
+  background: linear-gradient(90deg, var(--deep-blue), var(--sky-blue), var(--forest-green));
+  border-radius: 2px;
+}
+
+.header {
+  margin-top: 4mm;
+  margin-bottom: 3mm;
+  display: flex;
+  justify-content: center;
+}
+
+.header-object {
+  width: 62mm;
+  height: auto;
+  display: block;
+}
+
+.title {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-size: 22pt;
+  color: var(--deep-blue);
+  text-align: center;
+  margin-bottom: 2mm;
+}
+
+.lead {
+  text-align: center;
+  font-size: 11pt;
+  margin-bottom: 2mm;
+}
+
+.name-block {
+  text-align: center;
+  margin: 2mm 0 4mm;
+  min-height: 18mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4mm;
+  background: rgba(178, 238, 250, 0.45);
+  border-radius: 4px;
+}
+
+.participant-name {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  color: var(--deep-blue);
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.body-text {
+  text-align: center;
+  max-width: 245mm;
+  margin: 0 auto 3mm;
+  font-size: 10.5pt;
+}
+
+.programme-line {
+  text-align: center;
+  font-size: 8.5pt;
+  color: var(--forest-green);
+  font-weight: 600;
+  max-width: 250mm;
+  margin: 0 auto 4mm;
+  line-height: 1.35;
+}
+
+.date-line {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 5mm;
+}
+
+.signatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16mm;
+  margin: 30mm auto 0;
+  width: 100%;
+  max-width: 230mm;
+}
+
+.sig-block {
+  text-align: center;
+}
+
+.sig-rule {
+  border: none;
+  border-top: 1px solid var(--deep-blue);
+  height: 0;
+  width: 100%;
+  margin: 0 auto 3mm;
+}
+
+.sig-name {
+  font-weight: 600;
+  font-size: 10pt;
+  color: var(--deep-blue);
+}
+
+.sig-title,
+.sig-org {
+  font-size: 9pt;
+  line-height: 1.35;
+}
+
+.certificate-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.partners {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 6mm;
+  padding-top: 2mm;
+  border-top: 1px solid rgba(12, 73, 138, 0.15);
+}
+
+.partner-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 14mm;
+}
+
+.partner-cell img {
+  max-height: 12mm;
+  width: auto;
+  object-fit: contain;
+}
+
+.partner-cth img {
+  max-height: 11mm;
+  max-width: 52mm;
+}
+
+.cee-slot {
+  border: 1px dashed rgba(12, 73, 138, 0.45);
+  border-radius: 4px;
+  padding: 2mm 3mm;
+  font-size: 7pt;
+  text-align: center;
+  color: var(--deep-blue);
+  line-height: 1.25;
+  max-width: 48mm;
+  background: #fff;
+}
+
+.footer-tagline {
+  text-align: center;
+  font-size: 7pt;
+  font-weight: 600;
+  color: var(--forest-green);
+  letter-spacing: 0.02em;
+  margin: 0;
+  flex-shrink: 0;
+}
