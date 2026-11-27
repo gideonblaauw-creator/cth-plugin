@@ -2751,8 +2751,8 @@ fleet_registry:
     type: workbench
     org_layer: Workbench
     parent:
-      id: 85949e8a
-      reason: 'Gap 5: Health alerts route to Engine Room before Infra checker escalation.'
+      id: c656afb9
+      reason: 'Gideon decision 2026-11-25 17:09 COT: Health reports to Control Tower · Infra.'
       status: active
     status: active
     tools_whitelist:
