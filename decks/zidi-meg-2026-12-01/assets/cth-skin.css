@@ -1433,3 +1433,163 @@ body.deck-static .fp.fp--bleed .fp-q3-dual__col p {
   background: rgba(255, 255, 255, 0.22);
   color: #ffffff;
 }
+
+/* --- Fix-5b: Q5/Q6 split, bleed flip print contrast, Q1/Q3 vertical balance --- */
+.reveal .fp-flip-grid--q5 {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  align-content: start;
+}
+.reveal .fp-flip-grid--q5 .fp-flip {
+  grid-column: span 2;
+  min-height: 120px;
+}
+.reveal .fp-flip-grid--q5 .fp-flip:nth-child(4) {
+  grid-column: 1 / span 3;
+}
+.reveal .fp-flip-grid--q5 .fp-flip:nth-child(5) {
+  grid-column: 4 / span 3;
+}
+.reveal .fp-q5-lead {
+  font-size: 22px;
+  color: #e8f8fc;
+  margin: 0 0 12px !important;
+}
+.reveal .fp-q6-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.reveal .fp-q6-lens {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.reveal .fp.fp--bleed .fp-q6-lens .fp-lens-body {
+  font-size: 24px;
+  line-height: 1.38;
+  color: #0c498a;
+  flex: 1;
+}
+
+body.print-pdf .fp.fp--bleed .fp-flip-grid--q5,
+body.deck-static .fp.fp--bleed .fp-flip-grid--q5 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-content: center;
+  flex: 1;
+}
+body.print-pdf .fp.fp--bleed .fp-flip-grid--q5 .fp-flip,
+body.deck-static .fp.fp--bleed .fp-flip-grid--q5 .fp-flip {
+  grid-column: auto;
+  min-height: 0;
+}
+body.print-pdf .fp.fp--bleed .fp-q5-body,
+body.deck-static .fp.fp--bleed .fp-q5-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+}
+
+body.print-pdf .fp.fp--bleed .fp-flip__print-pair,
+body.deck-static .fp.fp--bleed .fp-flip__print-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 0;
+}
+body.print-pdf .fp.fp--bleed .fp-flip__print-pair article,
+body.deck-static .fp.fp--bleed .fp-flip__print-pair article {
+  background: rgba(0, 40, 85, 0.92) !important;
+  border: 2px solid #b2eefa;
+  color: #ffffff !important;
+  font-size: 24px !important;
+  line-height: 1.35;
+  padding: 12px 14px;
+}
+body.print-pdf .fp.fp--bleed .fp-flip__print-pair h4,
+body.deck-static .fp.fp--bleed .fp-flip__print-pair h4 {
+  font-size: 18px !important;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+body.print-pdf .fp.fp--bleed .fp-flip__print-pair article:first-child h4,
+body.deck-static .fp.fp--bleed .fp-flip__print-pair article:first-child h4 {
+  color: #b2eefa !important;
+}
+body.print-pdf .fp.fp--bleed .fp-flip__print-pair article:last-child h4,
+body.deck-static .fp.fp--bleed .fp-flip__print-pair article:last-child h4 {
+  color: #9dc384 !important;
+}
+
+body.print-pdf .fp.fp--bleed .fp-q6-lens,
+body.deck-static .fp.fp--bleed .fp-q6-lens {
+  background: rgba(0, 40, 85, 0.92) !important;
+  border: 3px solid #b2eefa;
+  border-radius: 16px;
+  padding: 28px 32px;
+  flex: 1;
+  justify-content: flex-start;
+}
+body.print-pdf .fp.fp--bleed .fp-q6-lens .fp-card__title,
+body.deck-static .fp.fp--bleed .fp-q6-lens .fp-card__title,
+body.print-pdf .fp.fp--bleed .fp-q6-lens .fp-lens-print-both p,
+body.deck-static .fp.fp--bleed .fp-q6-lens .fp-lens-print-both p {
+  color: #ffffff !important;
+  font-size: 30px !important;
+  margin-bottom: 12px !important;
+}
+body.print-pdf .fp.fp--bleed .fp-q6-lens .fp-lens-print-both p,
+body.deck-static .fp.fp--bleed .fp-q6-lens .fp-lens-print-both p {
+  font-size: 26px !important;
+  margin-bottom: 0;
+}
+body.print-pdf .fp.fp--bleed .fp-q6-lens .fp-illus-tag,
+body.deck-static .fp.fp--bleed .fp-q6-lens .fp-illus-tag {
+  color: #b2eefa;
+}
+body.print-pdf .fp.fp--bleed .fp-lens-print-both,
+body.deck-static .fp.fp--bleed .fp-lens-print-both {
+  display: block !important;
+  font-size: 26px !important;
+  line-height: 1.38;
+  color: #ffffff;
+  margin-top: 12px;
+}
+body.print-pdf .fp.fp--bleed .fp-lens-print-both strong,
+body.deck-static .fp.fp--bleed .fp-lens-print-both strong {
+  color: #9dc384;
+}
+body.print-pdf .fp.fp--bleed .fp-q6-body,
+body.deck-static .fp.fp--bleed .fp-q6-body {
+  justify-content: center;
+}
+
+body.print-pdf .reveal .fp.fp--bleed.fp-slide-fill.fp-title-bullets .fp-body,
+body.deck-static .reveal .fp.fp--bleed.fp-slide-fill.fp-title-bullets .fp-body {
+  justify-content: center;
+}
+body.print-pdf .fp.fp--bleed [data-fp-q3-toggle],
+body.deck-static .fp.fp--bleed [data-fp-q3-toggle] {
+  justify-content: center;
+  gap: 18px;
+}
+body.print-pdf .fp.fp--bleed .fp-q3-dual__col,
+body.deck-static .fp.fp--bleed .fp-q3-dual__col {
+  min-height: 250px;
+}
+body.print-pdf .fp.fp--bleed .fp-investor-print-card,
+body.deck-static .fp.fp--bleed .fp-investor-print-card {
+  min-height: 220px;
+}
+body.print-pdf .fp.fp--bleed .fp-investor-print-grid,
+body.deck-static .fp.fp--bleed .fp-investor-print-grid {
+  align-content: center;
+}

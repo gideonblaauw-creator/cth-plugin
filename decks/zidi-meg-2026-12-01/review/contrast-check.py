@@ -47,13 +47,18 @@ PAIRS = [
     ("Rate pill med", "#0C498A", "#B2EEFA", True),
     ("Rate pill high", "#3A1A08", "#F4A574", True),
     ("Flip back on cyan tint", "#0C498A", "#E8FAFE", False),
+    ("Flip print body on navy (Fix-5b)", "#FFFFFF", "#002855", False),
+    ("Flip print front label on navy", "#B2EEFA", "#002855", True),
+    ("Flip print back label on navy", "#9DC384", "#002855", True),
+    ("Q6 lens body on navy (Fix-5b)", "#FFFFFF", "#002855", False),
+    ("Q6 lens heading green on navy", "#9DC384", "#002855", True),
     ("Statement attr on statement", "#B2EEFA", "#002855", False),
     ("Closing body on navy", "#FFFFFF", "#0C498A", True),
 ]
 
 out = Path(__file__).resolve().parent / "contrast-check.md"
 lines = [
-    "# Contrast check — Zidi MEG deck (Fix-5)",
+    "# Contrast check — Zidi MEG deck (Fix-5b)",
     "",
     "Generated for Gideon review · WCAG 2.x relative luminance · body ≥4.5:1 · large text ≥3:1.",
     "",
@@ -68,12 +73,16 @@ for name, fg, bg, large in PAIRS:
 lines.extend(
     [
         "",
-        "## Fix-5 mitigations",
+        "## Fix-5 / Fix-5b mitigations",
         "",
         "- Frosted navy or white tiles (`fp-text-glass`, bleed `fp-head` / `fp-body` shells) behind text on photos; print uses solid `rgba(0,40,85,.88)` or `rgba(255,255,255,.92)`.",
         "- Source lines use white glass + navy text on bleed slides (no cyan-on-navy footnotes).",
         "- Q4 caption in its own glass row below the table (`max-height` on table body).",
-        "- Q1/Q3 print columns use filled navy cards at 26px body.",
+        "- Q1/Q3 print columns use filled navy cards at 26px body; Fix-5b vertically centers the print grid.",
+        "- Q5 and Q6 split across two slides; Q5 flip print pairs stack front/back on navy with cyan/green labels.",
+        "- Q6 investor lens uses navy tile at ≥26px body in PDF.",
+        "",
+        "_(PDF per-page overlap + live contrast run appended by `review/pdf-layout-check.mjs` after build.)_",
         "",
     ]
 )
