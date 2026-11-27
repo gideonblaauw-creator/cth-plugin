@@ -14,7 +14,7 @@
 
 **Risks:** (1) FAQ stresses **equity-focused** partners — CTH is **grant/regrant-first today**, with **warrants planned but not yet executed**; emphasize **portfolio companies’ third-party rounds** (e.g. investor engagements on MubOn case study) without inventing CTH tickets. (2) **Consulting firms** excluded — lead with **acceleration + regrant deployment**, not fee-for-service only. (3) **Portfolio investment track record** — narrate **capital deployed via grants/sub-grants + companies supported**, not a traditional VC AUM.
 
-**Gideon confirm (open):** Applying entity; secondary signatory; public AFCIA/UNDP cite if needed; REIN × PVBLIC one-liner for the form; Teclogi Series A public cite.
+**Gideon confirm (open):** Applying entity; public AFCIA/UNDP cite if needed; REIN × PVBLIC one-liner for the form; Teclogi Series A public cite.
 
 ---
 
@@ -22,7 +22,7 @@
 
 *Sections per FAQ: Contact, Firm, Portfolio Referral, T&Cs (~10 min, English, Chrome — [login “What to Expect”](https://programs.nvidia.com/vcalliance/login)). Field labels [CONFIRM] without login.*
 
-**Contact:** Gideon Blaauw, Co-Founder Latin America and Regional Lead [CONFIRM title]; gideon.blaauw@cleantechhub.net; +57 311 4494784 ([site](https://www.cleantechhub.net)); secondary [CONFIRM]. Entity: Fundación CleantechHUB, Colombia.
+**Contact:** Gideon Blaauw, Co-Founder Latin America and Regional Lead [CONFIRM title]; gideon.blaauw@cleantechhub.net; +57 311 4494784 ([site](https://www.cleantechhub.net)); secondary: Angélica Díaz (Angie), angelica.diaz@cleantechhub.net [CONFIRM title]. Entity: Fundación CleantechHUB, Colombia.
 
 **Firm:** Type: non-profit **accelerator/incubator** and **regrantor**; ClimateLaunchpad / Climate-KIC lineage ([incubation](https://programs.cleantechhub.net/incubation)). Mission: “Fixing climate change one start to scale up at the time.” Programs: ideation → growth + tailor-made scale-up support ([site](https://www.cleantechhub.net)). **Capital model:** CTH **deploys grant and sub-grant funding** to climate/AI startups as fiscal host (e.g. [MubOn / P4G](https://data.cleantechhub.net/projects/mubon/)), through **REIN Hubs** with **PVBLIC Foundation**, and via **AFCIA/UNDP**-linked rounds [CONFIRM public cite]. **Warrants:** CTH intends to use **warrant-based instruments** on a go-forward basis (per Gideon, Nov 2026); **none executed to date**. Does **not** take standard program equity today. **AUM / fund size: N/A** — not a traditional VC fund. Investment narrative: “We regrant and accelerate cleantech and AI-enabled ventures, run compliance and impact reporting, facilitate third-party investment, and refer portfolio companies to **NVIDIA Inception** for GPU, training, and scale.” Geography: Colombia hub; acceleration cites founders in CO, MX, AR, GT, CR, PE ([acceleration](https://programs.cleantechhub.net/acceleration)). National Lead Colombia **ClimateLaunchpad** (EIT Climate-KIC) [CONFIRM form field]. **Why NVIDIA:** Inception fast-track for portfolio; curated AI deal flow and technical briefings ([benefits](https://www.nvidia.com/en-us/startups/venture-capital/)).
 
@@ -53,6 +53,8 @@ Full T&Cs appear **only in-application** ([login](https://programs.nvidia.com/vc
 
 ~~#3 equity/SAFE/co-invest~~ — **resolved (Gideon, Nov 2026):** regrantor; warrant-based instruments planned; **no warrants taken yet**.
 
-Remaining: secondary contact · title strings · applying entity · consulting-risk wording · Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · AFCIA/UNDP public cite if required · Teclogi Series A source · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
+~~secondary contact~~ — **resolved (Gideon, 27 Nov 2026):** Angélica Díaz (Angie), angelica.diaz@cleantechhub.net.
+
+Remaining: title strings · applying entity · consulting-risk wording · Investor Matching/Drinks public name · REIN×PVBLIC form one-liner · AFCIA/UNDP public cite if required · Teclogi Series A source · Novatio/SUNCO/Parsons URLs & AI · portal fields · full T&Cs · N/A for AUM on form · ClimateLaunchpad field wording.
 
 *Sources: [NVIDIA VC Alliance](https://www.nvidia.com/en-us/startups/venture-capital/), [login](https://programs.nvidia.com/vcalliance/login), [cleantechhub.net](https://www.cleantechhub.net), [programs.cleantechhub.net](https://programs.cleantechhub.net), [MubOn case study](https://data.cleantechhub.net/projects/mubon/), [seosenergy.co](https://seosenergy.co/), [o3smartcities.com.co](https://o3smartcities.com.co/).*
