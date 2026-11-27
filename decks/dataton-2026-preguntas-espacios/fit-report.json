@@ -1,0 +1,436 @@
+{
+  "ok": true,
+  "fitReport": [
+    {
+      "pageId": "p03",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p04",
+      "fitLevel": "fit-d",
+      "questionPt": "10pt",
+      "answerPt": "9pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p05",
+      "fitLevel": "fit-b",
+      "questionPt": "11pt",
+      "answerPt": "9.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p06",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p07",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p08",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p09",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p10",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p11",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p12",
+      "fitLevel": "fit-a",
+      "questionPt": "11.5pt",
+      "answerPt": "10pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p13",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p14",
+      "fitLevel": "fit-d",
+      "questionPt": "10pt",
+      "answerPt": "9pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p15",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "puente\u2192fuente",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 5
+    },
+    {
+      "pageId": "p16",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    },
+    {
+      "pageId": "p17",
+      "fitLevel": "default",
+      "questionPt": "12pt",
+      "answerPt": "10.5pt",
+      "stackOk": true,
+      "minStackGapPt": 5.66015625,
+      "minStackGapLabel": "turn\u2192nota-moderacion",
+      "pageOk": true,
+      "stack": {
+        "ok": true,
+        "issues": [],
+        "minGapPx": 7.546875,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion"
+      },
+      "minClearPx": 9,
+      "turnIssues": [],
+      "turnCount": 4
+    }
+  ],
+  "stackReport": {
+    "pages": [
+      {
+        "pageId": "p03",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p04",
+        "fitLevel": "fit-d",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p05",
+        "fitLevel": "fit-b",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p06",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p07",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p08",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p09",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p10",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p11",
+        "fitLevel": "fit-a",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p12",
+        "fitLevel": "fit-a",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p13",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p14",
+        "fitLevel": "fit-d",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p15",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "puente\u2192fuente",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p16",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      },
+      {
+        "pageId": "p17",
+        "fitLevel": "default",
+        "stackOk": true,
+        "minGapPt": 5.66015625,
+        "minGapLabel": "turn\u2192nota-moderacion",
+        "issueCount": 0
+      }
+    ],
+    "failures": []
+  },
+  "clearanceReport": {
+    "cardsChecked": 67,
+    "minClearancePt": 6.75,
+    "minPageId": "p03#turn1",
+    "failures": []
+  }
+}

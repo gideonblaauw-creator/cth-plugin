@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Datatón · preguntas por espacio</title>
+  <style>
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("fonts/open-sans-latin-700-normal.woff2") format("woff2");
+}
+
+:root {
+  --navy: #0c498a;
+  --cyan: #b2eefa;
+  --green-rule: #669348;
+  --lime: #9dc384;
+  --sky: #69b5fa;
+  --paper: #f4f8fb;
+  --white: #ffffff;
+  --muted: #5a7a9a;
+  --font: "Open Sans", sans-serif;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --pad: 11mm 15mm 9mm;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); font-synthesis: none; }
+
+html { font-family: var(--font); font-size: 10.5pt; color: var(--navy); background: #e8eef4; font-synthesis: none; }
+
+body.print-mode { background: #fff; }
+
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  height: var(--page-h);
+  padding: var(--pad);
+  margin: 0 auto 12px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+}
+
+body.print-mode .page { margin: 0; box-shadow: none; }
+
+.page--space {
+  padding-bottom: 8mm;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10mm;
+  flex-shrink: 0;
+  margin-bottom: 3mm;
+}
+.page-head .logo { height: 11mm; width: auto; }
+.page-head .time-badge {
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--green-rule);
+  letter-spacing: 0.06em;
+}
+
+.title-block h1 {
+  font-size: 15pt;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  text-transform: none;
+}
+.title-block h1::after {
+  content: "";
+  display: block;
+  width: 18mm;
+  height: 1.2mm;
+  border-radius: 1mm;
+  background: var(--green-rule);
+  margin-top: 2mm;
+}
+.meta-row {
+  font-size: 9pt;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-top: 2mm;
+}
+.meta-row strong { font-weight: 700; }
+
+.strip-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  margin: 3mm 0;
+  flex-shrink: 0;
+}
+.strip {
+  background: var(--white);
+  border: 1.5px solid var(--cyan);
+  border-radius: 3mm;
+  padding: 2.5mm 3mm;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+.strip .label {
+  font-weight: 700;
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green-rule);
+  margin-bottom: 1mm;
+}
+
+.page--space {
+  --turn-q: 12pt;
+  --turn-a: 10.5pt;
+  --turn-gap: 2.8mm;
+  --turn-pad-top: 3.8mm;
+  --turn-pad-x: 4.2mm;
+  --turn-pad-bottom: 6pt;
+}
+
+.page-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  overflow: visible;
+}
+
+.turns {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--turn-gap);
+  overflow: visible;
+}
+.turn {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  height: auto;
+  min-height: unset;
+  overflow: visible;
+  background: var(--white);
+  border: 1.5px solid var(--cyan);
+  border-left: 4px solid var(--navy);
+  border-radius: 0 3mm 3mm 0;
+  padding: var(--turn-pad-top) var(--turn-pad-x) var(--turn-pad-bottom);
+  line-height: 1.38;
+  display: block;
+  box-sizing: border-box;
+}
+.turn .pregunta {
+  font-weight: 700;
+  font-size: var(--turn-q);
+  color: var(--navy);
+  margin-bottom: 1.2mm;
+}
+.turn .anticipada {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: var(--turn-a);
+  margin: 1mm 0;
+  padding-left: 3mm;
+  border-left: 2px solid var(--cyan);
+}
+.turn .repregunta {
+  font-weight: 600;
+  font-size: var(--turn-q);
+  color: var(--navy);
+  margin-bottom: 0;
+}
+
+/* Per-page fit levels (applied by render.py when a space page overflows A4) */
+.page--space.page--fit-a {
+  --turn-q: 11.5pt;
+  --turn-a: 10pt;
+  --turn-gap: 2.4mm;
+  --turn-pad-top: 3.4mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-b {
+  --turn-q: 11pt;
+  --turn-a: 9.5pt;
+  --turn-gap: 2.1mm;
+  --turn-pad-top: 3.1mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-c {
+  --turn-q: 10.5pt;
+  --turn-a: 9.5pt;
+  --turn-gap: 1.9mm;
+  --turn-pad-top: 2.9mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-d {
+  --turn-q: 10pt;
+  --turn-a: 9pt;
+  --turn-gap: 6pt;
+  --turn-pad-top: 2.6mm;
+  --turn-pad-bottom: 6pt;
+}
+
+.page--space.page--fit-b .page-main,
+.page--space.page--fit-c .page-main,
+.page--space.page--fit-d .page-main {
+  gap: 6pt;
+}
+
+.page--space.page--fit-e {
+  --turn-q: 10pt;
+  --turn-a: 9pt;
+  --turn-gap: 5pt;
+  --turn-pad-top: 2.2mm;
+  --turn-pad-bottom: 6pt;
+}
+.page--space.page--fit-e .page-main {
+  gap: 5pt;
+}
+
+.nota-moderacion {
+  flex-shrink: 0;
+  font-size: 8.5pt;
+  line-height: 1.35;
+  color: var(--muted);
+  background: rgba(178, 238, 250, 0.35);
+  border-radius: 2.5mm;
+  padding: 2mm 3mm;
+}
+.nota-moderacion .nota-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 7pt;
+  letter-spacing: 0.06em;
+  color: var(--green-rule);
+  margin-right: 2mm;
+}
+
+.page-foot {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 2mm;
+}
+
+.puente {
+  margin-top: 0;
+  padding: 3mm 3.5mm;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 3mm;
+  font-size: 10pt;
+  line-height: 1.35;
+}
+.puente strong {
+  color: var(--cyan);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 7.5pt;
+  letter-spacing: 0.06em;
+  margin-right: 2mm;
+}
+
+.fuente {
+  flex-shrink: 0;
+  margin-top: 2mm;
+  font-size: 7pt;
+  color: var(--green-rule);
+}
+
+/* Cover */
+.page--cover {
+  background: var(--navy);
+  color: var(--white);
+  justify-content: flex-end;
+}
+.page--cover .cover-bg {
+  position: absolute;
+  inset: 0;
+  background: url("assets/cover-bg.jpg") center/cover no-repeat;
+  opacity: 0.35;
+}
+.page--cover .cover-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(12, 73, 138, 0.92) 0%, rgba(12, 73, 138, 0.88) 55%, rgba(8, 50, 100, 0.95) 100%);
+}
+.page--cover .cover-inner {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 8mm;
+}
+.page--cover .logo { filter: brightness(0) invert(1); height: 14mm; position: absolute; top: 12mm; right: 16mm; }
+.page--cover h1 {
+  font-size: 28pt;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 6mm;
+}
+.page--cover h1::after { background: var(--lime); width: 24mm; height: 1.5mm; margin-top: 4mm; }
+.page--cover .tagline {
+  font-size: 13pt;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  margin-bottom: 8mm;
+}
+.page--cover .cover-meta { font-size: 11pt; line-height: 1.5; color: var(--cyan); }
+
+/* Thread diagram page */
+.page--thread .diagram-wrap {
+  flex: 1;
+  min-height: 0;
+  background: var(--white);
+  border: 2px solid var(--cyan);
+  border-radius: 4mm;
+  padding: 3mm 4mm;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page--thread .thread-grid {
+  flex: 1;
+  min-height: 0;
+  align-content: start;
+}
+.page--thread h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  margin-bottom: 3mm;
+}
+.page--thread h2::after {
+  content: "";
+  display: block;
+  width: 16mm;
+  height: 1mm;
+  background: var(--green-rule);
+  margin-top: 2mm;
+}
+.thread-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.2mm;
+  font-size: 8.6pt;
+  line-height: 1.26;
+  overflow: hidden;
+}
+.thread-col h3 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--green-rule);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+.thread-pill {
+  display: block;
+  background: var(--cyan);
+  border-radius: 2mm;
+  padding: 1.7mm 2.2mm;
+  margin-bottom: 0.9mm;
+  color: var(--navy);
+  font-weight: 600;
+}
+.thread-pill--prog { background: var(--lime); }
+.thread-pill--nicho { background: var(--sky); color: var(--navy); }
+.thread-pill--work { background: rgba(12, 73, 138, 0.12); }
+.thread-note {
+  background: var(--white);
+  border: 1px solid var(--cyan);
+  border-radius: 2mm;
+  padding: 1.8mm 2mm;
+  margin-bottom: 1mm;
+}
+.thread-note strong { display: block; font-size: 8pt; margin-bottom: 0.5mm; }
+.thread-macro {
+  margin-top: 2mm;
+  padding: 2mm;
+  border-top: 2px solid var(--green-rule);
+  font-size: 7.5pt;
+  color: var(--navy);
+}
+
+@media print {
+  html { background: #fff; }
+  .page { margin: 0; box-shadow: none; }
+  @page { size: A4 portrait; margin: 0; }
+}
+  </style>
+</head>
+<body class="print-mode">
+<section class="page page--cover" id="p01" data-page="1">
+  <div class="cover-bg"></div>
+  <div class="cover-scrim"></div>
+  <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  <div class="cover-inner">
+    <p class="tagline">OBSERVA. ACTÚA. TRANSFORMA.</p>
+    <h1>Datatón · preguntas por espacio</h1>
+    <p class="cover-meta">Martes 24 de noviembre de 2026<br>Universidad Externado de Colombia · Auditorio Bloque I</p>
+    <p class="cover-meta" style="margin-top:6mm;font-size:9.5pt;opacity:.9">Documento interno de preparación para moderación y jurado</p>
+  </div>
+</section>
+<section class="page page--thread" id="p02" data-page="2">
+  <header class="page-head">
+    <div class="title-block">
+      <h1>Hilo conductor del día</h1>
+      <p class="meta-row">Del territorio y las personas al emprendimiento, la adopción, los 14 equipos y los 3 ganadores al Datalab 2027.</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="diagram-wrap">
+    
+<div class="thread-grid">
+  <div class="thread-col">
+    <h3>Agenda del día</h3>
+    <span class="thread-pill">08:30 Palabras de apertura</span>
+    <span class="thread-pill">08:40 Panel ODS 13</span>
+    <span class="thread-pill thread-pill--prog">09:10 Observatorio y Datalab</span>
+    <span class="thread-pill">09:40 Universidad y Constructora Bolívar</span>
+    <span class="thread-pill">09:55 Agrometers (territorio rural)</span>
+    <h3 style="margin-top:2mm">Caso y trabajo en equipos</h3>
+    <span class="thread-pill thread-pill--nicho">10:05 Air4U presentación</span>
+    <span class="thread-pill thread-pill--nicho">10:10 Demo Air4U en vivo</span>
+    <span class="thread-pill thread-pill--nicho">10:20 Air4U y adoptante</span>
+    <span class="thread-pill thread-pill--work">10:45 Instrucciones y mentores</span>
+    <span class="thread-pill thread-pill--work">11:00 Bloque 1 con monitores</span>
+    <span class="thread-pill">12:30 Almuerzo y networking</span>
+    <span class="thread-pill thread-pill--work">13:30 Bloque 2 y ensayo</span>
+    <span class="thread-pill thread-pill--prog">16:00 Presentaciones (6 equipos)</span>
+    <span class="thread-pill">16:40 Deliberación jurado</span>
+    <span class="thread-pill thread-pill--prog">16:50 Cierre y certificados</span>
+  </div>
+  <div class="thread-col">
+    <h3>Hilo del día</h3>
+    <article class="thread-note"><strong>1 Territorio</strong>Lluvias, manglar o aire: quién vive el desafío y en qué lugar.</article>
+    <article class="thread-note"><strong>2 Personas</strong>Vecinos, productores o pacientes que necesitan una decisión concreta.</article>
+    <article class="thread-note"><strong>3 Innovación</strong>Emprendedor o equipo local que prueba una solución con datos.</article>
+    <article class="thread-note"><strong>4 Siguiente paso</strong>Comprador, permiso, financiación, acompañamiento o conectividad.</article>
+    <article class="thread-note"><strong>5 Programa</strong>Observatorio de la Tierra y Datalab (09:10).</article>
+    <article class="thread-note"><strong>6 Ejemplos</strong>Constructora Bolívar, Agrometers, Air4U (sin piloto firmado).</article>
+    <article class="thread-note"><strong>7 Equipos</strong>14 equipos Externado trabajan con monitores.</article>
+    <article class="thread-note"><strong>8 Selección</strong>De 14 a 6 finalistas; 3 entran al Datalab CTH en 2027.</article>
+    <article class="thread-note"><strong>9 Cierre</strong>El mismo certificado de participación para los catorce.</article>
+  </div>
+</div>
+<p class="thread-macro">En cada espacio: desafío concreto, personas y lugar, innovación local y siguiente paso; luego 14 equipos, 6 finalistas, 3 al Datalab 2027.</p>
+
+  </div>
+  <p class="fuente">Fuente: agenda v7, síntesis contexto 23 nov</p>
+</section>
+<section class="page page--space" id="p03" data-page="3">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">08:30</span>
+      <h1>Palabras de apertura</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw (CleantechHUB), Gloria Marlene Díaz (Centro de Emprendimiento, Externado)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon y Marlene se entrevistan</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Registro: participantes con credencial y expectativa del día.</div>
+    <div class="strip"><div class="label">Lleva a</div>Marco del día: territorio, personas, innovación local y trabajo en equipos.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Marlene, ¿por qué hoy unen la universidad y CleantechHUB en este auditorio?</p><p class="anticipada">[Porque abrimos el día a catorce equipos con datos del territorio, y eso une la universidad con las voces de los barrios.]</p><p class="repregunta">Repregunta: Marlene, si las voces de los barrios importan, ¿qué pide a cada estudiante que traiga de su comunidad?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿qué les dice a los equipos antes de plantear su primera pregunta de trabajo?</p><p class="anticipada">[Que nombren primero a una persona y un barrio reales, porque sin eso el dato de hoy no conversa con nadie.]</p><p class="repregunta">Repregunta: Gideon, si el dato debe conversar con alguien, ¿qué dato propio pueden usar de lo que ya midieron?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Marlene, ¿qué prometen hoy sobre el Observatorio y el Datalab de las 09:10?</p><p class="anticipada">[Que los tres ganadores entran al Datalab en 2027 y que los catorce salen con el mismo certificado de participación.]</p><p class="repregunta">Repregunta: Marlene, si el certificado es el mismo para todos, ¿qué deja claro el Centro sobre lo que no se promete hoy?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿con qué imagen salimos hacia el panel de las 08:40?</p><p class="anticipada">[Con un desafío climático local y un emprendedor que prueba en barrio o finca, para que el panel cierre con una pregunta viva.]</p><p class="repregunta">Repregunta: Gideon, si el panel cierra con una pregunta viva, ¿cuál espera que nombren primero: inundaciones, manglar o aire?</p></div>
+    </div>
+    
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Abrimos el panel: ¿cómo el emprendimiento en el territorio ofrece soluciones a desafíos climáticos?</p>
+    <p class="fuente">Fuente: agenda v7, reunión logística 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p04" data-page="4">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">08:40</span>
+      <h1>Panel: innovación y emprendimiento en el territorio a través de los datos (ODS 13)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Natalia Vargas (APC-Colombia), Rector Universidad Externado (Alejandro Díaz si no asiste el Rector), Viviana Obando (RAP Pacífico); moderador Gideon</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon al panel</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Apertura: el día como recorrido de lo amplio a lo concreto, con datos.</div>
+    <div class="strip"><div class="label">Lleva a</div>Observatorio y Datalab a las 09:10: cómo medir estos desafíos.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Natalia, desde la cooperación, ¿qué desafío climático en los territorios ya están apoyando con soluciones, y dónde puede entrar un emprendedor local?</p><p class="anticipada">[Inundaciones y lluvias: la cooperación financia alertas; un emprendedor local puede mantener sensores y avisar a los barrios.]</p><p class="repregunta">Repregunta: Cuando habla de un equipo local que mantiene sensores y avisa a los barrios, ¿qué tendría que mostrar para que un programa de cooperación respalde su solución?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Viviana, en el Pacífico, ¿qué problema climático resuelve o podría resolver un emprendimiento local?</p><p class="anticipada">[Erosión costera y manglar: vecinos replantan y venden guía o monitoreo a comunidades y visitantes.]</p><p class="repregunta">Repregunta: Si ese emprendimiento replanta manglar y vende guía o monitoreo, ¿qué necesita de la región para crecer más allá de su primer piloto?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Rector, ¿qué puede ofrecer en concreto la universidad a quien emprende frente a un problema climático?</p><p class="anticipada">[Estudiantes que salen a medir y laboratorio para probar, sin prometer de más.]</p><p class="repregunta">Repregunta: Con estudiantes que salen a medir y laboratorio para probar, ¿cómo podría uno de los 14 equipos convertir un problema del territorio en una prueba antes de las 16:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Natalia y Viviana, ¿por qué esa solución debería salir de un emprendedor del territorio y no solo de un programa público?</p><p class="anticipada">[Porque viven allí, prueban rápido y barato, y venden un servicio que se queda cuando el proyecto termina.]</p><p class="repregunta">Repregunta: Rector, si el servicio se queda cuando el proyecto termina, ¿qué debe cambiar la universidad para seguir acompañando esos emprendimientos después de hoy?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Cierre: en una frase cada uno, ¿qué desafío climático le entregarían hoy a los equipos?</p><p class="anticipada">[Inundaciones, manglar, agua, aire: cada uno nombra el que ve en su territorio.]</p><p class="repregunta">Repregunta: Natalia, si un equipo trae un resultado sobre inundaciones o manglar, ¿qué puerta podría abrir APC para ellos?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Si el Rector no asiste, Alejandro Díaz toma sus preguntas.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Pasamos al Observatorio y al Datalab: cómo poner datos a estos desafíos.</p>
+    <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p05" data-page="5">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:10</span>
+      <h1>Lanzamiento del Observatorio de la Tierra y presentación del Datalab</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, Diego Alejandro Díaz Malagón (Desarrollo e Innovación, Externado)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon y Alejandro Díaz se entrevistan</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Panel: emprendimiento e innovación frente a desafíos climáticos del territorio (ODS 13).</div>
+    <div class="strip"><div class="label">Lleva a</div>Relato del Observatorio, la mesa de colaboración y del Datalab para el resto del día.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿por qué «Observatorio de la Tierra» y no otro nombre para este programa?</p><p class="anticipada">[Porque en costa y montaña hoy presionan el agua y el suelo, y el nombre les dice que esta mesa también es suya.]</p><p class="repregunta">Repregunta: Gideon, si la mesa también es suya, ¿qué dejan registrado hoy de quién se sienta con quién?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿qué es el Datalab para Externado dentro de ese programa?</p><p class="anticipada">[Es donde estudiantes y vecinos prueban con datos del territorio, porque ahí unimos aula con barrio y finca real.]</p><p class="repregunta">Repregunta: Alejandro, si unen aula con territorio, ¿qué ofrecen cuando aún falta permiso para registros públicos?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿qué revisan antes de afirmar que un dato sirve para decidir?</p><p class="anticipada">[Revisamos quién vive el problema y si la lectura le sirve a esa persona, y solo afirmamos cuando la ética lo permite.]</p><p class="repregunta">Repregunta: Gideon, cuando la ética lo permite, ¿qué cuatro partes del Datalab pueden nombrar hoy en voz alta?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro, ¿en qué momento del programa cae este datatón de hoy?</p><p class="anticipada">[Cae hoy como prueba con catorce equipos en lugares reales, porque cada mesa ya trae la pregunta de su territorio.]</p><p class="repregunta">Repregunta: Alejandro, si cada mesa trae su pregunta, ¿qué seguimiento pedirá Externado después del cierre?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿los niveles de confianza del dato son premios del día?</p><p class="anticipada">[No son premios, sino pasos hasta una respuesta útil para quien vive el problema, distinto de los tres ganadores del 2027.]</p><p class="repregunta">Repregunta: Gideon, si no son premios, ¿qué pregunta concreta sobre personas y lugar llevan al conversatorio de las 09:40?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> No anunciar territorio piloto ni fechas cerradas del Observatorio.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Pausa de café a las 09:25; luego conversatorio con Constructora Bolívar.</p>
+    <p class="fuente">Fuente: agenda v7, propuesta técnica EO v3 (nov 2026)</p>
+  </div>
+</section>
+<section class="page page--space" id="p06" data-page="6">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:40</span>
+      <h1>Conversatorio universidad y sector inmobiliario</h1>
+      <p class="meta-row"><strong>Participan:</strong> Alejandro Díaz Malagón (Externado), Alejandro Henao (Constructora Bolívar), Gideon Blaauw</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a Alejandro Díaz, a Alejandro Henao y a los equipos</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Lanzamiento del Observatorio y presentación del Datalab.</div>
+    <div class="strip"><div class="label">Lleva a</div>Pregunta concreta de empresa grande adoptando innovación, hacia Agrometers a las 09:55.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Alejandro Henao, ¿qué cambio buscan cuando hablan de transformación en el sector inmobiliario?</p><p class="anticipada">[Buscamos pruebas en el barrio antes de escalar una obra, y ahí una startup local con sensores puede ayudar.]</p><p class="repregunta">Repregunta: Alejandro Henao, si buscan pruebas en el barrio, ¿qué tendría que mostrar un equipo local para interesarles?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro Díaz, ¿qué hace un intermediario de confianza en ese puente?</p><p class="anticipada">[Une la innovación del barrio con la demanda de la obra, porque registra el encuentro y ayuda a mostrar de dónde sale el dato.]</p><p class="repregunta">Repregunta: Alejandro Díaz, si falta permiso para datos de la comunidad, ¿qué puente académico ofrece Externado en ese caso?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro Henao, si una startup demuestra indicadores claros sobre sostenibilidad, ¿qué comprarían ustedes?</p><p class="anticipada">[Compraríamos indicadores de agua o energía que cambien una decisión en la obra. El piloto queda para después, nada está firmado.]</p><p class="repregunta">Repregunta: Alejandro Henao, si el piloto queda para después, ¿qué señal quieren ver en un equipo antes de las 12:30?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos, con Alejandro Henao escuchando: ¿cómo conectan datos del celular con lo que pide la constructora?</p><p class="anticipada">[Partimos de mensajes y fotos del territorio y explicamos de dónde sale cada dato, porque Bolívar pide persona y lugar en cada equipo.]</p><p class="repregunta">Repregunta: Equipos, si Bolívar pide persona y lugar, ¿qué señal de confianza mínima buscan antes del almuerzo de las 12:30?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> No presentar Constructora Bolívar como piloto firmado del Observatorio ni nombrar territorio o fechas de piloto.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>A las 09:55, Enrique Medina conecta digitalización con exportación y comunidades rurales.</p>
+    <p class="fuente">Fuente: agenda v7, reunión 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p07" data-page="7">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">09:55</span>
+      <h1>Conversatorio: digitalización como habilitador para la competitividad del territorio</h1>
+      <p class="meta-row"><strong>Participan:</strong> Enrique Medina (Agrometers); conversación con Gideon</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a Enrique</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Conversatorio Bolívar: adopción en empresa grande.</div>
+    <div class="strip"><div class="label">Lleva a</div>Puente sectorial hacia el caso urbano Air4U a las 10:05.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Enrique, ¿qué no es digitalizar para usted?</p><p class="anticipada">[No es un PDF bonito, sino defender la venta con datos de campo cuando el comprador europeo exige origen limpio en el Meta.]</p><p class="repregunta">Repregunta: Enrique, si defiende la venta con datos de campo, ¿qué lectura suya cambió una decisión de exportación?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, en palma exportando a Europa, ¿qué deben demostrar ante exigencias de deforestación?</p><p class="anticipada">[Deben mostrar origen en finca y comunidad vecina con pruebas que el comprador europeo entienda, no solo una narrativa.]</p><p class="repregunta">Repregunta: Enrique, si el comprador exige esas pruebas, ¿qué error de origen pediría evitar a los equipos a las 11:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, ¿dónde entran sensores e imagen satelital en una decisión de campo?</p><p class="anticipada">[Entran cuando el productor decide cosecha o venta en la finca palmera, porque sensores locales y Agrometers integran agua y cobertura.]</p><p class="repregunta">Repregunta: Enrique, si integran agua y cobertura, ¿qué dejan listo para la charla de aire en Bogotá a las 10:05?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, usted también es jurado; ¿qué mirará a las 16:00?</p><p class="anticipada">[Miraré utilidad y honestidad, de 0 a 5 cada una, para la persona y el lugar que nombraron.]</p><p class="repregunta">Repregunta: Enrique, si mira utilidad y honestidad, ¿qué le diría a un equipo que solo tiene datos estimados?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, ¿qué espera oír de los 14 equipos Externado al cierre?</p><p class="anticipada">[Espero persona y territorio claros, un emprendimiento creíble y quién falta — comprador, permiso o acompañamiento.]</p><p class="repregunta">Repregunta: Enrique, si nombran comprador, permiso o acompañamiento, ¿qué historia le convence de que el dato ya sirve para decidir?</p></div>
+    </div>
+    
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>A las 10:05, Miguel de Air4U muestra el caso urbano: hacer visible lo invisible.</p>
+    <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p08" data-page="8">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:05</span>
+      <h1>Data sandbox de innovación (1/3): presentación Air4U</h1>
+      <p class="meta-row"><strong>Participan:</strong> Miguel Ángel Rozo, Sebastián Forero (Air4U)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a Miguel y Sebastián</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Agrometers: digitalización y competitividad territorial.</div>
+    <div class="strip"><div class="label">Lleva a</div>Problema urbano y personas que la demo de las 10:10 mostrará.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Miguel, ¿por qué arrancar con la calidad del aire del fin de semana en Bogotá?</p><p class="anticipada">[Porque vecinos y pacientes en barrios sensibles deciden si salen o se quedan, y Air4U vende oportunidad de mercado con auditoría, no solo alerta.]</p><p class="repregunta">Repregunta: Miguel, si venden con auditoría, ustedes citan reducción del 14% de partículas: ¿cómo midieron ese 14%?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, ¿ese 14% es dato oficial o resultado propio de Air4U?</p><p class="anticipada">[Es medición propia de Air4U en Bogotá, no reemplaza al IDEAM, y hay que decirlo claro porque hospitales y clínicas viven la decisión.]</p><p class="repregunta">Repregunta: Miguel, si hay que decirlo claro, ¿cómo presentan hoy el 14% sin sonar a cifra oficial?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, ¿a quién venden aire limpio y por qué les importa el dato?</p><p class="anticipada">[Venden a hospitales, farmacéuticas y cannabis en Bogotá, porque gerentes deciden cada semana y el contrato pide pruebas repetibles en pantalla.]</p><p class="repregunta">Repregunta: Miguel, si el contrato pide pruebas repetibles, ¿por qué prefieren tono de mercado y no de catástrofe?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, el cliente compra poder de decidir; ¿qué pedirían a un equipo que copie su forma de mostrar el aire?</p><p class="anticipada">[Pedirían una persona con decisión semanal, pantalla legible en diez segundos y que adapten la lógica a su territorio con apoyo de Air4U.]</p><p class="repregunta">Repregunta: Miguel, si piden decisión semanal y apoyo en la sala, ¿qué nivel Bronce, Plata u Oro quieren que recuerden en la demo?</p></div>
+    </div>
+    
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Demo en vivo a las 10:10: Bronce, Plata y Oro como niveles de confianza.</p>
+    <p class="fuente">Fuente: agenda v7, revisión demo 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p09" data-page="9">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:10</span>
+      <h1>Data sandbox de innovación (2/3): demo en vivo Air4U</h1>
+      <p class="meta-row"><strong>Participan:</strong> Air4U (Miguel Ángel Rozo, Sebastián Forero)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a Miguel y a Sebastián</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Pitch Air4U: problema urbano y clientes sensibles.</div>
+    <div class="strip"><div class="label">Lleva a</div>Ejemplo concreto para que los equipos vean confianza del dato en persona.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Sebastián, ¿qué muestra el nivel Bronce en pantalla?</p><p class="anticipada">[Muestra partículas sin revisar en un barrio de Bogotá tal como llegan, porque el vecino aún no tiene pregunta de negocio.]</p><p class="repregunta">Repregunta: Sebastián, si el vecino aún no tiene pregunta de negocio, ¿qué aclara sobre Bronce en ese barrio a las 11:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Sebastián, ¿qué cambia al pasar a Plata en la demo?</p><p class="anticipada">[Cambia que el dato responde una pregunta para quien vive el barrio, y lo que falta queda en blanco, no en cero.]</p><p class="repregunta">Repregunta: Sebastián, si lo que falta queda en blanco, ¿cómo explica que la medalla no es premio sino confianza?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Sebastián, ¿qué hace distinto el nivel Oro en pantalla?</p><p class="anticipada">[El gerente o vecino decide cada semana y la pantalla responde en diez segundos, porque Air4U vende ese momento de decisión.]</p><p class="repregunta">Repregunta: Sebastián, si venden ese momento de decisión, ¿qué copiarían los equipos del material guía en su territorio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, ¿qué pregunta dejan para el conversatorio con farmacéutica a las 10:20?</p><p class="anticipada">[Dejan si la farmacéutica puede probar adopción en planta con un espacio de solo lectura, porque operarios y comprador miran la serie.]</p><p class="repregunta">Repregunta: Miguel, si probarán con espacio de solo lectura, ¿cómo invitan a los monitores a usar Bronce, Plata u Oro a las 11:00?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Si falla la red, usar tres láminas estáticas con los mismos niveles Bronce, Plata y Oro.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Conversatorio Air4U y adoptante potencial a las 10:20.</p>
+    <p class="fuente">Fuente: agenda v7, revisión demo 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p10" data-page="10">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:20</span>
+      <h1>Data sandbox de innovación (3/3): conversatorio Air4U y farmacéutica</h1>
+      <p class="meta-row"><strong>Participan:</strong> Air4U, Óscar (farmacéutica adoptante), Gideon Blaauw</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a Miguel, a Sebastián, a Óscar y a los equipos</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Demo: niveles Bronce, Plata y Oro con ejemplo urbano.</div>
+    <div class="strip"><div class="label">Lleva a</div>Modelo de integración entre innovación y empresa para las instrucciones de las 10:45.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Óscar, cuando una farmacéutica habla de aire limpio con una startup, ¿qué necesita ver primero?</p><p class="anticipada">[Necesita ver lectura repetible en planta para ODS 13, porque operarios y vecinos viven el aire y el comprador pide permiso para sala limpia.]</p><p class="repregunta">Repregunta: Óscar, si pide permiso para sala limpia, ¿qué nivel de la demo de las 10:10 le mostrarían primero?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, más allá del espacio de prueba, ¿qué ofrecen cuando el cliente pide solo lectura con pruebas?</p><p class="anticipada">[Ofrecen un espacio de solo lectura donde la farmacéutica prueba con sus datos, porque calidad en planta decide cada semana.]</p><p class="repregunta">Repregunta: Miguel, si calidad decide cada semana, ¿qué decisión en planta alimentarían con esas pruebas antes del contrato piloto?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Óscar, ¿qué dato mínimo necesita antes de mostrar interés serio?</p><p class="anticipada">[Necesita serie en Plata sobre partículas en producción que responda la decisión semanal de calidad, porque sin serie no hay financiación.]</p><p class="repregunta">Repregunta: Óscar, si sin serie no hay financiación, ¿qué resumen en una pantalla le mostrarían primero?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos, ¿qué lección sacan de este par startup y corporativo?</p><p class="anticipada">[Que el aire pide persona con decisión y suben de Bronce a Oro, porque la adopción es comprador y acompañamiento, no salto directo a Oro.]</p><p class="repregunta">Repregunta: Equipos, si la adopción es comprador y acompañamiento, ¿qué error común quieren evitar al arrancar a las 11:00?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Si Óscar no asiste, Gideon dirige la misma línea de adopción a otro corporativo presente.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Instrucciones y presentación de mentores a las 10:45.</p>
+    <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p11" data-page="11">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">10:45</span>
+      <h1>Instrucciones y arranque del datatón</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, monitores del Datalab (presentación de mentores incluida)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a los equipos y a los monitores</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Espacio de prueba: integración entre Air4U, empresa y comunidad.</div>
+    <div class="strip"><div class="label">Lleva a</div>Reglas, embudo de catorce a seis a tres, y la pregunta de su equipo.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Equipos, ¿cuál es el criterio principal para llegar a los seis finalistas de las 16:00?</p><p class="anticipada">[Utilidad y honestidad, de 0 a 5 cada una, más un punto por cada número firme en plata u oro, máximo tres.]</p><p class="repregunta">Repregunta: Equipos, si todavía no tienen datos en plata, ¿qué cuenta más para llegar a los seis?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos, ¿los niveles de confianza del dato son los premios del día?</p><p class="anticipada">[No, todos los catorce reciben certificado, seis presentan y tres entran al Datalab CTH en 2027, porque los niveles miden preparación del dato.]</p><p class="repregunta">Repregunta: Equipos, si los niveles miden preparación, ¿cómo serán honestos con lo que aún está sin revisar?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitores, ¿en qué orden trabajan con los equipos hoy?</p><p class="anticipada">[Empiezan por persona y barrio o finca, siguen con desafío e innovación local y cierran con resumen en pantalla y pitch de cinco minutos.]</p><p class="repregunta">Repregunta: Monitores, si cierran con pitch de cinco minutos, ¿por qué ustedes preseleccionan y el jurado delibera a las 16:40?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitores, ¿cuál es su aporte principal hoy si no son expertos de cada sector?</p><p class="anticipada">[Ordenan lo que el equipo ya trae del territorio y señalan lo que falta, sin inventar comprador o permiso.]</p><p class="repregunta">Repregunta: Monitores, si señalan lo que falta, ¿qué les pedirán a su mesa antes de las 11:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos, ¿qué debe salir como pregunta de su equipo antes de las 11:00?</p><p class="anticipada">[¿Qué debe cambiar para una persona concreta antes de una fecha concreta en un lugar concreto?]</p><p class="repregunta">Repregunta: Equipos, si la persona concreta aún duda, ¿qué apoyo pedirán a los monitores en persona y territorio?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Los niveles del día no son el premio; el mismo certificado de participación para los catorce; tres al Datalab CTH 2027. Ningún equipo sale del trabajo después del bloque 1.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Bloque 1 a las 11:00: persona, territorio y primer nivel de confianza con monitores.</p>
+    <p class="fuente">Fuente: agenda v7, mentoría 23 nov, paquete equipos</p>
+  </div>
+</section>
+<section class="page page--space" id="p12" data-page="12">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">11:00</span>
+      <h1>Trabajo de equipos con monitores (bloque 1)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Catorce equipos Externado, cinco monitores, apoyo Air4U</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon recorre las mesas: pregunta a equipos, monitores y a Miguel de Air4U</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Instrucciones: criterio de confianza del dato y plan inicial.</div>
+    <div class="strip"><div class="label">Lleva a</div>Prioridades claras por equipo y primer nivel de confianza documentado.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Equipos, ¿qué parte de su plan tiene hoy la mayor urgencia para la persona que sirven?</p><p class="anticipada">[Nos aprieta el ingreso, el agua o el aire en el barrio o la finca, y ya buscamos comprador o aliado.]</p><p class="repregunta">Repregunta: Equipos, si ya buscan comprador o aliado, ¿dónde anotan las fuentes que ya tienen del territorio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor, ¿el dato es suyo, abierto o sintético y lo declaran en voz alta?</p><p class="anticipada">[Lo declaran en voz alta como propio, abierto o sintético, y revisan si hay datos personales sensibles.]</p><p class="repregunta">Repregunta: Monitor, si hay datos personales sensibles, ¿qué protegen antes de las 12:30?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor, ¿qué dejan sin revisar por ahora?</p><p class="anticipada">[Dejan fotos y chats del lugar sin orden todavía, porque es honesto con la comunidad y el paso es subir un nivel antes del almuerzo.]</p><p class="repregunta">Repregunta: Monitor, si suben un nivel antes del almuerzo, ¿qué pregunta sobre su comunidad abre mejor ese paso?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Miguel, pasando por esta mesa, ¿qué analogía de Air4U les sirve?</p><p class="anticipada">[Les sirve un vecino que decide cada semana con pantalla legible en diez segundos, porque adaptan la lógica al territorio que nombraron.]</p><p class="repregunta">Repregunta: Miguel, si adaptan la lógica al territorio, ¿qué entrega pide antes del almuerzo de las 12:30?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor, ¿cómo documentan lo que falta en blanco y no en cero?</p><p class="anticipada">[Lo documentan en blanco, no en cero, porque es honestidad con la comunidad y nombran si falta conectividad, permiso o comprador.]</p><p class="repregunta">Repregunta: Monitor, si falta conectividad, permiso o comprador, ¿qué señal de confianza buscan antes de las 12:30?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Solo nombrar comprador, permiso o aliado que el equipo ya tenga.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Almuerzo y networking a las 12:30.</p>
+    <p class="fuente">Fuente: agenda v7, mentoría 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p13" data-page="13">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">12:30</span>
+      <h1>Almuerzo y networking</h1>
+      <p class="meta-row"><strong>Participan:</strong> Equipos libres; mesa invitados (EmprenderMás, APC, RAP, Apix, Air4U, Enrique, Alejandro, CTH)</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a la mesa de invitados y a los equipos que pasan</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Bloque 1: prioridades por equipo y dato sin revisar documentado.</div>
+    <div class="strip"><div class="label">Lleva a</div>Contactos y energía para el bloque 2 de las 13:30.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Invitados, ¿qué pregunta entre territorio y empresa quedó sin respuesta esta mañana?</p><p class="anticipada">[Quedó quién adopta primero cuando el productor aún tiene dato sin revisar, porque la innovación local está lista y el comprador espera más prueba.]</p><p class="repregunta">Repregunta: Invitados, si el comprador espera más prueba, ¿quién en esta mesa revisa una propuesta con persona y territorio nombrados?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Natalia, ¿qué historia del panel de las 08:40 resonó en la mesa?</p><p class="anticipada">[Resonó inundaciones en barrios con un emprendedor que mantiene sensores y avisa, porque familias junto a quebradas esperan acompañamiento regional.]</p><p class="repregunta">Repregunta: Natalia, si esperan acompañamiento regional, ¿qué puerta podría abrir APC para un equipo con esa historia?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipos que pasan, ¿qué dato les falta y dónde lo buscarían después de comer?</p><p class="anticipada">[Les falta lectura de aire o agua para el lugar que nombraron, porque una persona concreta espera respuesta y a veces la conectividad frena.]</p><p class="repregunta">Repregunta: Equipos que pasan, si la conectividad frena, ¿a quién en esta mesa recomiendan preguntar primero?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Invitados, ¿qué pueden adelantar del Observatorio en conversación informal?</p><p class="anticipada">[Pueden hablar del propósito con comunidades y territorio, porque las fases siguen abiertas y tres ganadores van al Datalab en 2027.]</p><p class="repregunta">Repregunta: Invitados, si tres ganadores van al Datalab en 2027, ¿qué ánimo lanzan al bloque de preparación de las 13:30?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> En conversación informal, no compartir borradores internos del Observatorio.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Bloque 2 a las 13:30: subir confianza del dato y ensayo de cinco minutos.</p>
+    <p class="fuente">Fuente: agenda v7, nota agenda 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p14" data-page="14">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">13:30</span>
+      <h1>Trabajo de equipos y preparación del pitch (bloque 2)</h1>
+      <p class="meta-row"><strong>Participan:</strong> Equipos y monitores</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon recorre las mesas: pregunta a equipos y monitores</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Almuerzo: contactos y brechas de dato identificadas.</div>
+    <div class="strip"><div class="label">Lleva a</div>Seis finalistas elegidos y presentación ensayada.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Equipo, antes de las 16:00, ¿qué les falta para que su dato sirva más para decidir?</p><p class="anticipada">[Les falta responder a la persona que nombraron con pantalla de diez segundos, porque deben decir quién falta: comprador, permiso o acompañamiento.]</p><p class="repregunta">Repregunta: Equipo, si nombraron quién falta, ¿qué evidencia del dato que sí tienen sostiene el valor para esa persona?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitor, según lo visto en las mesas, ¿quiénes van rumbo a los seis finalistas?</p><p class="anticipada">[Van quienes suman más utilidad y honestidad, más un punto por cada número firme en plata u oro, máximo tres.]</p><p class="repregunta">Repregunta: Monitor, antes de las 16:00, ¿cómo revisan dos o tres números de cada equipo?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipo, en cinco minutos, ¿cómo cuentan a quién ayudan y qué cambia en su territorio?</p><p class="anticipada">[Cuentan desafío, persona que decide y lo que falta en blanco si hace falta, porque cierran con el siguiente paso concreto.]</p><p class="repregunta">Repregunta: Equipo, si cierran con el siguiente paso, ¿qué piden para ganar confianza en el territorio?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipo, ¿qué muestran en pantalla para el comprador y para la comunidad?</p><p class="anticipada">[Muestran lo que ve el comprador y la comunidad alineado, porque la persona decide en diez segundos con registros abiertos.]</p><p class="repregunta">Repregunta: Equipo, si la persona decide en diez segundos, ¿qué aclaración final necesitan antes de escena?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Monitores, para quien no entre a los seis, ¿qué confirman ahora?</p><p class="anticipada">[Confirman el mismo certificado de participación para los catorce. Entrar al Datalab CTH en 2027 es solo el reconocimiento de los tres.]</p><p class="repregunta">Repregunta: Monitores, si el certificado es el mismo para todos, ¿qué les recuerdan sobre la lista de seis que cierra antes de las 16:00?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> La lista de seis queda cerrada antes de las 16:00.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Presentaciones finales a las 16:00.</p>
+    <p class="fuente">Fuente: agenda v7, paquete equipos, mentoría 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p15" data-page="15">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:00</span>
+      <h1>Pitches finales: seis equipos preseleccionados</h1>
+      <p class="meta-row"><strong>Participan:</strong> Seis equipos, auditorio, Gideon como moderador</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon a cada equipo y al jurado; equipos al jurado</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Bloque 2: seis finalistas y resúmenes listos.</div>
+    <div class="strip"><div class="label">Lleva a</div>Evidencia para deliberación del jurado a las 16:40.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Equipo en escena, ¿quién es el usuario y qué decisión debe tomar esta semana?</p><p class="anticipada">[Lo dicen en una frase con persona, barrio o finca y decisión de esta semana, porque eso va antes del gráfico.]</p><p class="repregunta">Repregunta: Equipo en escena, si va antes del gráfico, ¿qué dato nuevo integraron que estaba sin revisar a las 11:00?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipo, en su resumen en pantalla, ¿qué ve el usuario en diez segundos?</p><p class="anticipada">[Ve el desafío en el territorio, la mejora del equipo y lo que falta en blanco, porque eso es honesto con la comunidad.]</p><p class="repregunta">Repregunta: Equipo, si lo que falta está en blanco, ¿dónde nombraron comprador, permiso o acompañamiento?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Equipo, ¿cómo cuentan impacto sin inflar cifras de mercado?</p><p class="anticipada">[Cuentan impacto en la comunidad nombrada o el único número que midieron, porque no inflan cifras de mercado.]</p><p class="repregunta">Repregunta: Equipo, si solo midieron un número propio, ¿cuál es su próximo paso para ganar confianza del comprador?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, desde el jurado, ¿qué repregunta afina cómo el dato sostiene ingresos o costos?</p><p class="anticipada">[Pregunta si el dato sostiene ingreso o ahorro para la persona en campo o ciudad, no solo la lámina bonita.]</p><p class="repregunta">Repregunta: Enrique, si no es solo la lámina bonita, ¿qué equipo dejó mejor puente hacia el Datalab en 2027?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Jurado, al cerrar la ronda, ¿qué pidieron ver igual en los seis?</p><p class="anticipada">[Pidieron utilidad y honestidad, de 0 a 5 cada una, medidas igual en los seis.]</p><p class="repregunta">Repregunta: Jurado, si hay empate en esa suma, ¿qué criterio va primero?</p></div>
+    </div>
+    
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Jurado a deliberar: utilidad y honestidad, de 0 a 5 cada una. En empate gana la honestidad.</p>
+    <p class="fuente">Fuente: agenda v7, paquete equipos</p>
+  </div>
+</section>
+<section class="page page--space" id="p16" data-page="16">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:40</span>
+      <h1>Deliberación del jurado</h1>
+      <p class="meta-row"><strong>Participan:</strong> Enrique Medina, Alejandro Díaz Malagón, Gideon Blaauw</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Jurado entre sí (Gideon modera la sala en espera)</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Presentaciones: seis evidencias de persona, territorio y negocio.</div>
+    <div class="strip"><div class="label">Lleva a</div>Tres ganadores para anuncio a las 16:50.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Enrique, ¿damos el mismo peso a utilidad y a honestidad, de 0 a 5 cada una?</p><p class="anticipada">[Sí, el mismo peso a utilidad y honestidad. Una lámina bonita no gana a un dato honesto en el territorio.]</p><p class="repregunta">Repregunta: Enrique, si hay empate en esa suma, ¿rompemos por honestidad?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿algún equipo prometió dato listo para decidir sin explicar el origen?</p><p class="anticipada">[Revisamos origen para la comunidad nombrada con lo que falta visible, porque citan permiso si usaron datos sensibles.]</p><p class="repregunta">Repregunta: Gideon, si citan permiso y origen claro, ¿quién entra al Datalab de CleantechHUB en 2027?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Alejandro Díaz, para los tres que entran en 2027, ¿cómo se reparten conexiones de mercado?</p><p class="anticipada">[Entran al Datalab CTH en 2027. Hoy no anunciamos adoptantes ni mentorías concretas.]</p><p class="repregunta">Repregunta: Alejandro Díaz, si hoy no anunciamos adoptantes, ¿qué feedback breve llevamos al cierre a quienes no ganan?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Enrique, ¿certificados listos para los catorce equipos?</p><p class="anticipada">[Sí, el mismo certificado de participación para los catorce equipos. El reconocimiento de los tres es entrar al Datalab CTH en 2027.]</p><p class="repregunta">Repregunta: Enrique, si es el mismo certificado para los catorce, ¿quién lo entrega en el escenario y en qué orden?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> Si preguntan por costo o acceso: el mismo certificado de participación para los catorce equipos, no para monitores. El reconocimiento de los tres es entrar al Datalab CTH en 2027.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Cierre público a las 16:50: tres ganadores y certificados.</p>
+    <p class="fuente">Fuente: agenda v7, mentoría 23 nov</p>
+  </div>
+</section>
+<section class="page page--space" id="p17" data-page="17">
+  <header class="page-head">
+    <div class="title-block">
+      <span class="time-badge">16:50</span>
+      <h1>Cierre: anuncio de tres ganadores y entrega de certificados</h1>
+      <p class="meta-row"><strong>Participan:</strong> Gideon Blaauw, Marlene Díaz, jurado, equipos, fotógrafo</p>
+      <p class="meta-row"><strong>Quién pregunta:</strong> Gideon y Marlene se entrevistan frente al auditorio</p>
+    </div>
+    <img class="logo" src="assets/cth-logo.png" alt="CleantechHUB">
+  </header>
+  <div class="strip-row">
+    <div class="strip"><div class="label">Viene de</div>Deliberación: tres ganadores y criterio aplicado.</div>
+    <div class="strip"><div class="label">Lleva a</div>Cierre del ciclo hacia fase piloto del Observatorio y Earth Data Week.</div>
+  </div>
+  <div class="page-main">
+    <div class="turns">
+      <div class="turn"><p class="pregunta">Pregunta: Gideon, ¿cómo anunciamos a los tres ganadores del Datalab 2027 sin mezclar con los niveles del día?</p><p class="anticipada">[Anunciamos tres equipos al Datalab CTH en 2027, seis presentaron y los catorce reciben el mismo certificado de participación.]</p><p class="repregunta">Repregunta: Gideon, ¿cómo evita que el público mezcle los niveles del día, el certificado y el Datalab?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Marlene, ¿qué pedirá Externado a esos tres equipos en los primeros treinta días?</p><p class="anticipada">[Pedirá ética del dato, lo que falta visible y plan ligado a su barrio o finca, porque el acompañamiento académico no promete ingreso.]</p><p class="repregunta">Repregunta: Marlene, si no promete ingreso, ¿qué compromiso asume Externado con la persona y el territorio que nombraron?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Gideon, ¿qué ofrece CleantechHUB a quienes no ganaron?</p><p class="anticipada">[El certificado de participación y nuestra puerta abierta para seguir conversando. Hoy no anunciamos un programa nuevo.]</p><p class="repregunta">Repregunta: Gideon, si la puerta queda abierta, ¿por dónde los pueden buscar los equipos después de hoy?</p></div>
+<div class="turn"><p class="pregunta">Pregunta: Marlene, ¿con qué frase cierran con el lema del Observatorio?</p><p class="anticipada">[Observa. Actúa. Transforma. Mañana cada equipo vuelve a su comunidad con un paso concreto u obstáculo nombrado.]</p><p class="repregunta">Repregunta: Marlene, si cada equipo nombra un paso o un obstáculo, ¿cómo les agradecen hoy a los catorce?</p></div>
+    </div>
+    <p class="nota-moderacion"><span class="nota-label">Nota para moderación:</span> No anunciar fechas ni territorio piloto del Observatorio en el micrófono.</p>
+  </div>
+  <div class="page-foot">
+    <p class="puente"><strong>Puente</strong>Fin del evento; los tres entran al Datalab CTH en 2027 y los catorce quedan con el mismo certificado de participación.</p>
+    <p class="fuente">Fuente: agenda v7, notas 23 nov</p>
+  </div>
+</section>
+</body>
+</html>
