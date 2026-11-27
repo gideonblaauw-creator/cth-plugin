@@ -1,0 +1,11 @@
+{
+  "gated": true,
+  "language": "es",
+  "slug": "datathon-2026-teams",
+  "title": "Datalab + Datatón — guía para equipos (piloto Air4U)",
+  "client": "Datatón piloto Air4U · equipos presentes",
+  "date": "2026-11-24",
+  "toolkit": "tools/reveal",
+  "source": "deck.yaml",
+  "publish_note": "gated is a label only; real gate is Caddy/oauth2-proxy."
+}

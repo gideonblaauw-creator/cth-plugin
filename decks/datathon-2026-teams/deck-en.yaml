@@ -1,0 +1,198 @@
+meta:
+  lang: en
+  title: "Datalab + Datathon — team guide (Air4U pilot)"
+slides:
+  - type: cover
+    title: The 24 November pilot guides Datathon teams through the Datalab method
+    subtitle: What we do today, how decisions are made, and what follows the 24 November 2026 pilot
+    client: CleantechHUB · Air4U pilot
+    date: 24 November 2026
+    method_chips:
+      - Heatmap
+      - Ladder
+      - Value card
+      - Dashboard
+  - type: statement
+    text: Without data ready for a real decision, there is no honest ladder and no useful screen for the user you name.
+    attribution: "CTH Datathon methodology v0.3 (21 Nov 2026)"
+  - type: ecosystem
+    kicker: Methodology
+    title: CTH Datalab brings together the method, mentors, and the path toward 2027
+    centre: CTH Datalab
+    nodes:
+      - label: Datathon teams
+        text: They test BMC → heatmap → ladder → value card → dashboard, with open morning labels.
+      - label: Mentors
+        text: Cut to 6 finalists before 16:00 using honesty rules and ladder progress.
+      - label: 2027 route
+        text: 3 winners enter the Datalab track in 2027 (pilot benefit; details with CTH desk).
+      - label: Open-air sandbox
+        text: Three panels — client baseline, innovator delta, open-data landscape — on every number.
+    source: "CTH Datathon methodology v0.3 (21 Nov 2026)"
+  - type: process
+    kicker: Methodology
+    title: The pilot funnel shows who advances from 20 teams to 3 winners
+    steps:
+      - label: Field
+        text: Up to 20 teams in the 24 Nov 2026 pilot.
+      - label: Cut
+        text: Mentors name 6 finalists from the day's ladder progress and Silver bonus.
+      - label: Finals
+        text: 16:00 — six teams pitch; judges score usefulness and honesty.
+      - label: Exit
+        text: 3 winners toward the CTH Datalab 2027 track.
+    source: "Datathon team pack (EN/ES)"
+  - type: timeline
+    kicker: Methodology
+    title: Confirm times with the facilitator, except finals at 16:00
+    items:
+      - date: confirm
+        label: Morning block 1
+        text: BMC, Sheet 1 heatmap, CTH scoring, share labels.
+      - date: confirm
+        label: Lunch
+      - date: confirm
+        label: Afternoon block 2
+        text: Sheet 2 Medallion ladder, Sheet 3 value card and dashboard sketch, mentors.
+      - date: confirm
+        label: Six finalists announced
+      - date: "16:00"
+        label: Finals
+        text: Six teams — pitch with sketch; judges use finals judging sheet v0.3.
+      - date: confirm
+        label: Close
+        text: 3 winners and next steps toward Datalab 2027.
+    source: "Datathon team pack (EN/ES)"
+  - type: statement
+    text: "Now we walk through the method step by step with a real example: a clinic in Bogotá."
+  - type: showcase
+    kicker: Air4U pilot example
+    title: The method crosses nine BMC blocks to a one-screen dashboard
+    text: Nine BMC blocks, mark where each dataset lives, climb the Medallion ladder, name one user and one decision, and close with a three-panel dashboard sketch.
+    takeaway: Copy the sequence today — labels in the morning, ladder in the afternoon.
+    link: "CTH Datathon methodology v0.3 (21 Nov 2026)"
+  - type: showcase
+    kicker: Air4U pilot example
+    title: The Air4U example shows an illustrative BMC for a clinic in Bogotá
+    text: The Air4U BMC (illustrative — not filled in by the company) cites indoor sensors, pitch sales data, and marketplace reviews. Air4U may be named; the pilot clinic stays anonymous.
+    takeaway: Start from VP1 — the heatmap only colours blocks linked to value propositions.
+    link: "Datathon team pack (EN/ES)"
+  - type: map
+    region: colombia
+    kicker: Open-air sandbox · L1
+    title: The open baseline shows 19 RMCAB stations and the ICA scale in Bogotá
+    text: "Open-data landscape from the Datalab: 19 RMCAB (SDA) stations with hourly PM₂.₅, O₃ and PM₁₀, plus SISAIRE reference at Mochuelo. PM₂.₅ ICA colours per Res. 2254/2017."
+    link: "Source: SDA RMCAB + IDEAM SISAIRE, snapshot 4 Oct 2026 · CTH Datalab living lab · Basemap © OpenStreetMap contributors"
+  - type: data-table
+    kicker: Open-air sandbox · L2
+    title: The client baseline compares each site with the nearest RMCAB station
+    text: "Client proprietary context for the pilot site: indoor and outdoor PM₂.₅ vs the public network, with illustrative example slots (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop."
+    columns: [Site, PM₂.₅, Indoor / outdoor, vs RMCAB, Note]
+    rows:
+      - ["—", "—", "—", "—", "—"]
+    source: "CTH Datalab living lab, snapshot 4 Oct 2026"
+    link: "CTH Datalab living lab, snapshot 4 Oct 2026 · Air4U Datatón workshop"
+  - type: data-table
+    kicker: Open-air sandbox · L3
+    title: Air4U sensors add site-level resolution and a before/after delta
+    text: "Innovator delta on L1 and L2: per-site sensors, before/after comparison, and delta/ROI gate before you decide on the dashboard."
+    columns: [Sensor, Site, Before, After, CO₂, Note]
+    rows:
+      - ["—", "—", "—", "—", "—", "—"]
+    source: "CTH Datalab living lab, snapshot 4 Oct 2026"
+    link: "CTH Datalab living lab, snapshot 4 Oct 2026 · Air4U Datatón workshop"
+  - type: case-cards
+    kicker: Air4U pilot example
+    title: The heatmap places D1 sensors on value propositions under strict scoring
+    cards:
+      - name: D1 score
+        text: "D=10, WARM band; links VP, KA, KR. LEGAL?, TECH?, QUALITY? tags warn — they do not exclude."
+      - name: Copy today
+        text: Founder and operator mark sets per block; CTH returns afternoon blocks. Below Bronze is still valid.
+    takeaway: Morning is open intake — this is not the ladder yet.
+    source: "Datathon team pack (EN/ES)"
+  - type: case-cards
+    kicker: Air4U pilot example
+    title: The Medallion ladder leaves the example below Bronze without penalising the team
+    cards:
+      - name: Card A (D1 sensors)
+        text: "Level reached: None (below C1/Bronze). Next step: B5 named storage, B6 written rights, B7 export."
+      - name: Lesson
+        text: The step is calculated from B/S/G boxes, not declared. No ONAC-accredited lab — CTH is on a path toward ONAC, without claiming accreditation.
+    takeaway: "This is not the ladder: use the starter card only when no VP block went warm."
+    source: "Datathon team pack (EN/ES)"
+  - type: showcase
+    kicker: Air4U pilot example
+    title: The value card names the pilot site manager and a weekly decision
+    text: "User: facilities manager. Decision: activate ventilation or filter review this week if indoor PM₂.₅ might exceed the reference? All numbers stay estimated while the ladder is at None."
+    takeaway: Silver+ only for firm numbers on screen — otherwise mark estimated.
+    link: "Datathon team pack (EN/ES)"
+  - type: showcase
+    kicker: Air4U pilot example
+    title: The Sheet 4 template puts the decision, the delta and its range on one screen
+    text: User, decision, delta box, and one number panel. Firm confidence only at Silver+.
+    images:
+      - assets/method-flow.svg
+    link: "Datathon team pack (EN/ES)"
+  - type: key-facts
+    kicker: Finals
+    title: Honesty rules are what judges expect at the 16:00 finals
+    items:
+      - icon: Ag
+        label: Silver+ for firm
+        text: A number shown as firm requires Silver or Gold on the linked Sheet 2.
+      - icon: Est
+        label: Else estimated
+        text: Bronze or None — mark estimated; still a useful screen without inflating the step.
+      - icon: Pub
+        label: No public dashboard
+        text: While legal or ethical access stays open on any dataset used.
+    source: "Datathon team pack (EN/ES)"
+  - type: title-bullets
+    kicker: Finals
+    title: Mentors and judges score usefulness, honesty, and Silver bonus
+    bullets:
+      - "Mentors pick 6 finalists from ladder progress, Sheet 3 completeness, and Silver bonus (+1 per firm Silver+ number on the card, max +3)."
+      - "Finals 16:00 — Part A usefulness 0–5; Part B honesty 0–5 (total /10)."
+      - "Tie on usefulness and honesty — story wins only if both parts tied."
+      - "A simple honest dashboard beats a flashy one with no sheet backup."
+    source: "Datathon team pack (EN/ES)"
+  - type: offer
+    kicker: Methodology
+    title: Each team receives the v0.3 pack and facilitator support today
+    price: Included
+    currency: pilot
+    includes:
+      - Team pack v0.3-es (sheets 1–4 template, agenda, data-rights note, open sources).
+      - Drive folder template when the facilitator enables it.
+      - Team-pack AI prompts to speed drafting, not to invent figures.
+    note: No entry fee in the pilot; Datalab 2027 benefit for 3 winners per CTH desk.
+    source: "Datathon team pack (EN/ES)"
+  - type: key-facts
+    kicker: Data rights
+    title: Practical data-rights rules protect sites and people — not legal advice
+    items:
+      - icon: NP
+        label: Permitted data only
+        text: No personal data in shared files — roles, not names.
+      - icon: Cl
+        label: Identifiable sites
+        text: Clinic or plant readings stay confidential until the client approves.
+      - icon: Leg
+        label: If unsure
+        text: Mark LEGAL? on the map and ask a mentor; stop for formal legal advice.
+    source: "Datathon team pack (EN/ES)"
+  - type: contact
+    kicker: Contact
+    title: The Datathon desk answers operational questions via CleantechHUB's generic channel
+    people:
+      - name: CleantechHUB Foundation
+        role: Datathon / Datalab desk
+        email: info@cleantechhub.net
+    links:
+      - kind: Site
+        url: https://cleantechhub.net
+      - kind: Wiki
+        url: https://wiki.cleantechhub.net
+  - type: closing
+    text: "Inspira. Actúa. Transforma."

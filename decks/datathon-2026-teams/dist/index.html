@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datalab + Datatón — guía para equipos (piloto Air4U)</title>
+  <meta name="cth-deck-gated" content="true" />
+  <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="theme/cleantechhub.css" id="theme" />
+  <link rel="stylesheet" href="assets/deck.css" />
+  <link rel="stylesheet" href="assets/pdf-download.css" />
+</head>
+<body data-lang="es">
+  <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+    <button type="button" data-set-lang="es" aria-pressed="true">ES</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <div class="reveal">
+    <div class="slides">
+      <section class="fp fp-cover fp-has-photo fp-cover--photo" data-cth-type="cover" data-background-color="#0C498A">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/canva-g3-crop.jpg');background-position:center center;" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
+  <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob" src="assets/blob-cyan.png" alt="" /></div>
+  <div class="fp-deco-wrap"><img class="fp-deco fp-cover__blob2" src="assets/blob-green.png" alt="" /></div>
+  <div class="fp-cover__top">
+    <img class="fp-cover__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
+    <span class="fp-pill"><span class="l-es">Confidencial — equipos Datatón</span><span class="l-en">Confidential — Datathon teams</span></span>
+  </div>
+  <div class="fp-cover__main fp-cover__main--chips">
+    <div class="fp-cover__text">
+      <p class="fp-eyebrow fp-eyebrow--lg">CleantechHUB · Datalab</p>
+      <h1 class="fp-cover__title"><span class="l-es">El piloto del 24 de noviembre guía equipos del Datatón con el método del Datalab</span><span class="l-en">The 24 November pilot guides Datathon teams through the Datalab method</span></h1>
+      <p class="fp-cover__sub"><span class="l-es">Qué hacemos hoy, cómo se decide y qué sigue después del piloto del 24 de noviembre de 2026</span><span class="l-en">What we do today, how decisions are made, and what follows the 24 November 2026 pilot</span></p>
+      <p class="fp-cover__meta"><span class="l-es">CleantechHUB · piloto Air4U · 24 noviembre 2026</span><span class="l-en">CleantechHUB · Air4U pilot · 24 November 2026</span></p>
+      <div class="fp-method-chips" role="list"><span class="fp-method-chip"><span class="l-es">Mapa de calor</span><span class="l-en">Heatmap</span></span><span class="fp-method-chip"><span class="l-es">Escalera</span><span class="l-en">Ladder</span></span><span class="fp-method-chip"><span class="l-es">Tarjeta</span><span class="l-en">Value card</span></span><span class="fp-method-chip"><span class="l-es">Tablero</span><span class="l-en">Dashboard</span></span></div>
+    </div>
+  </div>
+  <aside class="notes">[1/21 · cover] Piloto 24 nov 2026.</aside>
+</section>
+      <section class="fp fp-statement fp--dark fp-has-photo" data-cth-type="statement" data-background-color="#0C498A">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/canva-g4-crop.jpg');background-position:center center;" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
+  <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
+  <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
+  <div class="fp-statement__body">
+    <p class="fp-eyebrow fp-eyebrow--light"><span class="l-es">Principio del método</span><span class="l-en">Method principle</span></p>
+    <p class="fp-statement__text"><span class="l-es">Sin datos listos para una decisión real, no hay escalera honesta ni pantalla útil para el usuario que usted nombra.</span><span class="l-en">Without data ready for a real decision, there is no honest ladder and no useful screen for the user you name.</span></p>
+    <p class="fp-statement__attr"><span class="l-es">Metodología Datatón CTH v0.3 (21 nov 2026)</span><span class="l-en">CTH Datathon methodology v0.3 (21 Nov 2026)</span></p>
+  </div>
+  <footer class="fp-foot fp-foot--dark">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[2/21 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula.</aside>
+</section>
+      <section class="fp fp-ecosystem fp-ecosystem--fill" data-cth-type="ecosystem" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Metodología</span><span class="l-en">Methodology</span></p><h2 class="fp-title"><span class="l-es">El CTH Datalab concentra al método, los mentores y la salida hacia 2027</span><span class="l-en">CTH Datalab brings together the method, mentors, and the path toward 2027</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-eco"><div class="fp-eco__row"><div class="fp-card fp-eco__node fp-eco__node--core fp-card--fill"><p class="fp-card__title"><span class="l-es">Equipos del Datatón</span><span class="l-en">Datathon teams</span></p><p class="fp-card__text"><span class="l-es">Prueban BMC → calor → escalera → tarjeta → tablero, con etiquetas abiertas en la mañana.</span><span class="l-en">They test BMC → heatmap → ladder → value card → dashboard, with open morning labels.</span></p></div><div class="fp-card fp-eco__node fp-eco__node--core fp-card--fill"><p class="fp-card__title"><span class="l-es">Mentores</span><span class="l-en">Mentors</span></p><p class="fp-card__text"><span class="l-es">Cortan a 6 finalistas antes de las 16:00 con reglas de honestidad y avance de escalera.</span><span class="l-en">Cut to 6 finalists before 16:00 using honesty rules and ladder progress.</span></p></div><div class="fp-card fp-eco__node fp-eco__node--core fp-card--fill"><p class="fp-card__title"><span class="l-es">Ruta 2027</span><span class="l-en">2027 route</span></p><p class="fp-card__text"><span class="l-es">3 ganadores entren a la vía Datalab en 2027 (beneficio piloto; detalle con mesa CTH).</span><span class="l-en">3 winners enter the Datalab track in 2027 (pilot benefit; details with CTH desk).</span></p></div></div>
+    <p class="fp-eco__centre">CTH Datalab</p>
+    <div class="fp-eco__row"><div class="fp-card fp-eco__node fp-eco__node--outer fp-card--fill"><p class="fp-card__title"><span class="l-es">Sandbox de aire abierto</span><span class="l-en">Open-air sandbox</span></p><p class="fp-card__text"><span class="l-es">Tres paneles — línea base del cliente, delta del innovador, panorama de datos abiertos.</span><span class="l-en">Three panels — client baseline, innovator delta, open-data landscape — on every number.</span></p></div></div></div>
+  <div class="fp-fill-extras"><div class="fp-stats fp-stats--3"><div class="fp-stat"><span class="fp-stat__value">20</span><span class="fp-stat__label"><span class="l-es">Equipos en el piloto</span><span class="l-en">Teams in the pilot</span></span></div><div class="fp-stat"><span class="fp-stat__value">6</span><span class="fp-stat__label"><span class="l-es">Finalistas (corte mentores)</span><span class="l-en">Finalists (mentor cut)</span></span></div><div class="fp-stat"><span class="fp-stat__value">3</span><span class="fp-stat__label"><span class="l-es">Ganadores hacia Datalab 2027</span><span class="l-en">Winners toward Datalab 2027</span></span></div></div></div>
+  <p class="cth-source fp-source"><span class="l-es">Metodología Datatón CTH v0.3 (21 nov 2026)</span><span class="l-en">CTH Datathon methodology v0.3 (21 Nov 2026)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[3/21 · ecosystem]</aside>
+</section>
+      <section class="fp fp-process fp-process--fill" data-cth-type="process" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-cyan.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Metodología</span><span class="l-en">Methodology</span></p><h2 class="fp-title"><span class="l-es">El embudo del piloto deja claro quién avanza de 20 equipos a 3 ganadores</span><span class="l-en">The pilot funnel shows who advances from 20 teams to 3 winners</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-steps fp-steps--4"><div class="fp-step fp-step--fill">
+      <div class="fp-step__head"><span class="fp-step__n">1</span><span class="fp-step__label"><span class="l-es">Campo</span><span class="l-en">Field</span></span></div>
+      <div class="fp-step__body"><p class="fp-step__line"><span class="l-es">Hasta 20 equipos en el piloto del 24 nov 2026.</span><span class="l-en">Up to 20 teams in the 24 Nov 2026 pilot.</span></p></div>
+    </div>
+    <div class="fp-step fp-step--fill">
+      <div class="fp-step__head"><span class="fp-step__n">2</span><span class="fp-step__label"><span class="l-es">Corta</span><span class="l-en">Cut</span></span></div>
+      <div class="fp-step__body"><p class="fp-step__line"><span class="l-es">Mentores nombran 6 finalistas con avance del día y bono Plata.</span><span class="l-en">Mentors name 6 finalists from the day's ladder progress and Silver bonus.</span></p></div>
+    </div>
+    <div class="fp-step fp-step--fill">
+      <div class="fp-step__head"><span class="fp-step__n">3</span><span class="fp-step__label"><span class="l-es">Finales</span><span class="l-en">Finals</span></span></div>
+      <div class="fp-step__body"><p class="fp-step__line"><span class="l-es">16:00 — los 6 equipos presentan; jueces puntúan utilidad e honestidad.</span><span class="l-en">16:00 — six teams pitch; judges score usefulness and honesty.</span></p></div>
+    </div>
+    <div class="fp-step fp-step--fill">
+      <div class="fp-step__head"><span class="fp-step__n">4</span><span class="fp-step__label"><span class="l-es">Salida</span><span class="l-en">Exit</span></span></div>
+      <div class="fp-step__body"><p class="fp-step__line"><span class="l-es">3 ganadores hacia la vía CTH Datalab 2027.</span><span class="l-en">3 winners toward the CTH Datalab 2027 track.</span></p></div>
+    </div></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[4/21 · process]</aside>
+</section>
+      <section class="fp fp-timeline" data-cth-type="timeline" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Metodología</span><span class="l-en">Methodology</span></p><h2 class="fp-title"><span class="l-es">Confirme las horas del día con el facilitador, excepto la final a las 16:00</span><span class="l-en">Confirm times with the facilitator, except finals at 16:00</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-tl"><div class="fp-tl__item">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date"><span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span></div>
+      <p class="fp-tl__label"><span class="l-es">Bloque 1 mañana</span><span class="l-en">Morning block 1</span></p>
+      <p class="fp-tl__text"><span class="l-es">BMC, Hoja 1 mapa de calor, calificación CTH, compartir etiquetas.</span><span class="l-en">BMC, Sheet 1 heatmap, CTH scoring, share labels.</span></p>
+    </div>
+    <div class="fp-tl__item">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date"><span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span></div>
+      <p class="fp-tl__label"><span class="l-es">Almuerzo</span><span class="l-en">Lunch</span></p>
+      
+    </div>
+    <div class="fp-tl__item">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date"><span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span></div>
+      <p class="fp-tl__label"><span class="l-es">Bloque 2 tarde</span><span class="l-en">Afternoon block 2</span></p>
+      <p class="fp-tl__text"><span class="l-es">Hoja 2 escalera Medallion, Hoja 3 tarjeta y boceto de tablero, mentores.</span><span class="l-en">Sheet 2 Medallion ladder, Sheet 3 value card and dashboard sketch, mentors.</span></p>
+    </div>
+    <div class="fp-tl__item">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date"><span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span></div>
+      <p class="fp-tl__label"><span class="l-es">Anuncio de 6 finalistas</span><span class="l-en">Six finalists announced</span></p>
+      
+    </div>
+    <div class="fp-tl__item fp-tl__item--key">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date">16:00</div>
+      <p class="fp-tl__label"><span class="l-es">Finales</span><span class="l-en">Finals</span></p>
+      <p class="fp-tl__text"><span class="l-es">Seis equipos — pitch con boceto; jueces con hoja finals-judging-sheet v0.3.</span><span class="l-en">Six teams — pitch with sketch; judges use finals judging sheet v0.3.</span></p>
+    </div>
+    <div class="fp-tl__item">
+      <div class="fp-tl__dot"></div>
+      <div class="fp-tl__date"><span class="fp-tl__confirm"><span class="l-es">por confirmar</span><span class="l-en">to confirm</span></span></div>
+      <p class="fp-tl__label"><span class="l-es">Cierre</span><span class="l-en">Close</span></p>
+      <p class="fp-tl__text"><span class="l-es">3 ganadores y siguientes pasos hacia Datalab 2027.</span><span class="l-en">3 winners and next steps toward Datalab 2027.</span></p>
+    </div></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[5/21 · timeline]</aside>
+</section>
+      <section class="fp fp-statement fp--dark fp-has-photo fp-photo-bleed--full" data-cth-type="statement" data-background-color="#0C498A">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/canva-g2-crop.jpg');background-position:62% center;" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light fp-photo-scrim--g2" aria-hidden="true"></div>
+  <div class="fp-deco-wrap"><img class="fp-deco fp-statement__plant" src="assets/plant-white.png" alt="" /></div>
+  <img class="fp-statement__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
+  <div class="fp-statement__body">
+    <p class="fp-eyebrow fp-eyebrow--light"><span class="l-es">Siguiente bloque</span><span class="l-en">Next block</span></p>
+    <p class="fp-statement__text"><span class="l-es">Ahora vemos el método paso a paso con un ejemplo real: una clínica en Bogotá.</span><span class="l-en">Now we walk through the method step by step with a real example: a clinic in Bogotá.</span></p>
+    
+  </div>
+  <footer class="fp-foot fp-foot--dark">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[6/21 · statement]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-cp--mix fp-chart-proof--photo fp-has-photo" data-cth-type="showcase" data-background-color="#0C498A">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/canva-g6-crop.jpg');" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">El método recorre nueve bloques del lienzo hasta una pantalla de una hoja</span><span class="l-en">The method crosses nine BMC blocks to a one-screen dashboard</span></h2></div><img class="fp-head__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-cp">
+    <div class="fp-cp__shot"><span class="l-es"><img src="assets/method-flow.svg" alt="" /></span><span class="l-en"><img src="assets/method-flow-en.svg" alt="" /></span></div>
+    <div class="fp-cp__proof">
+      <p class="fp-cp__cap"><span class="l-es">Recorren nueve bloques del BMC, pintan dónde vive cada dato, suben la escalera Medallion, nombran un usuario y una decisión, y cierran con un boceto de tres paneles.</span><span class="l-en">Nine BMC blocks, mark where each dataset lives, climb the Medallion ladder, name one user and one decision, and close with a three-panel dashboard sketch.</span></p>
+      <p class="fp-takeaway"><span class="l-es">Copie la secuencia hoy — mañana etiquetas, tarde grada calculada.</span><span class="l-en">Copy the sequence today — labels in the morning, ladder in the afternoon.</span></p>
+      <p class="cth-source fp-source"><span class="l-es">Metodología Datatón CTH v0.3 (21 nov 2026)</span><span class="l-en">CTH Datathon methodology v0.3 (21 Nov 2026)</span></p>
+    </div>
+  </div>
+  <footer class="fp-foot fp-foot--dark">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[7/21 · showcase]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-cp--mix fp-chart-proof--photo fp-has-photo" data-cth-type="showcase" data-background-color="#0C498A">
+  <div class="fp-photo-bg" style="background-image:url('assets/photos/canva-g7-crop.jpg');" role="presentation"></div>
+  <div class="fp-photo-scrim fp-photo-scrim--light" aria-hidden="true"></div>
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">El ejemplo Air4U muestra el lienzo BMC de una clínica en Bogotá en piloto</span><span class="l-en">The Air4U example shows an illustrative BMC for a clinic in Bogotá</span></h2></div><img class="fp-head__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-cp">
+    <div class="fp-cp__shot"><img src="assets/Air4U_BMC_preview.png" alt="" /></div>
+    <div class="fp-cp__proof">
+      <p class="fp-cp__cap"><span class="l-es">El BMC de Air4U (ilustrativo, sin diligenciar por la empresa) muestra sensores indoor, ventas citadas en pitch y reseñas en marketplace. Nombre Air4U permitido; la clínica piloto queda anónima.</span><span class="l-en">The Air4U BMC (illustrative — not filled in by the company) cites indoor sensors, pitch sales data, and marketplace reviews. Air4U may be named; the pilot clinic stays anonymous.</span></p>
+      <p class="fp-takeaway"><span class="l-es">Empiece por VP1 — el mapa de calor solo colorea bloques ligados a propuestas de valor.</span><span class="l-en">Start from VP1 — the heatmap only colours blocks linked to value propositions.</span></p>
+      <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+    </div>
+  </div>
+  <footer class="fp-foot fp-foot--dark">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[8/21 · showcase]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-living-lab fp-living-lab--l1" data-cth-type="map" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Sandbox de aire · L1</span><span class="l-en">Open-air sandbox · L1</span></p><h2 class="fp-title"><span class="l-es">La línea base abierta muestra 19 estaciones RMCAB y la escala ICA en Bogotá</span><span class="l-en">The open baseline shows 19 RMCAB stations and the ICA scale in Bogotá</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-living-lab-l1">
+    <p class="fp-cp__cap fp-living-lab-l1__intro"><span class="l-es">Panorama de datos abiertos del Datalab: 19 estaciones RMCAB (SDA) con PM₂.₅, O₃ y PM₁₀ horarios, más referencia SISAIRE en Mochuelo. Colores ICA PM₂.₅ según Res. 2254/2017.</span><span class="l-en">Open-data landscape from the Datalab: 19 RMCAB (SDA) stations with hourly PM₂.₅, O₃ and PM₁₀, plus SISAIRE reference at Mochuelo. PM₂.₅ ICA colours per Res. 2254/2017.</span></p>
+    <div class="fp-living-lab-l1__main">
+      <div class="fp-living-lab-l1__map"><div class="fp-living-lab-l1__map-card"><img class="fp-living-lab-l1__img" src="assets/datalab-living-lab-l1-map-cropped.png" alt="" /><div class="fp-living-lab-l1__ica" aria-label="ICA PM2.5">
+    <p class="fp-living-lab-l1__ica-title"><span class="l-es">ICA PM₂.₅ · Res. 2254/2017</span><span class="l-en">PM₂.₅ ICA · Res. 2254/2017</span></p>
+    <ul class="fp-living-lab-l1__ica-list"><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--0"></span><span class="fp-living-lab-l1__ica-range">0–12</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Buena</span><span class="l-en">Good</span></span></li><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--1"></span><span class="fp-living-lab-l1__ica-range">13–37</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Aceptable</span><span class="l-en">Acceptable</span></span></li><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--2"></span><span class="fp-living-lab-l1__ica-range">38–55</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Dañina a grupos sensibles</span><span class="l-en">Harmful to sensitive groups</span></span></li><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--3"></span><span class="fp-living-lab-l1__ica-range">56–150</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Dañina</span><span class="l-en">Harmful</span></span></li><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--4"></span><span class="fp-living-lab-l1__ica-range">151–250</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Muy dañina</span><span class="l-en">Very harmful</span></span></li><li class="fp-living-lab-l1__ica-row"><span class="fp-living-lab-l1__ica-swatch fp-living-lab-l1__ica-swatch--5"></span><span class="fp-living-lab-l1__ica-range">251–500</span><span class="fp-living-lab-l1__ica-label"><span class="l-es">Peligrosa</span><span class="l-en">Hazardous</span></span></li></ul>
+    <ul class="fp-living-lab-l1__map-keys">
+      <li><span class="l-es">Anillo rojo = alerta lógica del dato</span><span class="l-en">Red ring = data logic flag</span></li>
+      <li><span class="l-es">Círculo punteado = solo referencia (Mochuelo SISAIRE)</span><span class="l-en">Dashed circle = reference only (Mochuelo SISAIRE)</span></li>
+    </ul>
+  </div></div></div>
+      <div class="fp-living-lab-l1__data">
+        <p class="fp-living-lab__meta fp-living-lab-l1__stamp"><span class="l-es">Instantánea 2026-10-04 09:00 COT</span><span class="l-en">Snapshot 2026-10-04 09:00 COT</span></p>
+        <div class="fp-living-lab__table-pair">
+    <div class="fp-table-wrap fp-living-lab__table-col"><table class="fp-table fp-table--sc fp-living-lab__table fp-living-lab-l1__table"><thead><tr><th><span class="l-es">Estación</span><span class="l-en">Station</span></th><th>PM₂.₅</th><th>O₃</th><th>PM₁₀</th></tr></thead><tbody><tr><td>Usaquén</td><td>2.2</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td>14.6</td></tr><tr><td>Carvajal - Sevillana</td><td>19.9</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td></tr><tr><td>Tunal</td><td>7</td><td>16.7</td><td>44</td></tr><tr><td>Centro de Alto Rendimiento</td><td>19.1</td><td>16</td><td>16.1</td></tr><tr><td>Las Ferias</td><td>11</td><td>18.6</td><td>21</td></tr><tr><td>Guaymaral</td><td>11</td><td>13.2</td><td>31</td></tr><tr><td>Kennedy</td><td>22.2</td><td>6.3</td><td>50.2</td></tr><tr><td>Suba</td><td>15</td><td>11.2</td><td>53.8</td></tr><tr><td>Puente Aranda</td><td>5.7</td><td>4.6</td><td>30</td></tr><tr><td>MinAmbiente</td><td>14</td><td>13.1</td><td>20</td></tr></tbody></table></div>
+    <div class="fp-table-wrap fp-living-lab__table-col"><table class="fp-table fp-table--sc fp-living-lab__table fp-living-lab-l1__table"><thead><tr><th><span class="l-es">Estación</span><span class="l-en">Station</span></th><th>PM₂.₅</th><th>O₃</th><th>PM₁₀</th></tr></thead><tbody><tr><td>San Cristóbal</td><td>9</td><td>10.9</td><td>29</td></tr><tr><td>Móvil 7ma</td><td>9.1</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td>22.1</td></tr><tr><td>Bolivia</td><td>7.4</td><td>11.3</td><td>29.4</td></tr><tr><td>Fontibón</td><td>9.1</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td>33.2</td></tr><tr><td>Usme</td><td>19.2</td><td>23</td><td>36</td></tr><tr><td>Jazmín</td><td>15.7</td><td>4</td><td>28.1</td></tr><tr><td>Ciudad Bolívar</td><td>18.9</td><td>12.4</td><td>53.4</td></tr><tr><td>Colina</td><td>11.9</td><td>9.8</td><td>11.1</td></tr><tr><td>Móvil Fontibón</td><td>28</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td>51.8</td></tr><tr><td>Mochuelo (SISAIRE)</td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td></tr></tbody></table></div>
+  </div>
+        <div class="fp-living-lab-l1__notes">
+          <p class="fp-cp__honest fp-living-lab-l1__honest"><span class="l-es">Valores provisionales, no validados por la SDA.</span><span class="l-en">Provisional values, not SDA-validated.</span></p>
+          <p class="fp-living-lab__meta fp-living-lab-l1__note"><span class="l-es">Mochuelo: referencia SISAIRE 2024 PM₂.₅ = 35.7 µg/m³ (promedio anual, sin lectura horaria).</span><span class="l-en">Mochuelo: SISAIRE 2024 PM₂.₅ reference = 35.7 µg/m³ (annual mean, no hourly reading).</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="fp-living-lab-l1__source"><p class="cth-source fp-source"><span class="l-es">Fuente: SDA RMCAB + IDEAM SISAIRE, snapshot 4 oct 2026 · Datalab CTH living lab · Mapa base © OpenStreetMap contributors</span><span class="l-en">Source: SDA RMCAB + IDEAM SISAIRE, snapshot 4 Oct 2026 · CTH Datalab living lab · Basemap © OpenStreetMap contributors</span></p></div>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[9/21 · living-lab L1]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l2" data-cth-type="data-table" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Sandbox de aire · L2</span><span class="l-en">Open-air sandbox · L2</span></p><h2 class="fp-title"><span class="l-es">La línea base del cliente compara cada sitio con la estación RMCAB más cercana</span><span class="l-en">The client baseline compares each site with the nearest RMCAB station</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-living-lab__body">
+    <p class="fp-cp__cap fp-living-lab__lead"><span class="l-es">Contexto propietario del sitio piloto: PM₂.₅ indoor y outdoor frente a la red pública, con ranuras de ejemplo ilustrativo (Ramo, Bolívar) y marco Clínica Colombia del taller Air4U.</span><span class="l-en">Client proprietary context for the pilot site: indoor and outdoor PM₂.₅ vs the public network, with illustrative example slots (Ramo, Bolívar) and Clínica Colombia framing from the Air4U datathon workshop.</span></p>
+    <div class="fp-trio fp-trio--3 fp-living-lab__trio"><div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">Sitio del cliente</span><span class="l-en">Client site</span></p><p class="fp-card__text"><span class="l-es">Ubica la clínica o planta piloto sobre la línea base abierta.</span><span class="l-en">Places the pilot clinic or plant on the open baseline.</span></p></div>
+    <div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">PM₂.₅ indoor y outdoor</span><span class="l-en">Indoor and outdoor PM₂.₅</span></p><p class="fp-card__text"><span class="l-es">Compara lecturas en el sitio con la referencia horaria.</span><span class="l-en">Compares site readings with the hourly reference.</span></p></div>
+    <div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">Estación RMCAB cercana</span><span class="l-en">Nearest RMCAB station</span></p><p class="fp-card__text"><span class="l-es">Ancla la decisión del gestor a la red pública SDA.</span><span class="l-en">Anchors the site manager's decision to the public SDA network.</span></p></div></div>
+    <div class="fp-table-wrap fp-living-lab__table-wide"><table class="fp-table fp-table--sc fp-living-lab__table fp-living-lab__table--lg"><thead><tr><th><span class="l-es">Sitio</span><span class="l-en">Site</span></th><th>PM₂.₅</th><th>Indoor / outdoor</th><th>vs RMCAB</th><th><span class="l-es">Nota</span><span class="l-en">Note</span></th></tr></thead><tbody><tr><td><span class="l-es">Ramo (cliente)</span><span class="l-en">Ramo (client)</span></td><td><span class="l-es">27 µg/m³ (ejemplo ilustrativo)</span><span class="l-en">27 µg/m³ (illustrative example)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">ejemplo ilustrativo</span><span class="l-en">illustrative example</span></td></tr><tr><td><span class="l-es">Bolívar (cliente)</span><span class="l-en">Bolívar (client)</span></td><td><span class="l-es">16 µg/m³ (ejemplo ilustrativo)</span><span class="l-en">16 µg/m³ (illustrative example)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">ejemplo ilustrativo</span><span class="l-en">illustrative example</span></td></tr><tr><td><span class="l-es">Clínica Colombia (taller Air4U)</span><span class="l-en">Clínica Colombia (Air4U datathon)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sintético</span><span class="l-en">synthetic</span></td></tr><tr><td><span class="l-es">Cliente por definir</span><span class="l-en">Client TBD</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td></tr></tbody></table></div>
+    <p class="cth-source" aria-hidden="true" tabindex="-1">Datalab CTH living lab, snapshot 4 oct 2026</p><p class="cth-source fp-source"><span class="l-es">Datalab CTH living lab, snapshot 4 oct 2026</span><span class="l-en">CTH Datalab living lab, snapshot 4 Oct 2026</span></p>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[10/21 · living-lab L2]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-data-table fp-living-lab fp-living-lab--l3" data-cth-type="data-table" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Sandbox de aire · L3</span><span class="l-en">Open-air sandbox · L3</span></p><h2 class="fp-title"><span class="l-es">Los sensores Air4U añaden resolución por sitio y un delta antes/después</span><span class="l-en">Air4U sensors add site-level resolution and a before/after delta</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-living-lab__body">
+    <p class="fp-cp__cap fp-living-lab__lead"><span class="l-es">Delta del innovador sobre L1 y L2: sensores por sitio, comparación antes/después y compuerta delta/ROI antes de decidir en el tablero.</span><span class="l-en">Innovator delta on L1 and L2: per-site sensors, before/after comparison, and delta/ROI gate before you decide on the dashboard.</span></p>
+    <div class="fp-trio fp-trio--3 fp-living-lab__trio"><div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">Resolución por sitio</span><span class="l-en">Site-level resolution</span></p><p class="fp-card__text"><span class="l-es">Sensores Air4U añaden lectura más cerca del usuario del dato.</span><span class="l-en">Air4U sensors add readings closer to the data user.</span></p></div>
+    <div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">Antes y después</span><span class="l-en">Before and after</span></p><p class="fp-card__text"><span class="l-es">Compara intervención con la línea base del cliente (L2).</span><span class="l-en">Compares intervention with the client baseline (L2).</span></p></div>
+    <div class="fp-card fp-trio__card fp-card--fill fp-living-lab__card"><p class="fp-card__title"><span class="l-es">Delta y compuerta ROI</span><span class="l-en">Delta and ROI gate</span></p><p class="fp-card__text"><span class="l-es">Resume el cambio útil antes de decidir en pantalla.</span><span class="l-en">Summarises useful change before you decide on screen.</span></p></div></div>
+    <div class="fp-table-wrap fp-living-lab__table-wide"><table class="fp-table fp-table--sc fp-living-lab__table fp-living-lab__table--lg"><thead><tr><th>Sensor</th><th><span class="l-es">Sitio</span><span class="l-en">Site</span></th><th><span class="l-es">Antes</span><span class="l-en">Before</span></th><th><span class="l-es">Después</span><span class="l-en">After</span></th><th>CO₂</th><th><span class="l-es">Nota</span><span class="l-en">Note</span></th></tr></thead><tbody><tr><td>A4U-R1</td><td><span class="l-es">Ramo (ejemplo ilustrativo)</span><span class="l-en">Ramo (illustrative example)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">pendiente</span><span class="l-en">pending</span></td><td><span class="l-es">ejemplo ilustrativo</span><span class="l-en">illustrative example</span></td></tr><tr><td>A4U-R2</td><td><span class="l-es">Ramo (ejemplo ilustrativo)</span><span class="l-en">Ramo (illustrative example)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">pendiente</span><span class="l-en">pending</span></td><td><span class="l-es">ejemplo ilustrativo</span><span class="l-en">illustrative example</span></td></tr><tr><td>A4U-R3</td><td><span class="l-es">Ramo (ejemplo ilustrativo)</span><span class="l-en">Ramo (illustrative example)</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">sin dato</span><span class="l-en">no data</span></td><td><span class="l-es">pendiente</span><span class="l-en">pending</span></td><td><span class="l-es">ejemplo ilustrativo</span><span class="l-en">illustrative example</span></td></tr></tbody></table></div>
+    <p class="cth-source" aria-hidden="true" tabindex="-1">Datalab CTH living lab, snapshot 4 oct 2026</p><p class="cth-source fp-source"><span class="l-es">Datalab CTH living lab, snapshot 4 oct 2026</span><span class="l-en">CTH Datalab living lab, snapshot 4 Oct 2026</span></p>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[11/21 · living-lab L3]</aside>
+</section>
+      <section class="fp fp-chart-proof" data-cth-type="case-cards" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto</span><span class="l-en">The heatmap places D1 sensors on value propositions under strict scoring</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-cp fp-cp--case">
+    <div class="fp-cp__shot fp-cp__shot--tall"><img src="assets/air4u-drl-heatmap-ladder-confirmed.png" alt="" style="object-fit:contain;max-height:840px;width:100%;" /></div>
+    <div class="fp-cp__proof"><div class="fp-card fp-card--fill" style="margin-bottom:18px;"><p class="fp-card__title"><span class="l-es">Puntaje D1</span><span class="l-en">D1 score</span></p><p class="fp-card__text"><span class="l-es">D=10, banda WARM; enlaza VP, KA y KR. Etiquetas LEGAL?, TECH?, QUALITY? — avisan, no excluyen.</span><span class="l-en">D=10, WARM band; links VP, KA, KR. LEGAL?, TECH?, QUALITY? tags warn — they do not exclude.</span></p></div>
+      <div class="fp-card fp-card--fill" style="margin-bottom:18px;"><p class="fp-card__title"><span class="l-es">Qué copiar hoy</span><span class="l-en">Copy today</span></p><p class="fp-card__text"><span class="l-es">Fundador y operador marcan conjuntos por bloque; CTH devuelve bloques para la tarde. Debajo de Bronce sigue siendo válido.</span><span class="l-en">Founder and operator mark sets per block; CTH returns afternoon blocks. Below Bronze is still valid.</span></p></div><p class="fp-takeaway"><span class="l-es">Mañana es entrada abierta — esto no es la escalera todavía.</span><span class="l-en">Morning is open intake — this is not the ladder yet.</span></p><p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p></div>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[12/21 · case-cards]</aside>
+</section>
+      <section class="fp fp-chart-proof" data-cth-type="case-cards" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">La escalera Medallion deja el ejemplo debajo de Bronce sin penalizar al equipo</span><span class="l-en">The Medallion ladder leaves the example below Bronze without penalising the team</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-cp fp-cp--case">
+    <div class="fp-cp__shot fp-cp__shot--tall"><img src="assets/air4u-drl-heatmap-ladder-confirmed.png" alt="" style="object-fit:contain;max-height:840px;width:100%;" /></div>
+    <div class="fp-cp__proof"><div class="fp-card fp-card--fill" style="margin-bottom:18px;"><p class="fp-card__title"><span class="l-es">Tarjeta A (sensores D1)</span><span class="l-en">Card A (D1 sensors)</span></p><p class="fp-card__text"><span class="l-es">Nivel alcanzado: Ninguno (debajo de C1/Bronce). Siguiente grada: B5 almacenamiento nombrado, B6 derechos escritos, B7 exportación.</span><span class="l-en">Level reached: None (below C1/Bronze). Next step: B5 named storage, B6 written rights, B7 export.</span></p></div>
+      <div class="fp-card fp-card--fill" style="margin-bottom:18px;"><p class="fp-card__title"><span class="l-es">Lección</span><span class="l-en">Lesson</span></p><p class="fp-card__text"><span class="l-es">La grada se calcula con casillas B/S/G, no se declara. Sin ONAC acreditado — CTH en camino hacia ONAC, sin afirmar acreditación.</span><span class="l-en">The step is calculated from B/S/G boxes, not declared. No ONAC-accredited lab — CTH is on a path toward ONAC, without claiming accreditation.</span></p></div><p class="fp-takeaway"><span class="l-es">Esto no es la escalera: use la tarjeta de arranque solo si ningún bloque VP quedó tibio.</span><span class="l-en">This is not the ladder: use the starter card only when no VP block went warm.</span></p><p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p></div>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[13/21 · case-cards]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-cp--mix" data-cth-type="showcase" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">La tarjeta dato a valor nombra al gestor del sitio piloto y su decisión semanal</span><span class="l-en">The value card names the pilot site manager and a weekly decision</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-cp">
+    <div class="fp-cp__shot"><img src="assets/Air4U_BMC_preview_p2.png" alt="" /></div>
+    <div class="fp-cp__proof">
+      <p class="fp-cp__cap"><span class="l-es">Usuario: gestor de instalaciones. Decisión: ¿activar ventilación o revisar filtros esta semana si el PM₂.₅ indoor podría superar la referencia? Todos los números en estimado mientras la escalera está en Ninguno.</span><span class="l-en">User: facilities manager. Decision: activate ventilation or filter review this week if indoor PM₂.₅ might exceed the reference? All numbers stay estimated while the ladder is at None.</span></p>
+      <p class="fp-takeaway"><span class="l-es">Firme solo en Plata+ en pantalla — si no, marque estimado.</span><span class="l-en">Silver+ only for firm numbers on screen — otherwise mark estimated.</span></p>
+      <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+    </div>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[14/21 · showcase]</aside>
+</section>
+      <section class="fp fp-chart-proof fp-dash-solo" data-cth-type="showcase" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Ejemplo · piloto Air4U</span><span class="l-en">Air4U pilot example</span></p><h2 class="fp-title"><span class="l-es">La plantilla Hoja 4 pone la decisión, el delta y su rango en una sola pantalla</span><span class="l-en">The Sheet 4 template puts the decision, the delta and its range on one screen</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-dash-solo__body">
+    <div class="fp-h4 fp-dash__solo" role="img" aria-label="Hoja 4 plantilla">
+    <div class="fp-h4__head">
+      <div class="fp-h4__hdr"><span class="l-es">Usuario</span><span class="l-en">User</span><span class="fp-h4__blank"></span></div>
+      <div class="fp-h4__hdr"><span class="l-es">Decisión</span><span class="l-en">Decision</span><span class="fp-h4__blank"></span></div>
+    </div>
+    <p class="fp-h4__delta"><span class="fp-h4__delta-label"><span class="l-es">Delta: donde el dato se vuelve valor</span><span class="l-en">Delta: where data becomes value</span></span><span class="fp-h4__delta-flow"><span class="l-es">entradas → salida → línea de valor</span><span class="l-en">inputs → output → value line</span></span></p>
+    <div class="fp-h4__panels"><div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Línea base del cliente</span><span class="l-en">Client baseline</span> <span class="fp-h4__panel-role"><span class="l-es">(entrada)</span><span class="l-en">(input)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div>
+      <div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Delta del innovador</span><span class="l-en">Innovator delta</span> <span class="fp-h4__panel-role"><span class="l-es">(salida)</span><span class="l-en">(output)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div>
+      <div class="fp-h4__panel fp-card fp-card--fill">
+      <p class="fp-h4__panel-title"><span class="l-es">Panorama de datos abiertos</span><span class="l-en">Open-data landscape</span> <span class="fp-h4__panel-role"><span class="l-es">(entrada)</span><span class="l-en">(input)</span></span></p>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Valor</span><span class="l-en">Value</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Rango</span><span class="l-en">Range</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Confianza</span><span class="l-en">Confidence</span></span><span class="fp-h4__val"><span class="l-es">firme / estimado</span><span class="l-en">firm / estimated</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Por qué</span><span class="l-en">Why</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+      <div class="fp-h4__row"><span class="fp-h4__lab"><span class="l-es">Grada</span><span class="l-en">Ladder step</span></span><span class="fp-h4__val"><span class="l-es">[sin dato]</span><span class="l-en">[no data]</span></span></div>
+    </div></div>
+    <p class="fp-h4__foot"><span class="l-es">sin tablero público mientras los derechos de datos estén abiertos</span><span class="l-en">no public dashboard while data rights remain open</span></p>
+  </div>
+    <p class="fp-dash__pack-ref"><span class="l-es">Ejemplo diligenciado: ver Hoja 4b en el paquete de equipo v0.3-es.</span><span class="l-en">Filled example: see Sheet 4b in the team pack v0.3-es.</span></p>
+    <p class="fp-cp__cap"><span class="l-es">Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.</span><span class="l-en">User, decision, delta box, and one number panel. Firm confidence only at Silver+.</span></p>
+    
+    <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  </div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[15/21 · dashboard-template]</aside>
+</section>
+      <section class="fp fp-key-facts fp-key-facts--fill" data-cth-type="key-facts" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-cyan.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Final</span><span class="l-en">Finals</span></p><h2 class="fp-title"><span class="l-es">Las reglas de honestidad son las que los jueces esperan en la final de las 16:00</span><span class="l-en">Honesty rules are what judges expect at the 16:00 finals</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-facts"><div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">Ag</div><div><p class="fp-fact__label"><span class="l-es">Plata+ para firmes</span><span class="l-en">Silver+ for firm</span></p><p class="fp-fact__text"><span class="l-es">Número mostrado como firme exige Plata u Oro en la Hoja 2 ligada a ese dato.</span><span class="l-en">A number shown as firm requires Silver or Gold on the linked Sheet 2.</span></p></div></div>
+    <div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">Est</div><div><p class="fp-fact__label"><span class="l-es">Si no, estimado</span><span class="l-en">Else estimated</span></p><p class="fp-fact__text"><span class="l-es">Bronce o Ninguno — marque estimado; pantalla útil sin inflar la grada.</span><span class="l-en">Bronze or None — mark estimated; still a useful screen without inflating the step.</span></p></div></div>
+    <div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">Pub</div><div><p class="fp-fact__label"><span class="l-es">Sin tablero público</span><span class="l-en">No public dashboard</span></p><p class="fp-fact__text"><span class="l-es">Mientras acceso legal o ético siga abierto en cualquier dato usado en el tablero.</span><span class="l-en">While legal or ethical access stays open on any dataset used.</span></p></div></div></div>
+  <div class="fp-fill-extras"><p class="cth-source fp-fill-callout"><span class="l-es">Sin tablero público si los derechos siguen abiertos. La honestidad en estimado puede ganar a pantallas bonitas sin soporte.</span><span class="l-en">No public dashboard while data rights stay open. Honest estimated numbers can beat flashy screens with no sheet backup.</span></p></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[16/21 · key-facts]</aside>
+</section>
+      <section class="fp fp-title-bullets fp-title-bullets--fill" data-cth-type="title-bullets" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Final</span><span class="l-en">Finals</span></p><h2 class="fp-title"><span class="l-es">Los mentores y jueces califican con reglas de utilidad, honestidad y bono Plata</span><span class="l-en">Mentors and judges score usefulness, honesty, and Silver bonus</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body">
+    <div class="fp-card fp-col fp-card--fill" style="max-width:100%;">
+      <ul class="fp-bullets"><li><span class="l-es">Mentores eligen 6 finalistas con avance de escalera, completitud de Hoja 3 y bono Plata (+1 por número firme en Plata u Oro en la tarjeta, máx. +3).</span><span class="l-en">Mentors pick 6 finalists from ladder progress, Sheet 3 completeness, and Silver bonus (+1 per firm Silver+ number on the card, max +3).</span></li><li><span class="l-es">Finales 16:00 — Parte A utilidad 0–5; Parte B honestidad 0–5 (total /10).</span><span class="l-en">Finals 16:00 — Part A usefulness 0–5; Part B honesty 0–5 (total /10).</span></li><li><span class="l-es">Empate en utilidad y honestidad — gana la historia solo si ambas partes empataron.</span><span class="l-en">Tie on usefulness and honesty — story wins only if both parts tied.</span></li><li><span class="l-es">Un tablero simple y honesto gana a uno llamativo sin respaldo en la hoja.</span><span class="l-en">A simple honest dashboard beats a flashy one with no sheet backup.</span></li></ul>
+    </div>
+  </div>
+  <div class="fp-fill-extras"><div class="fp-stats fp-stats--3"><div class="fp-stat"><span class="fp-stat__value">0–5</span><span class="fp-stat__label"><span class="l-es">Parte A · utilidad</span><span class="l-en">Part A · usefulness</span></span></div><div class="fp-stat"><span class="fp-stat__value">0–5</span><span class="fp-stat__label"><span class="l-es">Parte B · honestidad</span><span class="l-en">Part B · honesty</span></span></div><div class="fp-stat"><span class="fp-stat__value">/10</span><span class="fp-stat__label"><span class="l-es">Total en finales 16:00</span><span class="l-en">Total at 16:00 finals</span></span></div></div></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[17/21 · title-bullets]</aside>
+</section>
+      <section class="fp fp-offer fp-offer--fill" data-cth-type="offer" data-background-color="#FFFFFF">
+  
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Metodología</span><span class="l-en">Methodology</span></p><h2 class="fp-title"><span class="l-es">Cada equipo recibe hoy el paquete v0.3-es y apoyo del facilitador</span><span class="l-en">Each team receives the v0.3 pack and facilitator support today</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-offer__grid" style="grid-template-columns:1fr;">
+    <div class="fp-card fp-col fp-card--fill">
+      <p class="fp-col__head"><span class="fp-offer__tier"><span class="l-es">piloto</span><span class="l-en">pilot</span></span> · <span class="l-es">Incluido</span><span class="l-en">Included</span></p>
+      <ul class="fp-checks"><li><span class="l-es">Paquete equipo v0.3-es (hojas 1–3, hoja 4 plantilla de tablero, agenda, nota de derechos, fuentes abiertas).</span><span class="l-en">Team pack v0.3-es (sheets 1–4 template, agenda, data-rights note, open sources).</span></li><li><span class="l-es">Plantilla de carpeta Drive cuando el facilitador la active.</span><span class="l-en">Drive folder template when the facilitator enables it.</span></li><li><span class="l-es">Prompts de IA del team pack para acelerar redacción, no para inventar cifras.</span><span class="l-en">Team-pack AI prompts to speed drafting, not to invent figures.</span></li></ul>
+      <p class="fp-cp__honest" style="margin-top:20px;"><span class="l-es">Sin costo de entrada en el piloto; beneficio Datalab 2027 para 3 ganadores según mesa CTH.</span><span class="l-en">No entry fee in the pilot; Datalab 2027 benefit for 3 winners per CTH desk.</span></p>
+    </div>
+  </div>
+  <div class="fp-fill-extras"><div class="fp-trio fp-trio--3"><div class="fp-card fp-trio__card fp-card--fill"><p class="fp-card__title"><span class="l-es">Hojas 1–4</span><span class="l-en">Sheets 1–4</span></p><p class="fp-card__text"><span class="l-es">Mapa de calor, escalera Medallion, tarjeta y plantilla de tablero v0.3-es.</span><span class="l-en">Heatmap, Medallion ladder, value card, and dashboard template v0.3-es.</span></p></div><div class="fp-card fp-trio__card fp-card--fill"><p class="fp-card__title"><span class="l-es">Carpeta Drive</span><span class="l-en">Drive folder</span></p><p class="fp-card__text"><span class="l-es">Plantilla cuando el facilitador la active (guía en el paquete).</span><span class="l-en">Template when the facilitator enables it (guide in the pack).</span></p></div><div class="fp-card fp-trio__card fp-card--fill"><p class="fp-card__title"><span class="l-es">Prompts IA</span><span class="l-en">AI prompts</span></p><p class="fp-card__text"><span class="l-es">Aceleran redacción — no inventan cifras ni gradas.</span><span class="l-en">Speed drafting — do not invent figures or ladder steps.</span></p></div></div></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[18/21 · offer]</aside>
+</section>
+      <section class="fp fp-key-facts fp-key-facts--fill" data-cth-type="key-facts" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-cyan.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Derechos de datos</span><span class="l-en">Data rights</span></p><h2 class="fp-title"><span class="l-es">Las reglas prácticas de derechos de datos protegen sitios y personas sin ser asesoría legal</span><span class="l-en">Practical data-rights rules protect sites and people — not legal advice</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-facts"><div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">NP</div><div><p class="fp-fact__label"><span class="l-es">Solo datos permitidos</span><span class="l-en">Permitted data only</span></p><p class="fp-fact__text"><span class="l-es">No personales en archivos compartidos; roles, no nombres; anonimización cuando aplica.</span><span class="l-en">No personal data in shared files — roles, not names.</span></p></div></div>
+    <div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">Cl</div><div><p class="fp-fact__label"><span class="l-es">Sitios identificables</span><span class="l-en">Identifiable sites</span></p><p class="fp-fact__text"><span class="l-es">Lecturas en clínica o planta son confidenciales hasta aprobación del cliente piloto.</span><span class="l-en">Clinic or plant readings stay confidential until the client approves.</span></p></div></div>
+    <div class="fp-fact fp-fact--fill"><div class="fp-fact__icon">Leg</div><div><p class="fp-fact__label"><span class="l-es">Si hay duda</span><span class="l-en">If unsure</span></p><p class="fp-fact__text"><span class="l-es">Marque LEGAL? en el mapa y pida mentor; deténgase ante asesoría legal formal.</span><span class="l-en">Mark LEGAL? on the map and ask a mentor; stop for formal legal advice.</span></p></div></div></div>
+  <div class="fp-fill-extras"><p class="cth-source fp-fill-callout"><span class="l-es">Mañana: etiquetas, no exclusiones. Tarde: la grada se calcula, no se declara.</span><span class="l-en">Morning: labels, not exclusions. Afternoon: the step is calculated, not declared.</span></p></div>
+  <p class="cth-source fp-source"><span class="l-es">Paquete de equipo Datatón (ES)</span><span class="l-en">Datathon team pack (EN/ES)</span></p>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[19/21 · key-facts]</aside>
+</section>
+      <section class="fp fp-contact" data-cth-type="contact" data-background-color="#FFFFFF">
+  
+  <div class="fp-deco-wrap"><img class="fp-deco fp-blob-br" src="assets/blob-green.png" alt="" /></div>
+  <header class="fp-head"><div class="fp-head__text"><p class="fp-eyebrow"><span class="l-es">Contacto</span><span class="l-en">Contact</span></p><h2 class="fp-title"><span class="l-es">La mesa del Datatón atiende dudas operativas por el canal genérico de CleantechHUB</span><span class="l-en">The Datathon desk answers operational questions via CleantechHUB's generic channel</span></h2></div><img class="fp-head__logo" src="assets/cth-logo.png" alt="CleantechHUB" /></header>
+  <div class="fp-body fp-contact__grid" style="grid-template-columns:1fr;"><div class="fp-card fp-person fp-card--fill"><p class="fp-person__name"><span class="l-es">Fundación CleantechHUB</span><span class="l-en">CleantechHUB Foundation</span></p><p class="fp-person__role"><span class="l-es">Mesa Datatón / Datalab</span><span class="l-en">Datathon / Datalab desk</span></p><p class="fp-person__mail">info@cleantechhub.net</p><p class="fp-person__link"><a href="https://cleantechhub.net">cleantechhub.net</a></p><p class="fp-person__link"><a href="https://wiki.cleantechhub.net">wiki.cleantechhub.net</a></p></div></div>
+  <div class="fp-fill-extras"><div class="fp-cp__cta fp-contact__cta"><a class="fp-btn" href="mailto:info@cleantechhub.net"><span class="l-es">Escribir a la mesa</span><span class="l-en">Email the desk</span></a><a class="fp-btn" href="https://cleantechhub.net">cleantechhub.net</a><a class="fp-btn" href="https://wiki.cleantechhub.net">wiki.cleantechhub.net</a></div></div>
+  <footer class="fp-foot">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[20/21 · contact]</aside>
+</section>
+      <section class="fp fp-closing fp--dark fp--navy-only" data-cth-type="closing" data-background-color="#0C498A">
+  
+  <div class="fp-closing__body">
+    <img class="fp-closing__logo" src="assets/cth-logo-white.png" alt="CleantechHUB" />
+    <p class="fp-closing__tag">Inspira. Actúa. Transforma.</p>
+  </div>
+  <footer class="fp-foot fp-foot--dark">
+    <div class="fp-foot__row">
+      <span class="fp-foot__text l-es"><span class="fp-conf">Confidencial — piloto Datatón</span> · Datalab + Datatón · piloto Air4U · 24 nov 2026</span>
+      <span class="fp-foot__text l-en"><span class="fp-conf">Confidential — Datathon pilot</span> · Datalab + Datathon · Air4U pilot · 24 Nov 2026</span>
+      <div class="pdf-dl-footer">
+        <a class="pdf-dl-btn l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf">Descargar PDF</a>
+        <a class="pdf-dl-btn l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf">Download PDF</a>
+      </div>
+    </div>
+  </footer>
+  <aside class="notes">[21/21 · closing]</aside>
+</section>
+    </div>
+  </div>
+  <a class="pdf-dl-btn pdf-dl-fixed l-es" href="datathon-2026-teams.pdf" download="datathon-2026-teams.pdf" aria-label="Descargar PDF">Descargar PDF</a>
+  <a class="pdf-dl-btn pdf-dl-fixed l-en" href="datathon-2026-teams-en.pdf" download="datathon-2026-teams-en.pdf" aria-label="Download PDF">Download PDF</a>
+  <script src="reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash: true, slideNumber: "c/t", width: 1920, height: 1080, margin: 0, center: false, transition: "fade" });
+    
+(function () {
+  function applyLang(lang) {
+    document.body.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.lang-toggle button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+    });
+  }
+  var q = new URLSearchParams(location.search);
+  if (q.get('export') === '1' || q.has('export')) {
+    document.documentElement.classList.add('export');
+  }
+  var start = q.get('lang') === 'en' ? 'en' : 'es';
+  applyLang(start);
+  document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
+    btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-set-lang')); });
+  });
+  function syncPdfFixedTheme() {
+    var slide = typeof Reveal !== 'undefined' && Reveal.getCurrentSlide && Reveal.getCurrentSlide();
+    if (!slide) return;
+    var navy = slide.classList.contains('fp--navy-only') || slide.getAttribute('data-background-color') === '#0C498A';
+    var photo = slide.classList.contains('fp-has-photo');
+    document.body.classList.toggle('pdf-dl-on-dark', navy || photo);
+  }
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('ready', syncPdfFixedTheme);
+    Reveal.on('slidechanged', syncPdfFixedTheme);
+  }
+})();
+
+  </script>
+</body>
+</html>

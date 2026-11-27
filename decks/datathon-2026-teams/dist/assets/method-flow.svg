@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" role="img" aria-label="Método en una línea">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#95D5B2"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="200" fill="#f8faf9"/>
+  <g font-family="sans-serif" font-size="18" fill="#1B4332">
+    <rect x="20" y="60" width="150" height="80" rx="8" fill="#2D6A4F"/>
+    <text x="95" y="108" fill="#fff" text-anchor="middle">BMC</text>
+    <line x1="175" y1="100" x2="205" y2="100" stroke="#2D6A4F" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="210" y="60" width="150" height="80" rx="8" fill="#0C498A"/>
+    <text x="285" y="108" fill="#fff" text-anchor="middle">Mapa calor</text>
+    <line x1="365" y1="100" x2="395" y2="100" stroke="#2D6A4F" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="400" y="60" width="170" height="80" rx="8" fill="#0C498A"/>
+    <text x="485" y="95" fill="#fff" text-anchor="middle">Escalera</text>
+    <text x="485" y="118" fill="#95D5B2" font-size="14" text-anchor="middle">Medallion</text>
+    <line x1="575" y1="100" x2="605" y2="100" stroke="#2D6A4F" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="610" y="60" width="190" height="80" rx="8" fill="#2D6A4F"/>
+    <text x="705" y="95" fill="#fff" text-anchor="middle">Tarjeta</text>
+    <text x="705" y="118" fill="#95D5B2" font-size="14" text-anchor="middle">dato-a-valor</text>
+    <line x1="805" y1="100" x2="835" y2="100" stroke="#2D6A4F" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="840" y="60" width="170" height="80" rx="8" fill="#1B4332"/>
+    <text x="925" y="108" fill="#fff" text-anchor="middle">Tablero</text>
+  </g>
+</svg>

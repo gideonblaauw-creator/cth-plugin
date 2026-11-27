@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-label="Boceto tablero tres paneles">
+  <rect width="960" height="320" fill="#0C498A"/>
+  <rect x="24" y="48" width="290" height="200" rx="12" fill="#1B4332" stroke="#95D5B2" stroke-width="2"/>
+  <rect x="335" y="48" width="290" height="200" rx="12" fill="#1B4332" stroke="#95D5B2" stroke-width="2"/>
+  <rect x="646" y="48" width="290" height="200" rx="12" fill="#1B4332" stroke="#95D5B2" stroke-width="2"/>
+  <text x="169" y="88" fill="#95D5B2" font-family="sans-serif" font-size="22" text-anchor="middle">LÍNEA BASE</text>
+  <text x="480" y="88" fill="#95D5B2" font-family="sans-serif" font-size="22" text-anchor="middle">DELTA</text>
+  <text x="791" y="88" fill="#95D5B2" font-family="sans-serif" font-size="22" text-anchor="middle">PAISAJE</text>
+  <text x="169" y="140" fill="#fff" font-family="sans-serif" font-size="18" text-anchor="middle">PM₂.₅ indoor (est.)</text>
+  <text x="480" y="140" fill="#fff" font-family="sans-serif" font-size="18" text-anchor="middle">vs referencia (est.)</text>
+  <text x="791" y="140" fill="#fff" font-family="sans-serif" font-size="18" text-anchor="middle">PM₂.₅ exterior (est.)</text>
+  <text x="480" y="278" fill="#95D5B2" font-family="sans-serif" font-size="20" text-anchor="middle">PÚBLICO: NO — derechos abiertos</text>
+</svg>

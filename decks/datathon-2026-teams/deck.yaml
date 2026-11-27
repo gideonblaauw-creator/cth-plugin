@@ -1,0 +1,188 @@
+meta:
+  slug: datathon-2026-teams
+  lang: es
+  title: "Datalab + Datatón — guía para equipos (piloto Air4U)"
+  client: Datatón piloto Air4U · equipos presentes
+  date: "2026-11-24"
+slides:
+  - type: cover
+    title: El piloto del 24 de noviembre guía equipos del Datatón con el método del Datalab
+    subtitle: Qué hacemos hoy, cómo se decide y qué sigue después del piloto del 24 de noviembre de 2026
+    client: CleantechHUB · piloto Air4U
+    date: 24 noviembre 2026
+    notes: "[1/21 · cover] Piloto 24 nov 2026."
+  - type: statement
+    text: Sin datos listos para una decisión real, no hay escalera honesta ni pantalla útil para el usuario que usted nombra.
+    attribution: Metodología Datatón CTH v0.3 (21 nov 2026)
+    notes: "[2/21 · statement] Mañana etiquetas, no exclusiones; tarde la grada se calcula."
+  - type: ecosystem
+    title: El CTH Datalab concentra al método, los mentores y la salida hacia 2027
+    centre: CTH Datalab
+    nodes:
+      - label: Equipos del Datatón
+        text: Prueban BMC → calor → escalera → tarjeta → tablero, con etiquetas abiertas en la mañana.
+      - label: Mentores
+        text: Cortan a 6 finalistas antes de las 16:00 con reglas de honestidad y avance de escalera.
+      - label: Ruta 2027
+        text: 3 ganadores entren a la vía Datalab en 2027 (beneficio piloto; detalle con mesa CTH).
+      - label: Sandbox de aire abierto
+        text: Tres paneles — línea base del cliente, delta del innovador, panorama de datos abiertos.
+    notes: "[3/21 · ecosystem]"
+  - type: process
+    title: El embudo del piloto deja claro quién avanza de 20 equipos a 3 ganadores
+    steps:
+      - label: Campo
+        text: Hasta 20 equipos en el piloto del 24 nov 2026.
+      - label: Corta
+        text: Mentores nombran 6 finalistas con avance del día y bono Plata.
+      - label: Finales
+        text: 16:00 — los 6 equipos presentan; jueces puntúan utilidad e honestidad.
+      - label: Salida
+        text: 3 ganadores hacia la vía CTH Datalab 2027.
+    notes: "[4/21 · process]"
+  - type: timeline
+    title: Confirme las horas del día con el facilitador, excepto la final a las 16:00
+    items:
+      - date: confirm
+        label: Bloque 1 mañana
+        text: BMC, Hoja 1 mapa de calor, calificación CTH, compartir etiquetas.
+      - date: confirm
+        label: Almuerzo
+      - date: confirm
+        label: Bloque 2 tarde
+        text: Hoja 2 escalera Medallion, Hoja 3 tarjeta y boceto de tablero, mentores.
+      - date: confirm
+        label: Anuncio de 6 finalistas
+      - date: "16:00"
+        label: Finales
+        text: Seis equipos — pitch con boceto; jueces con hoja finals-judging-sheet v0.3.
+      - date: confirm
+        label: Cierre
+        text: 3 ganadores y siguientes pasos hacia Datalab 2027.
+    notes: "[5/21 · timeline]"
+  - type: statement
+    text: "Ahora vemos el método paso a paso con un ejemplo real: una clínica en Bogotá."
+    notes: "[6/21 · statement]"
+  - type: showcase
+    title: El método recorre nueve bloques del lienzo hasta una pantalla de una hoja
+    text: Recorren nueve bloques del BMC, pintan dónde vive cada dato, suben la escalera Medallion, nombran un usuario y una decisión, y cierran con un boceto de tres paneles.
+    images:
+      - assets/method-flow.svg
+    link: Metodología Datatón CTH v0.3 (21 nov 2026)
+    notes: "[7/21 · showcase]"
+  - type: showcase
+    title: El ejemplo Air4U muestra el lienzo BMC de una clínica en Bogotá en piloto
+    text: El BMC de Air4U (ilustrativo, sin diligenciar por la empresa) muestra sensores indoor, ventas citadas en pitch y reseñas en marketplace. Nombre Air4U permitido; la clínica piloto queda anónima.
+    images:
+      - assets/Air4U_BMC_preview.png
+    link: Paquete de equipo Datatón (ES)
+    notes: "[8/21 · showcase]"
+  - type: map
+    region: colombia
+    title: La línea base abierta muestra 19 estaciones RMCAB y la escala ICA en Bogotá
+    notes: "[9/21 · living-lab L1]"
+  - type: data-table
+    title: La línea base del cliente compara cada sitio con la estación RMCAB más cercana
+    columns: [Sitio, PM₂.₅, Indoor / outdoor, vs RMCAB, Nota]
+    rows:
+      - ["—", "—", "—", "—", "—"]
+    source: "Datalab CTH living lab, snapshot 4 oct 2026"
+    notes: "[10/21 · living-lab L2]"
+  - type: data-table
+    title: Los sensores Air4U añaden resolución por sitio y un delta antes/después
+    columns: [Sensor, Sitio, Antes, Después, CO₂, Nota]
+    rows:
+      - ["—", "—", "—", "—", "—", "—"]
+    source: "Datalab CTH living lab, snapshot 4 oct 2026"
+    notes: "[11/21 · living-lab L3]"
+  - type: case-cards
+    title: El mapa de calor ubica los sensores D1 en propuestas de valor bajo escenario estricto
+    cards:
+      - name: Puntaje D1
+        image: assets/air4u-drl-heatmap-ladder-confirmed.png
+        text: "D=10, banda WARM; enlaza VP, KA y KR. Etiquetas LEGAL?, TECH?, QUALITY? — avisan, no excluyen."
+      - name: Qué copiar hoy
+        text: Fundador y operador marcan conjuntos por bloque; CTH devuelve bloques para la tarde. Debajo de Bronce sigue siendo válido.
+    notes: "[12/21 · case-cards]"
+  - type: case-cards
+    title: La escalera Medallion deja el ejemplo debajo de Bronce sin penalizar al equipo
+    cards:
+      - name: Tarjeta A (sensores D1)
+        image: assets/air4u-drl-heatmap-ladder-confirmed.png
+        text: "Nivel alcanzado: Ninguno (debajo de C1/Bronce). Siguiente grada: B5 almacenamiento nombrado, B6 derechos escritos, B7 exportación."
+      - name: Lección
+        text: La grada se calcula con casillas B/S/G, no se declara. Sin ONAC acreditado — CTH en camino hacia ONAC, sin afirmar acreditación.
+    notes: "[13/21 · case-cards]"
+  - type: showcase
+    title: La tarjeta dato a valor nombra al gestor del sitio piloto y su decisión semanal
+    text: "Usuario: gestor de instalaciones. Decisión: ¿activar ventilación o revisar filtros esta semana si el PM₂.₅ indoor podría superar la referencia? Todos los números en estimado mientras la escalera está en Ninguno."
+    images:
+      - assets/Air4U_BMC_preview_p2.png
+    link: Paquete de equipo Datatón (ES)
+    notes: "[14/21 · showcase]"
+  - type: showcase
+    title: La plantilla Hoja 4 pone la decisión, el delta y su rango en una sola pantalla
+    text: Usuario, decisión, caja delta y un panel de número. Confianza firme solo en Plata+.
+    images:
+      - assets/method-flow.svg
+    link: Paquete de equipo Datatón (ES)
+    notes: "[15/21 · dashboard-template]"
+  - type: key-facts
+    title: Las reglas de honestidad son las que los jueces esperan en la final de las 16:00
+    items:
+      - icon: Ag
+        label: Plata+ para firmes
+        text: Número mostrado como firme exige Plata u Oro en la Hoja 2 ligada a ese dato.
+      - icon: Est
+        label: Si no, estimado
+        text: Bronce o Ninguno — marque estimado; pantalla útil sin inflar la grada.
+      - icon: Pub
+        label: Sin tablero público
+        text: Mientras acceso legal o ético siga abierto en cualquier dato usado en el tablero.
+    notes: "[16/21 · key-facts]"
+  - type: title-bullets
+    title: Los mentores y jueces califican con reglas de utilidad, honestidad y bono Plata
+    bullets:
+      - "Mentores eligen 6 finalistas con avance de escalera, completitud de Hoja 3 y bono Plata (+1 por número firme en Plata u Oro en la tarjeta, máx. +3)."
+      - "Finales 16:00 — Parte A utilidad 0–5; Parte B honestidad 0–5 (total /10)."
+      - "Empate en utilidad y honestidad — gana la historia solo si ambas partes empataron."
+      - "Un tablero simple y honesto gana a uno llamativo sin respaldo en la hoja."
+    notes: "[17/21 · title-bullets]"
+  - type: offer
+    title: Cada equipo recibe hoy el paquete v0.3-es y apoyo del facilitador
+    price: Incluido
+    currency: piloto
+    includes:
+      - Paquete equipo v0.3-es (hojas 1–3, hoja 4 plantilla de tablero, agenda, nota de derechos, fuentes abiertas).
+      - Plantilla de carpeta Drive cuando el facilitador la active.
+      - Prompts de IA del team pack para acelerar redacción, no para inventar cifras.
+    note: Sin costo de entrada en el piloto; beneficio Datalab 2027 para 3 ganadores según mesa CTH.
+    notes: "[18/21 · offer]"
+  - type: key-facts
+    title: Las reglas prácticas de derechos de datos protegen sitios y personas sin ser asesoría legal
+    items:
+      - icon: NP
+        label: Solo datos permitidos
+        text: No personales en archivos compartidos; roles, no nombres; anonimización cuando aplica.
+      - icon: Cl
+        label: Sitios identificables
+        text: Lecturas en clínica o planta son confidenciales hasta aprobación del cliente piloto.
+      - icon: Leg
+        label: Si hay duda
+        text: Marque LEGAL? en el mapa y pida mentor; deténgase ante asesoría legal formal.
+    notes: "[19/21 · key-facts]"
+  - type: contact
+    title: La mesa del Datatón atiende dudas operativas por el canal genérico de CleantechHUB
+    people:
+      - name: Fundación CleantechHUB
+        role: Mesa Datatón / Datalab
+        email: info@cleantechhub.net
+    links:
+      - kind: cleantechhub.net
+        url: https://cleantechhub.net
+      - kind: wiki.cleantechhub.net
+        url: https://wiki.cleantechhub.net
+    notes: "[20/21 · contact]"
+  - type: closing
+    text: "Inspira. Actúa. Transforma."
+    notes: "[21/21 · closing]"
